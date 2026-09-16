@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BMI Calculator - Free Body Mass Index Calculator | SmartToolsKit</title>
+
+  <meta name="description" content="Use our free BMI Calculator to calculate Body Mass Index from your height and weight. Get your BMI result and standard BMI category instantly.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://smarttoolskit.com/tools/bmi-calculator.html">
+
+  <meta name="theme-color" content="#0F172A">
+
+  <style>
+    :root {
+      --navy: #0F172A;
+      --navy-light: #1E293B;
+      --emerald: #10B981;
+      --emerald-dark: #059669;
+      --teal: #14B8A6;
+      --background: #F8FAFC;
+      --white: #FFFFFF;
+      --text: #0F172A;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --soft: #ECFDF5;
+      --danger: #DC2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(900px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .logo-shape {
+      width: 30px;
+      height: 30px;
+      background: var(--emerald);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .logo-shape::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 4px;
+      top: 9px;
+      left: 9px;
+    }
+
+    .home-link {
+      color: var(--emerald-dark);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 55px 0 70px;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .breadcrumb a {
+      color: var(--emerald-dark);
+    }
+
+    .tool-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .tool-shape {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 18px;
+      background: var(--soft);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .tool-shape::after {
+      content: "BMI";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--emerald-dark);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 46px);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .tool-subtitle {
+      color: var(--muted);
+      max-width: 680px;
+      margin: auto;
+      font-size: 16px;
+    }
+
+    .calculator {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      margin-bottom: 45px;
+    }
+
+    .calculator h2 {
+      font-size: 21px;
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 15px;
+      outline: none;
+      background: white;
+      color: var(--text);
+    }
+
+    input:focus {
+      border-color: var(--emerald);
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: var(--emerald);
+      color: white;
+      padding: 13px;
+      border-radius: 9px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    button:hover {
+      background: var(--emerald-dark);
+    }
+
+    .reset-button {
+      background: var(--navy-light);
+      margin-top: 10px;
+    }
+
+    .reset-button:hover {
+      background: var(--navy);
+    }
+
+    .error {
+      display: none;
+      color: var(--danger);
+      font-size: 13px;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .result {
+      display: none;
+      margin-top: 24px;
+    }
+
+    .result-main {
+      padding: 22px;
+      border-radius: 12px;
+      background: var(--soft);
+      border: 1px solid #A7F3D0;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .result-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .bmi-value {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--emerald-dark);
+    }
+
+    .bmi-category {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 4px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .info-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .info-box strong {
+      display: block;
+      font-size: 16px;
+      color: var(--navy);
+      margin-top: 3px;
+    }
+
+    .info-box span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 14px;
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .content {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    .content h2 {
+      font-size: 24px;
+      margin: 28px 0 12px;
+    }
+
+    .content h
