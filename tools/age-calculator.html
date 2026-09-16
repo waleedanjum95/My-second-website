@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Age Calculator - Calculate Your Exact Age | SmartToolsKit</title>
+
+  <meta name="description" content="Use our free Age Calculator to calculate your exact age in years, months and days. Find your next birthday and calculate age quickly and accurately online.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://smarttoolskit.com/tools/age-calculator.html">
+
+  <meta name="theme-color" content="#0F172A">
+
+  <style>
+    :root {
+      --navy: #0F172A;
+      --emerald: #10B981;
+      --emerald-dark: #059669;
+      --teal: #14B8A6;
+      --background: #F8FAFC;
+      --white: #FFFFFF;
+      --text: #0F172A;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --soft: #ECFDF5;
+      --danger: #DC2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(900px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .logo-shape {
+      width: 30px;
+      height: 30px;
+      background: var(--emerald);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .logo-shape::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 4px;
+      top: 9px;
+      left: 9px;
+    }
+
+    .home-link {
+      color: var(--emerald-dark);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 55px 0 70px;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .breadcrumb a {
+      color: var(--emerald-dark);
+    }
+
+    .tool-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .tool-shape {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 18px;
+      background: var(--soft);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .tool-shape::after {
+      content: "AGE";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--emerald-dark);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 46px);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .tool-subtitle {
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
+      font-size: 16px;
+    }
+
+    .calculator {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      margin-bottom: 45px;
+    }
+
+    .calculator h2 {
+      font-size: 21px;
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 15px;
+      outline: none;
+      background: white;
+      color: var(--text);
+    }
+
+    input:focus {
+      border-color: var(--emerald);
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: var(--emerald);
+      color: white;
+      padding: 13px;
+      border-radius: 9px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    button:hover {
+      background: var(--emerald-dark);
+    }
+
+    .secondary-button {
+      background: var(--navy-light, #1E293B);
+      margin-top: 10px;
+    }
+
+    .secondary-button:hover {
+      background: var(--navy);
+    }
+
+    .error {
+      display: none;
+      color: var(--danger);
+      font-size: 13px;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .result {
+      display: none;
+      margin-top: 24px;
+    }
+
+    .result-main {
+      padding: 20px;
+      border-radius: 12px;
+      background: var(--soft);
+      border: 1px solid #A7F3D0;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .result-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .result-age {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--emerald-dark);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .info-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .info-box strong {
+      display: block;
+      font-size: 18px;
+      color: var(--navy);
+      margin-top: 3px;
+    }
+
+    .info-box span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .content {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    .content h2 {
+      font-size: 24px;
+      margin: 28px 0 12px;
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+    }
+
+    .content p {
+      color: #475569;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .content ol,
+    .content ul {
+      padding-left: 22px;
+      color: #475569;
+      font-size: 15px;
+    }
+
+    .content li {
+      margin-bottom: 8px;
+    }
+
+    .faq {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+
+    .faq h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      background: #020617;
+      color: #94A3B8;
+      text-align: center;
+      padding: 28px 0;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #CBD5E1;
+    }
+
+    footer a:hover {
+      color: #34D399;
+    }
+
+    @media (max-width: 600px) {
+
+      .nav {
+        min-height: 62px;
+      }
+
+      .calculator,
+      .content {
+        padding: 22px;
+      }
+
+      main {
+        padding-top: 35px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+
+      <a href="../index.html" class="logo">
+        <span class="logo-shape"></span>
+        SmartToolsKit
+      </a>
+
+      <a href="../index.html" class="home-link">
+        ← Back to Home
+      </a>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span> → </span>
+        Age Calculator
+      </div>
+
+
+      <div class="tool-header">
+
+        <div class="tool-shape"></div>
+
+        <h1>Age Calculator</h1>
+
+        <p class="tool-subtitle">
+          Calculate your exact age in years, months and days with our free
+          online age calculator.
+        </p>
+
+      </div>
+
+
+      <!-- Age Calculator -->
+
+      <div class="calculator">
+
+        <h2>Calculate Your Exact Age</h2>
+
+        <div class="form-group">
+
+          <label for="birthDate">
+            Date of Birth
+          </label>
+
+          <input
+            type="date"
+            id="birthDate"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="calculateDate">
+            Calculate Age On
+          </label>
+
+          <input
+            type="date"
+            id="calculateDate"
+          >
+
+        </div>
+
+
+        <button onclick="calculateAge()">
+          Calculate Age
+        </button>
+
+
+        <button
+          class="secondary-button"
+          onclick="resetCalculator()"
+        >
+          Reset
+        </button>
+
+
+        <div class="error" id="error">
+          Please enter a valid date of birth that is not in the future.
+        </div>
+
+
+        <div class="result" id="result">
+
+          <div class="result-main">
+
+            <div class="result-label">
+              Your Exact Age
+            </div>
+
+            <div class="result-age" id="ageResult">
+              0 Years, 0 Months, 0 Days
+            </div>
+
+          </div>
+
+
+          <div class="info-grid">
+
+            <div class="info-box">
+
+              <span>Total Years</span>
+
+              <strong id="totalYears">0</strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+              <span>Total Months</span>
+
+              <strong id="totalMonths">0</strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+              <span>Total Days</span>
+
+              <strong id="totalDays">0</strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+              <span>Next Birthday</span>
+
+              <strong id="nextBirthday">-</strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SEO Content -->
+
+      <article class="content">
+
+        <h2>What Is an Age Calculator?</h2>
+
+        <p>
+          An age calculator is an online tool that determines a person's
+          chronological age from their date of birth. Instead of manually
+          counting the years, months and days between two dates, you can use
+          SmartToolsKit's free Age Calculator to get an accurate result in
+          seconds.
+        </p>
+
+        <p>
+          The calculator can show your exact age in years, months and days.
+          It can also calculate your age on a selected date, making it useful
+          when you need to determine an age for forms, applications,
+          registrations, school records, financial services or personal
+          planning.
+        </p>
+
+
+        <h2>How to Use the Age Calculator</h2>
+
+        <ol>
+
+          <li>
+            Enter your date of birth in the Date of Birth field.
+          </li>
+
+          <li>
+            Select the date on which you want to calculate your age.
+          </li>
+
+          <li>
+            Click the "Calculate Age" button.
+          </li>
+
+          <li>
+            Your exact age will be displayed in years, months and days.
+          </li>
+
+          <li>
+            The calculator will also show your total years, total months,
+            total days and the date of your next birthday.
+          </li>
+
+        </ol>
+
+
+        <h2>How Age Is Calculated</h2>
+
+        <p>
+          Age is generally calculated by comparing a person's date of birth
+          with a specific calculation date. The difference is determined
+          using calendar years, months and days rather than simply dividing
+          the total number of days by 365.
+        </p>
+
+        <p>
+          This approach is useful because calendar years have different
+          lengths and leap years can contain an additional day. The
+          SmartToolsKit Age Calculator accounts for calendar dates when
+          determining the displayed age.
+        </p>
+
+
+        <h2>Common Uses of an Age Calculator</h2>
+
+        <ul>
+
+          <li>Checking your current age</li>
+
+          <li>Calculating age on a specific date</li>
+
+          <li>Preparing forms and applications</li>
+
+          <li>Checking eligibility based on age</li>
+
+          <li>Planning birthdays and important dates</li>
+
+          <li>Calculating age for educational or professional records</li>
+
+        </ul>
+
+
+        <h2>Frequently Asked Questions</h2>
+
+
+        <div class="faq">
+
+          <h3>Is this Age Calculator free?</h3>
+
+          <p>
+            Yes. The SmartToolsKit Age Calculator is free to use online and
+            does not require an account.
+          </p>
+
+        </div>
+
+
+        <div class="faq">
+
+          <h3>Can I calculate my age on a past date?</h3>
+
+          <p>
+            Yes. Enter your date of birth and select any valid calculation
+            date that is on or after your date of birth.
+          </p>
+
+        </div>
+
+
+        <div class="faq">
+
+          <h3>Does the calculator work on mobile phones?</h3>
+
+          <p>
+            Yes. The tool is designed with a responsive layout so it can be
+            used on smartphones, tablets and desktop computers.
+          </p>
+
+        </div>
+
+
+        <div class="faq">
+
+          <h3>Does the calculator consider leap years?</h3>
+
+          <p>
+            The calculation uses calendar dates and therefore accounts for
+            the different lengths of months and leap-year dates when
+            determining the result.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © 2026 SmartToolsKit. All rights reserved.
+      </p>
+
+      <p>
+        <a href="../index.html">Home</a>
+        &nbsp; | &nbsp;
+        <a href="../about.html">About</a>
+        &nbsp; | &nbsp;
+        <a href="../contact.html">Contact</a>
+        &nbsp; | &nbsp;
+        <a href="../privacy-policy.html">Privacy Policy</a>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    function getDaysInMonth(year, month) {
+      return new Date(year, month + 1, 0).getDate();
+    }
+
+
+    function calculateAge() {
+
+      const birthInput =
+        document.getElementById("birthDate").value;
+
+      const calculateInput =
+        document.getElementById("calculateDate").value;
+
+      const error =
+        document.getElementById("error");
+
+      const result =
+        document.getElementById("result");
+
+
+      if (!birthInput || !calculateInput) {
+
+        error.textContent =
+          "Please enter both dates.";
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+      }
+
+
+      const birthDate =
+        new Date(birthInput + "T00:00:00");
+
+      const calculateDate =
+        new Date(calculateInput + "T00:00:00");
+
+
+      if (
+        Number.isNaN(birthDate.getTime()) ||
+        Number.isNaN(calculateDate.getTime())
+      ) {
+
+        error.textContent =
+          "Please enter valid dates.";
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+      }
+
+
+      if (birthDate > calculateDate) {
+
+        error.textContent =
+          "The date of birth cannot be after the calculation date.";
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+      }
+
+
+      error.style.display = "none";
+
+
+      let years =
+        calculateDate.getFullYear() -
+        birthDate.getFullYear();
+
+      let months =
+        calculateDate.getMonth() -
+        birthDate.getMonth();
+
+      let days =
+        calculateDate.getDate() -
+        birthDate.getDate();
+
+
+      if (days < 0) {
+
+        months--;
+
+        const previousMonthDays =
+          getDaysInMonth(
+            calculateDate.getFullYear(),
+            calculateDate.getMonth() - 1
+          );
+
+        days += previousMonthDays;
+      }
+
+
+      if (months < 0) {
+
+        years--;
+        months += 12;
+
+      }
+
+
+      const totalMonths =
+        years * 12 + months;
+
+
+      const totalDays =
+        Math.floor(
+          (
+            calculateDate.getTime() -
+            birthDate.getTime()
+          ) /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      document.getElementById("ageResult").textContent =
+        years + " Years, " +
+        months + " Months, " +
+        days + " Days";
+
+
+      document.getElementById("totalYears").textContent =
+        years.toLocaleString();
+
+
+      document.getElementById("totalMonths").textContent =
+        totalMonths.toLocaleString();
+
+
+      document.getElementById("totalDays").textContent =
+        totalDays.toLocaleString();
+
+
+      const birthdayThisYear =
+        new Date(
+          calculateDate.getFullYear(),
+          birthDate.getMonth(),
+          birthDate.getDate()
+        );
+
+
+      let nextBirthday;
+
+
+      if (birthdayThisYear >= calculateDate) {
+
+        nextBirthday = birthdayThisYear;
+
+      } else {
+
+        nextBirthday =
+          new Date(
+            calculateDate.getFullYear() + 1,
+            birthDate.getMonth(),
+            birthDate.getDate()
+          );
+
+      }
+
+
+      const birthdayText =
+        nextBirthday.toLocaleDateString(
+          "en-US",
+          {
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+          }
+        );
+
+
+      document.getElementById("nextBirthday").textContent =
+        birthdayText;
+
+
+      result.style.display = "block";
+
+    }
+
+
+    function resetCalculator() {
+
+      document.getElementById("birthDate").value = "";
+      document.getElementById("calculateDate").value = "";
+
+      document.getElementById("error").style.display = "none";
+
+      document.getElementById("result").style.display = "none";
+
+    }
+
+
+    function setTodayAsCalculationDate() {
+
+      const today =
+        new Date();
+
+      const year =
+        today.getFullYear();
+
+      const month =
+        String(today.getMonth() + 1).padStart(2, "0");
+
+      const day =
+        String(today.getDate()).padStart(2, "0");
+
+      document.getElementById("calculateDate").value =
+        year + "-" + month + "-" + day;
+
+    }
+
+
+    setTodayAsCalculationDate();
+
+  </script>
+
+</body>
+</html>
