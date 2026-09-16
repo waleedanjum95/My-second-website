@@ -1,2139 +1,1023 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SmartToolsKit - Free Online Tools | Smart Tools. Simple Solutions.</title>
-
-<meta name="description" content="SmartToolsKit provides free online calculators, converters, text tools, SEO utilities and developer tools. Fast, simple and easy-to-use online tools.">
-<meta name="author" content="Waleed Anjum">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/">
-
-<meta property="og:title" content="SmartToolsKit - Free Online Tools">
-<meta property="og:description" content="Smart tools. Simple solutions. Free online calculators, converters, SEO and developer utilities.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://smarttoolskit.com/">
-
-<style>
-:root{
-    --navy:#0F172A;
-    --navy2:#1E293B;
-    --emerald:#10B981;
-    --emerald2:#059669;
-    --teal:#14B8A6;
-    --bg:#F8FAFC;
-    --white:#fff;
-    --text:#1E293B;
-    --muted:#64748B;
-    --border:#E2E8F0;
-    --soft:#F1F5F9;
-    --success:#ECFDF5;
-    --danger:#DC2626;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-html{scroll-behavior:smooth}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-}
-
-a{text-decoration:none;color:inherit}
-
-button,input,textarea,select{
-    font-family:inherit;
-}
-
-.container{
-    width:min(1120px,92%);
-    margin:auto;
-}
-
-/* HEADER */
-
-header{
-    background:#fff;
-    border-bottom:1px solid var(--border);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.navbar{
-    min-height:70px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:22px;
-    font-weight:800;
-    color:var(--navy);
-}
-
-.logo span{color:var(--emerald2)}
-
-.logo-mark{
-    width:34px;
-    height:34px;
-    background:var(--navy);
-    border-radius:9px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.logo-mark:after{
-    content:"";
-    width:12px;
-    height:12px;
-    border:3px solid var(--emerald);
-    transform:rotate(45deg);
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:25px;
-}
-
-.nav-links a{
-    font-size:14px;
-    font-weight:600;
-    color:var(--muted);
-}
-
-.nav-links a:hover{
-    color:var(--emerald2);
-}
-
-.nav-button{
-    background:var(--emerald);
-    color:#fff!important;
-    padding:9px 16px;
-    border-radius:8px;
-}
-
-.menu{
-    display:none;
-    background:#fff;
-    border:1px solid var(--border);
-    width:40px;
-    height:38px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-    padding:85px 0 70px;
-    background:linear-gradient(135deg,#F8FAFC,#ECFDF5);
-    text-align:center;
-}
-
-.badge{
-    display:inline-block;
-    background:#fff;
-    border:1px solid var(--border);
-    padding:7px 13px;
-    border-radius:30px;
-    font-size:13px;
-    font-weight:700;
-    color:var(--emerald2);
-    margin-bottom:20px;
-}
-
-.hero h1{
-    font-size:clamp(38px,6vw,64px);
-    line-height:1.08;
-    color:var(--navy);
-    letter-spacing:-2px;
-}
-
-.hero h1 span{color:var(--emerald2)}
-
-.hero p{
-    max-width:700px;
-    margin:20px auto 0;
-    color:var(--muted);
-    font-size:17px;
-}
-
-.search{
-    max-width:650px;
-    margin:30px auto 0;
-    display:flex;
-    padding:6px;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:11px;
-    box-shadow:0 12px 30px rgba(15,23,42,.07);
-}
-
-.search input{
-    flex:1;
-    border:0;
-    outline:0;
-    padding:13px;
-    font-size:15px;
-}
-
-.btn{
-    border:0;
-    background:var(--emerald);
-    color:#fff;
-    padding:12px 20px;
-    border-radius:8px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.btn:hover{background:var(--emerald2)}
-
-.stats{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
-    margin-top:22px;
-    color:var(--muted);
-    font-size:13px;
-}
-
-/* GENERAL */
-
-section{padding:70px 0}
-
-.heading{
-    text-align:center;
-    margin-bottom:38px;
-}
-
-.heading h2{
-    font-size:32px;
-    color:var(--navy);
-}
-
-.heading p{
-    color:var(--muted);
-    max-width:680px;
-    margin:8px auto 0;
-}
-
-/* SHAPES */
-
-.shape{
-    width:44px;
-    height:44px;
-    background:var(--success);
-    border:1px solid #A7F3D0;
-    border-radius:9px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.shape:after{
-    content:"";
-    width:15px;
-    height:15px;
-    border:2px solid var(--emerald2);
-}
-
-.circle{border-radius:50%}
-.circle:after{border-radius:50%}
-.diamond:after{transform:rotate(45deg)}
-.lines:after{
-    width:21px;
-    height:3px;
-    border:0;
-    background:var(--emerald2);
-    box-shadow:0 -7px var(--emerald2),0 7px var(--emerald2);
-}
-
-/* CATEGORY */
-
-.categories{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.category{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:23px;
-}
-
-.category:hover{
-    border-color:#A7F3D0;
-    transform:translateY(-3px);
-    transition:.2s;
-}
-
-.category h3{
-    margin:16px 0 7px;
-    color:var(--navy);
-}
-
-.category p{
-    color:var(--muted);
-    font-size:14px;
-}
-
-/* TOOLS */
-
-.tools-section{background:#fff}
-
-.tool-search{
-    max-width:600px;
-    margin:0 auto 30px;
-}
-
-.tool-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:17px;
-}
-
-.tool{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:11px;
-    padding:20px;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.tool:hover{
-    border-color:#A7F3D0;
-    box-shadow:0 8px 25px rgba(15,23,42,.06);
-    transform:translateY(-3px);
-}
-
-.tool-top{
-    display:flex;
-    gap:14px;
-    align-items:center;
-}
-
-.tool-symbol{
-    width:42px;
-    height:42px;
-    background:var(--navy);
-    border-radius:8px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-}
-
-.tool-symbol:after{
-    content:"";
-    width:13px;
-    height:13px;
-    border:2px solid var(--emerald);
-    transform:rotate(45deg);
-}
-
-.tool h3{
-    font-size:16px;
-    color:var(--navy);
-}
-
-.tool p{
-    margin-top:8px;
-    font-size:13px;
-    color:var(--muted);
-}
-
-.open-tool{
-    display:inline-block;
-    margin-top:12px;
-    color:var(--emerald2);
-    font-size:12px;
-    font-weight:700;
-}
-
-/* TOOL WORKSPACE */
-
-.tool-workspace{
-    display:none;
-    background:var(--bg);
-    border-top:1px solid var(--border);
-    margin-top:35px;
-    padding-top:50px;
-}
-
-.workspace-box{
-    max-width:850px;
-    margin:auto;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:30px;
-}
-
-.workspace-box h2{
-    color:var(--navy);
-    margin-bottom:8px;
-}
-
-.workspace-box>p{
-    color:var(--muted);
-    margin-bottom:25px;
-}
-
-.input{
-    width:100%;
-    padding:12px;
-    border:1px solid var(--border);
-    border-radius:8px;
-    outline:none;
-    margin-bottom:12px;
-}
-
-.input:focus{
-    border-color:var(--emerald);
-}
-
-textarea.input{
-    min-height:150px;
-    resize:vertical;
-}
-
-.row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-
-.result{
-    margin-top:18px;
-    background:var(--success);
-    border:1px solid #A7F3D0;
-    border-radius:9px;
-    padding:15px;
-    color:var(--navy);
-    display:none;
-}
-
-.result strong{
-    color:var(--emerald2);
-}
-
-/* CONTENT */
-
-.content-section{
-    background:var(--bg);
-}
-
-.content{
-    max-width:850px;
-    margin:auto;
-}
-
-.content h2{
-    color:var(--navy);
-    margin-bottom:18px;
-}
-
-.content h3{
-    color:var(--navy);
-    margin:25px 0 8px;
-}
-
-.content p{
-    color:var(--muted);
-    margin-bottom:15px;
-}
-
-/* PAGES */
-
-.page{
-    display:none;
-    padding:65px 0;
-    min-height:65vh;
-}
-
-.page.active{display:block}
-
-.page-content{
-    max-width:850px;
-    margin:auto;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:13px;
-    padding:35px;
-}
-
-.page-content h1{
-    color:var(--navy);
-    font-size:35px;
-    margin-bottom:20px;
-}
-
-.page-content h2{
-    color:var(--navy);
-    font-size:21px;
-    margin:27px 0 9px;
-}
-
-.page-content p,
-.page-content li{
-    color:var(--muted);
-    font-size:15px;
-}
-
-.page-content ul{
-    padding-left:22px;
-    margin-bottom:15px;
-}
-
-/* CONTACT */
-
-.contact-card{
-    max-width:650px;
-    margin:auto;
-    text-align:center;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:13px;
-    padding:40px;
-}
-
-.contact-card h1{
-    color:var(--navy);
-    margin-bottom:10px;
-}
-
-.contact-card p{
-    color:var(--muted);
-    margin-bottom:22px;
-}
-
-.email-button{
-    display:inline-block;
-    background:var(--emerald);
-    color:#fff;
-    padding:13px 20px;
-    border-radius:8px;
-    font-weight:700;
-}
-
-.email-button:hover{background:var(--emerald2)}
-
-/* FOOTER */
-
-footer{
-    background:#0B1120;
-    color:#94A3B8;
-    padding:45px 0 22px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:40px;
-    padding-bottom:30px;
-}
-
-footer h3,footer h4{
-    color:#fff;
-    margin-bottom:12px;
-}
-
-footer p,footer a{
-    font-size:13px;
-    color:#94A3B8;
-}
-
-footer a{
-    display:block;
-    margin-bottom:8px;
-}
-
-footer a:hover{color:var(--emerald)}
-
-.copyright{
-    border-top:1px solid #1E293B;
-    padding-top:20px;
-    text-align:center;
-    font-size:12px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-    .categories{grid-template-columns:repeat(2,1fr)}
-    .tool-grid{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:700px){
-
-    .menu{display:block}
-
-    .nav-links{
-        display:none;
-        position:absolute;
-        top:70px;
-        left:4%;
-        right:4%;
-        background:#fff;
-        border:1px solid var(--border);
-        border-radius:10px;
-        padding:12px;
-        flex-direction:column;
-        align-items:stretch;
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SmartToolsKit - Free Online Tools for Everyone</title>
+
+  <meta name="description" content="SmartToolsKit provides fast, free and easy-to-use online calculators, converters, text tools, SEO tools and developer utilities. No signup required.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://smarttoolskit.com/">
+
+  <meta name="theme-color" content="#0F172A">
+
+  <style>
+    :root {
+      --navy: #0F172A;
+      --navy-light: #1E293B;
+      --emerald: #10B981;
+      --emerald-dark: #059669;
+      --teal: #14B8A6;
+      --background: #F8FAFC;
+      --white: #FFFFFF;
+      --text: #0F172A;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --soft: #F1F5F9;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+      --radius: 16px;
     }
 
-    .nav-links.active{display:flex}
-
-    .nav-links a{padding:9px}
-
-    .nav-button{text-align:center}
-
-    .hero{padding:60px 0}
-
-    .hero h1{font-size:42px}
-
-    .search{
-        flex-direction:column;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .search .btn{width:100%}
-
-    .categories,
-    .tool-grid,
-    .footer-grid{
-        grid-template-columns:1fr;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .row{grid-template-columns:1fr}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-    section{padding:55px 0}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    .page-content{padding:25px}
-}
-</style>
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* Header */
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .logo-shape {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--emerald);
+      position: relative;
+    }
+
+    .logo-shape::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--white);
+      border-radius: 4px;
+      top: 9px;
+      left: 9px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav a {
+      color: #475569;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--emerald-dark);
+    }
+
+    .nav-button {
+      background: var(--emerald);
+      color: white !important;
+      padding: 10px 16px;
+      border-radius: 9px;
+    }
+
+    .nav-button:hover {
+      background: var(--emerald-dark);
+    }
+
+    /* Hero */
+
+    .hero {
+      background: var(--navy);
+      color: white;
+      padding: 85px 0 90px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      color: #A7F3D0;
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #34D399;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: auto;
+      color: #CBD5E1;
+      font-size: 17px;
+    }
+
+    .search-box {
+      max-width: 650px;
+      margin: 32px auto 0;
+      display: flex;
+      background: white;
+      padding: 6px;
+      border-radius: 12px;
+    }
+
+    .search-box input {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 14px;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .search-box button {
+      border: none;
+      background: var(--emerald);
+      color: white;
+      padding: 0 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .search-box button:hover {
+      background: var(--emerald-dark);
+    }
+
+    /* Sections */
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* Categories */
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px 16px;
+      text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .category:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: #A7F3D0;
+    }
+
+    .shape {
+      width: 42px;
+      height: 42px;
+      background: var(--soft);
+      margin: 0 auto 14px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .shape::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 3px solid var(--emerald);
+      border-radius: 50%;
+      top: 9px;
+      left: 9px;
+    }
+
+    .category h3 {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .category p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Tools */
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .tool-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      transition: 0.2s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: #A7F3D0;
+    }
+
+    .tool-shape {
+      width: 40px;
+      height: 40px;
+      border-radius: 9px;
+      background: #ECFDF5;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .tool-shape::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border: 3px solid var(--teal);
+      top: 9px;
+      left: 9px;
+      transform: rotate(45deg);
+    }
+
+    .tool-card h3 {
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .tool-link {
+      color: var(--emerald-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* About section */
+
+    .intro {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro-content {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .intro h2 {
+      text-align: center;
+      font-size: 31px;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      color: #475569;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    /* CTA */
+
+    .cta {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #CBD5E1;
+      margin-bottom: 24px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: var(--emerald);
+      padding: 12px 22px;
+      border-radius: 9px;
+      font-weight: 700;
+    }
+
+    .cta a:hover {
+      background: var(--emerald-dark);
+    }
+
+    /* Footer */
+
+    footer {
+      background: #020617;
+      color: #CBD5E1;
+      padding: 45px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 35px;
+    }
+
+    footer h3 {
+      color: white;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    footer p,
+    footer a {
+      color: #94A3B8;
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #34D399;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .copyright {
+      border-top: 1px solid #1E293B;
+      padding-top: 20px;
+      text-align: center;
+      color: #64748B;
+      font-size: 12px;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 900px) {
+
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .nav {
+        min-height: 65px;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a:not(.nav-button) {
+        display: none;
+      }
+
+      .hero {
+        padding: 65px 0 70px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .search-box {
+        flex-direction: column;
+        gap: 6px;
+        background: transparent;
+      }
+
+      .search-box input {
+        border-radius: 8px;
+      }
+
+      .search-box button {
+        min-height: 46px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<div class="container navbar">
+  <!-- Header -->
 
-<a href="#home" class="logo">
-    <div class="logo-mark"></div>
-    SmartTools<span>Kit</span>
-</a>
+  <header>
+    <div class="container nav">
 
-<button class="menu" id="menuBtn">☰</button>
+      <a href="index.html" class="logo">
+        <span class="logo-shape"></span>
+        SmartToolsKit
+      </a>
 
-<nav class="nav-links" id="navLinks">
-    <a href="#home">Home</a>
-    <a href="#tools">All Tools</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact Us</a>
-    <a href="#privacy">Privacy Policy</a>
-</nav>
+      <nav>
+        <a href="#categories">Categories</a>
+        <a href="#tools">Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-button">Contact</a>
+      </nav>
 
-</div>
-</header>
+    </div>
+  </header>
 
 
-<!-- HOME -->
+  <!-- Hero -->
 
-<main id="homePage">
+  <main>
 
-<section class="hero">
+    <section class="hero">
 
-<div class="container">
+      <div class="container hero-content">
 
-<div class="badge">FREE ONLINE TOOLS</div>
+        <div class="hero-badge">
+          Smart Tools. Simple Solutions.
+        </div>
 
-<h1>
-Smart Tools.<br>
-<span>Simple Solutions.</span>
-</h1>
+        <h1>
+          Free Online Tools for <span>Everyday Tasks</span>
+        </h1>
 
-<p>
-SmartToolsKit provides practical online calculators, converters,
-text utilities, SEO tools and developer utilities in one simple platform.
-</p>
-
-<div class="search">
-<input id="mainSearch" placeholder="Search for a tool...">
-<button class="btn" onclick="searchTools()">Search</button>
-</div>
-
-<div class="stats">
-<span>✓ Free to use</span>
-<span>✓ No unnecessary signup</span>
-<span>✓ Mobile friendly</span>
-<span>✓ Fast & simple</span>
-</div>
-
-</div>
-</section>
-
-
-<section>
-
-<div class="container">
-
-<div class="heading">
-<h2>Explore Categories</h2>
-<p>
-Organized tools for calculations, conversions, SEO, text processing
-and everyday digital tasks.
-</p>
-</div>
-
-<div class="categories">
-
-<div class="category">
-<div class="shape"></div>
-<h3>Calculators</h3>
-<p>Percentage, age, BMI, loan, discount and other useful calculations.</p>
-</div>
-
-<div class="category">
-<div class="shape circle"></div>
-<h3>Converters</h3>
-<p>Convert common units and values quickly and accurately.</p>
-</div>
-
-<div class="category">
-<div class="shape diamond"></div>
-<h3>SEO Tools</h3>
-<p>Helpful utilities for metadata, URLs, keywords and website optimization.</p>
-</div>
-
-<div class="category">
-<div class="shape lines"></div>
-<h3>Developer Tools</h3>
-<p>Format, validate, encode and optimize common web formats.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<section class="tools-section" id="tools">
-
-<div class="container">
-
-<div class="heading">
-<h2>Free Online Tools</h2>
-<p>
-Select a tool below. The currently available tools work directly
-in your browser.
-</p>
-</div>
-
-<div class="search tool-search">
-<input id="toolSearch" placeholder="Search tools...">
-<button class="btn" onclick="filterTools()">Search</button>
-</div>
-
-
-<div class="tool-grid" id="toolGrid">
-
-<div class="tool" data-tool="percentage">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Percentage Calculator</h3>
-</div>
-<p>Calculate percentages and percentage changes instantly.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="age">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Age Calculator</h3>
-</div>
-<p>Calculate your exact age in years, months and days.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="bmi">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>BMI Calculator</h3>
-</div>
-<p>Calculate Body Mass Index from height and weight.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="emi">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Loan / EMI Calculator</h3>
-</div>
-<p>Calculate monthly loan payments and total interest.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="discount">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Discount Calculator</h3>
-</div>
-<p>Calculate discounts, savings and final prices.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="word">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Word Counter</h3>
-</div>
-<p>Count words and analyze text instantly.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="character">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Character Counter</h3>
-</div>
-<p>Count characters with or without spaces.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="unit">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Unit Converter</h3>
-</div>
-<p>Convert length, weight, temperature and other units.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="qr">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>QR Code Generator</h3>
-</div>
-<p>Generate QR codes from text or website URLs.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="password">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Password Generator</h3>
-</div>
-<p>Create strong random passwords instantly.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="slug">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Slug Generator</h3>
-</div>
-<p>Create clean SEO-friendly URL slugs.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="url">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>URL Encoder / Decoder</h3>
-</div>
-<p>Encode and decode URL text directly in your browser.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="base64">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Base64 Encoder / Decoder</h3>
-</div>
-<p>Encode or decode Base64 text easily.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="json">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>JSON Formatter</h3>
-</div>
-<p>Format JSON into a clean and readable structure.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-<div class="tool" data-tool="density">
-<div class="tool-top">
-<div class="tool-symbol"></div>
-<h3>Keyword Density Checker</h3>
-</div>
-<p>Analyze keyword frequency and density in text.</p>
-<span class="open-tool">Open Tool →</span>
-</div>
-
-</div>
-
-
-<!-- WORKSPACE -->
-
-<div class="tool-workspace" id="workspace">
-
-<div class="workspace-box">
-
-<h2 id="workspaceTitle">Tool</h2>
-<p id="workspaceDescription"></p>
-
-<div id="toolInputs"></div>
-
-<div class="result" id="result"></div>
-
-</div>
-</div>
-
-</div>
-</section>
-
-
-<section class="content-section" id="about">
-
-<div class="container content">
-
-<h2>About SmartToolsKit</h2>
-
-<p>
-SmartToolsKit is a free online tools platform designed to make common
-digital tasks faster, simpler and more accessible. The website brings
-useful utilities together so users do not have to search across multiple
-websites for simple calculations, conversions, text processing and
-website-related tasks.
-</p>
-
-<p>
-Our tools are intended for students, professionals, developers,
-website owners, digital marketers, content creators and everyday
-internet users. We focus on straightforward interfaces that are easy
-to understand and convenient to use on both desktop and mobile devices.
-</p>
-
-<p>
-Where technically appropriate, our tools process information directly
-in the browser. This allows users to perform many everyday tasks without
-unnecessary account creation or complicated workflows.
-</p>
-
-<p>
-SmartToolsKit is continuously being developed. More calculators,
-converters, SEO utilities, developer tools and productivity tools will
-be added as the platform grows.
-</p>
-
-</div>
-</section>
-
-</main>
-
-
-<!-- CONTACT PAGE -->
-
-<section class="page" id="contactPage">
-
-<div class="container">
-
-<div class="contact-card">
-
-<h1>Contact Us</h1>
-
-<p>
-We value your feedback. If you have a question, suggestion, correction,
-tool request or any other inquiry regarding SmartToolsKit, please contact us.
-</p>
-
-<a class="email-button" href="mailto:waleedanjum.18@gmail.com">
-waleedanjum.18@gmail.com
-</a>
-
-<p style="margin-top:20px;font-size:13px;">
-We aim to review genuine inquiries and suggestions as soon as reasonably possible.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PRIVACY PAGE -->
-
-<section class="page" id="privacyPage">
-
-<div class="container">
-
-<div class="page-content">
-
-<h1>Privacy Policy</h1>
-
-<p>
-At SmartToolsKit, we respect your privacy and aim to keep the collection
-and use of information transparent.
-</p>
-
-<h2>Information We Collect</h2>
-
-<p>
-Many SmartToolsKit tools can be used without creating an account.
-Information entered into browser-based tools may be processed locally
-within your browser depending on how the individual tool operates.
-</p>
-
-<h2>Cookies</h2>
-
-<p>
-SmartToolsKit may use cookies or similar technologies for essential
-website functionality, analytics and advertising purposes where applicable.
-Third-party advertising services may also use cookies according to their
-own policies.
-</p>
-
-<h2>Google AdSense</h2>
-
-<p>
-If advertising is enabled on SmartToolsKit, third-party advertising
-providers such as Google may use cookies or similar technologies to
-deliver and measure advertisements. Users should review the applicable
-Google advertising and privacy information for further details.
-</p>
-
-<h2>Analytics</h2>
-
-<p>
-We may use analytics technologies to understand general website usage,
-traffic patterns and performance. Such information is used to improve
-the website and its tools.
-</p>
-
-<h2>Third-Party Links</h2>
-
-<p>
-SmartToolsKit may contain links to third-party websites. We are not
-responsible for the privacy practices, content or policies of external
-websites.
-</p>
+        <p>
+          SmartToolsKit provides fast, simple and reliable online tools for
+          calculations, conversions, text processing, SEO, development and
+          everyday digital tasks.
+        </p>
 
-<h2>Changes to This Policy</h2>
+        <form class="search-box" id="toolSearchForm">
 
-<p>
-This Privacy Policy may be updated when website features, technologies
-or legal requirements change. Updated versions will be published on
-this page.
-</p>
+          <input
+            type="search"
+            id="toolSearch"
+            placeholder="Search for a tool..."
+            aria-label="Search tools"
+          >
 
-<h2>Contact</h2>
+          <button type="submit">
+            Search
+          </button>
 
-<p>
-For privacy-related questions, please contact us at
-waleedanjum.18@gmail.com.
-</p>
+        </form>
 
-</div>
-</div>
-</section>
+      </div>
 
+    </section>
 
-<!-- TERMS PAGE -->
 
-<section class="page" id="termsPage">
+    <!-- Categories -->
 
-<div class="container">
+    <section id="categories">
 
-<div class="page-content">
+      <div class="container">
 
-<h1>Terms &amp; Conditions</h1>
+        <div class="section-heading">
+          <h2>Explore Tool Categories</h2>
+          <p>
+            Find the right online tool quickly through our growing collection
+            of useful digital utilities.
+          </p>
+        </div>
 
-<p>
-By accessing and using SmartToolsKit, you agree to these Terms &
-Conditions. If you do not agree with these terms, please discontinue use
-of the website.
-</p>
+        <div class="category-grid">
 
-<h2>Use of the Website</h2>
-
-<p>
-SmartToolsKit provides online utilities for general informational and
-practical purposes. Users are responsible for using the tools lawfully
-and appropriately.
-</p>
+          <a href="#tools" class="category">
+            <div class="shape"></div>
+            <h3>Calculators</h3>
+            <p>Calculate quickly and accurately.</p>
+          </a>
 
-<h2>Accuracy of Results</h2>
+          <a href="#tools" class="category">
+            <div class="shape"></div>
+            <h3>Converters</h3>
+            <p>Convert values with ease.</p>
+          </a>
 
-<p>
-We make reasonable efforts to provide useful and accurate tools.
-However, calculations and generated results should be independently
-verified when they are used for important financial, professional,
-legal, medical or other high-stakes decisions.
-</p>
+          <a href="#tools" class="category">
+            <div class="shape"></div>
+            <h3>Text Tools</h3>
+            <p>Analyze and format text.</p>
+          </a>
 
-<h2>Availability</h2>
+          <a href="#tools" class="category">
+            <div class="shape"></div>
+            <h3>SEO Tools</h3>
+            <p>Improve your website workflow.</p>
+          </a>
 
-<p>
-We aim to keep SmartToolsKit available and functional, but we do not
-guarantee uninterrupted access or that every feature will always be
-available.
-</p>
+          <a href="#tools" class="category">
+            <div class="shape"></div>
+            <h3>Developer Tools</h3>
+            <p>Useful tools for developers.</p>
+          </a>
 
-<h2>Intellectual Property</h2>
+        </div>
 
-<p>
-The website design, original written content and original code may be
-protected by applicable intellectual property laws. Unauthorized
-reproduction or redistribution may be restricted.
-</p>
+      </div>
 
-<h2>Third-Party Services</h2>
+    </section>
 
-<p>
-Some website features may rely on third-party services. SmartToolsKit
-does not control third-party services and cannot guarantee their
-availability or performance.
-</p>
 
-<h2>Changes</h2>
+    <!-- Popular Tools -->
 
-<p>
-We may modify these Terms &amp; Conditions as the website develops.
-Continued use of the website after changes are published constitutes
-acceptance of the updated terms.
-</p>
+    <section id="tools">
 
-</div>
-</div>
-</section>
+      <div class="container">
 
+        <div class="section-heading">
 
-<!-- DISCLAIMER PAGE -->
+          <h2>Popular Free Tools</h2>
 
-<section class="page" id="disclaimerPage">
+          <p>
+            Start with some of the most useful tools available on
+            SmartToolsKit.
+          </p>
 
-<div class="container">
+        </div>
 
-<div class="page-content">
 
-<h1>Disclaimer</h1>
+        <div class="tools-grid" id="toolsGrid">
 
-<p>
-The information and tools available on SmartToolsKit are provided for
-general informational and practical purposes only.
-</p>
 
-<h2>No Professional Advice</h2>
+          <article class="tool-card" data-tool="percentage calculator">
 
-<p>
-SmartToolsKit does not provide professional financial, legal, medical,
-tax, investment or other specialized advice. Tool results should not
-replace advice from a qualified professional.
-</p>
+            <div class="tool-shape"></div>
 
-<h2>Calculations</h2>
+            <h3>Percentage Calculator</h3>
 
-<p>
-Calculator results are estimates based on the information entered by
-the user and the formulas implemented by the relevant tool. Users
-should verify important results independently.
-</p>
+            <p>
+              Calculate percentages quickly for everyday calculations,
+              increases, decreases and comparisons.
+            </p>
 
-<h2>External Websites</h2>
+            <a href="tools/percentage-calculator.html" class="tool-link">
+              Open Tool →
+            </a>
 
-<p>
-SmartToolsKit may reference or link to external websites. We do not
-control and are not responsible for the content, availability or
-policies of third-party websites.
-</p>
-
-<h2>Limitation of Liability</h2>
+          </article>
 
-<p>
-To the extent permitted by applicable law, SmartToolsKit and its
-operator are not responsible for losses or damages resulting from
-reliance on information, calculations or tools available through the
-website.
-</p>
 
-</div>
-</div>
-</section>
+          <article class="tool-card" data-tool="age calculator">
 
+            <div class="tool-shape"></div>
 
-<!-- FOOTER -->
-
-<footer>
-
-<div class="container">
-
-<div class="footer-grid">
-
-<div>
-<h3>SmartToolsKit</h3>
-<p>
-Smart Tools. Simple Solutions.
-Free online utilities designed for everyday digital tasks.
-</p>
-</div>
-
-<div>
-<h4>Website</h4>
-<a href="#home">Home</a>
-<a href="#tools">All Tools</a>
-<a href="#about">About Us</a>
-<a href="#contact">Contact Us</a>
-</div>
+            <h3>Age Calculator</h3>
 
-<div>
-<h4>Legal</h4>
-<a href="#privacy">Privacy Policy</a>
-<a href="#terms">Terms &amp; Conditions</a>
-<a href="#disclaimer">Disclaimer</a>
-</div>
+            <p>
+              Calculate your exact age using your date of birth and a
+              selected date.
+            </p>
 
-</div>
+            <a href="tools/age-calculator.html" class="tool-link">
+              Open Tool →
+            </a>
 
-<div class="copyright">
-© 2026 SmartToolsKit. All rights reserved.
-</div>
+          </article>
 
-</div>
-</footer>
 
+          <article class="tool-card" data-tool="bmi calculator">
 
-<script>
+            <div class="tool-shape"></div>
 
-/* =========================================
-   NAVIGATION / REAL PAGE SECTIONS
-========================================= */
+            <h3>BMI Calculator</h3>
 
-const pages = {
-    home: document.getElementById("homePage"),
-    contact: document.getElementById("contactPage"),
-    privacy: document.getElementById("privacyPage"),
-    terms: document.getElementById("termsPage"),
-    disclaimer: document.getElementById("disclaimerPage")
-};
+            <p>
+              Calculate Body Mass Index using your height and weight.
+            </p>
 
-function showPage(page){
+            <a href="tools/bmi-calculator.html" class="tool-link">
+              Open Tool →
+            </a>
 
-    Object.values(pages).forEach(function(p){
-        p.style.display = "none";
-    });
+          </article>
 
-    if(page === "home"){
-        pages.home.style.display = "block";
-        window.scrollTo(0,0);
-    }
 
-    if(page === "contact"){
-        pages.contact.style.display = "block";
-        window.scrollTo(0,0);
-    }
+          <article class="tool-card" data-tool="loan emi calculator">
 
-    if(page === "privacy"){
-        pages.privacy.style.display = "block";
-        window.scrollTo(0,0);
-    }
+            <div class="tool-shape"></div>
 
-    if(page === "terms"){
-        pages.terms.style.display = "block";
-        window.scrollTo(0,0);
-    }
+            <h3>Loan / EMI Calculator</h3>
 
-    if(page === "disclaimer"){
-        pages.disclaimer.style.display = "block";
-        window.scrollTo(0,0);
-    }
+            <p>
+              Estimate monthly loan payments, total interest and repayment
+              amounts.
+            </p>
 
-    document.getElementById("navLinks").classList.remove("active");
-}
+            <a href="tools/loan-emi-calculator.html" class="tool-link">
+              Open Tool →
+            </a>
 
-function handleRoute(){
+          </article>
 
-    const route = location.hash.replace("#","").toLowerCase();
 
-    if(route === "contact"){
-        showPage("contact");
-    }
-    else if(route === "privacy"){
-        showPage("privacy");
-    }
-    else if(route === "terms"){
-        showPage("terms");
-    }
-    else if(route === "disclaimer"){
-        showPage("disclaimer");
-    }
-    else{
-        showPage("home");
-    }
-}
+          <article class="tool-card" data-tool="discount calculator">
 
-window.addEventListener("hashchange",handleRoute);
+            <div class="tool-shape"></div>
 
+            <h3>Discount Calculator</h3>
 
-/* =========================================
-   MOBILE MENU
-========================================= */
+            <p>
+              Calculate discounts, sale prices and the amount you save.
+            </p>
 
-document.getElementById("menuBtn").addEventListener("click",function(){
+            <a href="tools/discount-calculator.html" class="tool-link">
+              Open Tool →
+            </a>
 
-    document.getElementById("navLinks").classList.toggle("active");
+          </article>
 
-});
 
+          <article class="tool-card" data-tool="word counter">
 
-/* =========================================
-   SEARCH
-========================================= */
+            <div class="tool-shape"></div>
 
-function searchTools(){
+            <h3>Word Counter</h3>
 
-    const term =
-        document.getElementById("mainSearch").value
-        .toLowerCase()
-        .trim();
+            <p>
+              Count words, sentences and other basic text statistics.
+            </p>
 
-    location.hash = "tools";
+            <a href="tools/word-counter.html" class="tool-link">
+              Open Tool →
+            </a>
 
-    setTimeout(function(){
+          </article>
 
-        document.getElementById("toolSearch").value = term;
-        filterTools();
 
+          <article class="tool-card" data-tool="character counter">
+
+            <div class="tool-shape"></div>
+
+            <h3>Character Counter</h3>
+
+            <p>
+              Count characters in your text with or without spaces.
+            </p>
+
+            <a href="tools/character-counter.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <article class="tool-card" data-tool="unit converter">
+
+            <div class="tool-shape"></div>
+
+            <h3>Unit Converter</h3>
+
+            <p>
+              Convert common length, weight and temperature measurements.
+            </p>
+
+            <a href="tools/unit-converter.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <article class="tool-card" data-tool="qr code generator">
+
+            <div class="tool-shape"></div>
+
+            <h3>QR Code Generator</h3>
+
+            <p>
+              Generate QR codes from text, links and other information.
+            </p>
+
+            <a href="tools/qr-code-generator.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <article class="tool-card" data-tool="password generator">
+
+            <div class="tool-shape"></div>
+
+            <h3>Password Generator</h3>
+
+            <p>
+              Create strong random passwords for your online accounts.
+            </p>
+
+            <a href="tools/password-generator.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <article class="tool-card" data-tool="slug generator">
+
+            <div class="tool-shape"></div>
+
+            <h3>Slug Generator</h3>
+
+            <p>
+              Convert titles and phrases into clean, URL-friendly slugs.
+            </p>
+
+            <a href="tools/slug-generator.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <article class="tool-card" data-tool="json formatter">
+
+            <div class="tool-shape"></div>
+
+            <h3>JSON Formatter</h3>
+
+            <p>
+              Format and validate JSON data for easier reading and debugging.
+            </p>
+
+            <a href="tools/json-formatter.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SEO Introduction -->
+
+    <section class="intro">
+
+      <div class="container intro-content">
+
+        <h2>Simple Tools Built for Real Tasks</h2>
+
+        <p>
+          SmartToolsKit is designed to make everyday digital tasks easier.
+          Instead of searching across multiple websites for small utilities,
+          you can find practical online tools in one convenient place.
+        </p>
+
+        <p>
+          Our collection covers calculators, converters, text utilities,
+          search engine optimization tools, developer utilities and other
+          productivity-focused solutions. The goal is to keep every tool
+          simple, fast and easy to understand.
+        </p>
+
+        <p>
+          SmartToolsKit is continuously expanding. New tools and improvements
+          will be added over time while keeping usability, performance and
+          accessibility at the center of the experience.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <h2>Find the Tool You Need</h2>
+
+        <p>
+          Explore our growing collection of free online tools.
+        </p>
+
+        <a href="#tools">
+          Explore Tools
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <h3>SmartToolsKit</h3>
+
+          <p>
+            Smart Tools. Simple Solutions. Free online tools designed to
+            make everyday digital tasks faster and easier.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>Quick Links</h3>
+
+          <div class="footer-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="#tools">All Tools</a>
+
+            <a href="about.html">About Us</a>
+
+            <a href="contact.html">Contact Us</a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <h3>Legal</h3>
+
+          <div class="footer-links">
+
+            <a href="privacy-policy.html">Privacy Policy</a>
+
+            <a href="terms.html">Terms & Conditions</a>
+
+            <a href="disclaimer.html">Disclaimer</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        © 2026 SmartToolsKit. All rights reserved.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- Lightweight Search -->
+
+  <script>
+
+    const searchForm = document.getElementById("toolSearchForm");
+    const searchInput = document.getElementById("toolSearch");
+    const toolCards = document.querySelectorAll(".tool-card");
+
+    searchForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const query = searchInput.value.trim().toLowerCase();
+
+      if (!query) {
         document.getElementById("tools").scrollIntoView({
-            behavior:"smooth"
+          behavior: "smooth"
         });
+        return;
+      }
 
-    },100);
+      let found = false;
 
-}
+      toolCards.forEach(function(card) {
 
-
-function filterTools(){
-
-    const term =
-        document.getElementById("toolSearch").value
-        .toLowerCase()
-        .trim();
-
-    document.querySelectorAll(".tool").forEach(function(tool){
-
-        const text = tool.innerText.toLowerCase();
-
-        tool.style.display =
-            text.includes(term) ? "block" : "none";
-
-    });
-
-}
-
-
-/* =========================================
-   TOOL ENGINE
-========================================= */
-
-const workspace =
-document.getElementById("workspace");
-
-const workspaceTitle =
-document.getElementById("workspaceTitle");
-
-const workspaceDescription =
-document.getElementById("workspaceDescription");
-
-const toolInputs =
-document.getElementById("toolInputs");
-
-const result =
-document.getElementById("result");
-
-
-document.querySelectorAll(".tool").forEach(function(card){
-
-    card.addEventListener("click",function(){
-
-        openTool(card.dataset.tool);
-
-    });
-
-});
-
-
-function openTool(type){
-
-    workspace.style.display = "block";
-
-    result.style.display = "none";
-    result.innerHTML = "";
-
-    if(type==="percentage") percentageTool();
-    if(type==="age") ageTool();
-    if(type==="bmi") bmiTool();
-    if(type==="emi") emiTool();
-    if(type==="discount") discountTool();
-    if(type==="word") wordTool();
-    if(type==="character") characterTool();
-    if(type==="unit") unitTool();
-    if(type==="qr") qrTool();
-    if(type==="password") passwordTool();
-    if(type==="slug") slugTool();
-    if(type==="url") urlTool();
-    if(type==="base64") base64Tool();
-    if(type==="json") jsonTool();
-    if(type==="density") densityTool();
-
-    workspace.scrollIntoView({behavior:"smooth"});
-}
-
-
-function setup(title,description,html,buttonText,action){
-
-    workspaceTitle.innerText = title;
-    workspaceDescription.innerText = description;
-    toolInputs.innerHTML = html;
-
-    const button = document.createElement("button");
-
-    button.className = "btn";
-    button.innerText = buttonText;
-    button.onclick = action;
-
-    toolInputs.appendChild(button);
-}
-
-
-/* =========================================
-   1. PERCENTAGE
-========================================= */
-
-function percentageTool(){
-
-setup(
-"Percentage Calculator",
-"Calculate what percentage one number is of another.",
-`
-<div class="row">
-<input class="input" id="p1" type="number" placeholder="Value">
-<input class="input" id="p2" type="number" placeholder="Total">
-</div>
-`,
-"Calculate",
-function(){
-
-let a=parseFloat(document.getElementById("p1").value);
-let b=parseFloat(document.getElementById("p2").value);
-
-if(isNaN(a)||isNaN(b)||b===0){
-showResult("Please enter valid numbers.");
-return;
-}
-
-showResult(`<strong>Result:</strong> ${(a/b*100).toFixed(2)}%`);
-
-});
-}
-
-
-/* =========================================
-   2. AGE
-========================================= */
-
-function ageTool(){
-
-setup(
-"Age Calculator",
-"Calculate age from a date of birth.",
-`
-<input class="input" id="dob" type="date">
-`,
-"Calculate Age",
-function(){
-
-const value=document.getElementById("dob").value;
-
-if(!value){
-showResult("Please select your date of birth.");
-return;
-}
-
-const dob=new Date(value);
-const now=new Date();
-
-let years=now.getFullYear()-dob.getFullYear();
-let months=now.getMonth()-dob.getMonth();
-let days=now.getDate()-dob.getDate();
-
-if(days<0){
-months--;
-days+=new Date(
-now.getFullYear(),
-now.getMonth(),
-0
-).getDate();
-}
-
-if(months<0){
-years--;
-months+=12;
-}
-
-showResult(
-`<strong>Age:</strong> ${years} years, ${months} months and ${days} days`
-);
-
-});
-}
-
-
-/* =========================================
-   3. BMI
-========================================= */
-
-function bmiTool(){
-
-setup(
-"BMI Calculator",
-"Calculate Body Mass Index using height and weight.",
-`
-<div class="row">
-<input class="input" id="height" type="number" placeholder="Height in cm">
-<input class="input" id="weight" type="number" placeholder="Weight in kg">
-</div>
-`,
-"Calculate BMI",
-function(){
-
-const h=parseFloat(document.getElementById("height").value);
-const w=parseFloat(document.getElementById("weight").value);
-
-if(isNaN(h)||isNaN(w)||h<=0||w<=0){
-showResult("Please enter valid height and weight.");
-return;
-}
-
-const bmi=w/Math.pow(h/100,2);
-
-let category="";
-
-if(bmi<18.5) category="Underweight";
-else if(bmi<25) category="Normal weight";
-else if(bmi<30) category="Overweight";
-else category="Obesity";
-
-showResult(
-`<strong>BMI:</strong> ${bmi.toFixed(2)}<br>
-<strong>Category:</strong> ${category}`
-);
-
-});
-}
-
-
-/* =========================================
-   4. EMI
-========================================= */
-
-function emiTool(){
-
-setup(
-"Loan / EMI Calculator",
-"Calculate monthly loan payment, total payment and interest.",
-`
-<div class="row">
-<input class="input" id="loan" type="number" placeholder="Loan amount">
-<input class="input" id="rate" type="number" placeholder="Annual interest rate %">
-</div>
-<input class="input" id="months" type="number" placeholder="Loan term in months">
-`,
-"Calculate EMI",
-function(){
-
-const P=parseFloat(document.getElementById("loan").value);
-const annual=parseFloat(document.getElementById("rate").value);
-const n=parseInt(document.getElementById("months").value);
-
-if(isNaN(P)||isNaN(annual)||isNaN(n)||P<=0||n<=0){
-showResult("Please enter valid loan details.");
-return;
-}
-
-const r=annual/12/100;
-
-let emi;
-
-if(r===0){
-emi=P/n;
-}else{
-emi=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-}
-
-const total=emi*n;
-const interest=total-P;
-
-showResult(
-`<strong>Monthly EMI:</strong> ${emi.toFixed(2)}<br>
-<strong>Total Payment:</strong> ${total.toFixed(2)}<br>
-<strong>Total Interest:</strong> ${interest.toFixed(2)}`
-);
-
-});
-}
-
-
-/* =========================================
-   5. DISCOUNT
-========================================= */
-
-function discountTool(){
-
-setup(
-"Discount Calculator",
-"Calculate discount amount and final selling price.",
-`
-<div class="row">
-<input class="input" id="price" type="number" placeholder="Original price">
-<input class="input" id="discount" type="number" placeholder="Discount %">
-</div>
-`,
-"Calculate",
-function(){
-
-const p=parseFloat(document.getElementById("price").value);
-const d=parseFloat(document.getElementById("discount").value);
-
-if(isNaN(p)||isNaN(d)){
-showResult("Please enter valid values.");
-return;
-}
-
-const saving=p*d/100;
-const final=p-saving;
-
-showResult(
-`<strong>Discount:</strong> ${saving.toFixed(2)}<br>
-<strong>Final Price:</strong> ${final.toFixed(2)}`
-);
-
-});
-}
-
-
-/* =========================================
-   6. WORD COUNTER
-========================================= */
-
-function wordTool(){
-
-setup(
-"Word Counter",
-"Count words, characters and lines in your text.",
-`
-<textarea class="input" id="wordText" placeholder="Type or paste your text here..."></textarea>
-`,
-"Count Text",
-function(){
-
-const text=document.getElementById("wordText").value.trim();
-
-const words=text?text.split(/\s+/).length:0;
-const chars=text.length;
-const lines=text?text.split(/\n/).length:0;
-
-showResult(
-`<strong>Words:</strong> ${words}<br>
-<strong>Characters:</strong> ${chars}<br>
-<strong>Lines:</strong> ${lines}`
-);
-
-});
-}
-
-
-/* =========================================
-   7. CHARACTER COUNTER
-========================================= */
-
-function characterTool(){
-
-setup(
-"Character Counter",
-"Count characters with and without spaces.",
-`
-<textarea class="input" id="charText" placeholder="Type or paste your text here..."></textarea>
-`,
-"Count Characters",
-function(){
-
-const text=document.getElementById("charText").value;
-
-const spaces=text.length;
-const noSpaces=text.replace(/\s/g,"").length;
-
-showResult(
-`<strong>Characters:</strong> ${spaces}<br>
-<strong>Without spaces:</strong> ${noSpaces}`
-);
-
-});
-}
-
-
-/* =========================================
-   8. UNIT CONVERTER
-========================================= */
-
-function unitTool(){
-
-setup(
-"Unit Converter",
-"Convert common length, weight and temperature units.",
-`
-<select class="input" id="unitType">
-<option value="length">Length</option>
-<option value="weight">Weight</option>
-<option value="temperature">Temperature</option>
-</select>
-
-<div class="row">
-<select class="input" id="fromUnit"></select>
-<select class="input" id="toUnit"></select>
-</div>
-
-<input class="input" id="unitValue" type="number" placeholder="Value">
-`,
-"Convert",
-function(){
-
-convertUnit();
-
-});
-
-populateUnits();
-}
-
-
-function populateUnits(){
-
-const type=document.getElementById("unitType");
-const from=document.getElementById("fromUnit");
-const to=document.getElementById("toUnit");
-
-function fill(){
-
-let units=[];
-
-if(type.value==="length")
-units=["meter","kilometer","centimeter","mile","yard","foot","inch"];
-
-if(type.value==="weight")
-units=["kilogram","gram","pound","ounce"];
-
-if(type.value==="temperature")
-units=["celsius","fahrenheit","kelvin"];
-
-from.innerHTML="";
-to.innerHTML="";
-
-units.forEach(function(u){
-from.innerHTML+=`<option>${u}</option>`;
-to.innerHTML+=`<option>${u}</option>`;
-});
-
-}
-
-type.addEventListener("change",fill);
-
-fill();
-}
-
-
-function convertUnit(){
-
-const type=document.getElementById("unitType").value;
-const from=document.getElementById("fromUnit").value;
-const to=document.getElementById("toUnit").value;
-const value=parseFloat(document.getElementById("unitValue").value);
-
-if(isNaN(value)){
-showResult("Please enter a value.");
-return;
-}
-
-let resultValue;
-
-if(type==="temperature"){
-
-let c;
-
-if(from==="celsius") c=value;
-if(from==="fahrenheit") c=(value-32)*5/9;
-if(from==="kelvin") c=value-273.15;
-
-if(to==="celsius") resultValue=c;
-if(to==="fahrenheit") resultValue=c*9/5+32;
-if(to==="kelvin") resultValue=c+273.15;
-
-}else{
-
-const length={
-meter:1,
-kilometer:1000,
-centimeter:.01,
-mile:1609.344,
-yard:.9144,
-foot:.3048,
-inch:.0254
-};
-
-const weight={
-kilogram:1,
-gram:.001,
-pound:.45359237,
-ounce:.0283495231
-};
-
-const table=type==="length"?length:weight;
-
-resultValue=value*table[from]/table[to];
-
-}
-
-showResult(`<strong>Result:</strong> ${resultValue.toFixed(6).replace(/\.?0+$/,"")}`);
-
-}
-
-
-/* =========================================
-   9. QR CODE
-========================================= */
-
-function qrTool(){
-
-setup(
-"QR Code Generator",
-"Generate a QR code from text or a website URL.",
-`
-<input class="input" id="qrText" placeholder="Enter text or URL">
-<div id="qrOutput"></div>
-`,
-"Generate QR Code",
-function(){
-
-const text=document.getElementById("qrText").value.trim();
-
-if(!text){
-showResult("Please enter text or a URL.");
-return;
-}
-
-const output=document.getElementById("qrOutput");
-
-output.innerHTML=
-`<img
-src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(text)}"
-alt="Generated QR Code"
-style="max-width:220px;margin:15px 0;border:1px solid #E2E8F0;padding:8px;border-radius:8px;"
->`;
-
-showResult("<strong>QR code generated.</strong>");
-
-});
-}
-
-
-/* =========================================
-   10. PASSWORD
-========================================= */
-
-function passwordTool(){
-
-setup(
-"Password Generator",
-"Generate a strong random password.",
-`
-<input class="input" id="passLength" type="number" value="16" min="6" max="100" placeholder="Password length">
-`,
-"Generate Password",
-function(){
-
-let length=parseInt(document.getElementById("passLength").value);
-
-if(isNaN(length)||length<6||length>100){
-showResult("Password length must be between 6 and 100.");
-return;
-}
-
-const chars=
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=";
-
-let password="";
-
-const array=new Uint32Array(length);
-crypto.getRandomValues(array);
-
-for(let i=0;i<length;i++){
-password+=chars[array[i]%chars.length];
-}
-
-showResult(
-`<strong>Password:</strong><br>
-<span style="word-break:break-all;">${escapeHTML(password)}</span>`
-);
-
-});
-}
-
-
-/* =========================================
-   11. SLUG
-========================================= */
-
-function slugTool(){
-
-setup(
-"Slug Generator",
-"Convert titles into clean SEO-friendly URL slugs.",
-`
-<input class="input" id="slugText" placeholder="Enter your page title">
-`,
-"Generate Slug",
-function(){
-
-const text=document.getElementById("slugText").value;
-
-const slug=text
-.toLowerCase()
-.trim()
-.replace(/[^a-z0-9\s-]/g,"")
-.replace(/\s+/g,"-")
-.replace(/-+/g,"-");
-
-showResult(`<strong>Slug:</strong> ${escapeHTML(slug)}`);
-
-});
-}
-
-
-/* =========================================
-   12. URL ENCODER
-========================================= */
-
-function urlTool(){
-
-setup(
-"URL Encoder / Decoder",
-"Encode or decode URL text.",
-`
-<textarea class="input" id="urlText" placeholder="Enter URL text"></textarea>
-`,
-"Encode URL",
-function(){
-
-const text=document.getElementById("urlText").value;
-
-try{
-
-showResult(
-`<strong>Encoded:</strong><br>${escapeHTML(encodeURIComponent(text))}`
-);
-
-}catch(e){
-
-showResult("Unable to encode the provided text.");
-
-}
-
-});
-}
-
-
-/* =========================================
-   13. BASE64
-========================================= */
-
-function base64Tool(){
-
-setup(
-"Base64 Encoder / Decoder",
-"Encode text into Base64.",
-`
-<textarea class="input" id="baseText" placeholder="Enter text"></textarea>
-`,
-"Encode Base64",
-function(){
-
-const text=document.getElementById("baseText").value;
-
-try{
-
-showResult(
-`<strong>Base64:</strong><br>${btoa(unescape(encodeURIComponent(text)))}`
-);
-
-}catch(e){
-
-showResult("Unable to encode this text.");
-
-}
-
-});
-}
-
-
-/* =========================================
-   14. JSON FORMATTER
-========================================= */
-
-function jsonTool(){
-
-setup(
-"JSON Formatter",
-"Format and validate JSON data.",
-`
-<textarea class="input" id="jsonText" placeholder='Example: {"name":"John","age":30}'></textarea>
-`,
-"Format JSON",
-function(){
-
-const text=document.getElementById("jsonText").value;
-
-try{
-
-const parsed=JSON.parse(text);
-
-const formatted=JSON.stringify(parsed,null,4);
-
-showResult(
-`<strong>Valid JSON</strong>
-<pre style="white-space:pre-wrap;margin-top:10px;">${escapeHTML(formatted)}</pre>`
-);
-
-}catch(e){
-
-showResult(
-`<strong style="color:#DC2626;">Invalid JSON</strong><br>${escapeHTML(e.message)}`
-);
-
-}
-
-});
-}
-
-
-/* =========================================
-   15. KEYWORD DENSITY
-========================================= */
-
-function densityTool(){
-
-setup(
-"Keyword Density Checker",
-"Analyze the frequency of words in your text.",
-`
-<textarea class="input" id="densityText" placeholder="Paste your article or text here..."></textarea>
-`,
-"Analyze Text",
-function(){
-
-const text=document.getElementById("densityText").value
-.toLowerCase()
-.replace(/[^\p{L}\p{N}\s]/gu," ");
-
-const words=text.match(/\S+/g)||[];
-
-if(!words.length){
-showResult("Please enter some text.");
-return;
-}
-
-const counts={};
-
-words.forEach(function(word){
-
-if(word.length<2)return;
-
-counts[word]=(counts[word]||0)+1;
-
-});
-
-const sorted=Object.entries(counts)
-.sort((a,b)=>b[1]-a[1])
-.slice(0,10);
-
-let html="<strong>Top Keywords:</strong><br><br>";
-
-sorted.forEach(function(item){
-
-const percentage=item[1]/words.length*100;
-
-html+=
-`${escapeHTML(item[0])} — ${item[1]} times (${percentage.toFixed(2)}%)<br>`;
-
-});
-
-showResult(html);
-
-});
-}
-
-
-/* =========================================
-   RESULT
-========================================= */
-
-function showResult(html){
-
-result.innerHTML=html;
-result.style.display="block";
-
-}
-
-
-/* =========================================
-   SECURITY / HTML ESCAPE
-========================================= */
-
-function escapeHTML(str){
-
-return String(str)
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================================
-   INITIAL ROUTE
-========================================= */
-
-handleRoute();
-
-</script>
-
-</body>
-</html>
+ 
