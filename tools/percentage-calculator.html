@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Percentage Calculator - Free Online Percentage Tool | SmartToolsKit</title>
+
+  <meta name="description" content="Use our free Percentage Calculator to quickly calculate percentages, percentage increases, decreases and percentage differences. Simple, fast and easy to use.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://smarttoolskit.com/tools/percentage-calculator.html">
+
+  <meta name="theme-color" content="#0F172A">
+
+  <style>
+    :root {
+      --navy: #0F172A;
+      --navy-light: #1E293B;
+      --emerald: #10B981;
+      --emerald-dark: #059669;
+      --teal: #14B8A6;
+      --background: #F8FAFC;
+      --white: #FFFFFF;
+      --text: #0F172A;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --soft: #ECFDF5;
+      --danger: #DC2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(900px, 92%);
+      margin: auto;
+    }
+
+    /* Header */
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .logo-shape {
+      width: 30px;
+      height: 30px;
+      background: var(--emerald);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .logo-shape::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 4px;
+      top: 9px;
+      left: 9px;
+    }
+
+    .home-link {
+      color: var(--emerald-dark);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* Main */
+
+    main {
+      padding: 55px 0 70px;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .breadcrumb a {
+      color: var(--emerald-dark);
+    }
+
+    .tool-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .tool-shape {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 18px;
+      background: var(--soft);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .tool-shape::after {
+      content: "%";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--emerald-dark);
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 46px);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .tool-subtitle {
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
+      font-size: 16px;
+    }
+
+    /* Calculator */
+
+    .calculator {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      margin-bottom: 45px;
+    }
+
+    .calculator h2 {
+      font-size: 21px;
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--emerald);
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: var(--emerald);
+      color: white;
+      padding: 13px;
+      border-radius: 9px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    button:hover {
+      background: var(--emerald-dark);
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 10px;
+      background: var(--soft);
+      border: 1px solid #A7F3D0;
+      text-align: center;
+    }
+
+    .result-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .result-value {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--emerald-dark);
+    }
+
+    .error {
+      display: none;
+      color: var(--danger);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    /* Content */
+
+    .content {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    .content h2 {
+      font-size: 24px;
+      margin: 28px 0 12px;
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+    }
+
+    .content p {
+      color: #475569;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .content ol,
+    .content ul {
+      padding-left: 22px;
+      color: #475569;
+      font-size: 15px;
+    }
+
+    .content li {
+      margin-bottom: 8px;
+    }
+
+    .faq {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+
+    .faq h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    /* Footer */
+
+    footer {
+      background: #020617;
+      color: #94A3B8;
+      text-align: center;
+      padding: 28px 0;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #CBD5E1;
+    }
+
+    footer a:hover {
+      color: #34D399;
+    }
+
+    @media (max-width: 600px) {
+
+      .nav {
+        min-height: 62px;
+      }
+
+      .calculator,
+      .content {
+        padding: 22px;
+      }
+
+      main {
+        padding-top: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+
+      <a href="../index.html" class="logo">
+        <span class="logo-shape"></span>
+        SmartToolsKit
+      </a>
+
+      <a href="../index.html" class="home-link">
+        ← Back to Home
+      </a>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span> → </span>
+        Percentage Calculator
+      </div>
+
+
+      <div class="tool-header">
+
+        <div class="tool-shape"></div>
+
+        <h1>Percentage Calculator</h1>
+
+        <p class="tool-subtitle">
+          Calculate percentages quickly and accurately with this free online
+          percentage calculator.
+        </p>
+
+      </div>
+
+
+      <!-- Calculator -->
+
+      <div class="calculator">
+
+        <h2>Calculate a Percentage</h2>
+
+        <div class="form-group">
+
+          <label for="percentage">
+            Percentage (%)
+          </label>
+
+          <input
+            type="number"
+            id="percentage"
+            placeholder="Example: 20"
+            step="any"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="number">
+            Number
+          </label>
+
+          <input
+            type="number"
+            id="number"
+            placeholder="Example: 500"
+            step="any"
+          >
+
+        </div>
+
+
+        <button onclick="calculatePercentage()">
+          Calculate Percentage
+        </button>
+
+
+        <div class="error" id="error">
+          Please enter valid numbers in both fields.
+        </div>
+
+
+        <div class="result" id="result">
+
+          <div class="result-label">
+            Result
+          </div>
+
+          <div class="result-value" id="resultValue">
+            0
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SEO Content -->
+
+      <article class="content">
+
+        <h2>What Is a Percentage Calculator?</h2>
+
+        <p>
+          A percentage calculator is a simple online tool that helps you
+          calculate a percentage of a given number quickly and accurately.
+          Percentages are used in many everyday situations, including
+          discounts, sales, financial calculations, statistics, school
+          mathematics and business analysis.
+        </p>
+
+        <p>
+          Instead of performing the calculation manually, you can enter the
+          percentage and the number into SmartToolsKit's free percentage
+          calculator and get the result instantly. The tool is designed to
+          provide a straightforward experience on both desktop and mobile
+          devices.
+        </p>
+
+
+        <h2>How to Use This Percentage Calculator</h2>
+
+        <ol>
+
+          <li>
+            Enter the percentage you want to calculate.
+          </li>
+
+          <li>
+            Enter the number on which the percentage should be calculated.
+          </li>
+
+          <li>
+            Click the "Calculate Percentage" button.
+          </li>
+
+          <li>
+            The calculated result will appear immediately.
+          </li>
+
+        </ol>
+
+
+        <h2>Percentage Calculation Formula</h2>
+
+        <p>
+          To calculate a percentage of a number, use the following formula:
+        </p>
+
+        <p>
+          <strong>Percentage Result = (Percentage ÷ 100) × Number</strong>
+        </p>
+
+        <p>
+          For example, if you want to calculate 20% of 500, the calculation
+          is (20 ÷ 100) × 500, which gives a result of 100.
+        </p>
+
+
+        <h2>Common Uses of Percentages</h2>
+
+        <ul>
+
+          <li>Calculating discounts and sale prices</li>
+
+          <li>Calculating tax percentages</li>
+
+          <li>Understanding increases and decreases</li>
+
+          <li>Analyzing business and financial data</li>
+
+          <li>Solving school and college mathematics problems</li>
+
+          <li>Comparing values and statistics</li>
+
+        </ul>
+
+
+        <h2>Frequently Asked Questions</h2>
+
+
+        <div class="faq">
+
+          <h3>How do I calculate 10% of a number?</h3>
+
+          <p>
+            Enter 10 as the percentage and enter your number in the second
+            field. The calculator will automatically calculate 10% of that
+            number.
+          </p>
+
+        </div>
+
+
+        <div class="faq">
+
+          <h3>Is this percentage calculator free?</h3>
+
+          <p>
+            Yes. SmartToolsKit provides this percentage calculator as a free
+            online tool.
+          </p>
+
+        </div>
+
+
+        <div class="faq">
+
+          <h3>Can I use this calculator on a mobile phone?</h3>
+
+          <p>
+            Yes. The calculator is designed to work on smartphones, tablets
+            and desktop computers.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © 2026 SmartToolsKit. All rights reserved.
+      </p>
+
+      <p>
+        <a href="../index.html">Home</a>
+        &nbsp; | &nbsp;
+        <a href="../about.html">About</a>
+        &nbsp; | &nbsp;
+        <a href="../contact.html">Contact</a>
+        &nbsp; | &nbsp;
+        <a href="../privacy-policy.html">Privacy Policy</a>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    function calculatePercentage() {
+
+      const percentage =
+        parseFloat(document.getElementById("percentage").value);
+
+      const number =
+        parseFloat(document.getElementById("number").value);
+
+      const resultBox =
+        document.getElementById("result");
+
+      const resultValue =
+        document.getElementById("resultValue");
+
+      const error =
+        document.getElementById("error");
+
+
+      if (
+        Number.isNaN(percentage) ||
+        Number.isNaN(number)
+      ) {
+
+        error.style.display = "block";
+        resultBox.style.display = "none";
+
+        return;
+
+      }
+
+
+      error.style.display = "none";
+
+
+      const result =
+        (percentage / 100) * number;
+
+
+      resultValue.textContent =
+        Number(result.toFixed(10)).toLocaleString();
+
+
+      resultBox.style.display = "block";
+
+    }
+
+  </script>
+
+</body>
+  </html>
