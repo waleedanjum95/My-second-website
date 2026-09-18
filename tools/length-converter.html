@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Length Converter - Free Online Length Conversion Tool | SmartToolsKit</title>
+
+<meta name="description" content="Use our free Length Converter to convert meters, kilometers, centimeters, millimeters, miles, yards, feet and inches quickly and accurately.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f8fafc;
+color:#0f172a;
+line-height:1.6
+}
+
+a{text-decoration:none}
+
+header{
+background:#0f172a;
+padding:18px 20px
+}
+
+.nav{
+max-width:1000px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.logo{
+color:white;
+font-size:21px;
+font-weight:800
+}
+
+nav a{
+color:#cbd5e1;
+margin-left:18px;
+font-size:14px
+}
+
+.hero{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:42px 20px
+}
+
+.shape{
+width:68px;
+height:68px;
+margin:auto;
+background:#10b981;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:13px;
+font-weight:800
+}
+
+.hero h1{
+font-size:34px;
+margin:17px 0 8px
+}
+
+.hero p{
+color:#cbd5e1;
+margin:0
+}
+
+.container{
+max-width:900px;
+margin:auto
+}
+
+.card,.content{
+background:white;
+border:1px solid #e2e8f0;
+border-radius:14px;
+padding:28px;
+margin:28px 20px
+}
+
+.card h2{
+margin-top:0
+}
+
+label{
+display:block;
+font-weight:700;
+margin:15px 0 6px
+}
+
+input,select{
+width:100%;
+padding:13px;
+border:1px solid #cbd5e1;
+border-radius:8px;
+font-size:16px;
+background:white
+}
+
+button{
+width:100%;
+border:0;
+border-radius:8px;
+background:#10b981;
+color:white;
+padding:14px;
+margin-top:20px;
+font-size:16px;
+font-weight:700;
+cursor:pointer
+}
+
+button:hover{
+background:#059669
+}
+
+.result{
+display:none;
+margin-top:22px
+}
+
+.result-main{
+background:#ecfdf5;
+border:1px solid #a7f3d0;
+border-radius:10px;
+text-align:center;
+padding:20px
+}
+
+.result-value{
+font-size:32px;
+font-weight:800;
+color:#059669;
+word-break:break-word
+}
+
+.content h2{
+font-size:23px;
+margin:26px 0 10px
+}
+
+.content h2:first-child{
+margin-top:0
+}
+
+.content p,.content li{
+color:#475569;
+line-height:1.8
+}
+
+.faq{
+border-top:1px solid #e2e8f0;
+padding-top:15px;
+margin-top:15px
+}
+
+.faq strong{
+display:block;
+margin-bottom:5px
+}
+
+footer{
+background:#0f172a;
+color:#cbd5e1;
+text-align:center;
+padding:28px 15px;
+margin-top:40px;
+font-size:13px
+}
+
+footer a{
+color:#10b981;
+margin:0 6px
+}
+
+@media(max-width:650px){
+nav{display:none}
+
+.hero h1{
+font-size:29px
+}
+
+.card,.content{
+margin:20px 12px;
+padding:22px
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<a href="../index.html" class="logo">SmartToolsKit</a>
+
+<nav>
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</nav>
+
+</div>
+</header>
+
+<section class="hero">
+
+<div class="shape">↔</div>
+
+<h1>Length Converter</h1>
+
+<p>Convert length and distance measurements quickly and accurately.</p>
+
+</section>
+
+<main class="container">
+
+<section class="card">
+
+<h2>Convert Length</h2>
+
+<label for="value">Enter Value</label>
+
+<input
+id="value"
+type="number"
+placeholder="Example: 100"
+step="any"
+>
+
+<label for="from">From</label>
+
+<select id="from">
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="millimeter">Millimeter</option>
+<option value="mile">Mile</option>
+<option value="yard">Yard</option>
+<option value="foot">Foot</option>
+<option value="inch">Inch</option>
+<option value="nautical-mile">Nautical Mile</option>
+</select>
+
+<label for="to">To</label>
+
+<select id="to">
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="millimeter">Millimeter</option>
+<option value="mile">Mile</option>
+<option value="yard">Yard</option>
+<option value="foot">Foot</option>
+<option value="inch">Inch</option>
+<option value="nautical-mile">Nautical Mile</option>
+</select>
+
+<button onclick="convertLength()">Convert Length</button>
+
+<div id="result" class="result">
+
+<div class="result-main">
+
+<div>Conversion Result</div>
+
+<div class="result-value" id="resultValue">-</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="content">
+
+<h2>What Is a Length Converter?</h2>
+
+<p>
+A Length Converter is a free online tool that helps you convert measurements
+from one unit of length to another. It can be useful for everyday
+calculations, education, construction, travel, engineering, shopping and
+many other situations where different measurement systems are used.
+</p>
+
+<p>
+SmartToolsKit's Length Converter supports commonly used metric and imperial
+units including meters, kilometers, centimeters, millimeters, miles, yards,
+feet and inches. Simply enter a value, select the original unit and choose
+the unit you want to convert it into. The result is calculated instantly in
+your browser.
+</p>
+
+<h2>How to Use the Length Converter</h2>
+
+<ol>
+<li>Enter the length value you want to convert.</li>
+<li>Select the original measurement unit.</li>
+<li>Select the unit you want to convert to.</li>
+<li>Click the Convert Length button.</li>
+<li>View the conversion result instantly.</li>
+</ol>
+
+<h2>Common Length Units</h2>
+
+<p>
+The metric system commonly uses millimeters, centimeters, meters and
+kilometers. Imperial and US customary measurements commonly include inches,
+feet, yards and miles. Different units are useful for different purposes.
+For example, centimeters are often convenient for smaller objects, meters
+for everyday distances and kilometers for longer distances.
+</p>
+
+<h2>Metric Length Conversion</h2>
+
+<p>
+Metric length units are based on powers of ten, which makes conversion
+between many metric units straightforward. One meter contains 100
+centimeters and 1,000 millimeters, while one kilometer contains 1,000 meters.
+</p>
+
+<h2>Imperial Length Conversion</h2>
+
+<p>
+Imperial and US customary length measurements include inches, feet, yards
+and miles. Twelve inches make one foot, three feet make one yard and 5,280
+feet make one mile.
+</p>
+
+<h2>Why Use an Online Length Converter?</h2>
+
+<p>
+Manual unit conversion can take time and may result in calculation errors.
+An online converter provides a convenient way to perform common conversions
+without requiring complicated formulas. SmartToolsKit's converter works
+directly in your web browser and does not require a separate application or
+  external service.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+
+<strong>Is the Length Converter free?</strong>
+
+<p>
+Yes. The SmartToolsKit Length Converter is free to use.
+</p>
+
+</div>
+
+<div class="faq">
+
+<strong>Which units can I convert?</strong>
+
+<p>
+You can convert meters, kilometers, centimeters, millimeters, miles, yards,
+feet, inches and nautical miles.
+</p>
+
+</div>
+
+<div class="faq">
+
+<strong>Can I use this tool on a mobile phone?</strong>
+
+<p>
+Yes. The Length Converter is responsive and works on smartphones, tablets
+and desktop computers.
+</p>
+
+</div>
+
+<div class="faq">
+
+<strong>Does the converter require an internet connection?</strong>
+
+<p>
+Once the page has loaded, the calculation itself is performed directly in
+your browser and does not require an external calculation service.
+</p>
+
+</div>
+
+<div class="faq">
+
+<strong>How accurate are the results?</strong>
+
+<p>
+The converter uses standard mathematical conversion factors and displays
+results with up to 10 decimal places when necessary.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>© 2026 SmartToolsKit. Smart Tools. Simple Solutions.</p>
+
+<p>
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms & Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</p>
+
+</footer>
+
+<script>
+
+const units = {
+
+meter:1,
+kilometer:1000,
+centimeter:0.01,
+millimeter:0.001,
+mile:1609.344,
+yard:0.9144,
+foot:0.3048,
+inch:0.0254,
+"nautical-mile":1852
+
+};
+
+function convertLength(){
+
+const value=parseFloat(
+document.getElementById("value").value
+);
+
+const from=document.getElementById("from").value;
+
+const to=document.getElementById("to").value;
+
+if(isNaN(value)){
+
+alert("Please enter a valid length value.");
+
+return;
+
+}
+
+const meters=value*units[from];
+
+const converted=meters/units[to];
+
+const formatted=converted.toLocaleString(
+undefined,
+{
+maximumFractionDigits:10
+}
+);
+
+document.getElementById("resultValue").textContent=
+formatted+" "+getUnitName(to);
+
+document.getElementById("result").style.display="block";
+
+}
+
+function getUnitName(unit){
+
+const names={
+
+meter:"Meter",
+kilometer:"Kilometers",
+centimeter:"Centimeters",
+millimeter:"Millimeters",
+mile:"Miles",
+yard:"Yards",
+foot:"Feet",
+inch:"Inches",
+"nautical-mile":"Nautical Miles"
+
+};
+
+return names[unit];
+
+}
+
+</script>
+
+</body>
+</html>
