@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Character Counter - Free Online Character Count Tool | SmartToolsKit</title>
+
+<meta name="description" content="Use our free online Character Counter to count characters, characters without spaces, words, sentences and paragraphs instantly. No signup required.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+}
+
+header{
+  background:#fff;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.nav{
+  width:min(1100px,92%);
+  min-height:70px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#0f172a;
+  font-size:21px;
+  font-weight:800;
+}
+
+.logo-shape{
+  width:30px;
+  height:30px;
+  border-radius:8px;
+  background:#10b981;
+}
+
+nav{
+  display:flex;
+  gap:22px;
+}
+
+nav a{
+  color:#475569;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:#059669;
+}
+
+.hero{
+  background:#0f172a;
+  color:#fff;
+  text-align:center;
+  padding:55px 20px;
+}
+
+.hero-shape{
+  width:58px;
+  height:58px;
+  background:#10b981;
+  border-radius:13px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:800;
+}
+
+.hero h1{
+  font-size:clamp(32px,6vw,48px);
+  margin:16px 0 8px;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:16px;
+}
+
+.container{
+  width:min(900px,92%);
+  margin:auto;
+}
+
+.tool-card{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  padding:28px;
+  margin:30px auto;
+}
+
+.tool-card h2{
+  margin-bottom:18px;
+}
+
+textarea{
+  width:100%;
+  min-height:270px;
+  resize:vertical;
+  border:1px solid #cbd5e1;
+  border-radius:10px;
+  padding:15px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  outline:none;
+}
+
+textarea:focus{
+  border-color:#10b981;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+
+button{
+  border:none;
+  border-radius:8px;
+  padding:12px 20px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.count-btn{
+  background:#10b981;
+  color:#fff;
+}
+
+.clear-btn{
+  background:#e2e8f0;
+  color:#0f172a;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+  margin-top:22px;
+}
+
+.stat{
+  background:#f1f5f9;
+  border-radius:10px;
+  padding:17px 8px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:24px;
+  color:#059669;
+}
+
+.stat span{
+  font-size:12px;
+  color:#64748b;
+}
+
+.content{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  padding:30px;
+  margin:30px auto;
+}
+
+.content h2{
+  font-size:24px;
+  margin:28px 0 12px;
+}
+
+.content h2:first-child{
+  margin-top:0;
+}
+
+.content p,
+.content li{
+  color:#475569;
+  line-height:1.8;
+}
+
+.content ol,
+.content ul{
+  padding-left:22px;
+}
+
+.faq{
+  border-top:1px solid #e2e8f0;
+  padding:16px 0;
+}
+
+.faq strong{
+  display:block;
+  margin-bottom:6px;
+  color:#0f172a;
+}
+
+footer{
+  background:#020617;
+  color:#94a3b8;
+  text-align:center;
+  padding:30px 15px;
+  margin-top:40px;
+  font-size:13px;
+}
+
+footer a{
+  color:#94a3b8;
+  margin:0 6px;
+}
+
+footer a:hover{
+  color:#34d399;
+}
+
+@media(max-width:700px){
+
+  nav{
+    display:none;
+  }
+
+  .hero{
+    padding:45px 15px;
+  }
+
+  .tool-card,
+  .content{
+    padding:20px;
+  }
+
+  2,1fr);
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  button{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a href="../index.html" class="logo">
+<span class="logo-shape"></span>
+SmartToolsKit
+</a>
+
+<nav>
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-shape">#</div>
+
+<h1>Character Counter</h1>
+
+<p>Count characters, words, sentences and paragraphs instantly.</p>
+
+</section>
+
+
+<main class="container">
+
+<section class="tool-card">
+
+<h2>Count Your Characters</h2>
+
+<textarea
+id="textInput"
+placeholder="Type or paste your text here..."
+aria-label="Text to count"
+></textarea>
+
+<div class="buttons">
+
+<button class="count-btn" onclick="countText()">
+Count Text
+</button>
+
+<button class="clear-btn" onclick="clearText()">
+Clear
+</button>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<strong id="characters">0</strong>
+<span>Characters</span>
+</div>
+
+<div class="stat">
+<strong id="charactersNoSpaces">0</strong>
+<span>Without Spaces</span>
+</div>
+
+<div class="stat">
+<strong id="words">0</strong>
+<span>Words</span>
+</div>
+
+<div class="stat">
+<strong id="sentences">0</strong>
+<span>Sentences</span>
+</div>
+
+<div class="stat">
+<strong id="paragraphs">0</strong>
+<span>Paragraphs</span>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>What Is a Character Counter?</h2>
+
+<p>
+A Character Counter is an online text analysis tool that counts the total
+number of characters in your text. It can also calculate characters without
+spaces, words, sentences and paragraphs. This makes it useful for writers,
+students, bloggers, social media users, marketers and anyone working with
+text that has a specific length requirement.
+</p>
+
+<p>
+SmartToolsKit's Character Counter is designed to provide quick results
+without requiring registration or additional software. Enter or paste your
+text into the text box and the statistics are calculated instantly.
+</p>
+
+
+<h2>How to Use the Character Counter</h2>
+
+<ol>
+
+<li>Type or paste your text into the text area.</li>
+
+<li>Click the "Count Text" button or simply continue typing.</li>
+
+<li>Review the total character count.</li>
+
+<li>Check the character count without spaces.</li>
+
+<li>Review the word, sentence and paragraph counts.</li>
+
+<li>Use the Clear button when you want to start again.</li>
+
+</ol>
+
+
+<h2>Characters With and Without Spaces</h2>
+
+<p>
+Character count can be measured in different ways. The total character count
+includes letters, numbers, punctuation marks and spaces. The "Without
+Spaces" count excludes whitespace characters, making it useful when a
+platform or application specifies a character limit that does not count
+spaces.
+</p>
+
+
+<h2>Why Character Count Is Important</h2>
+
+<p>
+Many digital platforms use character limits. Social media posts, headlines,
+advertisements, meta descriptions, form fields and messaging services may
+have recommended or maximum lengths. Checking character count before
+publishing can help you keep your content within the required limit.
+</p>
+
+
+<h2>Character Counter for SEO</h2>
+
+<p>
+Character counting can also be useful when preparing SEO content. Website
+titles and meta descriptions are commonly written with length guidelines in
+mind. A character counter makes it easier to review text length before
+adding content to a website.
+</p>
+
+
+<h2>Character Counter for Social Media</h2>
+
+<p>
+Social media platforms can impose different text limits depending on the
+type of content. A character counter provides a convenient way to prepare
+short-form content and check its length before publishing.
+</p>
+
+
+<h2>Frequently Asked Questions</h2>
+
+
+<div class="faq">
+
+<strong>Is the Character Counter free?</strong>
+
+<p>
+Yes. SmartToolsKit's Character Counter is free to use.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Does it count spaces?</strong>
+
+<p>
+Yes. The tool provides both total characters and characters without spaces.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Can I use this tool on my phone?</strong>
+
+<p>
+Yes. The page is responsive and works on smartphones, tablets and desktop
+computers.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Does the tool require registration?</strong>
+
+<p>
+No. You can use the Character Counter without creating an account.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Can I paste a large amount of text?</strong>
+
+<p>
+Yes. You can paste text directly into the text area and the tool will
+calculate the available statistics in your browser.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+
+<a href="../index.html">Home</a>
+
+<a href="../about.html">About Us</a>
+
+<a href="../contact.html">Contact Us</a>
+
+<a href="../privacy-policy.html">Privacy Policy</a>
+
+<a href="../terms.html">Terms & Conditions</a>
+
+<a href="../disclaimer.html">Disclaimer</a>
+
+</p>
+
+</footer>
+
+
+<script>
+
+function countText(){
+
+const text =
+document.getElementById("textInput").value;
+
+const totalCharacters =
+text.length;
+
+const charactersWithoutSpaces =
+text.replace(/\s/g,"").length;
+
+const words =
+text.trim()
+? text.trim().split(/\s+/).length
+: 0;
+
+const sentences =
+text.trim()
+? text.split(/[.!?]+/)
+.filter(sentence => sentence.trim().length > 0)
+.length
+: 0;
+
+const paragraphs =
+text.trim()
+? text.split(/\n\s*\n/)
+.filter(paragraph => paragraph.trim().length > 0)
+.length
+: 0;
+
+document.getElementById("characters")
+.textContent = totalCharacters;
+
+document.getElementById("charactersNoSpaces")
+.textContent = charactersWithoutSpaces;
+
+document.getElementById("words")
+.textContent = words;
+
+document.getElementById("sentences")
+.textContent = sentences;
+
+document.getElementById("paragraphs")
+.textContent = paragraphs;
+
+}
+
+
+function clearText(){
+
+document.getElementById("textInput").value = "";
+
+document.getElementById("characters")
+.textContent = "0";
+
+document.getElementById("charactersNoSpaces")
+.textContent = "0";
+
+document.getElementById("words")
+.textContent = "0";
+
+document.getElementById("sentences")
+.textContent = "0";
+
+document.getElementById("paragraphs")
+.textContent = "0";
+
+}
+
+
+document.getElementById("textInput")
+.addEventListener("input",countText);
+
+</script>
+
+</body>
+</html>
