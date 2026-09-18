@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Discount Calculator - Calculate Sale Price & Savings | SmartToolsKit</title>
+
+<meta name="description" content="Use our free Discount Calculator to calculate discount amount, final sale price and total savings quickly and easily. Mobile friendly and simple to use.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.netlify.app/tools/discount-calculator.html">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.6}
+a{text-decoration:none}
+header{background:#0f172a;padding:18px 20px}
+.nav{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+.logo{color:white;font-size:21px;font-weight:800}
+nav a{color:#cbd5e1;margin-left:18px;font-size:14px}
+.hero{background:#0f172a;color:white;text-align:center;padding:42px 20px}
+.shape{width:68px;height:68px;margin:auto;background:#10b981;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800}
+.hero h1{font-size:34px;margin:17px 0 8px}
+.hero p{color:#cbd5e1;margin:0}
+.container{max-width:900px;margin:auto}
+.card,.content{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:28px;margin:28px 20px}
+.card h2{margin-top:0}
+label{display:block;font-weight:700;margin:15px 0 6px}
+input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px}
+button{width:100%;border:0;border-radius:8px;background:#10b981;color:white;padding:14px;margin-top:20px;font-size:16px;font-weight:700;cursor:pointer}
+button:hover{background:#059669}
+.result{display:none;margin-top:22px}
+.result-main{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;text-align:center;padding:20px;margin-bottom:14px}
+.final{font-size:32px;font-weight:800;color:#059669}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:9px;text-align:center;padding:15px}
+.box span{display:block;color:#64748b;font-size:12px}
+.box strong{font-size:17px}
+.content h2{font-size:23px;margin:26px 0 10px}
+.content h2:first-child{margin-top:0}
+.content p,.content li{color:#475569;line-height:1.8}
+.formula{background:#f1f5f9;border-left:4px solid #10b981;padding:15px;margin:15px 0;font-weight:700}
+.faq{border-top:1px solid #e2e8f0;padding-top:15px;margin-top:15px}
+.faq strong{display:block;margin-bottom:5px}
+footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:28px 15px;margin-top:40px;font-size:13px}
+footer a{color:#10b981;margin:0 6px}
+@media(max-width:650px){
+nav{display:none}
+.hero h1{font-size:29px}
+.card,.content{margin:20px 12px;padding:22px}
+.grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<a href="../index.html" class="logo">SmartToolsKit</a>
+<nav>
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="shape">%</div>
+<h1>Discount Calculator</h1>
+<p>Calculate your discount, savings and final sale price instantly.</p>
+</section>
+
+<main class="container">
+
+<section class="card">
+<h2>Calculate Your Discount</h2>
+
+<label for="price">Original Price</label>
+<input id="price" type="number" placeholder="Example: 1000" min="0" step="0.01">
+
+<label for="discount">Discount Percentage (%)</label>
+<input id="discount" type="number" placeholder="Example: 20" min="0" max="100" step="0.01">
+
+<button onclick="calculateDiscount()">Calculate Discount</button>
+
+<div id="result" class="result">
+
+<div class="result-main">
+<div>Final Price</div>
+<div class="final" id="finalPrice">-</div>
+</div>
+
+<div class="grid">
+
+<div class="box">
+<span>Original Price</span>
+<strong id="originalPrice">-</strong>
+</div>
+
+<div class="box">
+<span>Discount</span>
+<strong id="discountPercent">-</strong>
+</div>
+
+<div class="box">
+<span>You Save</span>
+<strong id="savedAmount">-</strong>
+</div>
+
+<div class="box">
+<span>Final Price</span>
+<strong id="salePrice">-</strong>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="content">
+
+<h2>What Is a Discount Calculator?</h2>
+
+<p>
+A Discount Calculator is a simple online tool that helps you determine how
+much money you can save when an item is offered at a percentage discount.
+It also calculates the final price after the discount has been applied.
+</p>
+
+<p>
+SmartToolsKit's free Discount Calculator is useful for shopping, budgeting,
+retail pricing and everyday calculations. Enter the original price and
+discount percentage to instantly calculate your savings and final sale price.
+</p>
+
+<h2>How to Use the Discount Calculator</h2>
+
+<ol>
+<li>Enter the original price of the product.</li>
+<li>Enter the discount percentage.</li>
+<li>Click Calculate Discount.</li>
+<li>View the discount amount and final price.</li>
+</ol>
+
+<h2>Discount Formula</h2>
+
+<div class="formula">
+Discount Amount = Original Price × Discount Percentage ÷ 100
+</div>
+
+<div class="formula">
+Final Price = Original Price − Discount Amount
+</div>
+
+<h2>Example</h2>
+
+<p>
+Suppose an item costs 2,000 and has a 25% discount. The discount amount is
+500, so the final price is 1,500. This means the customer saves 500 from the
+original price.
+</p>
+
+<h2>Why Use a Discount Calculator?</h2>
+
+<p>
+Calculating discounts mentally can be difficult, especially when comparing
+multiple products or different promotional offers. A discount calculator
+provides a quick and reliable way to check your actual savings and final
+price before making a purchase.
+</p>
+
+<h2>How Discount Percentages Work</h2>
+
+<p>
+A percentage discount represents a portion of the original price that is
+removed from the selling price. For example, a 10% discount means that the
+customer pays 90% of the original price, while a 50% discount means the
+customer pays half of the original price.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+<strong>How is the discount amount calculated?</strong>
+<p>
+The discount amount is calculated by multiplying the original price by the
+discount percentage and dividing the result by 100.
+</p>
+</div>
+
+<div class="faq">
+<strong>How do I calculate the final sale price?</strong>
+<p>
+Subtract the discount amount from the original price to calculate the final
+sale price.
+</p>
+</div>
+
+<div class="faq">
+<strong>Is this Discount Calculator free?</strong>
+<p>
+Yes. SmartToolsKit provides this calculator free to use online.
+</p>
+</div>
+
+<div class="faq">
+<strong>Can I use this calculator on my phone?</strong>
+<p>
+Yes. The calculator is designed to work on smartphones, tablets and desktop
+computers.
+</p>
+</div>
+
+<div class="faq">
+<strong>Can I calculate a 100% discount?</strong>
+<p>
+Yes. A 100% discount results in a final price of zero, assuming no additional
+fees or charges apply.
+</p>
+</div>
+
+</section>
+</main>
+
+<footer>
+<p>© 2026 SmartToolsKit. Smart Tools. Simple Solutions.</p>
+
+<p>
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms & Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</p>
+</footer>
+
+<script>
+function calculateDiscount(){
+
+const price=parseFloat(document.getElementById("price").value);
+const discount=parseFloat(document.getElementById("discount").value);
+
+if(isNaN(price)||price<0||isNaN(discount)||discount<0||discount>100){
+alert("Please enter a valid price and discount between 0% and 100%.");
+return;
+}
+
+const saved=price*discount/100;
+const finalPrice=price-saved;
+
+const format=n=>n.toLocaleString(undefined,{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+});
+
+document.getElementById("finalPrice").textContent=format(finalPrice);
+document.getElementById("originalPrice").textContent=format(price);
+document.getElementById("discountPercent").textContent=discount+"%";
+document.getElementById("savedAmount").textContent=format(saved);
+document.getElementById("salePrice").textContent=format(finalPrice);
+
+document.getElementById("result").style.display="block";
+}
+</script>
+
+</body>
+</html>
