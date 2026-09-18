@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loan EMI Calculator - Free Monthly Payment Calculator | SmartToolsKit</title>
+
+<meta name="description" content="Calculate your monthly loan EMI, total interest and total repayment with our free Loan EMI Calculator. Easy, fast and mobile friendly.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://smarttoolskit.netlify.app/tools/loan-emi-calculator.html">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.6}
+a{text-decoration:none}
+header{background:#0f172a;padding:18px 20px}
+.nav{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+.logo{color:white;font-size:21px;font-weight:800}
+nav a{color:#cbd5e1;margin-left:18px;font-size:14px}
+.hero{background:#0f172a;color:white;text-align:center;padding:42px 20px}
+.shape{width:68px;height:68px;margin:auto;background:#10b981;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.hero h1{font-size:34px;margin:17px 0 8px}
+.hero p{color:#cbd5e1;margin:0}
+.container{max-width:900px;margin:auto}
+.card,.content{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:28px;margin:28px 20px}
+.card h2{margin-top:0}
+label{display:block;font-weight:700;margin:15px 0 6px}
+input,select{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:white}
+button{width:100%;border:0;border-radius:8px;background:#10b981;color:white;padding:14px;margin-top:20px;font-size:16px;font-weight:700;cursor:pointer}
+button:hover{background:#059669}
+.result{display:none;margin-top:22px}
+.result-main{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;text-align:center;padding:20px;margin-bottom:14px}
+.emi{font-size:34px;font-weight:800;color:#059669}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:9px;text-align:center;padding:15px}
+.box span{display:block;color:#64748b;font-size:12px}
+.box strong{font-size:17px}
+.content h2{font-size:23px;margin:26px 0 10px}
+.content h2:first-child{margin-top:0}
+.content p,.content li{color:#475569;line-height:1.8}
+.formula{background:#f1f5f9;border-left:4px solid #10b981;padding:15px;margin:15px 0;font-weight:700}
+.faq{border-top:1px solid #e2e8f0;padding-top:15px;margin-top:15px}
+.faq strong{display:block;margin-bottom:5px}
+footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:28px 15px;margin-top:40px;font-size:13px}
+footer a{color:#10b981;margin:0 6px}
+@media(max-width:650px){
+nav{display:none}
+.hero h1{font-size:29px}
+.card,.content{margin:20px 12px;padding:22px}
+.grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<a href="../index.html" class="logo">SmartToolsKit</a>
+<nav>
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="shape">EMI</div>
+<h1>Loan EMI Calculator</h1>
+<p>Calculate your monthly loan payment, total interest and total repayment.</p>
+</section>
+
+<main class="container">
+
+<section class="card">
+<h2>Calculate Your Loan EMI</h2>
+
+<label for="amount">Loan Amount</label>
+<input id="amount" type="number" placeholder="Example: 1000000" min="1">
+
+<label for="rate">Annual Interest Rate (%)</label>
+<input id="rate" type="number" placeholder="Example: 10" min="0" step="0.01">
+
+<label for="years">Loan Tenure (Years)</label>
+<input id="years" type="number" placeholder="Example: 5" min="1" step="0.1">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<div id="result" class="result">
+
+<div class="result-main">
+<div>Monthly EMI</div>
+<div class="emi" id="emi">-</div>
+</div>
+
+<div class="grid">
+
+<div class="box">
+<span>Loan Amount</span>
+<strong id="loanAmount">-</strong>
+</div>
+
+<div class="box">
+<span>Total Interest</span>
+<strong id="interest">-</strong>
+</div>
+
+<div class="box">
+<span>Total Payment</span>
+<strong id="total">-</strong>
+</div>
+
+<div class="box">
+<span>Loan Tenure</span>
+<strong id="tenure">-</strong>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="content">
+
+<h2>What Is a Loan EMI Calculator?</h2>
+
+<p>
+A Loan EMI Calculator is an online financial tool that estimates the fixed
+monthly payment required to repay a loan over a selected period. EMI stands
+for Equated Monthly Instalment. It generally includes both the principal
+amount and the interest charged by the lender.
+</p>
+
+<p>
+SmartToolsKit's free Loan EMI Calculator allows you to enter the loan amount,
+annual interest rate and repayment period. The calculator then estimates the
+monthly EMI, total interest and total amount payable.
+</p>
+
+<h2>How to Use the EMI Calculator</h2>
+
+<ol>
+<li>Enter the amount you want to borrow.</li>
+<li>Enter the annual interest rate.</li>
+<li>Enter the loan tenure in years.</li>
+<li>Click Calculate EMI.</li>
+<li>Review your estimated monthly payment and total repayment.</li>
+</ol>
+
+<h2>EMI Formula</h2>
+
+<div class="formula">
+EMI = P × r × (1 + r)ⁿ ÷ [(1 + r)ⁿ − 1]
+</div>
+
+<p>
+In this formula, P represents the principal loan amount, r represents the
+monthly interest rate and n represents the total number of monthly
+instalments.
+</p>
+
+<h2>Why Use a Loan EMI Calculator?</h2>
+
+<p>
+A loan calculator can help you estimate repayment costs before applying for
+financing. Comparing different loan amounts, interest rates and repayment
+periods can help you understand how these variables affect your estimated
+monthly payment and overall interest cost.
+</p>
+
+<h2>Factors That Affect Your EMI</h2>
+
+<ul>
+<li><strong>Loan amount:</strong> A larger principal generally produces a higher EMI.</li>
+<li><strong>Interest rate:</strong> A higher rate generally increases borrowing costs.</li>
+<li><strong>Loan tenure:</strong> A longer repayment period can reduce the monthly EMI but may increase total interest.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+<strong>What does EMI mean?</strong>
+<p>EMI means Equated Monthly Instalment. It is the scheduled payment made toward a loan each month.</p>
+</div>
+
+<div class="faq">
+<strong>Is this Loan EMI Calculator free?</strong>
+<p>Yes. SmartToolsKit provides this calculator free to use online.</p>
+</div>
+
+<div class="faq">
+<strong>Does the calculator store my financial information?</strong>
+<p>No financial information is submitted to this calculator. The calculation is performed directly in your browser.</p>
+</div>
+
+<div class="faq">
+<strong>Does a longer loan tenure reduce EMI?</strong>
+<p>A longer tenure can reduce the monthly payment, but it may result in more total interest being paid over the life of the loan.</p>
+</div>
+
+<div class="faq">
+<strong>Is the result an official loan quotation?</strong>
+<p>No. The result is an estimate. Actual loan payments can vary because lenders may use different rates, fees, taxes or repayment terms.</p>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 SmartToolsKit. Smart Tools. Simple Solutions.</p>
+<p>
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms & Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</p>
+</footer>
+
+<script>
+function calculateEMI(){
+
+const P=parseFloat(document.getElementById("amount").value);
+const annualRate=parseFloat(document.getElementById("rate").value);
+const years=parseFloat(document.getElementById("years").value);
+
+if(!P||P<=0||annualRate<0||!years||years<=0){
+alert("Please enter valid loan details.");
+return;
+}
+
+const n=Math.round(years*12);
+const r=annualRate/100/12;
+
+let emi;
+
+if(r===0){
+emi=P/n;
+}else{
+emi=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+}
+
+const total=emi*n;
+const interest=total-P;
+
+document.getElementById("emi").textContent=emi.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+document.getElementById("loanAmount").textContent=P.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+document.getElementById("interest").textContent=interest.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+document.getElementById("total").textContent=total.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+document.getElementById("tenure").textContent=n+" months";
+
+document.getElementById("result").style.display="block";
+}
+</script>
+
+</body>
+</html>
