@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unit Converter - Free Online Length, Weight & Temperature Converter | SmartToolsKit</title>
+
+<meta name="description" content="Free online unit converter for length, weight and temperature. Convert meters, kilometers, miles, feet, kilograms, pounds, Celsius, Fahrenheit and more instantly.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav {
+  width: min(1100px, 92%);
+  min-height: 70px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0f172a;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.logo-shape {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #10b981;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #059669;
+}
+
+.hero {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 55px 20px;
+}
+
+.hero-shape {
+  width: 58px;
+  height: 58px;
+  background: #10b981;
+  border-radius: 13px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  margin: 16px 0 8px;
+}
+
+.hero p {
+  color: #cbd5e1;
+  font-size: 16px;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: auto;
+}
+
+.converter-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+  margin: 30px auto;
+}
+
+.converter-card h2 {
+  margin-bottom: 20px;
+}
+
+.field-group {
+  margin-bottom: 18px;
+}
+
+.field-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #ffffff;
+  font-size: 15px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #10b981;
+}
+
+.convert-button {
+  width: 100%;
+  border: none;
+  border-radius: 9px;
+  padding: 13px;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.convert-button:hover {
+  background: #059669;
+}
+
+.result {
+  margin-top: 22px;
+  padding: 18px;
+  background: #ecfdf5;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.result span {
+  display: block;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.result strong {
+  display: block;
+  color: #059669;
+  font-size: 25px;
+  margin-top: 5px;
+  word-break: break-word;
+}
+
+.content {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px auto;
+}
+
+.content h2 {
+  font-size: 24px;
+  margin: 28px 0 12px;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content p,
+.content li {
+  color: #475569;
+  line-height: 1.8;
+}
+
+.content ul {
+  padding-left: 22px;
+}
+
+.faq {
+  border-top: 1px solid #e2e8f0;
+  padding: 16px 0;
+}
+
+.faq strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+
+footer {
+  background: #020617;
+  color: #94a3b8;
+  text-align: center;
+  padding: 30px 15px;
+  margin-top: 40px;
+  font-size: 13px;
+}
+
+footer a {
+  color: #94a3b8;
+  margin: 0 6px;
+}
+
+footer a:hover {
+  color: #34d399;
+}
+
+@media (max-width: 700px) {
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 45px 15px;
+  }
+
+  .converter-card,
+  .content {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a href="../index.html" class="logo">
+<span class="logo-shape"></span>
+SmartToolsKit
+</a>
+
+<nav>
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-shape">↔</div>
+
+<h1>Unit Converter</h1>
+
+<p>Convert length, weight and temperature units quickly and accurately.</p>
+
+</section>
+
+
+<main class="container">
+
+
+<section class="converter-card">
+
+<h2>Free Unit Converter</h2>
+
+
+<div class="field-group">
+
+<label for="category">Conversion Type</label>
+
+<select id="category" onchange="updateUnits()">
+
+<option value="length">Length</option>
+
+<option value="weight">Weight</option>
+
+<option value="temperature">Temperature</option>
+
+</select>
+
+</div>
+
+
+<div class="field-group">
+
+<label for="amount">Enter Value</label>
+
+<input
+type="number"
+id="amount"
+placeholder="Enter a value"
+step="any"
+>
+
+</div>
+
+
+<div class="field-group">
+
+<label for="fromUnit">From</label>
+
+<select id="fromUnit"></select>
+
+</div>
+
+
+<div class="field-group">
+
+<label for="toUnit">To</label>
+
+<select id="toUnit"></select>
+
+</div>
+
+
+<button class="convert-button" onclick="convertUnit()">
+Convert
+</button>
+
+
+<div class="result">
+
+<span>Conversion Result</span>
+
+<strong id="result">Enter a value and click Convert</strong>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>What Is a Unit Converter?</h2>
+
+<p>
+A unit converter is an online utility that changes a measurement from one
+unit into another equivalent unit. Unit conversion is useful in everyday
+life, education, business, engineering, construction, science and many
+other fields.
+</p>
+
+<p>
+SmartToolsKit's Unit Converter provides quick conversions for common length,
+weight and temperature units. The tool works directly in your browser and
+does not require registration or software installation.
+</p>
+
+
+<h2>How to Use the Unit Converter</h2>
+
+<ul>
+
+<li>Select the type of measurement you want to convert.</li>
+
+<li>Enter the value you want to convert.</li>
+
+<li>Select the original unit in the "From" field.</li>
+
+<li>Select the unit you want in the "To" field.</li>
+
+<li>Click the Convert button.</li>
+
+<li>The converted result will appear immediately.</li>
+
+</ul>
+
+
+<h2>Length Converter</h2>
+
+<p>
+The length converter can convert common measurements such as meters,
+kilometers, centimeters, millimeters, miles, yards, feet and inches. It is
+useful for travel, construction, education and everyday measurements.
+</p>
+
+
+<h2>Weight Converter</h2>
+
+<p>
+The weight converter supports common units including kilograms, grams,
+pounds and ounces. It can help when comparing measurements used in different
+countries and measurement systems.
+</p>
+
+
+<h2>Temperature Converter</h2>
+
+<p>
+The temperature converter supports Celsius, Fahrenheit and Kelvin. These
+units are commonly used in weather information, science, cooking and
+technical applications.
+</p>
+
+
+<h2>Why Use an Online Unit Converter?</h2>
+
+<p>
+Manual conversion can require formulas and calculations. An online unit
+converter provides a convenient way to perform common conversions quickly.
+It can also reduce simple calculation errors when working with unfamiliar
+measurement systems.
+</p>
+
+
+<h2>Frequently Asked Questions</h2>
+
+
+<div class="faq">
+
+<strong>Is this Unit Converter free?</strong>
+
+<p>
+Yes. The SmartToolsKit Unit Converter is free to use.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Which measurements can I convert?</strong>
+
+<p>
+The tool currently supports length, weight and temperature conversions.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Does the converter work on mobile phones?</strong>
+
+<p>
+Yes. The page is designed to work on smartphones, tablets and desktop
+computers.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Do I need to create an account?</strong>
+
+<p>
+No. The converter can be used without registration.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+
+<a href="../index.html">Home</a>
+
+<a href="../about.html">About Us</a>
+
+<a href="../contact.html">Contact Us</a>
+
+<a href="../privacy-policy.html">Privacy Policy</a>
+
+<a href="../terms.html">Terms & Conditions</a>
+
+<a href="../disclaimer.html">Disclaimer</a>
+
+</p>
+
+</footer>
+
+
+<script>
+
+const units = {
+
+length: {
+  meter: 1,
+  kilometer: 1000,
+  centimeter: 0.01,
+  millimeter: 0.001,
+  mile: 1609.344,
+  yard: 0.9144,
+  foot: 0.3048,
+  inch: 0.0254
+},
+
+weight: {
+  kilogram: 1,
+  gram: 0.001,
+  pound: 0.45359237,
+  ounce: 0.028349523125
+},
+
+temperature: {
+  celsius: "C",
+  fahrenheit: "F",
+  kelvin: "K"
+}
+
+};
+
+
+const unitNames = {
+
+meter: "Meters",
+kilometer: "Kilometers",
+centimeter: "Centimeters",
+millimeter: "Millimeters",
+mile: "Miles",
+yard: "Yards",
+foot: "Feet",
+inch: "Inches",
+
+kilogram: "Kilograms",
+gram: "Grams",
+pound: "Pounds",
+ounce: "Ounces",
+
+celsius: "Celsius",
+fahrenheit: "Fahrenheit",
+kelvin: "Kelvin"
+
+};
+
+
+function updateUnits() {
+
+const category =
+document.getElementById("category").value;
+
+const from =
+document.getElementById("fromUnit");
+
+const to =
+document.getElementById("toUnit");
+
+from.innerHTML = "";
+to.innerHTML = "";
+
+Object.keys(units[category]).forEach(function(unit) {
+
+const option1 =
+document.createElement("option");
+
+option1.value = unit;
+option1.textContent = unitNames[unit];
+
+from.appendChild(option1);
+
+
+const option2 =
+document.createElement("option");
+
+option2.value = unit;
+option2.textContent = unitNames[unit];
+
+to.appendChild(option2);
+
+});
+
+
+if (category === "length") {
+
+from.value = "meter";
+to.value = "kilometer";
+
+}
+
+if (category === "weight") {
+
+from.value = "kilogram";
+to.value = "pound";
+
+}
+
+if (category === "temperature") {
+
+from.value = "celsius";
+to.value = "fahrenheit";
+
+}
+
+}
+
+
+function convertTemperature(value, from, to) {
+
+let celsius;
+
+if (from === "celsius") {
+
+celsius = value;
+
+}
+
+else if (from === "fahrenheit") {
+
+celsius = (value - 32) * 5 / 9;
+
+}
+
+else if (from === "kelvin") {
+
+celsius = value - 273.15;
+
+}
+
+
+if (to === "celsius") {
+
+return celsius;
+
+}
+
+if (to === "fahrenheit") {
+
+return (celsius * 9 / 5) + 32;
+
+}
+
+if (to === "kelvin") {
+
+return celsius + 273.15;
+
+}
+
+}
+
+
+function convertUnit() {
+
+const category =
+document.getElementById("category").value;
+
+const amount =
+parseFloat(document.getElementById("amount").value);
+
+const from =
+document.getElementById("fromUnit").value;
+
+const to =
+document.getElementById("toUnit").value;
+
+const result =
+document.getElementById("result");
+
+
+if (isNaN(amount)) {
+
+result.textContent =
+"Please enter a valid number.";
+
+return;
+
+}
+
+
+let converted;
+
+
+if (category === "temperature") {
+
+converted =
+convertTemperature(amount, from, to);
+
+}
+
+else {
+
+const baseValue =
+amount * units[category][from];
+
+converted =
+baseValue / units[category][to];
+
+}
+
+
+if (Math.abs(converted) < 0.000001 && converted !== 0) {
+
+converted = converted.toExponential(6);
+
+}
+
+else {
+
+converted =
+parseFloat(converted.toFixed(8));
+
+}
+
+
+result.textContent =
+amount + " " +
+unitNames[from] +
+" = " +
+converted + " " +
+unitNames[to];
+
+}
+
+
+updateUnits();
+
+</script>
+
+</body>
+  </html>
