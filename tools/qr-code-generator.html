@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Code Generator - Free Online QR Code Maker | SmartToolsKit</title>
+
+<meta name="description" content="Create free QR codes online from text, URLs and other information with SmartToolsKit QR Code Generator. Fast, simple and easy to use.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav {
+  width: min(1100px, 92%);
+  min-height: 70px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0f172a;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.logo-shape {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #10b981;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #059669;
+}
+
+.hero {
+  background: #0f172a;
+  color: #ffffff;
+  text-align: center;
+  padding: 55px 20px;
+}
+
+.hero-shape {
+  width: 58px;
+  height: 58px;
+  background: #10b981;
+  border-radius: 13px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  margin: 16px 0 8px;
+}
+
+.hero p {
+  color: #cbd5e1;
+  font-size: 16px;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: auto;
+}
+
+.tool-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+  margin: 30px auto;
+}
+
+.tool-card h2 {
+  margin-bottom: 18px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #10b981;
+}
+
+.generate-button {
+  width: 100%;
+  margin-top: 14px;
+  border: none;
+  border-radius: 9px;
+  padding: 13px;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  background: #059669;
+}
+
+.qr-result {
+  display: none;
+  margin-top: 25px;
+  text-align: center;
+  padding: 20px;
+  background: #f1f5f9;
+  border-radius: 12px;
+}
+
+#qrcode {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 18px;
+}
+
+.download-button {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.content {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px auto;
+}
+
+.content h2 {
+  font-size: 24px;
+  margin: 28px 0 12px;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content p,
+.content li {
+  color: #475569;
+  line-height: 1.8;
+}
+
+.content ul {
+  padding-left: 22px;
+}
+
+.faq {
+  border-top: 1px solid #e2e8f0;
+  padding: 16px 0;
+}
+
+.faq strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+
+footer {
+  background: #020617;
+  color: #94a3b8;
+  text-align: center;
+  padding: 30px 15px;
+  margin-top: 40px;
+  font-size: 13px;
+}
+
+footer a {
+  color: #94a3b8;
+  margin: 0 6px;
+}
+
+footer a:hover {
+  color: #34d399;
+}
+
+@media (max-width: 700px) {
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 45px 15px;
+  }
+
+  .tool-card,
+  .content {
+    padding: 20px;
+  }
+
+  #qrcode img,
+  #qrcode canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a href="../index.html" class="logo">
+<span class="logo-shape"></span>
+SmartToolsKit
+</a>
+
+<nav>
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-shape">QR</div>
+
+<h1>QR Code Generator</h1>
+
+<p>Create QR codes from text, links and other information.</p>
+
+</section>
+
+
+<main class="container">
+
+<section class="tool-card">
+
+<h2>Create Your QR Code</h2>
+
+<textarea
+id="qrText"
+placeholder="Enter text or paste a URL here..."
+aria-label="Text or URL for QR code"
+></textarea>
+
+<button
+class="generate-button"
+onclick="generateQR()"
+>
+Generate QR Code
+</button>
+
+
+<div class="qr-result" id="qrResult">
+
+<div id="qrcode"></div>
+
+<button
+class="download-button"
+onclick="downloadQR()"
+>
+Download QR Code
+</button>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>What Is a QR Code?</h2>
+
+<p>
+A QR code is a two-dimensional barcode that can store information such as
+website URLs, text, contact details and other data. Smartphones can scan QR
+codes quickly using their camera or a compatible QR scanning application.
+</p>
+
+<p>
+SmartToolsKit's QR Code Generator provides a simple way to create QR codes
+from text and website links. You can generate a code directly in your
+browser without creating an account.
+</p>
+
+
+<h2>How to Create a QR Code</h2>
+
+<ul>
+
+<li>Enter text or a website URL in the text box.</li>
+
+<li>Click the "Generate QR Code" button.</li>
+
+<li>Your QR code will appear below the input box.</li>
+
+<li>Click "Download QR Code" to save the generated image.</li>
+
+</ul>
+
+
+<h2>What Can You Put in a QR Code?</h2>
+
+<p>
+You can use a QR code for website addresses, plain text, contact
+information, product information, event details and many other types of
+text-based information.
+</p>
+
+
+<h2>QR Codes for Websites</h2>
+
+<p>
+QR codes are commonly used to make website addresses easier to access.
+Instead of manually typing a long URL on a mobile phone, users can scan the
+QR code and open the corresponding website.
+</p>
+
+
+<h2>QR Codes for Business</h2>
+
+<p>
+  <p>
+Businesses can use QR codes on printed materials, menus, brochures,
+packaging, posters and promotional materials. A QR code can provide a quick
+connection between offline materials and online information.
+</p>
+
+
+<h2>Frequently Asked Questions</h2>
+
+
+<div class="faq">
+
+<strong>Is the QR Code Generator free?</strong>
+
+<p>
+Yes. The SmartToolsKit QR Code Generator is free to use.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Can I create a QR code for a website?</strong>
+
+<p>
+Yes. Enter the complete website address and generate the QR code.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Can I download the QR code?</strong>
+
+<p>
+Yes. After generating the QR code, use the Download QR Code button.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Does it work on mobile phones?</strong>
+
+<p>
+Yes. The QR Code Generator is designed to work on smartphones, tablets and
+desktop computers.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+
+<a href="../index.html">Home</a>
+
+<a href="../about.html">About Us</a>
+
+<a href="../contact.html">Contact Us</a>
+
+<a href="../privacy-policy.html">Privacy Policy</a>
+
+<a href="../terms.html">Terms & Conditions</a>
+
+<a href="../disclaimer.html">Disclaimer</a>
+
+</p>
+
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+
+function generateQR() {
+
+const text =
+document.getElementById("qrText").value.trim();
+
+const qrContainer =
+document.getElementById("qrcode");
+
+const qrResult =
+document.getElementById("qrResult");
+
+
+if (!text) {
+
+alert("Please enter text or a URL first.");
+
+return;
+
+}
+
+
+qrContainer.innerHTML = "";
+
+new QRCode(qrContainer, {
+
+text: text,
+
+width: 220,
+
+height: 220,
+
+colorDark: "#0f172a",
+
+colorLight: "#ffffff",
+
+correctLevel: QRCode.CorrectLevel.H
+
+});
+
+
+qrResult.style.display = "block";
+
+}
+
+
+function downloadQR() {
+
+const qrContainer =
+document.getElementById("qrcode");
+
+const canvas =
+qrContainer.querySelector("canvas");
+
+if (!canvas) {
+
+alert("Please generate a QR code first.");
+
+return;
+
+}
+
+
+const link =
+document.createElement("a");
+
+link.download =
+"smarttoolskit-qr-code.png";
+
+link.href =
+canvas.toDataURL("image/png");
+
+link.click();
+
+}
+
+</script>
+
+</body>
+</html>
