@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Slug Generator - Free SEO URL Slug Generator | SmartToolsKit</title>
@@ -11,6 +13,7 @@
 <meta name="robots" content="index, follow">
 
 <style>
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,6 +28,7 @@ body {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 
@@ -77,7 +81,7 @@ nav a:hover {
   background: #0f172a;
   color: #ffffff;
   text-align: center;
-  padding: 55px 20px;
+  padding: 60px 20px;
 }
 
 .hero-shape {
@@ -89,7 +93,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
 }
 
@@ -113,7 +117,8 @@ nav a:hover {
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 28px;
-margin: 30px auto;
+  margin: 30px auto;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
 }
 
 .tool-card h2 {
@@ -129,7 +134,7 @@ margin: 30px auto;
 
 textarea {
   width: 100%;
-  min-height: 140px;
+  min-height: 150px;
   resize: vertical;
   border: 1px solid #cbd5e1;
   border-radius: 10px;
@@ -223,7 +228,8 @@ textarea:focus {
 .copy-button:hover {
   background: #1e293b;
 }
-  .content {
+
+.content {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
@@ -300,144 +306,289 @@ footer a:hover {
   .copy-button {
     min-height: 44px;
   }
+
 }
-  </style>
+
+</style>
+
 </head>
 
 <body>
 
 <header>
-  <div class="container nav">
-    <a href="../index.html" class="logo">
-      <span class="logo-shape"></span>
-      SmartToolsKit
-    </a>
 
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../index.html#tools">Tools</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
-    </nav>
-  </div>
+<div class="nav">
+
+<a href="../index.html" class="logo">
+
+<span class="logo-shape"></span>
+
+SmartToolsKit
+
+</a>
+
+<nav>
+
+<a href="../index.html">Home</a>
+
+<a href="../index.html#tools">Tools</a>
+
+<a href="../about.html">About</a>
+
+<a href="../contact.html">Contact</a>
+
+</nav>
+
+</div>
+
 </header>
 
-<main>
 
 <section class="hero">
-  <div class="container">
-    <h1>QR Code Generator</h1>
 
-    <p>
-      Create a QR code quickly and easily from text, website URLs,
-      contact information and other useful data.
-    </p>
-  </div>
+<div class="hero-shape">S</div>
+
+<h1>Slug Generator</h1>
+
+<p>
+Create clean and SEO-friendly URL slugs from titles and text.
+</p>
+
 </section>
 
-<section>
-  <div class="container">
 
-    <div class="tool-card">
+<main class="container">
 
-      <h2>Generate Your QR Code</h2>
 
-      <label class="field-label" for="qrText">
-        Enter Text or URL
-      </label>
+<section class="tool-card">
 
-      <textarea
-        id="qrText"
-        placeholder="Enter a website URL, text or other information..."
-      ></textarea>
+<h2>Generate Your URL Slug</h2>
 
-      <button class="generate-button" id="generateButton">
-        Generate QR Code
-      </button>
+<label class="field-label" for="inputText">
+Enter your title or text
+</label>
 
-      <div class="result-box" id="resultBox" style="display:none;">
+<textarea
+id="inputText"
+placeholder="Example: 10 Best Tips for Improving Website SEO"
+></textarea>
 
-        <span class="result-label">
-          Your QR Code
-        </span>
 
-        <div id="qrCode" style="text-align:center; padding:15px;"></div>
+<div class="options">
 
-        <div class="result-row">
-          <input
-            type="text"
-            id="qrResult"
-            class="result-input"
-            readonly
-          >
+<label>
 
-          <button class="copy-button" id="copyButton">
-            Copy
-          </button>
-        </div>
+<input
+type="checkbox"
+id="lowercase"
+checked
+>
 
-      </div>
+Lowercase
 
-    </div>
+</label>
 
-  </div>
+
+<label>
+
+<input
+type="checkbox"
+id="removeNumbers"
+>
+
+Remove numbers
+
+</label>
+
+
+<label>
+
+<input
+type="checkbox"
+id="removeStopWords"
+>
+
+Remove common words
+
+</label>
+
+</div>
+
+
+<button
+class="generate-button"
+id="generateButton"
+>
+Generate Slug
+</button>
+
+
+<div class="result-box">
+
+<span class="result-label">
+Generated URL Slug
+</span>
+
+<div class="result-row">
+
+<input
+type="text"
+id="slugResult"
+class="result-input"
+readonly
+placeholder="Your slug will appear here"
+>
+
+<button
+class="copy-button"
+id="copyButton"
+>
+Copy
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<section>
-  <div class="container content">
 
-    <h2>What Is a QR Code Generator?</h2>
+<section class="content">
+
+
+<h2>What Is a URL Slug?</h2>
 
 <p>
-A QR Code Generator creates a scannable code from text, URLs and other
-information. QR codes make it easy for smartphone users to access digital
-content without typing long addresses.
+A URL slug is the readable part of a web address that identifies a specific
+page. For example, in a URL such as example.com/seo-tips, the phrase
+"seo-tips" is the URL slug.
 </p>
 
 <p>
-SmartToolsKit's free QR Code Generator is simple, fast and works directly
-in your web browser. No signup or software installation is required.
+A clean URL slug can make a web address easier for users to understand and
+can help search engines interpret the subject of a page.
 </p>
 
-<h2>How to Use the QR Code Generator</h2>
 
-<ol>
-  <li>Enter your text or website URL.</li>
-  <li>Click the Generate QR Code button.</li>
-  <li>Wait for the QR code to appear.</li>
-  <li>Scan the QR code with your smartphone camera.</li>
-</ol>
+<h2>How to Use the Slug Generator</h2>
 
-<h2>QR Codes for Websites</h2>
+<ul>
+
+<li>Enter your page title or text.</li>
+
+<li>Choose the options you want to apply.</li>
+
+<li>Click the Generate Slug button.</li>
+
+<li>Review the generated slug.</li>
+
+<li>Use the Copy button to copy it.</li>
+
+</ul>
+
+
+<h2>What Makes a Good URL Slug?</h2>
 
 <p>
-QR codes are commonly used to make website addresses easier to access.
-Instead of manually typing a long URL on a mobile phone, users can scan the
-QR code and open the corresponding website.
+A useful URL slug should normally be short, descriptive and easy to read.
+Words are commonly separated with hyphens rather than spaces. Unnecessary
+punctuation and complicated characters should generally be avoided.
 </p>
 
-<h2>QR Codes for Business</h2>
+
+<h2>Why Are Clean URLs Useful?</h2>
 
 <p>
-Businesses can use QR codes to share websites, product information,
-contact details, menus, social media pages and other digital resources.
-They provide a simple connection between printed material and online
-content.
+Clean URLs can help visitors understand what a page is about before opening
+it. They can also make links easier to share, read and remember.
 </p>
 
-<h2>Why Use a QR Code Generator?</h2>
+
+<h2>Slug Generator for SEO</h2>
 
 <p>
-Creating QR codes manually is difficult and unnecessary. An online QR Code
-Generator provides a quick way to create scannable codes whenever you need
-them. SmartToolsKit makes the process simple and accessible on both mobile
-devices and computers.
+SEO-friendly slugs can provide useful context about a page's content.
+Including relevant words in a concise URL can make the structure of a
+website easier for both users and search engines to understand.
+</p>
+
+  
+<h2>Best Practices for URL
+   Slugs</h2>
+
+<p>
+Good URL slugs are usually short, descriptive and easy to understand.
+Using relevant words and hyphens can make URLs cleaner and more readable.
+</p>
+
+<ul>
+
+<li>Keep the slug short and descriptive.</li>
+
+<li>Use relevant keywords when appropriate.</li>
+
+<li>Separate words with hyphens.</li>
+
+<li>Avoid unnecessary punctuation and symbols.</li>
+
+<li>Avoid unnecessarily long URLs.</li>
+
+<li>Keep your URL structure consistent.</li>
+
+</ul>
+
+
+<h2>Frequently Asked Questions</h2>
+
+
+<div class="faq">
+
+<strong>Is the Slug Generator free?</strong>
+
+<p>
+Yes. The SmartToolsKit Slug Generator is free to use.
 </p>
 
 </div>
+
+
+<div class="faq">
+
+<strong>What characters are used between words?</strong>
+
+<p>
+The generator uses hyphens to separate words and create readable slugs.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Can I copy the generated slug?</strong>
+
+<p>
+Yes. Click the Copy button to copy the generated slug to your clipboard.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>Does the generator work on mobile devices?</strong>
+
+<p>
+Yes. The tool is designed to work on smartphones, tablets and desktop
+computers.
+</p>
+
+</div>
+
 </section>
 
 </main>
+
 
 <footer>
 
@@ -446,67 +597,211 @@ devices and computers.
 </p>
 
 <p>
+
 <a href="../index.html">Home</a> |
+
 <a href="../about.html">About Us</a> |
+
 <a href="../contact.html">Contact Us</a> |
+
 <a href="../privacy-policy.html">Privacy Policy</a> |
-<a href="../terms.html">Terms & Conditions</a>
+
+<a href="../terms.html">Terms & Conditions</a> |
+
+<a href="../disclaimer.html">Disclaimer</a>
+
 </p>
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
 
 <script>
 
-const qrText = document.getElementById("qrText");
-const generateButton = document.getElementById("generateButton");
-const resultBox = document.getElementById("resultBox");
-const qrCode = document.getElementById("qrCode");
-const qrResult = document.getElementById("qrResult");
-const copyButton = document.getElementById("copyButton");
+const inputText =
+document.getElementById("inputText");
 
-generateButton.addEventListener("click", function () {
+const slugResult =
+document.getElementById("slugResult");
 
-  const text = qrText.value.trim();
+const generateButton =
+document.getElementById("generateButton");
 
-  if (!text) {
-    alert("Please enter some text or a URL.");
-    return;
-  }
+const copyButton =
+document.getElementById("copyButton");
 
-  qrCode.innerHTML = "";
+const lowercase =
+document.getElementById("lowercase");
 
-  new QRCode(qrCode, {
-    text: text,
-    width: 200,
-    height: 200,
-    colorDark: "#0f172a",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H
-  });
+const removeNumbers =
+document.getElementById("removeNumbers");
 
-  qrResult.value = text;
+const removeStopWords =
+document.getElementById("removeStopWords");
 
-  resultBox.style.display = "block";
+
+const stopWords = [
+
+"a",
+"an",
+"and",
+"are",
+"as",
+"at",
+"be",
+"by",
+"for",
+"from",
+"in",
+"is",
+"it",
+"of",
+"on",
+"or",
+"that",
+"the",
+"this",
+"to",
+"was",
+"were",
+"with"
+
+];
+
+
+function generateSlug() {
+
+let text =
+inputText.value.trim();
+
+
+if (!text) {
+
+slugResult.value = "";
+
+alert("Please enter some text first.");
+
+return;
+
+}
+
+
+if (lowercase.checked) {
+
+text = text.toLowerCase();
+
+}
+
+
+if (removeStopWords.checked) {
+
+let words =
+text.split(/\s+/);
+
+words = words.filter(function(word) {
+
+const cleanWord =
+word.toLowerCase()
+.replace(/[^a-z0-9]/gi, "");
+
+return !stopWords.includes(cleanWord);
 
 });
 
-copyButton.addEventListener("click", function () {
+text = words.join(" ");
 
-  qrResult.select();
-  qrResult.setSelectionRange(0, 99999);
+}
 
-  navigator.clipboard.writeText(qrResult.value);
 
-  copyButton.textContent = "Copied!";
+if (removeNumbers.checked) {
 
-  setTimeout(function () {
-    copyButton.textContent = "Copy";
-  }, 1500);
+text = text.replace(/[0-9]/g, "");
+
+}
+
+
+text = text.normalize("NFD")
+.replace(/[\u0300-\u036f]/g, "");
+
+
+text = text.replace(/&/g, " and ");
+
+
+text = text.replace(/[^a-zA-Z0-9\s-]/g, "");
+
+
+text = text.replace(/\s+/g, "-");
+
+
+text = text.replace(/-+/g, "-");
+
+
+text = text.replace(/^-+|-+$/g, "");
+
+
+slugResult.value = text;
+
+}
+
+
+generateButton.addEventListener(
+"click",
+generateSlug
+);
+
+
+copyButton.addEventListener(
+"click",
+function() {
+
+if (!slugResult.value) {
+
+alert("Please generate a slug first.");
+
+return;
+
+}
+
+
+navigator.clipboard.writeText(
+slugResult.value
+)
+.then(function() {
+
+copyButton.textContent =
+"Copied!";
+
+setTimeout(function() {
+
+copyButton.textContent =
+"Copy";
+
+}, 1500);
+
+})
+.catch(function() {
+
+slugResult.select();
+
+document.execCommand("copy");
+
+copyButton.textContent =
+"Copied!";
+
+setTimeout(function() {
+
+copyButton.textContent =
+"Copy";
+
+}, 1500);
 
 });
+
+});
+
 
 </script>
 
+
 </body>
+
 </html>
