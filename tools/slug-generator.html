@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Slug Generator - Free SEO URL Slug Generator | SmartToolsKit</title>
+
+<meta name="description" content="Create clean, SEO-friendly URL slugs from titles and text with the free SmartToolsKit Slug Generator. Remove special characters and create readable URLs instantly.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav {
+  width: min(1100px, 92%);
+  min-height: 70px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0f172a;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.logo-shape {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #10b981;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #059669;
+}
+
+.hero {
+  background: #0f172a;
+  color: #ffffff;
+  text-align: center;
+  padding: 55px 20px;
+}
+
+.hero-shape {
+  width: 58px;
+  height: 58px;
+  background: #10b981;
+  border-radius: 13px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  margin: 16px 0 8px;
+}
+
+.hero p {
+  color: #cbd5e1;
+  font-size: 16px;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: auto;
+}
+
+.tool-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+margin: 30px auto;
+}
+
+.tool-card h2 {
+  margin-bottom: 18px;
+}
+
+.field-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 140px;
+  resize: vertical;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #10b981;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 18px 0;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.options input {
+  width: 17px;
+  height: 17px;
+  accent-color: #10b981;
+}
+
+.generate-button {
+  width: 100%;
+  border: none;
+  border-radius: 9px;
+  padding: 14px;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  background: #059669;
+}
+
+.result-box {
+  margin-top: 22px;
+  padding: 18px;
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.result-label {
+  display: block;
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.result-row {
+  display: flex;
+  gap: 8px;
+}
+
+.result-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.copy-button {
+  border: none;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 0 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background: #1e293b;
+}
+  .content {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px auto;
+}
+
+.content h2 {
+  font-size: 24px;
+  margin: 28px 0 12px;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content p,
+.content li {
+  color: #475569;
+  line-height: 1.8;
+}
+
+.content ul {
+  padding-left: 22px;
+}
+
+.faq {
+  border-top: 1px solid #e2e8f0;
+  padding: 16px 0;
+}
+
+.faq strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+footer {
+  background: #020617;
+  color: #94a3b8;
+  text-align: center;
+  padding: 30px 15px;
+  margin-top: 40px;
+  font-size: 13px;
+}
+
+footer a {
+  color: #94a3b8;
+  margin: 0 6px;
+}
+
+footer a:hover {
+  color: #34d399;
+}
+
+@media (max-width: 700px) {
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 45px 15px;
+  }
+
+  .tool-card,
+  .content {
+    padding: 20px;
+  }
+
+  .result-row {
+    flex-direction: column;
+  }
+
+  .copy-button {
+    min-height: 44px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="../index.html" class="logo">
+      <span class="logo-shape"></span>
+      SmartToolsKit
+    </a>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#tools">Tools</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <h1>QR Code Generator</h1>
+
+    <p>
+      Create a QR code quickly and easily from text, website URLs,
+      contact information and other useful data.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="tool-card">
+
+      <h2>Generate Your QR Code</h2>
+
+      <label class="field-label" for="qrText">
+        Enter Text or URL
+      </label>
+
+      <textarea
+        id="qrText"
+        placeholder="Enter a website URL, text or other information..."
+      ></textarea>
+
+      <button class="generate-button" id="generateButton">
+        Generate QR Code
+      </button>
+
+      <div class="result-box" id="resultBox" style="display:none;">
+
+        <span class="result-label">
+          Your QR Code
+        </span>
+
+        <div id="qrCode" style="text-align:center; padding:15px;"></div>
+
+        <div class="result-row">
+          <input
+            type="text"
+            id="qrResult"
+            class="result-input"
+            readonly
+          >
+
+          <button class="copy-button" id="copyButton">
+            Copy
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container content">
+
+    <h2>What Is a QR Code Generator?</h2>
+
+<p>
+A QR Code Generator creates a scannable code from text, URLs and other
+information. QR codes make it easy for smartphone users to access digital
+content without typing long addresses.
+</p>
+
+<p>
+SmartToolsKit's free QR Code Generator is simple, fast and works directly
+in your web browser. No signup or software installation is required.
+</p>
+
+<h2>How to Use the QR Code Generator</h2>
+
+<ol>
+  <li>Enter your text or website URL.</li>
+  <li>Click the Generate QR Code button.</li>
+  <li>Wait for the QR code to appear.</li>
+  <li>Scan the QR code with your smartphone camera.</li>
+</ol>
+
+<h2>QR Codes for Websites</h2>
+
+<p>
+QR codes are commonly used to make website addresses easier to access.
+Instead of manually typing a long URL on a mobile phone, users can scan the
+QR code and open the corresponding website.
+</p>
+
+<h2>QR Codes for Business</h2>
+
+<p>
+Businesses can use QR codes to share websites, product information,
+contact details, menus, social media pages and other digital resources.
+They provide a simple connection between printed material and online
+content.
+</p>
+
+<h2>Why Use a QR Code Generator?</h2>
+
+<p>
+Creating QR codes manually is difficult and unnecessary. An online QR Code
+Generator provides a quick way to create scannable codes whenever you need
+them. SmartToolsKit makes the process simple and accessible on both mobile
+devices and computers.
+</p>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+<a href="../index.html">Home</a> |
+<a href="../about.html">About Us</a> |
+<a href="../contact.html">Contact Us</a> |
+<a href="../privacy-policy.html">Privacy Policy</a> |
+<a href="../terms.html">Terms & Conditions</a>
+</p>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+<script>
+
+const qrText = document.getElementById("qrText");
+const generateButton = document.getElementById("generateButton");
+const resultBox = document.getElementById("resultBox");
+const qrCode = document.getElementById("qrCode");
+const qrResult = document.getElementById("qrResult");
+const copyButton = document.getElementById("copyButton");
+
+generateButton.addEventListener("click", function () {
+
+  const text = qrText.value.trim();
+
+  if (!text) {
+    alert("Please enter some text or a URL.");
+    return;
+  }
+
+  qrCode.innerHTML = "";
+
+  new QRCode(qrCode, {
+    text: text,
+    width: 200,
+    height: 200,
+    colorDark: "#0f172a",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  qrResult.value = text;
+
+  resultBox.style.display = "block";
+
+});
+
+copyButton.addEventListener("click", function () {
+
+  qrResult.select();
+  qrResult.setSelectionRange(0, 99999);
+
+  navigator.clipboard.writeText(qrResult.value);
+
+  copyButton.textContent = "Copied!";
+
+  setTimeout(function () {
+    copyButton.textContent = "Copy";
+  }, 1500);
+
+});
+
+</script>
+
+</body>
+</html>
