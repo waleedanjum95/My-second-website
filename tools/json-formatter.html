@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JSON Formatter & Validator - Free Online JSON Tool | SmartToolsKit</title>
+
+<meta name="description" content="Format, validate and minify JSON online with the free SmartToolsKit JSON Formatter. Make JSON data readable, detect syntax errors and copy formatted JSON instantly.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://smarttoolskit.com/tools/json-formatter.html">
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: auto;
+}
+
+
+/* Navigation */
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #059669;
+}
+
+
+/* Hero */
+
+.hero {
+  background: #0f172a;
+  color: #ffffff;
+  text-align: center;
+  padding: 60px 15px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #cbd5e1;
+  font-size: 16px;
+}
+
+
+/* Main */
+
+main {
+  padding: 45px 0;
+}
+
+.tool-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 35px;
+}
+
+.tool-card h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 300px;
+  resize: vertical;
+  padding: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #10b981;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  border: none;
+  border-radius: 9px;
+  padding: 13px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.primary-button:hover {
+  background: #059669;
+}
+
+.secondary-button {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.secondary-button:hover {
+  background: #1e293b;
+}
+
+.light-button {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.light-button:hover {
+  background: #cbd5e1;
+}
+
+.status {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  display: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.success {
+  display: block;
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.error {
+  display: block;
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+
+/* Content */
+
+.content {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.content h2 {
+  font-size: 25px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content p {
+  color: #475569;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.content ul {
+  color: #475569;
+  padding-left: 22px;
+  margin-bottom: 18px;
+}
+
+.content li {
+  margin-bottom: 8px;
+}
+
+
+/* Footer */
+
+footer {
+  background: #020617;
+  color: #cbd5e1;
+  padding: 35px 15px 25px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+footer a {
+  color: #94a3b8;
+  margin: 0 4px;
+}
+
+footer a:hover {
+  color: #34d399;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  nav a:not(:first-child) {
+    display: none;
+  }
+
+  .nav {
+    padding: 0 15px;
+  }
+
+  .hero {
+    padding: 45px 15px;
+  }
+
+  .tool-card,
+  .content {
+    padding: 20px;
+  }
+
+  textarea {
+    min-height: 260px;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="container nav">
+
+    <a href="../index.html" class="logo">
+      SmartToolsKit
+    </a>
+
+    <nav>
+
+      <a href="../index.html">
+        Home
+      </a>
+
+      <a href="../about.html">
+        About
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="container">
+
+    <h1>
+      JSON Formatter
+    </h1>
+
+    <p>
+      Format, validate and minify JSON online for free.
+    </p>
+
+  </div>
+
+</section>
+
+
+<main>
+
+  <div class="container">
+
+
+    <section class="tool-card">
+
+      <h2>
+        Format Your JSON
+      </h2>
+
+      <textarea
+        id="jsonInput"
+        placeholder='Paste your JSON here, for example:
+{"name":"SmartToolsKit","tools":30}'
+      ></textarea>
+
+
+      <div class="button-row">
+
+        <button
+          class="primary-button"
+          onclick="formatJSON()">
+          Format JSON
+        </button>
+
+        <button
+          class="secondary-button"
+          onclick="minifyJSON()">
+          Minify JSON
+        </button>
+
+        <button
+          class="light-button"
+          onclick="validateJSON()">
+          Validate JSON
+        </button>
+
+        <button
+          class="light-button"
+          onclick="copyJSON()">
+          Copy
+        </button>
+
+        <button
+          class="light-button"
+          onclick="clearJSON()">
+          Clear
+        </button>
+
+      </div>
+
+
+      <div id="status" class="status"></div>
+
+    </section>
+
+
+    <section class="content">
+
+
+      <h2>
+        What Is a JSON Formatter?
+      </h2>
+
+      <p>
+        A JSON formatter is an online tool that converts compact or
+        difficult-to-read JSON data into a clean and structured format.
+        JSON, which stands for JavaScript Object Notation, is commonly
+        used to exchange data between websites, applications, APIs and
+        software systems.
+      </p>
+
+      <p>
+        When JSON data is displayed on a single line, it can be difficult
+        to understand or troubleshoot. SmartToolsKit JSON Formatter adds
+        indentation and line breaks so objects and arrays are easier to
+        read.
+      </p>
+
+
+      <h2>
+        JSON Validation
+      </h2>
+
+      <p>
+        Invalid JSON can cause errors when data is sent to an API or
+        processed by an application. This tool uses your browser's
+        built-in JSON parser to check whether the entered data follows
+        valid JSON syntax.
+      </p>
+
+      <p>
+        If an error is found, the tool displays an error message instead
+        of silently producing an incorrect result.
+      </p>
+
+
+      <h2>
+        JSON Minifier
+      </h2>
+
+      <p>
+        The Minify JSON function removes unnecessary spaces and line
+        breaks from valid JSON. This can make JSON data more compact and
+        useful when transferring structured data between applications.
+      </p>
+
+
+      <h2>
+        Common Uses of JSON
+      </h2>
+
+      <ul>
+
+        <li>
+          Working with REST APIs and web services.
+        </li>
+
+        <li>
+          Inspecting application and configuration data.
+        </li>
+
+        <li>
+          Testing JSON responses from APIs.
+        </li>
+
+        <li>
+          Debugging structured data.
+        </li>
+
+        <li>
+          Preparing readable JSON for development and documentation.
+        </li>
+
+      </ul>
+
+
+      <h2>
+        Is This JSON Formatter Free?
+      </h2>
+
+      <p>
+        Yes. The SmartToolsKit JSON Formatter is free to use. JSON
+        processing takes place directly in your browser, so you can
+        format and validate your data without needing to install
+        additional software.
+      </p>
+
+
+      <h2>
+        Privacy and Your JSON Data
+      </h2>
+
+      <p>
+        The formatter processes JSON directly in your browser using
+        JavaScript. Your JSON is not intentionally uploaded to a server
+        by this tool. Nevertheless, avoid entering confidential,
+        private or sensitive information into any online tool.
+      </p>
+
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <p>
+    © 2026 SmartToolsKit. All rights reserved.
+  </p>
+
+  <p>
+
+    <a href="../index.html">
+      Home
+    </a> |
+
+    <a href="../about.html">
+      About Us
+    </a> |
+
+    <a href="../contact.html">
+      Contact Us
+    </a> |
+
+    <a href="../privacy-policy.html">
+      Privacy Policy
+    </a> |
+
+    <a href="../terms.html">
+      Terms & Conditions
+    </a> |
+
+    <a href="../disclaimer.html">
+      Disclaimer
+    </a>
+
+  </p>
+
+</footer>
+
+
+<script>
+
+function getInput() {
+  return document.getElementById("jsonInput").value.trim();
+}
+
+
+function showStatus(message, type) {
+
+  const status = document.getElementById("status");
+
+  status.textContent = message;
+
+  status.className = "status " + type;
+
+}
+
+
+function formatJSON() {
+
+  const input = getInput();
+
+  if (!input) {
+
+    showStatus(
+      "Please enter or paste JSON data first.",
+      "error"
+    );
+
+    return;
+  }
+
+  try {
+
+    const parsed = JSON.parse(input);
+
+    document.getElementById("jsonInput").value =
+      JSON.stringify(parsed, null, 2);
+
+    showStatus(
+      "JSON formatted successfully.",
+      "success"
+    );
+
+  } catch (error) {
+
+    showStatus(
+      "Invalid JSON: " + error.message,
+      "error"
+    );
+
+  }
+
+}
+
+
+function minifyJSON() {
+
+  const input = getInput();
+
+  if (!input) {
+
+    showStatus(
+      "Please enter or paste JSON data first.",
+      "error"
+    );
+
+    return;
+  }
+
+  try {
+
+    const parsed = JSON.parse(input);
+
+    document.getElementById("jsonInput").value =
+      JSON.stringify(parsed);
+
+    showStatus(
+      "JSON minified successfully.",
+      "success"
+    );
+
+  } catch (error) {
+
+    showStatus(
+      "Invalid JSON: " + error.message,
+      "error"
+    );
+
+  }
+
+}
+
+
+function validateJSON() {
+
+  const input = getInput();
+
+  if (!input) {
+
+    showStatus(
+      "Please enter or paste JSON data first.",
+      "error"
+    );
+
+    return;
+  }
+
+  try {
+
+    JSON.parse(input);
+
+    showStatus(
+      "Valid JSON. No syntax errors found.",
+      "success"
+    );
+
+  } catch (error) {
+
+    showStatus(
+      "Invalid JSON: " + error.message,
+      "error"
+    );
+
+  }
+
+}
+
+
+function copyJSON() {
+
+  const input =
+    document.getElementById("jsonInput").value;
+
+  if (!input.trim()) {
+
+    showStatus(
+      "There is no JSON to copy.",
+      "error"
+    );
+
+    return;
+  }
+
+  navigator.clipboard.writeText(input)
+    .then(function() {
+
+      showStatus(
+        "JSON copied to clipboard.",
+        "success"
+      );
+
+    })
+    .catch(function() {
+
+      showStatus(
+        "Copy failed. Please select and copy the JSON manually.",
+        "error"
+      );
+
+    });
+
+}
+
+
+function clearJSON() {
+
+  document.getElementById("jsonInput").value = "";
+
+  const status =
+    document.getElementById("status");
+
+  status.textContent = "";
+
+  status.className = "status";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
