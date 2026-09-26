@@ -7,7 +7,7 @@
 
   <title>SmartToolsKit - Free Online Tools for Everyone</title>
 
-  <meta name="description" content="SmartToolsKit provides fast, free and easy-to-use online calculators, converters, text tools, SEO tools and developer utilities. No signup required.">
+  <meta name="description" content="SmartToolsKit provides fast, free and easy-to-use online calculators, converters, text tools, SEO tools, security utilities, image tools, PDF tools and health calculators. No signup required.">
 
   <meta name="robots" content="index, follow">
 
@@ -50,8 +50,12 @@
     }
 
     a {
-      colo seer: inherit;
+      color: inherit;
       text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
     }
 
     .container {
@@ -248,9 +252,12 @@
       padding: 25px 16px;
       text-align: center;
       transition: 0.2s ease;
+      cursor: pointer;
+      width: 100%;
     }
 
-    .category:hover {
+    .category:hover,
+    .category.active {
       transform: translateY(-3px);
       box-shadow: var(--shadow);
       border-color: #A7F3D0;
@@ -308,6 +315,10 @@
       border-color: #A7F3D0;
     }
 
+    .tool-card.hidden {
+      display: none;
+    }
+
     .tool-shape {
       width: 40px;
       height: 40px;
@@ -345,7 +356,15 @@
       font-weight: 700;
     }
 
-    /* About section */
+    .no-results {
+      display: none;
+      text-align: center;
+      color: var(--muted);
+      padding: 30px 0;
+      grid-column: 1 / -1;
+    }
+
+    /* About / SEO section */
 
     .intro {
       background: white;
@@ -391,6 +410,7 @@
     .cta a {
       display: inline-block;
       background: var(--emerald);
+      color: white;
       padding: 12px 22px;
       border-radius: 9px;
       font-weight: 700;
@@ -559,8 +579,8 @@
 
         <p>
           SmartToolsKit provides fast, simple and reliable online tools for
-          calculations, conversions, text processing, SEO, development and
-          everyday digital tasks.
+          calculations, conversions, text processing, SEO, security,
+          development, images, PDFs, health and everyday digital tasks.
         </p>
 
         <form class="search-box" id="toolSearchForm">
@@ -590,44 +610,127 @@
       <div class="container">
 
         <div class="section-heading">
+
           <h2>Explore Tool Categories</h2>
+
           <p>
-            Find the right online tool quickly through our growing collection
-            of useful digital utilities.
+            Find the right free online tool quickly through our growing
+            collection of useful digital utilities.
           </p>
+
         </div>
+
 
         <div class="category-grid">
 
-          <a href="#tools" class="category">
+          <button class="category active" type="button" data-category="all">
+
             <div class="shape"></div>
+
+            <h3>All Tools</h3>
+
+            <p>View our complete tool collection.</p>
+
+          </button>
+
+
+          <button class="category" type="button" data-category="calculators">
+
+            <div class="shape"></div>
+
             <h3>Calculators</h3>
+
             <p>Calculate quickly and accurately.</p>
-          </a>
 
-          <a href="#tools" class="category">
+          </button>
+
+
+          <button class="category" type="button" data-category="converters">
+
             <div class="shape"></div>
+
             <h3>Converters</h3>
+
             <p>Convert values with ease.</p>
-          </a>
 
-          <a href="#tools" class="category">
+          </button>
+
+
+          <button class="category" type="button" data-category="text">
+
             <div class="shape"></div>
+
             <h3>Text Tools</h3>
+
             <p>Analyze and format text.</p>
-          </a>
 
-          <a href="#tools" class="category">
+          </button>
+
+
+          <button class="category" type="button" data-category="seo">
+
             <div class="shape"></div>
+
             <h3>SEO Tools</h3>
-            <p>Improve your website workflow.</p>
-          </a>
 
-          <a href="#tools" class="category">
+            <p>Improve your website workflow.</p>
+
+          </button>
+
+
+          <button class="category" type="button" data-category="developer">
+
             <div class="shape"></div>
+
             <h3>Developer Tools</h3>
+
             <p>Useful tools for developers.</p>
-          </a>
+
+          </button>
+
+
+          <button class="category" type="button" data-category="security">
+
+            <div class="shape"></div>
+
+            <h3>Security Tools</h3>
+
+            <p>Useful privacy and password tools.</p>
+
+          </button>
+
+
+          <button class="category" type="button" data-category="image">
+
+            <div class="shape"></div>
+
+            <h3>Image Tools</h3>
+
+            <p>Resize, compress and convert images.</p>
+
+          </button>
+
+
+          <button class="category" type="button" data-category="pdf">
+
+            <div class="shape"></div>
+
+            <h3>PDF Tools</h3>
+
+            <p>Work with common PDF tasks.</p>
+
+          </button>
+
+
+          <button class="category" type="button" data-category="health">
+
+            <div class="shape"></div>
+
+            <h3>Health Tools</h3>
+
+            <p>Useful health and fitness calculators.</p>
+
+          </button>
 
         </div>
 
@@ -647,8 +750,8 @@
           <h2>Popular Free Tools</h2>
 
           <p>
-            Start with some of the most useful tools available on
-            SmartToolsKit.
+            Use our growing collection of practical online tools without
+            signup or unnecessary complexity.
           </p>
 
         </div>
@@ -657,7 +760,13 @@
         <div class="tools-grid" id="toolsGrid">
 
 
-          <article class="tool-card" data-tool="percentage calculator">
+          <!-- 1 -->
+
+          <article
+            class="tool-card"
+            data-tool="percentage calculator"
+            data-category="calculators"
+          >
 
             <div class="tool-shape"></div>
 
@@ -673,10 +782,15 @@
             </a>
 
           </article>
-    
 
 
-          <article class="tool-card" data-tool="age calculator">
+          <!-- 2 -->
+
+          <article
+            class="tool-card"
+            data-tool="age calculator"
+            data-category="calculators"
+          >
 
             <div class="tool-shape"></div>
 
@@ -694,7 +808,13 @@
           </article>
 
 
-          <article class="tool-card" data-tool="bmi calculator">
+          <!-- 3 -->
+
+          <article
+            class="tool-card"
+            data-tool="bmi calculator"
+            data-category="health calculators"
+          >
 
             <div class="tool-shape"></div>
 
@@ -711,7 +831,13 @@
           </article>
 
 
-          <article class="tool-card" data-tool="loan emi calculator">
+          <!-- 4 -->
+
+          <article
+            class="tool-card"
+            data-tool="loan emi calculator"
+            data-category="calculators"
+          >
 
             <div class="tool-shape"></div>
 
@@ -729,7 +855,13 @@
           </article>
 
 
-          <article class="tool-card" data-tool="discount calculator">
+          <!-- 5 -->
+
+          <article
+            class="tool-card"
+            data-tool="discount calculator"
+            data-category="calculators"
+          >
 
             <div class="tool-shape"></div>
 
@@ -745,25 +877,38 @@
 
           </article>
 
-    <article class="tool-card" data-tool="length converter">
 
-  <div class="tool-shape"></div>
+          <!-- 6 -->
 
-  <h3>Length Converter</h3>
+          <article
+            class="tool-card"
+            data-tool="length converter"
+            data-category="converters"
+          >
 
-  <p>
-    Convert meters, kilometers, centimeters, millimeters, miles, yards,
-    feet and inches quickly and accurately.
-  </p>
+            <div class="tool-shape"></div>
 
-  <a href="tools/length-converter.html" class="tool-link">
-    Open Tool →
-  </a>
+            <h3>Length Converter</h3>
 
-</article>
+            <p>
+              Convert meters, kilometers, centimeters, millimeters, miles,
+              yards, feet and inches.
+            </p>
+
+            <a href="tools/length-converter.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
 
 
-          <article class="tool-card" data-tool="word counter">
+          <!-- 7 -->
+
+          <article
+            class="tool-card"
+            data-tool="word counter"
+            data-category="text"
+          >
 
             <div class="tool-shape"></div>
 
@@ -780,7 +925,13 @@
           </article>
 
 
-          <article class="tool-card" data-tool="character counter">
+          <!-- 8 -->
+
+          <article
+            class="tool-card"
+            data-tool="character counter"
+            data-category="text"
+          >
 
             <div class="tool-shape"></div>
 
@@ -797,7 +948,13 @@
           </article>
 
 
-          <article class="tool-card" data-tool="unit converter">
+          <!-- 9 -->
+
+          <article
+            class="tool-card"
+            data-tool="unit converter"
+            data-category="converters"
+          >
 
             <div class="tool-shape"></div>
 
@@ -814,7 +971,13 @@
           </article>
 
 
-          <article class="tool-card" data-tool="qr code generator">
+          <!-- 10 -->
+
+          <article
+            class="tool-card"
+            data-tool="qr code generator"
+            data-category="developer"
+          >
 
             <div class="tool-shape"></div>
 
@@ -831,7 +994,13 @@
           </article>
 
 
-          <article class="tool-card" data-tool="password generator">
+          <!-- 11 -->
+
+          <article
+            class="tool-card"
+            data-tool="password generator"
+            data-category="security"
+          >
 
             <div class="tool-shape"></div>
 
@@ -848,7 +1017,13 @@
           </article>
 
 
-          <article class="tool-card" data-tool="slug generator">
+          <!-- 12 -->
+
+          <article
+            class="tool-card"
+            data-tool="slug generator"
+            data-category="seo"
+          >
 
             <div class="tool-shape"></div>
 
@@ -865,7 +1040,13 @@
           </article>
 
 
-          <article class="tool-card" data-tool="json formatter">
+          <!-- 13 -->
+
+          <article
+            class="tool-card"
+            data-tool="json formatter"
+            data-category="developer"
+          >
 
             <div class="tool-shape"></div>
 
@@ -882,6 +1063,510 @@
           </article>
 
 
+          <!-- 14 -->
+
+          <article
+            class="tool-card"
+            data-tool="memorable password transformer password strengthener"
+            data-category="security"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Memorable Password Transformer</h3>
+
+            <p>
+              Transform memorable words and phrases into more complex
+              password patterns with security guidance.
+            </p>
+
+            <a
+              href="tools/memorable-password-transformer.html"
+              class="tool-link"
+            >
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 15 -->
+
+          <article
+            class="tool-card"
+            data-tool="image compressor image compression"
+            data-category="image"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Image Compressor</h3>
+
+            <p>
+              Reduce image file size while maintaining practical image
+              quality for websites and sharing.
+            </p>
+
+            <a href="tools/image-compressor.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 16 -->
+
+          <article
+            class="tool-card"
+            data-tool="image resizer resize image"
+            data-category="image"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Image Resizer</h3>
+
+            <p>
+              Resize images to custom dimensions for websites, social media
+              and digital projects.
+            </p>
+
+            <a href="tools/image-resizer.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 17 -->
+
+          <article
+            class="tool-card"
+            data-tool="jpg to png jpeg to png"
+            data-category="image"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>JPG to PNG</h3>
+
+            <p>
+              Convert JPG images into PNG format quickly in your browser.
+            </p>
+
+            <a href="tools/jpg-to-png.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 18 -->
+
+          <article
+            class="tool-card"
+            data-tool="png to jpg"
+            data-category="image"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>PNG to JPG</h3>
+
+            <p>
+              Convert PNG images into JPG format for easier sharing and
+              smaller file sizes.
+            </p>
+
+            <a href="tools/png-to-jpg.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 19 -->
+
+          <article
+            class="tool-card"
+            data-tool="heic to jpg"
+            data-category="image"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>HEIC to JPG</h3>
+
+            <p>
+              Convert HEIC images into widely compatible JPG files.
+            </p>
+
+            <a href="tools/heic-to-jpg.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 20 -->
+
+          <article
+            class="tool-card"
+            data-tool="pdf compressor compress pdf"
+            data-category="pdf"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>PDF Compressor</h3>
+
+            <p>
+              Reduce PDF file size for easier uploading, sharing and storage.
+            </p>
+
+            <a href="tools/pdf-compressor.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 21 -->
+
+          <article
+            class="tool-card"
+            data-tool="merge pdf combine pdf"
+            data-category="pdf"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Merge PDF</h3>
+
+            <p>
+              Combine multiple PDF documents into one convenient file.
+            </p>
+
+            <a href="tools/merge-pdf.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 22 -->
+
+          <article
+            class="tool-card"
+            data-tool="split pdf separate pdf"
+            data-category="pdf"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Split PDF</h3>
+
+            <p>
+              Extract selected pages or divide a PDF document into smaller
+              files.
+            </p>
+
+            <a href="tools/split-pdf.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 23 -->
+
+          <article
+            class="tool-card"
+            data-tool="jpg to pdf image to pdf"
+            data-category="pdf image"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>JPG to PDF</h3>
+
+            <p>
+              Convert JPG images into PDF documents quickly and conveniently.
+            </p>
+
+            <a href="tools/jpg-to-pdf.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 24 -->
+
+          <article
+            class="tool-card"
+            data-tool="pdf to jpg convert pdf"
+            data-category="pdf image"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>PDF to JPG</h3>
+
+            <p>
+              Convert PDF pages into JPG images for easy viewing and sharing.
+            </p>
+
+            <a href="tools/pdf-to-jpg.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 25 -->
+
+          <article
+            class="tool-card"
+            data-tool="pdf to word pdf converter"
+            data-category="pdf"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>PDF to Word</h3>
+
+            <p>
+              Convert compatible PDF documents into editable Word files.
+            </p>
+
+            <a href="tools/pdf-to-word.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 26 -->
+
+          <article
+            class="tool-card"
+            data-tool="word to pdf"
+            data-category="pdf"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Word to PDF</h3>
+
+            <p>
+              Convert Word documents into convenient PDF files for sharing
+              and printing.
+            </p>
+
+            <a href="tools/word-to-pdf.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 27 -->
+
+          <article
+            class="tool-card"
+            data-tool="background remover remove background"
+            data-category="image"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Background Remover</h3>
+
+            <p>
+              Remove image backgrounds for clean graphics and digital
+              projects.
+            </p>
+
+            <a href="tools/background-remover.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 28 -->
+
+          <article
+            class="tool-card"
+            data-tool="currency converter exchange rate"
+            data-category="calculators converters"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Currency Converter</h3>
+
+            <p>
+              Convert amounts between currencies using current exchange data
+              when available.
+            </p>
+
+            <a href="tools/currency-converter.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 29 -->
+
+          <article
+            class="tool-card"
+            data-tool="tip calculator gratuity calculator"
+            data-category="calculators"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Tip Calculator</h3>
+
+            <p>
+              Calculate tips and split restaurant bills quickly and easily.
+            </p>
+
+            <a href="tools/tip-calculator.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 30 -->
+
+          <article
+            class="tool-card"
+            data-tool="gst calculator tax calculator"
+            data-category="calculators"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>GST Calculator</h3>
+
+            <p>
+              Calculate GST amounts, prices before tax and prices including
+              tax.
+            </p>
+
+            <a href="tools/gst-calculator.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 31 -->
+
+          <article
+            class="tool-card"
+            data-tool="meta tag generator meta tags"
+            data-category="seo"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Meta Tag Generator</h3>
+
+            <p>
+              Generate useful SEO meta title and description tags for web
+              pages.
+            </p>
+
+            <a href="tools/meta-tag-generator.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 32 -->
+
+          <article
+            class="tool-card"
+            data-tool="keyword density checker keyword density"
+            data-category="seo"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Keyword Density Checker</h3>
+
+            <p>
+              Analyze keyword frequency and basic content usage for SEO
+              writing.
+            </p>
+
+            <a href="tools/keyword-density-checker.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 33 -->
+
+          <article
+            class="tool-card"
+            data-tool="serp checker search results"
+            data-category="seo"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>SERP Checker</h3>
+
+            <p>
+              Check and understand search engine result information for SEO
+              research.
+            </p>
+
+            <a href="tools/serp-checker.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <!-- 34 -->
+
+          <article
+            class="tool-card"
+            data-tool="backlink checker backlinks"
+            data-category="seo"
+          >
+
+            <div class="tool-shape"></div>
+
+            <h3>Backlink Checker</h3>
+
+            <p>
+              Analyze backlink information and understand links pointing to
+              a website.
+            </p>
+
+            <a href="tools/backlink-checker.html" class="tool-link">
+              Open Tool →
+            </a>
+
+          </article>
+
+
+          <div class="no-results" id="noResults">
+            No matching tools found. Please try another search or category.
+          </div>
+
+
         </div>
 
       </div>
@@ -895,25 +1580,38 @@
 
       <div class="container intro-content">
 
-        <h2>Simple Tools Built for Real Tasks</h2>
+        <h2>Free Online Tools for Calculations, SEO, Files and More</h2>
 
         <p>
-          SmartToolsKit is designed to make everyday digital tasks easier.
-          Instead of searching across multiple websites for small utilities,
-          you can find practical online tools in one convenient place.
+          SmartToolsKit is a growing collection of free online tools designed
+          to make everyday digital tasks faster and easier. Instead of visiting
+          multiple websites for simple calculations, text utilities,
+          conversions, security tasks, SEO checks and file-related work, users
+          can find practical tools in one convenient place. Our goal is to
+          provide lightweight, straightforward utilities that work smoothly on
+          desktop computers, tablets and mobile devices.
         </p>
 
         <p>
-          Our collection covers calculators, converters, text utilities,
-          search engine optimization tools, developer utilities and other
-          productivity-focused solutions. The goal is to keep every tool
-          simple, fast and easy to understand.
+          The SmartToolsKit collection includes popular calculators such as
+          percentage, age, BMI, loan and discount calculators, along with
+          useful text tools, converters, QR generation, password utilities,
+          URL slug generation and developer tools. We are also expanding into
+          high-demand areas such as image compression, image conversion, PDF
+          utilities, SEO tools, security tools and health-related calculators.
+          Each tool is designed around a clear user need rather than adding
+          unnecessary features or complicated interfaces.
         </p>
 
         <p>
-          SmartToolsKit is continuously expanding. New tools and improvements
-          will be added over time while keeping usability, performance and
-          accessibility at the center of the experience.
+          SmartToolsKit focuses on speed, simplicity and accessibility. Many
+          utilities can process information directly in the browser, helping
+          users complete common tasks without creating an account. New tools
+          will continue to be added based on useful search intent, practical
+          demand and the ability to provide a reliable experience. Whether you
+          need to calculate a value, convert a file, prepare content, improve
+          an SEO workflow or perform a quick digital task, SmartToolsKit aims
+          to provide a simple free solution.
         </p>
 
       </div>
@@ -1013,65 +1711,122 @@
   </footer>
 
 
-  <!-- Lightweight Search -->
+  <!-- Search + Category Filter -->
 
   <script>
 
     const searchForm = document.getElementById("toolSearchForm");
+
     const searchInput = document.getElementById("toolSearch");
+
     const toolCards = document.querySelectorAll(".tool-card");
 
-    searchForm.addEventListener("submit", function(event) {
+    const categoryButtons = document.querySelectorAll(".category");
 
-      event.preventDefault();
+    const noResults = document.getElementById("noResults");
+
+    let activeCategory = "all";
+
+
+    function filterTools() {
 
       const query = searchInput.value.trim().toLowerCase();
 
-      if (!query) {
-        document.getElementById("tools").scrollIntoView({
-          behavior: "smooth"
-        });
-        return;
-      }
+      let found = 0;
 
-      let found = false;
 
       toolCards.forEach(function(card) {
 
-         const toolName = card.getAttribute("data-tool");
+        const toolName =
+          card.getAttribute("data-tool").toLowerCase();
 
-        if (toolName.includes(query)) {
+        const categories =
+          card.getAttribute("data-category").toLowerCase();
 
-          card.style.display = "block";
 
-          card.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
+        const matchesSearch =
+          !query || toolName.includes(query);
 
-          found = true;
+
+        const matchesCategory =
+          activeCategory === "all" ||
+          categories.includes(activeCategory);
+
+
+        if (matchesSearch && matchesCategory) {
+
+          card.classList.remove("hidden");
+
+          found++;
 
         } else {
 
-          card.style.display = "none";
+          card.classList.add("hidden");
 
         }
 
       });
 
-      if (!found) {
 
-        alert("No matching tool found. Please try another search.");
+      noResults.style.display =
+        found === 0 ? "block" : "none";
 
-        toolCards.forEach(function(card) {
-          card.style.display = "block";
+    }
+
+
+    categoryButtons.forEach(function(button) {
+
+      button.addEventListener("click", function() {
+
+        activeCategory =
+          button.getAttribute("data-category").toLowerCase();
+
+
+        categoryButtons.forEach(function(item) {
+          item.classList.remove("active");
         });
 
-      }
+
+        button.classList.add("active");
+
+
+        filterTools();
+
+
+        document.getElementById("tools").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      });
 
     });
 
+
+    searchInput.addEventListener("input", function() {
+
+      filterTools();
+
+    });
+
+
+    searchForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      filterTools();
+
+
+      document.getElementById("tools").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    });
+
+
   </script>
+
 
 </body>
 </html>
