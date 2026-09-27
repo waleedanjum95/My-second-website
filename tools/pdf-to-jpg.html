@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PDF to JPG Converter - Free Online | SmartToolsKit</title>
+
+<meta name="description" content="Convert PDF pages to JPG images online for free with SmartToolsKit. Convert PDF pages into high-quality JPG images directly in your browser.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://smarttoolskit.com/tools/pdf-to-jpg.html">
+
+<meta name="theme-color" content="#0F172A">
+
+<style>
+:root {
+  --navy:#0F172A;
+  --navy-light:#1E293B;
+  --emerald:#10B981;
+  --emerald-dark:#059669;
+  --background:#F8FAFC;
+  --white:#FFFFFF;
+  --text:#0F172A;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --soft:#F1F5F9;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--background);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+.container {
+  width:min(900px,92%);
+  margin:auto;
+}
+
+header {
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+}
+
+.nav {
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo {
+  font-size:21px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+nav {
+  display:flex;
+  gap:20px;
+}
+
+nav a {
+  color:#475569;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover {
+  color:var(--emerald-dark);
+}
+
+.hero {
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:55px 15px;
+}
+
+.hero h1 {
+  font-size:clamp(30px,6vw,45px);
+  margin-bottom:10px;
+}
+
+.hero p {
+  color:#CBD5E1;
+}
+
+main {
+  padding:45px 0;
+}
+
+.tool-card,
+.content {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+}
+
+.tool-card {
+  margin-bottom:35px;
+}
+
+.tool-card h2 {
+  margin-bottom:20px;
+}
+
+.upload-box {
+  border:2px dashed #CBD5E1;
+  border-radius:12px;
+  padding:35px 20px;
+  text-align:center;
+  background:var(--background);
+}
+
+.upload-box p {
+  color:var(--muted);
+  margin-bottom:16px;
+}
+
+.file-input {
+  display:none;
+}
+
+.upload-button,
+.convert-button,
+.download-button,
+.clear-button {
+  display:inline-block;
+  border:0;
+  border-radius:9px;
+  padding:13px 20px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.upload-button,
+.convert-button {
+  background:var(--emerald);
+  color:#fff;
+}
+
+.upload-button:hover,
+.convert-button:hover {
+  background:var(--emerald-dark);
+}
+
+.clear-button {
+  background:#E2E8F0;
+  color:var(--navy);
+}
+
+.file-info {
+  display:none;
+  margin-top:22px;
+  padding:18px;
+  border-radius:12px;
+  background:var(--soft);
+}
+
+.file-info p {
+  font-size:14px;
+  color:#475569;
+  margin-bottom:5px;
+}
+
+.options {
+  display:none;
+  margin-top:20px;
+}
+
+.options label {
+  display:block;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.options select {
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:#fff;
+  font-size:15px;
+}
+
+.button-row {
+  display:none;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.status {
+  display:none;
+  margin-top:20px;
+  padding:14px;
+  border-radius:10px;
+  background:#EFF6FF;
+  color:#1E40AF;
+  font-size:14px;
+}
+
+.status.error {
+  background:#FEF2F2;
+  color:#B91C1C;
+}
+
+.results {
+  display:none;
+  margin-top:25px;
+}
+
+.page-card {
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:15px;
+  margin-bottom:18px;
+  background:#fff;
+}
+
+.page-card img {
+  width:100%;
+  max-height:650px;
+  object-fit:contain;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+}
+
+.page-title {
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.page-download {
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 15px;
+  border-radius:8px;
+  background:var(--navy);
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+}
+
+.content h2 {
+  font-size:24px;
+  margin-top:28px;
+  margin-bottom:12px;
+}
+
+.content h2:first-child {
+  margin-top:0;
+}
+
+.content p {
+  color:#475569;
+  font-size:15px;
+  margin-bottom:15px;
+}
+
+.content ul {
+  padding-left:22px;
+  color:#475569;
+}
+
+.content li {
+  margin-bottom:7px;
+}
+
+footer {
+  background:#020617;
+  color:#CBD5E1;
+  text-align:center;
+  padding:35px 15px 25px;
+}
+
+footer p {
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+footer a {
+  color:#94A3B8;
+  margin:0 4px;
+}
+
+footer a:hover {
+  color:#34D399;
+}
+
+@media(max-width:700px) {
+
+  .nav {
+    padding:0 15px;
+  }
+
+  nav a:not(:first-child) {
+    display:none;
+  }
+
+  .hero {
+    padding:45px 15px;
+  }
+
+  .tool-card,
+  .content {
+    padding:20px;
+  }
+
+  .button-row {
+    flex-direction:column;
+  }
+
+  .button-row button {
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<a href="../index.html" class="logo">
+SmartToolsKit
+</a>
+
+<nav>
+<a href="../index.html">Home</a>
+<a href="../about.html">About</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="container">
+
+<h1>PDF to JPG Converter</h1>
+
+<p>
+Convert PDF pages into JPG images online for free.
+</p>
+
+</div>
+
+</section>
+
+
+<main>
+
+<div class="container">
+
+<section class="tool-card">
+
+<h2>Convert PDF to JPG</h2>
+
+<div class="upload-box">
+
+<p>
+Select a PDF file from your device.
+</p>
+
+<label
+for="pdfInput"
+class="upload-button">
+Choose PDF File
+</label>
+
+<input
+type="file"
+id="pdfInput"
+class="file-input"
+accept="application/pdf,.pdf"
+>
+
+</div>
+
+
+<div class="file-info" id="fileInfo">
+
+<p>
+<strong>File:</strong>
+<span id="fileName"></span>
+</p>
+
+<p>
+<strong>File size:</strong>
+<span id="fileSize"></span>
+</p>
+
+<p>
+<strong>Pages:</strong>
+<span id="pageCount">-</span>
+</p>
+
+</div>
+
+
+<div class="options" id="options">
+
+<label for="quality">
+JPG Quality
+</label>
+
+<select id="quality">
+
+<option value="0.95">
+High Quality
+</option>
+
+<option value="0.85" selected>
+Good Quality - Recommended
+</option>
+
+<option value="0.70">
+Smaller File
+</option>
+
+</select>
+
+</div>
+
+
+<div class="button-row" id="buttons">
+
+<button
+class="convert-button"
+onclick="convertPDF()">
+Convert to JPG
+</button>
+
+<button
+class="clear-button"
+onclick="clearTool()">
+Clear
+</button>
+
+</div>
+
+
+<div class="status" id="status"></div>
+
+
+<div class="results" id="results">
+
+<h3 style="margin-bottom:15px;">
+Converted JPG Images
+</h3>
+
+<div id="pageResults"></div>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>What Is a PDF to JPG Converter?</h2>
+
+<p>
+A PDF to JPG converter changes PDF pages into JPG image files.
+This can be useful when you need to share, upload or edit a PDF
+page as an image.
+</p>
+
+
+<h2>How to Convert PDF to JPG</h2>
+
+<p>
+Choose a PDF file, select the desired JPG quality and click
+Convert to JPG. Each PDF page is rendered as a separate JPG image
+that you can preview and download.
+</p>
+
+
+<h2>Why Convert PDF Pages to JPG?</h2>
+
+<ul>
+<li>Share individual PDF pages as images.</li>
+<li>Upload PDF pages to platforms that accept images.</li>
+<li>Create image versions of documents.</li>
+<li>Use PDF pages in presentations and graphics.</li>
+<li>Download individual pages instead of the complete PDF.</li>
+</ul>
+
+
+<h2>Is This PDF to JPG Converter Free?</h2>
+
+<p>
+Yes. SmartToolsKit provides this PDF to JPG converter free of
+charge and no account or signup is required.
+</p>
+
+
+<h2>Privacy</h2>
+
+<p>
+The conversion is performed directly in your browser. Your PDF is
+not intentionally uploaded to a SmartToolsKit server by this tool.
+</p>
+
+
+<h2>Quality Options</h2>
+
+<p>
+High quality produces larger JPG files with better visual detail.
+Good quality provides a balance between image quality and file
+size, while smaller-file mode prioritizes a reduced file size.
+</p>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+
+<a href="../index.html">Home</a> |
+
+<a href="../about.html">About Us</a> |
+
+<a href="../contact.html">Contact Us</a> |
+
+<a href="../privacy-policy.html">Privacy Policy</a> |
+
+<a href="../terms.html">Terms & Conditions</a> |
+
+<a href="../disclaimer.html">Disclaimer</a>
+
+</p>
+
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+
+<script>
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+
+let selectedPDF = null;
+
+
+const pdfInput =
+document.getElementById("pdfInput");
+
+
+pdfInput.addEventListener(
+"change",
+async function() {
+
+const file = this.files[0];
+
+if (!file) {
+return;
+}
+
+
+const isPDF =
+file.type === "application/pdf" ||
+/\.pdf$/i.test(file.name);
+
+
+if (!isPDF) {
+
+alert("Please select a PDF file.");
+
+this.value = "";
+
+return;
+}
+
+
+selectedPDF = file;
+
+
+document.getElementById(
+"fileName"
+).textContent = file.name;
+
+
+document.getElementById(
+"fileSize"
+).textContent =
+formatBytes(file.size);
+
+
+document.getElementById(
+"fileInfo"
+).style.display =
+"block";
+
+
+document.getElementById(
+"options"
+).style.display =
+"block";
+
+
+document.getElementById(
+"buttons"
+).style.display =
+"flex";
+
+
+document.getElementById(
+"results"
+).style.display =
+"none";
+
+
+document.getElementById(
+"status"
+).style.display =
+"none";
+
+
+try {
+
+const buffer =
+await file.arrayBuffer();
+
+const pdf =
+await pdfjsLib.getDocument({
+data:buffer
+}).promise;
+
+document.getElementById(
+"pageCount"
+).textContent =
+pdf.numPages;
+
+}
+catch(error) {
+
+document.getElementById(
+"pageCount"
+).textContent =
+"Unable to read";
+
+}
+
+}
+);
+
+
+async function convertPDF() {
+
+if (!selectedPDF) {
+
+alert(
+"Please choose a PDF file first."
+);
+
+return;
+}
+
+
+const status =
+document.getElementById("status");
+
+
+status.className =
+"status";
+
+status.textContent =
+"Converting PDF pages to JPG. Please wait...";
+
+status.style.display =
+"block";
+
+
+document.getElementById(
+"results"
+).style.display =
+"none";
+
+
+const pageResults =
+document.getElementById(
+"pageResults"
+);
+
+
+pageResults.innerHTML = "";
+
+
+try {
+
+const buffer =
+await selectedPDF.arrayBuffer();
+
+
+const pdf =
+await pdfjsLib.getDocument({
+data:buffer
+}).promise;
+
+
+const quality =
+parseFloat(
+document.getElementById(
+"quality"
+).value
+);
+
+
+for (
+let pageNumber = 1;
+pageNumber <= pdf.numPages;
+pageNumber++
+) {
+
+status.textContent =
+"Converting page " +
+pageNumber +
+" of " +
+pdf.numPages +
+"...";
+
+
+const page =
+await pdf.getPage(pageNumber);
+
+
+const baseViewport =
+page.getViewport({
+scale:1
+});
+
+
+const maxWidth = 1600;
+
+let scale =
+maxWidth /
+baseViewport.width;
+
+
+if (scale < 1) {
+scale = 1;
+}
+
+
+const viewport =
+page.getViewport({
+scale:scale
+});
+
+
+const canvas =
+document.createElement("canvas");
+
+
+const context =
+canvas.getContext("2d");
+
+
+canvas.width =
+Math.ceil(viewport.width);
+
+
+canvas.height =
+Math.ceil(viewport.height);
+
+
+context.fillStyle =
+"#FFFFFF";
+
+
+context.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+await page.render({
+canvasContext:context,
+viewport:viewport
+}).promise;
+
+
+const jpgBlob =
+await canvasToBlob(
+canvas,
+quality
+);
+
+
+const url =
+URL.createObjectURL(
+jpgBlob
+);
+
+
+const card =
+document.createElement("div");
+
+card.className =
+"page-card";
+
+
+const title =
+document.createElement("div");
+
+title.className =
+"page-title";
+
+title.textContent =
+"Page " +
+pageNumber;
+
+
+const image =
+document.createElement("img");
+
+image.src =
+url;
+
+image.alt =
+"PDF page " +
+pageNumber +
+" converted to JPG";
+
+
+const download =
+document.createElement("a");
+
+download.className =
+"page-download";
+
+download.href =
+url;
+
+download.download =
+getBaseName(
+selectedPDF.name
+) +
+"-page-" +
+pageNumber +
+".jpg";
+
+download.textContent =
+"Download Page " +
+pageNumber;
+
+
+card.appendChild(title);
+
+card.appendChild(image);
+
+card.appendChild(download);
+
+pageResults.appendChild(card);
+
+}
+
+
+document.getElementById(
+"results"
+).style.display =
+"block";
+
+
+status.style.display =
+"none";
+
+}
+catch(error) {
+
+console.error(error);
+
+status.className =
+"status error";
+
+status.textContent =
+"Conversion failed. Please make sure the PDF is valid and try again.";
+
+status.style.display =
+"block";
+
+}
+
+}
+
+
+function canvasToBlob(
+canvas,
+quality
+){
+
+return new Promise(
+function(resolve,reject){
+
+canvas.toBlob(
+function(blob){
+
+if(blob){
+resolve(blob);
+}else{
+reject(
+new Error(
+"Could not create JPG image."
+)
+);
+}
+
+},
+"image/jpeg",
+quality
+);
+
+}
+);
+
+}
+
+
+function getBaseName(name){
+
+return name
+.replace(
+/\.pdf$/i,
+""
+)
+.replace(
+/[^a-zA-Z0-9-_]/g,
+"-"
+);
+
+}
+
+
+function formatBytes(bytes){
+
+if(bytes === 0){
+return "0 Bytes";
+}
+
+
+const units = [
+"Bytes",
+"KB",
+"MB",
+"GB"
+];
+
+
+const index =
+Math.floor(
+Math.log(bytes) /
+Math.log(1024)
+);
+
+
+return (
+parseFloat(
+(
+bytes /
+Math.pow(1024,index)
+).toFixed(2)
+)
++
+" "
++
+units[index]
+);
+
+}
+
+
+function clearTool(){
+
+selectedPDF = null;
+
+pdfInput.value = "";
+
+
+document.getElementById(
+"fileInfo"
+).style.display =
+"none";
+
+
+document.getElementById(
+"options"
+).style.display =
+"none";
+
+
+document.getElementById(
+"buttons"
+).style.display =
+"none";
+
+
+document.getElementById(
+"status"
+).style.display =
+"none";
+
+
+document.getElementById(
+"results"
+).style.display =
+"none";
+
+
+document.getElementById(
+"pageResults"
+).innerHTML = "";
+
+}
+
+</script>
+
+</body>
+</html>
