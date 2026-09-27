@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Background Remover - Free Online AI Tool | SmartToolsKit</title>
+
+<meta name="description" content="Remove image backgrounds online for free with SmartToolsKit. Automatically remove backgrounds from photos and download transparent PNG images.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://smarttoolskit.com/tools/background-remover.html">
+
+<meta name="theme-color" content="#0F172A">
+
+<style>
+:root{
+  --navy:#0F172A;
+  --navy-light:#1E293B;
+  --emerald:#10B981;
+  --emerald-dark:#059669;
+  --background:#F8FAFC;
+  --white:#FFFFFF;
+  --text:#0F172A;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --soft:#F1F5F9;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--background);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(900px,92%);
+  margin:auto;
+}
+
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  color:#475569;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:var(--emerald-dark);
+}
+
+.hero{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:55px 15px;
+}
+
+.hero h1{
+  font-size:clamp(30px,6vw,45px);
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#CBD5E1;
+}
+
+main{
+  padding:45px 0;
+}
+
+.tool-card,
+.content{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+}
+
+.tool-card{
+  margin-bottom:35px;
+}
+
+.tool-card h2{
+  margin-bottom:20px;
+}
+
+.upload-box{
+  border:2px dashed #CBD5E1;
+  border-radius:12px;
+  padding:35px 20px;
+  text-align:center;
+  background:var(--background);
+}
+
+.upload-box p{
+  color:var(--muted);
+  margin-bottom:16px;
+}
+
+.file-input{
+  display:none;
+}
+
+.upload-button,
+.remove-button,
+.clear-button,
+.download-button{
+  display:inline-block;
+  border:0;
+  border-radius:9px;
+  padding:13px 20px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.upload-button,
+.remove-button{
+  background:var(--emerald);
+  color:#fff;
+}
+
+.upload-button:hover,
+.remove-button:hover{
+  background:var(--emerald-dark);
+}
+
+.clear-button{
+  background:#E2E8F0;
+  color:var(--navy);
+}
+
+.preview{
+  display:none;
+  margin-top:25px;
+  text-align:center;
+}
+
+.preview img{
+  max-width:100%;
+  max-height:500px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(45deg,#e5e7eb 25%,transparent 25%),
+    linear-gradient(-45deg,#e5e7eb 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#e5e7eb 75%),
+    linear-gradient(-45deg,transparent 75%,#e5e7eb 75%);
+  background-size:20px 20px;
+  background-position:0 0,0 10px,10px -10px,-10px 0;
+}
+
+.file-info{
+  display:none;
+  margin-top:15px;
+  padding:15px;
+  border-radius:10px;
+  background:var(--soft);
+  color:#475569;
+  font-size:14px;
+}
+
+.button-row{
+  display:none;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.status{
+  display:none;
+  margin-top:20px;
+  padding:15px;
+  border-radius:10px;
+  background:#EFF6FF;
+  color:#1E40AF;
+  font-size:14px;
+}
+
+.status.error{
+  background:#FEF2F2;
+  color:#B91C1C;
+}
+
+.result{
+  display:none;
+  margin-top:25px;
+  padding:20px;
+  border-radius:12px;
+  background:#ECFDF5;
+  border:1px solid #A7F3D0;
+  text-align:center;
+}
+
+.result h3{
+  margin-bottom:8px;
+}
+
+.result p{
+  color:#065F46;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.result img{
+  max-width:100%;
+  max-height:500px;
+  border-radius:10px;
+  margin-bottom:15px;
+  background:
+    linear-gradient(45deg,#e5e7eb 25%,transparent 25%),
+    linear-gradient(-45deg,#e5e7eb 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#e5e7eb 75%),
+    linear-gradient(-45deg,transparent 75%,#e5e7eb 75%);
+  background-size:20px 20px;
+  background-position:0 0,0 10px,10px -10px,-10px 0;
+}
+
+.download-button{
+  background:var(--navy);
+  color:#fff;
+}
+
+.download-button:hover{
+  background:var(--navy-light);
+}
+
+.content h2{
+  font-size:24px;
+  margin-top:28px;
+  margin-bottom:12px;
+}
+
+.content h2:first-child{
+  margin-top:0;
+}
+
+.content p{
+  color:#475569;
+  font-size:15px;
+  margin-bottom:15px;
+}
+
+.content ul{
+  padding-left:22px;
+  color:#475569;
+}
+
+.content li{
+  margin-bottom:7px;
+}
+
+footer{
+  background:#020617;
+  color:#CBD5E1;
+  text-align:center;
+  padding:35px 15px 25px;
+}
+
+footer p{
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+footer a{
+  color:#94A3B8;
+  margin:0 4px;
+}
+
+footer a:hover{
+  color:#34D399;
+}
+
+@media(max-width:700px){
+
+  .nav{
+    padding:0 15px;
+  }
+
+  nav a:not(:first-child){
+    display:none;
+  }
+
+  .hero{
+    padding:45px 15px;
+  }
+
+  .tool-card,
+  .content{
+    padding:20px;
+  }
+
+  .button-row{
+    flex-direction:column;
+  }
+
+  .button-row button{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<a href="../index.html" class="logo">
+SmartToolsKit
+</a>
+
+<nav>
+<a href="../index.html">Home</a>
+<a href="../about.html">About</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Background Remover</h1>
+
+<p>
+Remove image backgrounds automatically and create transparent PNGs.
+</p>
+
+</div>
+
+</section>
+
+
+<main>
+
+<div class="container">
+
+<section class="tool-card">
+
+<h2>Remove Image Background</h2>
+
+<div class="upload-box">
+
+<p>
+Choose a JPG, JPEG or PNG image.
+</p>
+
+<label
+for="imageInput"
+class="upload-button">
+Choose Image
+</label>
+
+<input
+type="file"
+id="imageInput"
+class="file-input"
+accept="image/png,image/jpeg,.png,.jpg,.jpeg">
+
+</div>
+
+
+<div
+class="file-info"
+id="fileInfo">
+
+<strong>Selected file:</strong>
+<span id="fileName"></span>
+
+</div>
+
+
+<div
+class="preview"
+id="preview">
+
+<img
+id="originalImage"
+alt="Selected image preview">
+
+</div>
+
+
+<div
+class="button-row"
+id="buttons">
+
+<button
+class="remove-button"
+id="removeButton"
+onclick="removeBackground()">
+Remove Background
+</button>
+
+<button
+class="clear-button"
+onclick="clearTool()">
+Clear
+</button>
+
+</div>
+
+
+<div
+class="status"
+id="status">
+</div>
+
+
+<div
+class="result"
+id="result">
+
+<h3>
+Background Removed Successfully
+</h3>
+
+<p>
+Your transparent PNG image is ready.
+</p>
+
+<img
+id="resultImage"
+alt="Background removed result">
+
+<br>
+
+<a
+id="downloadButton"
+class="download-button"
+download="background-removed.png">
+Download Transparent PNG
+</a>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>What Is a Background Remover?</h2>
+
+<p>
+A background remover automatically separates the main subject of
+an image from its background. The removed area becomes transparent,
+allowing you to use the subject on websites, graphics, documents
+and other designs.
+</p>
+
+
+<h2>How to Remove an Image Background</h2>
+
+<p>
+Choose a JPG, JPEG or PNG image and click Remove Background. The
+AI model processes the image in your browser and creates a
+transparent PNG.
+</p>
+
+
+<h2>What Images Can I Use?</h2>
+
+<ul>
+<li>JPG images</li>
+<li>JPEG images</li>
+<li>PNG images</li>
+<li>Portraits and people</li>
+<li>Product photographs</li>
+<li>Objects and other common subjects</li>
+</ul>
+
+
+<h2>Is This Background Remover Free?</h2>
+
+<p>
+Yes. SmartToolsKit provides this background removal tool free of
+charge and no account or signup is required.
+</p>
+
+
+<h2>Privacy</h2>
+
+<p>
+The image processing is performed in your browser. Your selected
+image is not intentionally uploaded to a SmartToolsKit server by
+this tool.
+</p>
+
+
+<h2>Important Note</h2>
+
+<p>
+The first background-removal attempt may take longer because the
+AI model needs to be downloaded. Processing speed also depends on
+your device and image size.
+</p>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+
+<a href="../index.html">Home</a> |
+
+<a href="../about.html">About Us</a> |
+
+<a href="../contact.html">Contact Us</a> |
+
+<a href="../privacy-policy.html">Privacy Policy</a> |
+
+<a href="../terms.html">Terms & Conditions</a> |
+
+<a href="../disclaimer.html">Disclaimer</a>
+
+</p>
+
+</footer>
+
+
+<script type="module">
+
+import {
+  removeBackground as removeBg
+}
+from "https://cdn.jsdelivr.net/npm/@imgly/background-removal/+esm";
+
+
+let selectedFile = null;
+
+
+const imageInput =
+document.getElementById("imageInput");
+
+
+imageInput.addEventListener(
+"change",
+function(){
+
+const file = this.files[0];
+
+if(!file){
+return;
+}
+
+
+const valid =
+file.type === "image/jpeg" ||
+file.type === "image/png" ||
+/\.(jpg|jpeg|png)$/i.test(file.name);
+
+
+if(!valid){
+
+alert(
+"Please select a JPG, JPEG or PNG image."
+);
+
+this.value = "";
+
+return;
+}
+
+
+selectedFile = file;
+
+
+document.getElementById(
+"fileName"
+).textContent =
+file.name;
+
+
+document.getElementById(
+"fileInfo"
+).style.display =
+"block";
+
+
+const preview =
+document.getElementById(
+"originalImage"
+);
+
+
+preview.src =
+URL.createObjectURL(file);
+
+
+document.getElementById(
+"preview"
+).style.display =
+"block";
+
+
+document.getElementById(
+"buttons"
+).style.display =
+"flex";
+
+
+document.getElementById(
+"result"
+).style.display =
+"none";
+
+
+document.getElementById(
+"status"
+).style.display =
+"none";
+
+}
+);
+
+
+window.removeBackground =
+async function(){
+
+if(!selectedFile){
+
+alert(
+"Please choose an image first."
+);
+
+return;
+}
+
+
+const status =
+document.getElementById(
+"status"
+);
+
+
+status.className =
+"status";
+
+
+status.textContent =
+"Preparing AI background remover... The first run may take some time.";
+
+
+status.style.display =
+"block";
+
+
+document.getElementById(
+"result"
+).style.display =
+"none";
+
+
+try{
+
+const blob =
+await removeBg(
+selectedFile,
+{
+progress:
+(
+key,
+current,
+total
+) => {
+
+if(
+key &&
+key.includes("fetch")
+){
+
+status.textContent =
+"Downloading AI model... " +
+Math.round(
+(current / total) * 100
+) +
+"%";
+
+}
+else{
+
+status.textContent =
+"Removing background... Please wait.";
+
+}
+
+}
+}
+);
+
+
+const resultURL =
+URL.createObjectURL(blob);
+
+
+document.getElementById(
+"resultImage"
+).src =
+resultURL;
+
+
+const downloadButton =
+document.getElementById(
+"downloadButton"
+);
+
+
+downloadButton.href =
+resultURL;
+
+
+downloadButton.download =
+getOutputName(
+selectedFile.name
+);
+
+
+document.getElementById(
+"result"
+).style.display =
+"block";
+
+
+status.style.display =
+"none";
+
+}
+catch(error){
+
+console.error(error);
+
+status.className =
+"status error";
+
+status.textContent =
+"Background removal failed. Please check your internet connection and try again with a JPG or PNG image.";
+
+status.style.display =
+"block";
+
+}
+
+};
+
+
+function getOutputName(name){
+
+return name
+.replace(
+/\.(jpg|jpeg|png)$/i,
+""
+)
+.replace(
+/[^a-zA-Z0-9-_]/g,
+"-"
+)
++
+"-background-removed.png";
+
+}
+
+
+window.clearTool =
+function(){
+
+selectedFile = null;
+
+imageInput.value = "";
+
+
+document.getElementById(
+"fileInfo"
+).style.display =
+"none";
+
+
+document.getElementById(
+"preview"
+).style.display =
+"none";
+
+
+document.getElementById(
+"buttons"
+).style.display =
+"none";
+
+
+document.getElementById(
+"status"
+).style.display =
+"none";
+
+
+document.getElementById(
+"result"
+).style.display =
+"none";
+
+
+document.getElementById(
+"originalImage"
+).src =
+"";
+
+
+document.getElementById(
+"resultImage"
+).src =
+"";
+
+};
+
+</script>
+
+</body>
+  </html>
