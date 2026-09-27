@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WebP to JPG Converter - Free Online | SmartToolsKit</title>
+<title>HEIC to JPG Converter - Free Online | SmartToolsKit</title>
 
-<meta name="description" content="Convert WebP images to JPG online for free with SmartToolsKit. Fast, secure and easy WebP to JPG conversion directly in your browser.">
+<meta name="description" content="Convert HEIC and HEIF images to JPG online for free with SmartToolsKit. Fast and easy HEIC to JPG conversion directly in your browser.">
 
 <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://smarttoolskit.com/tools/webp-to-jpg.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/heic-to-jpg.html">
 
 <meta name="theme-color" content="#0F172A">
 
 <style>
-:root{
+:root {
   --navy:#0F172A;
   --navy-light:#1E293B;
   --emerald:#10B981;
@@ -28,37 +28,35 @@
   --soft:#F1F5F9;
 }
 
-*{
+* {
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
-body{
+body {
   font-family:Arial,Helvetica,sans-serif;
   background:var(--background);
   color:var(--text);
   line-height:1.6;
 }
 
-a{
+a {
   color:inherit;
   text-decoration:none;
 }
 
-.container{
+.container {
   width:min(900px,92%);
   margin:auto;
 }
 
-/* Header */
-
-header{
+header {
   background:var(--white);
   border-bottom:1px solid var(--border);
 }
 
-.nav{
+.nav {
   min-height:70px;
   display:flex;
   align-items:center;
@@ -66,70 +64,64 @@ header{
   gap:20px;
 }
 
-.logo{
+.logo {
   font-size:21px;
   font-weight:800;
   color:var(--navy);
 }
 
-nav{
+nav {
   display:flex;
   gap:20px;
 }
 
-nav a{
+nav a {
   color:#475569;
   font-size:14px;
   font-weight:600;
 }
 
-nav a:hover{
+nav a:hover {
   color:var(--emerald-dark);
 }
 
-/* Hero */
-
-.hero{
+.hero {
   background:var(--navy);
   color:#fff;
   text-align:center;
   padding:55px 15px;
 }
 
-.hero h1{
+.hero h1 {
   font-size:clamp(30px,6vw,45px);
   margin-bottom:10px;
 }
 
-.hero p{
+.hero p {
   color:#CBD5E1;
 }
 
-/* Main */
-
-main{
+main {
   padding:45px 0;
 }
 
 .tool-card,
-.content{
+.content {
   background:#fff;
   border:1px solid var(--border);
   border-radius:16px;
   padding:28px;
 }
 
-.tool-card{
+.tool-card {
   margin-bottom:35px;
 }
 
-.tool-card h2{
+.tool-card h2 {
   margin-bottom:20px;
 }
 
-/* Upload */
-
-.upload-box{
+.upload-box {
   border:2px dashed #CBD5E1;
   border-radius:12px;
   padding:35px 20px;
@@ -137,19 +129,19 @@ main{
   background:var(--background);
 }
 
-.upload-box p{
+.upload-box p {
   color:var(--muted);
   margin-bottom:16px;
 }
 
-.file-input{
+.file-input {
   display:none;
 }
 
 .upload-button,
 .convert-button,
 .download-button,
-.clear-button{
+.clear-button {
   display:inline-block;
   border:0;
   border-radius:9px;
@@ -159,24 +151,22 @@ main{
 }
 
 .upload-button,
-.convert-button{
+.convert-button {
   background:var(--emerald);
   color:#fff;
 }
 
 .upload-button:hover,
-.convert-button:hover{
+.convert-button:hover {
   background:var(--emerald-dark);
 }
 
-.clear-button{
+.clear-button {
   background:#E2E8F0;
   color:var(--navy);
 }
 
-/* File Info */
-
-.file-info{
+.file-info {
   display:none;
   margin-top:22px;
   padding:18px;
@@ -184,43 +174,47 @@ main{
   background:var(--soft);
 }
 
-.file-info p{
+.file-info p {
   font-size:14px;
   color:#475569;
   margin-bottom:5px;
 }
 
-/* Buttons */
-
-.button-row{
+.button-row {
   display:none;
   gap:10px;
   flex-wrap:wrap;
   margin-top:20px;
 }
 
-/* Preview */
+.status {
+  display:none;
+  margin-top:20px;
+  padding:14px;
+  border-radius:10px;
+  background:#EFF6FF;
+  color:#1E40AF;
+  font-size:14px;
+}
 
-.preview{
+.preview {
   display:none;
   text-align:center;
   margin-top:25px;
 }
 
-.preview h3{
+.preview h3 {
   margin-bottom:12px;
 }
 
-.preview img{
+.preview img {
   max-width:100%;
   max-height:400px;
   border:1px solid var(--border);
   border-radius:10px;
 }
 
-/* Result */
-
-.result{
+.result {
   display:none;
   margin-top:22px;
   padding:18px;
@@ -229,102 +223,96 @@ main{
   border:1px solid #A7F3D0;
 }
 
-.result h3{
+.result h3 {
   margin-bottom:10px;
 }
 
-.result p{
+.result p {
   color:#065F46;
   font-size:14px;
   margin-bottom:6px;
 }
 
-.download-button{
+.download-button {
   background:var(--navy);
   color:#fff;
   margin-top:12px;
 }
 
-.download-button:hover{
+.download-button:hover {
   background:var(--navy-light);
 }
 
-/* Content */
-
-.content h2{
+.content h2 {
   font-size:24px;
   margin-top:28px;
   margin-bottom:12px;
 }
 
-.content h2:first-child{
+.content h2:first-child {
   margin-top:0;
 }
 
-.content p{
+.content p {
   color:#475569;
   font-size:15px;
   margin-bottom:15px;
 }
 
-.content ul{
+.content ul {
   padding-left:22px;
   color:#475569;
 }
 
-.content li{
+.content li {
   margin-bottom:7px;
 }
 
-/* Footer */
-
-footer{
+footer {
   background:#020617;
   color:#CBD5E1;
   text-align:center;
   padding:35px 15px 25px;
 }
 
-footer p{
+footer p {
   font-size:13px;
   margin-bottom:12px;
 }
 
-footer a{
+footer a {
   color:#94A3B8;
   margin:0 4px;
 }
 
-footer a:hover{
+footer a:hover {
   color:#34D399;
 }
 
-/* Mobile */
+@media(max-width:700px) {
 
-@media(max-width:700px){
-
-  .nav{
+  .nav {
     padding:0 15px;
   }
 
-  nav a:not(:first-child){
+  nav a:not(:first-child) {
     display:none;
   }
 
-  .hero{
+  .hero {
     padding:45px 15px;
   }
 
   .tool-card,
-  .content{
+  .content {
     padding:20px;
   }
 
-  .button-row{
+  .button-row {
     flex-direction:column;
   }
 
-  .button-row button{
+  .button-row button {
     width:100%;
   }
 }
@@ -355,10 +343,10 @@ SmartToolsKit
 
 <div class="container">
 
-<h1>WebP to JPG Converter</h1>
+<h1>HEIC to JPG Converter</h1>
 
 <p>
-Convert WebP images to JPG format online for free.
+Convert HEIC and HEIF images to JPG online for free.
 </p>
 
 </div>
@@ -372,25 +360,23 @@ Convert WebP images to JPG format online for free.
 
 <section class="tool-card">
 
-<h2>Convert WebP to JPG</h2>
+<h2>Convert HEIC to JPG</h2>
 
 <div class="upload-box">
 
 <p>
-Select a WebP image from your device.
+Select a HEIC or HEIF image from your device.
 </p>
 
-<label
-for="imageInput"
-class="upload-button">
-Choose WebP Image
+<label for="imageInput" class="upload-button">
+Choose HEIC Image
 </label>
 
 <input
 type="file"
 id="imageInput"
 class="file-input"
-accept="image/webp,.webp"
+accept=".heic,.heif,image/heic,image/heif"
 >
 
 </div>
@@ -401,11 +387,6 @@ accept="image/webp,.webp"
 <p>
 <strong>File:</strong>
 <span id="fileName"></span>
-</p>
-
-<p>
-<strong>Dimensions:</strong>
-<span id="dimensions"></span>
 </p>
 
 <p>
@@ -433,6 +414,11 @@ Clear
 </div>
 
 
+<div class="status" id="status">
+Converting your HEIC image. Please wait...
+</div>
+
+
 <div class="preview" id="preview">
 
 <h3>JPG Preview</h3>
@@ -453,11 +439,6 @@ JPG size:
 <strong id="jpgSize"></strong>
 </p>
 
-<p>
-JPG quality:
-<strong>90%</strong>
-</p>
-
 <a
 id="downloadButton"
 class="download-button"
@@ -472,58 +453,59 @@ Download JPG
 
 <section class="content">
 
-<h2>What Is a WebP to JPG Converter?</h2>
+<h2>What Is a HEIC to JPG Converter?</h2>
 
 <p>
-A WebP to JPG converter changes WebP images into the widely supported
-JPG format. WebP is commonly used on modern websites because it can
-provide efficient image compression, while JPG remains highly
-compatible with devices, websites and applications.
+A HEIC to JPG converter changes images stored in the HEIC or HEIF
+format into the widely supported JPG format. HEIC is commonly used
+by modern smartphones, while JPG has much broader compatibility
+across websites, computers and applications.
 </p>
 
 
-<h2>How to Convert WebP to JPG</h2>
+<h2>How to Convert HEIC to JPG</h2>
 
 <p>
-Choose a WebP image from your device and click the Convert to JPG
-button. The conversion is performed directly in your browser.
-After conversion, preview the image and download the JPG file.
+Choose a HEIC or HEIF image from your device and click the Convert
+to JPG button. The image is processed in your browser and can then
+be previewed and downloaded as a JPG file.
 </p>
 
 
-<h2>Why Convert WebP to JPG?</h2>
+<h2>Why Convert HEIC to JPG?</h2>
 
 <ul>
-<li>Use an image format supported by almost every device.</li>
-<li>Prepare WebP images for applications requiring JPG.</li>
-<li>Create JPG versions of website images.</li>
-<li>Share images with platforms that do not support WebP.</li>
+<li>Open HEIC images on devices that do not support HEIC.</li>
+<li>Prepare smartphone photos for websites and applications.</li>
+<li>Create JPG versions for easier sharing.</li>
+<li>Use a highly compatible image format.</li>
 </ul>
 
 
-<h2>WebP vs JPG</h2>
+<h2>HEIC vs JPG</h2>
 
 <p>
-WebP is designed for efficient web delivery and can provide smaller
-files in many situations. JPG is an established image format with
-very broad compatibility and is commonly used for photographs.
+HEIC can provide efficient image storage while maintaining good
+image quality. JPG is an older and widely supported format that is
+compatible with most browsers, operating systems, websites and
+image applications.
 </p>
 
 
-<h2>Is This WebP to JPG Converter Free?</h2>
+<h2>Is This HEIC to JPG Converter Free?</h2>
 
 <p>
-Yes. SmartToolsKit provides this WebP to JPG converter free of
-charge. No account or signup is required.
+Yes. The SmartToolsKit HEIC to JPG Converter is free to use and
+does not require an account or signup.
 </p>
 
 
 <h2>Privacy</h2>
 
 <p>
-The conversion is performed directly in your web browser. Your
-selected image is not intentionally uploaded to a server by this
-tool.
+The conversion is performed in your browser using client-side
+processing. Your selected image is not intentionally uploaded to a
+SmartToolsKit server by this page.
 </p>
 
 </section>
@@ -558,11 +540,14 @@ tool.
 </footer>
 
 
+<!-- HEIC conversion library -->
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+
+
 <script>
 
 let selectedFile = null;
-let originalImage = null;
-
+let convertedBlob = null;
 
 const imageInput =
 document.getElementById("imageInput");
@@ -570,22 +555,25 @@ document.getElementById("imageInput");
 
 imageInput.addEventListener(
 "change",
-function(){
+function() {
 
 const file = this.files[0];
 
-if(!file){
+if (!file) {
 return;
 }
 
 
-if(
-file.type !== "image/webp" &&
-!/\.webp$/i.test(file.name)
-){
+const isHEIC =
+/\.(heic|heif)$/i.test(file.name) ||
+file.type === "image/heic" ||
+file.type === "image/heif";
+
+
+if (!isHEIC) {
 
 alert(
-"Please select a WebP image."
+"Please select a HEIC or HEIF image."
 );
 
 this.value = "";
@@ -606,185 +594,152 @@ document.getElementById("originalSize")
 formatBytes(file.size);
 
 
-const reader =
-new FileReader();
-
-
-reader.onload =
-function(event){
-
-const img =
-new Image();
-
-
-img.onload =
-function(){
-
-originalImage = img;
-
-
-document.getElementById("dimensions")
-.textContent =
-img.naturalWidth +
-" × " +
-img.naturalHeight +
-" px";
-
-
 document.getElementById("fileInfo")
-.style.display =
-"block";
+.style.display = "block";
 
 
 document.getElementById("buttons")
-.style.display =
-"flex";
+.style.display = "flex";
 
 
 document.getElementById("preview")
-.style.display =
-"none";
+.style.display = "none";
 
 
 document.getElementById("result")
-.style.display =
-"none";
-
-};
+.style.display = "none";
 
 
-img.src =
-event.target.result;
-
-};
-
-
-reader.readAsDataURL(file);
+document.getElementById("status")
+.style.display = "none";
 
 }
 );
 
 
-function convertToJPG(){
+async function convertToJPG() {
 
-if(
-!selectedFile ||
-!originalImage
-){
+if (!selectedFile) {
 
 alert(
-"Please choose a WebP image first."
+"Please choose a HEIC image first."
 );
 
 return;
 }
 
 
-const canvas =
-document.createElement("canvas");
-
-
-canvas.width =
-originalImage.naturalWidth;
-
-
-canvas.height =
-originalImage.naturalHeight;
-
-
-const context =
-canvas.getContext("2d");
-
-
-/*
-JPG does not support transparency.
-White background is used for
-transparent WebP areas.
-*/
-
-context.fillStyle =
-"#FFFFFF";
-
-
-context.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-
-context.drawImage(
-originalImage,
-0,
-0
-);
-
-
-canvas.toBlob(
-function(blob){
-
-if(!blob){
+if (typeof heic2any === "undefined") {
 
 alert(
-"Conversion failed. Please try again."
+"HEIC conversion library could not be loaded. Please check your internet connection and try again."
 );
 
 return;
 }
+
+
+const status =
+document.getElementById("status");
+
+
+status.textContent =
+"Converting your HEIC image. Please wait...";
+
+status.style.display = "block";
+
+
+document.getElementById("result")
+.style.display = "none";
+
+
+document.getElementById("preview")
+.style.display = "none";
+
+
+try {
+
+const result =
+await heic2any({
+
+blob:selectedFile,
+
+toType:"image/jpeg",
+
+quality:0.90
+
+});
+
+
+convertedBlob =
+Array.isArray(result)
+? result[0]
+: result;
 
 
 const url =
-URL.createObjectURL(blob);
+URL.createObjectURL(convertedBlob);
 
 
-document.getElementById(
-"previewImage"
-).src = url;
+document.getElementById("previewImage")
+.src = url;
 
 
-document.getElementById(
-"preview"
-).style.display =
-"block";
+document.getElementById("preview")
+.style.display = "block";
 
 
-document.getElementById(
-"jpgSize"
-).textContent =
-formatBytes(blob.size);
+document.getElementById("jpgSize")
+.textContent =
+formatBytes(convertedBlob.size);
 
 
 const downloadButton =
-document.getElementById(
-"downloadButton"
-);
+document.getElementById("downloadButton");
 
 
-downloadButton.href =
-url;
+downloadButton.href = url;
 
 
 downloadButton.download =
-"converted-image.jpg";
+getBaseName(selectedFile.name)
++ ".jpg";
 
 
-document.getElementById(
-"result"
-).style.display =
-"block";
+document.getElementById("result")
+.style.display = "block";
 
-},
-"image/jpeg",
-0.90
-);
+
+status.style.display = "none";
+
+}
+
+catch(error) {
+
+console.error(error);
+
+status.textContent =
+"Conversion failed. Please make sure the selected file is a valid HEIC or HEIF image.";
+
+status.style.display = "block";
+
+}
 
 }
 
 
-function formatBytes(bytes){
+function getBaseName(fileName) {
 
-if(bytes === 0){
+return fileName
+.replace(/\.(heic|heif)$/i, "")
+.replace(/[^a-zA-Z0-9-_]/g, "-");
+
+}
+
+
+function formatBytes(bytes) {
+
+if (bytes === 0) {
 return "0 Bytes";
 }
 
@@ -820,45 +775,40 @@ units[index]
 }
 
 
-function clearTool(){
+function clearTool() {
 
 selectedFile = null;
-originalImage = null;
+convertedBlob = null;
 
 imageInput.value = "";
 
 
-document.getElementById(
-"fileInfo"
-).style.display =
-"none";
+document.getElementById("fileInfo")
+.style.display = "none";
 
 
-document.getElementById(
-"buttons"
-).style.display =
-"none";
+document.getElementById("buttons")
+.style.display = "none";
 
 
-document.getElementById(
-"preview"
-).style.display =
-"none";
+document.getElementById("status")
+.style.display = "none";
 
 
-document.getElementById(
-"result"
-).style.display =
-"none";
+document.getElementById("preview")
+.style.display = "none";
 
 
-document.getElementById(
-"previewImage"
-).src = "";
+document.getElementById("result")
+.style.display = "none";
+
+
+document.getElementById("previewImage")
+.src = "";
 
 }
 
 </script>
 
 </body>
-  </html>
+</html>
