@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Currency Converter - Free Online Exchange Rate Calculator | SmartToolsKit</title>
+
+<meta name="description" content="Convert currencies online with the latest available exchange rates. SmartToolsKit Currency Converter supports USD, PKR, EUR, GBP, AED, SAR and many more currencies.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://smarttoolskit.com/tools/currency-converter.html">
+
+<meta name="theme-color" content="#0F172A">
+
+<style>
+
+:root{
+  --navy:#0F172A;
+  --navy-light:#1E293B;
+  --emerald:#10B981;
+  --emerald-dark:#059669;
+  --background:#F8FAFC;
+  --white:#FFFFFF;
+  --text:#0F172A;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --soft:#F1F5F9;
+  --red:#DC2626;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--background);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(900px,92%);
+  margin:auto;
+}
+
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  color:#475569;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:var(--emerald-dark);
+}
+
+.hero{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:55px 15px;
+}
+
+.hero h1{
+  font-size:clamp(30px,6vw,45px);
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#CBD5E1;
+}
+
+main{
+  padding:45px 0;
+}
+
+.tool-card,
+.content{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+}
+
+.tool-card{
+  margin-bottom:35px;
+}
+
+.tool-card h2{
+  margin-bottom:22px;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+input,
+select{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:#fff;
+  color:var(--text);
+  font-size:16px;
+}
+
+input:focus,
+select:focus{
+  outline:2px solid rgba(16,185,129,.25);
+  border-color:var(--emerald);
+}
+
+.currency-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.swap-row{
+  text-align:center;
+  margin:5px 0 20px;
+}
+
+.swap-button{
+  border:1px solid var(--border);
+  background:var(--soft);
+  color:var(--navy);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.swap-button:hover{
+  background:#E2E8F0;
+}
+
+.convert-button,
+.clear-button{
+  width:100%;
+  border:0;
+  border-radius:9px;
+  padding:14px 20px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.convert-button{
+  background:var(--emerald);
+  color:#fff;
+}
+
+.convert-button:hover{
+  background:var(--emerald-dark);
+}
+
+.clear-button{
+  background:#E2E8F0;
+  color:var(--navy);
+  margin-top:10px;
+}
+
+.result{
+  display:none;
+  margin-top:25px;
+  padding:22px;
+  border-radius:12px;
+  background:#ECFDF5;
+  border:1px solid #A7F3D0;
+  text-align:center;
+}
+
+.result-label{
+  color:#065F46;
+  font-size:14px;
+  margin-bottom:7px;
+}
+
+.result-value{
+  font-size:30px;
+  font-weight:800;
+  color:var(--navy);
+  word-break:break-word;
+}
+
+.rate-info{
+  margin-top:12px;
+  color:#475569;
+  font-size:14px;
+}
+
+.updated{
+  margin-top:7px;
+  color:#64748B;
+  font-size:12px;
+}
+
+.status{
+  display:none;
+  margin-top:20px;
+  padding:14px;
+  border-radius:10px;
+  background:#EFF6FF;
+  color:#1E40AF;
+  font-size:14px;
+}
+
+.status.error{
+  background:#FEF2F2;
+  color:#B91C1C;
+}
+
+.content h2{
+  font-size:24px;
+  margin-top:28px;
+  margin-bottom:12px;
+}
+
+.content h2:first-child{
+  margin-top:0;
+}
+
+.content p{
+  color:#475569;
+  font-size:15px;
+  margin-bottom:15px;
+}
+
+.content ul{
+  padding-left:22px;
+  color:#475569;
+}
+
+.content li{
+  margin-bottom:7px;
+}
+
+.attribution{
+  margin-top:20px;
+  text-align:center;
+  font-size:12px;
+  color:#64748B;
+}
+
+.attribution a{
+  color:#059669;
+  text-decoration:underline;
+}
+
+footer{
+  background:#020617;
+  color:#CBD5E1;
+  text-align:center;
+  padding:35px 15px 25px;
+}
+
+footer p{
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+footer a{
+  color:#94A3B8;
+  margin:0 4px;
+}
+
+footer a:hover{
+  color:#34D399;
+}
+
+@media(max-width:650px){
+
+  .nav{
+    padding:0 15px;
+  }
+
+  nav a:not(:first-child){
+    display:none;
+  }
+
+  .hero{
+    padding:45px 15px;
+  }
+
+  .tool-card,
+  .content{
+    padding:20px;
+  }
+
+  .currency-row{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<a href="../index.html" class="logo">
+SmartToolsKit
+</a>
+
+<nav>
+
+<a href="../index.html">
+Home
+</a>
+
+<a href="../about.html">
+About
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Currency Converter</h1>
+
+<p>
+Convert currencies using the latest available exchange rates.
+</p>
+
+</div>
+
+</section>
+
+
+<main>
+
+<div class="container">
+
+<section class="tool-card">
+
+<h2>Currency Converter</h2>
+
+
+<div class="form-group">
+
+<label for="amount">
+Amount
+</label>
+
+<input
+type="number"
+id="amount"
+value="1"
+min="0"
+step="any"
+placeholder="Enter amount">
+
+</div>
+
+
+<div class="currency-row">
+
+<div class="form-group">
+
+<label for="fromCurrency">
+From
+</label>
+
+<select id="fromCurrency">
+
+<option value="USD">
+USD - US Dollar
+</option>
+
+<option value="PKR">
+PKR - Pakistani Rupee
+</option>
+
+<option value="EUR">
+EUR - Euro
+</option>
+
+<option value="GBP">
+GBP - British Pound
+</option>
+
+<option value="AED">
+AED - UAE Dirham
+</option>
+
+<option value="SAR">
+SAR - Saudi Riyal
+</option>
+
+<option value="INR">
+INR - Indian Rupee
+</option>
+
+<option value="CAD">
+CAD - Canadian Dollar
+</option>
+
+<option value="AUD">
+AUD - Australian Dollar
+</option>
+
+<option value="JPY">
+JPY - Japanese Yen
+</option>
+
+<option value="CNY">
+CNY - Chinese Yuan
+</option>
+
+<option value="CHF">
+CHF - Swiss Franc
+</option>
+
+<option value="NZD">
+NZD - New Zealand Dollar
+</option>
+
+<option value="SGD">
+SGD - Singapore Dollar
+</option>
+
+<option value="MYR">
+MYR - Malaysian Ringgit
+</option>
+
+<option value="TRY">
+TRY - Turkish Lira
+</option>
+
+<option value="QAR">
+QAR - Qatari Riyal
+</option>
+
+<option value="KWD">
+KWD - Kuwaiti Dinar
+</option>
+
+<option value="OMR">
+OMR - Omani Rial
+</option>
+
+<option value="BHD">
+BHD - Bahraini Dinar
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="toCurrency">
+To
+</label>
+
+<select id="toCurrency">
+
+<option value="PKR">
+PKR - Pakistani Rupee
+</option>
+
+<option value="USD">
+USD - US Dollar
+</option>
+
+<option value="EUR">
+EUR - Euro
+</option>
+
+<option value="GBP">
+GBP - British Pound
+</option>
+
+<option value="AED">
+AED - UAE Dirham
+</option>
+
+<option value="SAR">
+SAR - Saudi Riyal
+</option>
+
+<option value="INR">
+INR - Indian Rupee
+</option>
+
+<option value="CAD">
+CAD - Canadian Dollar
+</option>
+
+<option value="AUD">
+AUD - Australian Dollar
+</option>
+
+<option value="JPY">
+JPY - Japanese Yen
+</option>
+
+<option value="CNY">
+CNY - Chinese Yuan
+</option>
+
+<option value="CHF">
+CHF - Swiss Franc
+</option>
+
+<option value="NZD">
+NZD - New Zealand Dollar
+</option>
+
+<option value="SGD">
+SGD - Singapore Dollar
+</option>
+
+<option value="MYR">
+MYR - Malaysian Ringgit
+</option>
+
+<option value="TRY">
+TRY - Turkish Lira
+</option>
+
+<option value="QAR">
+QAR - Qatari Riyal
+</option>
+
+<option value="KWD">
+KWD - Kuwaiti Dinar
+</option>
+
+<option value="OMR">
+OMR - Omani Rial
+</option>
+
+<option value="BHD">
+BHD - Bahraini Dinar
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="swap-row">
+
+<button
+class="swap-button"
+onclick="swapCurrencies()"
+title="Swap currencies">
+⇄
+</button>
+
+</div>
+
+
+<button
+class="convert-button"
+onclick="convertCurrency()">
+
+Convert Currency
+
+</button>
+
+
+<button
+class="clear-button"
+onclick="clearTool()">
+
+Clear
+
+</button>
+
+
+<div
+class="status"
+id="status">
+</div>
+
+
+<div
+class="result"
+id="result">
+
+<div class="result-label">
+Converted Amount
+</div>
+
+<div
+class="result-value"
+id="resultValue">
+</div>
+
+<div
+class="rate-info"
+id="rateInfo">
+</div>
+
+<div
+class="updated"
+id="updated">
+</div>
+
+</div>
+
+
+<div class="attribution">
+
+Exchange rates provided by
+
+<a
+href="https://www.exchangerate-api.com"
+target="_blank"
+rel="noopener noreferrer">
+
+ExchangeRate-API
+
+</a>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>What Is a Currency Converter?</h2>
+
+<p>
+A currency converter helps you calculate the value of one currency
+in another currency. It is useful for travel, online shopping,
+international payments, business and financial planning.
+</p>
+
+
+<h2>How to Use the Currency Converter</h2>
+
+<p>
+Enter the amount, select the currency you are converting from,
+select the target currency and click Convert Currency. The tool
+retrieves the latest available exchange-rate data and calculates
+the conversion.
+</p>
+
+
+<h2>Supported Currencies</h2>
+
+<p>
+SmartToolsKit includes popular currencies such as USD, PKR, EUR,
+GBP, AED, SAR, INR, CAD, AUD, JPY, CNY and several other major
+currencies.
+</p>
+
+
+<h2>Are Exchange Rates Real-Time?</h2>
+
+<p>
+Exchange rates shown by this tool are the latest available rates
+provided by the exchange-rate data service. Rates can change in
+financial markets, so the displayed conversion should be treated
+as an indicative calculation rather than a guaranteed bank,
+card or cash-exchange rate.
+</p>
+
+
+<h2>Is This Currency Converter Free?</h2>
+
+<p>
+Yes. SmartToolsKit provides this currency converter free of charge
+and no account or signup is required.
+</p>
+
+
+<h2>Privacy</h2>
+
+<p>
+The amount and currency selections are processed by this webpage.
+No personal information is required to use the converter.
+</p>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+
+<a href="../index.html">
+Home
+</a>
+|
+
+<a href="../about.html">
+About Us
+</a>
+|
+
+<a href="../contact.html">
+Contact Us
+</a>
+|
+
+<a href="../privacy-policy.html">
+Privacy Policy
+</a>
+|
+
+<a href="../terms.html">
+Terms & Conditions
+</a>
+|
+
+<a href="../disclaimer.html">
+Disclaimer
+</a>
+
+</p>
+
+</footer>
+
+
+<script>
+
+const API_URL =
+"https://open.er-api.com/v6/latest/";
+
+
+async function convertCurrency(){
+
+const amount =
+parseFloat(
+document.getElementById("amount").value
+);
+
+
+const from =
+document.getElementById(
+"fromCurrency"
+).value;
+
+
+const to =
+document.getElementById(
+"toCurrency"
+).value;
+
+
+const status =
+document.getElementById(
+"status"
+);
+
+
+const result =
+document.getElementById(
+"result"
+);
+
+
+if(
+isNaN(amount) ||
+amount < 0
+){
+
+status.className =
+"status error";
+
+status.textContent =
+"Please enter a valid amount.";
+
+status.style.display =
+"block";
+
+result.style.display =
+"none";
+
+return;
+
+}
+
+
+status.className =
+"status";
+
+status.textContent =
+"Loading latest available exchange rate...";
+
+status.style.display =
+"block";
+
+result.style.display =
+"none";
+
+
+try{
+
+const response =
+await fetch(
+API_URL + from
+);
+
+
+if(!response.ok){
+
+throw new Error(
+"Unable to connect to exchange-rate service."
+);
+
+}
+
+
+const data =
+await response.json();
+
+
+if(
+data.result !== "success"
+){
+
+throw new Error(
+"Exchange-rate service returned an error."
+);
+
+}
+
+
+const rate =
+data.rates[to];
+
+
+if(
+typeof rate !== "number"
+){
+
+throw new Error(
+"This currency is currently unavailable."
+);
+
+}
+
+
+const converted =
+amount * rate;
+
+
+document.getElementById(
+"resultValue"
+).textContent =
+formatNumber(converted) +
+" " +
+to;
+
+
+document.getElementById(
+"rateInfo"
+).textContent =
+"1 " +
+from +
+" = " +
+formatNumber(rate) +
+" " +
+to;
+
+
+let updateText =
+"";
+
+
+if(
+data.time_last_update_utc
+){
+
+updateText =
+"Last updated: " +
+data.time_last_update_utc;
+
+}
+
+
+if(
+data.time_next_update_utc
+){
+
+updateText +=
+" • Next update: " +
+data.time_next_update_utc;
+
+}
+
+
+document.getElementById(
+"updated"
+).textContent =
+updateText;
+
+
+status.style.display =
+"none";
+
+result.style.display =
+"block";
+
+}
+catch(error){
+
+console.error(error);
+
+status.className =
+"status error";
+
+status.textContent =
+"Could not load exchange rates. Please check your internet connection and try again.";
+
+status.style.display =
+"block";
+
+result.style.display =
+"none";
+
+}
+
+}
+
+
+function swapCurrencies(){
+
+const from =
+document.getElementById(
+"fromCurrency"
+);
+
+
+const to =
+document.getElementById(
+"toCurrency"
+);
+
+
+const temporary =
+from.value;
+
+
+from.value =
+to.value;
+
+
+to.value =
+temporary;
+
+
+document.getElementById(
+"result"
+).style.display =
+"none";
+
+document.getElementById(
+"status"
+).style.display =
+"none";
+
+}
+
+
+function clearTool(){
+
+document.getElementById(
+"amount"
+).value =
+"1";
+
+
+document.getElementById(
+"fromCurrency"
+).value =
+"USD";
+
+
+document.getElementById(
+"toCurrency"
+).value =
+"PKR";
+
+
+document.getElementById(
+"result"
+).style.display =
+"none";
+
+
+document.getElementById(
+"status"
+).style.display =
+"none";
+
+}
+
+
+function formatNumber(number){
+
+return new Intl.NumberFormat(
+"en-US",
+{
+maximumFractionDigits:6
+}
+).format(number);
+
+}
+
+</script>
+
+</body>
+  </html>
