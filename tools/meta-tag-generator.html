@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meta Tag Generator - Free SEO Meta Tags Tool | SmartToolsKit</title>
+
+<meta name="description" content="Generate SEO-friendly HTML meta tags for your website. Create title, description, robots, canonical, Open Graph and Twitter meta tags with SmartToolsKit.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://smarttoolskit.com/tools/meta-tag-generator.html">
+
+<meta name="theme-color" content="#0F172A">
+
+<style>
+
+:root{
+  --navy:#0F172A;
+  --navy-light:#1E293B;
+  --emerald:#10B981;
+  --emerald-dark:#059669;
+  --background:#F8FAFC;
+  --white:#FFFFFF;
+  --text:#0F172A;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --soft:#F1F5F9;
+  --red:#DC2626;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--background);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(1000px,92%);
+  margin:auto;
+}
+
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  color:#475569;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:var(--emerald-dark);
+}
+
+.hero{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:55px 15px;
+}
+
+.hero h1{
+  font-size:clamp(30px,6vw,45px);
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#CBD5E1;
+}
+
+main{
+  padding:45px 0;
+}
+
+.tool-card,
+.content{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+}
+
+.tool-card{
+  margin-bottom:35px;
+}
+
+.tool-card h2{
+  margin-bottom:22px;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:#fff;
+  color:var(--text);
+  font-size:15px;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  outline:2px solid rgba(16,185,129,.25);
+  border-color:var(--emerald);
+}
+
+.char-count{
+  text-align:right;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.section-title{
+  margin-top:28px;
+  margin-bottom:15px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--border);
+  font-size:20px;
+}
+
+.checkbox-row{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-bottom:12px;
+}
+
+.checkbox-row input{
+  width:auto;
+}
+
+.generate-button,
+.copy-button,
+.clear-button{
+  border:0;
+  border-radius:9px;
+  padding:14px 20px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.generate-button{
+  width:100%;
+  background:var(--emerald);
+  color:#fff;
+}
+
+.generate-button:hover{
+  background:var(--emerald-dark);
+}
+
+.button-row{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.copy-button{
+  background:var(--navy);
+  color:#fff;
+  flex:1;
+}
+
+.copy-button:hover{
+  background:var(--navy-light);
+}
+
+.clear-button{
+  background:#E2E8F0;
+  color:var(--navy);
+  flex:1;
+}
+
+.output{
+  display:none;
+  margin-top:30px;
+}
+
+.output h3{
+  margin-bottom:12px;
+}
+
+.code-box{
+  position:relative;
+}
+
+#outputCode{
+  min-height:360px;
+  background:#0B1120;
+  color:#E2E8F0;
+  border:0;
+  font-family:Consolas,Monaco,monospace;
+  font-size:13px;
+  line-height:1.65;
+  padding:18px;
+}
+
+.copy-message{
+  display:none;
+  margin-top:10px;
+  color:#047857;
+  font-size:14px;
+  font-weight:600;
+}
+
+.status{
+  display:none;
+  margin-top:18px;
+  padding:13px;
+  border-radius:9px;
+  background:#FEF2F2;
+  color:#B91C1C;
+  font-size:14px;
+}
+
+.content h2{
+  font-size:24px;
+  margin-top:28px;
+  margin-bottom:12px;
+}
+
+.content h2:first-child{
+  margin-top:0;
+}
+
+.content p{
+  color:#475569;
+  font-size:15px;
+  margin-bottom:15px;
+}
+
+.content ul{
+  padding-left:22px;
+  color:#475569;
+}
+
+.content li{
+  margin-bottom:7px;
+}
+
+footer{
+  background:#020617;
+  color:#CBD5E1;
+  text-align:center;
+  padding:35px 15px 25px;
+}
+
+footer p{
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+footer a{
+  color:#94A3B8;
+  margin:0 4px;
+}
+
+footer a:hover{
+  color:#34D399;
+}
+
+@media(max-width:700px){
+
+  .nav{
+    padding:0 15px;
+  }
+
+  nav a:not(:first-child){
+    display:none;
+  }
+
+  .hero{
+    padding:45px 15px;
+  }
+
+  .tool-card,
+  .content{
+    padding:20px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .button-row{
+    flex-direction:column;
+  }
+
+  .copy-button,
+  .clear-button{
+    width:100%;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<a href="../index.html" class="logo">
+SmartToolsKit
+</a>
+
+<nav>
+
+<a href="../index.html">
+Home
+</a>
+
+<a href="../about.html">
+About
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Meta Tag Generator</h1>
+
+<p>
+Generate SEO-friendly HTML meta tags for your website.
+</p>
+
+</div>
+
+</section>
+
+
+<main>
+
+<div class="container">
+
+<section class="tool-card">
+
+<h2>Generate Meta Tags</h2>
+
+
+<div class="form-group">
+
+<label for="pageTitle">
+Page Title *
+</label>
+
+<input
+type="text"
+id="pageTitle"
+maxlength="70"
+placeholder="Example: Free Online Image Compressor">
+
+<div
+class="char-count"
+id="titleCount">
+0 / 70
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="description">
+Meta Description *
+</label>
+
+<textarea
+id="description"
+maxlength="320"
+placeholder="Enter a clear and descriptive summary of your webpage"></textarea>
+
+<div
+class="char-count"
+id="descriptionCount">
+0 / 320
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="form-group">
+
+<label for="canonical">
+Canonical URL
+</label>
+
+<input
+type="url"
+id="canonical"
+placeholder="https://example.com/page">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="author">
+Author
+</label>
+
+<input
+type="text"
+id="author"
+placeholder="Website or author name">
+
+</div>
+
+</div>
+
+
+<h3 class="section-title">
+SEO Settings
+</h3>
+
+
+<div class="grid">
+
+<div class="form-group">
+
+<label for="robots">
+Robots
+</label>
+
+<select id="robots">
+
+<option value="index, follow">
+index, follow
+</option>
+
+<option value="index, nofollow">
+index, nofollow
+</option>
+
+<option value="noindex, follow">
+noindex, follow
+</option>
+
+<option value="noindex, nofollow">
+noindex, nofollow
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="language">
+Language
+</label>
+
+<select id="language">
+
+<option value="en">
+English (en)
+</option>
+
+<option value="ur">
+Urdu (ur)
+</option>
+
+<option value="ar">
+Arabic (ar)
+</option>
+
+<option value="fr">
+French (fr)
+</option>
+
+<option value="de">
+German (de)
+</option>
+
+<option value="es">
+Spanish (es)
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="keywords">
+Keywords
+</label>
+
+<input
+type="text"
+id="keywords"
+placeholder="online tools, calculator, free tools">
+
+</div>
+
+
+<h3 class="section-title">
+Social Media Tags
+</h3>
+
+
+<div class="checkbox-row">
+
+<input
+type="checkbox"
+id="openGraph"
+checked>
+
+<label for="openGraph">
+Include Open Graph tags
+</label>
+
+</div>
+
+
+<div class="checkbox-row">
+
+<input
+type="checkbox"
+id="twitterCard"
+checked>
+
+<label for="twitterCard">
+Include Twitter Card tags
+</label>
+
+</div>
+
+
+<div class="grid">
+
+<div class="form-group">
+
+<label for="ogImage">
+Social Image URL
+</label>
+
+<input
+type="url"
+id="ogImage"
+placeholder="https://example.com/image.jpg">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="themeColor">
+Theme Color
+</label>
+
+<input
+type="text"
+id="themeColor"
+value="#0F172A"
+placeholder="#0F172A">
+
+</div>
+
+</div>
+
+
+<button
+class="generate-button"
+onclick="generateTags()">
+
+Generate Meta Tags
+
+</button>
+
+
+<div
+class="status"
+id="status">
+</div>
+
+
+<div
+class="output"
+id="output">
+
+<h3>
+Generated HTML
+</h3>
+
+<div class="code-box">
+
+<textarea
+id="outputCode"
+readonly></textarea>
+
+</div>
+
+
+<div class="button-row">
+
+<button
+class="copy-button"
+onclick="copyCode()">
+
+Copy Code
+
+</button>
+
+<button
+class="clear-button"
+onclick="clearTool()">
+
+Clear
+
+</button>
+
+</div>
+
+
+<div
+class="copy-message"
+id="copyMessage">
+
+Meta tags copied to clipboard.
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>What Is a Meta Tag Generator?</h2>
+
+<p>
+A meta tag generator creates HTML metadata that can be added to
+the head section of a webpage. These tags provide search engines
+and social platforms with information about your page.
+</p>
+
+
+<h2>Why Are Meta Tags Important?</h2>
+
+<p>
+A well-written page title and meta description can help search
+engines understand the subject of a webpage. Open Graph and
+Twitter Card tags can also control how pages are represented when
+shared on supported social platforms.
+</p>
+
+
+<h2>What Does This Tool Generate?</h2>
+
+<ul>
+
+<li>HTML title tag</li>
+
+<li>Meta description</li>
+
+<li>Robots meta tag</li>
+
+<li>Canonical URL</li>
+
+<li>Author information</li>
+
+<li>Language attribute</li>
+
+<li>Keywords meta tag</li>
+
+<li>Open Graph tags</li>
+
+<li>Twitter Card tags</li>
+
+<li>Theme color</li>
+
+</ul>
+
+
+<h2>How to Use the Generated Code</h2>
+
+<p>
+Enter your webpage information and click Generate Meta Tags.
+Copy the generated HTML and place the tags inside the
+&lt;head&gt; section of your webpage.
+</p>
+
+
+<h2>SEO Best Practices</h2>
+
+<p>
+Write a unique and useful title and description for every
+important page. Avoid keyword stuffing and make sure the generated
+canonical URL matches the preferred URL of your webpage.
+</p>
+
+
+<h2>Is This Meta Tag Generator Free?</h2>
+
+<p>
+Yes. SmartToolsKit provides this meta tag generator free of charge
+and no account or signup is required.
+</p>
+
+
+<h2>Privacy</h2>
+
+<p>
+All information entered into this tool is processed directly in
+your browser. The generated code is not sent to a SmartToolsKit
+server.
+</p>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+
+<a href="../index.html">
+Home
+</a>
+|
+
+<a href="../about.html">
+About Us
+</a>
+|
+
+<a href="../contact.html">
+Contact Us
+</a>
+|
+
+<a href="../privacy-policy.html">
+Privacy Policy
+</a>
+|
+
+<a href="../terms.html">
+Terms & Conditions
+</a>
+|
+
+<a href="../disclaimer.html">
+Disclaimer
+</a>
+
+</p>
+
+</footer>
+
+
+<script>
+
+const titleInput =
+document.getElementById(
+"pageTitle"
+);
+
+const descriptionInput =
+document.getElementById(
+"description"
+);
+
+
+titleInput.addEventListener(
+"input",
+function(){
+
+document.getElementById(
+"titleCount"
+).textContent =
+this.value.length +
+" / 70";
+
+}
+);
+
+
+descriptionInput.addEventListener(
+"input",
+function(){
+
+document.getElementById(
+"descriptionCount"
+).textContent =
+this.value.length +
+" / 320";
+
+}
+);
+
+
+function escapeHTML(value){
+
+return value
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#39;");
+
+}
+
+
+function generateTags(){
+
+const title =
+document.getElementById(
+"pageTitle"
+).value.trim();
+
+
+const description =
+document.getElementById(
+"description"
+).value.trim();
+
+
+const canonical =
+document.getElementById(
+"canonical"
+).value.trim();
+
+
+const author =
+document.getElementById(
+"author"
+).value.trim();
+
+
+const robots =
+document.getElementById(
+"robots"
+).value;
+
+
+const language =
+document.getElementById(
+"language"
+).value;
+
+
+const keywords =
+document.getElementById(
+"keywords"
+).value.trim();
+
+
+const ogImage =
+document.getElementById(
+"ogImage"
+).value.trim();
+
+
+const themeColor =
+document.getElementById(
+"themeColor"
+).value.trim();
+
+
+const includeOG =
+document.getElementById(
+"openGraph"
+).checked;
+
+
+const includeTwitter =
+document.getElementById(
+"twitterCard"
+).checked;
+
+
+const status =
+document.getElementById(
+"status"
+);
+
+
+if(!title){
+
+showError(
+"Please enter a page title."
+);
+
+return;
+
+}
+
+
+if(!description){
+
+showError(
+"Please enter a meta description."
+);
+
+return;
+
+}
+
+
+if(
+canonical &&
+!isValidURL(canonical)
+){
+
+showError(
+"Please enter a valid canonical URL."
+);
+
+return;
+
+}
+
+
+if(
+ogImage &&
+!isValidURL(ogImage)
+){
+
+showError(
+"Please enter a valid social image URL."
+);
+
+return;
+
+}
+
+
+let code = "";
+
+
+code +=
+'<!-- Basic SEO Meta Tags -->\n';
+
+
+code +=
+'<title>' +
+escapeHTML(title) +
+'</title>\n';
+
+
+code +=
+'<meta name="description" content="' +
+escapeHTML(description) +
+'">\n';
+
+
+code +=
+'<meta name="robots" content="' +
+escapeHTML(robots) +
+'">\n';
+
+
+code +=
+'<meta name="language" content="' +
+escapeHTML(language) +
+'">\n';
+
+
+if(author){
+
+code +=
+'<meta name="author" content="' +
+escapeHTML(author) +
+'">\n';
+
+}
+
+
+if(keywords){
+
+code +=
+'<meta name="keywords" content="' +
+escapeHTML(keywords) +
+'">\n';
+
+}
+
+
+if(canonical){
+
+code +=
+'<link rel="canonical" href="' +
+escapeHTML(canonical) +
+'">\n';
+
+}
+
+
+if(themeColor){
+
+code +=
+'<meta name="theme-color" content="' +
+escapeHTML(themeColor) +
+'">\n';
+
+}
+
+
+if(includeOG){
+
+code +=
+'\n<!-- Open Graph Meta Tags -->\n';
+
+code +=
+'<meta property="og:type" content="website">\n';
+
+code +=
+'<meta property="og:title" content="' +
+escapeHTML(title) +
+'">\n';
+
+code +=
+'<meta property="og:description" content="' +
+escapeHTML(description) +
+'">\n';
+
+
+if(canonical){
+
+code +=
+'<meta property="og:url" content="' +
+escapeHTML(canonical) +
+'">\n';
+
+}
+
+
+if(ogImage){
+
+code +=
+'<meta property="og:image" content="' +
+escapeHTML(ogImage) +
+'">\n';
+
+}
+
+}
+
+
+if(includeTwitter){
+
+code +=
+'\n<!-- Twitter Card Meta Tags -->\n';
+
+code +=
+'<meta name="twitter:card" content="summary_large_image">\n';
+
+code +=
+'<meta name="twitter:title" content="' +
+escapeHTML(title) +
+'">\n';
+
+code +=
+'<meta name="twitter:description" content="' +
+escapeHTML(description) +
+'">\n';
+
+
+if(ogImage){
+
+code +=
+'<meta name="twitter:image" content="' +
+escapeHTML(ogImage) +
+'">\n';
+
+}
+
+}
+
+
+document.getElementById(
+"outputCode"
+).value =
+code;
+
+
+document.getElementById(
+"output"
+).style.display =
+"block";
+
+
+status.style.display =
+"none";
+
+
+document.getElementById(
+"copyMessage"
+).style.display =
+"none";
+
+
+document.getElementById(
+"output"
+).scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+
+function isValidURL(value){
+
+try{
+
+new URL(value);
+
+return true;
+
+}
+catch{
+
+return false;
+
+}
+
+}
+
+
+async function copyCode(){
+
+const code =
+document.getElementById(
+"outputCode"
+).value;
+
+
+if(!code){
+
+return;
+
+}
+
+
+try{
+
+await navigator.clipboard.writeText(
+code
+);
+
+}
+catch{
+
+const textarea =
+document.getElementById(
+"outputCode"
+);
+
+textarea.focus();
+
+textarea.select();
+
+document.execCommand(
+"copy"
+);
+
+}
+
+
+document.getElementById(
+"copyMessage"
+).style.display =
+"block";
+
+}
+
+
+function showError(message){
+
+const status =
+document.getElementById(
+"status"
+);
+
+status.textContent =
+message;
+
+status.style.display =
+"block";
+
+document.getElementById(
+"output"
+).style.display =
+"none";
+
+}
+
+
+function clearTool(){
+
+document.getElementById(
+"pageTitle"
+).value =
+"";
+
+document.getElementById(
+"description"
+).value =
+"";
+
+document.getElementById(
+"canonical"
+).value =
+"";
+
+document.getElementById(
+"author"
+).value =
+"";
+
+document.getElementById(
+"keywords"
+).value =
+"";
+
+document.getElementById(
+"ogImage"
+).value =
+"";
+
+document.getElementById(
+"themeColor"
+).value =
+"#0F172A";
+
+document.getElementById(
+"robots"
+).value =
+"index, follow";
+
+document.getElementById(
+"language"
+).value =
+"en";
+
+document.getElementById(
+"openGraph"
+).checked =
+true;
+
+document.getElementById(
+"twitterCard"
+).checked =
+true;
+
+document.getElementById(
+"titleCount"
+).textContent =
+"0 / 70";
+
+document.getElementById(
+"descriptionCount"
+).textContent =
+"0 / 320";
+
+document.getElementById(
+"output"
+).style.display =
+"none";
+
+document.getElementById(
+"status"
+).style.display =
+"none";
+
+document.getElementById(
+"copyMessage"
+).style.display =
+"none";
+
+document.getElementById(
+"outputCode"
+).value =
+"";
+
+}
+
+</script>
+
+</body>
+  </html>
