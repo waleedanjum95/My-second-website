@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Merge PDF Files Online Free | SmartToolsKit</title>
+
+<meta name="description" content="Merge multiple PDF files into one PDF online for free with SmartToolsKit. Combine PDF documents directly in your browser without uploading files.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://smarttoolskit.com/tools/merge-pdf.html">
+
+<meta name="theme-color" content="#0F172A">
+
+<style>
+:root{
+  --navy:#0F172A;
+  --navy-light:#1E293B;
+  --emerald:#10B981;
+  --emerald-dark:#059669;
+  --background:#F8FAFC;
+  --white:#FFFFFF;
+  --text:#0F172A;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --soft:#F1F5F9;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--background);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(900px,92%);
+  margin:auto;
+}
+
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  color:#475569;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:var(--emerald-dark);
+}
+
+.hero{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:55px 15px;
+}
+
+.hero h1{
+  font-size:clamp(30px,6vw,45px);
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#CBD5E1;
+}
+
+main{
+  padding:45px 0;
+}
+
+.tool-card,
+.content{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+}
+
+.tool-card{
+  margin-bottom:35px;
+}
+
+.tool-card h2{
+  margin-bottom:20px;
+}
+
+.upload-box{
+  border:2px dashed #CBD5E1;
+  border-radius:12px;
+  padding:35px 20px;
+  text-align:center;
+  background:var(--background);
+}
+
+.upload-box p{
+  color:var(--muted);
+  margin-bottom:16px;
+}
+
+.file-input{
+  display:none;
+}
+
+.upload-button,
+.merge-button,
+.clear-button{
+  display:inline-block;
+  border:0;
+  border-radius:9px;
+  padding:13px 20px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.upload-button,
+.merge-button{
+  background:var(--emerald);
+  color:#fff;
+}
+
+.upload-button:hover,
+.merge-button:hover{
+  background:var(--emerald-dark);
+}
+
+.clear-button{
+  background:#E2E8F0;
+  color:var(--navy);
+}
+
+.file-list{
+  display:none;
+  margin-top:22px;
+}
+
+.file-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:13px 15px;
+  margin-bottom:8px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--soft);
+}
+
+.file-number{
+  min-width:28px;
+  height:28px;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:700;
+}
+
+.file-name{
+  flex:1;
+  font-size:14px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.file-size{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.button-row{
+  display:none;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.status{
+  display:none;
+  margin-top:20px;
+  padding:14px;
+  border-radius:10px;
+  background:#EFF6FF;
+  color:#1E40AF;
+  font-size:14px;
+}
+
+.status.error{
+  background:#FEF2F2;
+  color:#B91C1C;
+}
+
+.result{
+  display:none;
+  margin-top:22px;
+  padding:20px;
+  border-radius:12px;
+  background:#ECFDF5;
+  border:1px solid #A7F3D0;
+}
+
+.result h3{
+  margin-bottom:8px;
+}
+
+.result p{
+  color:#065F46;
+  font-size:14px;
+}
+
+.download-button{
+  display:inline-block;
+  margin-top:12px;
+  padding:13px 20px;
+  border-radius:9px;
+  background:var(--navy);
+  color:#fff;
+  font-weight:700;
+}
+
+.download-button:hover{
+  background:var(--navy-light);
+}
+
+.content h2{
+  font-size:24px;
+  margin-top:28px;
+  margin-bottom:12px;
+}
+
+.content h2:first-child{
+  margin-top:0;
+}
+
+.content p{
+  color:#475569;
+  font-size:15px;
+  margin-bottom:15px;
+}
+
+.content ul{
+  padding-left:22px;
+  color:#475569;
+}
+
+.content li{
+  margin-bottom:7px;
+}
+
+footer{
+  background:#020617;
+  color:#CBD5E1;
+  text-align:center;
+  padding:35px 15px 25px;
+}
+
+footer p{
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+footer a{
+  color:#94A3B8;
+  margin:0 4px;
+}
+
+footer a:hover{
+  color:#34D399;
+}
+
+@media(max-width:700px){
+
+  .nav{
+    padding:0 15px;
+  }
+
+  nav a:not(:first-child){
+    display:none;
+  }
+
+  .hero{
+    padding:45px 15px;
+  }
+
+  .tool-card,
+  .content{
+    padding:20px;
+  }
+
+  .button-row{
+    flex-direction:column;
+  }
+
+  .button-row button{
+    width:100%;
+  }
+
+  .file-item{
+    flex-wrap:wrap;
+  }
+
+  .file-size{
+    width:100%;
+    margin-left:38px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<a href="../index.html" class="logo">
+SmartToolsKit
+</a>
+
+<nav>
+<a href="../index.html">Home</a>
+<a href="../about.html">About</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Merge PDF Files</h1>
+
+<p>
+Combine multiple PDF files into one PDF document online.
+</p>
+
+</div>
+
+</section>
+
+
+<main>
+
+<div class="container">
+
+<section class="tool-card">
+
+<h2>Merge PDF Files</h2>
+
+<div class="upload-box">
+
+<p>
+Select two or more PDF files to combine them.
+</p>
+
+<label
+for="pdfInput"
+class="upload-button">
+Choose PDF Files
+</label>
+
+<input
+type="file"
+id="pdfInput"
+class="file-input"
+accept="application/pdf,.pdf"
+multiple>
+
+</div>
+
+
+<div
+class="file-list"
+id="fileList">
+</div>
+
+
+<div
+class="button-row"
+id="buttons">
+
+<button
+class="merge-button"
+onclick="mergePDFs()">
+Merge PDFs
+</button>
+
+<button
+class="clear-button"
+onclick="clearTool()">
+Clear
+</button>
+
+</div>
+
+
+<div
+class="status"
+id="status">
+</div>
+
+
+<div
+class="result"
+id="result">
+
+<h3>
+Merge Complete
+</h3>
+
+<p>
+Your combined PDF is ready to download.
+</p>
+
+<a
+id="downloadButton"
+class="download-button"
+download="merged-pdf.pdf">
+Download Merged PDF
+</a>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>What Is a PDF Merger?</h2>
+
+<p>
+A PDF merger combines two or more PDF documents into a single PDF
+file. This makes it easier to organize and share multiple
+documents as one file.
+</p>
+
+
+<h2>How to Merge PDF Files</h2>
+
+<p>
+Select multiple PDF files from your device and click Merge PDFs.
+The files will be combined in the same order in which they appear
+in the selected file list.
+</p>
+
+
+<h2>Why Merge PDF Files?</h2>
+
+<ul>
+<li>Combine multiple documents into one file.</li>
+<li>Organize reports and business documents.</li>
+<li>Combine study notes and assignments.</li>
+<li>Create a single document for sharing or printing.</li>
+<li>Reduce the number of separate PDF files you need to manage.</li>
+</ul>
+
+
+<h2>Is This PDF Merger Free?</h2>
+
+<p>
+Yes. SmartToolsKit provides this PDF merger free of charge and no
+account or signup is required.
+</p>
+
+
+<h2>Privacy</h2>
+
+<p>
+The PDF files are processed directly in your browser. They are not
+intentionally uploaded to a SmartToolsKit server by this tool.
+</p>
+
+
+<h2>How Many PDFs Can I Merge?</h2>
+
+<p>
+You can select multiple PDF files. The practical limit depends on
+your device's available memory and the size of the documents.
+Very large PDF files may require more processing time and memory.
+</p>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+
+<a href="../index.html">Home</a> |
+
+<a href="../about.html">About Us</a> |
+
+<a href="../contact.html">Contact Us</a> |
+
+<a href="../privacy-policy.html">Privacy Policy</a> |
+
+<a href="../terms.html">Terms & Conditions</a> |
+
+<a href="../disclaimer.html">Disclaimer</a>
+
+</p>
+
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+
+<script>
+
+let selectedFiles = [];
+
+
+const pdfInput =
+document.getElementById("pdfInput");
+
+
+pdfInput.addEventListener(
+"change",
+function(){
+
+const files =
+Array.from(this.files);
+
+
+if(files.length < 2){
+
+alert(
+"Please select at least two PDF files."
+);
+
+this.value = "";
+
+return;
+}
+
+
+const invalidFile =
+files.some(
+file =>
+file.type !== "application/pdf" &&
+! /\.pdf$/i.test(file.name)
+);
+
+
+if(invalidFile){
+
+alert(
+"Please select PDF files only."
+);
+
+this.value = "";
+
+return;
+}
+
+
+selectedFiles = files;
+
+
+displayFiles();
+
+}
+);
+
+
+function displayFiles(){
+
+const fileList =
+document.getElementById("fileList");
+
+
+fileList.innerHTML = "";
+
+
+selectedFiles.forEach(
+function(file,index){
+
+const item =
+document.createElement("div");
+
+item.className =
+"file-item";
+
+
+const number =
+document.createElement("div");
+
+number.className =
+"file-number";
+
+number.textContent =
+index + 1;
+
+
+const name =
+document.createElement("div");
+
+name.className =
+"file-name";
+
+name.textContent =
+file.name;
+
+
+const size =
+document.createElement("div");
+
+size.className =
+"file-size";
+
+size.textContent =
+formatBytes(file.size);
+
+
+item.appendChild(number);
+
+item.appendChild(name);
+
+item.appendChild(size);
+
+fileList.appendChild(item);
+
+}
+);
+
+
+fileList.style.display =
+"block";
+
+
+document.getElementById(
+"buttons"
+).style.display =
+"flex";
+
+
+document.getElementById(
+"result"
+).style.display =
+"none";
+
+
+document.getElementById(
+"status"
+).style.display =
+"none";
+
+}
+
+
+async function mergePDFs(){
+
+if(selectedFiles.length < 2){
+
+alert(
+"Please select at least two PDF files."
+);
+
+return;
+}
+
+
+const status =
+document.getElementById("status");
+
+
+status.className =
+"status";
+
+status.textContent =
+"Preparing PDF files. Please wait...";
+
+status.style.display =
+"block";
+
+
+document.getElementById(
+"result"
+).style.display =
+"none";
+
+
+try{
+
+const mergedPdf =
+await PDFLib.PDFDocument.create();
+
+
+for(
+let i = 0;
+i < selectedFiles.length;
+i++
+){
+
+status.textContent =
+"Merging file " +
+(i + 1) +
+" of " +
+selectedFiles.length +
+"...";
+
+
+const arrayBuffer =
+await selectedFiles[i].arrayBuffer();
+
+
+const pdf =
+await PDFLib.PDFDocument.load(
+arrayBuffer
+);
+
+
+const pages =
+await mergedPdf.copyPages(
+pdf,
+pdf.getPageIndices()
+);
+
+
+pages.forEach(
+function(page){
+
+mergedPdf.addPage(page);
+
+}
+);
+
+}
+
+
+status.textContent =
+"Creating merged PDF...";
+
+
+const mergedBytes =
+await mergedPdf.save();
+
+
+const blob =
+new Blob(
+[mergedBytes],
+{
+type:"application/pdf"
+}
+);
+
+
+const url =
+URL.createObjectURL(blob);
+
+
+const downloadButton =
+document.getElementById(
+"downloadButton"
+);
+
+
+downloadButton.href =
+url;
+
+
+downloadButton.download =
+"merged-pdf.pdf";
+
+
+document.getElementById(
+"result"
+).style.display =
+"block";
+
+
+status.style.display =
+"none";
+
+}
+catch(error){
+
+console.error(error);
+
+status.className =
+"status error";
+
+status.textContent =
+"Could not merge the PDF files. Please make sure all selected files are valid PDFs.";
+
+status.style.display =
+"block";
+
+}
+
+}
+
+
+function clearTool(){
+
+selectedFiles = [];
+
+pdfInput.value = "";
+
+
+document.getElementById(
+"fileList"
+).style.display =
+"none";
+
+
+document.getElementById(
+"fileList"
+).innerHTML =
+"";
+
+
+document.getElementById(
+"buttons"
+).style.display =
+"none";
+
+
+document.getElementById(
+"status"
+).style.display =
+"none";
+
+
+document.getElementById(
+"result"
+).style.display =
+"none";
+
+}
+
+
+function formatBytes(bytes){
+
+if(bytes === 0){
+return "0 Bytes";
+}
+
+
+const units = [
+"Bytes",
+"KB",
+"MB",
+"GB"
+];
+
+
+const index =
+Math.floor(
+Math.log(bytes) /
+Math.log(1024)
+);
+
+
+return (
+parseFloat(
+(
+bytes /
+Math.pow(1024,index)
+).toFixed(2)
+)
++
+" "
++
+units[index]
+);
+
+}
+
+</script>
+
+</body>
+  </html>
