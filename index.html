@@ -1,1832 +1,2344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>SmartToolsKit - Free Online Tools for Everyone</title>
-
-  <meta name="description" content="SmartToolsKit provides fast, free and easy-to-use online calculators, converters, text tools, SEO tools, security utilities, image tools, PDF tools and health calculators. No signup required.">
-
-  <meta name="robots" content="index, follow">
-
-  <link rel="canonical" href="https://smarttoolskit.com/">
-
-  <meta name="theme-color" content="#0F172A">
-
-  <style>
-    :root {
-      --navy: #0F172A;
-      --navy-light: #1E293B;
-      --emerald: #10B981;
-      --emerald-dark: #059669;
-      --teal: #14B8A6;
-      --background: #F8FAFC;
-      --white: #FFFFFF;
-      --text: #0F172A;
-      --muted: #64748B;
-      --border: #E2E8F0;
-      --soft: #F1F5F9;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
-      --radius: 16px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    /* Header */
-
-    header {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 21px;
-      font-weight: 800;
-      color: var(--navy);
-      white-space: nowrap;
-    }
-
-    .logo-shape {
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
-      background: var(--emerald);
-      position: relative;
-    }
-
-    .logo-shape::after {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: var(--white);
-      border-radius: 4px;
-      top: 9px;
-      left: 9px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    nav a {
-      color: #475569;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: var(--emerald-dark);
-    }
-
-    .nav-button {
-      background: var(--emerald);
-      color: white !important;
-      padding: 10px 16px;
-      border-radius: 9px;
-    }
-
-    .nav-button:hover {
-      background: var(--emerald-dark);
-    }
-
-    /* Hero */
-
-    .hero {
-      background: var(--navy);
-      color: white;
-      padding: 85px 0 90px;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.06);
-      color: #A7F3D0;
-      padding: 7px 13px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 62px);
-      line-height: 1.08;
-      letter-spacing: -1.5px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      color: #34D399;
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: auto;
-      color: #CBD5E1;
-      font-size: 17px;
-    }
-
-    .search-box {
-      max-width: 650px;
-      margin: 32px auto 0;
-      display: flex;
-      background: white;
-      padding: 6px;
-      border-radius: 12px;
-    }
-
-    .search-box input {
-      width: 100%;
-      border: none;
-      outline: none;
-      padding: 14px;
-      font-size: 15px;
-      color: var(--text);
-    }
-
-    .search-box button {
-      border: none;
-      background: var(--emerald);
-      color: white;
-      padding: 0 22px;
-      border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .search-box button:hover {
-      background: var(--emerald-dark);
-    }
-
-    /* Sections */
-
-    section {
-      padding: 70px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 38px;
-    }
-
-    .section-heading h2 {
-      font-size: 32px;
-      margin-bottom: 8px;
-      color: var(--navy);
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      max-width: 650px;
-      margin: auto;
-    }
-
-    /* Categories */
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-    }
-
-    .category {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 25px 16px;
-      text-align: center;
-      transition: 0.2s ease;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .category:hover,
-    .category.active {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      border-color: #A7F3D0;
-    }
-
-    .shape {
-      width: 42px;
-      height: 42px;
-      background: var(--soft);
-      margin: 0 auto 14px;
-      border-radius: 10px;
-      position: relative;
-    }
-
-    .shape::before {
-      content: "";
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border: 3px solid var(--emerald);
-      border-radius: 50%;
-      top: 9px;
-      left: 9px;
-    }
-
-    .category h3 {
-      font-size: 15px;
-      margin-bottom: 5px;
-    }
-
-    .category p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* Tools */
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .tool-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      transition: 0.2s ease;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      border-color: #A7F3D0;
-    }
-
-    .tool-card.hidden {
-      display: none;
-    }
-
-    .tool-shape {
-      width: 40px;
-      height: 40px;
-      border-radius: 9px;
-      background: #ECFDF5;
-      margin-bottom: 16px;
-      position: relative;
-    }
-
-    .tool-shape::after {
-      content: "";
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      border: 3px solid var(--teal);
-      top: 9px;
-      left: 9px;
-      transform: rotate(45deg);
-    }
-
-    .tool-card h3 {
-      font-size: 16px;
-      margin-bottom: 7px;
-    }
-
-    .tool-card p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 15px;
-    }
-
-    .tool-link {
-      color: var(--emerald-dark);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .no-results {
-      display: none;
-      text-align: center;
-      color: var(--muted);
-      padding: 30px 0;
-      grid-column: 1 / -1;
-    }
-
-    /* About / SEO section */
-
-    .intro {
-      background: white;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .intro-content {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .intro h2 {
-      text-align: center;
-      font-size: 31px;
-      margin-bottom: 20px;
-    }
-
-    .intro p {
-      color: #475569;
-      margin-bottom: 16px;
-      font-size: 15px;
-    }
-
-    /* CTA */
-
-    .cta {
-      background: var(--navy);
-      color: white;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .cta p {
-      color: #CBD5E1;
-      margin-bottom: 24px;
-    }
-
-    .cta a {
-      display: inline-block;
-      background: var(--emerald);
-      color: white;
-      padding: 12px 22px;
-      border-radius: 9px;
-      font-weight: 700;
-    }
-
-    .cta a:hover {
-      background: var(--emerald-dark);
-    }
-
-    /* Footer */
-
-    footer {
-      background: #020617;
-      color: #CBD5E1;
-      padding: 45px 0 25px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 35px;
-    }
-
-    footer h3 {
-      color: white;
-      margin-bottom: 12px;
-      font-size: 16px;
-    }
-
-    footer p,
-    footer a {
-      color: #94A3B8;
-      font-size: 13px;
-    }
-
-    footer a:hover {
-      color: #34D399;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .copyright {
-      border-top: 1px solid #1E293B;
-      padding-top: 20px;
-      text-align: center;
-      color: #64748B;
-      font-size: 12px;
-    }
-
-    /* Mobile */
-
-    @media (max-width: 900px) {
-
-      .category-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .tools-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
-
-      .nav {
-        min-height: 65px;
-      }
-
-      nav {
-        gap: 10px;
-      }
-
-      nav a:not(.nav-button) {
-        display: none;
-      }
-
-      .hero {
-        padding: 65px 0 70px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .search-box {
-        flex-direction: column;
-        gap: 6px;
-        background: transparent;
-      }
-
-      .search-box input {
-        border-radius: 8px;
-      }
-
-      .search-box button {
-        min-height: 46px;
-      }
-
-      section {
-        padding: 55px 0;
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .tools-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SmartToolsKit - 100 Free Online Tools</title>
+<meta name="description" content="SmartToolsKit provides 100 free online calculators, converters, text tools, SEO tools, AI utilities, developer tools, security tools, image tools, PDF tools and health calculators.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/">
+<meta name="theme-color" content="#0F172A">
+
+<style>
+:root{
+--navy:#0F172A;
+--navy-light:#1E293B;
+--emerald:#10B981;
+--emerald-dark:#059669;
+--teal:#14B8A6;
+--background:#F8FAFC;
+--white:#FFF;
+--text:#0F172A;
+--muted:#64748B;
+--border:#E2E8F0;
+--soft:#F1F5F9;
+--shadow:0 10px 30px rgba(15,23,42,.07);
+--radius:16px
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--background);
+color:var(--text);
+line-height:1.6
+}
+
+a{
+color:inherit;
+text-decoration:none
+}
+
+button,input{
+font-family:inherit
+}
+
+.container{
+width:min(1120px,92%);
+margin:auto
+}
+
+header{
+background:var(--white);
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:100
+}
+
+.nav{
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:30px
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:21px;
+font-weight:800;
+color:var(--navy);
+white-space:nowrap
+}
+
+.logo-shape{
+width:30px;
+height:30px;
+border-radius:8px;
+background:var(--emerald);
+position:relative
+}
+
+.logo-shape:after{
+content:"";
+position:absolute;
+width:12px;
+height:12px;
+background:var(--white);
+border-radius:4px;
+top:9px;
+left:9px
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:24px
+}
+
+nav a{
+color:#475569;
+font-size:14px;
+font-weight:600
+}
+
+nav a:hover{
+color:var(--emerald-dark)
+}
+
+.nav-button{
+background:var(--emerald);
+color:#fff!important;
+padding:10px 16px;
+border-radius:9px
+}
+
+.nav-button:hover{
+background:var(--emerald-dark)
+}
+
+.hero{
+background:var(--navy);
+color:#fff;
+padding:75px 0 80px
+}
+
+.hero-content{
+max-width:820px;
+margin:auto;
+text-align:center
+}
+
+.hero-badge{
+display:inline-block;
+border:1px solid rgba(255,255,255,.16);
+background:rgba(255,255,255,.06);
+color:#A7F3D0;
+padding:7px 13px;
+border-radius:30px;
+font-size:13px;
+font-weight:600;
+margin-bottom:20px
+}
+
+.hero h1{
+font-size:clamp(38px,6vw,62px);
+line-height:1.08;
+letter-spacing:-1.5px;
+margin-bottom:20px
+}
+
+.hero h1 span{
+color:#34D399
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+color:#CBD5E1;
+font-size:17px
+}
+
+.search-box{
+max-width:680px;
+margin:32px auto 0;
+display:flex;
+background:#fff;
+padding:6px;
+border-radius:12px
+}
+
+.search-box input{
+width:100%;
+border:none;
+outline:none;
+padding:14px;
+font-size:15px;
+color:var(--text)
+}
+
+.search-box button{
+border:none;
+background:var(--emerald);
+color:#fff;
+padding:0 22px;
+border-radius:8px;
+font-weight:700;
+cursor:pointer
+}
+
+.search-box button:hover{
+background:var(--emerald-dark)
+}
+
+section{
+padding:65px 0
+}
+
+.section-heading{
+text-align:center;
+margin-bottom:38px
+}
+
+.section-heading h2{
+font-size:32px;
+margin-bottom:8px;
+color:var(--navy)
+}
+
+.section-heading p{
+color:var(--muted);
+max-width:650px;
+margin:auto
+}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:14px
+}
+
+.category{
+background:#fff;
+border:1px solid var(--border);
+border-radius:var(--radius);
+padding:20px 12px;
+text-align:center;
+transition:.2s;
+cursor:pointer;
+width:100%
+}
+
+.category:hover,
+.category.active{
+transform:translateY(-3px);
+box-shadow:var(--shadow);
+border-color:#A7F3D0
+}
+
+.shape{
+width:40px;
+height:40px;
+background:var(--soft);
+margin:0 auto 12px;
+border-radius:10px;
+position:relative
+}
+
+.shape:before{
+content:"";
+position:absolute;
+width:17px;
+height:17px;
+border:3px solid var(--emerald);
+border-radius:50%;
+top:8px;
+left:8px
+}
+
+.category h3{
+font-size:14px;
+margin-bottom:4px
+}
+
+.category p{
+color:var(--muted);
+font-size:11px
+}
+
+.tools-section{
+padding-top:35px
+}
+
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px
+}
+
+.tool-card{
+background:#fff;
+border:1px solid var(--border);
+border-radius:var(--radius);
+padding:22px;
+transition:.2s
+}
+
+.tool-card:hover{
+transform:translateY(-3px);
+box-shadow:var(--shadow);
+border-color:#A7F3D0
+}
+
+.tool-card.hidden{
+display:none
+}
+
+.tool-shape{
+width:40px;
+height:40px;
+border-radius:9px;
+background:#ECFDF5;
+margin-bottom:16px;
+position:relative
+}
+
+.tool-shape:after{
+content:"";
+position:absolute;
+width:15px;
+height:15px;
+border:3px solid var(--teal);
+top:9px;
+left:9px;
+transform:rotate(45deg)
+}
+
+.tool-card h3{
+font-size:16px;
+margin-bottom:7px
+}
+
+.tool-card p{
+color:var(--muted);
+font-size:13px;
+margin-bottom:15px
+}
+
+.tool-link{
+color:var(--emerald-dark);
+font-size:13px;
+font-weight:700
+}
+
+.no-results{
+display:none;
+text-align:center;
+color:var(--muted);
+padding:30px 0;
+grid-column:1/-1
+}
+
+.intro{
+background:#fff;
+border-top:1px solid var(--border);
+border-bottom:1px solid var(--border)
+}
+
+.intro-content{
+max-width:850px;
+margin:auto
+}
+
+.intro h2{
+text-align:center;
+font-size:31px;
+margin-bottom:20px
+}
+
+.intro p{
+color:#475569;
+margin-bottom:16px;
+font-size:15px
+}
+
+.cta{
+background:var(--navy);
+color:#fff;
+text-align:center
+}
+
+.cta h2{
+font-size:32px;
+margin-bottom:12px
+}
+
+.cta p{
+color:#CBD5E1;
+margin-bottom:24px
+}
+
+.cta a{
+display:inline-block;
+background:var(--emerald);
+color:#fff;
+padding:12px 22px;
+border-radius:9px;
+font-weight:700
+}
+
+.cta a:hover{
+background:var(--emerald-dark)
+}
+
+footer{
+background:#020617;
+color:#CBD5E1;
+padding:45px 0 25px
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:40px;
+margin-bottom:35px
+}
+
+footer h3{
+color:#fff;
+margin-bottom:12px;
+font-size:16px
+}
+
+footer p,
+footer a{
+color:#94A3B8;
+font-size:13px
+}
+
+footer a:hover{
+color:#34D399
+}
+
+.footer-links{
+display:flex;
+flex-direction:column;
+gap:8px
+}
+
+.copyright{
+border-top:1px solid #1E293B;
+padding-top:20px;
+text-align:center;
+color:#64748B;
+font-size:12px
+}
+
+@media(max-width:1050px){
+.category-grid{
+grid-template-columns:repeat(4,1fr)
+}
+.tools-grid{
+grid-template-columns:repeat(3,1fr)
+}
+}
+
+@media(max-width:800px){
+.category-grid{
+grid-template-columns:repeat(3,1fr)
+}
+.tools-grid{
+grid-template-columns:repeat(2,1fr)
+}
+.footer-grid{
+grid-template-columns:1fr 1fr
+}
+}
+
+@media(max-width:600px){
+.nav{
+min-height:65px
+}
+
+.nav-button{
+padding:8px 11px
+}
+
+nav{
+gap:10px
+}
+
+nav a:not(.nav-button){
+display:none
+}
+
+.hero{
+padding:60px 0 65px
+}
+
+.hero p{
+font-size:15px
+}
+
+.search-box{
+flex-direction:column;
+gap:6px;
+background:transparent
+}
+
+.search-box input{
+border-radius:8px
+}
+
+.search-box button{
+min-height:46px
+}
+
+section{
+padding:52px 0
+}
+
+.category-grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.tools-grid{
+grid-template-columns:1fr
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+gap:25px
+}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Header -->
+<header>
+<div class="container nav">
 
-  <header>
-    <div class="container nav">
+<a href="index.html" class="logo">
+<span class="logo-shape"></span>
+SmartToolsKit
+</a>
 
-      <a href="index.html" class="logo">
-        <span class="logo-shape"></span>
-        SmartToolsKit
-      </a>
+<nav>
+<a href="#categories">Categories</a>
+<a href="#tools">Tools</a>
+<a href="about.html">About</a>
+<a href="contact.html" class="nav-button">Contact</a>
+</nav>
 
-      <nav>
-        <a href="#categories">Categories</a>
-        <a href="#tools">Tools</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="nav-button">Contact</a>
-      </nav>
+</div>
+</header>
 
-    </div>
-  </header>
+<main>
 
+<section class="hero">
+<div class="container hero-content">
 
-  <!-- Hero -->
+<div class="hero-badge">100 Free Online Tools</div>
 
-  <main>
+<h1>
+Free Online Tools for <span>Everyday Tasks</span>
+</h1>
 
-    <section class="hero">
+<p>
+SmartToolsKit provides fast, simple and practical online tools for calculations, conversions, text, SEO, AI, security, development, images, PDFs, health and everyday digital tasks.
+</p>
 
-      <div class="container hero-content">
+<form class="search-box" id="toolSearchForm">
 
-        <div class="hero-badge">
-          Smart Tools. Simple Solutions.
-        </div>
+<input
+type="search"
+id="toolSearch"
+placeholder="Search for a tool..."
+aria-label="Search tools">
 
-        <h1>
-          Free Online Tools for <span>Everyday Tasks</span>
-        </h1>
+<button type="submit">
+Search
+</button>
 
-        <p>
-          SmartToolsKit provides fast, simple and reliable online tools for
-          calculations, conversions, text processing, SEO, security,
-          development, images, PDFs, health and everyday digital tasks.
-        </p>
+</form>
 
-        <form class="search-box" id="toolSearchForm">
+</div>
+</section>
 
-          <input
-            type="search"
-            id="toolSearch"
-            placeholder="Search for a tool..."
-            aria-label="Search tools"
-          >
 
-          <button type="submit">
-            Search
-          </button>
+<section id="categories">
 
-        </form>
+<div class="container">
 
-      </div>
+<div class="section-heading">
 
-    </section>
+<h2>Explore Tool Categories</h2>
 
+<p>
+Find the right free online tool quickly through our complete collection.
+</p>
 
-    <!-- Categories -->
+</div>
 
-    <section id="categories">
 
-      <div class="container">
+<div class="category-grid">
 
-        <div class="section-heading">
+<button class="category active" type="button" data-category="all">
+<div class="shape"></div>
+<h3>All Tools</h3>
+<p>View the complete tool collection.</p>
+</button>
 
-          <h2>Explore Tool Categories</h2>
+<button class="category" type="button" data-category="calculators">
+<div class="shape"></div>
+<h3>Calculators</h3>
+<p>Calculate quickly and accurately.</p>
+</button>
 
-          <p>
-            Find the right free online tool quickly through our growing
-            collection of useful digital utilities.
-          </p>
+<button class="category" type="button" data-category="converters">
+<div class="shape"></div>
+<h3>Converters</h3>
+<p>Convert values and formats with ease.</p>
+</button>
 
-        </div>
+<button class="category" type="button" data-category="text">
+<div class="shape"></div>
+<h3>Text Tools</h3>
+<p>Analyze, clean and format text.</p>
+</button>
 
+<button class="category" type="button" data-category="seo">
+<div class="shape"></div>
+<h3>SEO Tools</h3>
+<p>Improve your website and SEO workflow.</p>
+</button>
 
-        <div class="category-grid">
+<button class="category" type="button" data-category="ai">
+<div class="shape"></div>
+<h3>AI Tools</h3>
+<p>Useful AI-assisted productivity tools.</p>
+</button>
 
-          <button class="category active" type="button" data-category="all">
+<button class="category" type="button" data-category="developer">
+<div class="shape"></div>
+<h3>Developer Tools</h3>
+<p>Practical tools for developers.</p>
+</button>
 
-            <div class="shape"></div>
+<button class="category" type="button" data-category="security">
+<div class="shape"></div>
+<h3>Security Tools</h3>
+<p>Useful privacy and password utilities.</p>
+</button>
 
-            <h3>All Tools</h3>
+<button class="category" type="button" data-category="image">
+<div class="shape"></div>
+<h3>Image Tools</h3>
+<p>Resize, compress and convert images.</p>
+</button>
 
-            <p>View our complete tool collection.</p>
+<button class="category" type="button" data-category="pdf">
+<div class="shape"></div>
+<h3>PDF Tools</h3>
+<p>Work with common PDF tasks.</p>
+</button>
 
-          </button>
+<button class="category" type="button" data-category="health">
+<div class="shape"></div>
+<h3>Health Tools</h3>
+<p>Useful health and fitness calculators.</p>
+</button>
 
+</div>
+</div>
+</section>
 
-          <button class="category" type="button" data-category="calculators">
 
-            <div class="shape"></div>
+<section id="tools" class="tools-section">
 
-            <h3>Calculators</h3>
+<div class="container">
 
-            <p>Calculate quickly and accurately.</p>
+<div class="section-heading">
 
-          </button>
+<h2>100 Free Online Tools</h2>
 
+<p>
+Practical utilities organized by category and searchable from one place.
+</p>
 
-          <button class="category" type="button" data-category="converters">
+</div>
 
-            <div class="shape"></div>
 
-            <h3>Converters</h3>
+<div class="tools-grid" id="toolsGrid">
 
-            <p>Convert values with ease.</p>
 
-          </button>
+<!-- 1 -->
+<article class="tool-card" data-tool="percentage calculator" data-category="calculators" data-description="calculate percentages quickly">
 
+<div class="tool-shape"></div>
 
-          <button class="category" type="button" data-category="text">
+<h3>Percentage Calculator</h3>
 
-            <div class="shape"></div>
+<p>Calculate percentages quickly for everyday calculations.</p>
 
-            <h3>Text Tools</h3>
+<a href="tools/percentage-calculator.html" class="tool-link">Open Tool →</a>
 
-            <p>Analyze and format text.</p>
+</article>
 
-          </button>
 
+<!-- 2 -->
+<article class="tool-card" data-tool="age calculator" data-category="calculators" data-description="calculate exact age">
 
-          <button class="category" type="button" data-category="seo">
+<div class="tool-shape"></div>
 
-            <div class="shape"></div>
+<h3>Age Calculator</h3>
 
-            <h3>SEO Tools</h3>
+<p>Calculate your exact age using your date of birth.</p>
 
-            <p>Improve your website workflow.</p>
+<a href="tools/age-calculator.html" class="tool-link">Open Tool →</a>
 
-          </button>
+</article>
 
 
-          <button class="category" type="button" data-category="developer">
+<!-- 3 -->
+<article class="tool-card" data-tool="bmi calculator" data-category="health calculators" data-description="calculate body mass index">
 
-            <div class="shape"></div>
+<div class="tool-shape"></div>
 
-            <h3>Developer Tools</h3>
+<h3>BMI Calculator</h3>
 
-            <p>Useful tools for developers.</p>
+<p>Calculate Body Mass Index using height and weight.</p>
 
-          </button>
+<a href="tools/bmi-calculator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-          <button class="category" type="button" data-category="security">
 
-            <div class="shape"></div>
+<!-- 4 -->
+<article class="tool-card" data-tool="loan emi calculator" data-category="calculators" data-description="calculate loan emi">
 
-            <h3>Security Tools</h3>
+<div class="tool-shape"></div>
 
-            <p>Useful privacy and password tools.</p>
+<h3>Loan / EMI Calculator</h3>
 
-          </button>
+<p>Estimate monthly loan payments and total interest.</p>
 
+<a href="tools/loan-emi-calculator.html" class="tool-link">Open Tool →</a>
 
-          <button class="category" type="button" data-category="image">
+</article>
 
-            <div class="shape"></div>
 
-            <h3>Image Tools</h3>
+<!-- 5 -->
+<article class="tool-card" data-tool="discount calculator" data-category="calculators" data-description="calculate discount">
 
-            <p>Resize, compress and convert images.</p>
+<div class="tool-shape"></div>
 
-          </button>
+<h3>Discount Calculator</h3>
 
+<p>Calculate discounts, sale prices and savings.</p>
 
-          <button class="category" type="button" data-category="pdf">
+<a href="tools/discount-calculator.html" class="tool-link">Open Tool →</a>
 
-            <div class="shape"></div>
+</article>
 
-            <h3>PDF Tools</h3>
 
-            <p>Work with common PDF tasks.</p>
+<!-- 6 -->
+<article class="tool-card" data-tool="length converter" data-category="converters" data-description="convert length units">
 
-          </button>
+<div class="tool-shape"></div>
 
+<h3>Length Converter</h3>
 
-          <button class="category" type="button" data-category="health">
+<p>Convert common length measurements quickly.</p>
 
-            <div class="shape"></div>
+<a href="tools/length-converter.html" class="tool-link">Open Tool →</a>
 
-            <h3>Health Tools</h3>
+</article>
 
-            <p>Useful health and fitness calculators.</p>
 
-          </button>
+<!-- 7 -->
+<article class="tool-card" data-tool="word counter" data-category="text" data-description="count words">
 
-        </div>
+<div class="tool-shape"></div>
 
-      </div>
+<h3>Word Counter</h3>
 
-    </section>
+<p>Count words and basic text statistics.</p>
 
+<a href="tools/word-counter.html" class="tool-link">Open Tool →</a>
 
-    <!-- Popular Tools -->
+</article>
 
-    <section id="tools">
 
-      <div class="container">
+<!-- 8 -->
+<article class="tool-card" data-tool="character counter" data-category="text" data-description="count characters">
 
-        <div class="section-heading">
+<div class="tool-shape"></div>
 
-          <h2>Popular Free Tools</h2>
+<h3>Character Counter</h3>
 
-          <p>
-            Use our growing collection of practical online tools without
-            signup or unnecessary complexity.
-          </p>
+<p>Count characters with or without spaces.</p>
 
-        </div>
+<a href="tools/character-counter.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-        <div class="tools-grid" id="toolsGrid">
 
+<!-- 9 -->
+<article class="tool-card" data-tool="unit converter" data-category="converters" data-description="convert units">
 
-          <!-- 1 -->
+<div class="tool-shape"></div>
 
-          <article
-            class="tool-card"
-            data-tool="percentage calculator"
-            data-category="calculators"
-          >
+<h3>Unit Converter</h3>
 
-            <div class="tool-shape"></div>
+<p>Convert common length, weight and temperature units.</p>
 
-            <h3>Percentage Calculator</h3>
+<a href="tools/unit-converter.html" class="tool-link">Open Tool →</a>
 
-            <p>
-              Calculate percentages quickly for everyday calculations,
-              increases, decreases and comparisons.
-            </p>
+</article>
 
-            <a href="tools/percentage-calculator.html" class="tool-link">
-              Open Tool →
-            </a>
 
-          </article>
+<!-- 10 -->
+<article class="tool-card" data-tool="qr code generator" data-category="developer" data-description="generate qr code">
 
+<div class="tool-shape"></div>
 
-          <!-- 2 -->
+<h3>QR Code Generator</h3>
 
-          <article
-            class="tool-card"
-            data-tool="age calculator"
-            data-category="calculators"
-          >
+<p>Generate QR codes from text and links.</p>
 
-            <div class="tool-shape"></div>
+<a href="tools/qr-code-generator.html" class="tool-link">Open Tool →</a>
 
-            <h3>Age Calculator</h3>
+</article>
 
-            <p>
-              Calculate your exact age using your date of birth and a
-              selected date.
-            </p>
 
-            <a href="tools/age-calculator.html" class="tool-link">
-              Open Tool →
-            </a>
+<!-- 11 -->
+<article class="tool-card" data-tool="password generator" data-category="security" data-description="generate strong passwords">
 
-          </article>
+<div class="tool-shape"></div>
 
+<h3>Password Generator</h3>
 
-          <!-- 3 -->
+<p>Create strong random passwords.</p>
 
-          <article
-            class="tool-card"
-            data-tool="bmi calculator"
-            data-category="health calculators"
-          >
+<a href="tools/password-generator.html" class="tool-link">Open Tool →</a>
 
-            <div class="tool-shape"></div>
+</article>
 
-            <h3>BMI Calculator</h3>
 
-            <p>
-              Calculate Body Mass Index using your height and weight.
-            </p>
+<!-- 12 -->
+<article class="tool-card" data-tool="slug generator" data-category="seo" data-description="generate url slug">
 
-            <a href="tools/bmi-calculator.html" class="tool-link">
-              Open Tool →
-            </a>
+<div class="tool-shape"></div>
 
-          </article>
+<h3>Slug Generator</h3>
 
+<p>Convert titles into clean URL-friendly slugs.</p>
 
-          <!-- 4 -->
+<a href="tools/slug-generator.html" class="tool-link">Open Tool →</a>
 
-          <article
-            class="tool-card"
-            data-tool="loan emi calculator"
-            data-category="calculators"
-          >
+</article>
 
-            <div class="tool-shape"></div>
 
-            <h3>Loan / EMI Calculator</h3>
+<!-- 13 -->
+<article class="tool-card" data-tool="json formatter" data-category="developer" data-description="format json">
 
-            <p>
-              Estimate monthly loan payments, total interest and repayment
-              amounts.
-            </p>
+<div class="tool-shape"></div>
 
-            <a href="tools/loan-emi-calculator.html" class="tool-link">
-              Open Tool →
-            </a>
+<h3>JSON Formatter</h3>
 
-          </article>
+<p>Format and validate JSON data.</p>
 
+<a href="tools/json-formatter.html" class="tool-link">Open Tool →</a>
 
-          <!-- 5 -->
+</article>
 
-          <article
-            class="tool-card"
-            data-tool="discount calculator"
-            data-category="calculators"
-          >
 
-            <div class="tool-shape"></div>
+<!-- 14 -->
+<article class="tool-card" data-tool="memorable password transformer password strengthener" data-category="security" data-description="transform memorable passwords">
 
-            <h3>Discount Calculator</h3>
+<div class="tool-shape"></div>
 
-            <p>
-              Calculate discounts, sale prices and the amount you save.
-            </p>
+<h3>Memorable Password Transformer</h3>
 
-            <a href="tools/discount-calculator.html" class="tool-link">
-              Open Tool →
-            </a>
+<p>Transform memorable phrases into stronger password patterns.</p>
 
-          </article>
+<a href="tools/memorable-password-transformer.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-          <!-- 6 -->
 
-          <article
-            class="tool-card"
-            data-tool="length converter"
-            data-category="converters"
-          >
+<!-- 15 -->
+<article class="tool-card" data-tool="image compressor" data-category="image" data-description="compress images">
 
-            <div class="tool-shape"></div>
+<div class="tool-shape"></div>
 
-            <h3>Length Converter</h3>
+<h3>Image Compressor</h3>
 
-            <p>
-              Convert meters, kilometers, centimeters, millimeters, miles,
-              yards, feet and inches.
-            </p>
+<p>Reduce image file size while maintaining useful quality.</p>
 
-            <a href="tools/length-converter.html" class="tool-link">
-              Open Tool →
-            </a>
+<a href="tools/image-compressor.html" class="tool-link">Open Tool →</a>
 
-          </article>
+</article>
 
 
-          <!-- 7 -->
+<!-- 16 -->
+<article class="tool-card" data-tool="image resizer resize image" data-category="image" data-description="resize images">
 
-          <article
-            class="tool-card"
-            data-tool="word counter"
-            data-category="text"
-          >
+<div class="tool-shape"></div>
 
-            <div class="tool-shape"></div>
+<h3>Image Resizer</h3>
 
-            <h3>Word Counter</h3>
+<p>Resize images to custom dimensions.</p>
 
-            <p>
-              Count words, sentences and other basic text statistics.
-            </p>
+<a href="tools/image-resizer.html" class="tool-link">Open Tool →</a>
 
-            <a href="tools/word-counter.html" class="tool-link">
-              Open Tool →
-            </a>
+</article>
 
-          </article>
 
+<!-- 17 -->
+<article class="tool-card" data-tool="jpg to png jpeg to png" data-category="image" data-description="convert jpg to png">
 
-          <!-- 8 -->
+<div class="tool-shape"></div>
 
-          <article
-            class="tool-card"
-            data-tool="character counter"
-            data-category="text"
-          >
+<h3>JPG to PNG</h3>
 
-            <div class="tool-shape"></div>
+<p>Convert JPG images into PNG format.</p>
 
-            <h3>Character Counter</h3>
+<a href="tools/jpg-to-png.html" class="tool-link">Open Tool →</a>
 
-            <p>
-              Count characters in your text with or without spaces.
-            </p>
+</article>
 
-            <a href="tools/character-counter.html" class="tool-link">
-              Open Tool →
-            </a>
 
-          </article>
+<!-- 18 -->
+<article class="tool-card" data-tool="png to jpg" data-category="image" data-description="convert png to jpg">
 
+<div class="tool-shape"></div>
 
-          <!-- 9 -->
+<h3>PNG to JPG</h3>
 
-          <article
-            class="tool-card"
-            data-tool="unit converter"
-            data-category="converters"
-          >
+<p>Convert PNG images into JPG format.</p>
 
-            <div class="tool-shape"></div>
+<a href="tools/png-to-jpg.html" class="tool-link">Open Tool →</a>
 
-            <h3>Unit Converter</h3>
+</article>
 
-            <p>
-              Convert common length, weight and temperature measurements.
-            </p>
 
-            <a href="tools/unit-converter.html" class="tool-link">
-              Open Tool →
-            </a>
+<!-- 19 -->
+<article class="tool-card" data-tool="heic to jpg" data-category="image" data-description="convert heic to jpg">
 
-          </article>
+<div class="tool-shape"></div>
 
+<h3>HEIC to JPG</h3>
 
-          <!-- 10 -->
+<p>Convert HEIC images into widely compatible JPG files.</p>
 
-          <article
-            class="tool-card"
-            data-tool="qr code generator"
-            data-category="developer"
-          >
+<a href="tools/heic-to-jpg.html" class="tool-link">Open Tool →</a>
 
-            <div class="tool-shape"></div>
+</article>
 
-            <h3>QR Code Generator</h3>
 
-            <p>
-              Generate QR codes from text, links and other information.
-            </p>
+<!-- 20 -->
+<article class="tool-card" data-tool="pdf compressor" data-category="pdf" data-description="compress pdf">
 
-            <a href="tools/qr-code-generator.html" class="tool-link">
-              Open Tool →
-            </a>
+<div class="tool-shape"></div>
 
-          </article>
+<h3>PDF Compressor</h3>
 
+<p>Reduce PDF file size for easier sharing.</p>
 
-          <!-- 11 -->
+<a href="tools/pdf-compressor.html" class="tool-link">Open Tool →</a>
 
-          <article
-            class="tool-card"
-            data-tool="password generator"
-            data-category="security"
-          >
+</article>
 
-            <div class="tool-shape"></div>
 
-            <h3>Password Generator</h3>
+<!-- 21 -->
+<article class="tool-card" data-tool="merge pdf combine pdf" data-category="pdf" data-description="merge pdf">
 
-            <p>
-              Create strong random passwords for your online accounts.
-            </p>
+<div class="tool-shape"></div>
 
-            <a href="tools/password-generator.html" class="tool-link">
-              Open Tool →
-            </a>
+<h3>Merge PDF</h3>
 
-          </article>
+<p>Combine multiple PDF documents into one file.</p>
 
+<a href="tools/merge-pdf.html" class="tool-link">Open Tool →</a>
 
-          <!-- 12 -->
+</article>
 
-          <article
-            class="tool-card"
-            data-tool="slug generator"
-            data-category="seo"
-          >
 
-            <div class="tool-shape"></div>
+<!-- 22 -->
+<article class="tool-card" data-tool="split pdf separate pdf" data-category="pdf" data-description="split pdf">
 
-            <h3>Slug Generator</h3>
+<div class="tool-shape"></div>
 
-            <p>
-              Convert titles and phrases into clean, URL-friendly slugs.
-            </p>
+<h3>Split PDF</h3>
 
-            <a href="tools/slug-generator.html" class="tool-link">
-              Open Tool →
-            </a>
+<p>Extract selected pages or divide a PDF.</p>
 
-          </article>
+<a href="tools/split-pdf.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-          <!-- 13 -->
 
-          <article
-            class="tool-card"
-            data-tool="json formatter"
-            data-category="developer"
-          >
+<!-- 23 -->
+<article class="tool-card" data-tool="jpg to pdf image to pdf" data-category="pdf image" data-description="convert jpg to pdf">
 
-            <div class="tool-shape"></div>
+<div class="tool-shape"></div>
 
-            <h3>JSON Formatter</h3>
+<h3>JPG to PDF</h3>
 
-            <p>
-              Format and validate JSON data for easier reading and debugging.
-            </p>
+<p>Convert JPG images into PDF documents.</p>
 
-            <a href="tools/json-formatter.html" class="tool-link">
-              Open Tool →
-            </a>
+<a href="tools/jpg-to-pdf.html" class="tool-link">Open Tool →</a>
 
-          </article>
+</article>
 
 
-          <!-- 14 -->
+<!-- 24 -->
+<article class="tool-card" data-tool="pdf to jpg" data-category="pdf image" data-description="convert pdf to jpg">
 
-          <article
-            class="tool-card"
-            data-tool="memorable password transformer password strengthener"
-            data-category="security"
-          >
+<div class="tool-shape"></div>
 
-            <div class="tool-shape"></div>
+<h3>PDF to JPG</h3>
 
-            <h3>Memorable Password Transformer</h3>
+<p>Convert PDF pages into JPG images.</p>
 
-            <p>
-              Transform memorable words and phrases into more complex
-              password patterns with security guidance.
-            </p>
+<a href="tools/pdf-to-jpg.html" class="tool-link">Open Tool →</a>
 
-            <a
-              href="tools/memorable-password-transformer.html"
-              class="tool-link"
-            >
-              Open Tool →
-            </a>
+</article>
 
-          </article>
 
+<!-- 25 -->
+<article class="tool-card" data-tool="pdf to word" data-category="pdf" data-description="convert pdf to word">
 
-          <!-- 15 -->
+<div class="tool-shape"></div>
 
-          <article
-            class="tool-card"
-            data-tool="image compressor image compression"
-            data-category="image"
-          >
+<h3>PDF to Word</h3>
 
-            <div class="tool-shape"></div>
+<p>Convert compatible PDF documents into editable Word files.</p>
 
-            <h3>Image Compressor</h3>
+<a href="tools/pdf-to-word.html" class="tool-link">Open Tool →</a>
 
-            <p>
-              Reduce image file size while maintaining practical image
-              quality for websites and sharing.
-            </p>
+</article>
 
-            <a href="tools/image-compressor.html" class="tool-link">
-              Open Tool →
-            </a>
 
-          </article>
+<!-- 26 -->
+<article class="tool-card" data-tool="word to pdf" data-category="pdf" data-description="convert word to pdf">
 
+<div class="tool-shape"></div>
 
-          <!-- 16 -->
+<h3>Word to PDF</h3>
 
-          <article
-            class="tool-card"
-            data-tool="image resizer resize image"
-            data-category="image"
-          >
+<p>Convert Word documents into PDF files.</p>
 
-            <div class="tool-shape"></div>
+<a href="tools/word-to-pdf.html" class="tool-link">Open Tool →</a>
 
-            <h3>Image Resizer</h3>
+</article>
 
-            <p>
-              Resize images to custom dimensions for websites, social media
-              and digital projects.
-            </p>
 
-            <a href="tools/image-resizer.html" class="tool-link">
-              Open Tool →
-            </a>
+<!-- 27 -->
+<article class="tool-card" data-tool="background remover remove background" data-category="image" data-description="remove image background">
 
-          </article>
+<div class="tool-shape"></div>
 
+<h3>Background Remover</h3>
 
-          <!-- 17 -->
+<p>Remove image backgrounds for clean graphics.</p>
 
-          <article
-            class="tool-card"
-            data-tool="jpg to png jpeg to png"
-            data-category="image"
-          >
+<a href="tools/background-remover.html" class="tool-link">Open Tool →</a>
 
-            <div class="tool-shape"></div>
+</article>
 
-            <h3>JPG to PNG</h3>
 
-            <p>
-              Convert JPG images into PNG format quickly in your browser.
-            </p>
+<!-- 28 -->
+<article class="tool-card" data-tool="currency converter exchange rate" data-category="calculators converters" data-description="convert currencies">
 
-            <a href="tools/jpg-to-png.html" class="tool-link">
-              Open Tool →
-            </a>
+<div class="tool-shape"></div>
 
-          </article>
+<h3>Currency Converter</h3>
 
+<p>Convert amounts between currencies.</p>
 
-          <!-- 18 -->
+<a href="tools/currency-converter.html" class="tool-link">Open Tool →</a>
 
-          <article
-            class="tool-card"
-            data-tool="png to jpg"
-            data-category="image"
-          >
+</article>
 
-            <div class="tool-shape"></div>
 
-            <h3>PNG to JPG</h3>
+<!-- 29 -->
+<article class="tool-card" data-tool="tip calculator gratuity calculator" data-category="calculators" data-description="calculate tips">
 
-            <p>
-              Convert PNG images into JPG format for easier sharing and
-              smaller file sizes.
-            </p>
+<div class="tool-shape"></div>
 
-            <a href="tools/png-to-jpg.html" class="tool-link">
-              Open Tool →
-            </a>
+<h3>Tip Calculator</h3>
 
-          </article>
+<p>Calculate tips and split restaurant bills.</p>
 
+<a href="tools/tip-calculator.html" class="tool-link">Open Tool →</a>
 
-          <!-- 19 -->
+</article>
 
-          <article
-            class="tool-card"
-            data-tool="heic to jpg"
-            data-category="image"
-          >
 
-            <div class="tool-shape"></div>
+<!-- 30 -->
+<article class="tool-card" data-tool="gst calculator tax calculator" data-category="calculators" data-description="calculate gst">
 
-            <h3>HEIC to JPG</h3>
+<div class="tool-shape"></div>
 
-            <p>
-              Convert HEIC images into widely compatible JPG files.
-            </p>
+<h3>GST Calculator</h3>
 
-            <a href="tools/heic-to-jpg.html" class="tool-link">
-              Open Tool →
-            </a>
+<p>Calculate GST amounts and tax-inclusive prices.</p>
 
-          </article>
+<a href="tools/gst-calculator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-          <!-- 20 -->
 
-          <article
-            class="tool-card"
-            data-tool="pdf compressor compress pdf"
-            data-category="pdf"
-          >
+<!-- 31 -->
+<article class="tool-card" data-tool="meta tag generator meta tags" data-category="seo" data-description="generate meta tags">
 
-            <div class="tool-shape"></div>
+<div class="tool-shape"></div>
 
-            <h3>PDF Compressor</h3>
+<h3>Meta Tag Generator</h3>
 
-            <p>
-              Reduce PDF file size for easier uploading, sharing and storage.
-            </p>
+<p>Generate SEO meta title and description tags.</p>
 
-            <a href="tools/pdf-compressor.html" class="tool-link">
-              Open Tool →
-            </a>
+<a href="tools/meta-tag-generator.html" class="tool-link">Open Tool →</a>
 
-          </article>
+</article>
 
 
-          <!-- 21 -->
+<!-- 32 -->
+<article class="tool-card" data-tool="keyword density checker keyword density" data-category="seo" data-description="check keyword density">
 
-          <article
-            class="tool-card"
-            data-tool="merge pdf combine pdf"
-            data-category="pdf"
-          >
+<div class="tool-shape"></div>
 
-            <div class="tool-shape"></div>
+<h3>Keyword Density Checker</h3>
 
-            <h3>Merge PDF</h3>
+<p>Analyze keyword frequency and content usage.</p>
 
-            <p>
-              Combine multiple PDF documents into one convenient file.
-            </p>
+<a href="tools/keyword-density-checker.html" class="tool-link">Open Tool →</a>
 
-            <a href="tools/merge-pdf.html" class="tool-link">
-              Open Tool →
-            </a>
+</article>
 
-          </article>
 
+<!-- 33 -->
+<article class="tool-card" data-tool="serp checker search results" data-category="seo" data-description="serp checker">
 
-          <!-- 22 -->
+<div class="tool-shape"></div>
 
-          <article
-            class="tool-card"
-            data-tool="split pdf separate pdf"
-            data-category="pdf"
-          >
+<h3>SERP Checker</h3>
 
-            <div class="tool-shape"></div>
+<p>Check and understand search-result information for SEO research.</p>
 
-            <h3>Split PDF</h3>
+<a href="tools/serp-checker.html" class="tool-link">Open Tool →</a>
 
-            <p>
-              Extract selected pages or divide a PDF document into smaller
-              files.
-            </p>
+</article>
 
-            <a href="tools/split-pdf.html" class="tool-link">
-              Open Tool →
-            </a>
 
-          </article>
+<!-- 34 -->
+<article class="tool-card" data-tool="backlink checker backlinks" data-category="seo" data-description="check backlinks">
 
+<div class="tool-shape"></div>
 
-          <!-- 23 -->
+<h3>Backlink Checker</h3>
 
-          <article
-            class="tool-card"
-            data-tool="jpg to pdf image to pdf"
-            data-category="pdf image"
-          >
+<p>Analyze backlink information and referring URLs.</p>
 
-            <div class="tool-shape"></div>
+<a href="tools/backlink-checker.html" class="tool-link">Open Tool →</a>
 
-            <h3>JPG to PDF</h3>
+</article>
 
-            <p>
-              Convert JPG images into PDF documents quickly and conveniently.
-            </p>
 
-            <a href="tools/jpg-to-pdf.html" class="tool-link">
-              Open Tool →
-            </a>
+<!-- 35 -->
+<article class="tool-card" data-tool="bmr calculator basal metabolic rate" data-category="health" data-description="calculate bmr">
 
-          </article>
+<div class="tool-shape"></div>
 
+<h3>BMR Calculator</h3>
 
-          <!-- 24 -->
+<p>Calculate basal metabolic rate using body information.</p>
 
-          <article
-            class="tool-card"
-            data-tool="pdf to jpg convert pdf"
-            data-category="pdf image"
-          >
+<a href="tools/bmr-calculator.html" class="tool-link">Open Tool →</a>
 
-            <div class="tool-shape"></div>
+</article>
 
-            <h3>PDF to JPG</h3>
 
-            <p>
-              Convert PDF pages into JPG images for easy viewing and sharing.
-            </p>
+<!-- 36 -->
+<article class="tool-card" data-tool="tdee calculator total daily energy expenditure" data-category="health" data-description="calculate tdee">
 
-            <a href="tools/pdf-to-jpg.html" class="tool-link">
-              Open Tool →
-            </a>
+<div class="tool-shape"></div>
 
-          </article>
+<h3>TDEE Calculator</h3>
 
+<p>Estimate total daily energy expenditure.</p>
 
-          <!-- 25 -->
+<a href="tools/tdee-calculator.html" class="tool-link">Open Tool →</a>
 
-          <article
-            class="tool-card"
-            data-tool="pdf to word pdf converter"
-            data-category="pdf"
-          >
+</article>
 
-            <div class="tool-shape"></div>
 
-            <h3>PDF to Word</h3>
+<!-- 37 -->
+<article class="tool-card" data-tool="calorie calculator daily calories" data-category="health" data-description="calculate calories">
 
-            <p>
-              Convert compatible PDF documents into editable Word files.
-            </p>
+<div class="tool-shape"></div>
 
-            <a href="tools/pdf-to-word.html" class="tool-link">
-              Open Tool →
-            </a>
+<h3>Calorie Calculator</h3>
 
-          </article>
+<p>Estimate daily calorie requirements.</p>
 
+<a href="tools/calorie-calculator.html" class="tool-link">Open Tool →</a>
 
-          <!-- 26 -->
+</article>
 
-          <article
-            class="tool-card"
-            data-tool="word to pdf"
-            data-category="pdf"
-          >
 
-            <div class="tool-shape"></div>
+<!-- 38 -->
+<article class="tool-card" data-tool="body fat calculator body fat percentage" data-category="health" data-description="calculate body fat">
 
-            <h3>Word to PDF</h3>
+<div class="tool-shape"></div>
 
-            <p>
-              Convert Word documents into convenient PDF files for sharing
-              and printing.
-            </p>
+<h3>Body Fat Calculator</h3>
 
-            <a href="tools/word-to-pdf.html" class="tool-link">
-              Open Tool →
-            </a>
+<p>Estimate body fat percentage using body measurements.</p>
 
-          </article>
+<a href="tools/body-fat-calculator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-          <!-- 27 -->
 
-          <article
-            class="tool-card"
-            data-tool="background remover remove background"
-            data-category="image"
-          >
+<!-- 39 -->
+<article class="tool-card" data-tool="ideal weight calculator healthy weight" data-category="health" data-description="ideal weight">
 
-            <div class="tool-shape"></div>
+<div class="tool-shape"></div>
 
-            <h3>Background Remover</h3>
+<h3>Ideal Weight Calculator</h3>
 
-            <p>
-              Remove image backgrounds for clean graphics and digital
-              projects.
-            </p>
+<p>Estimate ideal body-weight ranges.</p>
 
-            <a href="tools/background-remover.html" class="tool-link">
-              Open Tool →
-            </a>
+<a href="tools/ideal-weight-calculator.html" class="tool-link">Open Tool →</a>
 
-          </article>
+</article>
 
 
-          <!-- 28 -->
+<!-- 40 -->
+<article class="tool-card" data-tool="lean body mass calculator lbm" data-category="health" data-description="lean body mass">
 
-          <article
-            class="tool-card"
-            data-tool="currency converter exchange rate"
-            data-category="calculators converters"
-          >
+<div class="tool-shape"></div>
 
-            <div class="tool-shape"></div>
+<h3>Lean Body Mass Calculator</h3>
 
-            <h3>Currency Converter</h3>
+<p>Estimate lean body mass from body information.</p>
 
-            <p>
-              Convert amounts between currencies using current exchange data
-              when available.
-            </p>
+<a href="tools/lean-body-mass-calculator.html" class="tool-link">Open Tool →</a>
 
-            <a href="tools/currency-converter.html" class="tool-link">
-              Open Tool →
-            </a>
+</article>
 
-          </article>
 
+<!-- 41 -->
+<article class="tool-card" data-tool="macro calculator macronutrients" data-category="health" data-description="calculate macros">
 
-          <!-- 29 -->
+<div class="tool-shape"></div>
 
-          <article
-            class="tool-card"
-            data-tool="tip calculator gratuity calculator"
-            data-category="calculators"
-          >
+<h3>Macro Calculator</h3>
 
-            <div class="tool-shape"></div>
+<p>Calculate estimated daily protein, carbs and fat targets.</p>
 
-            <h3>Tip Calculator</h3>
+<a href="tools/macro-calculator.html" class="tool-link">Open Tool →</a>
 
-            <p>
-              Calculate tips and split restaurant bills quickly and easily.
-            </p>
+</article>
 
-            <a href="tools/tip-calculator.html" class="tool-link">
-              Open Tool →
-            </a>
 
-          </article>
+<!-- 42 -->
+<article class="tool-card" data-tool="protein calculator daily protein" data-category="health" data-description="calculate protein">
 
+<div class="tool-shape"></div>
 
-          <!-- 30 -->
+<h3>Protein Calculator</h3>
 
-          <article
-            class="tool-card"
-            data-tool="gst calculator tax calculator"
-            data-category="calculators"
-          >
+<p>Estimate daily protein requirements.</p>
 
-            <div class="tool-shape"></div>
+<a href="tools/protein-calculator.html" class="tool-link">Open Tool →</a>
 
-            <h3>GST Calculator</h3>
+</article>
 
-            <p>
-              Calculate GST amounts, prices before tax and prices including
-              tax.
-            </p>
 
-            <a href="tools/gst-calculator.html" class="tool-link">
-              Open Tool →
-            </a>
+<!-- 43 -->
+<article class="tool-card" data-tool="water intake calculator hydration" data-category="health" data-description="calculate water intake">
 
-          </article>
+<div class="tool-shape"></div>
 
+<h3>Water Intake Calculator</h3>
 
-          <!-- 31 -->
+<p>Estimate a daily water-intake target.</p>
 
-          <article
-            class="tool-card"
-            data-tool="meta tag generator meta tags"
-            data-category="seo"
-          >
+<a href="tools/water-intake-calculator.html" class="tool-link">Open Tool →</a>
 
-            <div class="tool-shape"></div>
+</article>
 
-            <h3>Meta Tag Generator</h3>
 
-            <p>
-              Generate useful SEO meta title and description tags for web
-              pages.
-            </p>
+<!-- 44 -->
+<article class="tool-card" data-tool="calories burned calculator exercise" data-category="health" data-description="calculate calories burned">
 
-            <a href="tools/meta-tag-generator.html" class="tool-link">
-              Open Tool →
-            </a>
+<div class="tool-shape"></div>
 
-          </article>
+<h3>Calories Burned Calculator</h3>
 
+<p>Estimate calories burned during common activities.</p>
 
-          <!-- 32 -->
+<a href="tools/calories-burned-calculator.html" class="tool-link">Open Tool →</a>
 
-          <article
-            class="tool-card"
-            data-tool="keyword density checker keyword density"
-            data-category="seo"
-          >
+</article>
 
-            <div class="tool-shape"></div>
 
-            <h3>Keyword Density Checker</h3>
+<!-- 45 -->
+<article class="tool-card" data-tool="pace calculator running pace" data-category="health" data-description="calculate pace">
 
-            <p>
-              Analyze keyword frequency and basic content usage for SEO
-              writing.
-            </p>
+<div class="tool-shape"></div>
 
-            <a href="tools/keyword-density-checker.html" class="tool-link">
-              Open Tool →
-            </a>
+<h3>Pace Calculator</h3>
 
-          </article>
+<p>Calculate running or walking pace, time and distance.</p>
 
+<a href="tools/pace-calculator.html" class="tool-link">Open Tool →</a>
 
-          <!-- 33 -->
+</article>
 
-          <article
-            class="tool-card"
-            data-tool="serp checker search results"
-            data-category="seo"
-          >
 
-            <div class="tool-shape"></div>
+<!-- 46 -->
+<article class="tool-card" data-tool="target heart rate calculator" data-category="health" data-description="calculate heart rate zones">
 
-            <h3>SERP Checker</h3>
+<div class="tool-shape"></div>
 
-            <p>
-              Check and understand search engine result information for SEO
-              research.
-            </p>
+<h3>Target Heart Rate Calculator</h3>
 
-            <a href="tools/serp-checker.html" class="tool-link">
-              Open Tool →
-            </a>
+<p>Estimate target heart-rate zones for exercise planning.</p>
 
-          </article>
+<a href="tools/target-heart-rate-calculator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-          <!-- 34 -->
 
-          <article
-            class="tool-card"
-            data-tool="backlink checker backlinks"
-            data-category="seo"
-          >
+<!-- 47 -->
+<article class="tool-card" data-tool="one rep max calculator 1rm" data-category="health" data-description="calculate one rep max">
 
-            <div class="tool-shape"></div>
+<div class="tool-shape"></div>
 
-            <h3>Backlink Checker</h3>
+<h3>One Rep Max Calculator</h3>
 
-            <p>
-              Analyze backlink information and understand links pointing to
-              a website.
-            </p>
+<p>Estimate one-repetition maximum from weight and reps.</p>
 
-            <a href="tools/backlink-checker.html" class="tool-link">
-              Open Tool →
-            </a>
+<a href="tools/one-rep-max-calculator.html" class="tool-link">Open Tool →</a>
 
-          </article>
+</article>
 
 
-          <div class="no-results" id="noResults">
-            No matching tools found. Please try another search or category.
-          </div>
+<!-- 48 -->
+<article class="tool-card" data-tool="waist to height ratio calculator whtr" data-category="health" data-description="calculate waist height ratio">
 
+<div class="tool-shape"></div>
 
-        </div>
+<h3>Waist-to-Height Ratio Calculator</h3>
 
-      </div>
+<p>Calculate waist-to-height ratio from measurements.</p>
 
-    </section>
+<a href="tools/waist-to-height-ratio-calculator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-    <!-- SEO Introduction -->
 
-    <section class="intro">
+<!-- 49 -->
+<article class="tool-card" data-tool="body surface area calculator bsa" data-category="health" data-description="calculate body surface area">
 
-      <div class="container intro-content">
+<div class="tool-shape"></div>
 
-        <h2>Free Online Tools for Calculations, SEO, Files and More</h2>
+<h3>Body Surface Area Calculator</h3>
 
-        <p>
-          SmartToolsKit is a growing collection of free online tools designed
-          to make everyday digital tasks faster and easier. Instead of visiting
-          multiple websites for simple calculations, text utilities,
-          conversions, security tasks, SEO checks and file-related work, users
-          can find practical tools in one convenient place. Our goal is to
-          provide lightweight, straightforward utilities that work smoothly on
-          desktop computers, tablets and mobile devices.
-        </p>
+<p>Calculate estimated body surface area.</p>
 
-        <p>
-          The SmartToolsKit collection includes popular calculators such as
-          percentage, age, BMI, loan and discount calculators, along with
-          useful text tools, converters, QR generation, password utilities,
-          URL slug generation and developer tools. We are also expanding into
-          high-demand areas such as image compression, image conversion, PDF
-          utilities, SEO tools, security tools and health-related calculators.
-          Each tool is designed around a clear user need rather than adding
-          unnecessary features or complicated interfaces.
-        </p>
+<a href="tools/body-surface-area-calculator.html" class="tool-link">Open Tool →</a>
 
-        <p>
-          SmartToolsKit focuses on speed, simplicity and accessibility. Many
-          utilities can process information directly in the browser, helping
-          users complete common tasks without creating an account. New tools
-          will continue to be added based on useful search intent, practical
-          demand and the ability to provide a reliable experience. Whether you
-          need to calculate a value, convert a file, prepare content, improve
-          an SEO workflow or perform a quick digital task, SmartToolsKit aims
-          to provide a simple free solution.
-        </p>
+</article>
 
-      </div>
 
-    </section>
+<!-- 50 -->
+<article class="tool-card" data-tool="pregnancy due date calculator" data-category="health" data-description="calculate pregnancy due date">
 
+<div class="tool-shape"></div>
 
-    <!-- CTA -->
+<h3>Pregnancy Due Date Calculator</h3>
 
-    <section class="cta">
+<p>Estimate an expected pregnancy due date.</p>
 
-      <div class="container">
+<a href="tools/pregnancy-due-date-calculator.html" class="tool-link">Open Tool →</a>
 
-        <h2>Find the Tool You Need</h2>
+</article>
 
-        <p>
-          Explore our growing collection of free online tools.
-        </p>
 
-        <a href="#tools">
-          Explore Tools
-        </a>
+<!-- 51 -->
+<article class="tool-card" data-tool="pregnancy week calculator gestational age" data-category="health" data-description="calculate pregnancy week">
 
-      </div>
+<div class="tool-shape"></div>
 
-    </section>
+<h3>Pregnancy Week Calculator</h3>
 
-  </main>
+<p>Estimate pregnancy week and day.</p>
 
+<a href="tools/pregnancy-week-calculator.html" class="tool-link">Open Tool →</a>
 
-  <!-- Footer -->
+</article>
 
-  <footer>
 
-    <div class="container">
+<!-- 52 -->
+<article class="tool-card" data-tool="ovulation calculator" data-category="health" data-description="calculate ovulation">
 
-      <div class="footer-grid">
+<div class="tool-shape"></div>
 
-        <div>
+<h3>Ovulation Calculator</h3>
 
-          <h3>SmartToolsKit</h3>
+<p>Estimate ovulation timing from cycle information.</p>
 
-          <p>
-            Smart Tools. Simple Solutions. Free online tools designed to
-            make everyday digital tasks faster and easier.
-          </p>
+<a href="tools/ovulation-calculator.html" class="tool-link">Open Tool →</a>
 
-        </div>
+</article>
 
 
-        <div>
+<!-- 53 -->
+<article class="tool-card" data-tool="fertile window calculator" data-category="health" data-description="calculate fertile window">
 
-          <h3>Quick Links</h3>
+<div class="tool-shape"></div>
 
-          <div class="footer-links">
+<h3>Fertile Window Calculator</h3>
 
-            <a href="index.html">Home</a>
+<p>Estimate a fertile-window range from cycle information.</p>
 
-            <a href="#tools">All Tools</a>
+<a href="tools/fertile-window-calculator.html" class="tool-link">Open Tool →</a>
 
-            <a href="about.html">About Us</a>
+</article>
 
-            <a href="contact.html">Contact Us</a>
 
-          </div>
+<!-- 54 -->
+<article class="tool-card" data-tool="period calculator menstrual cycle" data-category="health" data-description="calculate period dates">
 
-        </div>
+<div class="tool-shape"></div>
 
+<h3>Period Calculator</h3>
 
-        <div>
+<p>Estimate upcoming period dates.</p>
 
-          <h3>Legal</h3>
+<a href="tools/period-calculator.html" class="tool-link">Open Tool →</a>
 
-          <div class="footer-links">
+</article>
 
-            <a href="privacy-policy.html">Privacy Policy</a>
 
-            <a href="terms.html">Terms & Conditions</a>
+<!-- 55 -->
+<article class="tool-card" data-tool="conception date calculator" data-category="health" data-description="calculate conception date">
 
-            <a href="disclaimer.html">Disclaimer</a>
+<div class="tool-shape"></div>
 
-          </div>
+<h3>Conception Date Calculator</h3>
 
-        </div>
+<p>Estimate a possible conception date.</p>
 
-      </div>
+<a href="tools/conception-date-calculator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-      <div class="copyright">
 
-        © 2026 SmartToolsKit. All rights reserved.
+<!-- 56 -->
+<article class="tool-card" data-tool="pregnancy weight gain calculator" data-category="health" data-description="pregnancy weight gain">
 
-      </div>
+<div class="tool-shape"></div>
 
-    </div>
+<h3>Pregnancy Weight Gain Calculator</h3>
 
-  </footer>
+<p>Estimate pregnancy weight-gain ranges.</p>
 
+<a href="tools/pregnancy-weight-gain-calculator.html" class="tool-link">Open Tool →</a>
 
-  <!-- Search + Category Filter -->
+</article>
 
-  <script>
 
-    const searchForm = document.getElementById("toolSearchForm");
+<!-- 57 -->
+<article class="tool-card" data-tool="cycle length calculator menstrual cycle length" data-category="health" data-description="calculate cycle length">
 
-    const searchInput = document.getElementById("toolSearch");
+<div class="tool-shape"></div>
 
-    const toolCards = document.querySelectorAll(".tool-card");
+<h3>Cycle Length Calculator</h3>
 
-    const categoryButtons = document.querySelectorAll(".category");
+<p>Calculate menstrual cycle length from period dates.</p>
 
-    const noResults = document.getElementById("noResults");
+<a href="tools/cycle-length-calculator.html" class="tool-link">Open Tool →</a>
 
-    let activeCategory = "all";
+</article>
 
 
-    function filterTools() {
+<!-- 58 -->
+<article class="tool-card" data-tool="ai text summarizer summary generator" data-category="ai" data-description="summarize text">
 
-      const query = searchInput.value.trim().toLowerCase();
+<div class="tool-shape"></div>
 
-      let found = 0;
+<h3>AI Text Summarizer</h3>
 
+<p>Create concise summaries from longer text.</p>
 
-      toolCards.forEach(function(card) {
+<a href="tools/ai-text-summarizer.html" class="tool-link">Open Tool →</a>
 
-        const toolName =
-          card.getAttribute("data-tool").toLowerCase();
+</article>
 
-        const categories =
-          card.getAttribute("data-category").toLowerCase();
 
+<!-- 59 -->
+<article class="tool-card" data-tool="ai paragraph rewriter paraphraser" data-category="ai" data-description="rewrite paragraphs">
 
-        const matchesSearch =
-          !query || toolName.includes(query);
+<div class="tool-shape"></div>
 
+<h3>AI Paragraph Rewriter</h3>
 
-        const matchesCategory =
-          activeCategory === "all" ||
-          categories.includes(activeCategory);
+<p>Rewrite paragraphs with clearer wording.</p>
 
+<a href="tools/ai-paragraph-rewriter.html" class="tool-link">Open Tool →</a>
 
-        if (matchesSearch && matchesCategory) {
+</article>
 
-          card.classList.remove("hidden");
 
-          found++;
+<!-- 60 -->
+<article class="tool-card" data-tool="ai email generator email writer" data-category="ai" data-description="generate emails">
 
-        } else {
+<div class="tool-shape"></div>
 
-          card.classList.add("hidden");
+<h3>AI Email Generator</h3>
 
-        }
+<p>Generate professional email drafts.</p>
 
-      });
+<a href="tools/ai-email-generator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-      noResults.style.display =
-        found === 0 ? "block" : "none";
 
-    }
+<!-- 61 -->
+<article class="tool-card" data-tool="ai resume bullet generator cv" data-category="ai" data-description="generate resume bullets">
 
+<div class="tool-shape"></div>
 
-    categoryButtons.forEach(function(button) {
+<h3>AI Resume Bullet Generator</h3>
 
-      button.addEventListener("click", function() {
+<p>Turn job duties into professional resume bullets.</p>
 
-        activeCategory =
-          button.getAttribute("data-category").toLowerCase();
+<a href="tools/ai-resume-bullet-generator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-        categoryButtons.forEach(function(item) {
-          item.classList.remove("active");
-        });
 
+<!-- 62 -->
+<article class="tool-card" data-tool="ai job description generator" data-category="ai" data-description="generate job description">
 
-        button.classList.add("active");
+<div class="tool-shape"></div>
 
+<h3>AI Job Description Generator</h3>
 
-        filterTools();
+<p>Create structured job-description drafts.</p>
 
+<a href="tools/ai-job-description-generator.html" class="tool-link">Open Tool →</a>
 
-        document.getElementById("tools").scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+</article>
 
-      });
 
-    });
+<!-- 63 -->
+<article class="tool-card" data-tool="ai youtube title generator video titles" data-category="ai" data-description="generate youtube titles">
 
+<div class="tool-shape"></div>
 
-    searchInput.addEventListener("input", function() {
+<h3>AI YouTube Title Generator</h3>
 
-      filterTools();
+<p>Generate YouTube title ideas from a topic.</p>
 
-    });
+<a href="tools/ai-youtube-title-generator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-    searchForm.addEventListener("submit", function(event) {
 
-      event.preventDefault();
+<!-- 64 -->
+<article class="tool-card" data-tool="ai youtube description generator" data-category="ai" data-description="generate youtube description">
 
-      filterTools();
+<div class="tool-shape"></div>
 
+<h3>AI YouTube Description Generator</h3>
 
-      document.getElementById("tools").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+<p>Create YouTube description drafts.</p>
 
-    });
+<a href="tools/ai-youtube-description-generator.html" class="tool-link">Open Tool →</a>
 
+</article>
 
-  </script>
 
+<!-- 65 -->
+<article class="tool-card" data-tool="ai blog outline generator" data-category="ai" data-description="generate blog outline">
+
+<div class="tool-shape"></div>
+
+<h3>AI Blog Outline Generator</h3>
+
+<p>Create organized blog outlines.</p>
+
+<a href="tools/ai-blog-outline-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 66 -->
+<article class="tool-card" data-tool="ai faq generator questions answers" data-category="ai" data-description="generate faq">
+
+<div class="tool-shape"></div>
+
+<h3>AI FAQ Generator</h3>
+
+<p>Generate FAQ question and answer drafts.</p>
+
+<a href="tools/ai-faq-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 67 -->
+<article class="tool-card" data-tool="ai prompt generator prompts" data-category="ai" data-description="generate ai prompts">
+
+<div class="tool-shape"></div>
+
+<h3>AI Prompt Generator</h3>
+
+<p>Create structured AI prompts for common tasks.</p>
+
+<a href="tools/ai-prompt-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 68 -->
+<article class="tool-card" data-tool="ai hashtag generator social hashtags" data-category="ai" data-description="generate hashtags">
+
+<div class="tool-shape"></div>
+
+<h3>AI Hashtag Generator</h3>
+
+<p>Generate relevant social-media hashtag ideas.</p>
+
+<a href="tools/ai-hashtag-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 69 -->
+<article class="tool-card" data-tool="ai product description generator ecommerce" data-category="ai" data-description="generate product descriptions">
+
+<div class="tool-shape"></div>
+
+<h3>AI Product Description Generator</h3>
+
+<p>Create product-description drafts for ecommerce.</p>
+
+<a href="tools/ai-product-description-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 70 -->
+<article class="tool-card" data-tool="ai social media caption generator captions" data-category="ai" data-description="generate social captions">
+
+<div class="tool-shape"></div>
+
+<h3>AI Social Media Caption Generator</h3>
+
+<p>Generate social media caption ideas.</p>
+
+<a href="tools/ai-social-media-caption-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 71 -->
+<article class="tool-card" data-tool="ai seo content brief generator" data-category="ai seo" data-description="generate seo content brief">
+
+<div class="tool-shape"></div>
+
+<h3>AI SEO Content Brief Generator</h3>
+
+<p>Create structured SEO content briefs.</p>
+
+<a href="tools/ai-seo-content-brief-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 72 -->
+<article class="tool-card" data-tool="ai keyword cluster generator keyword grouping" data-category="ai seo" data-description="cluster keywords">
+
+<div class="tool-shape"></div>
+
+<h3>AI Keyword Cluster Generator</h3>
+
+<p>Organize related keywords into topic clusters.</p>
+
+<a href="tools/ai-keyword-cluster-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 73 -->
+<article class="tool-card" data-tool="robots txt generator robots.txt" data-category="seo" data-description="generate robots txt">
+
+<div class="tool-shape"></div>
+
+<h3>Robots.txt Generator</h3>
+
+<p>Generate a basic robots.txt file.</p>
+
+<a href="tools/robots-txt-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 74 -->
+<article class="tool-card" data-tool="xml sitemap generator sitemap" data-category="seo" data-description="generate xml sitemap">
+
+<div class="tool-shape"></div>
+
+<h3>XML Sitemap Generator</h3>
+
+<p>Generate XML sitemap markup from website URLs.</p>
+
+<a href="tools/xml-sitemap-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 75 -->
+<article class="tool-card" data-tool="canonical url generator seo canonical" data-category="seo" data-description="generate canonical url">
+
+<div class="tool-shape"></div>
+
+<h3>Canonical URL Generator</h3>
+
+<p>Generate canonical link tags for webpages.</p>
+
+<a href="tools/canonical-url-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 76 -->
+<article class="tool-card" data-tool="open graph meta tag generator og tags" data-category="seo" data-description="generate open graph tags">
+
+<div class="tool-shape"></div>
+
+<h3>Open Graph Meta Tag Generator</h3>
+
+<p>Generate Open Graph tags for social sharing.</p>
+
+<a href="tools/open-graph-meta-tag-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 77 -->
+<article class="tool-card" data-tool="twitter card generator social meta" data-category="seo" data-description="generate twitter card">
+
+<div class="tool-shape"></div>
+
+<h3>Twitter Card Generator</h3>
+
+<p>Generate Twitter/X card metadata.</p>
+
+<a href="tools/twitter-card-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 78 -->
+<article class="tool-card" data-tool="schema markup generator structured data" data-category="seo" data-description="generate schema markup">
+
+<div class="tool-shape"></div>
+
+<h3>Schema Markup Generator</h3>
+
+<p>Create basic structured-data markup.</p>
+
+<a href="tools/schema-markup-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 79 -->
+<article class="tool-card" data-tool="keyword combiner keyword mixer" data-category="seo" data-description="combine keywords">
+
+<div class="tool-shape"></div>
+
+<h3>Keyword Combiner</h3>
+
+<p>Combine keyword lists into useful variations.</p>
+
+<a href="tools/keyword-combiner.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 80 -->
+<article class="tool-card" data-tool="advanced word counter reading time" data-category="text" data-description="advanced text counter">
+
+<div class="tool-shape"></div>
+
+<h3>Advanced Word Counter</h3>
+
+<p>Analyze words, characters, sentences and reading time.</p>
+
+<a href="tools/advanced-word-counter.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 81 -->
+<article class="tool-card" data-tool="case converter uppercase lowercase" data-category="text" data-description="convert text case">
+
+<div class="tool-shape"></div>
+
+<h3>Case Converter</h3>
+
+<p>Convert text between uppercase, lowercase and title case.</p>
+
+<a href="tools/case-converter.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 82 -->
+<article class="tool-card" data-tool="remove duplicate lines duplicate remover" data-category="text" data-description="remove duplicate lines">
+
+<div class="tool-shape"></div>
+
+<h3>Remove Duplicate Lines</h3>
+
+<p>Remove duplicate lines from text and lists.</p>
+
+<a href="tools/remove-duplicate-lines.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 83 -->
+<article class="tool-card" data-tool="text sorter sort lines" data-category="text" data-description="sort text lines">
+
+<div class="tool-shape"></div>
+
+<h3>Text Sorter</h3>
+
+<p>Sort lines alphabetically or numerically.</p>
+
+<a href="tools/text-sorter.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 84 -->
+<article class="tool-card" data-tool="whitespace remover extra spaces" data-category="text" data-description="remove whitespace">
+
+<div class="tool-shape"></div>
+
+<h3>Whitespace Remover</h3>
+
+<p>Clean extra spaces and unnecessary whitespace.</p>
+
+<a href="tools/whitespace-remover.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 85 -->
+<article class="tool-card" data-tool="csv to json converter" data-category="developer converters" data-description="convert csv to json">
+
+<div class="tool-shape"></div>
+
+<h3>CSV to JSON Converter</h3>
+
+<p>Convert CSV data into structured JSON.</p>
+
+<a href="tools/csv-to-json-converter.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 86 -->
+<article class="tool-card" data-tool="json to csv converter" data-category="developer converters" data-description="convert json to csv">
+
+<div class="tool-shape"></div>
+
+<h3>JSON to CSV Converter</h3>
+
+<p>Convert simple JSON arrays into CSV data.</p>
+
+<a href="tools/json-to-csv-converter.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 87 -->
+<article class="tool-card" data-tool="base64 encoder decoder" data-category="developer" data-description="encode decode base64">
+
+<div class="tool-shape"></div>
+
+<h3>Base64 Encoder / Decoder</h3>
+
+<p>Encode and decode Base64 text.</p>
+
+<a href="tools/base64-encoder-decoder.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 88 -->
+<article class="tool-card" data-tool="url encoder decoder percent encoding" data-category="developer" data-description="encode decode urls">
+
+<div class="tool-shape"></div>
+
+<h3>URL Encoder / Decoder</h3>
+
+<p>Encode or decode URL text.</p>
+
+<a href="tools/url-encoder-decoder.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 89 -->
+<article class="tool-card" data-tool="html entity encoder decoder" data-category="developer" data-description="encode html entities">
+
+<div class="tool-shape"></div>
+
+<h3>HTML Entity Encoder / Decoder</h3>
+
+<p>Encode and decode HTML entities.</p>
+
+<a href="tools/html-entity-encoder-decoder.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 90 -->
+<article class="tool-card" data-tool="uuid generator guid" data-category="developer" data-description="generate uuid">
+
+<div class="tool-shape"></div>
+
+<h3>UUID Generator</h3>
+
+<p>Generate random UUID values for development.</p>
+
+<a href="tools/uuid-generator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 91 -->
+<article class="tool-card" data-tool="regex tester regular expression" data-category="developer" data-description="test regex">
+
+<div class="tool-shape"></div>
+
+<h3>Regex Tester</h3>
+
+<p>Test regular expressions against sample text.</p>
+
+<a href="tools/regex-tester.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 92 -->
+<article class="tool-card" data-tool="json minifier compress json" data-category="developer" data-description="minify json">
+
+<div class="tool-shape"></div>
+
+<h3>JSON Minifier</h3>
+
+<p>Minify JSON by removing unnecessary whitespace.</p>
+
+<a href="tools/json-minifier.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 93 -->
+<article class="tool-card" data-tool="css minifier" data-category="developer" data-description="minify css">
+
+<div class="tool-shape"></div>
+
+<h3>CSS Minifier</h3>
+
+<p>Minify CSS by reducing unnecessary whitespace.</p>
+
+<a href="tools/css-minifier.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 94 -->
+<article class="tool-card" data-tool="javascript minifier js minifier" data-category="developer" data-description="minify javascript">
+
+<div class="tool-shape"></div>
+
+<h3>JavaScript Minifier</h3>
+
+<p>Minify simple JavaScript source.</p>
+
+<a href="tools/javascript-minifier.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 95 -->
+<article class="tool-card" data-tool="image to webp converter" data-category="image" data-description="convert image to webp">
+
+<div class="tool-shape"></div>
+
+<h3>Image to WebP Converter</h3>
+
+<p>Convert supported images to WebP format.</p>
+
+<a href="tools/image-to-webp-converter.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 96 -->
+<article class="tool-card" data-tool="webp to jpg converter" data-category="image" data-description="convert webp to jpg">
+
+<div class="tool-shape"></div>
+
+<h3>WebP to JPG Converter</h3>
+
+<p>Convert WebP images into JPG format.</p>
+
+<a href="tools/webp-to-jpg-converter.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 97 -->
+<article class="tool-card" data-tool="image format converter" data-category="image" data-description="convert image formats">
+
+<div class="tool-shape"></div>
+
+<h3>Image Format Converter</h3>
+
+<p>Convert supported images between common formats.</p>
+
+<a href="tools/image-format-converter.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 98 -->
+<article class="tool-card" data-tool="pdf page counter" data-category="pdf" data-description="count pdf pages">
+
+<div class="tool-shape"></div>
+
+<h3>PDF Page Counter</h3>
+
+<p>Count pages in a PDF document.</p>
+
+<a href="tools/pdf-page-counter.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 99 -->
+<article class="tool-card" data-tool="pdf page extractor extract pages" data-category="pdf" data-description="extract pdf pages">
+
+<div class="tool-shape"></div>
+
+<h3>PDF Page Extractor</h3>
+
+<p>Extract selected pages into a new PDF.</p>
+
+<a href="tools/pdf-page-extractor.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<!-- 100 -->
+<article class="tool-card" data-tool="pdf rotator rotate pages" data-category="pdf" data-description="rotate pdf pages">
+
+<div class="tool-shape"></div>
+
+<h3>PDF Rotator</h3>
+
+<p>Rotate PDF pages and export the updated document.</p>
+
+<a href="tools/pdf-rotator.html" class="tool-link">Open Tool →</a>
+
+</article>
+
+
+<div class="no-results" id="noResults">
+No matching tools found. Please try another search or category.
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="intro">
+
+<div class="container intro-content">
+
+<h2>
+Free Online Tools for Calculations, SEO, AI, Files and More
+</h2>
+
+<p>
+SmartToolsKit is a growing collection of free online tools designed to make everyday digital tasks faster and easier. The collection covers calculators, converters, text utilities, SEO workflows, AI-assisted utilities, security, development, images, PDFs and health-related calculations.
+</p>
+
+<p>
+Each tool is organized around a clear user need and designed to be lightweight, straightforward and mobile-friendly. Many browser-based utilities can process information locally without requiring an account.
+</p>
+
+<p>
+New tools can be added over time based on practical demand, useful search intent and the ability to provide a reliable user experience.
+</p>
+
+</div>
+</section>
+
+
+<section class="cta">
+
+<div class="container">
+
+<h2>Find the Tool You Need</h2>
+
+<p>
+Explore the complete SmartToolsKit collection.
+</p>
+
+<a href="#tools">
+Explore Tools
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>SmartToolsKit</h3>
+
+<p>
+Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>Quick Links</h3>
+
+<div class="footer-links">
+
+<a href="index.html">Home</a>
+
+<a href="#tools">All Tools</a>
+
+<a href="about.html">About Us</a>
+
+<a href="contact.html">Contact Us</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h3>Legal</h3>
+
+<div class="footer-links">
+
+<a href="privacy-policy.html">Privacy Policy</a>
+
+<a href="terms.html">Terms &amp; Conditions</a>
+
+<a href="disclaimer.html">Disclaimer</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+© 2026 SmartToolsKit. All rights reserved.
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+const searchForm =
+document.getElementById("toolSearchForm");
+
+const searchInput =
+document.getElementById("toolSearch");
+
+const toolCards =
+document.querySelectorAll(".tool-card");
+
+const categoryButtons =
+document.querySelectorAll(".category");
+
+const noResults =
+document.getElementById("noResults");
+
+let activeCategory = "all";
+
+
+function filterTools(){
+
+const query =
+searchInput.value.trim().toLowerCase();
+
+let found = 0;
+
+
+toolCards.forEach(function(card){
+
+const toolName =
+(card.getAttribute("data-tool") || "").toLowerCase();
+
+const categories =
+(card.getAttribute("data-category") || "").toLowerCase();
+
+const description =
+(card.getAttribute("data-description") || "").toLowerCase();
+
+
+const matchesSearch =
+!query ||
+toolName.includes(query) ||
+categories.includes(query) ||
+description.includes(query);
+
+
+const matchesCategory =
+activeCategory === "all" ||
+categories.split(/\s+/).includes(activeCategory);
+
+
+if(matchesSearch && matchesCategory){
+
+card.classList.remove("hidden");
+
+found++;
+
+}else{
+
+card.classList.add("hidden");
+
+}
+
+});
+
+
+noResults.style.display =
+found === 0 ? "block" : "none";
+
+}
+
+
+categoryButtons.forEach(function(button){
+
+button.addEventListener("click",function(){
+
+activeCategory =
+button.getAttribute("data-category").toLowerCase();
+
+
+categoryButtons.forEach(function(item){
+
+item.classList.remove("active");
+
+});
+
+
+button.classList.add("active");
+
+filterTools();
+
+
+document.getElementById("tools")
+.scrollIntoView({
+
+behavior:"smooth",
+block:"start"
+
+});
+
+});
+
+});
+
+
+searchInput.addEventListener(
+"input",
+filterTools
+);
+
+
+searchForm.addEventListener(
+"submit",
+function(event){
+
+event.preventDefault();
+
+filterTools();
+
+document.getElementById("tools")
+.scrollIntoView({
+
+behavior:"smooth",
+block:"start"
+
+});
+
+}
+);
+
+
+filterTools();
+
+</script>
 
 </body>
 </html>
