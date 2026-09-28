@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Backlink Checker - Free SEO Tool | SmartToolsKit</title>
+
+<meta name="description" content="Analyze backlink URLs, referring domains and backlink lists with SmartToolsKit's free Backlink Checker.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://smartoolskit.vercel.app/tools/backlink-checker.html">
+
+<meta name="theme-color" content="#0F172A">
+
+<style>
+
+:root{
+  --navy:#0F172A;
+  --emerald:#10B981;
+  --emerald-dark:#059669;
+  --background:#F8FAFC;
+  --white:#FFFFFF;
+  --text:#0F172A;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --soft:#F1F5F9;
+  --red:#DC2626;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--background);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1000px,92%);
+  margin:auto;
+}
+
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  color:#475569;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:var(--emerald-dark);
+}
+
+.hero{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:55px 15px;
+}
+
+.hero h1{
+  font-size:clamp(30px,6vw,45px);
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#CBD5E1;
+}
+
+main{
+  padding:45px 0;
+}
+
+.tool-card,
+.content{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+}
+
+.tool-card{
+  margin-bottom:35px;
+}
+
+.tool-card h2{
+  margin-bottom:22px;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+input,
+textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:15px;
+  background:#fff;
+  color:var(--text);
+}
+
+textarea{
+  min-height:220px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus{
+  outline:2px solid rgba(16,185,129,.25);
+  border-color:var(--emerald);
+}
+
+.hint{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:6px;
+}
+
+.button-row{
+  display:flex;
+  gap:10px;
+}
+
+button{
+  border:0;
+  border-radius:9px;
+  padding:14px 20px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.check-btn{
+  background:var(--emerald);
+  color:#fff;
+  flex:1;
+}
+
+.check-btn:hover{
+  background:var(--emerald-dark);
+}
+
+.clear-btn{
+  background:#E2E8F0;
+  color:var(--navy);
+  flex:1;
+}
+
+.error{
+  display:none;
+  margin-top:18px;
+  padding:13px;
+  border-radius:9px;
+  background:#FEF2F2;
+  color:#B91C1C;
+  font-size:14px;
+}
+
+.results{
+  display:none;
+  margin-top:30px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:25px;
+}
+
+.stat{
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:16px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:25px;
+}
+
+.stat span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:700px;
+}
+
+th,
+td{
+  padding:12px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+}
+
+th{
+  background:var(--navy);
+  color:#fff;
+}
+
+tr:nth-child(even){
+  background:#F8FAFC;
+}
+
+.valid{
+  color:var(--emerald-dark);
+  font-weight:700;
+}
+
+.invalid{
+  color:var(--red);
+  font-weight:700;
+}
+
+.domain{
+  word-break:break-word;
+}
+
+.note{
+  background:#F1F5F9;
+  border-radius:9px;
+  padding:13px;
+  margin-bottom:20px;
+  color:#475569;
+  font-size:13px;
+}
+
+.content h2{
+  font-size:24px;
+  margin-top:28px;
+  margin-bottom:12px;
+}
+
+.content h2:first-child{
+  margin-top:0;
+}
+
+.content p{
+  color:#475569;
+  font-size:15px;
+  margin-bottom:15px;
+}
+
+.content ul{
+  padding-left:22px;
+  color:#475569;
+}
+
+.content li{
+  margin-bottom:7px;
+}
+
+footer{
+  background:#020617;
+  color:#CBD5E1;
+  text-align:center;
+  padding:35px 15px 25px;
+}
+
+footer p{
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+footer a{
+  color:#94A3B8;
+  margin:0 4px;
+}
+
+@media(max-width:700px){
+
+  .nav{
+    padding:0 15px;
+  }
+
+  nav a:not(:first-child){
+    display:none;
+  }
+
+  .hero{
+    padding:45px 15px;
+  }
+
+  .tool-card,
+  .content{
+    padding:20px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .button-row{
+    flex-direction:column;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<a href="../index.html" class="logo">
+SmartToolsKit
+</a>
+
+<nav>
+
+<a href="../index.html">Home</a>
+
+<a href="../about.html">About</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Backlink Checker</h1>
+
+<p>
+Analyze backlink URLs and referring domains instantly.
+</p>
+
+</div>
+
+</section>
+
+
+<main>
+
+<div class="container">
+
+<section class="tool-card">
+
+<h2>Backlink URL Analyzer</h2>
+
+<div class="note">
+Paste one backlink URL per line. This browser-based tool analyzes
+the URLs you provide; it does not claim to discover backlinks from
+the entire web.
+</div>
+
+
+<div class="form-group">
+
+<label for="target">
+Target Website URL
+</label>
+
+<input
+type="url"
+id="target"
+placeholder="https://example.com/">
+
+<p class="hint">
+Enter the website whose backlinks you want to analyze.
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="backlinks">
+Backlink URLs
+</label>
+
+<textarea
+id="backlinks"
+placeholder="https://example.com/page-one
+https://another-site.com/article
+https://blog.example.org/post"></textarea>
+
+<p class="hint">
+Enter one backlink/source URL per line.
+</p>
+
+</div>
+
+
+<div class="button-row">
+
+<button
+class="check-btn"
+onclick="checkBacklinks()">
+
+Check Backlinks
+
+</button>
+
+<button
+class="clear-btn"
+onclick="clearTool()">
+
+Clear
+
+</button>
+
+</div>
+
+
+<div
+class="error"
+id="error">
+</div>
+
+
+<div
+class="results"
+id="results">
+
+<div class="stats">
+
+<div class="stat">
+
+<strong id="total">
+0
+</strong>
+
+<span>Total URLs</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="valid">
+0
+</strong>
+
+<span>Valid URLs</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="domains">
+0
+</strong>
+
+<span>Unique Domains</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="https">
+0
+</strong>
+
+<span>HTTPS URLs</span>
+
+</div>
+
+</div>
+
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>#</th>
+
+<th>Backlink URL</th>
+
+<th>Domain</th>
+
+<th>Status</th>
+
+<th>Protocol</th>
+
+</tr>
+
+</thead>
+
+<tbody id="resultsBody">
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>What Is a Backlink?</h2>
+
+<p>
+A backlink is a hyperlink on one website that points to a page on
+another website. Backlinks are commonly used as one part of SEO
+analysis and website promotion.
+</p>
+
+
+<h2>What Does This Backlink Checker Do?</h2>
+
+<p>
+This tool analyzes a list of backlink URLs that you provide. It
+checks whether each entry is a properly formatted HTTP or HTTPS URL,
+extracts its domain and identifies the protocol being used.
+</p>
+
+
+<h2>Why Analyze Backlinks?</h2>
+
+<p>
+Backlink analysis can help website owners organize referring URLs,
+identify unique referring domains and review the URLs included in
+an SEO campaign or backlink report.
+</p>
+
+
+<h2>Can This Tool Discover Every Backlink on the Internet?</h2>
+
+<p>
+No. A browser-only tool cannot independently crawl the entire web
+or access private backlink databases. Comprehensive backlink
+discovery normally requires a search-engine index or a specialized
+SEO backlink data provider.
+</p>
+
+
+<h2>Why Does Backlink Quality Matter?</h2>
+
+<p>
+Backlinks can differ substantially in relevance, context, authority,
+placement and other characteristics. A larger number of backlinks
+does not automatically mean better SEO performance.
+</p>
+
+
+<h2>Is This Tool Free?</h2>
+
+<p>
+Yes. SmartToolsKit provides this Backlink Checker free of charge
+and no account or signup is required.
+</p>
+
+
+<h2>Privacy</h2>
+
+<p>
+The URLs entered into this tool are analyzed directly in your
+browser. They are not uploaded to a SmartToolsKit server.
+</p>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 SmartToolsKit. All rights reserved.
+</p>
+
+<p>
+
+<a href="../index.html">Home</a>
+|
+<a href="../about.html">About Us</a>
+|
+<a href="../contact.html">Contact Us</a>
+|
+<a href="../privacy-policy.html">Privacy Policy</a>
+|
+<a href="../terms.html">Terms & Conditions</a>
+|
+<a href="../disclaimer.html">Disclaimer</a>
+
+</p>
+
+</footer>
+
+
+<script>
+
+function checkBacklinks(){
+
+const target =
+document.getElementById("target").value.trim();
+
+const raw =
+document.getElementById("backlinks").value.trim();
+
+if(!target){
+
+showError(
+"Please enter the target website URL."
+);
+
+return;
+
+}
+
+if(!isValidURL(target)){
+
+showError(
+"Please enter a valid target URL, such as https://example.com/"
+);
+
+return;
+
+}
+
+if(!raw){
+
+showError(
+"Please enter at least one backlink URL."
+);
+
+return;
+
+}
+
+
+const urls =
+raw
+.split(/\r?\n/)
+.map(function(url){
+return url.trim();
+})
+.filter(function(url){
+return url.length > 0;
+});
+
+
+const uniqueUrls =
+[...new Set(urls)];
+
+
+let validCount = 0;
+
+let httpsCount = 0;
+
+const domainSet =
+new Set();
+
+
+const body =
+document.getElementById("resultsBody");
+
+body.innerHTML = "";
+
+
+uniqueUrls.forEach(function(url,index){
+
+let status =
+"Invalid";
+
+let statusClass =
+"invalid";
+
+let domain =
+"—";
+
+let protocol =
+"—";
+
+
+try{
+
+const parsed =
+new URL(url);
+
+if(
+parsed.protocol === "http:" ||
+parsed.protocol === "https:"
+){
+
+status =
+"Valid";
+
+statusClass =
+"valid";
+
+validCount++;
+
+protocol =
+parsed.protocol
+.replace(":","")
+.toUpperCase();
+
+domain =
+parsed.hostname;
+
+domainSet.add(
+parsed.hostname.toLowerCase()
+);
+
+if(
+parsed.protocol === "https:"
+){
+
+httpsCount++;
+
+}
+
+}
+
+}
+catch{
+
+}
+
+
+const row =
+document.createElement("tr");
+
+
+const numberCell =
+document.createElement("td");
+
+numberCell.textContent =
+index + 1;
+
+
+const urlCell =
+document.createElement("td");
+
+urlCell.className =
+"domain";
+
+urlCell.textContent =
+url;
+
+
+const domainCell =
+document.createElement("td");
+
+domainCell.className =
+"domain";
+
+domainCell.textContent =
+domain;
+
+
+const statusCell =
+document.createElement("td");
+
+statusCell.className =
+statusClass;
+
+statusCell.textContent =
+status;
+
+
+const protocolCell =
+document.createElement("td");
+
+protocolCell.textContent =
+protocol;
+
+
+row.appendChild(numberCell);
+
+row.appendChild(urlCell);
+
+row.appendChild(domainCell);
+
+row.appendChild(statusCell);
+
+row.appendChild(protocolCell);
+
+body.appendChild(row);
+
+});
+
+
+document.getElementById(
+"total"
+).textContent =
+uniqueUrls.length;
+
+
+document.getElementById(
+"valid"
+).textContent =
+validCount;
+
+
+document.getElementById(
+"domains"
+).textContent =
+domainSet.size;
+
+
+document.getElementById(
+"https"
+).textContent =
+httpsCount;
+
+
+document.getElementById(
+"error"
+).style.display =
+"none";
+
+
+document.getElementById(
+"results"
+).style.display =
+"block";
+
+
+document.getElementById(
+"results"
+).scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+});
+
+}
+
+
+function isValidURL(value){
+
+try{
+
+const url =
+new URL(value);
+
+return (
+url.protocol === "http:" ||
+url.protocol === "https:"
+);
+
+}
+catch{
+
+return false;
+
+}
+
+}
+
+
+function showError(message){
+
+const error =
+document.getElementById("error");
+
+error.textContent =
+message;
+
+error.style.display =
+"block";
+
+document.getElementById(
+"results"
+).style.display =
+"none";
+
+}
+
+
+function clearTool(){
+
+document.getElementById(
+"target"
+).value =
+"";
+
+document.getElementById(
+"backlinks"
+).value =
+"";
+
+document.getElementById(
+"error"
+).style.display =
+"none";
+
+document.getElementById(
+"results"
+).style.display =
+"none";
+
+document.getElementById(
+"resultsBody"
+).innerHTML =
+"";
+
+document.getElementById(
+"total"
+).textContent =
+"0";
+
+document.getElementById(
+"valid"
+).textContent =
+"0";
+
+document.getElementById(
+"domains"
+).textContent =
+"0";
+
+document.getElementById(
+"https"
+).textContent =
+"0";
+
+}
+
+</script>
+
+</body>
+</html>
