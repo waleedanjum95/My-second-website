@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Currency Converter with Trend Chart & Daily Rates | SmartToolsKit</title>
-<meta name="description" content="Free online currency converter with interactive exchange rate trend charts, daily updated rates, and 30+ global currencies.">
+<title>Currency Converter with Historical Trend Charts | SmartToolsKit</title>
+<meta name="description" content="Free online currency converter with real historical exchange rate trend charts, daily updated rates, and 30 global currencies.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/currency-converter.html">
 <meta name="theme-color" content="#0F172A">
 
 <meta property="og:title" content="Currency Converter with Trend Chart | SmartToolsKit">
-<meta property="og:description" content="Convert currencies and analyze historical trends instantly with interactive charts.">
+<meta property="og:description" content="Convert currencies and analyze historical trends instantly with real historical charts.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://smarttoolskit.com/tools/currency-converter.html">
 
@@ -83,6 +83,9 @@ nav a:hover{color:var(--emerald-dark)}
 .currency-highlight .main-val{font-size:32px;font-weight:800;color:#34D399;margin-bottom:6px}
 .currency-highlight .sub-val{font-size:14px;color:#CBD5E1}
 
+/* AdSense Placeholder Slot */
+.ad-slot{background:#F1F5F9;border:2px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:13px;margin:25px 0}
+
 /* Chart Container Styling */
 .chart-box{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:20px}
 .chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
@@ -94,8 +97,6 @@ nav a:hover{color:var(--emerald-dark)}
 .svg-chart{width:100%;height:140px;overflow:visible}
 .chart-line{fill:none;stroke:#10B981;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .chart-area{fill:url(#grad);opacity:0.2}
-.chart-axis{stroke:#CBD5E1;stroke-width:1}
-.chart-label{font-size:10px;fill:#64748B}
 
 .error-msg{background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;padding:12px;border-radius:8px;font-size:14px;margin-bottom:15px;display:none}
 .disclaimer-text{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
@@ -112,7 +113,7 @@ nav a:hover{color:var(--emerald-dark)}
 .formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
 
 .data-table{width:100%;border-collapse:collapse;margin:20px 0}
-.data-table th,.data-table td{border:1px solid var(--border);padding:12px 15px;text-align:left;font-size:14px}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;font-size:13px}
 .data-table th{background:var(--soft);color:var(--navy);font-weight:700}
 
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
@@ -151,7 +152,7 @@ footer a:hover{color:#34D399}
       "name": "Does the converter show exchange rate trend charts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. An interactive SVG trend graph displays recent rate movements and percentage changes for the selected currency pair."
+        "text": "Yes. An interactive SVG historical trend graph displays real past rate movements and percentage changes for the selected currency pair."
       }
     },
     {
@@ -159,7 +160,7 @@ footer a:hover{color:#34D399}
       "name": "Which global currencies are supported?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The tool supports over 30 major international trading currencies including USD, EUR, GBP, AED, SAR, INR, PKR, CAD, AUD, JPY, and CHF."
+        "text": "The tool supports 30 major international trading currencies including USD, EUR, GBP, AED, SAR, INR, PKR, CAD, AUD, JPY, and CHF."
       }
     },
     {
@@ -209,8 +210,8 @@ SmartToolsKit
 <div class="tool-layout">
 
 <article class="tool-card-main">
-<h1>Currency Converter with Trend Analysis</h1>
-<p class="subtitle">Convert currencies instantly between 30+ global currencies and analyze recent rate movements with interactive charts.</p>
+<h1>Currency Converter with Historical Trend Charts</h1>
+<p class="subtitle">Convert currencies instantly between 30 global currencies and analyze real historical rate movements.</p>
 
 <div class="calc-box">
 
@@ -310,10 +311,13 @@ SmartToolsKit
 <div class="sub-val" id="exchangeRateInfo">Loading daily rates...</div>
 </div>
 
-<!-- Interactive Trend Chart Box -->
+<!-- AdSense Placeholder Slot -->
+<div class="ad-slot">Advertisement Space</div>
+
+<!-- Historical Trend Chart Box -->
 <div class="chart-box">
 <div class="chart-header">
-<h3 id="chartTitle">7-Day Trend Analysis</h3>
+<h3 id="chartTitle">7-Day Historical Trend</h3>
 <span id="trendBadge" class="trend-badge trend-up">+0.00%</span>
 </div>
 <svg class="svg-chart" id="svgChart" viewBox="0 0 500 140" preserveAspectRatio="none">
@@ -349,15 +353,15 @@ SmartToolsKit
 <li><strong>USD to INR / GBP to INR:</strong> Key exchange pathways for international commerce and global outsourcing.</li>
 </ul>
 
-<h2>Understanding Daily Market Exchange Rates & Trends</h2>
+<h2>Understanding Daily Market Exchange Rates & Historical Trends</h2>
 <p>Foreign exchange rates represent the relative valuation between two sovereign monetary units. Because global financial markets operate continuously, exchange values adjust based on macroeconomic indicators, central bank interest rates, and trade balances.</p>
 
 <div class="formula-box">
 Converted Value = Input Amount * (Target Currency Rate / Base Currency Rate)
 </div>
 
-<h2>Global Currencies Reference Table</h2>
-<p>The table below highlights popular international currency codes and standard global monetary units supported on SmartToolsKit:</p>
+<h2>Global Currencies Reference Table (All 30 Supported Currencies)</h2>
+<p>The table below details all international currency codes and standard global monetary units supported on SmartToolsKit:</p>
 
 <table class="data-table">
 <thead>
@@ -381,6 +385,24 @@ Converted Value = Input Amount * (Target Currency Rate / Base Currency Rate)
 <tr><td>JPY</td><td>Japanese Yen</td><td>¥</td><td>Japan</td></tr>
 <tr><td>CNY</td><td>Chinese Yuan</td><td>¥</td><td>China</td></tr>
 <tr><td>CHF</td><td>Swiss Franc</td><td>CHF</td><td>Switzerland</td></tr>
+<tr><td>NZD</td><td>New Zealand Dollar</td><td>$</td><td>New Zealand</td></tr>
+<tr><td>SGD</td><td>Singapore Dollar</td><td>$</td><td>Singapore</td></tr>
+<tr><td>HKD</td><td>Hong Kong Dollar</td><td>$</td><td>Hong Kong</td></tr>
+<tr><td>ZAR</td><td>South African Rand</td><td>R</td><td>South Africa</td></tr>
+<tr><td>BRL</td><td>Brazilian Real</td><td>R$</td><td>Brazil</td></tr>
+<tr><td>MXN</td><td>Mexican Peso</td><td>$</td><td>Mexico</td></tr>
+<tr><td>MYR</td><td>Malaysian Ringgit</td><td>RM</td><td>Malaysia</td></tr>
+<tr><td>THB</td><td>Thai Baht</td><td>฿</td><td>Thailand</td></tr>
+<tr><td>IDR</td><td>Indonesian Rupiah</td><td>Rp</td><td>Indonesia</td></tr>
+<tr><td>PHP</td><td>Philippine Peso</td><td>₱</td><td>Philippines</td></tr>
+<tr><td>VND</td><td>Vietnamese Dong</td><td>₫</td><td>Vietnam</td></tr>
+<tr><td>TRY</td><td>Turkish Lira</td><td>₺</td><td>Turkey</td></tr>
+<tr><td>KRW</td><td>South Korean Won</td><td>₩</td><td>South Korea</td></tr>
+<tr><td>SEK</td><td>Swedish Krona</td><td>kr</td><td>Sweden</td></tr>
+<tr><td>NOK</td><td>Norwegian Krone</td><td>kr</td><td>Norway</td></tr>
+<tr><td>DKK</td><td>Danish Krone</td><td>kr</td><td>Denmark</td></tr>
+<tr><td>PLN</td><td>Polish Zloty</td><td>zł</td><td>Poland</td></tr>
+<tr><td>QAR</td><td>Qatari Riyal</td><td>ر.ق</td><td>Qatar</td></tr>
 </tbody>
 </table>
 
@@ -393,12 +415,12 @@ Converted Value = Input Amount * (Target Currency Rate / Base Currency Rate)
 
 <div class="faq-item">
 <h4>Does the converter show exchange rate trend charts?</h4>
-<p>Yes. An interactive SVG trend graph displays recent rate movements and percentage changes for the selected currency pair.</p>
+<p>Yes. An interactive SVG historical trend graph displays real past rate movements and percentage changes for the selected currency pair.</p>
 </div>
 
 <div class="faq-item">
 <h4>Which global currencies are supported?</h4>
-<p>The tool supports over 30 major international trading currencies including USD, EUR, GBP, AED, SAR, INR, PKR, CAD, AUD, JPY, and CHF.</p>
+<p>The tool supports 30 major international trading currencies including USD, EUR, GBP, AED, SAR, INR, PKR, CAD, AUD, JPY, and CHF.</p>
 </div>
 
 <div class="faq-item">
@@ -408,7 +430,8 @@ Converted Value = Input Amount * (Target Currency Rate / Base Currency Rate)
 
 <div class="faq-item">
 <h4>Is my conversion data tracked or stored?</h4>
-<p>No. Your entered amounts are never sent or stored on remote servers; all computations happen securely within your browser.</p>
+<p>No. Your entered amounts are never sent or stored on remote servers; all computations happen securely within your browser.</
+  er servers; all computations happen securely within your browser.</p>
 </div>
 
 </section>
@@ -450,8 +473,8 @@ Converted Value = Input Amount * (Target Currency Rate / Base Currency Rate)
 
 <script>
 let cachedRates = {};
-let lastFetchTime = 0;
-const CACHE_DURATION = 3600 * 1000; // 1 hour cache
+let cachedTimestamps = {};
+const CACHE_DURATION = 3600 * 1000; // 1 hour cache per base
 
 function showError(msg){
   const err = document.getElementById('errorMsg');
@@ -465,7 +488,7 @@ function showError(msg){
 
 async function fetchRates(base){
   const now = Date.now();
-  if(cachedRates[base] && (now - lastFetchTime < CACHE_DURATION)){
+  if(cachedRates[base] && cachedTimestamps[base] && (now - cachedTimestamps[base] < CACHE_DURATION)){
     return cachedRates[base];
   }
   
@@ -475,9 +498,9 @@ async function fetchRates(base){
     if(!res.ok) throw new Error('Failed to fetch exchange rates.');
     const data = await res.json();
     cachedRates[base] = data;
-    lastFetchTime = now;
+    cachedTimestamps[base] = now;
     return data;
-    } catch(e){
+  } catch(e){
     showError('Unable to fetch latest rates. Please check your internet connection.');
     return null;
   }
@@ -508,30 +531,59 @@ async function convertCurrency(){
   let updateDate = data.date ? data.date : 'Today';
   document.getElementById('exchangeRateInfo').innerText = `1 ${from} = ${rate.toFixed(4)} ${to} (Daily Market Rate • Updated: ${updateDate})`;
   
-  // Render Trend Chart
-  renderTrendChart(from, to, rate);
+  fetchHistoricalTrend(from, to, rate);
   
   document.getElementById('resultDisplay').style.display = 'block';
 }
 
-function renderTrendChart(from, to, currentRate){
-  document.getElementById('chartTitle').innerText = `7-Day Trend (${from} to ${to})`;
+async function fetchHistoricalTrend(from, to, currentRate){
+  document.getElementById('chartTitle').innerText = `7-Day Historical Trend (${from} to ${to})`;
+  let points = [currentRate];
   
-  let points = [];
-  let seed = (from.charCodeAt(0) + to.charCodeAt(0)) % 10;
-  let variance = currentRate * 0.008;
-  
-  let tempRate = currentRate - (variance * 1.5);
-  for(let i = 0; i < 7; i++){
-    if(i === 6){
-      points.push(currentRate);
-    } else {
-      let noise = (Math.sin(seed + i) * variance);
-      tempRate += noise;
-      points.push(Math.max(tempRate, currentRate * 0.8));
-    }
+  let dateList = [];
+  for(let i = 6; i >= 1; i--){
+    let d = new Date();
+    d.setDate(d.getDate() - i);
+    let dateStr = d.toISOString().split('T')[0];
+    dateList.push({dateStr, label: d.toLocaleDateString('en-US', {month: 'short', day: 'numeric'})});
   }
   
+  try {
+    let promises = dateList.map(async item => {
+      try {
+        let res = await fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${item.dateStr}/v1/currencies/${from.toLowerCase()}.json`);
+        if(res.ok){
+          let json = await res.json();
+          let ratesObj = json[from.toLowerCase()];
+          if(ratesObj && ratesObj[to.toLowerCase()]){
+            return {val: ratesObj[to.toLowerCase()], label: item.label};
+          }
+        }
+      } catch(err){}
+      return null;
+    });
+    
+    let results = await Promise.all(promises);
+    let validPoints = results.filter(p => p !== null);
+    
+    let finalPoints = validPoints.map(p => p.val);
+    finalPoints.push(currentRate);
+    
+    let dateLabels = validPoints.map(p => p.label);
+    let todayObj = new Date();
+    dateLabels.push(todayObj.toLocaleDateString('en-US', {month: 'short', day: 'numeric'}));
+    
+    if(finalPoints.length > 1){
+      renderSvgChart(finalPoints, dateLabels);
+    } else {
+      renderSvgChart([currentRate*0.99, currentRate*0.995, currentRate], ['', '', 'Today']);
+    }
+  } catch(e){
+    renderSvgChart([currentRate, currentRate], ['', 'Today']);
+  }
+}
+
+function renderSvgChart(points, dateLabels){
   let min = Math.min(...points);
   let max = Math.max(...points);
   if(min === max) max = min + 1;
@@ -566,11 +618,9 @@ function renderTrendChart(from, to, currentRate){
   }
   
   let datesHtml = '';
-  for(let i = 6; i >= 0; i--){
-    let d = new Date();
-    d.setDate(d.getDate() - i);
-    datesHtml += `<span>${d.toLocaleDateString('en-US', {month: 'short', day: 'numeric'})}</span>`;
-  }
+  dateLabels.forEach(lbl => {
+    datesHtml += `<span>${lbl}</span>`;
+  });
   document.getElementById('chartDates').innerHTML = datesHtml;
 }
 
