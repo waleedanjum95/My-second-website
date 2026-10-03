@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Percentage Calculator - Free Online Percentage Tool | SmartToolsKit</title>
+<meta name="description" content="Free online percentage calculator to calculate percentage of a number, percentage change, increase, decrease, and ratios with instant step-by-step results.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/percentage-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<style>
+:root{
+--navy:#0F172A;
+--navy-light:#1E293B;
+--emerald:#10B981;
+--emerald-dark:#059669;
+--teal:#14B8A6;
+--background:#F8FAFC;
+--white:#FFF;
+--text:#0F172A;
+--muted:#64748B;
+--border:#E2E8F0;
+--soft:#F1F5F9;
+--shadow:0 10px 30px rgba(15,23,42,.07);
+--radius:16px
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+
+.container{width:min(1120px,92%);margin:auto}
+
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
+.breadcrumb a{color:var(--emerald-dark);font-weight:600}
+
+.tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+
+.tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
+.tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+
+.calc-grid{display:grid;grid-template-columns:1fr;gap:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:22px}
+.calc-box h2{font-size:18px;color:var(--navy);margin-bottom:15px}
+
+.input-group{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:15px}
+.input-group label{font-weight:600;font-size:14px;color:var(--navy-light)}
+.input-group input{padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;width:130px;outline:none}
+.input-group input:focus{border-color:var(--emerald)}
+
+.btn-row{display:flex;gap:10px;margin-top:10px}
+.btn-calc{background:var(--emerald);color:#fff;border:none;padding:11px 22px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn-calc:hover{background:var(--emerald-dark)}
+.btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:11px 18px;border-radius:8px;font-weight:600;cursor:pointer}
+
+.result-box{margin-top:15px;padding:14px;background:#ECFDF5;border:1px solid #A7F3D0;border-radius:8px;color:#065F46;font-size:16px;font-weight:700;display:none}
+
+.privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
+
+.content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
+.content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
+.content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
+.content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
+.content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
+.content-section li{margin-bottom:8px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0}
+
+.data-table{width:100%;border-collapse:collapse;margin:20px 0}
+.data-table th,.data-table td{border:1px solid var(--border);padding:12px 15px;text-align:left;font-size:14px}
+.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
+
+.faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
+.faq-item p{margin-bottom:0}
+
+footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:35px}
+footer h3{color:#fff;margin-bottom:12px;font-size:16px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+footer a:hover{color:#34D399}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.copyright{border-top:1px solid #1E293B;padding-top:20px;text-align:center;color:#64748B;font-size:12px}
+
+@media(max-width:768px){
+.tool-card-main,.content-section{padding:22px}
+.input-group input{width:100%}
+.footer-grid{grid-template-columns:1fr;gap:25px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate percentage of a number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To calculate the percentage of a number, multiply the number by the percentage rate and divide the result by 100. For example, to find 20% of 150, multiply 150 by 20 to get 3000, then divide by 100 to get 30."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the formula for percentage increase or decrease?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The percentage change formula is: ((New Value - Original Value) / Original Value) * 100. If the result is positive, it represents an increase; if negative, it represents a decrease."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this online percentage calculator free and private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, SmartToolsKit Percentage Calculator is 100% free and runs completely in your client web browser. Your numerical inputs are never uploaded to any server."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">
+<span class="logo-shape"></span>
+SmartToolsKit
+</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+
+<div class="breadcrumb">
+<a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / Percentage Calculator
+</div>
+
+<div class="tool-layout">
+
+<article class="tool-card-main">
+<h1>Percentage Calculator</h1>
+<p class="subtitle">Fast, accurate, and multi-purpose percentage tool for everyday calculations, financial markups, discount ratios, and percentage differences.</p>
+
+<div class="calc-grid">
+
+<!-- Mode 1 -->
+<div class="calc-box">
+<h2>1. What is X% of Y?</h2>
+<div class="input-group">
+<label>What is</label>
+<input type="number" id="p1_x" placeholder="e.g. 15">
+<label>% of</label>
+<input type="number" id="p1_y" placeholder="e.g. 250">
+<span>?</span>
+</div>
+<div class="btn-row">
+<button type="button" class="btn-calc" onclick="calcMode1()">Calculate</button>
+<button type="button" class="btn-reset" onclick="resetMode1()">Reset</button>
+</div>
+<div class="result-box" id="res1"></div>
+</div>
+
+<!-- Mode 2 -->
+<div class="calc-box">
+<h2>2. X is what percent of Y?</h2>
+<div class="input-group">
+<input type="number" id="p2_x" placeholder="e.g. 30">
+<label>is what % of</label>
+<input type="number" id="p2_y" placeholder="e.g. 120">
+<span>?</span>
+</div>
+<div class="btn-row">
+<button type="button" class="btn-calc" onclick="calcMode2()">Calculate</button>
+<button type="button" class="btn-reset" onclick="resetMode2()">Reset</button>
+</div>
+<div class="result-box" id="res2"></div>
+</div>
+
+<!-- Mode 3 -->
+<div class="calc-box">
+<h2>3. Percentage Change (Increase / Decrease)</h2>
+<div class="input-group">
+<label>From</label>
+<input type="number" id="p3_x" placeholder="e.g. 100">
+<label>to</label>
+<input type="number" id="p3_y" placeholder="e.g. 150">
+<span>?</span>
+</div>
+<div class="btn-row">
+<button type="button" class="btn-calc" onclick="calcMode3()">Calculate Change</button>
+<button type="button" class="btn-reset" onclick="resetMode3()">Reset</button>
+</div>
+<div class="result-box" id="res3"></div>
+</div>
+
+</div>
+
+<div class="privacy-badge">
+🔒 <strong>Client-Side Security:</strong> All computations execute locally inside your web browser. No data is sent or saved on remote servers.
+</div>
+</article>
+
+<section class="content-section">
+<h2>Understanding Percentage Calculations in Daily Life</h2>
+<p>Percentages are fundamental mathematical concepts used daily across finance, shopping, academics, business metrics, and statistics. A percentage represents a fraction or ratio expressed as a fraction of 100. It is denoted using the percent sign "%". Understanding how percentages work allows you to evaluate store discounts, analyze investment returns, compute sales tax, and assess growth trends accurately.</p>
+
+<p>Whether you are calculating a tipping amount at a restaurant, calculating profit margins for an e-commerce business, or determining your academic examination score ratio, having a reliable online percentage calculator saves time and eliminates human arithmetic errors.</p>
+
+<h2>Key Percentage Formulas</h2>
+<p>Our multi-mode percentage calculator utilizes three standard mathematical formulas depending on the specific problem you are solving:</p>
+
+<div class="formula-box">
+1. Value Formula: Result = (Percentage / 100) * Total Amount<br>
+2. Ratio Percentage Formula: Percentage = (Part / Total) * 100<br>
+3. Percentage Change Formula: % Change = ((New Value - Initial Value) / Initial Value) * 100
+</div>
+
+<h3>1. Calculating the Percentage of a Known Amount</h3>
+<p>To find a specific percentage of a total sum, convert the percentage into a decimal by dividing it by 100, then multiply the result by the total quantity. For instance, evaluating 18% sales tax on a $200 purchase involves multiplying 0.18 by 200, resulting in a $36 tax charge.</p>
+
+<h3>2. Determining What Percentage One Number is of Another</h3>
+<p>When comparing a specific portion against a whole dataset, divide the part by the total base number and multiply by 100. If a student answers 45 questions correctly on a 50-question test, dividing 45 by 50 yields 0.90, which equals 90% accuracy.</p>
+
+<h3>3. Measuring Percentage Change (Growth vs. Reduction)</h3>
+<p>Percentage difference measures relative change over time. Subtract the original base figure from the updated figure, divide that variation by the original figure, and multiply by 100. A positive output indicates percentage growth or markup, whereas a negative figure indicates a drop or discount rate.</p>
+
+<h2>Common Percentage Reference Table</h2>
+<p>Below is a quick reference matrix showing pre-computed percentages for common baseline numbers:</p>
+
+<table class="data-table">
+<thead>
+<tr>
+<th>Base Value</th>
+<th>10%</th>
+<th>15%</th>
+<th>20%</th>
+<th>25%</th>
+<th>50%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$50</td>
+<td>$5.00</td>
+<td>$7.50</td>
+<td>$10.00</td>
+<td>$12.50</td>
+<td>$25.00</td>
+</tr>
+<tr>
+<td>$100</td>
+<td>$10.00</td>
+<td>$15.00</td>
+<td>$20.00</td>
+<td>$25.00</td>
+<td>$50.00</td>
+</tr>
+<tr>
+<td>$250</td>
+<td>$25.00</td>
+<td>$37.50</td>
+<td>$50.00</td>
+<td>$62.50</td>
+<td>$125.00</td>
+</tr>
+<tr>
+<td>$500</td>
+<td>$50.00</td>
+<td>$75.00</td>
+<td>$100.00</td>
+<td>$125.00</td>
+<td>$250.00</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Practical Applications of Percentage Calculations</h2>
+<ul>
+<li><strong>Retail Shopping & Discounts:</strong> Quickly determine price reductions during sales events to see exact dollar savings.</li>
+<li><strong>Financial Loans & Banking:</strong> Calculate annual percentage yields (APY), mortgage interest rates, and credit charges.</li>
+<li><strong>Business Analytics:</strong> Track month-over-month (MoM) revenue growth, customer churn rates, and profit margin ratios.</li>
+<li><strong>Health & Fitness:</strong> Evaluate body mass index ratios, macro nutritional intake percentages, and workout progress goals.</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<h4>How do I calculate percentage of a number manually?</h4>
+<p>Multiply the baseline number by the percentage value and divide by 100. For instance, to compute 15% of 80: (80 * 15) / 100 = 12.</p>
+</div>
+
+<div class="faq-item">
+<h4>What is the difference between percentage change and percentage point?</h4>
+<p>Percentage change measures the relative percentage variation between two numbers. A percentage point represents the simple arithmetic difference between two percentages (e.g., an interest rate moving from 5% to 7% is a 2 percentage point increase, but a 40% relative percentage increase).</p>
+</div>
+
+<div class="faq-item">
+<h4>Is my calculation data saved or tracked?</h4>
+<p>No. SmartToolsKit operates entirely within client-side browser JavaScript. Your numeric values remain private on your computer and are never recorded on external web servers.</p>
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free browser-based web tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms & Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">
+© 2026 SmartToolsKit. All rights reserved.
+</div>
+</div>
+</footer>
+
+<script>
+function calcMode1(){
+  const x = parseFloat(document.getElementById('p1_x').value);
+  const y = parseFloat(document.getElementById('p1_y').value);
+  const res = document.getElementById('res1');
+  if(isNaN(x) || isNaN(y)){
+    res.style.display = 'block';
+    res.innerHTML = 'Please enter valid numerical values.';
+    return;
+  }
+  const val = (x / 100) * y;
+  res.style.display = 'block';
+  res.innerHTML = `Result: <strong>${x}%</strong> of <strong>${y}</strong> is <strong>${val.toLocaleString('en-US', {maximumFractionDigits: 4})}</strong>`;
+}
+function resetMode1(){
+  document.getElementById('p1_x').value = '';
+  document.getElementById('p1_y').value = '';
+  document.getElementById('res1').style.display = 'none';
+}
+
+function calcMode2(){
+  const x = parseFloat(document.getElementById('p2_x').value);
+  const y = parseFloat(document.getElementById('p2_y').value);
+  const res = document.getElementById('res2');
+  if(isNaN(x) || isNaN(y) || y === 0){
+    res.style.display = 'block';
+    res.innerHTML = 'Please enter valid numerical values (Value Y cannot be 0).';
+    return;
+  }
+  const val = (x / y) * 100;
+  res.style.display = 'block';
+  res.innerHTML = `Result: <strong>${x}</strong> is <strong>${val.toFixed(2)}%</strong> of <strong>${y}</strong>`;
+}
+function resetMode2(){
+  document.getElementById('p2_x').value = '';
+  document.getElementById('p2_y').value = '';
+  document.getElementById('res2').style.display = 'none';
+}
+
+function calcMode3(){
+  const x = parseFloat(document.getElementById('p3_x').value);
+  const y = parseFloat(document.getElementById('p3_y').value);
+  const res = document.getElementById('res3');
+  if(isNaN(x) || isNaN(y) || x === 0){
+    res.style.display = 'block';
+    res.innerHTML = 'Please enter valid numbers (Original value cannot be 0).';
+    return;
+  }
+  const diff = y - x;
+  const pct = (diff / x) * 100;
+  const type = pct >= 0 ? 'Increase' : 'Decrease';
+  res.style.display = 'block';
+  res.innerHTML = `Result: Percentage ${type} from ${x} to ${y} is <strong>${Math.abs(pct).toFixed(2)}%</strong> (${diff >= 0 ? '+' : ''}${diff.toLocaleString('en-US', {maximumFractionDigits: 4})})`;
+}
+function resetMode3(){
+  document.getElementById('p3_x').value = '';
+  document.getElementById('p3_y').value = '';
+  document.getElementById('res3').style.display = 'none';
+}
+</script>
+
+</body>
+                                                                      </html>
+                                                                      
