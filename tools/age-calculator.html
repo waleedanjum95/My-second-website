@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Age Calculator - Calculate Exact Age in Years, Months & Days | SmartToolsKit</title>
-<meta name="description" content="Free online Age Calculator to calculate your exact chronological age in years, months, weeks, days, hours, and minutes with upcoming birthday countdown and detailed guide.">
+<title>Loan EMI Calculator with Monthly Schedule & Download | SmartToolsKit</title>
+<meta name="description" content="Free online Loan EMI Calculator with Start Date and End Date selection. Generate and download complete month-by-month repayment schedule in CSV.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/age-calculator.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/loan-emi-calculator.html">
 <meta name="theme-color" content="#0F172A">
 
 <style>
@@ -57,25 +57,36 @@ nav a:hover{color:var(--emerald-dark)}
 
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:25px}
 
-.form-group{margin-bottom:20px}
+.form-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:18px}
+.form-group{margin-bottom:10px}
 .form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
-.form-group input{width:100%;max-width:320px;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none}
+.form-group input{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff}
 .form-group input:focus{border-color:var(--emerald)}
 
-.btn-row{display:flex;gap:12px;margin-top:10px}
+.btn-row{display:flex;gap:12px;margin-top:20px;grid-column:1/-1}
 .btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
 .btn-calc:hover{background:var(--emerald-dark)}
 .btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
+.btn-download{background:var(--navy);color:#fff;border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer;margin-top:15px;display:inline-block}
+.btn-download:hover{background:var(--navy-light)}
 
 .result-display{margin-top:25px;display:none}
-.age-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
-.age-highlight .main-age{font-size:28px;font-weight:800;color:#34D399;margin-bottom:6px}
-.age-highlight .sub-age{font-size:14px;color:#CBD5E1}
+.emi-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
+.emi-highlight .main-emi{font-size:28px;font-weight:800;color:#34D399;margin-bottom:6px}
+.emi-highlight .sub-emi{font-size:14px;color:#CBD5E1}
 
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:25px}
 .stat-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
-.stat-card .num{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.stat-card .num{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px}
 .stat-card .lbl{font-size:12px;color:var(--muted)}
+
+.schedule-header{display:flex;justify-content:space-between;align-items:center;margin:25px 0 15px}
+.schedule-header h3{font-size:20px;color:var(--navy)}
+
+.table-wrapper{max-height:400px;overflow-y:auto;border:1px solid var(--border);border-radius:10px;background:#fff}
+.data-table{width:100%;border-collapse:collapse}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;font-size:13px}
+.data-table th{background:var(--soft);color:var(--navy);font-weight:700;position:sticky;top:0}
 
 .privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
 
@@ -85,10 +96,6 @@ nav a:hover{color:var(--emerald-dark)}
 .content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
 .content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
 .content-section li{margin-bottom:8px}
-
-.data-table{width:100%;border-collapse:collapse;margin:20px 0}
-.data-table th,.data-table td{border:1px solid var(--border);padding:12px 15px;text-align:left;font-size:14px}
-.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
 
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
 .faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
@@ -103,9 +110,10 @@ footer a:hover{color:#34D399}
 .copyright{border-top:1px solid #1E293B;padding-top:20px;text-align:center;color:#64748B;font-size:12px}
 
 @media(max-width:768px){
-.stats-grid{grid-template-columns:1fr}
+.form-grid,.stats-grid{grid-template-columns:1fr}
 .tool-card-main,.content-section{padding:22px}
 .footer-grid{grid-template-columns:1fr;gap:25px}
+.schedule-header{flex-direction:column;align-items:flex-start;gap:10px}
 }
 </style>
 
@@ -116,42 +124,18 @@ footer a:hover{color:#34D399}
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How is exact chronological age calculated?",
+      "name": "How is loan tenure calculated from Start Date and End Date?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chronological age is calculated by measuring the exact time elapsed between your birth date and a target date, accurately factoring in leap years (29 days in February) and varying month lengths."
+        "text": "The total number of repayment months is calculated by measuring the exact month difference between your chosen loan start date and final loan end date."
       }
     },
     {
       "@type": "Question",
-      "name": "Does this age calculator account for leap years?",
+      "name": "Can I download the monthly EMI repayment chart?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The SmartToolsKit Age Calculator uses precise calendar date math to account for February 29th in leap years and exact month lengths across all calendar years."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I calculate my age at a future or past date?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. You can select any custom future or past target date in the 'Calculate Age At Date' field to see your exact age on that specific day."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is exact age verification required for official forms?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Official legal documents, school enrollments, employment applications, sports divisions, and government benefits require exact age in years, months, and days to determine legal eligibility."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my birth date data stored or tracked on servers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. All computations in SmartToolsKit execute locally using client-side JavaScript inside your browser. Your birth date remains completely private on your device."
+        "text": "Yes. SmartToolsKit allows you to export your complete month-by-month loan repayment schedule directly into a CSV file compatible with Microsoft Excel and Google Sheets."
       }
     }
   ]
@@ -179,69 +163,95 @@ SmartToolsKit
 <main class="container">
 
 <div class="breadcrumb">
-<a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / Age Calculator
+<a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / Loan EMI Calculator
 </div>
 
 <div class="tool-layout">
 
 <article class="tool-card-main">
-<h1>Age Calculator</h1>
-<p class="subtitle">Calculate your exact chronological age down to years, months, days, total weeks, and upcoming birthday countdown instantly.</p>
+<h1>Loan EMI Calculator with Repayment Chart</h1>
+<p class="subtitle">Select your loan start and end dates to compute monthly EMIs, total interest, and download a complete monthly amortization schedule.</p>
 
 <div class="calc-box">
 
+<div class="form-grid">
+
 <div class="form-group">
-<label for="dob">Select Date of Birth:</label>
-<input type="date" id="dob">
+<label for="loanAmount">Loan Principal Amount ($):</label>
+<input type="number" id="loanAmount" placeholder="e.g. 50000">
 </div>
 
 <div class="form-group">
-<label for="targetDate">Calculate Age At Date (Default Today):</label>
-<input type="date" id="targetDate">
+<label for="interestRate">Annual Interest Rate (%):</label>
+<input type="number" step="0.01" id="interestRate" placeholder="e.g. 8.5">
+</div>
+
+<div class="form-group">
+<label for="startDate">Loan Start Date:</label>
+<input type="date" id="startDate">
+</div>
+
+<div class="form-group">
+<label for="endDate">Loan End Date:</label>
+<input type="date" id="endDate">
 </div>
 
 <div class="btn-row">
-<button type="button" class="btn-calc" onclick="calculateAge()">Calculate Age</button>
-<button type="button" class="btn-reset" onclick="resetAge()">Reset</button>
+<button type="button" class="btn-calc" onclick="calculateEMI()">Calculate EMI Schedule</button>
+<button type="button" class="btn-reset" onclick="resetEMI()">Reset</button>
+</div>
+
 </div>
 
 <div class="result-display" id="resultDisplay">
 
-<div class="age-highlight">
-<div class="main-age" id="mainAgeText"></div>
-<div class="sub-age" id="nextBdayText"></div>
+<div class="emi-highlight">
+<div class="main-emi" id="monthlyEmiText">$0.00</div>
+<div class="sub-emi">Estimated Monthly Installment (EMI)</div>
 </div>
 
 <div class="stats-grid">
 <div class="stat-card">
-<div class="num" id="totalMonths">--</div>
-<div class="lbl">Total Months</div>
+<div class="num" id="principalText">$0.00</div>
+<div class="lbl">Principal Amount</div>
 </div>
 
 <div class="stat-card">
-<div class="num" id="totalWeeks">--</div>
-<div class="lbl">Total Weeks</div>
+<div class="num" id="tenureText">0 Months</div>
+<div class="lbl">Total Duration</div>
 </div>
 
 <div class="stat-card">
-<div class="num" id="totalDays">--</div>
-<div class="lbl">Total Days</div>
+<div class="num" id="totalInterestText">$0.00</div>
+<div class="lbl">Total Interest</div>
 </div>
 
 <div class="stat-card">
-<div class="num" id="totalHours">--</div>
-<div class="lbl">Total Hours</div>
+<div class="num" id="totalPaymentText">$0.00</div>
+<div class="lbl">Total Repayment</div>
+</div>
 </div>
 
-<div class="stat-card">
-<div class="num" id="totalMinutes">--</div>
-<div class="lbl">Total Minutes</div>
+<div class="schedule-header">
+<h3>Monthly Repayment Schedule (Amortization)</h3>
+<button type="button" class="btn-download" onclick="downloadCSV()">📥 Download Schedule (CSV)</button>
 </div>
 
-<div class="stat-card">
-<div class="num" id="totalSeconds">--</div>
-<div class="lbl">Total Seconds</div>
-</div>
+<div class="table-wrapper">
+<table class="data-table">
+<thead>
+<tr>
+<th>#</th>
+<th>Payment Date</th>
+<th>EMI ($)</th>
+<th>Principal ($)</th>
+<th>Interest ($)</th>
+<th>Balance ($)</th>
+</tr>
+</thead>
+<tbody id="scheduleBody">
+</tbody>
+</table>
 </div>
 
 </div>
@@ -254,111 +264,29 @@ SmartToolsKit
 </article>
 
 <section class="content-section">
-<h2>What is Chronological Age and Why Is It Calculated?</h2>
-<p>Chronological age represents the precise measure of time that has elapsed from an individual's birth date to a specific reference date. Unlike biological age, which assesses cellular health and physical degradation, chronological age is a fixed, absolute calendar duration defined by standardized Gregorian calendar rules.</p>
+<h2>How Date-Based Loan EMI Calculations Work</h2>
+<p>Most online EMI calculators require you to enter tenure directly in years or months. Our advanced SmartToolsKit Loan EMI Calculator allows you to specify exact <strong>Start Date</strong> and <strong>End Date</strong> parameters to provide real-world calendar accuracy.</p>
 
-<p>Calculating exact chronological age is essential in modern society. From verifying legal adulthood status for voting and driving privileges to filling out official government passport forms, job application portals, insurance policies, medical dosage prescriptions, and competitive sports divisions, having an accurate age breakdown in years, months, and days eliminates ambiguity.</p>
+<p>By comparing your start and maturity dates, the tool calculates the total repayment months, maps out payment due dates for each month, and breaks down principal versus interest allocation over time.</p>
 
-<h2>How Our Age Calculator Algorithm Works</h2>
-<p>Determining age manually appears simple on the surface, but accurate calendar arithmetic is surprisingly complex due to non-uniform month lengths and leap years. Our SmartToolsKit Age Calculator addresses these mathematical variables using precise client-side algorithms:</p>
+<h2>Understanding the Amortization Schedule</h2>
+<p>An amortization schedule is a complete table of periodic loan payments showing the amount of principal and interest comprising each payment until the loan is paid off at the end of its term.</p>
 
 <ul>
-<li><strong>Leap Year Corrections:</strong> Every four years, a leap year adds February 29th to the calendar. Our tool tracks Gregorian leap years accurately to ensure day-count precision.</li>
-<li><strong>Variable Month Durations:</strong> Months vary between 28, 29, 30, and 31 days. When subtracting dates, the calculator dynamically borrows the exact number of days in the preceding month.</li>
-<li><strong>Target Date Flexibility:</strong> You can calculate your current age today or evaluate your chronological age at any specified past or future target date.</li>
+<li><strong>Early Payments:</strong> In the initial months, a larger percentage of your EMI goes toward paying accumulated interest.</li>
+<li><strong>Later Payments:</strong> As the principal balance decreases, less interest accrues each month, allowing a greater portion of your EMI to pay down the principal.</li>
 </ul>
-
-<h2>Real-World Practical Applications</h2>
-
-<h3>1. Official & Government Documentation</h3>
-<p>Visa applications, passport renewals, national ID registration, and legal affidavits often require applicants to state their exact age in years, months, and days at the time of submission.</p>
-
-<h3>2. Educational Admissions & Sports Categorization</h3>
-<p>Schools and youth athletic organizations enforce strict cut-off birth dates for grade entry and competitive age divisions (e.g., Under-12, Under-16 leagues). Exact age calculation ensures fair placement.</p>
-
-<h3>3. Medical Dosages & Pediatric Health Milestones</h3>
-<p>In healthcare, pediatric medicine doses and developmental growth charts depend heavily on exact age in months and weeks during a child's early developmental stages.</p>
-
-<h3>4. Financial & Retirement Milestone Planning</h3>
-<p>Retirement plans, pension distributions, social security eligibility, and life insurance premiums depend on key milestone birthdays (such as reaching 50, 60, or 65 years of age).</p>
-
-<h2>Chronological Age Milestone Reference Matrix</h2>
-<p>The table below illustrates common standard life milestones along with their equivalent duration conversions in total months, weeks, and days:</p>
-
-<table class="data-table">
-<thead>
-<tr>
-<th>Life Milestone</th>
-<th>Age in Years</th>
-<th>Total Months</th>
-<th>Total Weeks (Approx)</th>
-<th>Total Days (Approx)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Legal Voting / Adulthood</td>
-<td>18 Years</td>
-<td>216 Months</td>
-<td>938 Weeks</td>
-<td>6,574 Days</td>
-</tr>
-<tr>
-<td>Full Legal Rights</td>
-<td>21 Years</td>
-<td>252 Months</td>
-<td>1,095 Weeks</td>
-<td>7,670 Days</td>
-</tr>
-<tr>
-<td>Three Decades Milestone</td>
-<td>30 Years</td>
-<td>360 Months</td>
-<td>1,565 Weeks</td>
-<td>10,957 Days</td>
-</tr>
-<tr>
-<td>Half-Century (Golden Jubilee)</td>
-<td>50 Years</td>
-<td>600 Months</td>
-<td>2,608 Weeks</td>
-<td>18,262 Days</td>
-</tr>
-<tr>
-<td>Standard Retirement Age</td>
-<td>65 Years</td>
-<td>780 Months</td>
-<td>3,390 Weeks</td>
-<td>23,741 Days</td>
-</tr>
-</tbody>
-</table>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
 
 <div class="faq-item">
-<h4>How is exact chronological age calculated?</h4>
-<p>Chronological age is calculated by measuring the exact duration between your birth date and a target date, accurately factoring in leap years (29 days in February) and varying month lengths.</p>
+<h4>How is loan tenure calculated from Start Date and End Date?</h4>
+<p>The total number of repayment months is determined by calculating the month and year difference between your selected start date and end date.</p>
 </div>
 
 <div class="faq-item">
-<h4>Does this age calculator account for leap years?</h4>
-<p>Yes. The SmartToolsKit Age Calculator uses native browser Date object math to account for February 29th in leap years and exact month lengths across all calendar years.</p>
-</div>
-
-<div class="faq-item">
-<h4>Can I calculate my age at a future or past date?</h4>
-<p>Yes. Simply select any custom future or past target date in the "Calculate Age At Date" field to see your exact age on that specific day.</p>
-</div>
-
-<div class="faq-item">
-<h4>Why is exact age verification required for official forms?</h4>
-<p>Official legal documents, school enrollments, employment applications, sports divisions, and government benefits require exact age in years, months, and days to verify legal eligibility requirements.</p>
-</div>
-
-<div class="faq-item">
-<h4>Is my birth date data stored or tracked on servers?</h4>
-<p>No. All computations in SmartToolsKit execute locally using client-side JavaScript inside your browser. Your birth date remains completely private on your device and is never saved or transmitted.</p>
+<h4>How can I export or download my loan repayment schedule?</h4>
+<p>Click the <strong>"Download Schedule (CSV)"</strong> button above to download a clean spreadsheet file that opens directly in Microsoft Excel, Apple Numbers, or Google Sheets.</p>
 </div>
 
 </section>
@@ -399,76 +327,110 @@ SmartToolsKit
 </footer>
 
 <script>
-document.getElementById('targetDate').valueAsDate = new Date();
+// Set default start date to today and end date to 5 years later
+const today = new Date();
+document.getElementById('startDate').valueAsDate = today;
+const future = new Date();
+future.setFullYear(today.getFullYear() + 5);
+document.getElementById('endDate').valueAsDate = future;
 
-function calculateAge(){
-  const dobInput = document.getElementById('dob').value;
-  const targetInput = document.getElementById('targetDate').value;
+let scheduleData = [];
+
+function calculateEMI(){
+  const principal = parseFloat(document.getElementById('loanAmount').value);
+  const rate = parseFloat(document.getElementById('interestRate').value);
+  const startVal = document.getElementById('startDate').value;
+  const endVal = document.getElementById('endDate').value;
   
-  if(!dobInput){
-    alert('Please select your Date of Birth.');
+  if(isNaN(principal) || isNaN(rate) || !startVal || !endVal || principal <= 0 || rate <= 0){
+    alert('Please enter valid numbers for loan amount, interest rate, and select both dates.');
     return;
   }
   
-  const dob = new Date(dobInput);
-  const target = targetInput ? new Date(targetInput) : new Date();
+  const startDate = new Date(startVal);
+  const endDate = new Date(endVal);
   
-  if(dob > target){
-    alert('Date of Birth cannot be in the future relative to the target date.');
+  if(startDate >= endDate){
+    alert('End Date must be after the Start Date.');
     return;
   }
   
-  let years = target.getFullYear() - dob.getFullYear();
-  let months = target.getMonth() - dob.getMonth();
-  let days = target.getDate() - dob.getDate();
+  // Calculate total months difference
+  let totalMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+  if(totalMonths <= 0) totalMonths = 1;
   
-  if(days < 0){
-    months--;
-    const prevMonthLastDay = new Date(target.getFullYear(), target.getMonth(), 0).getDate();
-    days += prevMonthLastDay;
+  const monthlyRate = rate / (12 * 100);
+  const emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+  const totalPayment = emi * totalMonths;
+  const totalInterest = totalPayment - principal;
+  
+  document.getElementById('monthlyEmiText').innerText = '$' + emi.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  document.getElementById('principalText').innerText = '$' + principal.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  document.getElementById('tenureText').innerText = totalMonths + ' Months';
+  document.getElementById('totalInterestText').innerText = '$' + totalInterest.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  document.getElementById('totalPaymentText').innerText = '$' + totalPayment.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  
+  // Build Schedule
+  scheduleData = [];
+  let balance = principal;
+  let tbodyHtml = '';
+  let currDate = new Date(startDate);
+  
+  for(let i = 1; i <= totalMonths; i++){
+    currDate.setMonth(currDate.getMonth() + 1);
+    const dateStr = currDate.toLocaleDateString('en-US', {month: 'short', year: 'numeric'});
+    
+    const interestPayment = balance * monthlyRate;
+    const principalPayment = emi - interestPayment;
+    balance -= principalPayment;
+    if(balance < 0 || i === totalMonths) balance = 0;
+    
+    scheduleData.push({
+      month: i,
+      date: dateStr,
+      emi: emi.toFixed(2),
+      principal: principalPayment.toFixed(2),
+      interest: interestPayment.toFixed(2),
+      balance: balance.toFixed(2)
+    });
+    
+    tbodyHtml += `<tr>
+      <td>${i}</td>
+      <td>${dateStr}</td>
+      <td>$${emi.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2})}</td>
+      <td>$${principalPayment.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2})}</td>
+      <td>$${interestPayment.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2})}</td>
+      <td>$${balance.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2})}</td>
+    </tr>`;
   }
   
-  if(months < 0){
-    years--;
-    months += 12;
-  }
-  
-  document.getElementById('mainAgeText').innerHTML = `${years} Years, ${months} Months, ${days} Days`;
-  
-  let nextBday = new Date(target.getFullYear(), dob.getMonth(), dob.getDate());
-  if(nextBday < target){
-    nextBday.setFullYear(target.getFullYear() + 1);
-  }
-  
-  let diffTime = nextBday - target;
-  let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  let nextBdayMonths = Math.floor(diffDays / 30);
-  let nextBdayDays = diffDays % 30;
-  
-  document.getElementById('nextBdayText').innerHTML = `🎂 Next Birthday in: <strong>${nextBdayMonths} Months, ${nextBdayDays} Days</strong> (${diffDays} total days left)`;
-  
-  const totalTimeDiff = target - dob;
-  const totalSecs = Math.floor(totalTimeDiff / 1000);
-  const totalMins = Math.floor(totalSecs / 60);
-  const totalHrs = Math.floor(totalMins / 60);
-  const totalDys = Math.floor(totalHrs / 24);
-  const totalWks = Math.floor(totalDys / 7);
-  const totalMths = (years * 12) + months;
-  
-  document.getElementById('totalMonths').innerText = totalMths.toLocaleString();
-  document.getElementById('totalWeeks').innerText = totalWks.toLocaleString();
-  document.getElementById('totalDays').innerText = totalDys.toLocaleString();
-  document.getElementById('totalHours').innerText = totalHrs.toLocaleString();
-  document.getElementById('totalMinutes').innerText = totalMins.toLocaleString();
-  document.getElementById('totalSeconds').innerText = totalSecs.toLocaleString();
-  
+  document.getElementById('scheduleBody').innerHTML = tbodyHtml;
   document.getElementById('resultDisplay').style.display = 'block';
 }
 
-function resetAge(){
-  document.getElementById('dob').value = '';
-  document.getElementById('targetDate').valueAsDate = new Date();
+function resetEMI(){
+  document.getElementById('loanAmount').value = '';
+  document.getElementById('interestRate').value = '';
   document.getElementById('resultDisplay').style.display = 'none';
+  scheduleData = [];
+}
+
+function downloadCSV(){
+  if(scheduleData.length === 0) return;
+  
+  let csvContent = "data:text/csv;charset=utf-8,Month,Payment Date,EMI ($),Principal ($),Interest ($),Remaining Balance ($)\n";
+  
+  scheduleData.forEach(row => {
+    csvContent += `${row.month},${row.date},${row.emi},${row.principal},${row.interest},${row.balance}\n`;
+  });
+  
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "Loan_Repayment_Schedule.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 </script>
 
