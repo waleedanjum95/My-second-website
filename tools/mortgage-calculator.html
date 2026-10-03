@@ -73,6 +73,7 @@ nav a:hover{color:var(--emerald-dark)}
 .btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
 .btn-calc:hover{background:var(--emerald-dark)}
 .btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
+.btn-reset:hover{background:#CBD5E1}
 
 .result-display{margin-top:25px;display:block}
 .mortgage-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
@@ -208,22 +209,22 @@ SmartToolsKit
 
 <div class="form-group">
 <label for="homeValue">Home Value ($):</label>
-<input type="number" id="homeValue" placeholder="e.g. 350000" value="350000" oninput="calculateMortgage()">
+<input type="number" id="homeValue" placeholder="e.g. 350000" value="350000">
 </div>
 
 <div class="form-group">
 <label for="downPayment">Down Payment ($):</label>
-<input type="number" id="downPayment" placeholder="e.g. 70000" value="70000" oninput="calculateMortgage()">
+<input type="number" id="downPayment" placeholder="e.g. 70000" value="70000">
 </div>
 
 <div class="form-group">
 <label for="interestRate">Interest Rate (%):</label>
-<input type="number" step="0.1" id="interestRate" placeholder="e.g. 6.5" value="6.5" oninput="calculateMortgage()">
+<input type="number" step="0.1" id="interestRate" placeholder="e.g. 6.5" value="6.5">
 </div>
 
 <div class="form-group">
 <label for="loanTerm">Loan Term (Years):</label>
-<select id="loanTerm" onchange="calculateMortgage()">
+<select id="loanTerm">
 <option value="15">15 Years</option>
 <option value="20">20 Years</option>
 <option value="30" selected>30 Years</option>
@@ -232,12 +233,12 @@ SmartToolsKit
 
 <div class="form-group">
 <label for="propertyTax">Annual Property Tax ($):</label>
-<input type="number" id="propertyTax" placeholder="e.g. 3000" value="3000" oninput="calculateMortgage()">
+<input type="number" id="propertyTax" placeholder="e.g. 3000" value="3000">
 </div>
 
 <div class="form-group">
 <label for="homeInsurance">Annual Home Insurance ($):</label>
-<input type="number" id="homeInsurance" placeholder="e.g. 1200" value="1200" oninput="calculateMortgage()">
+<input type="number" id="homeInsurance" placeholder="e.g. 1200" value="1200">
 </div>
 
 </div>
