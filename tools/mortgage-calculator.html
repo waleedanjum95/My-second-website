@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mortgage Calculator - Monthly Home Loan Payments & Amortization | SmartToolsKit</title>
+<meta name="description" content="Free online Mortgage Calculator to compute monthly home loan payments, principal and interest breakdown, property taxes, and amortization schedules instantly.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/mortgage-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<meta property="og:title" content="Mortgage Calculator | SmartToolsKit">
+<meta property="og:description" content="Calculate monthly mortgage payments, interest rates, and loan amortization instantly with our free online tool.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smarttoolskit.com/tools/mortgage-calculator.html">
+
+<style>
+:root{
+--navy:#0F172A;
+--navy-light:#1E293B;
+--emerald:#10B981;
+--emerald-dark:#059669;
+--teal:#14B8A6;
+--background:#F8FAFC;
+--white:#FFF;
+--text:#0F172A;
+--muted:#64748B;
+--border:#E2E8F0;
+--soft:#F1F5F9;
+--shadow:0 10px 30px rgba(15,23,42,.07);
+--radius:16px
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+
+.container{width:min(1120px,92%);margin:auto}
+
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
+.breadcrumb a{color:var(--emerald-dark);font-weight:600}
+
+.tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+
+.tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
+.tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:25px}
+
+.form-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:18px}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr}}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
+.form-group input,.form-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff}
+.form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
+
+.btn-row{display:flex;gap:12px;margin-top:20px;grid-column:1/-1}
+.btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn-calc:hover{background:var(--emerald-dark)}
+.btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
+
+.result-display{margin-top:25px;display:block}
+.mortgage-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
+.mortgage-highlight .main-val{font-size:32px;font-weight:800;color:#34D399;margin-bottom:6px}
+.mortgage-highlight .sub-val{font-size:14px;color:#CBD5E1}
+
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+@media(max-width:768px){.stats-grid{grid-template-columns:1fr}}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.stat-card .num{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.stat-card .lbl{font-size:12px;color:var(--muted)}
+
+.ad-slot{background:#F1F5F9;border:2px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:13px;margin:25px 0}
+.error-msg{background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;padding:12px;border-radius:8px;font-size:14px;margin-bottom:15px;display:none}
+
+.privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
+
+.content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
+.content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
+.content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
+.content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
+.content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
+.content-section li{margin-bottom:8px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
+
+.data-table{width:100%;border-collapse:collapse;margin:20px 0}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;font-size:13px}
+.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
+
+.faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
+.faq-item p{margin-bottom:0}
+
+footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:35px}
+footer h3{color:#fff;margin-bottom:12px;font-size:16px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+footer a:hover{color:#34D399}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.copyright{border-top:1px solid #1E293B;padding-top:20px;text-align:center;color:#64748B;font-size:12px}
+
+@media(max-width:768px){
+.tool-card-main,.content-section{padding:22px}
+.footer-grid{grid-template-columns:1fr;gap:25px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is a monthly mortgage payment calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monthly mortgage payments are calculated using the loan principal amount, annual interest rate, and total loan duration in years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is included in a total mortgage payment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standard mortgage payment includes principal repayment, interest charges, annual property taxes, and home insurance premiums."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a down payment affect my mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A higher down payment reduces the total loan amount borrowed, lowering your monthly mortgage payment and total cumulative interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is loan amortization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Amortization is the process of spreading out a loan into fixed regular payments over time, where initial payments consist mostly of interest and later payments go toward the principal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my home financing data stored or tracked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All calculations run securely within your web browser client-side, ensuring complete privacy."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">
+<span class="logo-shape"></span>
+SmartToolsKit
+</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+
+<div class="breadcrumb">
+<a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / Mortgage Calculator
+</div>
+
+<div class="tool-layout">
+
+<article class="tool-card-main">
+<h1>Mortgage Calculator</h1>
+<p class="subtitle">Calculate monthly home loan payments, interest charges, property taxes, and amortization breakdowns instantly.</p>
+
+<div class="calc-box">
+
+<div class="error-msg" id="errorMsg"></div>
+
+<div class="form-grid">
+
+<div class="form-group">
+<label for="homeValue">Home Value ($):</label>
+<input type="number" id="homeValue" placeholder="e.g. 350000" value="350000" oninput="calculateMortgage()">
+</div>
+
+<div class="form-group">
+<label for="downPayment">Down Payment ($):</label>
+<input type="number" id="downPayment" placeholder="e.g. 70000" value="70000" oninput="calculateMortgage()">
+</div>
+
+<div class="form-group">
+<label for="interestRate">Interest Rate (%):</label>
+<input type="number" step="0.1" id="interestRate" placeholder="e.g. 6.5" value="6.5" oninput="calculateMortgage()">
+</div>
+
+<div class="form-group">
+<label for="loanTerm">Loan Term (Years):</label>
+<select id="loanTerm" onchange="calculateMortgage()">
+<option value="15">15 Years</option>
+<option value="20">20 Years</option>
+<option value="30" selected>30 Years</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="propertyTax">Annual Property Tax ($):</label>
+<input type="number" id="propertyTax" placeholder="e.g. 3000" value="3000" oninput="calculateMortgage()">
+</div>
+
+<div class="form-group">
+<label for="homeInsurance">Annual Home Insurance ($):</label>
+<input type="number" id="homeInsurance" placeholder="e.g. 1200" value="1200" oninput="calculateMortgage()">
+</div>
+
+</div>
+
+<div class="btn-row">
+<button type="button" class="btn-calc" onclick="calculateMortgage()">Calculate Payment</button>
+<button type="button" class="btn-reset" onclick="resetMortgage()">Reset</button>
+</div>
+
+<div class="result-display" id="resultDisplay">
+<div class="mortgage-highlight" aria-live="polite">
+<div class="main-val" id="totalMonthlyText">$0.00</div>
+<div class="sub-val">Total Monthly Mortgage Payment</div>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card">
+<div class="num" id="principalInterestText">$0.00</div>
+<div class="lbl">Principal & Interest</div>
+</div>
+
+<div class="stat-card">
+<div class="num" id="monthlyTaxText">$0.00</div>
+<div class="lbl">Property Tax</div>
+</div>
+
+<div class="stat-card">
+<div class="num" id="monthlyInsuranceText">$0.00</div>
+<div class="lbl">Home Insurance</div>
+</div>
+</div>
+
+<div class="ad-slot">Advertisement Space</div>
+</div>
+
+</div>
+
+<div class="privacy-badge">
+🔒 <strong>Privacy Assurance:</strong> Your financial inputs are never sent or stored on remote servers. All calculations run securely within your browser.
+</div>
+</article>
+
+<section class="content-section">
+<h2>Understanding Mortgage Payments and Home Financing</h2>
+<p>Purchasing a home is one of the most significant financial decisions you will ever undertake. Managing your budget requires clear visibility into your monthly mortgage obligations. A standard mortgage payment typically consists of multiple components, commonly referred to as PITI: Principal, Interest, Taxes, and Insurance.</p>
+
+<p>Our online Mortgage Calculator helps prospective homeowners evaluate different loan scenarios, down payment strategies, and interest rates to determine affordable housing budgets.</p>
+
+<h2>The Mathematical Mortgage Formula</h2>
+<p>Monthly principal and interest repayments are calculated using the standard amortized loan formula:</p>
+
+<div class="formula-box">
+M = P [ r(1 + r)^n ] / [ (1 + r)^n – 1]<br><br>
+Where:<br>
+M = Total Monthly Principal & Interest Payment<br>
+P = Principal Loan Amount (Home Value minus Down Payment)<br>
+r = Monthly Interest Rate (Annual Rate / 12 / 100)<br>
+n = Total Number of Payments (Loan Term in Years * 12)
+</div>
+
+<h3>Key Components of a Mortgage</h3>
+<ul>
+<li><strong>Principal & Interest (P&I):</strong> The core repayment covering your borrowed loan amount and the lender's financing charges.</li>
+<li><strong>Property Taxes:</strong> Annual local government levies charged on real estate value, usually escrowed monthly.</li>
+<li><strong>Home Insurance:</strong> Coverage protecting your property against damage, hazards, and liability.</li>
+</ul>
+
+<h2>Sample Mortgage Payment Reference Matrix</h2>
+<p>The table below outlines sample monthly mortgage payments (Principal & Interest) for a $300,000 loan balance across varying interest rates and loan terms:</p>
+
+<table class="data-table">
+<thead>
+<tr>
+<th>Loan Amount</th>
+<th>Interest Rate</th>
+<th>Loan Term</th>
+<th>Monthly P&I</th>
+<th>Total Interest Paid</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>$300,000</td><td>5.5%</td><td>30 Years</td><td>$1,703.37</td><td>$313,212.72</td></tr>
+<tr><td>$300,000</td><td>6.5%</td><td>30 Years</td><td>$1,896.20</td><td>$382,633.20</td></tr>
+<tr><td>$300,000</td><td>7.5%</td><td>30 Years</td><td>$2,097.64</td><td>$455,150.40</td></tr>
+<tr><td>$300,000</td><td>6.0%</td><td>15 Years</td><td>$2,531.57</td><td>$155,682.60</td></tr>
+</tbody>
+</table>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<h4>How is a monthly mortgage payment calculated?</h4>
+<p>Monthly mortgage payments are calculated using the loan principal amount, annual interest rate, and total loan duration in years.</p>
+</div>
+
+<div class="faq-item">
+<h4>What is included in a total mortgage payment?</h4>
+<p>A standard mortgage payment includes principal repayment, interest charges, annual property taxes, and home insurance premiums.</p>
+</div>
+
+<div class="faq-item">
+<h4>How does a down payment affect my mortgage?</h4>
+<p>A higher down payment reduces the total loan amount borrowed, lowering your monthly mortgage payment and total cumulative interest.</p>
+</div>
+
+<div class="faq-item">
+<h4>What is loan amortization?</h4>
+<p>Amortization is the process of spreading out a loan into fixed regular payments over time, where initial payments consist mostly of interest and later payments go toward the principal.</p>
+</div>
+
+<div class="faq-item">
+<h4>Is my home financing data stored or tracked?</h4>
+<p>No. All calculations run securely within your web browser client-side, ensuring complete privacy.</p>
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free browser-based web tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms & Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">
+© 2026 SmartToolsKit. All rights reserved.
+</div>
+</div>
+</footer>
+
+<script>
+function showError(msg){
+  const err = document.getElementById('errorMsg');
+  if(msg){
+    err.innerText = msg;
+    err.style.display = 'block';
+  } else {
+    err.style.display = 'none';
+  }
+}
+
+function calculateMortgage(){
+  const homeVal = parseFloat(document.getElementById('homeValue').value);
+  const downVal = parseFloat(document.getElementById('downPayment').value);
+  const rateVal = parseFloat(document.getElementById('interestRate').value);
+  const termVal = parseInt(document.getElementById('loanTerm').value);
+  const taxVal = parseFloat(document.getElementById('propertyTax').value);
+  const insVal = parseFloat(document.getElementById('homeInsurance').value);
+  
+  if(isNaN(homeVal) || homeVal < 0){
+    showError('Please enter a valid home value.');
+    return;
+  }
+  if(isNaN(downVal) || downVal < 0){
+    showError('Please enter a valid down payment amount.');
+    return;
+  }
+  if(isNaN(rateVal) || rateVal < 0){
+    showError('Please enter a valid interest rate.');
+    return;
+  }
+  if(isNaN(taxVal) || taxVal < 0){
+    showError('Please enter a valid annual property tax.');
+    return;
+  }
+  if(isNaN(insVal) || insVal < 0){
+    showError('Please enter a valid annual home insurance amount.');
+    return;
+  }
+  
+  showError('');
+  
+  const principal = homeVal - downVal;
+  if(principal < 0){
+    showError('Down payment cannot exceed home value.');
+    return;
+  }
+  
+  const monthlyRate = rateVal / (12 * 100);
+  const totalMonths = termVal * 12;
+  
+  let monthlyPI = 0;
+  if(monthlyRate === 0){
+    monthlyPI = principal / totalMonths;
+  } else {
+    monthlyPI = (principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+  }
+  
+  const monthlyTax = taxVal / 12;
+  const monthlyIns = insVal / 12;
+  const totalMonthly = monthlyPI + monthlyTax + monthlyIns;
+  
+  document.getElementById('totalMonthlyText').innerText = '$' + totalMonthly.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  document.getElementById('principalInterestText').innerText = '$' + monthlyPI.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  document.getElementById('monthlyTaxText').innerText = '$' + monthlyTax.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  document.getElementById('monthlyInsuranceText').innerText = '$' + monthlyIns.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  
+  document.getElementById('resultDisplay').style.display = 'block';
+}
+
+function resetMortgage(){
+  document.getElementById('homeValue').value = '350000';
+  document.getElementById('downPayment').value = '70000';
+  document.getElementById('interestRate').value = '6.5';
+  document.getElementById('loanTerm').value = '30';
+  document.getElementById('propertyTax').value = '3000';
+  document.getElementById('homeInsurance').value = '1200';
+  showError('');
+  calculateMortgage();
+}
+
+window.onload = calculateMortgage;
+</script>
+
+</body>
+  </html>
+  
