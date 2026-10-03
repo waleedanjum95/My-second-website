@@ -145,7 +145,7 @@ footer a:hover{color:#34D399}
       "name": "How does loan tenure impact monthly EMI payments?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A longer loan tenure reduces your monthly EMI amount but increases total cumulative interest paid over the life of the loan. A shorter tenure increases monthly EMI but reduces total interest."
+        "text": "A longer loan tenure reduces your monthly EMI amount but increases total cumulative interest paid over the life of the loan. A shorter tenure increases monthly EMI payments but reduces overall interest charges."
       }
     },
     {
@@ -153,7 +153,7 @@ footer a:hover{color:#34D399}
       "name": "How can I export or download my loan repayment schedule?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Click the 'Download Schedule (CSV)' button above to export your complete month-by-month loan repayment chart directly into a CSV file compatible with Microsoft Excel and Google Sheets."
+        "text": "Click the 'Download Schedule (CSV)' button above to export your complete month-by-month loan repayment chart directly into a CSV file compatible with Microsoft Excel, Apple Numbers, and Google Sheets."
       }
     },
     {
@@ -288,7 +288,6 @@ SmartToolsKit
 🔒 <strong>Client-Side Security:</strong> All computations execute locally inside your web browser. No data is sent or saved on remote servers.
 </div>
 </article>
-
 <section class="content-section">
 <h2>Understanding Equated Monthly Installments (EMI) & Date-Based Amortization</h2>
 <p>An Equated Monthly Installment (EMI) is a fixed payment amount made by a borrower to a financial institution at a designated date each calendar month. EMIs apply across personal loans, auto financing, commercial equipment leases, and home mortgages. Every EMI payment comprises two distinct financial allocations: interest charges levied by the lender and direct principal debt reduction.</p>
@@ -488,8 +487,7 @@ function calculateEMI(){
   
   for(let i = 1; i <= totalMonths; i++){
     currDate.setMonth(currDate.getMonth() + 1);
-    const dateStr = currDate.toLocaleDateString('en-US', {month: 'short', y
-                                                          ear: 'numeric'});
+    const dateStr = currDate.toLocaleDateString('en-US', {month: 'short', year: 'numeric'});
     
     const interestPayment = balance * monthlyRate;
     const principalPayment = emi - interestPayment;
