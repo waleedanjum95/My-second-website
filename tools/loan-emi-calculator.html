@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loan EMI Calculator - Monthly Payment & Interest Tool | SmartToolsKit</title>
+<meta name="description" content="Free online Loan EMI Calculator to estimate your monthly installments, total interest payable, and total loan payback breakdown with detailed guide.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/loan-emi-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<style>
+:root{
+--navy:#0F172A;
+--navy-light:#1E293B;
+--emerald:#10B981;
+--emerald-dark:#059669;
+--teal:#14B8A6;
+--background:#F8FAFC;
+--white:#FFF;
+--text:#0F172A;
+--muted:#64748B;
+--border:#E2E8F0;
+--soft:#F1F5F9;
+--shadow:0 10px 30px rgba(15,23,42,.07);
+--radius:16px
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+
+.container{width:min(1120px,92%);margin:auto}
+
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
+.breadcrumb a{color:var(--emerald-dark);font-weight:600}
+
+.tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+
+.tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
+.tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:25px}
+
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
+.form-group input{width:100%;max-width:320px;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none}
+.form-group input:focus{border-color:var(--emerald)}
+
+.btn-row{display:flex;gap:12px;margin-top:10px}
+.btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn-calc:hover{background:var(--emerald-dark)}
+.btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
+
+.result-display{margin-top:25px;display:none}
+.emi-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
+.emi-highlight .main-emi{font-size:28px;font-weight:800;color:#34D399;margin-bottom:6px}
+.emi-highlight .sub-emi{font-size:14px;color:#CBD5E1}
+
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.stat-card .num{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.stat-card .lbl{font-size:12px;color:var(--muted)}
+
+.privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
+
+.content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
+.content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
+.content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
+.content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
+.content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
+.content-section li{margin-bottom:8px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
+
+.data-table{width:100%;border-collapse:collapse;margin:20px 0}
+.data-table th,.data-table td{border:1px solid var(--border);padding:12px 15px;text-align:left;font-size:14px}
+.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
+
+.faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
+.faq-item p{margin-bottom:0}
+
+footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:35px}
+footer h3{color:#fff;margin-bottom:12px;font-size:16px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+footer a:hover{color:#34D399}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.copyright{border-top:1px solid #1E293B;padding-top:20px;text-align:center;color:#64748B;font-size:12px}
+
+@media(max-width:768px){
+.stats-grid{grid-template-columns:1fr}
+.tool-card-main,.content-section{padding:22px}
+.footer-grid{grid-template-columns:1fr;gap:25px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does Loan EMI stand for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EMI stands for Equated Monthly Installment. It is a fixed payment amount made by a borrower to a financial lender on a specified date each calendar month to pay off both principal and interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does loan tenure impact monthly EMI payments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A longer loan tenure reduces your monthly EMI amount but increases total interest paid over the life of the loan. Conversely, a shorter tenure increases monthly EMI but significantly reduces cumulative interest charges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the mathematical formula for EMI calculation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The formula is: EMI = [P x R x (1+R)^N] / [(1+R)^N - 1], where P is Principal Loan Amount, R is Monthly Interest Rate, and N is Loan Tenure in Months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between fixed and floating interest rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fixed interest rates remain constant throughout the entire loan tenure, ensuring predictable EMIs. Floating interest rates fluctuate according to market dynamics and central bank benchmark rates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my financial calculation data stored on SmartToolsKit servers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All computations execute locally within your client-side browser using JavaScript. Your loan numbers remain completely private on your device and are never transmitted to external servers."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">
+<span class="logo-shape"></span>
+SmartToolsKit
+</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+
+<div class="breadcrumb">
+<a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / Loan EMI Calculator
+</div>
+
+<div class="tool-layout">
+
+<article class="tool-card-main">
+<h1>Loan EMI Calculator</h1>
+<p class="subtitle">Calculate your monthly equated installments (EMI), total interest charges, and complete payment breakdown for personal, car, or home loans.</p>
+
+<div class="calc-box">
+
+<div class="form-group">
+<label for="loanAmount">Loan Principal Amount ($):</label>
+<input type="number" id="loanAmount" placeholder="e.g. 50000">
+</div>
+
+<div class="form-group">
+<label for="interestRate">Annual Interest Rate (%):</label>
+<input type="number" step="0.01" id="interestRate" placeholder="e.g. 8.5">
+</div>
+
+<div class="form-group">
+<label for="tenureYears">Loan Tenure (Years):</label>
+<input type="number" id="tenureYears" placeholder="e.g. 5">
+</div>
+
+<div class="btn-row">
+<button type="button" class="btn-calc" onclick="calculateEMI()">Calculate EMI</button>
+<button type="button" class="btn-reset" onclick="resetEMI()">Reset</button>
+</div>
+
+<div class="result-display" id="resultDisplay">
+
+<div class="emi-highlight">
+<div class="main-emi" id="monthlyEmiText">$0.00</div>
+<div class="sub-emi">Estimated Equated Monthly Installment (EMI)</div>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card">
+<div class="num" id="principalText">$0.00</div>
+<div class="lbl">Principal Amount</div>
+</div>
+
+<div class="stat-card">
+<div class="num" id="totalInterestText">$0.00</div>
+<div class="lbl">Total Interest Payable</div>
+</div>
+
+<div class="stat-card">
+<div class="num" id="totalPaymentText">$0.00</div>
+<div class="lbl">Total Repayment Amount</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="privacy-badge">
+🔒 <strong>Client-Side Security:</strong> All computations execute locally inside your web browser. No data is sent or saved on remote servers.
+</div>
+</article>
+
+<section class="content-section">
+<h2>Understanding Equated Monthly Installments (EMI)</h2>
+<p>An Equated Monthly Installment (EMI) is a fixed payment amount made by a borrower to a financial lender at a specified date each calendar month. EMIs apply to personal loans, home mortgages, automobile financing, and business loans. Every EMI payment comprises two distinct components: interest charges on the outstanding principal and direct principal debt reduction.</p>
+
+<p>During the early phase of a loan repayment schedule, a significant portion of each monthly installment goes toward clearing accumulated interest charges. As the loan tenure matures, the proportion shifts toward reducing the remaining principal balance until the debt is fully settled.</p>
+
+<h2>The Mathematical Loan EMI Formula Explained</h2>
+<p>Our online loan calculator utilizes the standard mathematical equation mandated by commercial banking institutions world-wide:</p>
+
+<div class="formula-box">
+EMI = [P x R x (1+R)^N] / [(1+R)^N - 1]<br><br>
+Where:<br>
+P = Principal Loan Amount<br>
+R = Monthly Interest Rate (Annual Rate / 12 / 100)<br>
+N = Total Loan Duration in Months (Years x 12)
+</div>
+
+<h2>Key Factors Influencing Your Loan EMI</h2>
+
+<h3>1. Principal Loan Amount (P)</h3>
+<p>The total sum borrowed from a bank or financial institution directly determines your baseline repayment burden. Higher principal values produce proportionally higher monthly installment demands.</p>
+
+<h3>2. Annual Interest Rate (R)</h3>
+<p>The percentage fee levied by the lender on borrowed funds. Even minor fractional reductions in annual interest rates (such as a drop from 9.5% to 8.75%) yield substantial cumulative savings on long-term loans like mortgages.</p>
+
+<h3>3. Loan Tenure Duration (N)</h3>
+<p>The time duration selected to repay the obligation. Extending loan tenure spreads out payments, resulting in lower monthly EMIs. However, longer terms significantly increase total compound interest paid over time.</p>
+
+<h2>Fixed Interest Rates vs. Floating Interest Rates</h2>
+<p>When securing financing, choosing the appropriate rate structure impacts overall financial liability:</p>
+
+<ul>
+<li><strong>Fixed Rate Loans:</strong> Interest rates remain static throughout the loan life, ensuring predictable, unchanging monthly payments regardless of macroeconomic inflation.</li>
+<li><strong>Floating / Variable Rate Loans:</strong> Interest rates adjust periodically according to central bank policy rates and market benchmarks, leading to potential fluctuations in monthly EMI amounts.</li>
+</ul>
+
+<h2>Sample Repayment Reference Matrix</h2>
+<p>The table below provides a reference breakdown for a $100,000 principal loan evaluated across varying annual interest rates and repayment tenures:</p>
+
+<table class="data-table">
+<thead>
+<tr>
+<th>Tenure (Years)</th>
+<th>Interest Rate (%)</th>
+<th>Monthly EMI ($)</th>
+<th>Total Interest ($)</th>
+<th>Total Payment ($)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3 Years</td>
+<td>7.5%</td>
+<td>$3,110.62</td>
+<td>$11,982.32</td>
+<td>$111,982.32</td>
+</tr>
+<tr>
+<td>5 Years</td>
+<td>8.0%</td>
+<td>$2,027.64</td>
+<td>$21,658.40</td>
+<td>$121,658.40</td>
+</tr>
+<tr>
+<td>10 Years</td>
+<td>8.5%</td>
+<td>$1,239.86</td>
+<td>$48,783.20</td>
+<td>$148,783.20</td>
+</tr>
+<tr>
+<td>15 Years</td>
+<td>9.0%</td>
+<td>$1,014.26</td>
+<td>$82,566.80</td>
+<td>$182,566.80</td>
+</tr>
+<tr>
+<td>20 Years</td>
+<td>9.5%</td>
+<td>$932.13</td>
+<td>$123,711.20</td>
+<td>$223,711.20</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<h4>What does Loan EMI stand for?</h4>
+<p>EMI stands for Equated Monthly Installment. It is a fixed payment amount made by a borrower to a financial lender on a specified date each calendar month to pay off both principal and interest.</p>
+</div>
+
+<div class="faq-item">
+<h4>How does loan tenure impact monthly EMI payments?</h4>
+<p>A longer loan tenure reduces your monthly EMI amount but increases total interest paid over the life of the loan. Conversely, a shorter tenure increases monthly EMI but significantly reduces cumulative interest charges.</p>
+</div>
+
+<div class="faq-item">
+<h4>What is the mathematical formula for EMI calculation?</h4>
+<p>The formula is: EMI = [P x R x (1+R)^N] / [(1+R)^N - 1], where P is Principal Loan Amount, R is Monthly Interest Rate, and N is Loan Tenure in Months.</p>
+</div>
+
+<div class="faq-item">
+<h4>What is the difference between fixed and floating interest rates?</h4>
+<p>Fixed interest rates remain constant throughout the entire loan tenure, ensuring predictable EMIs. Floating interest rates fluctuate according to market dynamics and central bank benchmark rates.</p>
+</div>
+
+<div class="faq-item">
+<h4>Is my financial calculation data stored on SmartToolsKit servers?</h4>
+<p>No. All computations execute locally within your client-side browser using JavaScript. Your loan numbers remain completely private on your device and are never transmitted to external servers.</p>
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free browser-based web tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms & Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">
+© 2026 SmartToolsKit. All rights reserved.
+</div>
+</div>
+</footer>
+
+<script>
+function calculateEMI(){
+  const principal = parseFloat(document.getElementById('loanAmount').value);
+  const rate = parseFloat(document.getElementById('interestRate').value);
+  const tenureYears = parseFloat(document.getElementById('tenureYears').value);
+  
+  if(isNaN(principal) || isNaN(rate) || isNaN(tenureYears) || principal <= 0 || rate <= 0 || tenureYears <= 0){
+    alert('Please enter valid positive numbers for all loan fields.');
+    return;
+  }
+  
+  const monthlyRate = rate / (12 * 100);
+  const tenureMonths = tenureYears * 12;
+  
+  const emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, tenureMonths)) / (Math.pow(1 + monthlyRate, tenureMonths) - 1);
+  const totalPayment = emi * tenureMonths;
+  const totalInterest = totalPayment - principal;
+  
+  document.getElementById('monthlyEmiText').innerText = '$' + emi.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  document.getElementById('principalText').innerText = '$' + principal.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  document.getElementById('totalInterestText').innerText = '$' + totalInterest.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  document.getElementById('totalPaymentText').innerText = '$' + totalPayment.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  
+  document.getElementById('resultDisplay').style.display = 'block';
+}
+
+function resetEMI(){
+  document.getElementById('loanAmount').value = '';
+  document.getElementById('interestRate').value = '';
+  document.getElementById('tenureYears').value = '';
+  document.getElementById('resultDisplay').style.display = 'none';
+}
+</script>
+
+</body>
+  </html>
+  
