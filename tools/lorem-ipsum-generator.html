@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lorem Ipsum Generator - Dummy Text for Design & Mockups | SmartToolsKit</title>
-<meta name="description" content="Free online Lorem Ipsum Generator tool to instantly generate placeholder dummy text, paragraphs, and words for design mockups with comprehensive guides and FAQs.">
+<title>Lorem Ipsum Generator by Word Count - 200, 300, 500 Words | SmartToolsKit</title>
+<meta name="description" content="Free Lorem Ipsum generator. Create dummy text by exact word count (100, 200, 300 words) or paragraphs. Copy placeholder text instantly for mockups and designs.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="[https://smarttoolskit.com/tools/lorem-ipsum-generator.html](https://smarttoolskit.com/tools/lorem-ipsum-generator.html)">
+<link rel="canonical" href="https://smarttoolskit.com/tools/lorem-ipsum-generator.html">
 <meta name="theme-color" content="#0F172A">
 
 <style>
@@ -61,17 +61,26 @@ nav a:hover{color:var(--emerald-dark)}
 
 .form-group{margin-bottom:18px}
 .form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
-.form-group input,.form-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff}
+.form-group input[type="number"],.form-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff}
 .form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
 
-.form-group textarea{width:100%;height:180px;padding:14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff;resize:vertical}
+.form-group textarea{width:100%;height:260px;padding:14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff;resize:vertical}
 .form-group textarea:focus{border-color:var(--emerald)}
 
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px}
+.chips span{font-size:13px;font-weight:700;color:var(--navy);margin-right:4px}
+.chip{background:#fff;border:1px solid var(--border);color:var(--navy);padding:7px 14px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer}
+.chip:hover,.chip.active{background:var(--emerald);border-color:var(--emerald);color:#fff}
+
+.check-row{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:18px;cursor:pointer}
+.check-row input{width:18px;height:18px;accent-color:var(--emerald)}
+
+.stats{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);margin-top:-8px;margin-bottom:6px}
+.stats strong{color:var(--navy)}
+
 .btn-row{display:flex;gap:12px;margin-top:15px;grid-column:1/-1}
-.btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
-.btn-calc:hover{background:var(--emerald-dark)}
-.btn-copy{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
-.btn-copy:hover{background:var(--emerald-dark)}
+.btn-calc,.btn-copy{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn-calc:hover,.btn-copy:hover{background:var(--emerald-dark)}
 .btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
 .btn-reset:hover{background:#CBD5E1}
 
@@ -82,19 +91,19 @@ nav a:hover{color:var(--emerald-dark)}
 
 .content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
 .content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
+.content-section h2:first-child{margin-top:0}
 .content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
 .content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
 .content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
 .content-section li{margin-bottom:8px}
 
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
-
+.table-wrap{overflow-x:auto}
 .data-table{width:100%;border-collapse:collapse;margin:20px 0}
 .data-table th,.data-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;font-size:13px}
 .data-table th{background:var(--soft);color:var(--navy);font-weight:700}
 
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
-.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
+.faq-item h3{font-size:16px;color:var(--navy);margin:0 0 8px}
 .faq-item p{margin-bottom:0}
 
 footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
@@ -111,15 +120,35 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <script type="application/ld+json">
 {
-  "@context": "[https://schema.org](https://schema.org)",
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lorem Ipsum Generator",
+  "url": "https://smarttoolskit.com/tools/lorem-ipsum-generator.html",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How does the Lorem Ipsum Generator work?",
+      "name": "How do I generate exactly 200 or 300 words of Lorem Ipsum?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The generator assembles standard Latin dummy words and sentences into customized paragraphs or word blocks instantly based on user parameters."
+        "text": "Select Exact Word Count, type 200 or 300 (or tap a quick preset), and the generator produces precisely that number of words, formatted into readable paragraphs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the maximum amount of text I can generate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can generate up to 5,000 words or up to 50 paragraphs in a single run."
       }
     },
     {
@@ -127,23 +156,31 @@ footer p,footer a{color:#94A3B8;font-size:13px}
       "name": "Why is Lorem Ipsum used in web design?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lorem Ipsum provides a standard distribution of letters that mimics normal readability, allowing designers to focus on visual layout without content distraction."
+        "text": "Lorem Ipsum has a natural distribution of letters and word lengths, so designers can judge layout and typography without being distracted by readable content."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I copy generated dummy text easily?",
+      "name": "Can I start the text with the classic Lorem ipsum dolor sit amet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, the tool features a dedicated copy button to copy all generated placeholder text directly to your clipboard with a single click."
+        "text": "Yes. Tick the option to start with the classic opening and the generated text will begin with Lorem ipsum dolor sit amet."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my generated text stored on any remote server?",
+      "name": "Is the generated text free for commercial projects?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. All text generation runs completely client-side within your web browser for complete privacy and instant performance."
+        "text": "Yes. The placeholder text is free to use in any personal or commercial project, though it should be replaced with real content before publishing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my generated text stored on a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything runs inside your browser, so nothing is uploaded, stored, or tracked."
       }
     }
   ]
@@ -171,14 +208,14 @@ SmartToolsKit
 <main class="container">
 
 <div class="breadcrumb">
-<a href="../index.html">Home</a> / <a href="../index.html#calculators">Text Tools</a> / Lorem Ipsum Generator
+<a href="../index.html">Home</a> / <a href="../index.html#categories">Text Tools</a> / Lorem Ipsum Generator
 </div>
 
 <div class="tool-layout">
 
 <article class="tool-card-main">
 <h1>Lorem Ipsum Generator</h1>
-<p class="subtitle">Generate clean placeholder dummy text, paragraphs, and words for design mockups instantly.</p>
+<p class="subtitle">Generate placeholder dummy text by exact word count (100, 200, 300 words and more) or by paragraphs, instantly.</p>
 
 <div class="calc-box">
 <div class="error-msg" id="errorMsg"></div>
@@ -186,21 +223,43 @@ SmartToolsKit
 <div class="form-grid">
 <div class="form-group">
 <label for="outputType">Generation Type:</label>
-<select id="outputType" onchange="generateLorem()">
+<select id="outputType" onchange="onTypeChange()">
 <option value="paragraphs" selected>Paragraphs</option>
-<option value="words">Words</option>
+<option value="words">Words (single block)</option>
+<option value="exact">Exact Word Count (in paragraphs)</option>
 </select>
 </div>
 
 <div class="form-group">
-<label for="itemCount">Quantity:</label>
+<label for="itemCount" id="countLabel">Number of Paragraphs:</label>
 <input type="number" id="itemCount" min="1" max="50" value="3" oninput="generateLorem()">
 </div>
 </div>
 
-<div class="form-group" style="margin-top:15px;">
+<div class="chips">
+<span>Quick word counts:</span>
+<button type="button" class="chip" onclick="setPreset(50)">50</button>
+<button type="button" class="chip" onclick="setPreset(100)">100</button>
+<button type="button" class="chip" onclick="setPreset(200)">200</button>
+<button type="button" class="chip" onclick="setPreset(300)">300</button>
+<button type="button" class="chip" onclick="setPreset(500)">500</button>
+<button type="button" class="chip" onclick="setPreset(1000)">1000</button>
+</div>
+
+<label class="check-row" for="classicStart">
+<input type="checkbox" id="classicStart" onchange="generateLorem()">
+Start with "Lorem ipsum dolor sit amet..."
+</label>
+
+<div class="form-group" style="margin-top:5px;">
 <label for="loremOutput">Generated Placeholder Text:</label>
 <textarea id="loremOutput" readonly></textarea>
+</div>
+
+<div class="stats">
+<span>Words: <strong id="wordStat">0</strong></span>
+<span>Characters: <strong id="charStat">0</strong></span>
+<span>Paragraphs: <strong id="paraStat">0</strong></span>
 </div>
 
 <div class="btn-row">
@@ -217,71 +276,98 @@ SmartToolsKit
 </article>
 
 <section class="content-section">
-<h2>Comprehensive Guide to Lorem Ipsum Dummy Text, Graphic Design, and Layout Mockups</h2>
-<p>In the realms of graphic design, web development, typography, and publishing, placeholder text serves an essential role. Before final copy is written or approved by clients, designers need to visualize how typography, font weights, line spacing, and column arrangements will look on a live web page or printed brochure. Using actual readable content during early wireframing stages often distracts reviewers, who tend to critique spelling, grammar, or tone instead of evaluating core structural aesthetics. To solve this, the publishing industry relies on "Lorem Ipsum"—a standardized pseudo-Latin text derived from classical literature that provides a natural distribution of letters and word lengths.</p>
+<h2>Free Lorem Ipsum Generator With Exact Word Count</h2>
+<p>A Lorem Ipsum generator is one of the most practical tools in any designer's workflow. Whether you are building a landing page, testing a WordPress theme, or presenting a mockup to a client, placeholder text lets you judge layout, typography, and spacing without waiting for final copy. Our free tool goes one step further than most: you can generate dummy text by exact word count, such as 100, 200, 300 or 500 words, or by the number of paragraphs you need.</p>
 
-<p>Our professional SmartToolsKit Lorem Ipsum Generator is expertly engineered to produce clean, customizable placeholder text instantly. By configuring paragraph counts or word quantities, creators can generate precisely the volume of dummy text required for any mockup. Operating entirely client-side via optimized JavaScript, our tool guarantees lightning-fast generation and absolute privacy.</p>
+<h2>How to Use the Lorem Ipsum Generator</h2>
+<ol>
+<li>Choose a generation type: paragraphs, a single block of words, or an exact word count formatted into paragraphs.</li>
+<li>Enter the quantity you need, or tap a quick preset such as 200 or 300 words.</li>
+<li>Tick the classic opening option if you want the text to begin with "Lorem ipsum dolor sit amet".</li>
+<li>Check the live word, character, and paragraph counter below the text box.</li>
+<li>Click the copy button and paste the text into your design tool or code editor.</li>
+</ol>
 
-<h2>The Historical Origins of Lorem Ipsum</h2>
-<p>Contrary to popular belief, Lorem Ipsum is not random gibberish. It has roots in a classical piece of Latin literature from 45 BC, specifically *De finibus bonorum et malorum* ("The Extremes of Good and Evil") by Cicero. The standard passage used today is extracted from sections 1.10.32 and 1.10.33, where Cicero discusses the theory of ethics. The text was scrambled and altered by printers in the 1500s to create a standard specimen book of fonts, establishing a tradition that persisted into the digital typesetting era.</p>
+<h2>Why Generate Text by Exact Word Count?</h2>
+<p>Real content has length limits. A product card, a testimonial, and a blog introduction all need different amounts of text. When you can request exactly 200 or 300 words, your mockup reflects genuine design constraints. Editors use exact counts to test article templates, reading time estimates, and character limits in content management systems. Developers rely on predictable output to check pagination, truncation, and read-more buttons.</p>
 
-<h2>Why Lorem Ipsum is Indispensable for Web Designers</h2>
-<p>Using standard placeholder text offers several distinct advantages during the wireframing and prototyping phases:</p>
+<h2>What Is Lorem Ipsum and Where Does It Come From?</h2>
+<p>Lorem Ipsum is not random nonsense. It is adapted from <em>De finibus bonorum et malorum</em>, a philosophical work written by Cicero in 45 BC. Printers in the 1500s scrambled passages from sections 1.10.32 and 1.10.33 to create type specimens, and the tradition continued through desktop publishing and modern web design. Because the altered Latin has a natural rhythm of short and long words, it resembles real language without distracting readers with meaning.</p>
+
+<h2>Who Uses a Lorem Ipsum Generator?</h2>
 <ul>
-<li><strong>Natural Letter Distribution:</strong> Unlike typing repeating phrases like "text goes here," Lorem Ipsum mimics the natural frequency of vowels and consonants found in English and Western languages.</li>
-<li><strong>Unbiased Design Reviews:</strong> Stakeholders focus on visual hierarchy, UI components, and layout spacing rather than getting bogged down by premature content editing.</li>
-<li><strong>Responsive Layout Testing:</strong> Populating grid cards, hero sections, and blog loops with varying lengths of dummy text ensures CSS flexbox and grid containers handle overflow gracefully.</li>
+<li><strong>Web designers and developers:</strong> to fill templates, themes, and components.</li>
+<li><strong>Content and SEO teams:</strong> to plan article layouts and word count targets.</li>
+<li><strong>Print designers:</strong> to prepare brochures, posters, and magazine pages.</li>
+<li><strong>Students and teachers:</strong> to practice formatting documents and presentations.</li>
 </ul>
 
-<h2>Core Generation Logic and Vocabulary Pool</h2>
-<p>Our generator utilizes a classical pool of Latin vocabulary to assemble structured sentences and paragraphs:</p>
+<h2>Benefits of Using Placeholder Text</h2>
+<ul>
+<li><strong>Focus on design:</strong> reviewers judge hierarchy, color, and spacing instead of editing wording.</li>
+<li><strong>Realistic density:</strong> natural word lengths show how text wraps across columns and breakpoints.</li>
+<li><strong>Faster prototyping:</strong> generate content in seconds rather than writing temporary copy.</li>
+<li><strong>Better testing:</strong> short, medium, and long samples reveal overflow and alignment issues early.</li>
+</ul>
 
-<div class="formula-box">
-1. Vocabulary Array:<br>
-['lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit', 'sed', 'do', 'eiusmod', 'tempor', 'incididunt', ...]<br><br>
-2. Paragraph Assembly:<br>
-Randomly combines vocabulary tokens into grammatical sentence structures terminated by periods.
-</div>
-
-<h2>Standard Placeholder Text Reference Matrix</h2>
-<p>The reference table below outlines common quantities and use cases for placeholder text in digital design projects:</p>
-
+<h2>Recommended Word Counts for Common Design Needs</h2>
+<div class="table-wrap">
 <table class="data-table">
 <thead>
 <tr>
-<th>Quantity Type</th>
-<th>Recommended Amount</th>
-<th>Typical Design Use Case</th>
+<th>Design Use Case</th>
+<th>Suggested Length</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Short Words</td><td>10 – 25 words</td><td>Button labels, badges, form placeholders</td></tr>
-<tr><td>Single Paragraph</td><td>1 Paragraph</td><td>Card descriptions, product summaries</td></tr>
-<tr><td>Standard Article</td><td>3 – 5 Paragraphs</td><td>Blog post templates, news columns</td></tr>
-<tr><td>Extensive Mockup</td><td>10+ Paragraphs</td><td>Typography stress tests, multi-page layouts</td></tr>
+<tr><td>Button or badge label</td><td>2 – 5 words</td></tr>
+<tr><td>Meta description style snippet</td><td>25 – 30 words</td></tr>
+<tr><td>Product card description</td><td>40 – 60 words</td></tr>
+<tr><td>Testimonial or review</td><td>50 – 80 words</td></tr>
+<tr><td>Blog introduction</td><td>100 – 150 words</td></tr>
+<tr><td>Short article section</td><td>200 words</td></tr>
+<tr><td>Standard blog post section</td><td>300 words</td></tr>
+<tr><td>Long-form page</td><td>500 – 1000 words</td></tr>
 </tbody>
 </table>
+</div>
+
+<h2>Tips for Using Dummy Text Responsibly</h2>
+<p>Placeholder text is meant for development and review only. Always replace it before publishing, because search engines favor original, helpful content and visitors quickly lose trust in pages filled with filler. Search your project for the word "lorem" before launch to confirm nothing was left behind. For accessibility testing, also try real sentences, since screen readers and translation tools behave differently with Latin text.</p>
+
+<h2>Fast, Private, and Free</h2>
+<p>Everything runs in your browser using JavaScript. Nothing you generate is uploaded, stored, or tracked, and the tool works instantly even for thousands of words. There is no signup, no usage limit, and no watermark, so you can generate as much dummy text as your projects require.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
 
 <div class="faq-item">
-<h4>How does the Lorem Ipsum Generator work?</h4>
-<p>The generator assembles standard Latin dummy words and sentences into customized paragraphs or word blocks instantly based on user-selected parameters.</p>
+<h3>How do I generate exactly 200 or 300 words of Lorem Ipsum?</h3>
+<p>Select "Exact Word Count", type 200 or 300 (or tap a quick preset), and the generator produces precisely that number of words, formatted into readable paragraphs.</p>
 </div>
 
 <div class="faq-item">
-<h4>Why is Lorem Ipsum used in web design and publishing?</h4>
-<p>Lorem Ipsum provides a standard distribution of letters that mimics normal readability, allowing designers to focus on visual layout without content distraction.</p>
+<h3>What is the maximum amount of text I can generate?</h3>
+<p>You can generate up to 5,000 words or up to 50 paragraphs in a single run.</p>
 </div>
 
 <div class="faq-item">
-<h4>Can I copy the generated dummy text easily?</h4>
-<p>Yes, the tool features a dedicated copy button to copy all generated placeholder text directly to your clipboard with a single click.</p>
+<h3>Why is Lorem Ipsum used in web design?</h3>
+<p>Lorem Ipsum has a natural distribution of letters and word lengths, so designers can judge layout and typography without being distracted by readable content.</p>
 </div>
 
 <div class="faq-item">
-<h4>Is my generated text stored or tracked on remote servers?</h4>
-<p>No. All text generation runs completely client-side within your web browser, ensuring complete privacy and instant performance.</p>
+<h3>Can I start the text with the classic "Lorem ipsum dolor sit amet"?</h3>
+<p>Yes. Tick the classic opening option and the generated text will begin with that familiar phrase.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is the generated text free for commercial projects?</h3>
+<p>Yes. The placeholder text is free to use in any personal or commercial project, though it should be replaced with real content before publishing.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is my generated text stored on a server?</h3>
+<p>No. Everything runs inside your browser, so nothing is uploaded, stored, or tracked.</p>
 </div>
 
 </section>
@@ -310,7 +396,7 @@ Randomly combines vocabulary tokens into grammatical sentence structures termina
 <h3>Legal</h3>
 <div class="footer-links">
 <a href="../privacy-policy.html">Privacy Policy</a>
-<a href="../terms.html">Terms & Conditions</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
 <a href="../disclaimer.html">Disclaimer</a>
 </div>
 </div>
@@ -326,12 +412,20 @@ const latinWords = [
   "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit",
   "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore",
   "magna", "aliqua", "enim", "ad", "minim", "veniam", "quis", "nostrud",
-  "exercitation", "ullamco", "laboris", "nisi", "ut", "aliquip", "ex", "ea",
-  "commodo", "consequat", "duis", "aute", "irure", "dolor", "in", "reprehenderit",
-  "in", "voluptate", "velit", "esse", "cillum", "dolore", "eu", "fugiat", "nulla",
+  "exercitation", "ullamco", "laboris", "nisi", "aliquip", "ex", "ea",
+  "commodo", "consequat", "duis", "aute", "irure", "in", "reprehenderit",
+  "voluptate", "velit", "esse", "cillum", "eu", "fugiat", "nulla",
   "pariatur", "excepteur", "sint", "occaecat", "cupidatat", "non", "proident",
-  "sunt", "in", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id", "est", "laborum"
+  "sunt", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id", "est", "laborum"
 ];
+
+const classicStartWords = ["lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit"];
+
+const CONFIG = {
+  paragraphs: { max: 50,   def: 3,   label: "Number of Paragraphs:" },
+  words:      { max: 5000, def: 100, label: "Number of Words:" },
+  exact:      { max: 5000, def: 300, label: "Exact Word Count:" }
+};
 
 function showError(msg){
   const err = document.getElementById('errorMsg');
@@ -343,76 +437,176 @@ function showError(msg){
   }
 }
 
+function rand(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function capitalize(str){
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function getRandomWord(){
   return latinWords[Math.floor(Math.random() * latinWords.length)];
 }
 
-function generateSentence(){
-  let length = Math.floor(Math.random() * 8) + 6; // 6 to 13 words
-  let sentenceArr = [];
-  for(let i = 0; i < length; i++){
-    sentenceArr.push(getRandomWord());
+// Builds an array with EXACTLY n words
+function buildWords(n, classic){
+  const arr = classic ? classicStartWords.
+      const arr = classic ? classicStartWords.slice(0, n) : [];
+  while(arr.length < n){
+    arr.push(getRandomWord());
   }
-  let sentence = sentenceArr.join(' ');
-  return sentence.charAt(0).toUpperCase() + sentence.slice(1) + '.';
+  return arr;
+}
+
+// Splits an array of words into sentences and paragraphs without changing the word count
+function structureWords(words){
+  const paragraphs = [];
+  let i = 0;
+  while(i < words.length){
+    const sentences = [];
+    const sentenceTarget = rand(3, 6);
+    for(let s = 0; s < sentenceTarget && i < words.length; s++){
+      let chunk = words.slice(i, i + rand(6, 13));
+      i += chunk.length;
+      // avoid a tiny leftover sentence at the very end
+      if(words.length - i > 0 && words.length - i < 4){
+        chunk = chunk.concat(words.slice(i));
+        i = words.length;
+      }
+      sentences.push(capitalize(chunk.join(' ')) + '.');
+    }
+    paragraphs.push(sentences.join(' '));
+  }
+  return paragraphs;
+}
+
+function generateSentence(){
+  return capitalize(buildWords(rand(6, 13), false).join(' ')) + '.';
 }
 
 function generateParagraph(){
-  let sentenceCount = Math.floor(Math.random() * 4) + 3; // 3 to 6 sentences
-  let paragraphArr = [];
+  const sentenceCount = rand(3, 6);
+  const arr = [];
   for(let i = 0; i < sentenceCount; i++){
-    paragraphArr.push(generateSentence());
+    arr.push(generateSentence());
   }
-  return paragraphArr.join(' ');
+  return arr.join(' ');
+}
+
+function countWords(text){
+  const t = text.trim();
+  return t ? t.split(/\s+/).length : 0;
+}
+
+function updateStats(text){
+  document.getElementById('wordStat').innerText = countWords(text);
+  document.getElementById('charStat').innerText = text.length;
+  document.getElementById('paraStat').innerText = text.trim() ? text.trim().split(/\n\s*\n/).length : 0;
+}
+
+function highlightChip(count, type){
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.classList.toggle('active', type === 'exact' && parseInt(chip.innerText) === count);
+  });
+}
+
+function applyTypeUI(type){
+  const cfg = CONFIG[type];
+  document.getElementById('countLabel').innerText = cfg.label;
+  document.getElementById('itemCount').max = cfg.max;
+}
+
+function onTypeChange(){
+  const type = document.getElementById('outputType').value;
+  applyTypeUI(type);
+  document.getElementById('itemCount').value = CONFIG[type].def;
+  generateLorem();
+}
+
+function setPreset(n){
+  document.getElementById('outputType').value = 'exact';
+  applyTypeUI('exact');
+  document.getElementById('itemCount').value = n;
+  generateLorem();
 }
 
 function generateLorem(){
   const type = document.getElementById('outputType').value;
+  const classic = document.getElementById('classicStart').checked;
+  const cfg = CONFIG[type];
   let count = parseInt(document.getElementById('itemCount').value);
-  
-  if(isNaN(count) || count < 1) count = 1;
-  if(count > 50) count = 50;
-  
+
   showError('');
-  
+
+  if(isNaN(count) || count < 1) count = 1;
+  if(count > cfg.max){
+    count = cfg.max;
+    document.getElementById('itemCount').value = cfg.max;
+    showError('Maximum allowed for this option is ' + cfg.max.toLocaleString() + '.');
+  }
+
+  let output = '';
+
   if(type === 'words'){
-    let wordsArr = [];
-    for(let i = 0; i < count; i++){
-      wordsArr.push(getRandomWord());
-    }
-    let result = wordsArr.join(' ');
-    document.getElementById('loremOutput').value = result.charAt(0).toUpperCase() + result.slice(1) + '.';
+    output = capitalize(buildWords(count, classic).join(' ')) + '.';
+  } else if(type === 'exact'){
+    output = structureWords(buildWords(count, classic)).join('\n\n');
   } else {
-    let paraArr = [];
+    const paraArr = [];
     for(let i = 0; i < count; i++){
       paraArr.push(generateParagraph());
     }
-    document.getElementById('loremOutput').value = paraArr.join('\n\n');
+    if(classic){
+      paraArr[0] = paraArr[0].replace(/^[^.]*\./, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+    }
+    output = paraArr.join('\n\n');
   }
+
+  document.getElementById('loremOutput').value = output;
+  updateStats(output);
+  highlightChip(count, type);
+}
+
+function fallbackCopy(box){
+  box.focus();
+  box.select();
+  box.setSelectionRange(0, box.value.length);
+  return document.execCommand('copy');
+}
+
+function showCopied(){
+  const btn = document.getElementById('copyBtn');
+  btn.innerText = 'Copied Text!';
+  btn.style.background = '#059669';
+  setTimeout(() => {
+    btn.innerText = 'Copy Dummy Text';
+    btn.style.background = '';
+  }, 2000);
 }
 
 function copyLorem(){
   const box = document.getElementById('loremOutput');
-  box.select();
-  box.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(box.value).then(() => {
-    const btn = document.getElementById('copyBtn');
-    btn.innerText = 'Copied Text!';
-    btn.style.background = '#059669';
-    setTimeout(() => {
-      btn.innerText = 'Copy Dummy Text';
-      btn.style.background = '#10B981';
-    }, 2000);
-  }).catch(err => {
-    showError('Failed to copy dummy text.');
-  });
+  if(!box.value){
+    showError('Nothing to copy yet. Generate some text first.');
+    return;
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(box.value).then(showCopied).catch(() => {
+      fallbackCopy(box) ? showCopied() : showError('Failed to copy dummy text.');
+    });
+  } else {
+    fallbackCopy(box) ? showCopied() : showError('Failed to copy dummy text.');
+  }
 }
 
 function resetLorem(){
   document.getElementById('outputType').value = 'paragraphs';
-  document.getElementById('itemCount').value = '3';
-  generateLorem();
+  document.getElementById('classicStart').checked = false;
+  applyTypeUI('paragraphs');
+  document.getElementById('itemCount').value = CONFIG.paragraphs.def;
   showError('');
+  generateLorem();
 }
 
 window.onload = function(){
@@ -420,5 +614,4 @@ window.onload = function(){
 };
 </script>
 </body>
-  </html>
-  
+</html>
