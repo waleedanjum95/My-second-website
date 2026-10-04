@@ -61,7 +61,7 @@ nav a:hover{color:var(--emerald-dark)}
 
 .form-group{margin-bottom:18px}
 .form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
-.form-group textarea,.form-group pre{width:100%;height:220px;padding:14px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical;font-family:monospace;overflow:auto}
+.form-group textarea,.form-group pre{width:100%;height:220px;padding:14px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical;font-family:monospace;overflow:auto;white-space:pre-wrap;word-break:break-all}
 .form-group textarea:focus{border-color:var(--emerald)}
 
 .btn-row{display:flex;gap:12px;margin-top:15px;grid-column:1/-1}
@@ -265,7 +265,7 @@ This is a **bold** and *italic* text example.
 <h2>Frequently Asked Questions (FAQ)</h2>
 
 <div class="faq-item">
-<h4>How does the Markdown to HTML Converter function?</h4>
+<h4>How does the Markdown to HTML Converter work?</h4>
 <p>The tool parses standard Markdown syntax (such as headers, bold text, links, and lists) and converts it into valid HTML markup instantly.</p>
 </div>
 
@@ -400,13 +400,9 @@ function parseMarkdown(){
 }
 
 function parseInline(text){
-  // Escape HTML first
   let escaped = escapeHtml(text);
-  // Bold
   escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  // Italic
   escaped = escaped.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  // Links [Text](URL)
   escaped = escaped.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
   return escaped;
 }
@@ -439,5 +435,4 @@ window.onload = function(){
 };
 </script>
 </body>
-  </html>
-  
+</html>
