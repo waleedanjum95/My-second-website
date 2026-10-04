@@ -8,6 +8,46 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/">
 <meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smarttoolskit.com/">
+<meta property="og:title" content="SmartToolsKit - Free Online Web Tools & Calculators">
+<meta property="og:description" content="Access fast, free, and secure online tools for text processing, SEO, calculations, development, and daily digital tasks.">
+<meta property="og:image" content="https://smarttoolskit.com/assets/og-image.jpg">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SmartToolsKit - Free Online Web Tools & Calculators">
+<meta name="twitter:description" content="Access fast, free, and secure online tools for text processing, SEO, calculations, development, and daily digital tasks.">
+
+<!-- Structured Data (JSON-LD WebSite & BreadcrumbList Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SmartToolsKit",
+  "url": "https://smarttoolskit.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://smarttoolskit.com/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  }]
+}
+</script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -55,14 +95,27 @@ section{padding:50px 0}
 .tool-card p{color:var(--muted);font-size:13px;margin-bottom:14px;flex-grow:1}
 .tool-link{color:var(--emerald-dark);font-size:13px;font-weight:700}
 .no-results{display:none;text-align:center;color:var(--muted);padding:30px 0;grid-column:1/-1}
-.intro{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+/* Content Depth & FAQ Enhancement */
+.intro{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:50px 0}
 .intro-content{max-width:850px;margin:auto}
-.intro h2{text-align:center;font-size:28px;margin-bottom:16px}
-.intro p{color:#475569;margin-bottom:14px;font-size:14px}
+.intro h2{font-size:28px;margin-bottom:16px;color:var(--navy)}
+.intro p{color:#475569;margin-bottom:14px;font-size:15px}
+.faq-section{margin-top:30px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:16px;color:var(--navy);margin-bottom:6px}
+.faq-item p{font-size:14px;color:var(--muted)}
+
 .cta{background:var(--navy);color:#fff;text-align:center}
 .cta h2{font-size:28px;margin-bottom:10px}
 .cta p{color:#CBD5E1;margin-bottom:20px}
 .cta a{display:inline-block;background:var(--emerald);color:#fff;padding:10px 20px;border-radius:8px;font-weight:700}
+
+/* Cookie Consent Banner */
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
@@ -217,11 +270,28 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 </section>
 
+<!-- Content Depth & Low-Value Content Fix Section -->
 <section class="intro">
 <div class="container intro-content">
-<h2>Free Online Tools for Calculations, SEO, Files and More</h2>
-<p>SmartToolsKit is a growing collection of free online tools designed to make everyday digital tasks faster and easier. The collection covers calculators, converters, text utilities, SEO workflows, AI-assisted utilities, security, development, images, PDFs and health-related calculations.</p>
-<p>Each tool is organized around a clear user need and designed to be lightweight, straightforward and mobile-friendly. Many browser-based utilities can process information locally without requiring an account.</p>
+<h2>About SmartToolsKit & Free Online Utilities</h2>
+<p>Welcome to <strong>SmartToolsKit</strong>, your ultimate destination for fast, reliable, and secure browser-based tools. Whether you are a web developer, student, digital marketer, or business professional, our platform provides instant utilities without requiring software downloads or complex installations.</p>
+<p>All calculations, conversions, and text processes run directly within your modern web browser using client-side JavaScript, ensuring maximum privacy and blazing-fast performance.</p>
+
+<div class="faq-section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<h3>Are all tools on SmartToolsKit free to use?</h3>
+<p>Yes, all online tools and calculators available on SmartToolsKit are 100% free with no registration or hidden fees required.</p>
+</div>
+<div class="faq-item">
+<h3>Is my data secure when using these online tools?</h3>
+<p>Absolutely. Most text, conversion, and calculation tools operate locally in your browser, meaning your personal or sensitive data never gets uploaded to any remote server.</p>
+</div>
+<div class="faq-item">
+<h3>Do I need to install any software or plugins?</h3>
+<p>No installations are needed. SmartToolsKit works directly across desktop and mobile browsers including Google Chrome, Safari, Firefox, and Edge.</p>
+</div>
+</div>
 </div>
 </section>
 
@@ -260,9 +330,15 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 </div>
 </div>
-<div class="copyright">© 2026 SmartToolsKit. All rights reserved.</div>
+<div class="copyright">&copy; 2026 SmartToolsKit.com. All rights reserved.</div>
 </div>
 </footer>
+
+<!-- Cookie Consent Banner for AdSense / EU Compliance -->
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie">Got It</button>
+</div>
 
 <script>
 const searchForm = document.getElementById("toolSearchForm");
@@ -307,8 +383,18 @@ searchForm.addEventListener("submit", function(e){
   document.getElementById("tools").scrollIntoView({behavior:"smooth", block:"start"});
 });
 filterTools();
+
+// Cookie Consent Logic
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieConsent').style.display = 'flex';
+  }
+});
+document.getElementById('acceptCookie').addEventListener('click', () => {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
 </script>
 
 </body>
-  </html>
-  
+</html>
