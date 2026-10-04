@@ -3,65 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Universal Unit Converter - Length, Weight & Temperature | SmartToolsKit</title>
 <meta name="description" content="Free online Universal Unit Converter to convert length, weight, and temperature units instantly with accurate formulas and conversion reference tables.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/universal-unit-converter.html">
 <meta name="theme-color" content="#0F172A">
+
+<meta property="og:title" content="Universal Unit Converter | SmartToolsKit">
+<meta property="og:description" content="Convert length, weight, and temperature units instantly with our free online tool.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smarttoolskit.com/tools/universal-unit-converter.html">
+
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{
+--navy:#0F172A;
+--navy-light:#1E293B;
+--emerald:#10B981;
+--emerald-dark:#059669;
+--teal:#14B8A6;
+--background:#F8FAFC;
+--white:#FFF;
+--text:#0F172A;
+--muted:#64748B;
+--border:#E2E8F0;
+--soft:#F1F5F9;
+--shadow:0 10px 30px rgba(15,23,42,.07);
+--radius:16px
+}
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
 button,input,select{font-family:inherit}
+
 .container{width:min(1120px,92%);margin:auto}
+
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
 .logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
 .logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+
 nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
 .breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
 .breadcrumb a{color:var(--emerald-dark);font-weight:600}
+
 .tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+
 .tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
 .tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:25px}
+
 .form-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:18px}
 @media(max-width:768px){.form-grid{grid-template-columns:1fr}}
 .form-group{margin-bottom:15px}
 .form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
 .form-group input,.form-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff}
 .form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
+
 .btn-row{display:flex;gap:12px;margin-top:20px;grid-column:1/-1}
 .btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
 .btn-calc:hover{background:var(--emerald-dark)}
 .btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
+.btn-reset:hover{background:#CBD5E1}
+
 .result-display{margin-top:25px;display:block}
 .unit-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
 .unit-highlight .main-val{font-size:32px;font-weight:800;color:#34D399;margin-bottom:6px}
 .unit-highlight .sub-val{font-size:14px;color:#CBD5E1}
+
 .ad-slot{background:#F1F5F9;border:2px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:13px;margin:25px 0}
 .error-msg{background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;padding:12px;border-radius:8px;font-size:14px;margin-bottom:15px;display:none}
+
 .privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
+
 .content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
 .content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
 .content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
 .content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
 .content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
 .content-section li{margin-bottom:8px}
+
 .formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
+
 .data-table{width:100%;border-collapse:collapse;margin:20px 0}
 .data-table th,.data-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;font-size:13px}
 .data-table th{background:var(--soft);color:var(--navy);font-weight:700}
+
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
 .faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
 .faq-item p{margin-bottom:0}
+
 footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:35px}
 footer h3{color:#fff;margin-bottom:12px;font-size:16px}
@@ -69,13 +109,71 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 footer a:hover{color:#34D399}
 .footer-links{display:flex;flex-direction:column;gap:8px}
 .copyright{border-top:1px solid #1E293B;padding-top:20px;text-align:center;color:#64748B;font-size:12px}
-@media(max-width:768px){.tool-card-main,.content-section{padding:22px}.footer-grid{grid-template-columns:1fr;gap:25px}}
+
+@media(max-width:768px){
+.tool-card-main,.content-section{padding:22px}
+.footer-grid{grid-template-columns:1fr;gap:25px}
+}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the Universal Unit Converter work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The unit converter applies standard mathematical conversion factors to convert input measurements between metric and imperial units instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What unit categories are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool supports length, weight/mass, and temperature measurements with popular global units."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert Celsius to Fahrenheit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To convert Celsius to Fahrenheit, multiply the temperature by 9/5 and add 32."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between metric and imperial units?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Metric units are based on powers of ten, while imperial units use traditional historical measurements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my conversion data tracked or stored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All conversions execute locally within your web browser, ensuring complete privacy."
+      }
+    }
+  ]
+}
+</script>
 </head>
+
 <body>
+
 <header>
 <div class="container nav">
-<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<a href="../index.html" class="logo">
+<span class="logo-shape"></span>
+SmartToolsKit
+</a>
 <nav>
 <a href="../index.html#categories">Categories</a>
 <a href="../index.html#tools">All Tools</a>
@@ -84,17 +182,25 @@ footer a:hover{color:#34D399}
 </nav>
 </div>
 </header>
+
 <main class="container">
+
 <div class="breadcrumb">
 <a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / Universal Unit Converter
 </div>
+
 <div class="tool-layout">
+
 <article class="tool-card-main">
 <h1>Universal Unit Converter</h1>
 <p class="subtitle">Convert measurements across length, weight, and temperature units instantly with high precision.</p>
+
 <div class="calc-box">
+
 <div class="error-msg" id="errorMsg"></div>
+
 <div class="form-grid">
+
 <div class="form-group" style="grid-column: 1/-1;">
 <label for="category">Measurement Category:</label>
 <select id="category">
@@ -103,32 +209,43 @@ footer a:hover{color:#34D399}
 <option value="temperature">Temperature</option>
 </select>
 </div>
+
 <div class="form-group">
 <label for="inputValue">Value to Convert:</label>
 <input type="number" id="inputValue" placeholder="e.g. 10" value="10">
 </div>
+
 <div class="form-group">
 <label for="fromUnit">From Unit:</label>
 <select id="fromUnit"></select>
 </div>
+
 <div class="form-group" style="grid-column: 1/-1;">
 <label for="toUnit">To Unit:</label>
 <select id="toUnit"></select>
 </div>
+
 </div>
+
 <div class="btn-row">
 <button type="button" class="btn-calc" onclick="convertUnits()">Convert Units</button>
 <button type="button" class="btn-reset" onclick="resetConverter()">Reset</button>
 </div>
+
 <div class="result-display" id="resultDisplay">
 <div class="unit-highlight" aria-live="polite">
 <div class="main-val" id="convertedResultText">0.00</div>
 <div class="sub-val" id="conversionFormulaInfo">Converted Result</div>
 </div>
+
 <div class="ad-slot">Advertisement Space</div>
 </div>
+
 </div>
-<div class="privacy-badge">🔒 <strong>Privacy Assurance:</strong> Your conversion values are never sent or stored on remote servers. All calculations run securely within your browser.</div>
+
+<div class="privacy-badge">
+🔒 <strong>Privacy Assurance:</strong> Your conversion values are never sent or stored on remote servers. All calculations run securely within your browser.
+</div>
 </article>
 
 <section class="content-section">
@@ -206,7 +323,9 @@ Fahrenheit = (Celsius * 9/5) + 32
 </div>
 
 </section>
+
 </div>
+
 </main>
 
 <footer>
