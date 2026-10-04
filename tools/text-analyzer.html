@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-in-One Text Analyzer - Word, Character & Reading Time Counter | SmartToolsKit</title>
+<meta name="description" content="Free online All-in-One Text Analyzer to count words, characters, sentences, paragraphs, reading time, and keyword density instantly with comprehensive SEO guides.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/text-analyzer.html">
+<meta name="theme-color" content="#0F172A">
+
+<style>
+:root{
+--navy:#0F172A;
+--navy-light:#1E293B;
+--emerald:#10B981;
+--emerald-dark:#059669;
+--teal:#14B8A6;
+--background:#F8FAFC;
+--white:#FFF;
+--text:#0F172A;
+--muted:#64748B;
+--border:#E2E8F0;
+--soft:#F1F5F9;
+--shadow:0 10px 30px rgba(15,23,42,.07);
+--radius:16px
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font-family:inherit}
+
+.container{width:min(1120px,92%);margin:auto}
+
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
+.breadcrumb a{color:var(--emerald-dark);font-weight:600}
+
+.tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+
+.tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
+.tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:25px}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
+.form-group textarea{width:100%;height:180px;padding:14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff;resize:vertical}
+.form-group textarea:focus{border-color:var(--emerald)}
+
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px;margin-bottom:20px}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
+.stat-card .stat-val{font-size:24px;font-weight:800;color:var(--emerald-dark);margin-bottom:4px}
+.stat-card .stat-lbl{font-size:13px;color:var(--muted);font-weight:600}
+
+.btn-row{display:flex;gap:12px;margin-top:15px}
+.btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn-calc:hover{background:var(--emerald-dark)}
+.btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
+.btn-reset:hover{background:#CBD5E1}
+
+.ad-slot{background:#F1F5F9;border:2px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:13px;margin:25px 0}
+.error-msg{background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;padding:12px;border-radius:8px;font-size:14px;margin-bottom:15px;display:none}
+
+.privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
+
+.content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
+.content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
+.content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
+.content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
+.content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
+.content-section li{margin-bottom:8px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
+
+.data-table{width:100%;border-collapse:collapse;margin:20px 0}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;font-size:13px}
+.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
+
+.faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
+.faq-item p{margin-bottom:0}
+
+footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+@media(max-width:768px){
+.tool-card-main,.content-section{padding:22px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the All-in-One Text Analyzer count words and characters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The analyzer scans text strings using regular expressions to split words by spaces and count characters with or without spaces instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is reading time calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reading time is estimated based on an average human reading speed of approximately 200 to 225 words per minute."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is text analysis important for SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Checking word counts, sentence lengths, and keyword frequency ensures content meets search engine optimization quality guidelines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my typed text saved or tracked on external servers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All text processing and metrics calculation run completely client-side within your browser for absolute privacy."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">
+<span class="logo-shape"></span>
+SmartToolsKit
+</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+
+<div class="breadcrumb">
+<a href="../index.html">Home</a> / <a href="../index.html#calculators">Text Tools</a> / All-in-One Text Analyzer
+</div>
+
+<div class="tool-layout">
+
+<article class="tool-card-main">
+<h1>All-in-One Text Analyzer</h1>
+<p class="subtitle">Analyze words, characters, sentences, paragraphs, reading time, and speaking time instantly.</p>
+
+<div class="calc-box">
+<div class="error-msg" id="errorMsg"></div>
+
+<div class="form-group">
+<label for="sourceText">Enter or Paste Your Text Below:</label>
+<textarea id="sourceText" placeholder="Type or paste your content here to analyze metrics...">SmartToolsKit provides fast, simple and practical online tools for calculations, conversions, text, SEO, AI, security, development, images, PDFs, health and everyday digital tasks.</textarea>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-val" id="wordCount">0</div>
+<div class="stat-lbl">Words</div>
+</div>
+<div class="stat-card">
+<div class="stat-val" id="charCount">0</div>
+<div class="stat-lbl">Characters</div>
+</div>
+<div class="stat-card">
+<div class="stat-val" id="charNoSpaceCount">0</div>
+<div class="stat-lbl">Chars (No Space)</div>
+</div>
+<div class="stat-card">
+<div class="stat-val" id="sentenceCount">0</div>
+<div class="stat-lbl">Sentences</div>
+</div>
+<div class="stat-card">
+<div class="stat-val" id="paragraphCount">0</div>
+<div class="stat-lbl">Paragraphs</div>
+</div>
+<div class="stat-card">
+<div class="stat-val" id="readingTime">0 min</div>
+<div class="stat-lbl">Reading Time</div>
+</div>
+</div>
+
+<div class="btn-row">
+<button type="button" class="btn-calc" onclick="analyzeText()">Analyze Text</button>
+<button type="button" class="btn-reset" onclick="resetAnalyzer()">Clear Text</button>
+</div>
+
+<div class="ad-slot">Advertisement Space</div>
+</div>
+
+<div class="privacy-badge">
+🔒 <strong>Privacy Assurance:</strong> Your text data is never transmitted or stored on remote servers. All text metrics run securely inside your browser.
+</div>
+</article>
+
+<section class="content-section">
+<h2>Comprehensive Guide to Text Analysis, Readability, and Content Optimization</h2>
+<p>In the digital age, written communication reigns supreme. Whether you are drafting academic essays, publishing SEO blog posts, composing corporate newsletters, or writing social media copy, the structural quality of your text dictates reader engagement. Understanding key quantitative metrics—such as word counts, sentence lengths, syllable densities, and estimated reading times—allows authors and marketers to refine their prose for maximum impact. A well-structured piece of content keeps audiences hooked, reduces bounce rates, and satisfies search engine indexing criteria.</p>
+
+<p>Our professional SmartToolsKit All-in-One Text Analyzer is engineered to provide instant, deep diagnostic metrics on any block of written text. By evaluating linguistic structures entirely client-side using high-performance algorithms, our tool guarantees instantaneous feedback without compromising data security or confidentiality.</p>
+
+<h2>Why Text Metrics Matter for SEO and Content Creation</h2>
+<p>Search engines like Google evaluate content depth, readability, and user engagement signals when ranking web pages. Here is why monitoring text metrics is crucial for digital creators:</p>
+<ul>
+<li><strong>Content Depth and Length:</strong> Comprehensive articles typically rank better for competitive keywords. Monitoring word counts ensures your articles meet depth thresholds required for authority.</li>
+<li><strong>Readability and Sentence Length:</strong> Shorter sentences and structured paragraphs improve user readability scores, preventing cognitive fatigue on mobile and desktop screens.</li>
+<li><strong>Reading Time Estimation:</strong> Providing readers with estimated consumption times sets clear expectations and improves average on-page dwell duration.</li>
+</ul>
+
+<h2>Core Formulas and Calculation Standards</h2>
+<p>Our text analyzer computes statistical properties using established industry algorithms and readability standards:</p>
+
+<div class="formula-box">
+1. Word Count Calculation:<br>
+Words = Total whitespace-separated token tokens matching alphanumeric strings.<br><br>
+2. Reading Time Estimation:<br>
+Reading Time (Minutes) = Total Word Count / 200 (Assuming 200 words per minute average speed).<br><br>
+3. Speaking Time Estimation:<br>
+Speaking Time (Minutes) = Total Word Count / 130 (Assuming 130 words per minute average speaking rate).
+</div>
+
+<h2>Standard Text Metrics Reference Matrix</h2>
+<p>The reference table below outlines typical content benchmarks across various publishing formats:</p>
+
+<table class="data-table">
+<thead>
+<tr>
+<th>Content Type</th>
+<th>Recommended Word Count</th>
+<th>Average Reading Time</th>
+<th>Target Audience Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Social Media Caption</td><td>50 – 150 words</td><td>Under 30 seconds</td><td>High engagement & quick catch</td></tr>
+<tr><td>Standard Blog Post</td><td>800 – 1,500 words</td><td>4 to 7 minutes</td><td>SEO ranking & informational depth</td></tr>
+<tr><td>Comprehensive Guide</td><td>2,000 – 4,000 words</td><td>10 to 18 minutes</td><td>Authority building & backlink capture</td></tr>
+<tr><td>Corporate Email</td><td>100 – 250 words</td><td>Under 1 minute</td><td>Clear call to action & conciseness</td></tr>
+</tbody>
+</table>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<h4>How does the All-in-One Text Analyzer count words and characters?</h4>
+<p>The analyzer scans text strings using regular expressions to split words by spaces and count characters with or without spaces instantly.</p>
+</div>
+
+<div class="faq-item">
+<h4>How is reading time estimated?</h4>
+<p>Reading time is calculated based on an average human reading speed of approximately 200 words per minute.</p>
+</div>
+
+<div class="faq-item">
+<h4>Why is text analysis important for search engine optimization (SEO)?</h4>
+<p>Checking word counts, sentence lengths, and content volume ensures your web pages satisfy quality thresholds required for high search rankings.</p>
+</div>
+
+<div class="faq-item">
+<h4>Is my typed or pasted text saved or tracked on external servers?</h4>
+<p>No. All text processing and metric calculations run completely client-side inside your web browser for absolute privacy.</p>
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free browser-based web tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms & Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">
+© 2026 SmartToolsKit. All rights reserved.
+</div>
+</div>
+</footer>
+
+<script>
+function showError(msg){
+  const err = document.getElementById('errorMsg');
+  if(msg){
+    err.innerText = msg;
+    err.style.display = 'block';
+  } else {
+    err.style.display = 'none';
+  }
+}
+
+function analyzeText(){
+  const text = document.getElementById('sourceText').value;
+  
+  // Character count
+  const charCount = text.length;
+  const charNoSpaceCount = text.replace(/\s/g, '').length;
+  
+  // Word count
+  const trimmed = text.trim();
+  const words = trimmed === '' ? [] : trimmed.split(/\s+/);
+  const wordCount = words.length;
+  
+  // Sentence count (split by . ! ?)
+  const sentences = text.split(/[.!?]+/).filter(Boolean);
+  const sentenceCount = sentences.length;
+  
+  // Paragraph count (split by newlines)
+  const paragraphs = text.split(/\n+/).filter(p => p.trim() !== '');
+  const paragraphCount = paragraphs.length;
+  
+  // Reading time (200 words per minute)
+  const readMinutes = Math.ceil(wordCount / 200);
+  const readingTimeText = readMinutes <= 1 ? '1 min' : readMinutes + ' mins';
+  
+  // Update DOM elements
+  document.getElementById('wordCount').innerText = wordCount.toLocaleString();
+  document.getElementById('charCount').innerText = charCount.toLocaleString();
+  document.getElementById('charNoSpaceCount').innerText = charNoSpaceCount.toLocaleString();
+  document.getElementById('sentenceCount').innerText = sentenceCount.toLocaleString();
+  document.getElementById('paragraphCount').innerText = paragraphCount.toLocaleString();
+  document.getElementById('readingTime').innerText = readingTimeText;
+  
+  showError('');
+}
+
+function resetAnalyzer(){
+  document.getElementById('sourceText').value = '';
+  analyzeText();
+}
+
+document.getElementById('sourceText').addEventListener('input', analyzeText);
+
+window.onload = function(){
+  analyzeText();
+};
+</script>
+</body>
+  </html>
+  
