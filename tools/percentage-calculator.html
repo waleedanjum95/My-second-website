@@ -3,169 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Percentage Calculator - Free Online Percentage Tool | SmartToolsKit</title>
-<meta name="description" content="Free online percentage calculator to calculate percentage of a number, percentage change, increase, decrease, and ratios with instant step-by-step results and detailed guide.">
+<title>Free Percentage Calculator - Calculate Percentage Online | SmartToolsKit</title>
+<meta name="description" content="Use our free online Percentage Calculator to easily calculate percentage increase, decrease, difference, and basic percentage values instantly. Fast, accurate, and mobile-friendly.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/percentage-calculator.html">
 <meta name="theme-color" content="#0F172A">
 
-<style>
-:root{
---navy:#0F172A;
---navy-light:#1E293B;
---emerald:#10B981;
---emerald-dark:#059669;
---teal:#14B8A6;
---background:#F8FAFC;
---white:#FFF;
---text:#0F172A;
---muted:#64748B;
---border:#E2E8F0;
---soft:#F1F5F9;
---shadow:0 10px 30px rgba(15,23,42,.07);
---radius:16px
-}
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/percentage-calculator.html">
+<meta property="og:title" content="Free Percentage Calculator - Calculate Percentage Online | SmartToolsKit">
+<meta property="og:description" content="Easily calculate percentage increase, decrease, difference, and basic percentage values online.">
 
+<!-- Structured Data (JSON-LD Breadcrumb & WebPage Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Percentage Calculator",
+    "item": "https://smarttoolskit.com/tools/percentage-calculator.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select{font-family:inherit}
-
+button,input{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
-
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
 .logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
 .logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
-
 nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
-.breadcrumb a{color:var(--emerald-dark);font-weight:600}
+.tool-container{max-width:700px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
 
-.tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none}
+.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:10px}
+.calc-btn:hover{background:var(--emerald-dark)}
 
-.tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
-.tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
-.tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:20px;text-align:center;font-size:18px;font-weight:700;color:var(--navy)}
 
-.calc-grid{display:grid;grid-template-columns:1fr;gap:25px}
-.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:22px}
-.calc-box h2{font-size:18px;color:var(--navy);margin-bottom:15px}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
 
-.input-group{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:15px}
-.input-group label{font-weight:600;font-size:14px;color:var(--navy-light)}
-.input-group input{padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;width:130px;outline:none}
-.input-group input:focus{border-color:var(--emerald)}
-
-.btn-row{display:flex;gap:10px;margin-top:10px}
-.btn-calc{background:var(--emerald);color:#fff;border:none;padding:11px 22px;border-radius:8px;font-weight:700;cursor:pointer}
-.btn-calc:hover{background:var(--emerald-dark)}
-.btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:11px 18px;border-radius:8px;font-weight:600;cursor:pointer}
-
-.result-box{margin-top:15px;padding:14px;background:#ECFDF5;border:1px solid #A7F3D0;border-radius:8px;color:#065F46;font-size:16px;font-weight:700;display:none}
-
-.privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
-
-.content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
-.content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
-.content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
-.content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
-.content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
-.content-section li{margin-bottom:8px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
-
-.data-table{width:100%;border-collapse:collapse;margin:20px 0}
-.data-table th,.data-table td{border:1px solid var(--border);padding:12px 15px;text-align:left;font-size:14px}
-.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
-
-.faq-item{border-bottom:1px solid var(--border);padding:18px 0}
-.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
-.faq-item p{margin-bottom:0}
-
-footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:35px}
-footer h3{color:#fff;margin-bottom:12px;font-size:16px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
-footer a:hover{color:#34D399}
-.footer-links{display:flex;flex-direction:column;gap:8px}
-.copyright{border-top:1px solid #1E293B;padding-top:20px;text-align:center;color:#64748B;font-size:12px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
 
-@media(max-width:768px){
-.tool-card-main,.content-section{padding:22px}
-.input-group input{width:100%}
-.footer-grid{grid-template-columns:1fr;gap:25px}
-}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I calculate the percentage of a number?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To calculate the percentage of a number, convert the percentage into a decimal by dividing it by 100, then multiply that decimal by the total number. For example, 20% of 150 is (20 / 100) * 150 = 30."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I calculate percentage change between two values?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To calculate percentage change, subtract the original value from the new value, divide the difference by the original value, and multiply by 100: ((New Value - Original Value) / Original Value) * 100."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between percentage increase and percentage decrease?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A percentage increase indicates growth or markup from the baseline number, while a percentage decrease indicates a reduction, price drop, or discount rate from the starting baseline figure."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is percentage useful in financial calculations?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Percentages standardize values relative to a base of 100, making it simple to compare interest rates, investment returns, sales taxes, profit margins, and discounts regardless of total monetary amounts."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my calculation data saved or tracked on SmartToolsKit servers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. All computations in SmartToolsKit execute locally using browser JavaScript. Your numerical inputs remain completely private on your device and are never recorded on external web servers."
-      }
-    }
-  ]
-}
-</script>
 </head>
-
 <body>
 
 <header>
 <div class="container nav">
-<a href="../index.html" class="logo">
-<span class="logo-shape"></span>
-SmartToolsKit
-</a>
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
 <nav>
 <a href="../index.html#categories">Categories</a>
-<a href="../index.html#tools">All Tools</a>
+<a href="../index.html#tools">Tools</a>
 <a href="../about.html">About</a>
 <a href="../contact.html" class="nav-button">Contact</a>
 </nav>
@@ -173,209 +97,61 @@ SmartToolsKit
 </header>
 
 <main class="container">
-
-<div class="breadcrumb">
-<a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / Percentage Calculator
-</div>
-
-<div class="tool-layout">
-
-<article class="tool-card-main">
+<div class="tool-container">
 <h1>Percentage Calculator</h1>
-<p class="subtitle">Fast, accurate, and multi-purpose percentage tool for everyday calculations, financial markups, discount ratios, and percentage differences.</p>
+<p class="subtitle">Calculate percentages easily with our simple online tool.</p>
 
-<div class="calc-grid">
-
-<!-- Mode 1 -->
-<div class="calc-box">
-<h2>1. What is X% of Y?</h2>
-<div class="input-group">
-<label>What is</label>
-<input type="number" id="p1_x" placeholder="e.g. 15">
-<label>% of</label>
-<input type="number" id="p1_y" placeholder="e.g. 250">
-<span>?</span>
-</div>
-<div class="btn-row">
-<button type="button" class="btn-calc" onclick="calcMode1()">Calculate</button>
-<button type="button" class="btn-reset" onclick="resetMode1()">Reset</button>
-</div>
-<div class="result-box" id="res1"></div>
+<div class="form-group">
+<label for="calcType">Calculation Type</label>
+<select id="calcType">
+<option value="whatIs">What is X% of Y?</option>
+<option value="isWhatPercent">X is what % of Y?</option>
+<option value="percentChange">Percentage Increase / Decrease</option>
+</select>
 </div>
 
-<!-- Mode 2 -->
-<div class="calc-box">
-<h2>2. X is what percent of Y?</h2>
-<div class="input-group">
-<input type="number" id="p2_x" placeholder="e.g. 30">
-<label>is what % of</label>
-<input type="number" id="p2_y" placeholder="e.g. 120">
-<span>?</span>
-</div>
-<div class="btn-row">
-<button type="button" class="btn-calc" onclick="calcMode2()">Calculate</button>
-<button type="button" class="btn-reset" onclick="resetMode2()">Reset</button>
-</div>
-<div class="result-box" id="res2"></div>
+<div class="form-group">
+<label id="labelVal1" for="val1">Value X</label>
+<input type="number" id="val1" placeholder="Enter number">
 </div>
 
-<!-- Mode 3 -->
-<div class="calc-box">
-<h2>3. Percentage Change (Increase / Decrease)</h2>
-<div class="input-group">
-<label>From</label>
-<input type="number" id="p3_x" placeholder="e.g. 100">
-<label>to</label>
-<input type="number" id="p3_y" placeholder="e.g. 150">
-<span>?</span>
-</div>
-<div class="btn-row">
-<button type="button" class="btn-calc" onclick="calcMode3()">Calculate Change</button>
-<button type="button" class="btn-reset" onclick="resetMode3()">Reset</button>
-</div>
-<div class="result-box" id="res3"></div>
+<div class="form-group">
+<label id="labelVal2" for="val2">Value Y</label>
+<input type="number" id="val2" placeholder="Enter number">
 </div>
 
+<button type="button" class="calc-btn" id="calculateBtn">Calculate</button>
+
+<div class="result-box" id="resultBox">Result: --</div>
 </div>
 
-<div class="privacy-badge">
-🔒 <strong>Client-Side Security:</strong> All computations execute locally inside your web browser. No data is sent or saved on remote servers.
+<!-- SEO Content & Depth Section (Prevents Low-Value Content) -->
+<div class="content-section">
+<h2>What is a Percentage Calculator?</h2>
+<p>A percentage calculator is a handy digital utility designed to solve mathematical problems involving proportions, ratios, and fractions expressed per hundred. Whether you are calculating discounts on shopping, academic grades, financial interest rates, or business profit margins, this tool delivers instant and accurate results without manual math errors.</p>
+
+<h2>How to Use the Percentage Calculator</h2>
+<p>Using our percentage calculator is straightforward. Select your required calculation type from the dropdown menu, input your numbers into the respective fields, and click the calculate button. The tool instantly updates to show your precise answer.</p>
+<ul>
+<li><strong>What is X% of Y?</strong>: Finds a specific percentage of a given total number.</li>
+<li><strong>X is what % of Y?</strong>: Calculates what percentage one number is of another.</li>
+<li><strong>Percentage Increase / Decrease</strong>: Measures the percentage change between an initial value and a final value.</li>
+</ul>
+
+<h2>Common Formulas for Percentage Calculations</h2>
+<p>Understanding the underlying formulas helps clarify how percentages work:</p>
+<ul>
+<li><strong>Basic Percentage:</strong> $(X / 100) \times Y$</li>
+<li><strong>Percentage Proportion:</strong> $(X / Y) \times 100$</li>
+<li><strong>Percentage Change:</strong> $[(Final - Initial) / Initial] \times 100$</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is this percentage calculator free to use?</h3>
+<p>Yes, our tool is 100% free with no limits or sign-up requirements.</p>
+<h3>Can I use this calculator on my mobile phone?</h3>
+<p>Yes, the tool is fully responsive and works seamlessly across smartphones, tablets, and desktop computers.</p>
 </div>
-</article>
-
-<section class="content-section">
-<h2>What is a Percentage and Why Is It Important?</h2>
-<p>A percentage is a fundamental mathematical concept that expresses a ratio or number as a fraction of 100. Derived from the Latin term <em>"per centum"</em>, which translates to "by the hundred", percentages provide a standardized baseline to compare fractional quantities across different scales. The symbol "%" is universally recognized in mathematical notation, commerce, academic scoring, and statistical reporting.</p>
-
-<p>Percentages are everywhere in daily modern life. Whether you are computing sales tax on e-commerce transactions, measuring annual profit growth for a corporate balance sheet, calculating test performance scores in examinations, or evaluating promotional store discounts, percentage mathematical principles provide relative clarity that absolute figures alone cannot convey.</p>
-
-<h2>Core Formulas Used in Percentage Calculations</h2>
-<p>To master manual percentage calculations, it helps to understand the underlying mathematical equations powering our automated calculator modes:</p>
-
-<div class="formula-box">
-1. Standard Value Formula: Result = (Percentage Rate / 100) * Base Total<br>
-2. Ratio Percentage Formula: Percentage (%) = (Sample Portion / Base Total) * 100<br>
-3. Percentage Difference Formula: % Change = ((New Value - Starting Value) / Starting Value) * 100
-</div>
-
-<h2>Practical Real-World Applications</h2>
-
-<h3>1. Retail Shopping & Promotional Discounts</h3>
-<p>During promotional seasonal sales, retailers offer discounts such as "25% off regular price". To find your total cash savings, convert 25% to 0.25 and multiply it by the original item tag price. For instance, a $120 coat with a 25% price reduction provides $30 savings, bringing your final checkout cost to $90.</p>
-
-<h3>2. Financial Interest & Business Profit Margins</h3>
-<p>In business accounting and personal financial management, tracking margin growth is critical. Profit margin represents net income expressed as a percentage of overall revenue. If an enterprise generates $50,000 net profit on $200,000 total revenue, dividing 50,000 by 200,000 produces 0.25, or a 25% net operating profit margin.</p>
-
-<h3>3. Academic Grading & Examination Performance</h3>
-<p>Educational assessment matrices frequently convert raw point scores into unified percentage scores. If a student achieves 82 points out of a total possible 100 points, dividing 82 by 100 and multiplying by 100 directly yields an 82% academic score rating.</p>
-
-<h3>4. Inflation Rates & Statistical Growth Metrics</h3>
-<p>Economists measure consumer price index shifts using percentage change equations. If average grocery costs rise from $400 per month to $440 per month over one year, the price difference ($40) divided by the initial cost ($400) results in 0.10, representing a 10% annual consumer inflation rate.</p>
-
-<h2>How to Use the SmartToolsKit Percentage Calculator</h2>
-<p>Our online percentage calculator is designed with three flexible computation modules tailored to solve specific math scenarios:</p>
-
-<ol>
-<li><strong>Mode 1 (Find Value from Percentage):</strong> Enter the percentage rate (X) and total number (Y). Click "Calculate" to determine the exact proportional amount.</li>
-<li><strong>Mode 2 (Determine Proportion Rate):</strong> Enter the partial portion value (X) and whole baseline figure (Y) to calculate what exact percentage portion X represents relative to Y.</li>
-<li><strong>Mode 3 (Compute Percentage Change):</strong> Enter the starting original baseline (From) and updated comparison value (To). The tool automatically determines whether the change is an increase or decrease and displays the exact percentage shift.</li>
-</ol>
-
-<h2>Quick Reference Percentage Lookup Table</h2>
-<p>The table below provides instant pre-computed percentage values for standard base quantities frequently encountered in daily math problems:</p>
-
-<table class="data-table">
-<thead>
-<tr>
-<th>Baseline Total</th>
-<th>10% Value</th>
-<th>15% Value</th>
-<th>20% Value</th>
-<th>25% Value</th>
-<th>50% Value</th>
-<th>75% Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$50</td>
-<td>$5.00</td>
-<td>$7.50</td>
-<td>$10.00</td>
-<td>$12.50</td>
-<td>$25.00</td>
-<td>$37.50</td>
-</tr>
-<tr>
-<td>$100</td>
-<td>$10.00</td>
-<td>$15.00</td>
-<td>$20.00</td>
-<td>$25.00</td>
-<td>$50.00</td>
-<td>$75.00</td>
-</tr>
-<tr>
-<td>$250</td>
-<td>$25.00</td>
-<td>$37.50</td>
-<td>$50.00</td>
-<td>$62.50</td>
-<td>$125.00</td>
-<td>$187.50</td>
-</tr>
-<tr>
-<td>$500</td>
-<td>$50.00</td>
-<td>$75.00</td>
-<td>$100.00</td>
-<td>$125.00</td>
-<td>$250.00</td>
-<td>$375.00</td>
-</tr>
-<tr>
-<td>$1,000</td>
-<td>$100.00</td>
-<td>$150.00</td>
-<td>$200.00</td>
-<td>$250.00</td>
-<td>$500.00</td>
-<td>$750.00</td>
-</tr>
-</tbody>
-</table>
-
-<h2>Frequently Asked Questions (FAQ)</h2>
-
-<div class="faq-item">
-<h4>How do I calculate the percentage of a number manually?</h4>
-<p>To calculate the percentage of a number manually, convert the percentage figure into a decimal value by dividing it by 100, then multiply that decimal by your base number. For example, to calculate 20% of 150: divide 20 by 100 (0.20), then multiply 0.20 by 150 to get 30.</p>
-</div>
-
-<div class="faq-item">
-<h4>How do I calculate percentage change between two values?</h4>
-<p>Subtract the original starting value from the new value, divide that difference by the original starting value, and multiply the result by 100. The equation is: ((New Value - Original Value) / Original Value) * 100.</p>
-</div>
-
-<div class="faq-item">
-<h4>What is the difference between percentage increase and percentage decrease?</h4>
-<p>A percentage increase indicates positive numeric growth or commercial price markup relative to the starting baseline. Conversely, a percentage decrease indicates negative reduction, price drops, or markdown rates from the starting baseline figure.</p>
-</div>
-
-<div class="faq-item">
-<h4>Why is percentage useful in financial calculations?</h4>
-<p>Percentages standardize values relative to a fixed base of 100. This makes comparing interest rates, investment returns, sales taxes, profit margins, and retail discounts effortless regardless of total monetary amounts involved.</p>
-</div>
-
-<div class="faq-item">
-<h4>Is my calculation data saved or tracked on SmartToolsKit servers?</h4>
-<p>No. All computations in SmartToolsKit execute locally using client-side browser JavaScript. Your numerical inputs remain completely private on your device and are never transmitted to or recorded on remote servers.</p>
-</div>
-
-</section>
-
-</div>
-
 </main>
 
 <footer>
@@ -383,13 +159,12 @@ SmartToolsKit
 <div class="footer-grid">
 <div>
 <h3>SmartToolsKit</h3>
-<p>Smart Tools. Simple Solutions. Free browser-based web tools designed to make everyday digital tasks faster and easier.</p>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
 </div>
 <div>
 <h3>Quick Links</h3>
 <div class="footer-links">
 <a href="../index.html">Home</a>
-<a href="../index.html#tools">All Tools</a>
 <a href="../about.html">About Us</a>
 <a href="../contact.html">Contact Us</a>
 </div>
@@ -398,76 +173,87 @@ SmartToolsKit
 <h3>Legal</h3>
 <div class="footer-links">
 <a href="../privacy-policy.html">Privacy Policy</a>
-<a href="../terms.html">Terms & Conditions</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
 <a href="../disclaimer.html">Disclaimer</a>
 </div>
 </div>
 </div>
-<div class="copyright">
-© 2026 SmartToolsKit. All rights reserved.
-</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
 </div>
 </footer>
 
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie">Got It</button>
+</div>
+
 <script>
-function calcMode1(){
-  const x = parseFloat(document.getElementById('p1_x').value);
-  const y = parseFloat(document.getElementById('p1_y').value);
-  const res = document.getElementById('res1');
-  if(isNaN(x) || isNaN(y)){
-    res.style.display = 'block';
-    res.innerHTML = 'Please enter valid numerical values.';
-    return;
+const calcType = document.getElementById('calcType');
+const val1 = document.getElementById('val1');
+const val2 = document.getElementById('val2');
+const labelVal1 = document.getElementById('labelVal1');
+const labelVal2 = document.getElementById('labelVal2');
+const calculateBtn = document.getElementById('calculateBtn');
+const resultBox = document.getElementById('resultBox');
+
+function updateLabels() {
+  const type = calcType.value;
+  if (type === 'whatIs') {
+    labelVal1.textContent = 'Percentage (%)';
+    labelVal2.textContent = 'Total Value (Y)';
+  } else if (type === 'isWhatPercent') {
+    labelVal1.textContent = 'Part Value (X)';
+    labelVal2.textContent = 'Total Value (Y)';
+  } else {
+    labelVal1.textContent = 'Initial Value';
+    labelVal2.textContent = 'Final Value';
   }
-  const val = (x / 100) * y;
-  res.style.display = 'block';
-  res.innerHTML = `Result: <strong>${x}%</strong> of <strong>${y}</strong> is <strong>${val.toLocaleString('en-US', {maximumFractionDigits: 4})}</strong>`;
-}
-function resetMode1(){
-  document.getElementById('p1_x').value = '';
-  document.getElementById('p1_y').value = '';
-  document.getElementById('res1').style.display = 'none';
 }
 
-function calcMode2(){
-  const x = parseFloat(document.getElementById('p2_x').value);
-  const y = parseFloat(document.getElementById('p2_y').value);
-  const res = document.getElementById('res2');
-  if(isNaN(x) || isNaN(y) || y === 0){
-    res.style.display = 'block';
-    res.innerHTML = 'Please enter valid numerical values (Value Y cannot be 0).';
-    return;
-  }
-  const val = (x / y) * 100;
-  res.style.display = 'block';
-  res.innerHTML = `Result: <strong>${x}</strong> is <strong>${val.toFixed(2)}%</strong> of <strong>${y}</strong>`;
-}
-function resetMode2(){
-  document.getElementById('p2_x').value = '';
-  document.getElementById('p2_y').value = '';
-  document.getElementById('res2').style.display = 'none';
-}
+calcType.addEventListener('change', updateLabels);
+updateLabels();
 
-function calcMode3(){
-  const x = parseFloat(document.getElementById('p3_x').value);
-  const y = parseFloat(document.getElementById('p3_y').value);
-  const res = document.getElementById('res3');
-  if(isNaN(x) || isNaN(y) || x === 0){
-    res.style.display = 'block';
-    res.innerHTML = 'Please enter valid numbers (Original value cannot be 0).';
+calculateBtn.addEventListener('click', () => {
+  const v1 = parseFloat(val1.value);
+  const v2 = parseFloat(val2.value);
+  const type = calcType.value;
+
+  if (isNaN(v1) || isNaN(v2)) {
+    resultBox.textContent = 'Please enter valid numbers.';
     return;
   }
-  const diff = y - x;
-  const pct = (diff / x) * 100;
-  const type = pct >= 0 ? 'Increase' : 'Decrease';
-  res.style.display = 'block';
-  res.innerHTML = `Result: Percentage ${type} from ${x} to ${y} is <strong>${Math.abs(pct).toFixed(2)}%</strong> (${diff >= 0 ? '+' : ''}${diff.toLocaleString('en-US', {maximumFractionDigits: 4})})`;
-}
-function resetMode3(){
-  document.getElementById('p3_x').value = '';
-  document.getElementById('p3_y').value = '';
-  document.getElementById('res3').style.display = 'none';
-}
+
+  let res = 0;
+  if (type === 'whatIs') {
+    res = (v1 / 100) * v2;
+    resultBox.textContent = `Result: ${res.toFixed(2)}`;
+  } else if (type === 'isWhatPercent') {
+    if (v2 === 0) {
+      resultBox.textContent = 'Error: Division by zero.';
+      return;
+    }
+    res = (v1 / v2) * 100;
+    resultBox.textContent = `Result: ${res.toFixed(2)}%`;
+  } else {
+    if (v1 === 0) {
+      resultBox.textContent = 'Error: Initial value cannot be zero.';
+      return;
+    }
+    res = ((v2 - v1) / v1) * 100;
+    const changeText = res >= 0 ? `Increase of ${res.toFixed(2)}%` : `Decrease of {Math.abs(res).toFixed(2)}%`;
+    resultBox.textContent = `Result: ${changeText}`;
+  }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieConsent').style.display = 'flex';
+  }
+});
+document.getElementById('acceptCookie').addEventListener('click', () => {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
 </script>
 
 </body>
