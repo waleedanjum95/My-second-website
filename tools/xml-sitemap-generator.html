@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free XML Sitemap Generator - Create SEO Sitemaps Instantly | SmartToolsKit</title>
+<meta name="description" content="Use our free online XML Sitemap Generator to create search engine friendly sitemaps, define change frequencies, and optimize your website crawling and indexing.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/xml-sitemap-generator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/xml-sitemap-generator.html">
+<meta property="og:title" content="Free XML Sitemap Generator - Create SEO Sitemaps | SmartToolsKit">
+<meta property="og:description" content="Generate valid XML sitemaps to help search engine crawlers discover and index your web pages efficiently.">
+
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "XML Sitemap Generator",
+    "item": "https://smarttoolskit.com/tools/xml-sitemap-generator.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group select, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{border-color:var(--emerald)}
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:10px}
+.calc-btn:hover{background:var(--emerald-dark)}
+
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:20px}
+.result-box textarea{width:100%;height:180px;background:#fff;border:1px solid var(--border);border-radius:6px;padding:10px;font-family:monospace;font-size:13px;resize:vertical;outline:none}
+.copy-btn{background:var(--navy);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px}
+.copy-btn:hover{background:var(--navy-light)}
+
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
+
+.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
+.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
+.content-table td{color:#475569}
+
+.security-note{background:var(--soft);border-left:4px solid var(--emerald);padding:14px;border-radius:0 8px 8px 0;margin:20px 0;font-size:14px;color:var(--navy)}
+
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<div class="tool-container">
+<h1>XML Sitemap Generator</h1>
+<p class="subtitle">Generate valid XML sitemaps to optimize search engine crawling and indexation.</p>
+
+<div class="form-group">
+<label for="baseUrl">Base Website URL (e.g., https://smarttoolskit.com)</label>
+<input type="url" id="baseUrl" placeholder="https://smarttoolskit.com">
+</div>
+
+<div class="form-group">
+<label for="changeFreq">Default Change Frequency</label>
+<select id="changeFreq">
+<option value="daily">Daily</option>
+<option value="weekly" selected>Weekly</option>
+<option value="monthly">Monthly</option>
+<option value="yearly">Yearly</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="pagePaths">Page Paths (One relative path per line)</label>
+<textarea id="pagePaths" rows="4" placeholder="/&#10;/about.html&#10;/contact.html&#10;/tools/age-calculator.html"></textarea>
+</div>
+
+<button type="button" class="calc-btn" id="generateBtn">Generate XML Sitemap</button>
+
+<div class="result-box" id="resultBoxWrapper" style="display:none;">
+<label style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;">Generated XML Sitemap Code:</label>
+<textarea id="outputTags" readonly></textarea>
+<button type="button" class="copy-btn" id="copyBtn">Copy Code</button>
+</div>
+</div>
+
+<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="content-section">
+<h2>What is an XML Sitemap Generator?</h2>
+<p>An XML Sitemap Generator is an essential technical search engine optimization (SEO) utility designed to help website owners, web developers, and digital marketers create structured XML sitemap files effortlessly. An XML (Extensible Markup Language) sitemap is a specialized text file placed in your domain's root directory that lists all important URLs, pages, tools, and content assets of your website. It acts as an organized roadmap for search engine spiders and web crawlers like Googlebot, Bingbot, and Yahoo Slurp, guiding them through your site architecture and ensuring that no valuable webpage goes undiscovered or unindexed.</p>
+
+<p>When launching new web portals or scaling multi-tool platforms containing dozens or hundreds of individual pages, manual sitemap coding can be tedious and prone to syntax errors or missing closing tags. Our free online generator automates this technical compilation process instantly. By inputting your core domain name and relative page paths, you instantly receive a W3C-compliant XML sitemap structure ready for immediate deployment and submission to search engine webmaster consoles.</p>
+
+<h2>Why XML Sitemaps Are Critical for Modern SEO</h2>
+<p>In the vast ecosystem of the internet, search engine crawlers rely heavily on hyperlinks to discover new content. However, if certain pages or newly added tools lack incoming internal links—a structural issue known as orphan pages—search bots may completely fail to find them. An XML sitemap resolves this vulnerability by providing a direct, centralized catalog of every single published URL on your domain, guaranteeing rapid discovery and indexation by major search engines.</p>
+
+<p>Furthermore, XML sitemaps communicate critical metadata to search algorithms, including the exact date of last modification (<code>&lt;lastmod&gt;</code>), how frequently the content changes (<code>&lt;changefreq&gt;</code>), and the relative priority of each URL (<code>&lt;priority&gt;</code>). This transparency optimizes your website's crawl budget—the amount of computing resources search engines allocate to exploring your domain—ensuring that fresh, high-value pages receive priority indexing.</p>
+
+<table class="content-table">
+<thead>
+<tr>
+<th>Sitemap Element</th>
+<th>Syntax Example</th>
+<th>Purpose &amp; Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL Location</td>
+<td><code>&lt;loc&gt;https://...&lt;/loc&gt;</code></td>
+<td>Specifies the exact absolute web address of the page.</td>
+</tr>
+<tr>
+<td>Last Modification</td>
+<td><code>&lt;lastmod&gt;2026-10-05&lt;/lastmod&gt;</code></td>
+<td>Informs crawlers when the page content was last updated.</td>
+</tr>
+<tr>
+<td>Change Frequency</td>
+<td><code>&lt;changefreq&gt;weekly&lt;/changefreq&gt;</code></td>
+<td>Suggests how often search engines should re-crawl the page.</td>
+</tr>
+<tr>
+<td>Priority Weight</td>
+<td><code>&lt;priority&gt;0.8&lt;/priority&gt;</code></td>
+<td>Relative importance of the URL compared to other site pages.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="security-note">
+<strong>User Security &amp; Privacy Assurance:</strong> All string formatting, tag generation, and sitemap compilation processes run entirely within your local web browser using client-side JavaScript. Your internal URL structures, directory paths, and business configurations never leave your device or get transmitted to any external server.
+</div>
+
+<h2>How to Use the XML Sitemap Generator</h2>
+<p>Creating professional XML sitemaps with our tool is fast, straightforward, and requires no advanced programming skills:</p>
+<ul>
+<li><strong>Enter Base URL:</strong> Type or paste your absolute domain name in the base URL field (for example, <code>https://smarttoolskit.com</code>).</li>
+<li><strong>Select Change Frequency:</strong> Choose the default update frequency (daily, weekly, monthly) that matches your publishing schedule.</li>
+<li><strong>Input Page Paths:</strong> Enter your relative page paths in the text box, placing each URL path on a new line (e.g., <code>/tools/age-calculator.html</code>).</li>
+<li><strong>Generate &amp; Save:</strong> Click the generate button to compile your sitemap, copy the XML code snippet, and save it as `sitemap.xml` in your root directory.</li>
+</ul>
+
+<h2>Best Practices for Sitemap Optimization</h2>
+<p>To maximize search engine crawling efficiency and prevent indexing errors, keep these professional guidelines in mind:</p>
+<ul>
+<li><strong>Keep Under 50,000 URLs:</strong> Standard XML sitemap protocols limit individual files to 50,000 URLs and uncompressed file sizes under 50MB.</li>
+<li><strong>Include Only 200 OK Pages:</strong> Never include redirecting URLs (301/302) or broken error pages (404) inside your XML sitemap.</li>
+<li><strong>Submit to Search Consoles:</strong> After uploading your `sitemap.xml` file, submit its absolute URL directly to Google Search Console and Bing Webmaster Tools for rapid verification.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<h3>1. Where should I upload my generated XML sitemap file?</h3>
+<p>The sitemap file must be saved strictly as `sitemap.xml` and uploaded directly to the root directory of your hosting server (e.g., `https://smarttoolskit.com/sitemap.xml`).</p>
+
+<h3>2. Do XML sitemaps guarantee higher search engine rankings?</h3>
+<p>No. While sitemaps do not directly boost ranking algorithms, they ensure rapid and comprehensive discovery of all your web pages by search engine crawlers.</p>
+
+<h3>3. Is this generator tool completely free to use?</h3>
+<p>Yes, all features on SmartToolsKit are 100% free with no registration, subscription fees, or generation limits required.</p>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie">Got It</button>
+</div>
+
+<script>
+const generateBtn = document.getElementById('generateBtn');
+const resultBoxWrapper = document.getElementById('resultBoxWrapper');
+const outputTags = document.getElementById('outputTags');
+const copyBtn = document.getElementById('copyBtn');
+
+function sanitizeUrl(input) {
+  if (!input) return '';
+  input = input.trim();
+  let match = input.match(/\((.*?)\)/);
+  if (match) input = match[1];
+  return input.replace(/[\[\]]/g, '').replace(/\/$/, '').trim();
+}
+
+generateBtn.addEventListener('click', () => {
+  const baseUrl = sanitizeUrl(document.getElementById('baseUrl').value);
+  const changeFreq = document.getElementById('changeFreq').value;
+  const rawPaths = document.getElementById('pagePaths').value;
+
+  if (!baseUrl) {
+    alert('Please enter your base website URL.');
+    return;
+  }
+
+  const today = new Date().toISOString().split('T')[0];
+
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+  xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
+  // Add homepage by default
+  xml += `  <url>\n`;
+  xml += `    <loc>${baseUrl}/</loc>\n`;
+  xml += `    <lastmod>${today}</lastmod>\n`;
+  xml += `    <changefreq>daily</changefreq>\n`;
+  xml += `    <priority>1.0</priority>\n`;
+  xml += `  </url>\n`;
+
+  if (rawPaths.trim() !== '') {
+    const lines = rawPaths.split('\n');
+    lines.forEach(line => {
+      let path = sanitizeUrl(line);
+      if (path && path !== '/') {
+        if (!path.startsWith('/')) path = '/' + path;
+        xml += `  <url>\n`;
+        xml += `    <loc>${baseUrl}${path}</loc>\n`;
+        xml += `    <lastmod>${today}</lastmod>\n`;
+        xml += `    <changefreq>${changeFreq}</changefreq>\n`;
+        xml += `    <priority>0.8</priority>\n`;
+        xml += `  </url>\n`;
+      }
+    });
+  }
+
+  xml += `</urlset>`;
+
+  outputTags.value = xml;
+  resultBoxWrapper.style.display = 'block';
+});
+
+copyBtn.addEventListener('click', () => {
+  outputTags.select();
+  navigator.clipboard.writeText(outputTags.value);
+  copyBtn.textContent = 'Copied!';
+  setTimeout(() => { copyBtn.textContent = 'Copy Code'; }, 2000);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieConsent').style.display = 'flex';
+  }
+});
+document.getElementById('acceptCookie').addEventListener('click', () => {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
+</script>
+
+</body>
+  </html>
+  
