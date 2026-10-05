@@ -206,7 +206,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <p>No. Standard `Redirect` directives executed by Apache are extremely lightweight and process almost instantly at the server level.</p>
 
 <h3>3. Is my website data secure when using this tool?</h3>
-<p>Yes. All rule processing happens client-side inside your browser, ensuring complete data privacy and security.</p>
+<p>Yes. All rule processing happens client-side inside your browser, guaranteeing complete data privacy and security.</p>
 </div>
 </main>
 
@@ -249,9 +249,17 @@ const resultBoxWrapper = document.getElementById('resultBoxWrapper');
 const outputTags = document.getElementById('outputTags');
 const copyBtn = document.getElementById('copyBtn');
 
+function sanitizeUrl(input) {
+  if (!input) return '';
+  input = input.trim();
+  let match = input.match(/\((.*?)\)/);
+  if (match) input = match[1];
+  return input.replace(/[\[\]]/g, '').trim();
+}
+
 generateBtn.addEventListener('click', () => {
-  const oldUrl = document.getElementById('oldUrl').value.trim();
-  const newUrl = document.getElementById('newUrl').value.trim();
+  const oldUrl = sanitizeUrl(document.getElementById('oldUrl').value);
+  const newUrl = sanitizeUrl(document.getElementById('newUrl').value);
   const redirectType = document.getElementById('redirectType').value;
 
   if (!oldUrl || !newUrl) {
@@ -291,5 +299,4 @@ document.getElementById('acceptCookie').addEventListener('click', () => {
 </script>
 
 </body>
-  </html>
-  
+</html>
