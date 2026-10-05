@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Loan EMI Calculator - Calculate Monthly Installments & Interest | SmartToolsKit</title>
-<meta name="description" content="Use our free online Loan EMI Calculator to compute monthly loan installments, total interest payable, and repayment breakdown instantly for home, car, or personal loans.">
+<title>Free Loan EMI Calculator with CSV Download - Amortization Schedule | SmartToolsKit</title>
+<meta name="description" content="Use our free online Loan EMI Calculator to compute monthly installments, view month-by-month amortization schedules, and download detailed reports as CSV files.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/loan-emi-calculator.html">
 <meta name="theme-color" content="#0F172A">
@@ -12,8 +12,8 @@
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/loan-emi-calculator.html">
-<meta property="og:title" content="Free Loan EMI Calculator - Calculate Monthly Installments | SmartToolsKit">
-<meta property="og:description" content="Compute accurate Equated Monthly Installments (EMI), total interest, and payment schedules quickly with our free tool.">
+<meta property="og:title" content="Free Loan EMI Calculator with CSV Download | SmartToolsKit">
+<meta property="og:description" content="Compute accurate Equated Monthly Installments (EMI), total interest, and export amortization schedules as CSV.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -51,7 +51,7 @@ nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container{max-width:800px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
 
@@ -67,7 +67,15 @@ nav a:hover{color:var(--emerald-dark)}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center}
 .stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
 .stat-card span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:700}
-.stat-card strong{font-size:18px;color:var(--emerald-dark)}
+.stat-card strong{font-size:16px;color:var(--emerald-dark)}
+
+.schedule-wrapper{margin-top:20px;display:none}
+.schedule-table-container{max-height:250px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;background:#fff;margin-top:10px}
+.result-table{width:100%;border-collapse:collapse;font-size:13px}
+.result-table th,.result-table td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+.result-table th{background:var(--navy);color:#fff;font-weight:700;position:sticky;top:0}
+.csv-btn{background:var(--navy);color:#fff;border:none;padding:10px 16px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;margin-top:12px;display:block;width:100%}
+.csv-btn:hover{background:var(--navy-light)}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
@@ -110,8 +118,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <main class="container">
 <div class="tool-container">
-<h1>Loan EMI Calculator</h1>
-<p class="subtitle">Calculate your Equated Monthly Installments (EMI), total interest, and repayment totals instantly.</p>
+<h1>Loan EMI Calculator &amp; CSV Export</h1>
+<p class="subtitle">Calculate your Equated Monthly Installments, view repayment schedules, and download CSV reports.</p>
 
 <div class="form-group">
 <label for="loanAmount">Loan Amount (Principal)</label>
@@ -134,7 +142,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 </div>
 
-<button type="button" class="calc-btn" id="calculateBtn">Calculate EMI</button>
+<button type="button" class="calc-btn" id="calculateBtn">Calculate EMI &amp; Generate Schedule</button>
 
 <div class="result-box" id="resultBox">
 <h3>Loan Repayment Summary</h3>
@@ -152,78 +160,98 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <strong id="resTotal">0</strong>
 </div>
 </div>
+
+<div class="schedule-wrapper" id="scheduleWrapper" style="display:block;">
+<label style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-top:16px;margin-bottom:6px;">Amortization Schedule (Month-by-Month):</label>
+<div class="schedule-table-container">
+<table class="result-table">
+<thead>
+<tr>
+<th>Month</th>
+<th>Principal Paid</th>
+<th>Interest Paid</th>
+<th>Remaining Balance</th>
+</tr>
+</thead>
+<tbody id="scheduleBody">
+<!-- Dynamic rows -->
+</tbody>
+</table>
+</div>
+<button type="button" class="csv-btn" id="downloadCsvBtn">Download Amortization Schedule as CSV</button>
+</div>
 </div>
 </div>
 
 <!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>What is a Loan EMI Calculator?</h2>
-<p>A Loan EMI Calculator is a specialized financial online tool designed to compute the exact Equated Monthly Installment (EMI) borrowers need to pay toward a loan over a specified period. Whether you are planning to purchase a new home, buy a car, fund higher education, or secure personal financing, understanding your monthly financial obligations is crucial for maintaining a healthy budget. Calculating loan amortization and monthly interest manually involves complex mathematical formulas that can easily lead to miscalculations. Our free online calculator automates this entire computational process securely within your browser, providing precise monthly breakdowns within milliseconds.</p>
+<h2>What is a Loan EMI Calculator with CSV Export?</h2>
+<p>A Loan EMI Calculator with CSV Export is an advanced online financial management tool designed to compute monthly loan installments and generate detailed month-by-month amortization schedules. When borrowing funds for a home mortgage, vehicle purchase, educational loan, or personal credit, understanding how your payments break down between principal reduction and interest accumulation is vital. Calculating these figures manually across long repayment tenures is tedious and prone to arithmetic mistakes. Our free online calculator automates this entire computational workflow directly inside your browser, allowing you to review your complete financial trajectory and export the data as a spreadsheet CSV file instantly.</p>
 
-<p>By inputting three core variables—the total loan principal amount, the annual interest rate, and the repayment tenure—the tool instantly computes your monthly payment, the aggregate interest accumulated over the lifetime of the loan, and the grand total repayment amount. Built with a responsive, user-friendly interface, the calculator ensures optimal performance across desktop computers, laptops, tablets, and smartphones without requiring any software downloads or registration.</p>
+<p>By entering three core variables—the total loan principal amount, the annual interest rate, and the repayment duration—the tool computes your exact Equated Monthly Installment (EMI), total interest payable over the lifetime of the loan, and cumulative repayment sums. Furthermore, the built-in amortization engine breaks down every single month's payment, letting you track how your balance decreases over time and download the complete report for offline financial record-keeping.</p>
 
-<h2>Why Accurate EMI Calculation Matters for Financial Planning</h2>
-<p>Taking out a loan is a major financial commitment that impacts your cash flow for months or years to come. Knowing your exact monthly EMI in advance allows you to evaluate whether the installment fits comfortably within your monthly disposable income before committing to a lender. Without prior calculation, high interest rates or extended tenures can result in unexpectedly steep cumulative interest payments, significantly increasing the true cost of borrowing.</p>
+<h2>Why Amortization Schedules and CSV Downloads Matter</h2>
+<p>An amortization schedule provides complete transparency into your loan repayment structure. In the early months of a standard loan tenure, a significant portion of your monthly EMI goes toward paying off accrued interest rather than reducing the actual principal balance. As time progresses, this ratio shifts, with more funds going toward principal reduction. Reviewing this month-by-month breakdown helps borrowers plan early prepayments strategically to minimize overall borrowing costs.</p>
 
-<p>Furthermore, comparing different loan offers based on interest rates and repayment tenures helps borrowers choose the most economical financing option. A shorter tenure typically results in higher monthly installments but substantially lower total interest paid, whereas a longer tenure reduces monthly burdens at the expense of higher overall interest costs. Utilizing a reliable digital calculator empowers individuals to make informed, stress-free financial decisions.</p>
+<p>Being able to export this data into a downloadable CSV (Comma-Separated Values) file adds immense professional value. Users can open the exported spreadsheet in Microsoft Excel, Google Sheets, or Apple Numbers to perform deeper financial modeling, create custom charts, or merge the repayment plan into personal budget trackers without requiring any manual data entry.</p>
 
 <table class="content-table">
 <thead>
 <tr>
-<th>Loan Component</th>
-<th>Description &amp; Role</th>
-<th>Impact on Borrowing</th>
+<th>Loan Metric</th>
+<th>Definition &amp; Role</th>
+<th>Impact on Financial Planning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Principal Amount</td>
-<td>The initial sum of money borrowed from the financial institution.</td>
-<td>Directly dictates the base scale of monthly installments.</td>
+<td>Principal Component</td>
+<td>The portion of your EMI that directly reduces your borrowed debt.</td>
+<td>Builds equity and lowers the outstanding loan balance.</td>
 </tr>
 <tr>
-<td>Interest Rate</td>
-<td>The annual percentage charged by lenders for borrowing funds.</td>
-<td>Determines how much extra you pay over the principal.</td>
+<td>Interest Component</td>
+<td>The monthly fee charged by the lender for borrowing money.</td>
+<td>Represents the true cost of borrowing over time.</td>
 </tr>
 <tr>
-<td>Loan Tenure</td>
-<td>The total timeframe allocated for complete repayment.</td>
-<td>Balances monthly affordability against total lifetime interest.</td>
+<td>Amortization Export</td>
+<td>CSV spreadsheet containing month-by-month payment tracking.</td>
+<td>Enables offline financial archiving, budgeting, and forecasting.</td>
 </tr>
 </tbody>
 </table>
 
 <div class="security-note">
-<strong>User Security &amp; Privacy Assurance:</strong> All financial calculations, interest formulas, and data processing routines run entirely within your local web browser using client-side JavaScript. Your confidential financial figures, loan amounts, and personal data never leave your device or get transmitted to any external server.
+<strong>User Security &amp; Privacy Assurance:</strong> All financial calculations, schedule generation routines, and CSV file exports run entirely within your local web browser using client-side JavaScript. Your confidential financial figures, loan amounts, and personal data never leave your device or get transmitted to any external server.
 </div>
 
 <h2>How to Use the Loan EMI Calculator</h2>
-<p>Using our loan calculator tool is straightforward, fast, and requires zero financial background:</p>
+<p>Using our loan calculator tool with CSV export is fast, straightforward, and requires zero financial expertise:</p>
 <ul>
-<li><strong>Enter Loan Amount:</strong> Input your total desired loan principal amount in the first input box.</li>
-<li><strong>Specify Interest Rate:</strong> Enter the annual interest percentage rate provided by your lender.</li>
-<li><strong>Set Loan Tenure:</strong> Input the duration and select whether your tenure is measured in years or months.</li>
-<li><strong>Calculate &amp; Review:</strong> Click the "Calculate EMI" button to instantly view your monthly payment, total interest, and total repayment sums.</li>
+<li><strong>Enter Loan Principal:</strong> Input your total desired borrowing amount in the loan amount field.</li>
+<li><strong>Specify Interest Rate:</strong> Enter the annual percentage rate (APR) provided by your lending institution.</li>
+<li><strong>Set Tenure &amp; Duration:</strong> Input your repayment timeframe and select whether it is measured in years or months.</li>
+<li><strong>Calculate &amp; Export:</strong> Click the calculate button to view your repayment summary, review the amortization table, and click "Download CSV" to save your report.</li>
 </ul>
 
-<h2>Best Practices for Effective Loan Management</h2>
-<p>To optimize your borrowing experience and minimize debt burdens, keep these professional financial guidelines in mind:</p>
+<h2>Best Practices for Effective Debt Management</h2>
+<p>To optimize your borrowing strategy and maintain financial health, keep these expert tips in mind:</p>
 <ul>
-<li><strong>Maintain a Low Debt-to-Income Ratio:</strong> Ensure your total monthly EMIs do not exceed 30% to 40% of your net monthly income.</li>
-<li><strong>Opt for Shorter Tenures When Possible:</strong> Choose the shortest comfortable tenure to minimize cumulative interest expenses.</li>
-<li><strong>Check for Prepayment Penalties:</strong> Understand your lender's policy on early loan closures or partial prepayments to save on future interest.</li>
+<li><strong>Target a Sustainable EMI:</strong> Ensure your monthly loan installments do not exceed 35% of your total net monthly income.</li>
+<li><strong>Analyze Interest vs Principal:</strong> Review your amortization schedule to understand how much interest you save through early partial prepayments.</li>
+<li><strong>Keep Records Offline:</strong> Download and archive your amortization CSV files for your personal financial audits and tax documentation.</li>
 </ul>
 
 <h2>Frequently Asked Questions</h2>
-<h3>1. How is the monthly EMI calculated?</h3>
-<p>EMIs are calculated using the mathematical formula: EMI = [P x r x (1 + r)^n] / [(1 + r)^n - 1], where P is principal, r is monthly interest rate, and n is tenure in months.</p>
+<h3>1. How do I download the loan amortization schedule?</h3>
+<p>Once you enter your loan details and click calculate, a detailed table appears below the summary. Simply click the "Download Amortization Schedule as CSV" button to save the file.</p>
 
-<h3>2. Is this loan EMI calculator 100% free?</h3>
-<p>Yes, all tools on SmartToolsKit are completely free to use with no subscription fees or usage limits.</p>
+<h3>2. Is this loan calculator completely free to use?</h3>
+<p>Yes, all features on SmartToolsKit are 100% free with no registration, subscription fees, or download limits.</p>
 
-<h3>3. Are my financial figures stored anywhere?</h3>
-<p>No. All calculations run strictly client-side inside your browser, guaranteeing absolute data privacy and confidentiality.</p>
+<h3>3. Are my financial figures stored or sent to a server?</h3>
+<p>No. All calculations and CSV generation occur strictly within your local browser environment, ensuring absolute privacy and security.</p>
 </div>
 </main>
 
@@ -261,20 +289,22 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <script>
+let scheduleDataForCsv = [];
+
 document.getElementById('calculateBtn').addEventListener('click', () => {
   const principal = parseFloat(document.getElementById('loanAmount').value);
   const annualRate = parseFloat(document.getElementById('interestRate').value);
   let tenure = parseFloat(document.getElementById('loanTenure').value);
   const tenureType = document.getElementById('tenureType').value;
   const resultBox = document.getElementById('resultBox');
+  const scheduleBody = document.getElementById('scheduleBody');
 
   if (isNaN(principal) || isNaN(annualRate) || isNaN(tenure) || principal <= 0 || annualRate < 0 || tenure <= 0) {
     alert('Please enter valid positive numbers for all loan fields.');
     return;
   }
 
-  // Convert tenure to months if in years
-  const months = tenureType === 'years' ? tenure * 12 : tenure;
+  const months = tenureType === 'years' ? Math.round(tenure * 12) : Math.round(tenure);
   const monthlyRate = annualRate / 12 / 100;
 
   let emi = 0;
@@ -296,7 +326,46 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
   document.getElementById('resInterest').textContent = totalInterest.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
   document.getElementById('resTotal').textContent = totalPayment.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
 
+  // Generate Amortization Schedule
+  scheduleDataForCsv = [['Month', 'Principal Paid', 'Interest Paid', 'Remaining Balance']];
+  scheduleBody.innerHTML = '';
+
+  let balance = principal;
+  for (let i = 1; i <= months; i++) {
+    let interestPayment = balance * monthlyRate;
+    let principalPayment = emi - interestPayment;
+    balance -= principalPayment;
+    if (balance < 0) balance = 0;
+
+    scheduleDataForCsv.push([
+      i,
+      principalPayment.toFixed(2),
+      interestPayment.toFixed(2),
+      balance.toFixed(2)
+    ]);
+
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${i}</td><td>$${principalPayment.toFixed(2)}</td><td>$${interestPayment.toFixed(2)}</td><td>$${balance.toFixed(2)}</td>`;
+    scheduleBody.appendChild(row);
+  }
+
   resultBox.style.display = 'block';
+});
+
+document.getElementById('downloadCsvBtn').addEventListener('click', () => {
+  if (scheduleDataForCsv.length === 0) {
+    alert('Please calculate the loan EMI first.');
+    return;
+  }
+
+  let csvContent = "data:text/csv;charset=utf-8," + scheduleDataForCsv.map(e => e.join(",")).join("\n");
+  let encodedUri = encodeURI(csvContent);
+  let link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "loan_amortization_schedule.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 });
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -311,4 +380,5 @@ document.getElementById('acceptCookie').addEventListener('click', () => {
 </script>
 
 </body>
-</html>
+  </html>
+  
