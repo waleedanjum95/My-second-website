@@ -224,14 +224,23 @@ const resultBoxWrapper = document.getElementById('resultBoxWrapper');
 const outputTags = document.getElementById('outputTags');
 const copyBtn = document.getElementById('copyBtn');
 
+// Helper function to sanitize URLs and remove accidental brackets or markdown links
+function sanitizeUrl(input) {
+  if (!input) return '';
+  input = input.trim();
+  let match = input.match(/\((.*?)\)/);
+  if (match) input = match[1];
+  return input.replace(/[\[\]]/g, '').trim();
+}
+
 generateBtn.addEventListener('click', () => {
   const title = document.getElementById('siteTitle').value.trim();
   const desc = document.getElementById('siteDesc').value.trim();
   const keywords = document.getElementById('siteKeywords').value.trim();
-  const canonical = document.getElementById('canonicalUrl').value.trim();
+  const canonical = sanitizeUrl(document.getElementById('canonicalUrl').value);
   const ogTitle = document.getElementById('ogTitle').value.trim();
   const ogDesc = document.getElementById('ogDesc').value.trim();
-  const ogImage = document.getElementById('ogImage').value.trim();
+  const ogImage = sanitizeUrl(document.getElementById('ogImage').value);
 
   let htmlCode = `<!-- Standard SEO Meta Tags -->\n`;
   if (title) htmlCode += `<title>${escapeHtml(title)}</title>\n`;
@@ -276,5 +285,4 @@ document.getElementById('acceptCookie').addEventListener('click', () => {
 </script>
 
 </body>
-  </html>
-  
+</html>
