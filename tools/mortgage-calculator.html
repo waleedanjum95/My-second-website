@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Mortgage Calculator with Extra Payment & Payoff Reducer | SmartToolsKit</title>
-<meta name="description" content="Use our free online Mortgage Calculator to compute monthly home loan payments, total interest, and simulate how extra principal payments shorten your loan term.">
+<title>Free Mortgage Calculator with Custom Term & Payoff Reducer | SmartToolsKit</title>
+<meta name="description" content="Use our free online Mortgage Calculator to compute monthly home loan payments, customize any loan term, and simulate how extra principal payments shorten your loan.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/mortgage-calculator.html">
 <meta name="theme-color" content="#0F172A">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/mortgage-calculator.html">
 <meta property="og:title" content="Free Mortgage Calculator & Payoff Reducer | SmartToolsKit">
-<meta property="og:description" content="Calculate monthly mortgage payments, property loans, and discover how extra monthly payments save thousands in bank interest.">
+<meta property="og:description" content="Calculate monthly mortgage payments for any custom loan term and discover how extra monthly payments save thousands in bank interest.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -142,12 +142,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <input type="number" step="any" id="interestRate" value="6.5" placeholder="e.g., 6.5">
 </div>
 <div class="form-group">
-<label for="loanTerm">Loan Term (Years)</label>
-<select id="loanTerm">
-<option value="15">15 Years Fixed</option>
-<option value="20">20 Years Fixed</option>
-<option value="30" selected>30 Years Fixed</option>
-</select>
+<label for="loanTerm">Loan Term (Custom Years)</label>
+<input type="number" step="1" min="1" max="50" id="loanTerm" value="30" placeholder="e.g., 30">
 </div>
 </div>
 
@@ -162,7 +158,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All computations execute locally inside your web browser. No financial data is saved on external servers.
+<span>🔒 Client-Side Security:</span> All computations execute locally inside your web browser. No financial data is saved on remote servers.
 </div>
 
 <div class="result-box" id="resultBox">
@@ -195,35 +191,35 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>Understanding Mortgages and Home Loan Calculations</h2>
-<p>Purchasing residential or commercial real estate is one of the most significant financial milestones in a person's lifetime. For the vast majority of home buyers, securing a mortgage loan is necessary to bridge the gap between personal savings and property acquisition costs. A mortgage is a specialized loan secured by real property, wherein the borrower agrees to pay back the borrowed capital over an agreed-upon amortization schedule, typically spanning 15, 20, or 30 years.</p>
+<h2>Understanding Mortgages and Custom Term Calculations</h2>
+<p>Purchasing residential or commercial real estate is one of the most significant financial milestones in a person's lifetime. For the vast majority of home buyers, securing a mortgage loan is necessary to bridge the gap between personal savings and property acquisition costs. A mortgage is a specialized loan secured by real property, wherein the borrower agrees to pay back borrowed capital over an agreed amortization schedule. Unlike rigid banking portals that restrict you to preset 15 or 30-year terms, our calculator allows you to enter any custom loan term in years to suit your specific financial roadmap.</p>
 
-<p>Calculating monthly mortgage commitments manually involves intricate exponential equations that factor in principal balances, compounding interest rates, and loan durations. Our free online Mortgage Calculator and Payoff Reducer streamlines this entire financial workflow directly inside your browser. Furthermore, our exclusive built-in <strong>Extra Principal Payment Simulator</strong> provides a unique web capability—allowing borrowers to visualize precisely how micro-contributions towards their principal balance shave years off their loan and yield massive cumulative interest savings.</p>
+<p>Calculating monthly mortgage commitments manually involves intricate exponential equations that factor in principal balances, compounding interest rates, and customized loan durations. Our free online Mortgage Calculator and Payoff Reducer streamlines this entire financial workflow directly inside your browser. Furthermore, our exclusive built-in <strong>Extra Principal Payment Simulator</strong> provides a unique web capability—allowing borrowers to visualize precisely how micro-contributions towards their principal balance shave years off their loan and yield massive cumulative interest savings.</p>
 
 <h2>The Mathematical Mortgage and Amortization Formulas</h2>
-<p>To compute standard monthly principal and interest (P&amp;I) obligations or verify lending institution amortization schedules, utilize the following core mathematical equations:</p>
+<p>To compute standard monthly principal and interest (P&amp;I) obligations or verify lending institution amortization schedules for any custom term, utilize the following core mathematical equations:</p>
 
 <div class="formula-box">
 <strong>Standard Monthly Mortgage Formula (P&amp;I):</strong>
 1. Monthly Interest Rate (r) = Annual Interest Rate / 12 / 100<br>
-2. Total Number of Monthly Payments (n) = Loan Term in Years * 12<br>
+2. Total Number of Monthly Payments (n) = Custom Loan Term in Years * 12<br>
 3. Monthly Payment (M) = P * [r(1 + r)^n] / [(1 + r)^n - 1]<br><br>
 <strong>Where:</strong>
 • P = Principal Loan Amount (Home Price minus Down Payment)<br>
 • M = Total Monthly Principal &amp; Interest Payment
 </div>
 
-<p>By applying these standardized financial formulas, prospective home buyers can accurately forecast monthly housing budgets and evaluate long-term debt commitments.</p>
+<p>By applying these standardized financial formulas, prospective home buyers can accurately forecast monthly housing budgets and evaluate custom debt amortization schedules.</p>
 
-<h2>Mortgage Amortization &amp; Extra Payment Reference Matrix</h2>
-<p>The table below outlines sample monthly payments and total interest obligations for a $350,000.00 home purchase with a $70,000.00 down payment ($280,000.00 loan amount) financed at a 6.5% annual interest rate over a 30-year term.</p>
+<h2>Mortgage Amortization &amp; Custom Term Reference Matrix</h2>
+<p>The table below outlines sample monthly payments and total interest obligations for a $350,000.00 home purchase with a $70,000.00 down payment ($280,000.00 loan amount) financed at a 6.5% annual interest rate across various custom loan terms.</p>
 
 <table class="content-table">
 <thead>
 <tr>
 <th>Loan Amount</th>
 <th>Interest Rate</th>
-<th>Term</th>
+<th>Custom Term</th>
 <th>Base Monthly (P&amp;I)</th>
 <th>Total Interest Paid</th>
 </tr>
@@ -246,16 +242,16 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <tr>
 <td>$280,000.00</td>
 <td>6.5%</td>
-<td>30 Years</td>
-<td>$1,769.57</td>
-<td>$357,045.20</td>
+<td>25 Years</td>
+<td>$1,890.15</td>
+<td>$287,046.00</td>
 </tr>
 <tr>
 <td>$280,000.00</td>
-<td>6.5% (with $150 extra)</td>
+<td>6.5%</td>
 <td>30 Years</td>
-<td>$1,919.57 (Total)</td>
-<td>$294,120.10</td>
+<td>$1,769.57</td>
+<td>$357,045.20</td>
 </tr>
 </tbody>
 </table>
@@ -266,14 +262,14 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <li><strong>Enter Home Price:</strong> Input the total estimated purchase price of the residential property.</li>
 <li><strong>Specify Down Payment:</strong> Type in the cash amount you are paying upfront toward the purchase.</li>
 <li><strong>Set Interest Rate:</strong> Enter the annual percentage rate (APR) quoted by your mortgage lender.</li>
-<li><strong>Select Loan Term:</strong> Choose between 15, 20, or 30-year fixed loan amortization periods.</li>
+<li><strong>Enter Custom Loan Term:</strong> Type any preferred loan duration in years (e.g., 10, 15, 22, 30) into the custom term field.</li>
 <li><strong>Add Extra Principal Payment:</strong> Enter any optional monthly amount you intend to pay above your standard bill to activate our unique accelerator simulator.</li>
 <li><strong>Calculate &amp; Review:</strong> Click the calculate button to instantly view your monthly breakdown, total interest obligations, and total time saved.</li>
 </ul>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is included in a standard mortgage payment?</h3>
-<p>A standard mortgage payment primarily consists of Principal and Interest (P&amp;I). Many homeowners also escrow property taxes and homeowners insurance into their monthly bill.</p>
+<h3>1. Can I enter any custom number of years for my loan term?</h3>
+<p>Yes! Unlike restricted tools that limit you to 15 or 30 years, our calculator accepts any custom year input so you can model exact refinancing or custom payoff plans.</p>
 
 <h3>2. How does the Extra Principal Payment feature save money?</h3>
 <p>By paying extra toward your principal balance each month, you reduce the overall loan balance faster. Because interest is charged against the remaining principal, shrinking the balance sooner reduces total lifetime interest charges significantly.</p>
@@ -321,12 +317,12 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
   const price = parseFloat(document.getElementById('homePrice').value);
   const down = parseFloat(document.getElementById('downPayment').value);
   const annualRate = parseFloat(document.getElementById('interestRate').value);
-  const years = parseInt(document.getElementById('loanTerm').value);
+  const years = parseFloat(document.getElementById('loanTerm').value);
   const extra = parseFloat(document.getElementById('extraPayment').value) || 0;
   const resultBox = document.getElementById('resultBox');
 
-  if (isNaN(price) || isNaN(down) || isNaN(annualRate) || price < 0 || down < 0 || annualRate < 0) {
-    alert('Please enter valid positive numbers for price, down payment, and interest rate.');
+  if (isNaN(price) || isNaN(down) || isNaN(annualRate) || isNaN(years) || price < 0 || down < 0 || annualRate < 0 || years <= 0 || years > 50) {
+    alert('Please enter valid positive numbers. Loan term must be between 1 and 50 years.');
     return;
   }
 
@@ -357,7 +353,7 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
     
     if (principalPaid > balance) {
       principalPaid = balance;
-      interestCharge = balance * r; // Adjust final month interest if needed
+      interestCharge = balance * r;
     }
     
     totalInterestWithExtra += interestCharge;
