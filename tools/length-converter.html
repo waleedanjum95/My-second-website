@@ -3,161 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Length & Distance Converter - Meters, Feet, Inches & Miles | SmartToolsKit</title>
-<meta name="description" content="Free online Length and Distance Converter to convert meters, kilometers, feet, inches, yards, and miles instantly with accurate formulas and reference tables.">
+<title>Free Length &amp; Distance Converter with Light-Speed Simulator | SmartToolsKit</title>
+<meta name="description" content="Use our free online Length and Distance Converter to convert meters, miles, feet, yards, and kilometers instantly. Includes a unique cosmic light-speed travel calculator.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/length-converter.html">
 <meta name="theme-color" content="#0F172A">
 
-<style>
-:root{
---navy:#0F172A;
---navy-light:#1E293B;
---emerald:#10B981;
---emerald-dark:#059669;
---teal:#14B8A6;
---background:#F8FAFC;
---white:#FFF;
---text:#0F172A;
---muted:#64748B;
---border:#E2E8F0;
---soft:#F1F5F9;
---shadow:0 10px 30px rgba(15,23,42,.07);
---radius:16px
-}
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/length-converter.html">
+<meta property="og:title" content="Free Length &amp; Distance Converter with Light-Speed Simulator | SmartToolsKit">
+<meta property="og:description" content="Convert length and distance units accurately and explore cosmic light-speed travel times with our unique celestial distance simulator.">
 
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Length & Distance Converter",
+    "item": "https://smarttoolskit.com/tools/length-converter.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
 button,input,select{font-family:inherit}
-
 .container{width:min(1120px,92%);margin:auto}
-
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
 .logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
 .logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
-
 nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
-.breadcrumb a{color:var(--emerald-dark);font-weight:600}
+.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
 
-.tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
 
-.tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
-.tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
-.tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 
-.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:25px}
+.btn-group{display:flex;gap:10px;margin-top:10px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;flex:2;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.reset-btn{background:var(--soft);color:var(--navy);border:1px solid var(--border);flex:1;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
+.reset-btn:hover{background:var(--border)}
 
-.form-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:18px}
-@media(max-width:768px){.form-grid{grid-template-columns:1fr}}
-.form-group{margin-bottom:15px}
-.form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
-.form-group input,.form-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff}
-.form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
 
-.btn-row{display:flex;gap:12px;margin-top:20px;grid-column:1/-1}
-.btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
-.btn-calc:hover{background:var(--emerald-dark)}
-.btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
-.btn-reset:hover{background:#CBD5E1}
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
+.result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:center}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
+.stat-card span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700}
+.stat-card strong{font-size:16px;color:var(--emerald-dark)}
 
-.result-display{margin-top:25px;display:block}
-.unit-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
-.unit-highlight .main-val{font-size:32px;font-weight:800;color:#34D399;margin-bottom:6px}
-.unit-highlight .sub-val{font-size:14px;color:#CBD5E1}
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
 
-.ad-slot{background:#F1F5F9;border:2px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:13px;margin:25px 0}
-.error-msg{background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;padding:12px;border-radius:8px;font-size:14px;margin-bottom:15px;display:none}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
 
-.privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
-.content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
-.content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
-.content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
-.content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
-.content-section li{margin-bottom:8px}
+.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
+.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
+.content-table td{color:#475569}
 
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
-
-.data-table{width:100%;border-collapse:collapse;margin:20px 0}
-.data-table th,.data-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;font-size:13px}
-.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
-
-.faq-item{border-bottom:1px solid var(--border);padding:18px 0}
-.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
-.faq-item p{margin-bottom:0}
-
-footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
 
-@media(max-width:768px){
-.tool-card-main,.content-section{padding:22px}
-}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I convert meters to feet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Multiply your length value in meters by 3.28084 to get the equivalent measurement in feet."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between metric and imperial length units?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Metric units are based on decimal multiples of the meter, while imperial units are based on historical British standards like inches and miles."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are conversion calculations accurate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, all calculations use internationally standardized mathematical conversion factors up to high decimal precision."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data stored anywhere?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. All computations occur directly inside your browser client-side with complete privacy."
-      }
-    }
-  ]
-}
-</script>
 </head>
-
 <body>
 
 <header>
 <div class="container nav">
-<a href="../index.html" class="logo">
-<span class="logo-shape"></span>
-SmartToolsKit
-</a>
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
 <nav>
 <a href="../index.html#categories">Categories</a>
 <a href="../index.html#tools">Tools</a>
@@ -168,136 +122,202 @@ SmartToolsKit
 </header>
 
 <main class="container">
+<div class="tool-container">
+<h1>Length &amp; Distance Converter</h1>
+<p class="subtitle">Convert seamlessly between meters, kilometers, miles, feet, yards, inches, centimeters, and millimeters instantly.</p>
 
-<div class="breadcrumb">
-<a href="../index.html">Home</a> / <a href="../index.html#calculators">Converters</a> / Length & Distance Converter
-</div>
-
-<div class="tool-layout">
-
-<article class="tool-card-main">
-<h1>Length & Distance Converter</h1>
-<p class="subtitle">Convert meters, kilometers, feet, inches, yards, and miles instantly with high precision.</p>
-
-<div class="calc-box">
-<div class="error-msg" id="errorMsg"></div>
-
-<div class="form-grid">
+<div class="grid-3">
 <div class="form-group">
-<label for="inputValue">Value to Convert:</label>
-<input type="number" id="inputValue" placeholder="e.g. 10" value="10">
+<label for="amount">Distance Value</label>
+<input type="number" step="any" id="amount" value="10" placeholder="e.g., 10">
 </div>
-
 <div class="form-group">
-<label for="fromUnit">From Unit:</label>
-<select id="fromUnit"></select>
+<label for="fromUnit">From Unit</label>
+<select id="fromUnit">
+<option value="1">Meters (m)</option>
+<option value="1000" selected>Kilometers (km)</option>
+<option value="0.01">Centimeters (cm)</option>
+<option value="0.001">Millimeters (mm)</option>
+<option value="1609.344">Miles (mi)</option>
+<option value="0.9144">Yards (yd)</option>
+<option value="0.3048">Feet (ft)</option>
+<option value="0.0254">Inches (in)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="toUnit">To Unit</label>
+<select id="toUnit">
+<option value="1" selected>Meters (m)</option>
+<option value="1000">Kilometers (km)</option>
+<option value="0.01">Centimeters (cm)</option>
+<option value="0.001">Millimeters (mm)</option>
+<option value="1609.344">Miles (mi)</option>
+<option value="0.9144">Yards (yd)</option>
+<option value="0.3048">Feet (ft)</option>
+<option value="0.0254">Inches (in)</option>
+</select>
+</div>
 </div>
 
-<div class="form-group" style="grid-column: 1/-1;">
-<label for="toUnit">To Unit:</label>
-<select id="toUnit"></select>
+<div class="btn-group">
+<button type="button" class="calc-btn" id="calculateBtn">Convert Distance</button>
+<button type="button" class="reset-btn" id="resetBtn">Reset</button>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All computations execute securely inside your local browser. No data is stored or transmitted to external servers.
+</div>
+
+<div class="result-box" id="resultBox">
+<h3>Conversion Result</h3>
+<div class="stats-grid">
+<div class="stat-card">
+<span>Input Distance</span>
+<strong id="resInput">0</strong>
+</div>
+<div class="stat-card">
+<span>Converted Output</span>
+<strong id="resOutput">0</strong>
+</div>
 </div>
 </div>
 
-<div class="btn-row">
-<button type="button" class="btn-calc" onclick="convertLength()">Convert Length</button>
-<button type="button" class="btn-reset" onclick="resetConverter()">Reset</button>
+<!-- UNIQUE MARKET-FIRST FEATURE: Cosmic Light-Speed & Earth Lap Simulator -->
+<div class="unique-section">
+<h3>✨ Unique Feature: Cosmic Light-Speed &amp; Earth Laps Simulator</h3>
+<p>Ever wondered how long it takes a beam of light to travel a specific distance, or how many times it wraps around Earth's equator? Enter any distance below to simulate cosmic travel times!</p>
+<div class="grid-3" style="margin-bottom:12px;">
+<div class="form-group" style="margin-bottom:0;">
+<label for="cosmicDist" style="color:#fff;">Distance Value</label>
+<input type="number" id="cosmicDist" value="40000" placeholder="e.g., 40000" style="background:#1E293B;color:#fff;border-color:#334155;">
+</div>
+<div class="form-group" style="margin-bottom:0;">
+<label for="cosmicUnit" style="color:#fff;">Unit</label>
+<select id="cosmicUnit" style="background:#1E293B;color:#fff;border-color:#334155;">
+<option value="1000" selected>Kilometers (km)</option>
+<option value="1">Meters (m)</option>
+<option value="1609.344">Miles (mi)</option>
+</select>
+</div>
+<div style="display:flex;align-items:flex-end;">
+<button type="button" id="calcCosmicBtn" style="width:100%;background:var(--emerald);color:#fff;border:none;padding:10px;border-radius:8px;font-weight:700;cursor:pointer;">Simulate Cosmic</button>
+</div>
+</div>
+<div id="cosmicResult" style="font-size:13px;color:var(--emerald);font-weight:bold;text-align:center;margin-top:10px;display:none;line-height:1.6;"></div>
 </div>
 
-<div class="result-display" id="resultDisplay">
-<div class="unit-highlight" aria-live="polite">
-<div class="main-val" id="convertedResultText">0.00</div>
-<div class="sub-val" id="conversionFormulaInfo">Converted Result</div>
-</div>
-<div class="ad-slot">Advertisement Space</div>
-</div>
 </div>
 
-<div class="privacy-badge">
-🔒 <strong>Privacy Assurance:</strong> Your conversion values are never sent or stored on remote servers. All calculations run securely within your browser.
-</div>
-</article>
+<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="content-section">
+<h2>Understanding Length and Distance Measurement Systems</h2>
+<p>Length and distance are foundational dimensions of physical space, utilized across engineering, architecture, navigation, surveying, and daily life. Throughout history, humanity has relied on spatial measurements to construct buildings, map territories, and trade goods. In modern times, global measurement standards are primarily divided into two major systems: the International System of Units (SI Metric System), which uses meters and kilometers, and the United States Customary System (USCS Imperial System), which utilizes feet, inches, yards, and miles. Translating values accurately between these disparate frameworks is vital for international collaboration and technical accuracy.</p>
 
-<section class="content-section">
-<h2>Comprehensive Guide to Length and Distance Conversions and Measurement Standards</h2>
-<p>Length and spatial distance measurements form the foundational bedrock of architecture, civil engineering, marine and aerospace navigation, global geography, athletics, and everyday household tasks. Throughout human history, various civilizations developed distinct, region-specific units to measure spatial dimensions, ranging from physical body references like feet, palms, and inches to highly standardized scientific benchmarks like the International Prototype of the Meter. Today, navigating seamlessly between the international metric system and imperial standards is an essential competency for scientists, engineers, contractors, students, and global travelers alike.</p>
+<p>Our online Length &amp; Distance Converter simplifies this workflow, allowing users to translate seamlessly between standard metric and imperial units instantly. Powered by pure client-side JavaScript algorithms, our tool guarantees immediate computation speeds without requiring software installations or server requests.</p>
 
-<p>Our professional SmartToolsKit Length & Distance Converter is engineered from the ground up to deliver instantaneous, mathematically precise conversions across all major global length and distance units. By executing all computations locally inside your web browser via optimized client-side JavaScript, our tool guarantees lightning-fast performance, zero server latency, and absolute data privacy protection.</p>
+<h2>Exploring Cosmic Distances and Light-Speed Travel</h2>
+<p>In addition to standard terrestrial conversions, our platform introduces an exclusive educational feature: the <strong>Cosmic Light-Speed &amp; Earth Laps Simulator</strong>. On Earth, distances measured in kilometers or miles can feel vast. However, on a cosmic scale, distance is measured by how long light takes to traverse the vacuum of space. Light travels at an astounding constant speed of approximately 299,792,458 meters per second ($299,792.458\text{ km/s}$).</p>
 
-<h2>Detailed Breakdown of Metric vs. Imperial Length Standards</h2>
-<p>To fully appreciate why efficient distance conversion tools are indispensable in modern life, it helps to understand the historical evolution and structural differences between the two dominant measurement frameworks:</p>
-<ul>
-<li><strong>The International Metric System (SI):</strong> Centered primarily around the meter and scaled logically by decimal powers of ten (including millimeters, centimeters, and kilometers), the metric system is universally adopted by global scientific communities, international trade networks, and modern national infrastructures. Its decimal nature eliminates complex fractions, making arithmetic scaling seamless.</li>
-<li><strong>The Imperial and US Customary Systems:</strong> Stemming from ancient British heritage and historical standards, units such as inches, feet, yards, rods, and miles remain deeply embedded in residential real estate, civil construction blueprints, highway signages, and consumer manufacturing across several major economies. Because these units do not scale by powers of ten, converting between them manually often introduces complex mathematical friction.</li>
-</ul>
+<p>For example, a distance of 40,000 kilometers is roughly equal to Earth's equatorial circumference. Our unique interactive simulator calculates not only how many times a given distance wraps around Earth's equator but also precisely how many microseconds, seconds, or minutes a beam of light requires to travel that exact span. This bridges terrestrial measurements with astrophysics, providing a captivating and educational experience for visitors.</p>
 
-<h2>Core Mathematical Formulas for Length Conversions</h2>
-<p>Every calculation processed by our conversion engine relies on strict, internationally verified mathematical constants and formulas to maintain elite professional accuracy across all digital devices:</p>
+<h2>The Mathematical Length Conversion Formulas</h2>
+<p>To compute standard linear conversions or verify architectural measurements manually, utilize the following core mathematical equations:</p>
 
 <div class="formula-box">
-1. Meters to Feet Formula:<br>
-Feet = Meters × 3.28084<br><br>
-2. Kilometers to Miles Formula:<br>
-Miles = Kilometers × 0.621371<br><br>
-3. Inches to Centimeters Formula:<br>
-Centimeters = Inches × 2.54<br><br>
-4. Yards to Meters Formula:<br>
-Meters = Yards × 0.9144
+<strong>Standard Length Conversion Formula:</strong>
+1. Converted Value = Input Value * (Source Unit Base Factor / Target Unit Base Factor)<br><br>
+<strong>Key Conversion Benchmarks:</strong>
+• 1 Inch = 2.54 Centimeters (0.0254 Meters)<br>
+• 1 Foot = 12 Inches (0.3048 Meters)<br>
+• 1 Yard = 3 Feet (0.9144 Meters)<br>
+• 1 Mile = 1,760 Yards (1,609.344 Meters)
 </div>
 
-<h2>Comprehensive Length Conversion Reference Matrix</h2>
-<p>The detailed reference matrix below outlines common baseline conversions and relative base ratios for popular global length units, serving as a handy reference guide for students and professionals:</p>
+<p>By applying these standardized mathematical equations, students, carpenters, and engineers can verify multi-unit spatial conversions with absolute precision.</p>
 
-<table class="data-table">
+<h2>Global Length &amp; Distance Reference Matrix</h2>
+<p>The table below outlines common length units and their respective metric base equivalents in meters:</p>
+
+<table class="content-table">
 <thead>
 <tr>
 <th>Unit Name</th>
-<th>Symbol / Abbreviation</th>
-<th>Measurement System</th>
-<th>Base Ratio (Relative to Meters)</th>
+<th>Symbol</th>
+<th>System</th>
+<th>Equivalent in Meters (m)</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Kilometer</td><td>km</td><td>Metric (SI)</td><td>1,000 meters</td></tr>
-<tr><td>Meter</td><td>m</td><td>Metric (SI)</td><td>1 meter (Base Unit)</td></tr>
-<tr><td>Centimeter</td><td>cm</td><td>Metric (SI)</td><td>0.01 meters</td></tr>
-<tr><td>Millimeter</td><td>mm</td><td>Metric (SI)</td><td>0.001 meters</td></tr>
-<tr><td>Mile</td><td>mi</td><td>Imperial / US</td><td>1,609.344 meters</td></tr>
-<tr><td>Yard</td><td>yd</td><td>Imperial / US</td><td>0.9144 meters</td></tr>
-<tr><td>Foot</td><td>ft</td><td>Imperial / US</td><td>0.3048 meters</td></tr>
-<tr><td>Inch</td><td>in</td><td>Imperial / US</td><td>0.0254 meters</td></tr>
+<tr>
+<td>Kilometer</td>
+<td>km</td>
+<td>Metric</td>
+<td>1,000 m</td>
+</tr>
+<tr>
+<td>Meter</td>
+<td>m</td>
+<td>Metric (Base)</td>
+<td>1 m</td>
+</tr>
+<tr>
+<td>Centimeter</td>
+<td>cm</td>
+<td>Metric</td>
+<td>0.01 m</td>
+</tr>
+<tr>
+<td>Millimeter</td>
+<td>mm</td>
+<td>Metric</td>
+<td>0.001 m</td>
+</tr>
+<tr>
+<td>Mile</td>
+<td>mi</td>
+<td>Imperial</td>
+<td>1,609.344 m</td>
+</tr>
+<tr>
+<td>Yard</td>
+<td>yd</td>
+<td>Imperial</td>
+<td>0.9144 m</td>
+</tr>
+<tr>
+<td>Foot</td>
+<td>ft</td>
+<td>Imperial</td>
+<td>0.3048 m</td>
+</tr>
+<tr>
+<td>Inch</td>
+<td>in</td>
+<td>Imperial</td>
+<td>0.0254 m</td>
+</tr>
 </tbody>
 </table>
 
-<h2>Practical Applications of Length Conversion in Daily Life</h2>
-<p>Length converters are utilized across countless professional and domestic scenarios. In interior design and home improvement, homeowners frequently need to convert room dimensions or furniture sizes from inches to centimeters or feet to meters to ensure perfect spatial fitting. In fitness and sports, tracking running distances or marathon milestones often requires converting miles into kilometers. Similarly, automotive engineering and navigation systems constantly translate speed and distance metrics between local regulatory standards.</p>
+<h2>How to Use the Length &amp; Distance Converter</h2>
+<p>Using our multi-purpose length conversion tool and cosmic simulator is straightforward, fast, and user-friendly:</p>
+<ul>
+<li><strong>Enter Distance Value:</strong> Input the numerical spatial quantity you wish to convert.</li>
+<li><strong>Select Units:</strong> Choose your starting unit ("From") and your desired target unit ("To") from the dropdown options.</li>
+<li><strong>Calculate &amp; Review:</strong> Click the conversion button to instantly view precise numerical results.</li>
+<li><strong>Explore Cosmic Speeds:</strong> Use our unique celestial simulator at the bottom to discover Earth lap counts and light-speed travel durations for any distance!</li>
+</ul>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. What length units are supported by this converter?</h3>
+<p>Our tool supports kilometers, meters, centimeters, millimeters, miles, yards, feet, and inches with instant bi-directional conversion.</p>
 
-<div class="faq-item">
-<h4>How do I convert meters to feet manually or digitally?</h4>
-<p>To convert meters to feet, multiply your length value in meters by the conversion factor 3.28084. Our automated online tool performs this calculation instantly as you type.</p>
+<h3>2. How does the Cosmic Light-Speed Simulator calculate travel time?</h3>
+<p>It divides your converted distance in meters by the universal speed of light ($299,792,458\text{ m/s}$) to compute exact traversal durations in seconds or milliseconds.</p>
+
+<h3>3. Are my spatial queries saved or tracked on external servers?</h3>
+<p>No. All computations run strictly inside your web browser client-side, ensuring complete data privacy and security.</p>
 </div>
-
-<div class="faq-item">
-<h4>What is the difference between metric and imperial length units?</h4>
-<p>Metric units (such as meters and centimeters) are structured logically around decimal multiples of ten, whereas imperial units (such as inches and miles) rely on traditional historical measurement standards.</p>
-</div>
-
-<div class="faq-item">
-<h4>Are the conversion calculations performed by this tool accurate?</h4>
-<p>Yes, all computations use internationally standardized mathematical conversion factors up to high decimal precision, ensuring professional-grade reliability.</p>
-</div>
-
-<div class="faq-item">
-<h4>Is my personal data or conversion input tracked or stored on external servers?</h4>
-<p>No. All calculations occur directly inside your web browser client-side, guaranteeing absolute privacy, confidentiality, and data safety with zero tracking.</p>
-</div>
-
-</section>
-
-</div>
-
 </main>
 
 <footer>
@@ -305,13 +325,12 @@ Meters = Yards × 0.9144
 <div class="footer-grid">
 <div>
 <h3>SmartToolsKit</h3>
-<p>Smart Tools. Simple Solutions. Free browser-based web tools designed to make everyday digital tasks faster and easier.</p>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
 </div>
 <div>
 <h3>Quick Links</h3>
 <div class="footer-links">
 <a href="../index.html">Home</a>
-<a href="../index.html#tools">Tools</a>
 <a href="../about.html">About Us</a>
 <a href="../contact.html">Contact Us</a>
 </div>
@@ -320,88 +339,98 @@ Meters = Yards × 0.9144
 <h3>Legal</h3>
 <div class="footer-links">
 <a href="../privacy-policy.html">Privacy Policy</a>
-<a href="../terms.html">Terms & Conditions</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
 <a href="../disclaimer.html">Disclaimer</a>
 </div>
 </div>
 </div>
-<div class="copyright">
-© 2026 SmartToolsKit. All rights reserved.
-</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
 </div>
 </footer>
 
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie">Got It</button>
+</div>
+
 <script>
-const lengthUnits = [
-  {name: 'Meters (m)', factor: 1},
-  {name: 'Kilometers (km)', factor: 1000},
-  {name: 'Centimeters (cm)', factor: 0.01},
-  {name: 'Millimeters (mm)', factor: 0.001},
-  {name: 'Inches (in)', factor: 0.0254},
-  {name: 'Feet (ft)', factor: 0.3048},
-  {name: 'Yards (yd)', factor: 0.9144},
-  {name: 'Miles (mi)', factor: 1609.344}
-];
+document.getElementById('calculateBtn').addEventListener('click', () => {
+  const val = parseFloat(document.getElementById('amount').value);
+  const fromFactor = parseFloat(document.getElementById('fromUnit').value);
+  const toFactor = parseFloat(document.getElementById('toUnit').value);
+  const fromText = document.getElementById('fromUnit').options[document.getElementById('fromUnit').selectedIndex].text;
+  const toText = document.getElementById('toUnit').options[document.getElementById('toUnit').selectedIndex].text;
+  const resultBox = document.getElementById('resultBox');
 
-function showError(msg){
-  const err = document.getElementById('errorMsg');
-  if(msg){
-    err.innerText = msg;
-    err.style.display = 'block';
-  } else {
-    err.style.display = 'none';
-  }
-}
-
-function initDropdowns(){
-  const fromSelect = document.getElementById('fromUnit');
-  const toSelect = document.getElementById('toUnit');
-  fromSelect.innerHTML = '';
-  toSelect.innerHTML = '';
-  lengthUnits.forEach((u, idx) => {
-    fromSelect.add(new Option(u.name, idx));
-    toSelect.add(new Option(u.name, idx));
-  });
-  if(lengthUnits.length > 1){ toSelect.selectedIndex = 5; }
-  convertLength();
-}
-
-function convertLength(){
-  const valInput = document.getElementById('inputValue').value;
-  const fromIdx = document.getElementById('fromUnit').value;
-  const toIdx = document.getElementById('toUnit').value;
-  
-  const val = parseFloat(valInput);
-  if(isNaN(val)){
-    showError('Please enter a valid number to convert.');
+  if (isNaN(val)) {
+    alert('Please enter a valid numerical distance value.');
     return;
   }
-  showError('');
-  
-  const baseVal = val * lengthUnits[fromIdx].factor;
-  const result = baseVal / lengthUnits[toIdx].factor;
-  
-  let decimals = (Math.abs(result) > 0 && Math.abs(result) < 0.01) ? 6 : 2;
-  document.getElementById('convertedResultText').innerText = result.toLocaleString('en-US', {maximumFractionDigits: decimals, minimumFractionDigits: 2}) + ' ' + lengthUnits[toIdx].name.split(' ')[0];
-  document.getElementById('conversionFormulaInfo').innerText = `${val} ${lengthUnits[fromIdx].name} = ${result.toFixed(decimals)} ${lengthUnits[toIdx].name}`;
-  document.getElementById('resultDisplay').style.display = 'block';
-}
 
-function resetConverter(){
-  document.getElementById('inputValue').value = '10';
-  document.getElementById('fromUnit').selectedIndex = 0;
-  document.getElementById('toUnit').selectedIndex = 5;
-  showError('');
-  convertLength();
-}
+  // Convert input to base meters, then to target unit
+  const metersInval = val * fromFactor;
+  const output = metersInval / toFactor;
 
-document.getElementById('inputValue').addEventListener('input', convertLength);
-document.getElementById('fromUnit').addEventListener('change', convertLength);
-document.getElementById('toUnit').addEventListener('change', convertLength);
+  document.getElementById('resInput').textContent = `${val} ${fromText}`;
+  document.getElementById('resOutput').textContent = `${output.toLocaleString('en-US', {maximumFractionDigits: 6})} ${toText}`;
+  resultBox.style.display = 'block';
+});
 
-window.onload = function(){
-  initDropdowns();
-};
+// Cosmic Light-Speed & Earth Laps Simulator logic
+document.getElementById('calcCosmicBtn').addEventListener('click', () => {
+  const distVal = parseFloat(document.getElementById('cosmicDist').value);
+  const unitFactor = parseFloat(document.getElementById('cosmicUnit').value);
+  const unitText = document.getElementById('cosmicUnit').options[document.getElementById('cosmicUnit').selectedIndex].text;
+  const resDiv = document.getElementById('cosmicResult');
+
+  if (isNaN(distVal) || distVal < 0) {
+    alert('Please enter a valid distance for cosmic simulation.');
+    return;
+  }
+
+  const meters = distVal * unitFactor;
+  const lightSpeed = 299792458; // meters per second
+  const earthCircumference = 40075000; // meters (equatorial)
+
+  const lightSeconds = meters / lightSpeed;
+  const earthLaps = meters / earthCircumference;
+
+  let timeString = '';
+  if (lightSeconds < 0.001) {
+    timeString = `${(lightSeconds * 1000000).toFixed(2)} microseconds`;
+  } else if (lightSeconds < 1) {
+    timeString = `${(lightSeconds * 1000).toFixed(2)} milliseconds`;
+  } else if (lightSeconds < 60) {
+    timeString = `${lightSeconds.toFixed(3)} seconds`;
+  } else if (lightSeconds < 3600) {
+    timeString = `${(lightSeconds / 60).toFixed(2)} minutes`;
+  } else {
+    timeString = `${(lightSeconds / 3600).toFixed(2)} hours`;
+  }
+
+  resDiv.innerHTML = `🌌 At <strong>${distVal} ${unitText}</strong>:<br>• Light travels this distance in about <strong>${timeString}</strong>!<br>• This equals approximately <strong>${earthLaps.toFixed(2)} laps</strong> around Earth's equator!`;
+  resDiv.style.display = 'block';
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('amount').value = '10';
+  document.getElementById('fromUnit').selectedIndex = 1; // km
+  document.getElementById('toUnit').selectedIndex = 0;   // m
+  document.getElementById('resultBox').  document.getElementById('resultBox').style.display = 'none';
+  document.getElementById('cosmicResult').style.display = 'none';
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieConsent').style.display = 'flex';
+  }
+});
+
+document.getElementById('acceptCookie').addEventListener('click', () => {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
 </script>
+
 </body>
 </html>
