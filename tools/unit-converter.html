@@ -3,120 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Universal Unit Converter - Length, Weight & Temperature | SmartToolsKit</title>
-<meta name="description" content="Free online Universal Unit Converter to convert length, weight, and temperature units instantly with accurate formulas and conversion reference tables.">
+<title>Free Universal Unit Converter & Planetary Weight Scaler | SmartToolsKit</title>
+<meta name="description" content="Use our free online Universal Unit Converter to convert length, mass, temperature, data, and speed instantly. Includes a unique planetary gravity weight calculator.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/unit-converter.html">
 <meta name="theme-color" content="#0F172A">
 
-<style>
-:root{
---navy:#0F172A;
---navy-light:#1E293B;
---emerald:#10B981;
---emerald-dark:#059669;
---teal:#14B8A6;
---background:#F8FAFC;
---white:#FFF;
---text:#0F172A;
---muted:#64748B;
---border:#E2E8F0;
---soft:#F1F5F9;
---shadow:0 10px 30px rgba(15,23,42,.07);
---radius:16px
-}
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/unit-converter.html">
+<meta property="og:title" content="Free Universal Unit Converter & Planetary Weight Scaler | SmartToolsKit">
+<meta property="og:description" content="Convert physical units accurately and explore your weight across different planets with our unique celestial gravity scaler.">
 
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Universal Unit Converter",
+    "item": "https://smarttoolskit.com/tools/unit-converter.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.5}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
 button,input,select{font-family:inherit}
-
 .container{width:min(1120px,92%);margin:auto}
-
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
 .logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
 .logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
-
 nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
-.breadcrumb a{color:var(--emerald-dark);font-weight:600}
+.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
 
-.tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
 
-.tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
-.tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
-.tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 
-.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:25px}
+.btn-group{display:flex;gap:10px;margin-top:10px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;flex:2;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.reset-btn{background:var(--soft);color:var(--navy);border:1px solid var(--border);flex:1;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
+.reset-btn:hover{background:var(--border)}
 
-.form-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:18px}
-@media(max-width:768px){.form-grid{grid-template-columns:1fr}}
-.form-group{margin-bottom:10px}
-.form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
-.form-group input,.form-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff}
-.form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
 
-.btn-row{display:flex;gap:12px;margin-top:20px;grid-column:1/-1}
-.btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
-.btn-calc:hover{background:var(--emerald-dark)}
-.btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
-.btn-reset:hover{background:#CBD5E1}
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
+.result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:center}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
+.stat-card span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700}
+.stat-card strong{font-size:16px;color:var(--emerald-dark)}
 
-.result-display{margin-top:25px;display:block}
-.unit-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
-.unit-highlight .main-val{font-size:32px;font-weight:800;color:#34D399;margin-bottom:6px}
-.unit-highlight .sub-val{font-size:14px;color:#CBD5E1}
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
 
-.ad-slot{background:#F1F5F9;border:2px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:13px;margin:25px 0}
-.error-msg{background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;padding:12px;border-radius:8px;font-size:14px;margin-bottom:15px;display:none}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
 
-.privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
-.content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
-.content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
-.content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
-.content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
-.content-section li{margin-bottom:8px}
+.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
+.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
+.content-table td{color:#475569}
 
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
-
-.data-table{width:100%;border-collapse:collapse;margin:20px 0}
-.data-table th,.data-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;font-size:13px}
-.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
-
-.faq-item{border-bottom:1px solid var(--border);padding:18px 0}
-.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
-.faq-item p{margin-bottom:0}
-
-footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
 
-@media(max-width:768px){
-.tool-card-main,.content-section{padding:22px}
-}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 </style>
 </head>
-
 <body>
 
 <header>
 <div class="container nav">
-<a href="../index.html" class="logo">
-<span class="logo-shape"></span>
-SmartToolsKit
-</a>
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
 <nav>
 <a href="../index.html#categories">Categories</a>
 <a href="../index.html#tools">Tools</a>
@@ -127,142 +122,189 @@ SmartToolsKit
 </header>
 
 <main class="container">
-
-<div class="breadcrumb">
-<a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / Universal Unit Converter
-</div>
-
-<div class="tool-layout">
-
-<article class="tool-card-main">
+<div class="tool-container">
 <h1>Universal Unit Converter</h1>
-<p class="subtitle">Convert measurements across length, weight, and temperature units instantly with high precision.</p>
+<p class="subtitle">Convert seamlessly between length, mass, temperature, data storage, and speed units instantly.</p>
 
-<div class="calc-box">
-<div class="error-msg" id="errorMsg"></div>
-
-<div class="form-grid">
-<div class="form-group" style="grid-column: 1/-1;">
-<label for="category">Measurement Category:</label>
+<div class="form-group">
+<label for="category">Select Conversion Category</label>
 <select id="category">
-<option value="length" selected>Length (Distance)</option>
-<option value="weight">Weight (Mass)</option>
-<option value="temperature">Temperature</option>
+<option value="length">Length &amp; Distance</option>
+<option value="mass">Mass &amp; Weight</option>
+<option value="temp">Temperature</option>
+<option value="data">Digital Data Storage</option>
+<option value="speed">Speed &amp; Velocity</option>
 </select>
 </div>
 
+<div class="grid-3">
 <div class="form-group">
-<label for="inputValue">Value to Convert:</label>
-<input type="number" id="inputValue" placeholder="e.g. 10" value="10">
+<label for="amount">Value</label>
+<input type="number" step="any" id="amount" value="1" placeholder="e.g., 1">
 </div>
-
 <div class="form-group">
-<label for="fromUnit">From Unit:</label>
-<select id="fromUnit"></select>
+<label for="fromUnit">From Unit</label>
+<select id="fromUnit">
+<!-- Populated dynamically -->
+</select>
 </div>
-
-<div class="form-group" style="grid-column: 1/-1;">
-<label for="toUnit">To Unit:</label>
-<select id="toUnit"></select>
-</div>
-</div>
-
-<div class="btn-row">
-<button type="button" class="btn-calc" onclick="convertUnits()">Convert Units</button>
-<button type="button" class="btn-reset" onclick="resetConverter()">Reset</button>
-</div>
-
-<div class="result-display" id="resultDisplay">
-<div class="unit-highlight" aria-live="polite">
-<div class="main-val" id="convertedResultText">0.00</div>
-<div class="sub-val" id="conversionFormulaInfo">Converted Result</div>
-</div>
-<div class="ad-slot">Advertisement Space</div>
+<div class="form-group">
+<label for="toUnit">To Unit</label>
+<select id="toUnit">
+<!-- Populated dynamically -->
+</select>
 </div>
 </div>
 
-<div class="privacy-badge">
-🔒 <strong>Privacy Assurance:</strong> Your conversion values are never sent or stored on remote servers. All calculations run securely within your browser.
+<div class="btn-group">
+<button type="button" class="calc-btn" id="calculateBtn">Convert Units</button>
+<button type="button" class="reset-btn" id="resetBtn">Reset</button>
 </div>
-</article>
 
-<section class="content-section">
-<h2>Comprehensive Guide to Universal Unit Conversions and Measurement Standards</h2>
-<p>In our increasingly interconnected global society, different regions, scientific disciplines, and industrial sectors rely heavily on diverse measurement systems. While most scientific laboratories, international trade networks, and modern nations utilize the metric system, everyday commerce, residential construction, culinary arts, and regional practices frequently employ imperial or traditional measurement units. Bridging this communication gap requires highly reliable, lightning-fast, and mathematically precise conversion tools. Whether you are traveling internationally, studying physics, cooking from foreign recipes, or drafting engineering blueprints, converting units accurately is absolute paramount.</p>
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All computations execute securely inside your local browser. No data is stored or transmitted to external servers.
+</div>
 
-<p>Our professional SmartToolsKit Universal Unit Converter is expertly engineered to handle multiple physical dimensions—including length, mass weight, and thermal temperature—with absolute mathematical precision. By executing all calculations locally within your web browser client-side, our tool guarantees instant results without server latency, bandwidth overhead, or any data exposure risks.</p>
+<div class="result-box" id="resultBox">
+<h3>Conversion Result</h3>
+<div class="stats-grid">
+<div class="stat-card">
+<span>Input Value</span>
+<strong id="resInput">0</strong>
+</div>
+<div class="stat-card">
+<span>Converted Output</span>
+<strong id="resOutput">0</strong>
+</div>
+</div>
+</div>
 
-<h2>Understanding Global Measurement Frameworks: Metric vs. Imperial</h2>
-<p>The two dominant measurement standards governing modern human activity are the International System of Units (commonly known as the SI metric system) and the historical Imperial system:</p>
-<ul>
-<li><strong>The International Metric System:</strong> Established logically on decimal scaling powers of ten, the metric system encompasses standardized units such as meters for linear distance, kilograms for mass weight, and liters for volumetric capacity. Its elegant scaling structure makes scientific, engineering, and mathematical computations seamless across scales.</li>
-<li><strong>The Imperial Measurement System:</strong> Stemming from British traditional heritage standards, imperial units utilize historical physical references such as inches, feet, yards, miles, pounds, and ounces. Although less mathematically uniform than base-ten systems, these units remain deeply embedded in daily consumer applications, real estate, and manufacturing across several economies.</li>
-</ul>
+<!-- UNIQUE MARKET-FIRST FEATURE: Planetary Gravity Weight Scaler -->
+<div class="unique-section">
+<h3>🚀 Unique Feature: Planetary Gravity Weight Scaler</h3>
+<p>Ever wondered how much you would weigh on Mars, Jupiter, or the Moon? Enter your Earth weight below to calculate your celestial weight across different planets!</p>
+<div class="grid-3" style="margin-bottom:12px;">
+<div class="form-group" style="margin-bottom:0;">
+<label for="earthWeight" style="color:#fff;">Earth Weight (kg)</label>
+<input type="number" id="earthWeight" value="70" placeholder="e.g., 70" style="background:#1E293B;color:#fff;border-color:#334155;">
+</div>
+<div class="form-group" style="margin-bottom:0;">
+<label for="planetSelect" style="color:#fff;">Target Celestial Body</label>
+<select id="planetSelect" style="background:#1E293B;color:#fff;border-color:#334155;">
+<option value="0.166">Moon (0.16g)</option>
+<option value="0.38">Mars (0.38g)</option>
+<option value="0.91">Venus (0.91g)</option>
+<option value="0.38">Mercury (0.38g)</option>
+<option value="2.34">Jupiter (2.34g)</option>
+<option value="1.06">Saturn (1.06g)</option>
+<option value="0.92">Uranus (0.92g)</option>
+<option value="1.19">Neptune (1.19g)</option>
+<option value="27.9">The Sun (27.9g)</option>
+</select>
+</div>
+<div style="display:flex;align-items:flex-end;">
+<button type="button" id="calcPlanetBtn" style="width:100%;background:var(--emerald);color:#fff;border:none;padding:10px;border-radius:8px;font-weight:700;cursor:pointer;">Calculate Weight</button>
+</div>
+</div>
+<div id="planetResult" style="font-size:14px;color:var(--emerald);font-weight:bold;text-align:center;margin-top:8px;display:none;"></div>
+</div>
 
-<h2>Core Conversion Mathematical Formulas Explained</h2>
-<p>Every calculation executed by our universal converter relies on strict, verified mathematical constants and formulas to maintain elite professional accuracy:</p>
+</div>
+
+<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="content-section">
+<h2>Understanding Universal Unit Conversion Systems</h2>
+<p>Unit conversion is a fundamental mathematical process utilized across science, engineering, international commerce, culinary arts, and daily digital activities. Throughout human history, civilizations developed distinct measurement standards, ranging from ancient imperial cubits to modern standardized metrics. Today, the world primarily operates between two primary measurement frameworks: the International System of Units (SI / Metric System) and the United States Customary System (USCS / Imperial System). Because global communication and scientific research require absolute precision, reliable unit conversion tools are indispensable for translating values accurately.</p>
+
+<p>Our online Universal Unit Converter bridges this gap by enabling users to convert instantly between multiple physical and digital measurement categories, including length, mass, temperature, data storage, and velocity. Powered by pure client-side algorithms, our utility guarantees lightning-fast calculation speeds without requiring software downloads or network latency.</p>
+
+<h2>Exploring Celestial Body Weights and Planetary Gravity</h2>
+<p>Beyond standard physical unit conversions, our platform introduces an exclusive educational feature: the <strong>Planetary Gravity Weight Scaler</strong>. While your actual body mass (measured in kilograms or pounds) remains constant regardless of where you travel in the universe, your weight is fundamentally a measure of gravitational force acting upon your mass. Because every celestial body possesses a distinct mass and radius, gravitational pull ($g$) varies dramatically across our solar system.</p>
+
+<p>For instance, Mars exhibits a surface gravity roughly 38% of Earth's pull, meaning an individual weighing 70 kg on Earth would weigh approximately 26.6 kg on the Martian surface. Conversely, gas giants like Jupiter exert immense gravitational forces, multiplying human weight by a factor of 2.34. Our interactive celestial scaler calculates these precise gravitational differentials instantly, merging astrophysics with practical utility to enhance user engagement and provide unique content value.</p>
+
+<h2>The Mathematical Conversion and Scaling Formulas</h2>
+<p>To compute standard unit conversions or verify scientific calculations manually, utilize the following core mathematical equations:</p>
 
 <div class="formula-box">
-1. Length Conversion (Meters to Feet):<br>
-Feet = Meters * 3.28084<br><br>
-2. Weight Conversion (Kilograms to Pounds):<br>
-Pounds = Kilograms * 2.20462<br><br>
-3. Thermal Temperature Conversion (Celsius to Fahrenheit):<br>
-Fahrenheit = (Celsius * 9/5) + 32
+<strong>Standard Linear &amp; Mass Scaling Formula:</strong>
+1. Converted Value = Input Value * (Source Unit Base Factor / Target Unit Base Factor)<br><br>
+<strong>Temperature Conversion Formulas:</strong>
+1. Fahrenheit to Celsius (°C) = (°F - 32) * (5 / 9)<br>
+2. Celsius to Fahrenheit (°F) = (°C * 9 / 5) + 32<br>
+3. Celsius to Kelvin (K) = °C + 273.15<br><br>
+<strong>Planetary Gravity Weight Formula:</strong>
+1. Celestial Weight = Earth Weight * Planetary Surface Gravity Multiplier
 </div>
 
-<h2>Standard Conversion Reference Matrix</h2>
-<p>The comprehensive data table below details common baseline conversions between popular metric and imperial measurement units for quick referencing:</p>
+<p>By applying these standardized mathematical equations, students, engineers, and researchers can seamlessly verify multi-unit conversions with absolute confidence.</p>
 
-<table class="data-table">
+<h2>Global Measurement Reference Matrix</h2>
+<p>The table below outlines common conversion reference factors relative to standard base units across popular categories:</p>
+
+<table class="content-table">
 <thead>
 <tr>
 <th>Category</th>
 <th>From Unit</th>
 <th>To Unit</th>
-<th>Standard Conversion Factor</th>
+<th>Multiplication Factor</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Length</td><td>1 Meter (m)</td><td>Feet (ft)</td><td>3.28084 ft</td></tr>
-<tr><td>Length</td><td>1 Kilometer (km)</td><td>Miles (mi)</td><td>0.621371 mi</td></tr>
-<tr><td>Length</td><td>1 Inch (in)</td><td>Centimeters (cm)</td><td>2.54 cm</td></tr>
-<tr><td>Weight</td><td>1 Kilogram (kg)</td><td>Pounds (lbs)</td><td>2.20462 lbs</td></tr>
-<tr><td>Weight</td><td>1 Gram (g)</td><td>Ounces (oz)</td><td>0.035274 oz</td></tr>
-<tr><td>Temperature</td><td>0°C</td><td>Fahrenheit</td><td>32°F</td></tr>
+<tr>
+<td>Length</td>
+<td>1 Kilometer (km)</td>
+<td>Meters (m)</td>
+<td>1,000 m</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>1 Mile (mi)</td>
+<td>Kilometers (km)</td>
+<td>1.60934 km</td>
+</tr>
+<tr>
+<td>Mass</td>
+<td>1 Kilogram (kg)</td>
+<td>Pounds (lbs)</td>
+<td>2.20462 lbs</td>
+</tr>
+<tr>
+<td>Data Storage</td>
+<td>1 Gigabyte (GB)</td>
+<td>Megabytes (MB)</td>
+<td>1,024 MB</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>1 Mile per Hour (mph)</td>
+<td>Kilometers per Hour (km/h)</td>
+<td>1.60934 km/h</td>
+</tr>
 </tbody>
 </table>
 
+<h2>How to Use the Universal Unit Converter &amp; Celestial Scaler</h2>
+<p>Using our multi-purpose unit conversion tool and planetary weight calculator is straightforward, fast, and user-friendly:</p>
+<ul>
+<li><strong>Select Category:</strong> Choose your desired measurement category (Length, Mass, Temperature, Data, or Speed) from the dropdown menu.</li>
+<li><strong>Enter Value:</strong> Input the numerical quantity you wish to convert.</li>
+<li><strong>Choose Units:</strong> Select your starting unit ("From") and your desired output unit ("To").</li>
+<li><strong>Calculate &amp; Review:</strong> Click the conversion button to instantly view precise numerical results.</li>
+<li><strong>Explore Planetary Weights:</strong> Use our unique celestial gravity scaler at the bottom to discover your weight on Mars, Jupiter, or the Moon!</li>
+</ul>
+
 <h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. What measurement categories does this converter support?</h3>
+<p>Our tool supports length, mass, temperature, digital data storage, and velocity, along with our unique celestial planetary weight calculator.</p>
 
-<div class="faq-item">
-<h4>How does the Universal Unit Converter function?</h4>
-<p>The unit converter applies standard mathematical conversion factors to convert input measurements between metric and imperial units instantly and reliably.</p>
+<h3>2. How does the Planetary Gravity Weight Scaler work?</h3>
+<p>It multiplies your input Earth mass by the relative surface gravity multiplier of target celestial bodies such as Mars, Jupiter, or the Moon.</p>
+
+<h3>3. Are my conversion queries saved or tracked?</h3>
+<p>No. All computations run strictly inside your web browser client-side, ensuring complete data privacy and security.</p>
 </div>
-
-<div class="faq-item">
-<h4>What unit measurement categories are currently supported?</h4>
-<p>The tool supports length/distance, weight/mass, and temperature measurements with popular global operational units.</p>
-</div>
-
-<div class="faq-item">
-<h4>How do you convert Celsius to Fahrenheit manually?</h4>
-<p>To convert Celsius to Fahrenheit, multiply the temperature value by 9/5 and add 32 to the resulting product.</p>
-</div>
-
-<div class="faq-item">
-<h4>What is the fundamental difference between metric and imperial units?</h4>
-<p>Metric units are structured around decimal powers of ten, whereas imperial units rely on traditional historical measurement scales.</p>
-</div>
-
-<div class="faq-item">
-<h4>Is my conversion data tracked or stored on external servers?</h4>
-<p>No. All calculations run securely within your web browser client-side, ensuring complete privacy, confidentiality, and data safety.</p>
-</div>
-</section>
-
-</div>
-
 </main>
 
 <footer>
@@ -270,13 +312,12 @@ Fahrenheit = (Celsius * 9/5) + 32
 <div class="footer-grid">
 <div>
 <h3>SmartToolsKit</h3>
-<p>Smart Tools. Simple Solutions. Free browser-based web tools designed to make everyday digital tasks faster and easier.</p>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
 </div>
 <div>
 <h3>Quick Links</h3>
 <div class="footer-links">
 <a href="../index.html">Home</a>
-<a href="../index.html#tools">All Tools</a>
 <a href="../about.html">About Us</a>
 <a href="../contact.html">Contact Us</a>
 </div>
@@ -285,16 +326,19 @@ Fahrenheit = (Celsius * 9/5) + 32
 <h3>Legal</h3>
 <div class="footer-links">
 <a href="../privacy-policy.html">Privacy Policy</a>
-<a href="../terms.html">Terms & Conditions</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
 <a href="../disclaimer.html">Disclaimer</a>
 </div>
 </div>
 </div>
-<div class="copyright">
-© 2026 SmartToolsKit. All rights reserved.
-</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
 </div>
 </footer>
+
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie">Got It</button>
+</div>
 
 <script>
 const unitsData = {
@@ -303,98 +347,128 @@ const unitsData = {
     {name: 'Kilometers (km)', factor: 1000},
     {name: 'Centimeters (cm)', factor: 0.01},
     {name: 'Millimeters (mm)', factor: 0.001},
-    {name: 'Inches (in)', factor: 0.0254},
-    {name: 'Feet (ft)', factor: 0.3048},
+    {name: 'Miles (mi)', factor: 1609.344},
     {name: 'Yards (yd)', factor: 0.9144},
-    {name: 'Miles (mi)', factor: 1609.344}
+    {name: 'Feet (ft)', factor: 0.3048},
+    {name: 'Inches (in)', factor: 0.0254}
   ],
-  weight: [
+  mass: [
     {name: 'Kilograms (kg)', factor: 1},
     {name: 'Grams (g)', factor: 0.001},
     {name: 'Milligrams (mg)', factor: 0.000001},
-    {name: 'Pounds (lbs)', factor: 0.45359237},
-    {name: 'Ounces (oz)', factor: 0.028349523125},
-    {name: 'Metric Ton (t)', factor: 1000}
+    {name: 'Metric Tons (t)', factor: 1000},
+    {name: 'Pounds (lbs)', factor: 0.453592},
+    {name: 'Ounces (oz)', factor: 0.0283495}
   ],
-  temperature: [
-    {name: 'Celsius (°C)', factor: 'C'},
-    {name: 'Fahrenheit (°F)', factor: 'F'},
-    {name: 'Kelvin (K)', factor: 'K'}
+  temp: [
+    {name: 'Celsius (°C)', factor: 'celsius'},
+    {name: 'Fahrenheit (°F)', factor: 'fahrenheit'},
+    {name: 'Kelvin (K)', factor: 'kelvin'}
+  ],
+  data: [
+    {name: 'Bytes (B)', factor: 1},
+    {name: 'Kilobytes (KB)', factor: 1024},
+    {name: 'Megabytes (MB)', factor: 1048576},
+    {name: 'Gigabytes (GB)', factor: 1073741824},
+    {name: 'Terabytes (TB)', factor: 1099511627776}
+  ],
+  speed: [
+    {name: 'Meters per second (m/s)', factor: 1},
+    {name: 'Kilometers per hour (km/h)', factor: 0.277778},
+    {name: 'Miles per hour (mph)', factor: 0.44704},
+    {name: 'Knots (kn)', factor: 0.514444}
   ]
 };
 
-function showError(msg){
-  const err = document.getElementById('errorMsg');
-  if(msg){
-    err.innerText = msg;
-    err.style.display = 'block';
-  } else {
-    err.style.display = 'none';
-  }
-}
+const categorySelect = document.getElementById('category');
+const fromUnitSelect = document.getElementById('fromUnit');
+const toUnitSelect = document.getElementById('toUnit');
 
-function updateUnits(){
-  const cat = document.getElementById('category').value;
-  const fromSelect = document.getElementById('fromUnit');
-  const toSelect = document.getElementById('toUnit');
-  fromSelect.innerHTML = '';
-  toSelect.innerHTML = '';
-  const list = unitsData[cat];
-  list.forEach((u, idx) => {
-    fromSelect.add(new Option(u.name, idx));
-    toSelect.add(new Option(u.name, idx));
+function populateUnits() {
+  const cat = categorySelect.value;
+  const units = unitsData[cat];
+  
+  let html = '';
+  units.forEach((u, index) => {
+    html += `<option value="${index}">${u.name}</option>`;
   });
-  if(list.length > 1){ toSelect.selectedIndex = 1; }
-  convertUnits();
+  
+  fromUnitSelect.innerHTML = html;
+  toUnitSelect.innerHTML = html;
+  if(units.length > 1) toUnitSelect.selectedIndex = 1;
 }
 
-function convertUnits(){
-  const cat = document.getElementById('category').value;
-  const valInput = document.getElementById('inputValue').value;
-  const fromIdx = document.getElementById('fromUnit').value;
-  const toIdx = document.getElementById('toUnit').value;
-  const val = parseFloat(valInput);
-  if(isNaN(val)){
-    showError('Please enter a valid number to convert.');
+categorySelect.addEventListener('change', populateUnits);
+
+document.getElementById('calculateBtn').addEventListener('click', () => {
+  const cat = categorySelect.value;
+  const val = parseFloat(document.getElementById('amount').value);
+  const fromIdx = parseInt(fromUnitSelect.value);
+  const toIdx = parseInt(toUnitSelect.value);
+  const resultBox = document.getElementById('resultBox');
+
+  if (isNaN(val)) {
+    alert('Please enter a valid numerical value.');
     return;
   }
-  showError('');
-  const list = unitsData[cat];
-  let result = 0;
-  if(cat === 'temperature'){
-    let celsiusVal = val;
-    if(fromIdx == 1){ celsiusVal = (val - 32) * 5 / 9; }
-    else if(fromIdx == 2){ celsiusVal = val - 273.15; }
-    if(toIdx == 0){ result = celsiusVal; }
-    else if(toIdx == 1){ result = (celsiusVal * 9 / 5) + 32; }
-    else if(toIdx == 2){ result = celsiusVal + 273.15; }
+
+  const units = unitsData[cat];
+  let output = 0;
+
+  if (cat === 'temp') {
+    let celsius = val;
+    if (fromIdx === 1) celsius = (val - 32) * 5/9;
+    if (fromIdx === 2) celsius = val - 273.15;
+
+    if (toIdx === 0) output = celsius;
+    if (toIdx === 1) output = (celsius * 9/5) + 32;
+    if (toIdx === 2) output = celsius + 273.15;
   } else {
-    const baseVal = val * list[fromIdx].factor;
-    result = baseVal / list[toIdx].factor;
+    const baseValue = val * units[fromIdx].factor;
+    output = baseValue / units[toIdx].factor;
   }
-  let decimals = (Math.abs(result) > 0 && Math.abs(result) < 0.01) ? 6 : 2;
-  document.getElementById('convertedResultText').innerText = result.toLocaleString('en-US', {maximumFractionDigits: decimals, minimumFractionDigits: 2}) + ' ' + list[toIdx].name.split(' ')[0];
-  document.getElementById('conversionFormulaInfo').innerText = `${val} ${list[fromIdx].name} = ${result.toFixed(decimals)} ${list[toIdx].name}`;
-  document.getElementById('resultDisplay').style.display = 'block';
-}
 
-function resetConverter(){
-  document.getElementById('category').value = 'length';
-  updateUnits();
-  document.getElementById('inputValue').value = '10';
-  showError('');
-  convertUnits();
-}
+  document.getElementById('resInput').textContent = `${val} ${units[fromIdx].name}`;
+  document.getElementById('resOutput').textContent = `${output.toLocaleString('en-US', {maximumFractionDigits: 6})} ${units[toIdx].name}`;
+  resultBox.style.display = 'block';
+});
 
-document.getElementById('category').addEventListener('change', updateUnits);
-document.getElementById('inputValue').addEventListener('input', convertUnits);
-document.getElementById('fromUnit').addEventListener('change', convertUnits);
-document.getElementById('toUnit').addEventListener('change', convertUnits);
+document.getElementById('calcPlanetBtn').addEventListener('click', () => {
+  const wt = parseFloat(document.getElementById('earthWeight').value);
+  const mult = parseFloat(document.getElementById('planetSelect').value);
+  const planetName = document.getElementById('planetSelect').options[document.getElementById('planetSelect').selectedIndex].text;
+  const resDiv = document.getElementById('planetResult');
 
-window.onload = function(){
-  updateUnits();
-};
+  if (isNaN(wt) || wt <= 0) {
+    alert('Please enter a valid Earth weight.');
+    return;
+  }
+
+  const celestialWeight = (wt * mult).toFixed(2);
+  resDiv.textContent = `🪐 Your weight on the ${planetName} would be approximately ${celestialWeight} kg!`;
+  resDiv.style.display = 'block';
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('amount').value = '1';
+  categorySelect.selectedIndex = 0;
+  populateUnits();
+  document.getElementById('resultBox').style.display = 'none';
+  document.getElementById('planetResult').style.display = 'none';
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  populateUnits();
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieConsent').style.display = 'flex';
+  }
+});
+
+document.getElementById('acceptCookie').addEventListener('click', () => {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
 </script>
+
 </body>
-  </html>
-  
+</html>
