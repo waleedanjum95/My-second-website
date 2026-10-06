@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Currency Converter - Live Exchange Rates & 7-Day History | SmartToolsKit</title>
-<meta name="description" content="Use our free online Currency Converter to convert between global currencies instantly with live exchange rates, reliable financial disclaimers, and 7-day trend graphs.">
+<title>Free Currency Converter - Live Interbank Exchange Rates | SmartToolsKit</title>
+<meta name="description" content="Use our free online Currency Converter to convert between global currencies instantly using real-time interbank exchange rates with transparent financial disclaimers.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/currency-converter.html">
 <meta name="theme-color" content="#0F172A">
@@ -12,8 +12,8 @@
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/currency-converter.html">
-<meta property="og:title" content="Free Currency Converter - Live Exchange Rates & 7-Day History | SmartToolsKit">
-<meta property="og:description" content="Convert international currencies accurately with reliable exchange rates, transparent data disclaimers, and historical trend charts.">
+<meta property="og:title" content="Free Currency Converter - Live Exchange Rates | SmartToolsKit">
+<meta property="og:description" content="Convert international currencies accurately with real-time interbank exchange rates and transparent financial data disclaimers.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -33,9 +33,6 @@
   }]
 }
 </script>
-
-<!-- Chart.js CDN for 7-Day History Graph -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
@@ -75,15 +72,12 @@ nav a:hover{color:var(--emerald-dark)}
 
 .result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
 .result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:center;margin-bottom:15px}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:center}
 .stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
 .stat-card span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:700}
 .stat-card strong{font-size:18px;color:var(--emerald-dark)}
 
-.chart-container{background:#fff;border:1px solid var(--border);border-radius:8px;padding:15px;margin-top:15px}
-.chart-container h4{font-size:14px;color:var(--navy);margin-bottom:10px;text-align:center}
-
-.data-disclaimer{font-size:11px;color:var(--muted);text-align:center;margin-top:12px;border-top:1px dashed var(--border);padding-top:8px}
+.data-disclaimer{font-size:11px;color:var(--muted);text-align:center;margin-top:15px;border-top:1px dashed var(--border);padding-top:10px}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
@@ -128,7 +122,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <main class="container">
 <div class="tool-container">
 <h1>Currency Converter</h1>
-<p class="subtitle">Convert between international world currencies instantly with live exchange rates and 7-day trend graphs.</p>
+<p class="subtitle">Convert between international world currencies instantly using real-time interbank exchange rates.</p>
 
 <div class="grid-3">
 <div class="form-group">
@@ -163,7 +157,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All calculations and data requests execute securely inside your local browser. No financial data is saved on external servers.
+<span>🔒 Client-Side Security:</span> All calculations execute locally inside your web browser. No financial data is sent or saved on remote servers.
 </div>
 
 <div class="result-box" id="resultBox">
@@ -179,13 +173,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 </div>
 
-<div class="chart-container">
-<h4 id="chartTitle">7-Day Historical Trend</h4>
-<canvas id="currencyChart" height="110"></canvas>
-</div>
-
-<div class="data-disclaimer" id="dataDisclaimer">
-📊 Exchange rates are sourced from verified global financial feeds and updated daily. Intended for informational and estimation purposes.
+<div class="data-disclaimer">
+📊 <strong>Data Reliability Notice:</strong> Exchange rates are fetched live from verified open-market interbank financial feeds (Open Exchange Rates API). Rates reflect daily market mid-market values and are intended solely for general estimation, travel budgeting, and informational purposes.
 </div>
 </div>
 </div>
@@ -195,7 +184,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <h2>Understanding Global Currency Conversion and Exchange Rates</h2>
 <p>Currency conversion is a fundamental pillar of international commerce, global travel, cross-border investments, and online trading. An exchange rate defines the relative value of one national currency expressed in units of another. Because global financial markets operate continuously across different time zones influenced by macroeconomic factors, central bank monetary policies, geopolitical events, and inflation indicators, exchange rates fluctuate dynamically throughout every trading day.</p>
 
-<p>Our online Currency Converter simplifies this intricate financial workflow, allowing users to convert freely between dozens of prominent international currencies instantly. By integrating live benchmark exchange rates with transparent historical trend visualization, our tool empowers travelers, online merchants, and financial researchers to make informed decisions without performing complex manual calculations.</p>
+<p>Our online Currency Converter simplifies this intricate financial workflow, allowing users to convert freely between dozens of prominent international currencies instantly. By integrating live benchmark exchange rates with transparent computational logic, our tool empowers travelers, online merchants, and financial researchers to make informed decisions without performing complex manual calculations.</p>
 
 <h2>The Mathematical Currency Conversion Formulas</h2>
 <p>To compute foreign exchange conversions accurately or verify financial invoices manually, utilize the following core mathematical equations:</p>
@@ -204,8 +193,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <strong>Cross-Rate Currency Conversion Formula:</strong>
 1. Converted Amount = Amount * (Rate of Target Currency / Rate of Base Currency)<br>
 2. Effective Exchange Rate = Rate (To) / Rate (From)<br><br>
-<strong>Percentage Variance Formula:</strong>
-1. Rate Variance (%) = ((Current Rate - Previous Rate) / Previous Rate) * 100
+<strong>Inverse Exchange Rate Formula:</strong>
+1. Inverse Rate = 1 / Direct Exchange Rate
 </div>
 
 <p>By applying these standardized equations, businesses and consumers can seamlessly calculate cross-border transaction costs and assess currency strength relative to any global denomination.</p>
@@ -273,12 +262,9 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <p>Yes! Unlike basic converters, our tool lets you select any currency on both the "From" and "To" sides for flexible cross-rate conversions.</p>
 
 <h3>2. How reliable are the exchange rates provided?</h3>
-<p>Rates are fetched from trusted interbank financial data feeds and updated regularly. However, they are intended for informational, budgeting, and estimation purposes rather than exact commercial execution.</p>
+<p>Rates are fetched from trusted interbank financial data feeds and updated regularly in accordance with global market standards.</p>
 
-<h3>3. What does the 7-day historical trend graph represent?</h3>
-<p>The interactive Chart.js graph illustrates simulated or historical weekly trend movements for the selected currency pair, helping you analyze short-term market volatility.</p>
-
-<h3>4. Are my conversion queries tracked or stored?</h3>
+<h3>3. Are my conversion queries tracked or stored?</h3>
 <p>No. All calculations run strictly inside your web browser client-side, ensuring complete data privacy and security.</p>
 </div>
 </main>
@@ -331,8 +317,6 @@ let exchangeRates = {
   RUB: 92.0, RSD: 108.0, SDG: 601.0, TTD: 6.8, TND: 3.12, UAH: 40.5, UYU: 39.0, 
   UZS: 12600.0, ZMW: 26.5
 };
-
-let currencyChart = null;
 
 const currencies = [
   {code: 'USD', name: 'USD - US Dollar'},
@@ -438,58 +422,11 @@ async function fetchLiveRates() {
     const data = await response.json();
     if (data && data.rates) {
       exchangeRates = { ...exchangeRates, ...data.rates };
-      exchang    }
+      exchangeRates['USD'] = 1.0;
+    }
   } catch (error) {
     // Keep fallback pre-populated rates if offline
   }
-}
-
-function renderChart(fromCode, toCode, currentRate) {
-  const ctx = document.getElementById('currencyChart').getContext('2d');
-  document.getElementById('chartTitle').textContent = `7-Day Historical Trend (${fromCode} to ${toCode})`;
-  
-  const labels = [];
-  const dataPoints = [];
-  const today = new Date();
-  
-  for (let i = 6; i >= 0; i--) {
-    const d = new Date(today);
-    d.setDate(d.getDate() - i);
-    labels.push(d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
-    
-    const variance = (Math.sin(i * 1.5) * 0.008) * currentRate;
-    dataPoints.push(parseFloat((currentRate + variance).toFixed(4)));
-  }
-
-  if (currencyChart) {
-    currencyChart.destroy();
-  }
-
-  currencyChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: `1 ${fromCode} to ${toCode}`,
-        data: dataPoints,
-        borderColor: '#10B981',
-        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-        borderWidth: 2,
-        fill: true,
-        tension: 0.3
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: false }
-      },
-      scales: {
-        y: { grid: { color: '#E2E8F0' } },
-        x: { grid: { display: false } }
-      }
-    }
-  });
 }
 
 document.getElementById('calculateBtn').addEventListener('click', () => {
@@ -507,18 +444,13 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
   const rateToUSD = exchangeRates[to];
 
   if (rateFromUSD === undefined || rateToUSD === undefined) {
-    alert('Exchange rate data unavailable for selected currencies.');
-    return;
-  }
-
-  const rate = rateToUSD / rateFromUSD;
+    alert('Exchange rate data unavailable for selected curren= rateToUSD / rateFromUSD;
   const convertedTotal = amount * rate;
 
   document.getElementById('resRate').textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
   document.getElementById('resTotal').textContent = convertedTotal.toLocaleString('en-US', {style: 'currency', currency: to});
 
   resultBox.style.display = 'block';
-  renderChart(from, to, rate);
 });
 
 document.getElementById('resetBtn').addEventListener('click', () => {
@@ -526,10 +458,6 @@ document.getElementById('resetBtn').addEventListener('click', () => {
   document.getElementById('fromCurrency').value = 'USD';
   document.getElementById('toCurrency').value = 'EUR';
   document.getElementById('resultBox').style.display = 'none';
-  if (currencyChart) {
-    currencyChart.destroy();
-    currencyChart = null;
-  }
 });
 
 window.addEventListener('DOMContentLoaded', () => {
