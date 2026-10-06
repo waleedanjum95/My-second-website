@@ -292,115 +292,132 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <script>
 let scheduleDataForCsv = [];
 
-const today = new Date();
-document.getElementById('startDate').valueAsDate = today;
-const futureDate = new Date(today);
-futureDate.setFullYear(futureDate.getFullYear() + 5);
-document.getElementById('endDate').valueAsDate = futureDate;
-
-document.getElementById('calculateBtn').addEventListener('click', () => {
-  const principal = parseFloat(document.getElementById('loanAmount').value);
-  const annualRate = parseFloat(document.getElementById('interestRate').value);
-  const startDateInput = document.getElementById('startDate').value;
-  const endDateInput = document.getElementById('endDate').value;
-  const resultBox = document.getElementById('resultBox');
-  const scheduleBody = document.getElementById('scheduleBody');
-
-  if (isNaN(principal) || isNaN(annualRate) || principal <= 0 || annualRate < 0 || !startDateInput || !endDateInput) {
-    alert('Please enter valid loan details and select both start and end dates.');
-    return;
-  }
-
-  const startDate = new Date(startDateInput);
-  const endDate = new Date(endDateInput);
-
-  if (startDate >= endDate) {
-    alert('Loan End Date must be strictly later than the Start Date.');
-    return;
-  }
-
-  let months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
-  if (months <= 0) {
-    alert('The selected date range must span at least 1 month.');
-    return;
-  }
-
-  const monthlyRate = annualRate / 12 / 100;
-
-  let emi = 0;
-  let totalPayment = 0;
-  let totalInterest = 0;
-
-  if (monthlyRate === 0) {
-    emi = principal / months;
-    totalPayment = principal;
-    totalInterest = 0;
-  } else {
-    const x = Math.pow(1 + monthlyRate, months);
-    emi = (principal * monthlyRate * x) / (x - 1);
-    totalPayment = emi * months;
-    totalInterest = totalPayment - principal;
-  }
-
-  document.getElementById('resEmi').textContent = emi.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resInterest').textContent = totalInterest.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resTotal').textContent = totalPayment.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-
-  scheduleDataForCsv = [['Payment Date', 'Principal Paid', 'Interest Paid', 'Remaining Balance']];
-  scheduleBody.innerHTML = '';
-
-  let currentStartDate = new Date(startDate);
-  let balance = principal;
-
-  for (let i = 1; i <= months; i++) {
-    currentStartDate.setMonth(currentStartDate.getMonth() + 1);
-    const dateStr = currentStartDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-
-    let interestPayment = balance * monthlyRate;
-    let principalPayment = emi - interestPayment;
-    balance -= principalPayment;
-    if (balance < 0 || i === months) balance = 0;
-
-    scheduleDataForCsv.push([
-      dateStr,
-      principalPayment.toFixed(2),
-      interestPayment.toFixed(2),
-      balance.toFixed(2)
-    ]);
-
-    const row = document.createElement('tr');
-    row.innerHTML = `<td>${dateStr}</td><td>$${principalPayment.toFixed(2)}</td><td>$${interestPayment.toFixed(2)}</td><td>$${balance.toFixed(2)}</td>`;
-    scheduleBody.appendChild(row);
-  }
-
-  resultBox.style.display = 'block';
-});
-
-document.getElementById('downloadCsvBtn').addEventListener('click', () => {
-  if (scheduleDataForCsv.length === 0) {
-    alert('Please calculate the loan EMI first.');
-    return;
-  }
-
-  let csvContent = "data:text/csv;charset=utf-8," + scheduleDataForCsv.map(e => e.join(",")).join("\n");
-  let encodedUri = encodeURI(csvContent);
-  let link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "loan_amortization_schedule.csv");
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-});
-
 window.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookieConsent').style.display = 'flex';
+  const today = new Date();
+  const startDateEl = document.getElementById('startDate');
+  const endDateEl = document.getElementById('endDate');
+  
+  if (startDateEl && !startDateEl.value) startDateEl.valueAsDate = today;
+  if (endDateEl && !endDateEl.value) {
+    const futureDate = new Date(today);
+    futureDate.setFullYear(futureDate.getFullYear() + 5);
+    endDateEl.valueAsDate = futureDate;
   }
-});
-document.getElementById('acceptCookie').addEventListener('click', () => {
-  localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById('cookieConsent').style.display = 'no
-      document.getElementById('cookieConsent').style.display = 'none';
+
+  const calcBtn = document.getElementById('calculateBtn');
+  if (calcBtn) {
+    calcBtn.addEventListener('click', () => {
+      const principal = parseFloat(document.getElementById('loanAmount').value);
+      const annualRate = parseFloat(document.getElementById('interestRate').value);
+      const startDateInput = document.getElementById('startDate').value;
+      const endDateInput = document.getElementById('endDate').value;
+      const resultBox = document.getElementById('resultBox');
+      const scheduleBody = document.getElementById('scheduleBody');
+
+      if (isNaN(principal) || isNaN(annualRate) || principal <= 0 || annualRate < 0 || !startDateInput || !endDateInput) {
+        alert('Please enter valid loan details and select both start and end dates.');
+        return;
+      }
+
+      const startDate = new Date(startDateInput);
+      const endDate = new Date(endDateInput);
+
+      if (startDate >= endDate) {
+        alert('Loan End Date must be strictly later than the Start Date.');
+        return;
+      }
+
+      let months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+      if (months <= 0) {
+        alert('The selected date range must span at least 1 month.');
+        return;
+      }
+
+      const monthlyRate = annualRate / 12 / 100;
+
+      let emi = 0;
+      let totalPayment = 0;
+      let totalInterest = 0;
+
+      if (monthlyRate === 0) {
+        emi = principal / months;
+        totalPayment = principal;
+        totalInterest = 0;
+      } else {
+        const x = Math.pow(1 + monthlyRate, months);
+        emi = (principal * monthlyRate * x) / (x - 1);
+        totalPayment = emi * months;
+        totalInterest = totalPayment - principal;
+      }
+
+      document.getElementById('resEmi').textContent = emi.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+      document.getElementById('resInterest').textContent = totalInterest.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+      document.getElementById('resTotal').textContent = totalPayment.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+
+      scheduleDataForCsv = [['Payment Date', 'Principal Paid', 'Interest Paid', 'Remaining Balance']];
+      scheduleBody.innerHTML = '';
+
+      let currentStartDate = new Date(startDate);
+      let balance = principal;
+
+      for (let i = 1; i <= months; i++) {
+        currentStartDate.setMonth(currentStartDate.getMonth() + 1);
+        const dateStr = currentStartDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+        let interestPayment = balance * monthlyRate;
+        let principalPayment = emi - interestPayment;
+        balance -= principalPayment;
+        if (balance < 0 || i === months) balance = 0;
+
+        scheduleDataForCsv.push([
+          dateStr,
+          principalPayment.toFixed(2),
+          interestPayment.toFixed(2),
+          balance.toFixed(2)
+        ]);
+
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${dateStr}</td><td>$${principalPayment.toFixed(2)}</td><td>$${interestPayment.toFixed(2)}</td><td>$${balance.toFixed(2)}</td>`;
+        scheduleBody.appendChild(row);
+      }
+
+      resultBox.style.display = 'block';
+    });
+  }
+
+  const downloadCsvBtn = document.getElementById('downloadCsvBtn');
+  if (downloadCsvBtn) {
+    downloadCsvBtn.addEventListener('click', () => {
+      if (scheduleDataForCsv.length === 0) {
+        alert('Please calculate the loan EMI first.');
+        return;
+      }
+
+      const csvRows = scheduleDataForCsv.map(e => e.join(",")).join("\n");
+      const blob = new Blob([csvRows], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "loan_amortization_schedule.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+}
+
+if (!localStorage.getItem('cookiesAccepted')) {
+  const cookieConsent = document.getElementById('cookieConsent');
+  if (cookieConsent) cookieConsent.style.display = 'flex';
+}
+
+const acceptCookie = document.getElementById('acceptCookie');
+if (acceptCookie) {
+  acceptCookie.addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    const cookieConsent = document.getElementById('cookieConsent');
+    if (cookieConsent) cookieConsent.style.display = 'none';
+  });
+}
 });
 </script>
 
