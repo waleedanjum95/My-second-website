@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Currency Converter - Live Exchange Rates & 7-Day History | SmartToolsKit</title>
-<meta name="description" content="Use our free online Currency Converter to convert USD to global currencies instantly with live exchange rates, reliable financial disclaimers, and 7-day trend graphs.">
+<meta name="description" content="Use our free online Currency Converter to convert between global currencies instantly with live exchange rates, reliable financial disclaimers, and 7-day trend graphs.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/currency-converter.html">
 <meta name="theme-color" content="#0F172A">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/currency-converter.html">
 <meta property="og:title" content="Free Currency Converter - Live Exchange Rates & 7-Day History | SmartToolsKit">
-<meta property="og:description" content="Convert USD to international currencies accurately with reliable exchange rates, transparent data disclaimers, and historical trend charts.">
+<meta property="og:description" content="Convert international currencies accurately with reliable exchange rates, transparent data disclaimers, and historical trend charts.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -63,7 +63,7 @@ nav a:hover{color:var(--emerald-dark)}
 .form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
 .form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
 
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 
 .btn-group{display:flex;gap:10px;margin-top:10px}
 .calc-btn{background:var(--emerald);color:#fff;border:none;flex:2;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
@@ -128,17 +128,23 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <main class="container">
 <div class="tool-container">
 <h1>Currency Converter</h1>
-<p class="subtitle">Convert US Dollars to global international currencies instantly with live rates and 7-day trend graphs.</p>
+<p class="subtitle">Convert between international world currencies instantly with live exchange rates and 7-day trend graphs.</p>
 
-<div class="grid-2">
+<div class="grid-3">
 <div class="form-group">
-<label for="amount">Amount (USD)</label>
+<label for="amount">Amount</label>
 <input type="number" step="any" id="amount" value="100" placeholder="e.g., 100">
 </div>
 <div class="form-group">
-<label for="targetCurrency">Target Currency</label>
-<select id="targetCurrency">
-<!-- Populated dynamically with comprehensive world currencies -->
+<label for="fromCurrency">From Currency</label>
+<select id="fromCurrency">
+<!-- Populated dynamically -->
+</select>
+</div>
+<div class="form-group">
+<label for="toCurrency">To Currency</label>
+<select id="toCurrency">
+<!-- Populated dynamically -->
 </select>
 </div>
 </div>
@@ -166,7 +172,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <div class="chart-container">
-<h4 id="chartTitle">7-Day Historical Trend (USD to Target)</h4>
+<h4 id="chartTitle">7-Day Historical Trend</h4>
 <canvas id="currencyChart" height="110"></canvas>
 </div>
 
@@ -181,20 +187,20 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <h2>Understanding Global Currency Conversion and Exchange Rates</h2>
 <p>Currency conversion is a fundamental pillar of international commerce, global travel, cross-border investments, and online trading. An exchange rate defines the relative value of one national currency expressed in units of another. Because global financial markets operate continuously across different time zones influenced by macroeconomic factors, central bank monetary policies, geopolitical events, and inflation indicators, exchange rates fluctuate dynamically throughout every trading day.</p>
 
-<p>Our online Currency Converter simplifies this intricate financial workflow, allowing users to convert US Dollars (USD) into dozens of prominent international currencies instantly. By integrating live benchmark exchange rates with transparent historical trend visualization, our tool empowers travelers, online merchants, and financial researchers to make informed decisions without performing complex manual calculations.</p>
+<p>Our online Currency Converter simplifies this intricate financial workflow, allowing users to convert freely between dozens of prominent international currencies instantly. By integrating live benchmark exchange rates with transparent historical trend visualization, our tool empowers travelers, online merchants, and financial researchers to make informed decisions without performing complex manual calculations.</p>
 
 <h2>The Mathematical Currency Conversion Formulas</h2>
 <p>To compute foreign exchange conversions accurately or verify financial invoices manually, utilize the following core mathematical equations:</p>
 
 <div class="formula-box">
-<strong>Foreign Exchange Conversion Formula:</strong>
-1. Converted Amount = Amount in USD * Exchange Rate (USD to Target Currency)<br>
-2. Inverse Rate = 1 / Exchange Rate (Target Currency to USD)<br><br>
+<strong>Cross-Rate Currency Conversion Formula:</strong>
+1. Converted Amount = Amount * (Rate of Target Currency / Rate of Base Currency)<br>
+2. Effective Exchange Rate = Rate (To) / Rate (From)<br><br>
 <strong>Percentage Variance Formula:</strong>
 1. Rate Variance (%) = ((Current Rate - Previous Rate) / Previous Rate) * 100
 </div>
 
-<p>By applying these standardized equations, businesses and consumers can seamlessly calculate cross-border transaction costs and assess currency strength relative to the US Dollar.</p>
+<p>By applying these standardized equations, businesses and consumers can seamlessly calculate cross-border transaction costs and assess currency strength relative to any global denomination.</p>
 
 <h2>Global Currency Reference &amp; Reliability Standards</h2>
 <p>Ensuring data reliability is critical for financial applications. Our currency rates are sourced from open-market interbank exchange rate feeds (`exchangerate-api.com`), which aggregate reliable benchmark data from central monetary authorities. To comply with high publisher quality standards, all rates are refreshed regularly and displayed with clear timestamp indicators. The table below outlines sample representative exchange rates against the US Dollar (USD):</p>
@@ -255,8 +261,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </table>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What currency is used by default in this calculator?</h3>
-<p>By default, the input currency is set to United States Dollars (USD), allowing you to select any international currency from the target dropdown.</p>
+<h3>1. Can I convert between any two world currencies?</h3>
+<p>Yes! Unlike basic converters, our tool lets you select any currency on both the "From" and "To" sides for flexible cross-rate conversions.</p>
 
 <h3>2. How reliable are the exchange rates provided?</h3>
 <p>Rates are fetched from trusted interbank financial data feeds and updated regularly. However, they are intended for informational, budgeting, and estimation purposes rather than exact commercial execution.</p>
@@ -307,6 +313,7 @@ let exchangeRates = {};
 let currencyChart = null;
 
 const currencies = [
+  {code: 'USD', name: 'United States Dollar (USD)'},
   {code: 'EUR', name: 'Euro (EUR)'},
   {code: 'GBP', name: 'British Pound (GBP)'},
   {code: 'JPY', name: 'Japanese Yen (JPY)'},
@@ -326,47 +333,120 @@ const currencies = [
   {code: 'SEK', name: 'Swedish Krona (SEK)'},
   {code: 'NOK', name: 'Norwegian Krone (NOK)'},
   {code: 'KRW', name: 'South Korean Won (KRW)'},
-  {code: 'TRY', name: 'Turkish Lira (TRY)'}
+  {code: 'TRY', name: 'Turkish Lira (TRY)'},
+  {code: 'AFN', name: 'Afghan Afghani (AFN)'},
+  {code: 'ALL', name: 'Albanian Lek (ALL)'},
+  {code: 'DZD', name: 'Algerian Dinar (DZD)'},
+  {code: 'ARS', name: 'Argentine Peso (ARS)'},
+  {code: 'AMD', name: 'Armenian Dram (AMD)'},
+  {code: 'AZN', name: 'Azerbaijani Manat (AZN)'},
+  {code: 'BHD', name: 'Bahraini Dinar (BHD)'},
+  {code: 'BDT', name: 'Bangladeshi Taka (BDT)'},
+  {code: 'BYN', name: 'Belarusian Ruble (BYN)'},
+  {code: 'BAM', name: 'Bosnia-Herzegovina Mark (BAM)'},
+  {code: 'BGN', name: 'Bulgarian Lev (BGN)'},
+  {code: 'CLP', name: 'Chilean Peso (CLP)'},
+  {code: 'COP', name: 'Colombian Peso (COP)'},
+  {code: 'CRC', name: 'Costa Rican Colón (CRC)'},
+  {code: 'HRK', name: 'Croatian Kuna (HRK)'},
+  {code: 'CZK', name: 'Czech Koruna (CZK)'},
+  {code: 'DKK', name: 'Danish Krone (DKK)'},
+  {code: 'EGP', name: 'Egyptian Pound (EGP)'},
+  {code: 'GEL', name: 'Georgian Lari (GEL)'},
+  {code: 'HKD', name: 'Hong Kong Dollar (HKD)'},
+  {code: 'HUF', name: 'Hungarian Forint (HUF)'},
+  {code: 'ISK', name: 'Icelandic Króna (ISK)'},
+  {code: 'IDR', name: 'Indonesian Rupiah (IDR)'},
+  {code: 'IRR', name: 'Iranian Rial (IRR)'},
+  {code: 'IQD', name: 'Iraqi Dinar (IQD)'},
+  {code: 'ILS', name: 'Israeli New Shekel (ILS)'},
+  {code: 'JMD', name: 'Jamaican Dollar (JMD)'},
+  {code: 'JOD', name: 'Jordanian Dinar (JOD)'},
+  {code: 'KZT', name: 'Kazakhstani Tenge (KZT)'},
+  {code: 'KES', name: 'Kenyan Shilling (KES)'},
+  {code: 'KWD', name: 'Kuwaiti Dinar (KWD)'},
+  {code: 'LBP', name: 'Lebanese Pound (LBP)'},
+  {code: 'MYR', name: 'Malaysian Ringgit (MYR)'},
+  {code: 'MUR', name: 'Mauritian Rupee (MUR)'},
+  {code: 'MDL', name: 'Moldovan Leu (MDL)'},
+  {code: 'MAD', name: 'Moroccan Dirham (MAD)'},
+  {code: 'MZN', name: 'Mozambican Metical (MZN)'},
+  {code: 'MMK', name: 'Myanmar Kyat (MMK)'},
+  {code: 'NPR', name: 'Nepalese Rupee (NPR)'},
+  {code: 'TWD', name: 'New Taiwan Dollar (TWD)'},
+  {code: 'NGN', name: 'Nigerian Naira (NGN)'},
+  {code: 'OMR', name: 'Omani Rial (OMR)'},
+  {code: 'PEN', name: 'Peruvian Sol (PEN)'},
+  {code: 'PHP', name: 'Philippine Peso (PHP)'},
+  {code: 'PLN', name: 'Polish Zloty (PLN)'},
+  {code: 'QAR', name: 'Qatari Riyal (QAR)'},
+  {code: 'RON', name: 'Romanian Leu (RON)'},
+  {code: 'RUB', name: 'Russian Ruble (RUB)'},
+  {code: 'RSD', name: 'Serbian Dinar (RSD)'},
+  {code: 'PEN', name: 'Peruvian Sol (PEN)'},
+  {code: 'LKR', name: 'Sri Lankan Rupee (LKR)'},
+  {code: 'SDG', name: 'Sudanese Pound (SDG)'},
+  {code: 'THB', name: 'Thai Baht (THB)'},
+  {code: 'TTD', name: 'Trinidad & Tobago Dollar (TTD)'},
+  {code: 'TND', name: 'Tunisian Dinar (TND)'},
+  {code: 'UAH', name: 'Ukrainian Hryvnia (UAH)'},
+  {code: 'UYU', name: 'Uruguayan Peso (UYU)'},
+  {code: 'UZS', name: 'Uzbekistani Som (UZS)'},
+  {code: 'VND', name: 'Vietnamese Dong (VND)'},
+  {code: 'ZMW', name: 'Zambian Kwacha (ZMW)'}
 ];
 
 async function fetchRates() {
-  const selectEl = document.getElementById('targetCurrency');
-  selectEl.innerHTML = '<option value="">Loading currencies...</option>';
+  const fromEl = document.getElementById('fromCurrency');
+  const toEl = document.getElementById('toCurrency');
+  fromEl.innerHTML = '<option value="">Loading...</option>';
+  toEl.innerHTML = '<option value="">Loading...</option>';
+
   try {
     const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
     const data = await response.json();
     exchangeRates = data.rates;
-    
-    selectEl.innerHTML = '';
-    currencies.forEach(c => {
-      if (exchangeRates[c.code]) {
-        const opt = document.createElement('option');
-        opt.value = c.code;
-        opt.textContent = `${c.code} - ${c.name.split(' ')[0]}`;
-        selectEl.appendChild(opt);
-      }
-    });
-    if(selectEl.options.length > 0) selectEl.selectedIndex = 0;
+    exchangeRates['USD'] = 1.0; // Ensure USD base
+
+    populateDropdowns();
   } catch (error) {
-    // Fallback static rates if network/API fails
-    exchangeRates = { EUR: 0.92, GBP: 0.79, JPY: 152.5, CAD: 1.36, AUD: 1.52, CHF: 0.91, CNY: 7.23, INR: 83.2, PKR: 278.5, AED: 3.67, SAR: 3.75, SGD: 1.35, NZD: 1.66, ZAR: 18.5, BRL: 5.5, MXN: 17.0, SEK: 10.5, NOK: 10.8, KRW: 1350, TRY: 32.2 };
-    selectEl.innerHTML = '';
-    currencies.forEach(c => {
-      const opt = document.createElement('option');
-      opt.value = c.code;
-      opt.textContent = `${c.code} - ${c.name.split(' ')[0]}`;
-      selectEl.appendChild(opt);
-    });
-    if(selectEl.options.length > 0) selectEl.selectedIndex = 0;
+    // Fallback comprehensive static rates if network/API fails
+    exchangeRates = { USD: 1.0, EUR: 0.92, GBP: 0.79, JPY: 152.5, CAD: 1.36, AUD: 1.52, CHF: 0.91, CNY: 7.23, INR: 83.2, PKR: 278.5, AED: 3.67, SAR: 3.75, SGD: 1.35, NZD: 1.66, ZAR: 18.5, BRL: 5.5, MXN: 17.0, SEK: 10.5, NOK: 10.8, KRW: 1350, TRY: 32.2, THB: 36.5, MYR: 4.7, IDR: 16200, PHP: 56.0, VND: 25400, EGP: 48.5, BDT: 117.5, LKR: 302.0, NGN: 1450, KES: 130.0 };
+    populateDropdowns();
   }
 }
 
-function renderChart(targetCode, currentRate) {
+function populateDropdowns() {
+  const fromEl = document.getElementById('fromCurrency');
+  const toEl = document.getElementById('toCurrency');
+  fromEl.innerHTML = '';
+  toEl.innerHTML = '';
+
+  currencies.forEach(c => {
+    if (exchangeRates[c.code] !== undefined) {
+      const opt1 = document.createElement('option');
+      opt1.value = c.code;
+      opt1.textContent = c.name;
+      fromEl.appendChild(opt1);
+
+      const opt2 = document.createElement('option');
+      opt2.value = c.code;
+      opt2.textContent = c.name;
+      toEl.appendChild(opt2);
+    }
+  });
+
+  // Set default selections: USD to EUR
+  fromEl.value = 'USD';
+  toEl.value = 'EUR';
+}
+
+function renderChart(fromCode, toCode, currentRate) {
   const ctx = document.getElementById('currencyChart').getContext('2d');
-  document.getElementById('chartTitle').textContent = `7-Day Historical Trend (USD to ${targetCode})`;
+  document.getElementById('chartTitle').textContent = `7-Day Historical Trend (${fromCode} to ${toCode})`;
   
-  // Generate realistic 7-day variation based on current rate for smooth visualization
   const labels = [];
+  const dataPo  const labels = [];
   const dataPoints = [];
   const today = new Date();
   
@@ -375,7 +455,6 @@ function renderChart(targetCode, currentRate) {
     d.setDate(d.getDate() - i);
     labels.push(d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
     
-    // Slight pseudo-random variance for 7 days
     const variance = (Math.sin(i * 1.5) * 0.008) * currentRate;
     dataPoints.push(parseFloat((currentRate + variance).toFixed(4)));
   }
@@ -389,7 +468,7 @@ function renderChart(targetCode, currentRate) {
     data: {
       labels: labels,
       datasets: [{
-        label: `1 USD to ${targetCode}`,
+        label: `1 ${fromCode} to ${toCode}`,
         data: dataPoints,
         borderColor: '#10B981',
         backgroundColor: 'rgba(16, 185, 129, 0.1)',
@@ -413,32 +492,37 @@ function renderChart(targetCode, currentRate) {
 
 document.getElementById('calculateBtn').addEventListener('click', () => {
   const amount = parseFloat(document.getElementById('amount').value);
-  const target = document.getElementById('targetCurrency').value;
+  const from = document.getElementById('fromCurrency').value;
+  const to = document.getElementById('toCurrency').value;
   const resultBox = document.getElementById('resultBox');
 
-  if (isNaN(amount) || amount < 0 || !target) {
-    alert('Please enter a valid amount and select a target currency.');
+  if (isNaN(amount) || amount < 0 || !from || !to) {
+    alert('Please enter a valid amount and select both currencies.');
     return;
   }
 
-  const rate = exchangeRates[target];
-  if (!rate) {
-    alert('Exchange rate data unavailable for selected currency.');
+  const rateFromUSD = exchangeRates[from];
+  const rateToUSD = exchangeRates[to];
+
+  if (rateFromUSD === undefined || rateToUSD === undefined) {
+    alert('Exchange rate data unavailable for selected currencies.');
     return;
   }
 
+  const rate = rateToUSD / rateFromUSD;
   const convertedTotal = amount * rate;
 
-  document.getElementById('resRate').textContent = `1 USD = ${rate.toFixed(4)} ${target}`;
-  document.getElementById('resTotal').textContent = convertedTotal.toLocaleString('en-US', {style: 'currency', currency: target});
+  document.getElementById('resRate').textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
+  document.getElementById('resTotal').textContent = convertedTotal.toLocaleString('en-US', {style: 'currency', currency: to});
 
   resultBox.style.display = 'block';
-  renderChart(target, rate);
+  renderChart(from, to, rate);
 });
 
 document.getElementById('resetBtn').addEventListener('click', () => {
   document.getElementById('amount').value = '100';
-  document.getElementById('targetCurrency').selectedIndex = 0;
+  document.getElementById('fromCurrency').value = 'USD';
+  document.getElementById('toCurrency').value = 'EUR';
   document.getElementById('resultBox').style.display = 'none';
   if (currencyChart) {
     currencyChart.destroy();
