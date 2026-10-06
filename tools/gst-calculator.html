@@ -3,176 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>GST Calculator - Calculate Goods and Services Tax Online | SmartToolsKit</title>
-<meta name="description" content="Free online GST Calculator to quickly add or remove Goods and Services Tax (GST) with instant net price, gross price, and tax amount breakdown.">
+<title>Free GST Calculator - Calculate Goods & Services Tax Instantly | SmartToolsKit</title>
+<meta name="description" content="Use our free online GST Calculator to compute exclusive and inclusive Goods and Services Tax amounts, add or remove tax instantly for business and retail invoices.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/gst-calculator.html">
 <meta name="theme-color" content="#0F172A">
 
-<style>
-:root{
---navy:#0F172A;
---navy-light:#1E293B;
---emerald:#10B981;
---emerald-dark:#059669;
---teal:#14B8A6;
---background:#F8FAFC;
---white:#FFF;
---text:#0F172A;
---muted:#64748B;
---border:#E2E8F0;
---soft:#F1F5F9;
---shadow:0 10px 30px rgba(15,23,42,.07);
---radius:16px
-}
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/gst-calculator.html">
+<meta property="og:title" content="Free GST Calculator - Calculate Tax Amounts Instantly | SmartToolsKit">
+<meta property="og:description" content="Compute accurate Goods and Services Tax (GST) additions, deductions, and gross invoice totals quickly with our free tool.">
 
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "GST Calculator",
+    "item": "https://smarttoolskit.com/tools/gst-calculator.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
 button,input,select{font-family:inherit}
-
 .container{width:min(1120px,92%);margin:auto}
-
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
 .logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
 .logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
-
 nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
-.breadcrumb a{color:var(--emerald-dark);font-weight:600}
+.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
 
-.tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:10px}
+.calc-btn:hover{background:var(--emerald-dark)}
 
-.tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
-.tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
-.tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
+.result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
+.stat-card span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:700}
+.stat-card strong{font-size:16px;color:var(--emerald-dark)}
 
-.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:25px}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
 
-.form-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:18px}
-.form-group{margin-bottom:10px}
-.form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
-.form-group input,.form-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff}
-.form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
+.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
+.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
+.content-table td{color:#475569}
 
-.btn-row{display:flex;gap:12px;margin-top:20px;grid-column:1/-1}
-.btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
-.btn-calc:hover{background:var(--emerald-dark)}
-.btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
+.security-note{background:var(--soft);border-left:4px solid var(--emerald);padding:14px;border-radius:0 8px 8px 0;margin:20px 0;font-size:14px;color:var(--navy)}
 
-.result-display{margin-top:25px;display:none}
-.gst-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
-.gst-highlight .main-val{font-size:32px;font-weight:800;color:#34D399;margin-bottom:6px}
-.gst-highlight .sub-val{font-size:14px;color:#CBD5E1}
-
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
-.stat-card .num{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
-.stat-card .lbl{font-size:12px;color:var(--muted)}
-
-.privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
-
-.content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
-.content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
-.content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
-.content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
-.content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
-.content-section li{margin-bottom:8px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
-
-.data-table{width:100%;border-collapse:collapse;margin:20px 0}
-.data-table th,.data-table td{border:1px solid var(--border);padding:12px 15px;text-align:left;font-size:14px}
-.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
-
-.faq-item{border-bottom:1px solid var(--border);padding:18px 0}
-.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
-.faq-item p{margin-bottom:0}
-
-footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:35px}
-footer h3{color:#fff;margin-bottom:12px;font-size:16px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
-footer a:hover{color:#34D399}
-.footer-links{display:flex;flex-direction:column;gap:8px}
-.copyright{border-top:1px solid #1E293B;padding-top:20px;text-align:center;color:#64748B;font-size:12px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
 
-@media(max-width:768px){
-.form-grid,.stats-grid{grid-template-columns:1fr}
-.tool-card-main,.content-section{padding:22px}
-.footer-grid{grid-template-columns:1fr;gap:25px}
-}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is GST and how is it calculated?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "GST stands for Goods and Services Tax. To add GST, multiply the net amount by (1 + tax rate / 100). To remove GST, divide the gross amount by (1 + tax rate / 100)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between adding GST and removing GST?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Adding GST calculates the final gross price including tax from a baseline net amount. Removing GST extracts the original net price before tax from an inclusive gross amount."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use custom tax rates in this calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. You can select standard preset rates or enter any custom percentage rate into the custom tax rate field."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is a GST calculator important for businesses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A GST calculator ensures accurate invoicing, precise tax filing, and transparent pricing for consumers and commercial enterprises."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my financial calculation data saved on external servers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. All computations execute locally in your web browser using client-side JavaScript, ensuring complete security and privacy."
-      }
-    }
-  ]
-}
-</script>
 </head>
-
 <body>
 
 <header>
 <div class="container nav">
-<a href="../index.html" class="logo">
-<span class="logo-shape"></span>
-SmartToolsKit
-</a>
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
 <nav>
 <a href="../index.html#categories">Categories</a>
-<a href="../index.html#tools">All Tools</a>
+<a href="../index.html#tools">Tools</a>
 <a href="../about.html">About</a>
 <a href="../contact.html" class="nav-button">Contact</a>
 </nav>
@@ -180,163 +109,119 @@ SmartToolsKit
 </header>
 
 <main class="container">
-
-<div class="breadcrumb">
-<a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / GST Calculator
-</div>
-
-<div class="tool-layout">
-
-<article class="tool-card-main">
+<div class="tool-container">
 <h1>GST Calculator</h1>
-<p class="subtitle">Quickly add or remove Goods and Services Tax (GST) with instant net price, gross price, and tax breakdown.</p>
-
-<div class="calc-box">
-
-<div class="form-grid">
+<p class="subtitle">Calculate Goods and Services Tax (GST) additions, deductions, and gross invoice totals instantly.</p>
 
 <div class="form-group">
-<label for="amount">Amount ($):</label>
-<input type="number" id="amount" placeholder="e.g. 1000">
+<label for="initialAmount">Amount ($)</label>
+<input type="number" step="0.01" id="initialAmount" placeholder="e.g., 1000">
 </div>
 
 <div class="form-group">
-<label for="gstRate">GST Rate (%):</label>
-<input type="number" step="0.01" id="gstRate" placeholder="e.g. 18">
+<label for="gstRate">GST Rate (%)</label>
+<input type="number" step="0.01" id="gstRate" placeholder="e.g., 18">
 </div>
 
-<div class="form-group" style="grid-column: 1/-1;">
-<label for="calcType">Calculation Type:</label>
+<div class="form-group">
+<label for="calcType">Calculation Type</label>
 <select id="calcType">
-<option value="add">Add GST (Exclusive to Inclusive)</option>
-<option value="remove">Remove GST (Inclusive to Exclusive)</option>
+<option value="exclusive">Add GST (Exclusive)</option>
+<option value="inclusive">Remove GST (Inclusive)</option>
 </select>
 </div>
 
-<div class="btn-row">
-<button type="button" class="btn-calc" onclick="calculateGST()">Calculate GST</button>
-<button type="button" class="btn-reset" onclick="resetGST()">Reset</button>
-</div>
+<button type="button" class="calc-btn" id="calculateBtn">Calculate GST</button>
 
-</div>
-
-<div class="result-display" id="resultDisplay">
-
-<div class="gst-highlight">
-<div class="main-val" id="mainResultText">$0.00</div>
-<div class="sub-val" id="mainResultLabel">Total Gross Price</div>
-</div>
-
+<div class="result-box" id="resultBox">
+<h3>GST Calculation Summary</h3>
 <div class="stats-grid">
 <div class="stat-card">
-<div class="num" id="netAmountText">$0.00</div>
-<div class="lbl">Net Amount</div>
+<span>Net Amount</span>
+<strong id="resNet">$0.00</strong>
 </div>
-
 <div class="stat-card">
-<div class="num" id="gstAmountText">$0.00</div>
-<div class="lbl">GST Tax Amount</div>
+<span>GST Amount</span>
+<strong id="resGst">$0.00</strong>
+</div>
+<div class="stat-card">
+<span>Total Amount</span>
+<strong id="resTotal">$0.00</strong>
+</div>
+</div>
 </div>
 </div>
 
-</div>
+<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="content-section">
+<h2>What is a GST Calculator?</h2>
+<p>A GST Calculator is a powerful, professional online financial utility designed to compute Goods and Services Tax (GST) computations instantly and accurately. Across modern commercial markets, value-added taxes and consumption taxes like GST are applied to almost all goods and services. Whether you are generating business invoices, filing tax returns, pricing retail products, or managing personal budgets, calculating tax components manually can often lead to arithmetic mistakes, rounding discrepancies, or wasted time. Our free online GST calculator automates this entire financial workflow directly inside your browser, delivering precise tax breakdowns within milliseconds.</p>
 
-</div>
+<p>By providing dual calculation modes—adding GST to an exclusive net price or extracting GST from an inclusive gross amount—this versatile tool caters to business owners, accountants, freelancers, and everyday shoppers alike. Built with a clean, responsive layout, the calculator ensures optimal performance across desktop computers, tablets, and mobile smartphones without requiring any software downloads, subscriptions, or user registration steps.</p>
 
-<div class="privacy-badge">
-🔒 <strong>Client-Side Security:</strong> All computations execute locally inside your web browser. No data is sent or saved on remote servers.
-</div>
-</article>
+<h2>Why Accurate GST Calculation Matters for Businesses &amp; Consumers</h2>
+<p>Understanding and computing consumption taxes correctly is vital for maintaining legal compliance, transparent pricing, and healthy profit margins. For business enterprises, issuing invoices with incorrect tax amounts can result in audit penalties, rejected tax credits, and client disputes. Knowing the exact net price versus the tax component ensures that businesses remit the correct statutory amounts to tax authorities while accurately accounting for revenue.</p>
 
-<section class="content-section">
-<h2>Understanding Goods and Services Tax (GST)</h2>
-<p>Goods and Services Tax (GST) is a comprehensive value-added consumption tax levied on the supply of goods and services across many international jurisdictions. Whether operating a retail business, managing corporate invoicing, or calculating consumer purchases, understanding how tax affects pricing is essential for accurate accounting.</p>
+<p>For consumers and retail buyers, knowing whether a listed price is tax-inclusive or tax-exclusive prevents unexpected costs at checkout. Utilizing a reliable digital calculator eliminates manual calculation errors, saves valuable administrative time, and ensures absolute financial transparency in all commercial transactions.</p>
 
-<p>Tax computations generally fall into two categories: <strong>Adding GST</strong> (calculating gross retail price from a tax-exclusive base amount) and <strong>Removing GST</strong> (extracting the original net price and tax component from a tax-inclusive total bill).</p>
-
-<h2>The Mathematical GST Formulas</h2>
-<p>Our online GST calculator automates tax computations using standard commercial accounting formulas:</p>
-
-<div class="formula-box">
-1. Add GST (Exclusive to Inclusive):<br>
-- GST Amount = Net Amount * (GST Rate / 100)<br>
-- Gross Total = Net Amount + GST Amount<br><br>
-2. Remove GST (Inclusive to Exclusive):<br>
-- Net Amount = Gross Amount / (1 + (GST Rate / 100))<br>
-- GST Amount = Gross Amount - Net Amount
-</div>
-
-<h2>Common GST Rate Reference Matrix</h2>
-<p>The reference table below illustrates standard tax breakdowns for various baseline amounts evaluated at a 15% GST rate:</p>
-
-<table class="data-table">
+<table class="content-table">
 <thead>
 <tr>
-<th>Net Amount</th>
-<th>GST Rate</th>
-<th>GST Tax Amount</th>
-<th>Total Gross Price</th>
+<th>Calculation Mode</th>
+<th>Mathematical Formula</th>
+<th>Practical Business Scenario</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>$100.00</td>
-<td>15%</td>
-<td>$15.00</td>
-<td>$115.00</td>
+<td>GST Exclusive (Add Tax)</td>
+<td>GST Amount = Net * (Rate / 100)<br>Total = Net + GST Amount</td>
+<td>Adding an 18% tax rate to a $1,000 wholesale product quote.</td>
 </tr>
 <tr>
-<td>$250.00</td>
-<td>15%</td>
-<td>$37.50</td>
-<td>$287.50</td>
+<td>GST Inclusive (Remove Tax)</td>
+<td>GST Amount = Gross - (Gross / (1 + Rate / 100))<br>Net = Gross - GST Amount</td>
+<td>Extracting tax from a $1,180 retail receipt to find base revenue.</td>
 </tr>
 <tr>
-<td>$500.00</td>
-<td>15%</td>
-<td>$75.00</td>
-<td>$575.00</td>
-</tr>
-<tr>
-<td>$1,000.00</td>
-<td>15%</td>
-<td>$150.00</td>
-<td>$1,150.00</td>
+<td>Tax Proportionality</td>
+<td>Rate % = (GST Amount / Net Amount) * 100</td>
+<td>Verifying statutory compliance on supplier invoices and receipts.</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Frequently Asked Questions (FAQ)</h2>
-
-<div class="faq-item">
-<h4>What is GST and how is it calculated?</h4>
-<p>GST stands for Goods and Services Tax. To add GST, multiply the net amount by the tax rate percentage. To remove GST, divide the gross amount by (1 + tax rate / 100).</p>
+<div class="security-note">
+<strong>User Security &amp; Privacy Assurance:</strong> All tax calculations, mathematical formulas, and data processing routines run entirely within your local web browser using client-side JavaScript. Your confidential financial figures, invoice amounts, and business data never leave your device or get transmitted to any external server.
 </div>
 
-<div class="faq-item">
-<h4>What is the difference between adding GST and removing GST?</h4>
-<p>Adding GST calculates the final gross price including tax from a baseline net amount. Removing GST extracts the original net price before tax from an inclusive gross amount.</p>
+<h2>How to Use the GST Calculator</h2>
+<p>Using our GST calculator tool is straightforward, fast, and requires zero accounting expertise:</p>
+<ul>
+<li><strong>Enter Amount:</strong> Input your product or invoice amount in the primary numeric field.</li>
+<li><strong>Specify GST Rate:</strong> Type in the applicable percentage tax rate mandated by your regional tax authority.</li>
+<li><strong>Choose Calculation Type:</strong> Select whether you want to add GST (exclusive) or remove GST (inclusive) from your figure.</li>
+<li><strong>Calculate &amp; Review:</strong> Click the calculate button to instantly view your net amount, exact tax breakdown, and gross total.</li>
+</ul>
+
+<h2>Best Practices for Tax Accounting and Billing</h2>
+<p>To optimize your invoicing accuracy and ensure smooth financial record-keeping, keep these professional guidelines in mind:</p>
+<ul>
+<li><strong>Verify Regional Tax Slabs:</strong> Always double-check current local tax regulations, as GST rates vary depending on product categories and jurisdictions.</li>
+<li><strong>Maintain Digital Records:</strong> Archive your transaction calculations securely for future tax filings and financial audits.</li>
+<li><strong>Use Automated Tools:</strong> Rely on secure client-side calculators for day-to-day invoicing to eliminate human math errors.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<h3>1. What is the difference between inclusive and exclusive GST?</h3>
+<p>Exclusive GST means tax is added on top of the base price, whereas inclusive GST means the tax is already bundled inside the final displayed price.</p>
+
+<h3>2. Is this GST calculator completely free to use?</h3>
+<p>Yes, all tools on SmartToolsKit are 100% free with no usage limits, subscription fees, or registration requirements.</p>
+
+<h3>3. Are my financial figures or invoice amounts stored anywhere?</h3>
+<p>No. All calculations run strictly inside your local browser environment, ensuring complete data privacy and security.</p>
 </div>
-
-<div class="faq-item">
-<h4>Can I use custom tax rates in this calculator?</h4>
-<p>Yes. You can enter any custom percentage rate into the GST rate field to match your regional tax requirements.</p>
-</div>
-
-<div class="faq-item">
-<h4>Why is a GST calculator important for businesses?</h4>
-<p>A GST calculator ensures accurate invoicing, precise tax filing, and transparent pricing for consumers and commercial enterprises alike.</p>
-</div>
-
-<div class="faq-item">
-<h4>Is my financial calculation data stored on external servers?</h4>
-<p>No. All calculations run locally in your web browser using client-side JavaScript, ensuring complete personal privacy.</p>
-</div>
-
-</section>
-
-</div>
-
 </main>
 
 <footer>
@@ -344,13 +229,12 @@ SmartToolsKit
 <div class="footer-grid">
 <div>
 <h3>SmartToolsKit</h3>
-<p>Smart Tools. Simple Solutions. Free browser-based web tools designed to make everyday digital tasks faster and easier.</p>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
 </div>
 <div>
 <h3>Quick Links</h3>
 <div class="footer-links">
 <a href="../index.html">Home</a>
-<a href="../index.html#tools">All Tools</a>
 <a href="../about.html">About Us</a>
 <a href="../contact.html">Contact Us</a>
 </div>
@@ -359,58 +243,63 @@ SmartToolsKit
 <h3>Legal</h3>
 <div class="footer-links">
 <a href="../privacy-policy.html">Privacy Policy</a>
-<a href="../terms.html">Terms & Conditions</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
 <a href="../disclaimer.html">Disclaimer</a>
 </div>
 </div>
 </div>
-<div class="copyright">
-© 2026 SmartToolsKit. All rights reserved.
-</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
 </div>
 </footer>
 
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie">Got It</button>
+</div>
+
 <script>
-function calculateGST(){
-  const amount = parseFloat(document.getElementById('amount').value);
+document.getElementById('calculateBtn').addEventListener('click', () => {
+  const amount = parseFloat(document.getElementById('initialAmount').value);
   const rate = parseFloat(document.getElementById('gstRate').value);
-  const type = document.getElementById('calcType').value;
-  
-  if(isNaN(amount) || isNaN(rate) || amount <= 0 || rate < 0){
+  const calcType = document.getElementById('calcType').value;
+  const resultBox = document.getElementById('resultBox');
+
+  if (isNaN(amount) || isNaN(rate) || amount < 0 || rate < 0) {
     alert('Please enter valid positive numbers for amount and GST rate.');
     return;
   }
-  
+
   let net = 0;
   let gst = 0;
-  let gross = 0;
-  
-  if(type === 'add'){
-    net = amount;
-    gst = net * (rate / 100);
-    gross = net + gst;
-    document.getElementById('mainResultLabel').innerText = 'Total Gross Price (Inc. GST)';
-  } else {
-    gross = amount;
-    net = gross / (1 + (rate / 100));
-    gst = gross - net;
-    document.getElementById('mainResultLabel').innerText = 'Net Amount (Ex. GST)';
-  }
-  
-  document.getElementById('mainResultText').innerText = '$' + (type === 'add' ? gross : net).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
-  document.getElementById('netAmountText').innerText = '$' + net.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
-  document.getElementById('gstAmountText').innerText = '$' + gst.toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
-  
-  document.getElementById('resultDisplay').style.display = 'block';
-}
+  let total = 0;
 
-function resetGST(){
-  document.getElementById('amount').value = '';
-  document.getElementById('gstRate').value = '';
-  document.getElementById('resultDisplay').style.display = 'none';
-}
+  if (calcType === 'exclusive') {
+    net = amount;
+    gst = amount * (rate / 100);
+    total = net + gst;
+  } else {
+    total = amount;
+    net = amount / (1 + rate / 100);
+    gst = total - net;
+  }
+
+  document.getElementById('resNet').textContent = net.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+  document.getElementById('resGst').textContent = gst.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+  document.getElementById('resTotal').textContent = total.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+
+  resultBox.style.display = 'block';
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieConsent').style.display = 'flex';
+  }
+});
+document.getElementById('acceptCookie').addEventListener('click', () => {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
 </script>
 
 </body>
-  </html>
-  
+</html>
