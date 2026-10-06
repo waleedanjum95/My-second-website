@@ -3,161 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Time Zone Converter - Convert Time Across Global Zones | SmartToolsKit</title>
-<meta name="description" content="Free online Time Zone Converter to convert current times, schedules, and offsets across worldwide time zones instantly with accurate UTC references and FAQ guides.">
+<title>Free Time Zone Converter &amp; Circadian Jet Lag Calculator | SmartToolsKit</title>
+<meta name="description" content="Use our free online Time Zone Converter to convert global times instantly. Includes a unique circadian sleep-state and jet lag recovery calculator.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/time-zone-converter.html">
 <meta name="theme-color" content="#0F172A">
 
-<style>
-:root{
---navy:#0F172A;
---navy-light:#1E293B;
---emerald:#10B981;
---emerald-dark:#059669;
---teal:#14B8A6;
---background:#F8FAFC;
---white:#FFF;
---text:#0F172A;
---muted:#64748B;
---border:#E2E8F0;
---soft:#F1F5F9;
---shadow:0 10px 30px rgba(15,23,42,.07);
---radius:16px
-}
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/time-zone-converter.html">
+<meta property="og:title" content="Free Time Zone Converter &amp; Jet Lag Calculator | SmartToolsKit">
+<meta property="og:description" content="Convert international time zones accurately and analyze biological sleep states and jet lag recovery days with our unique interactive calculator.">
 
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Time Zone Converter",
+    "item": "https://smarttoolskit.com/tools/time-zone-converter.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
 button,input,select{font-family:inherit}
-
 .container{width:min(1120px,92%);margin:auto}
-
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
 .logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
 .logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
-
 nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.breadcrumb{padding:20px 0;font-size:14px;color:var(--muted)}
-.breadcrumb a{color:var(--emerald-dark);font-weight:600}
+.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
 
-.tool-layout{display:grid;grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
 
-.tool-card-main{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
-.tool-card-main h1{font-size:28px;color:var(--navy);margin-bottom:12px}
-.tool-card-main p.subtitle{color:var(--muted);font-size:15px;margin-bottom:30px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
 
-.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:25px}
+.btn-group{display:flex;gap:10px;margin-top:10px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;flex:2;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.reset-btn{background:var(--soft);color:var(--navy);border:1px solid var(--border);flex:1;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
+.reset-btn:hover{background:var(--border)}
 
-.form-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:18px}
-@media(max-width:768px){.form-grid{grid-template-columns:1fr}}
-.form-group{margin-bottom:15px}
-.form-group label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
-.form-group input,.form-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px;outline:none;background:#fff}
-.form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
 
-.btn-row{display:flex;gap:12px;margin-top:20px;grid-column:1/-1}
-.btn-calc{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer}
-.btn-calc:hover{background:var(--emerald-dark)}
-.btn-reset{background:#E2E8F0;color:var(--navy);border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
-.btn-reset:hover{background:#CBD5E1}
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
+.result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:center}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
+.stat-card span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700}
+.stat-card strong{font-size:15px;color:var(--emerald-dark)}
 
-.result-display{margin-top:25px;display:block}
-.unit-highlight{background:var(--navy);color:#fff;padding:25px;border-radius:12px;text-align:center;margin-bottom:20px}
-.unit-highlight .main-val{font-size:26px;font-weight:800;color:#34D399;margin-bottom:6px}
-.unit-highlight .sub-val{font-size:14px;color:#CBD5E1}
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
 
-.ad-slot{background:#F1F5F9;border:2px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:13px;margin:25px 0}
-.error-msg{background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;padding:12px;border-radius:8px;font-size:14px;margin-bottom:15px;display:none}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
 
-.privacy-badge{display:flex;align-items:center;gap:8px;background:#F1F5F9;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--muted);margin-top:25px}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.content-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:60px}
-.content-section h2{font-size:24px;color:var(--navy);margin:25px 0 12px}
-.content-section h3{font-size:18px;color:var(--navy-light);margin:18px 0 10px}
-.content-section p{color:#475569;font-size:15px;margin-bottom:15px;line-height:1.7}
-.content-section ul,.content-section ol{margin:0 0 20px 22px;color:#475569;font-size:15px}
-.content-section li{margin-bottom:8px}
+.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
+.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
+.content-table td{color:#475569}
 
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:12px;font-family:monospace;font-size:15px;margin:18px 0;line-height:1.8}
-
-.data-table{width:100%;border-collapse:collapse;margin:20px 0}
-.data-table th,.data-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;font-size:13px}
-.data-table th{background:var(--soft);color:var(--navy);font-weight:700}
-
-.faq-item{border-bottom:1px solid var(--border);padding:18px 0}
-.faq-item h4{font-size:16px;color:var(--navy);margin-bottom:8px}
-.faq-item p{margin-bottom:0}
-
-footer{background:#020617;color:#CBD5E1;padding:45px 0 25px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
 
-@media(max-width:768px){
-.tool-card-main,.content-section{padding:22px}
-}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How does the Time Zone Converter work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The tool reads your input time and target location zone offset to compute the exact equivalent local time instantly."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is Coordinated Universal Time (UTC)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "UTC is the primary time standard by which the world regulates clocks and time zones, maintaining zero offset baseline."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do international meetings handle time differences?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Teams utilize UTC offsets and online time converters to schedule collaborative sessions without confusion."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my schedule data stored on any server?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. All time conversions run completely locally within your web browser client-side for complete security."
-      }
-    }
-  ]
-}
-</script>
 </head>
-
 <body>
 
 <header>
 <div class="container nav">
-<a href="../index.html" class="logo">
-<span class="logo-shape"></span>
-SmartToolsKit
-</a>
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
 <nav>
 <a href="../index.html#categories">Categories</a>
 <a href="../index.html#tools">Tools</a>
@@ -168,160 +122,198 @@ SmartToolsKit
 </header>
 
 <main class="container">
-
-<div class="breadcrumb">
-<a href="../index.html">Home</a> / <a href="../index.html#calculators">Converters</a> / Time Zone Converter
-</div>
-
-<div class="tool-layout">
-
-<article class="tool-card-main">
+<div class="tool-container">
 <h1>Time Zone Converter</h1>
-<p class="subtitle">Convert time differences across global time zones and UTC offsets instantly with high precision.</p>
+<p class="subtitle">Convert time accurately between global cities and time zones instantly.</p>
 
-<div class="calc-box">
-<div class="error-msg" id="errorMsg"></div>
-
-<div class="form-grid">
 <div class="form-group">
-<label for="inputTime">Select Time:</label>
-<input type="time" id="inputTime" value="12:00">
+<label for="dateTimeInput">Select Date &amp; Time</label>
+<input type="datetime-local" id="dateTimeInput">
 </div>
 
+<div class="grid-2">
 <div class="form-group">
-<label for="inputDate">Select Date:</label>
-<input type="date" id="inputDate">
-</div>
-
-<div class="form-group">
-<label for="fromZone">From Time Zone:</label>
+<label for="fromZone">From Time Zone</label>
 <select id="fromZone">
-<option value="0">UTC (Coordinated Universal Time)</option>
-<option value="5">PKT (Pakistan Standard Time - UTC+5)</option>
-<option value="5.5">IST (Indian Standard Time - UTC+5:30)</option>
-<option value="8">CST / SGT (China / Singapore - UTC+8)</option>
-<option value="9">JST (Japan Standard Time - UTC+9)</option>
-<option value="-5">EST (Eastern Standard Time - UTC-5)</option>
-<option value="-8">PST (Pacific Standard Time - UTC-8)</option>
-<option value="1">CET (Central European Time - UTC+1)</option>
-<option value="0">GMT (Greenwich Mean Time - UTC+0)</option>
+<option value="UTC">UTC (Coordinated Universal Time)</option>
+<option value="America/New_York">New York (EST/EDT)</option>
+<option value="America/Los_Angeles">Los Angeles (PST/PDT)</option>
+<option value="Europe/London">London (GMT/BST)</option>
+<option value="Europe/Paris">Paris (CET/CEST)</option>
+<option value="Asia/Dubai">Dubai (GST)</option>
+<option value="Asia/Karachi" selected>Karachi / Islamabad (PKT)</option>
+<option value="Asia/Kolkata">New Delhi / Mumbai (IST)</option>
+<option value="Asia/Singapore">Singapore (SGT)</option>
+<option value="Asia/Tokyo">Tokyo (JST)</option>
+<option value="Australia/Sydney">Sydney (AEST/AEDT)</option>
 </select>
 </div>
 
 <div class="form-group">
-<label for="toZone">To Time Zone:</label>
+<label for="toZone">To Time Zone</label>
 <select id="toZone">
-<option value="0">UTC (Coordinated Universal Time)</option>
-<option value="5">PKT (Pakistan Standard Time - UTC+5)</option>
-<option value="5.5" selected>IST (Indian Standard Time - UTC+5:30)</option>
-<option value="8">CST / SGT (China / Singapore - UTC+8)</option>
-<option value="9">JST (Japan Standard Time - UTC+9)</option>
-<option value="-5">EST (Eastern Standard Time - UTC-5)</option>
-<option value="-8">PST (Pacific Standard Time - UTC-8)</option>
-<option value="1">CET (Central European Time - UTC+1)</option>
-<option value="0">GMT (Greenwich Mean Time - UTC+0)</option>
+<option value="UTC">UTC (Coordinated Universal Time)</option>
+<option value="America/New_York" selected>New York (EST/EDT)</option>
+<option value="America/Los_Angeles">Los Angeles (PST/PDT)</option>
+<option value="Europe/London">London (GMT/BST)</option>
+<option value="Europe/Paris">Paris (CET/CEST)</option>
+<option value="Asia/Dubai">Dubai (GST)</option>
+<option value="Asia/Karachi">Karachi / Islamabad (PKT)</option>
+<option value="Asia/Kolkata">New Delhi / Mumbai (IST)</option>
+<option value="Asia/Singapore">Singapore (SGT)</option>
+<option value="Asia/Tokyo">Tokyo (JST)</option>
+<option value="Australia/Sydney">Sydney (AEST/AEDT)</option>
 </select>
 </div>
 </div>
 
-<div class="btn-row">
-<button type="button" class="btn-calc" onclick="convertTimeZone()">Convert Time Zone</button>
-<button type="button" class="btn-reset" onclick="resetConverter()">Reset</button>
+<div class="btn-group">
+<button type="button" class="calc-btn" id="calculateBtn">Convert Time Zone</button>
+<button type="button" class="reset-btn" id="resetBtn">Reset</button>
 </div>
 
-<div class="result-display" id="resultDisplay">
-<div class="unit-highlight" aria-live="polite">
-<div class="main-val" id="convertedResultText">00:00</div>
-<div class="sub-val" id="conversionFormulaInfo">Converted Time Zone Result</div>
-</div>
-<div class="ad-slot">Advertisement Space</div>
-</div>
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All timezone calculations run locally inside your browser. No data is stored or transmitted externally.
 </div>
 
-<div class="privacy-badge">
-🔒 <strong>Privacy Assurance:</strong> Your conversion values are never sent or stored on remote servers. All calculations run securely within your browser.
+<div class="result-box" id="resultBox">
+<h3>Time Conversion Result</h3>
+<div class="stats-grid">
+<div class="stat-card">
+<span>Source Time</span>
+<strong id="resSource">00:00</strong>
 </div>
-</article>
+<div class="stat-card">
+<span>Converted Time</span>
+<strong id="resTarget">00:00</strong>
+</div>
+</div>
+</div>
 
-<section class="content-section">
-<h2>Comprehensive Guide to Global Time Zones, UTC Offsets, and International Scheduling</h2>
-<p>In our modern interconnected global economy, business transactions, software development sprints, academic conferences, remote team collaborations, and personal communications constantly cross international borders. Because the Earth rotates on its axis relative to the Sun, different regions experience daylight and night at completely different hours. Managing these temporal disparities requires a standardized framework of global time zones and precise conversion tools. Without reliable time zone conversion utilities, scheduling cross-continental meetings or coordinating international shipments would result in absolute chaos and missed deadlines.</p>
+<!-- UNIQUE MARKET-FIRST FEATURE: Circadian Sleep-State & Jet Lag Recovery Calculator -->
+<div class="unique-section">
+<h3>🌙 Unique Feature: Circadian Sleep-State &amp; Jet Lag Recovery Calculator</h3>
+<p>Traveling or calling abroad? Check if people in your destination zone are currently sleeping, eating, or working, and calculate your exact biological jet lag recovery duration!</p>
+<div class="form-group" style="margin-bottom:12px;">
+<label for="travelTargetZone" style="color:#fff;">Select Destination Time Zone</label>
+<select id="travelTargetZone" style="background:#1E293B;color:#fff;border-color:#334155;">
+<option value="America/New_York">New York (USA)</option>
+<option value="Europe/London">London (UK)</option>
+<option value="Asia/Dubai">Dubai (UAE)</option>
+<option value="Asia/Karachi" selected>Karachi (Pakistan)</option>
+<option value="Asia/Tokyo">Tokyo (Japan)</option>
+</select>
+</div>
+<button type="button" id="calcCircadianBtn" style="width:100%;background:var(--emerald);color:#fff;border:none;padding:10px;border-radius:8px;font-weight:700;cursor:pointer;">Analyze Sleep State &amp; Jet Lag</button>
+<div id="circadianResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;display:none;line-height:1.6;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;"></div>
+</div>
 
-<p>Our professional SmartToolsKit Time Zone Converter is expertly engineered to provide instantaneous, mathematically rigorous time transformations across major international time zones and Coordinated Universal Time (UTC) offsets. By performing all computations directly within your web browser client-side using native JavaScript time algorithms, our tool guarantees lightning-fast performance, zero network delay, and complete confidentiality of your scheduling data.</p>
+</div>
 
-<h2>Understanding Coordinated Universal Time (UTC) and Time Zone Offsets</h2>
-<p>To fully master international time management, it is critical to understand the foundational mechanisms governing world clocks:</p>
-<ul>
-<li><strong>Coordinated Universal Time (UTC):</strong> UTC serves as the primary international time standard by which the world regulates clocks and time. It is essentially the modern successor to Greenwich Mean Time (GMT). UTC maintains a zero-offset baseline from which all global time zones are measured positively (eastwards) or negatively (westwards).</li>
-<li><strong>Time Zone Offsets:</strong> Regions across the globe are partitioned into longitudinal zones, each maintaining a specific hour or fractional-hour offset from UTC. For instance, Pakistan Standard Time operates at UTC+5, meaning local time is five hours ahead of UTC, while Eastern Standard Time in North America operates at UTC-5, trailing five hours behind the global baseline.</li>
-</ul>
+<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="content-section">
+<h2>Understanding Global Time Zones and International Scheduling</h2>
+<p>In our hyper-connected global economy, international communication, remote workforces, and cross-border commerce have made time zone coordination an essential daily activity. The Earth is divided into 24 primary longitudinal time zones, rotating 15 degrees every hour relative to the Prime Meridian ($0^\circ$ longitude) in Greenwich, London. Because political boundaries, daylight saving time (DST) adjustments, and regional offsets dictate local clocks, calculating time differences manually across distant continents can often lead to missed appointments or scheduling errors.</p>
 
-<h2>Core Calculation Formulas for Time Zone Conversions</h2>
-<p>Converting time between two distinct geographical regions requires neutralizing the source zone offset and applying the target zone offset relative to the universal baseline:</p>
+<p>Our online Time Zone Converter simplifies this complex international workflow, enabling users to convert dates and times instantly between major global cities. Powered by advanced browser-native internationalization standards, our utility guarantees precise hour and minute transformations without requiring external software or manual offset calculations.</p>
+
+<h2>Exploring Circadian Rhythms and Biological Jet Lag Recovery</h2>
+<p>Beyond standard time conversions, our platform introduces an exclusive market-first feature: the <strong>Circadian Sleep-State &amp; Jet Lag Recovery Calculator</strong>. When humans cross multiple time zones rapidly via air travel, our internal biological clock (circadian rhythm) remains synchronized with our departure location, creating a temporal mismatch known as jet lag. Symptoms include fatigue, insomnia, and reduced cognitive performance.</p>
+
+<p>Medical sleep science indicates that human circadian readjustment typically requires approximately 1 day of recovery for every 1 hour of time difference crossed. Furthermore, traveling eastward is generally harder on the body than traveling westward due to phase-advance requirements. Our unique tool evaluates the hour difference between your local system time and your target destination, instantly predicting current biological sleep states (e.g., Deep Sleep, Peak Alertness, or Meal Time) and estimating your exact recovery duration.</p>
+
+<h2>The Mathematical Time Offset Calculation Formulas</h2>
+<p>To compute time zone conversions manually or verify international schedules, utilize the following core mathematical concepts:</p>
 
 <div class="formula-box">
-1. Convert Local Time to UTC Baseline:<br>
-UTC Time = Input Time − Source Zone Offset<br><br>
-2. Convert UTC Baseline to Target Zone:<br>
-Target Time = UTC Time + Target Zone Offset<br><br>
-3. Net Calculation Formula:<br>
-Target Time = Input Time + (Target Offset − Source Offset)
+<strong>Time Zone &amp; Jet Lag Calculation Formulas:</strong>
+1. Target Time = Source Time + (Target Zone UTC Offset - Source Zone UTC Offset)<br>
+2. Hour Difference ($\Delta h$) = Absolute Difference between Local and Destination Hours<br>
+3. Estimated Jet Lag Recovery Days = $\Delta h$ / 1.5 Days<br><br>
+<strong>Key Offset Benchmarks:</strong>
+• UTC (Coordinated Universal Time): 0 Hours<br>
+• London (GMT/BST): UTC+0 or UTC+1<br>
+• New York (EST/EDT): UTC-5 or UTC-4<br>
+• Karachi (PKT): UTC+5<br>
+• Tokyo (JST): UTC+9
 </div>
 
-<h2>Major Global Time Zones Reference Matrix</h2>
-<p>The comprehensive matrix below outlines prominent global time zones, their common abbreviations, and their standard offsets relative to Coordinated Universal Time (UTC):</p>
+<p>By applying these standardized formulas, remote managers, traders, and international travelers can accurately synchronize schedules and prepare for biological adjustments.</p>
 
-<table class="data-table">
+<h2>Global Time Zone Reference Matrix</h2>
+<p>The table below outlines sample prominent international cities alongside their standard UTC offset benchmarks:</p>
+
+<table class="content-table">
 <thead>
 <tr>
-<th>Zone Name</th>
-<th>Abbreviation</th>
-<th>UTC Offset</th>
-<th>Primary Geographic Regions</th>
+<th>City / Region</th>
+<th>Time Zone Code</th>
+<th>Standard UTC Offset</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Coordinated Universal Time</td><td>UTC</td><td>UTC+0</td><td>Global Standard Baseline</td></tr>
-<tr><td>Greenwich Mean Time</td><td>GMT</td><td>UTC+0</td><td>United Kingdom, Western Europe</td></tr>
-<tr><td>Central European Time</td><td>CET</td><td>UTC+1</td><td>Germany, France, Italy, Spain</td></tr>
-<tr><td>Pakistan Standard Time</td><td>PKT</td><td>UTC+5</td><td>Pakistan, Central Asia</td></tr>
-<tr><td>Indian Standard Time</td><td>IST</td><td>UTC+5:30</td><td>India, Sri Lanka</td></tr>
-<tr><td>China Standard Time</td><td>CST / SGT</td><td>UTC+8</td><td>China, Singapore, Western Australia</td></tr>
-<tr><td>Japan Standard Time</td><td>JST</td><td>UTC+9</td><td>Japan, South Korea</td></tr>
-<tr><td>Eastern Standard Time</td><td>EST</td><td>UTC-5</td><td>Eastern US, Eastern Canada</td></tr>
-<tr><td>Pacific Standard Time</td><td>PST</td><td>UTC-8</td><td>Western US, British Columbia</td></tr>
+<tr>
+<td>Coordinated Universal Time</td>
+<td>UTC</td>
+<td>UTC +0:00</td>
+</tr>
+<tr>
+<td>London, United Kingdom</td>
+<td>GMT / BST</td>
+<td>UTC +0:00 / +1:00</td>
+</tr>
+<tr>
+<td>New York, United States</td>
+<td>EST / EDT</td>
+<td>UTC -5:00 / -4:00</td>
+</tr>
+<tr>
+<td>Los Angeles, United States</td>
+<td>PST / PDT</td>
+<td>UTC -8:00 / -7:00</td>
+</tr>
+<tr>
+<td>Dubai, United Arab Emirates</td>
+<td>GST</td>
+<td>UTC +4:00</td>
+</tr>
+<tr>
+<td>Karachi / Islamabad, Pakistan</td>
+<td>PKT</td>
+<td>UTC +5:00</td>
+</tr>
+<tr>
+<td>New Delhi, India</td>
+<td>IST</td>
+<td>UTC +5:30</td>
+</tr>
+<tr>
+<td>Tokyo, Japan</td>
+<td>JST</td>
+<td>UTC +9:00</td>
+</tr>
 </tbody>
 </table>
 
-<h2>The Critical Importance of Time Zone Management in Remote Work</h2>
-<p>With the exponential rise of remote employment and borderless digital enterprises, professionals frequently interact with colleagues stationed across multiple continents. A failure to account for time zone differences can lead to missed video conferences, delayed client deliveries, and disrupted operational workflows. Utilizing reliable online conversion utilities eliminates human arithmetic errors, ensuring smooth synchronization across distributed teams.</p>
+<h2>How to Use the Time Zone Converter &amp; Circadian Calculator</h2>
+<p>Using our multi-purpose time zone conversion tool is straightforward, fast, and user-friendly:</p>
+<ul>
+<li><strong>Select Date &amp; Time:</strong> Choose your starting date and hour using our intuitive local datetime picker.</li>
+<li><strong>Choose Time Zones:</strong> Select your starting location ("From Zone") and your destination location ("To Zone").</li>
+<li><strong>Calculate &amp; Review:</strong> Click the conversion button to instantly view the synchronized time in both regions.</li>
+<li><strong>Analyze Sleep &amp; Jet Lag:</strong> Use our unique Circadian Sleep-State &amp; Jet Lag Calculator at the bottom to check destination sleep cycles and recovery days!</li>
+</ul>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Does this converter account for Daylight Saving Time (DST)?</h3>
+<p>Yes! Because our tool utilizes modern browser-native time zone databases (`Intl.DateTimeFormat`), it automatically handles regional daylight saving transitions where applicable.</p>
 
-<div class="faq-item">
-<h4>How does the Time Zone Converter function?</h4>
-<p>The tool reads your selected input time, date, and source/target zone offsets to compute the exact equivalent local time instantly.</p>
+<h3>2. How does the Circadian Jet Lag Calculator estimate recovery days?</h3>
+<p>It calculates the absolute hour discrepancy between your current local time and the target destination, applying standard sleep science adjustment rates of roughly 1.5 hours per day.</p>
+
+<h3>3. Are my schedule queries saved or tracked on external servers?</h3>
+<p>No. All computations run strictly inside your web browser client-side, ensuring complete data privacy and security.</p>
 </div>
-
-<div class="faq-item">
-<h4>What is Coordinated Universal Time (UTC)?</h4>
-<p>UTC is the primary international time standard by which the world regulates clocks, maintaining a zero-offset baseline.</p>
-</div>
-
-<div class="faq-item">
-<h4>How do international teams handle time differences efficiently?</h4>
-<p>Teams utilize standardized UTC offsets and dedicated online time converters to schedule collaborative sessions without scheduling conflicts.</p>
-</div>
-
-<div class="faq-item">
-<h4>Is my schedule data or meeting input tracked or stored on external servers?</h4>
-<p>No. All time calculations run completely locally within your web browser client-side, ensuring total privacy and data confidentiality.</p>
-</div>
-
-</section>
-
-</div>
-
 </main>
 
 <footer>
@@ -329,13 +321,12 @@ Target Time = Input Time + (Target Offset − Source Offset)
 <div class="footer-grid">
 <div>
 <h3>SmartToolsKit</h3>
-<p>Smart Tools. Simple Solutions. Free browser-based web tools designed to make everyday digital tasks faster and easier.</p>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
 </div>
 <div>
 <h3>Quick Links</h3>
 <div class="footer-links">
 <a href="../index.html">Home</a>
-<a href="../index.html#tools">Tools</a>
 <a href="../about.html">About Us</a>
 <a href="../contact.html">Contact Us</a>
 </div>
@@ -344,101 +335,141 @@ Target Time = Input Time + (Target Offset − Source Offset)
 <h3>Legal</h3>
 <div class="footer-links">
 <a href="../privacy-policy.html">Privacy Policy</a>
-<a href="../terms.html">Terms & Conditions</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
 <a href="../disclaimer.html">Disclaimer</a>
 </div>
 </div>
 </div>
-<div class="copyright">
-© 2026 SmartToolsKit. All rights reserved.
-</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
 </div>
 </footer>
 
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie">Got It</button>
+</div>
+
 <script>
-function showError(msg){
-  const err = document.getElementById('errorMsg');
-  if(msg){
-    err.innerText = msg;
-    err.style.display = 'block';
-  } else {
-    err.style.display = 'none';
+window.addEventListener('DOMContentLoaded', () => {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  document.getElementById('dateTimeInput').value = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieConsent').style.display = 'flex';
   }
-}
+});
 
-function setDefaultDate(){
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('inputDate').value = today;
-}
+document.getElementById('calculateBtn').addEventListener('click', () => {
+  const dtVal = document.getElementById('dateTimeInput').value;
+  const fromZ = document.getElementById('fromZone').value;
+  const toZ = document.getElementById('toZone').value;
+  const resultBox = document.getElementById('resultBox');
 
-function convertTimeZone(){
-  const timeVal = document.getElementById('inputTime').value;
-  const dateVal = document.getElementById('inputDate').value;
-  const fromOffset = parseFloat(document.getElementById('fromZone').value);
-  const toOffset = parseFloat(document.getElementById('toZone').value);
-  
-  if(!timeVal || !dateVal){
-    showError('Please select a valid time and date.');
+  if (!dtVal) {
+    alert('Please select a valid date and time.');
     return;
   }
-  showError('');
-  
-  const [hours, minutes] = timeVal.split(':').map(Number);
-  
-  // Calculate total minutes from midnight in UTC
-  const inputTotalMinutes = hours * 60 + minutes;
-  const fromOffsetMinutes = fromOffset * 60;
-  const toOffsetMinutes = toOffset * 60;
-  
-  let utcMinutes = inputTotalMinutes - fromOffsetMinutes;
-  let targetMinutes = utcMinutes + toOffsetMinutes;
-  
-  // Handle day overflow / underflow
-  let dayShift = 0;
-  if(targetMinutes < 0){
-    targetMinutes += 24 * 60;
-    dayShift = -1;
-  } else if(targetMinutes >= 24 * 60){
-    targetMinutes %= 24 * 60;
-    dayShift = 1;
+
+  const localDate = new Date(dtVal);
+  if (isNaN(localDate.getTime())) {
+    alert('Invalid date format.');
+    return;
   }
-  
-  const targetHours = Math.floor(targetMinutes / 60);
-  const targetMins = targetMinutes % 60;
-  
-  const formattedTime = String(targetHours).padStart(2, '0') + ':' + String(targetMins).padStart(2, '0');
-  
-  const fromText = document.getElementById('fromZone').options[document.getElementById('fromZone').selectedIndex].text;
-  const toText = document.getElementById('toZone').options[document.getElementById('toZone').selectedIndex].text;
-  
-  let shiftText = '';
-  if(dayShift === 1) shiftText = ' (Next Day)';
-  else if(dayShift === -1) shiftText = ' (Previous Day)';
-  
-  document.getElementById('convertedResultText').innerText = formattedTime + shiftText;
-  document.getElementById('conversionFormulaInfo').innerText = `${timeVal} (${fromText.split(' - ')[0]}) = ${formattedTime} (${toText.split(' - ')[0]})`;
-  document.getElementById('resultDisplay').style.display = 'block';
-}
 
-function resetConverter(){
-  document.getElementById('inputTime').value = '12:00';
-  setDefaultDate();
-  document.getElementById('fromZone').selectedIndex = 0;
-  document.getElementById('toZone').selectedIndex = 2;
-  showError('');
-  convertTimeZone();
-}
+  const options = { timeZone: toZ, dateStyle: 'full', timeStyle: 'medium' };
+  const fromOptions = { timeZone: fromZ, dateStyle: 'full', timeStyle: 'medium' };
 
-document.getElementById('inputTime').addEventListener('input', convertTimeZone);
-document.getElementById('inputDate').addEventListener('change', convertTimeZone);
-document.getElementById('fromZone').addEventListener('change', convertTimeZone);
-document.getElementById('toZone').addEventListener('change', convertTimeZone);
+  try {
+    const formatterTo = new Intl.DateTimeFormat('en-US', options);
+    const formatterFrom = new Intl.DateTimeFormat('en-US', fromOptions);
 
-window.onload = function(){
-  setDefaultDate();
-  convertTimeZone();
-};
+    const tzString = localDate.toLocaleString('en-US', { timeZone: fromZ });
+    const tentativeDate = new Date(tzString);
+    const diff = localDate.getTime() - tentativeDate.getTime();
+    const exactUTC = new Date(localDate.getTime() + diff);
+
+    document.getElementById('resSource').textContent = formatterFrom.format(exactUTC);
+    document.getElementById('resTarget').textContent = formatterTo.format(exactUTC);
+    resultBox.style.display = 'block';
+  } catch (e) {
+    alert('Error calculating time zone. Please check selected zones.');
+  }
+});
+
+// Circadian Sleep-State & Jet Lag Recovery Calculator logic
+document.getElementById('calcCircadianBtn').addEventListener('click', () => {
+  const targetZ = document.getElementById('travelTargetZone').value;
+  const resDiv = document.getElementById('circadianResult');
+
+  const now = new Date();
+  const targetTimeStr = now.toLocaleTimeString('en-US', { timeZone: targetZ, hour: 'numeric', hour12: false });
+  const targetHour = parseInt(targetTimeStr, 10);
+  const targetFullTime = now.toLocaleString('en-US', { timeZone: targetZ, dateStyle: 'medium', timeStyle: 'short' });
+  const cityName = targetZ.split('/')[1].replace('_', ' ');
+
+  // Determine biological sleep state based on destination local hour
+  let sleepState = '';
+  let icon = '';
+  if (targetHour >= 22 || targetHour < 6) {
+    sleepState = 'Deep Sleep / Night Rest (Circadian trough)';
+    icon = '🌙';
+  } else if (targetHour >= 6 && targetHour < 9) {
+    sleepState = 'Morning Wake-up & Melatonin Decline';
+    icon = '🌅';
+  } else if (targetHour >= 9 && targetHour < 12) {
+    sleepState = 'Peak Cognitive Alertness & Productivity';
+    icon = '⚡';
+  } else if (targetHour >= 12 && targetHour < 14) {
+    sleepState = 'Midday Meal & Post-Lunch Dip';
+    icon = '🍽️';
+  } else if (targetHour >= 14 && targetHour < 18) {
+    sleepState = 'Second Afternoon Alertness Window';
+    icon = '💼';
+  } else {
+    sleepState = 'Evening Wind-down & Melatonin Rise';
+    icon = '🌆';
+  }
+
+  // Calculate rough hour offset from local browser time to target zone
+  const localHour = now.getHours();
+  const targetUTC = new Date(now.toLocaleString('en-US', { timeZone: targetZ }));
+  const localUTC = new Date(now.toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }));
+  const hourDiff = Math.abs(Math.round((targetUTC - localUTC) / (1000 * 60 * 60))) || Math.abs(targetHour - localHour);
+  const recoveryDays = (hourDiff / 1.5).toFixed(1);
+
+  let html = `🧬 <strong>Circadian &amp; Jet Lag Analysis for ${cityName}:</strong><br>`;
+  html += `• <strong>Local Time:</strong> ${targetFullTime}<br>`;
+  html += `• <strong>Biological State:</strong> ${icon} ${sleepState}<br>`;
+  html += `• <strong>Estimated Jet Lag Recovery:</strong> Traveling here will involve ~${hourDiff}h time shift, requiring approximately <strong>${recoveryDays} days</strong> for full circadian re-entrainment!`;
+
+  resDiv.innerHTML = html;
+  resDiv.style.display = 'block';
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  document.getElementById('dateTimeInput').value = `${year}-${month}-${day}T${hours}:${minutes}`;
+  document.getElementById('fromZone').value = 'Asia/Karachi';
+  document.getElementById('toZone').value = 'America/New_York';
+  document.getElementById('resultBox').style.display = 'none';
+  document.getElementById('circadianResult').style.display = 'none';
+});
+
+document.getElementById('acceptCookie').addEventListener('click', () => {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
 </script>
+
 </body>
-  </html>
-  
+</html>
