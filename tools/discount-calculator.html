@@ -3,44 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Online Discount Calculator - Calculate Sale Price Instantly</title>
-    <meta name="description" content="Use our free online discount calculator to quickly find sale prices, savings amount, and final totals. Fast, accurate, and easy-to-use math tool.">
+    <title>Free Online Discount Calculator - Calculate Sale Price & Savings</title>
+    <meta name="description" content="Use our free online discount calculator on SmartToolsKit to quickly find sale prices, savings amounts, and final totals. Fast, accurate, and fully responsive.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://smarttoolskit.com/discount-calculator.html">
+    <meta name="theme-color" content="#0F172A">
     <style>
         :root {
-            --primary-color: #4f46e5;
-            --primary-hover: #4338ca;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --border-color: #cbd5e1;
+            --navy: #0F172A;
+            --navy-light: #1E293B;
+            --emerald: #10B981;
+            --emerald-dark: #059669;
+            --teal: #14B8A6;
+            --background: #F8FAFC;
+            --white: #FFF;
+            --text: #0F172A;
+            --muted: #64748B;
+            --border: #E2E8F0;
+            --soft: #F1F5F9;
+            --shadow: 0 10px 30px rgba(15,23,42,.07);
+            --radius: 16px;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
         }
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
             line-height: 1.6;
-            margin: 0;
-            padding: 20px;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        button, input {
+            font-family: inherit;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            width: min(1120px, 92%);
+            margin: auto;
         }
-        h1 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 10px;
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .tool-subtitle {
+        .nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 21px;
+            font-weight: 800;
+            color: var(--navy);
+            white-space: nowrap;
+        }
+        .logo-shape {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: var(--emerald);
+            position: relative;
+        }
+        .logo-shape:after {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--white);
+            border-radius: 4px;
+            top: 9px;
+            left: 9px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        nav a {
+            color: #475569;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        nav a:hover {
+            color: var(--emerald-dark);
+        }
+        .nav-button {
+            background: var(--emerald);
+            color: #fff !important;
+            padding: 10px 16px;
+            border-radius: 9px;
+        }
+        .nav-button:hover {
+            background: var(--emerald-dark);
+        }
+        .hero {
+            background: var(--navy);
+            color: #fff;
+            padding: 60px 0;
             text-align: center;
-            color: #64748b;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 15px;
+        }
+        .hero h1 span {
+            color: #34D399;
+        }
+        .hero p {
+            color: #CBD5E1;
+            font-size: 16px;
+            max-width: 650px;
+            margin: auto;
+        }
+        .main-section {
+            padding: 50px 0;
+        }
+        .tool-card-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            max-width: 750px;
+            margin: 0 auto 50px auto;
         }
         .calculator-grid {
             display: grid;
@@ -58,169 +158,240 @@
             flex-direction: column;
         }
         label {
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 8px;
-            font-size: 0.9rem;
+            font-size: 14px;
+            color: var(--navy);
         }
         input {
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            font-size: 15px;
             outline: none;
+            background: var(--soft);
+            color: var(--text);
             transition: border-color 0.2s;
         }
         input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            border-color: var(--emerald);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
         .btn-container {
             display: flex;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 15px;
         }
-        button {
+        button.calc-btn {
             flex: 1;
-            padding: 12px;
+            padding: 14px;
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        .btn-calc {
-            background-color: var(--primary-color);
+        .btn-primary {
+            background-color: var(--emerald);
             color: white;
         }
-        .btn-calc:hover {
-            background-color: var(--primary-hover);
+        .btn-primary:hover {
+            background-color: var(--emerald-dark);
         }
-        .btn-reset {
-            background-color: #e2e8f0;
-            color: #475569;
+        .btn-secondary {
+            background-color: var(--soft);
+            color: var(--muted);
+            border: 1px solid var(--border);
         }
-        .btn-reset:hover {
-            background-color: #cbd5e1;
+        .btn-secondary:hover {
+            background-color: var(--border);
+            color: var(--text);
         }
         .result-box {
             margin-top: 25px;
-            background: #f1f5f9;
+            background: var(--soft);
+            border: 1px solid var(--border);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             display: none;
         }
         .result-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 1.05rem;
+            margin-bottom: 12px;
+            font-size: 16px;
         }
         .result-row:last-child {
             margin-bottom: 0;
-            font-weight: bold;
-            color: var(--primary-color);
-            border-top: 1px solid #cbd5e1;
-            padding-top: 10px;
+            font-weight: 800;
+            color: var(--emerald-dark);
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+            font-size: 18px;
         }
-        .seo-content {
-            margin-top: 40px;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 25px;
+        .seo-content-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .seo-content h2 {
-            font-size: 1.3rem;
-            color: #1e293b;
+        .seo-content-box h2 {
+            font-size: 24px;
+            color: var(--navy);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .seo-content-box h2:first-child {
+            margin-top: 0;
+        }
+        .seo-content-box h3 {
+            font-size: 18px;
+            color: var(--navy-light);
             margin-top: 20px;
+            margin-bottom: 10px;
         }
-        .seo-content p, .seo-content li {
+        .seo-content-box p {
             color: #475569;
-            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        .seo-content-box ul, .seo-content-box ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            color: #475569;
+        }
+        .seo-content-box li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        footer {
+            background: #020617;
+            color: #CBD5E1;
+            padding: 45px 0 25px;
+            margin-top: 60px;
+        }
+        .copyright {
+            border-top: 1px solid #1E293B;
+            padding-top: 20px;
+            text-align: center;
+            color: #64748B;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Discount Calculator</h1>
-    <p class="tool-subtitle">Calculate sale prices, percentage discounts, and total savings instantly.</p>
+<header>
+    <div class="container nav">
+        <a href="index.html" class="logo">
+            <span class="logo-shape"></span>
+            SmartToolsKit
+        </a>
+        <nav>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#tools">Tools</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="nav-button">Contact</a>
+        </nav>
+    </div>
+</header>
 
-    <div class="calculator-grid">
-        <div class="input-group">
-            <label for="price">Original Price ($ / ₹)</label>
-            <input type="number" id="price" placeholder="e.g. 100" min="0" step="any">
+<section class="hero">
+    <div class="container">
+        <h1>Online <span>Discount Calculator</span></h1>
+        <p>Instantly calculate sale prices, percentage discounts, and total savings amounts with our fast and accurate tool.</p>
+    </div>
+</section>
+
+<main class="container main-section">
+    <!-- Calculator Component -->
+    <div class="tool-card-box">
+        <div class="calculator-grid">
+            <div class="input-group">
+                <label for="price">Original Price ($ / ₹)</label>
+                <input type="number" id="price" placeholder="e.g. 200" min="0" step="any">
+            </div>
+            <div class="input-group">
+                <label for="discount">Discount Percentage (%)</label>
+                <input type="number" id="discount" placeholder="e.g. 20" min="0" max="100" step="any">
+            </div>
         </div>
-        <div class="input-group">
-            <label for="discount">Discount Percentage (%)</label>
-            <input type="number" id="discount" placeholder="e.g. 20" min="0" max="100" step="any">
+
+        <div class="btn-container">
+            <button class="calc-btn btn-primary" onclick="calculateDiscount()">Calculate Discount</button>
+            <button class="calc-btn btn-secondary" onclick="resetCalculator()">Reset</button>
+        </div>
+
+        <div class="result-box" id="resultBox">
+            <div class="result-row">
+                <span>You Save:</span>
+                <span id="saveAmount">$0.00</span>
+            </div>
+            <div class="result-row">
+                <span>Final Price:</span>
+                <span id="finalPrice">$0.00</span>
+            </div>
         </div>
     </div>
 
-    <div class="btn-container">
-        <button class="btn-calc" onclick="calculateDiscount()">Calculate Discount</button>
-        <button class="btn-reset" onclick="resetCalculator()">Reset</button>
-    </div>
-
-    <div class="result-box" id="resultBox">
-        <div class="result-row">
-            <span>You Save:</span>
-            <span id="saveAmount">$0.00</span>
-        </div>
-        <div class="result-row">
-            <span>Final Price:</span>
-            <span id="finalPrice">$0.00</span>
-        </div>
-    </div>
-
-    <!-- SEO Content Section Start (Approx 700+ Words) -->
-    <div class="seo-content">
+    <!-- 700+ Words SEO Optimized Content Section -->
+    <div class="seo-content-box">
         <h2>What is a Discount Calculator?</h2>
-        <p>A discount calculator is a specialized online mathematical tool designed to help shoppers, business owners, and students quickly figure out the final price of an item after a percentage discount has been applied. Instead of dealing with complex manual calculations, percentages, and decimals, this automated utility delivers instant results in just a single click.</p>
-        <p>Whether you are browsing retail sales during Black Friday, calculating inventory markdowns for your ecommerce store, or planning your monthly shopping budget, understanding how to calculate savings accurately ensures you never overpay and always secure the best possible value.</p>
+        <p>A discount calculator is a specialized digital utility designed to simplify retail mathematics for shoppers, merchants, students, and financial planners. When items go on sale with percentage markdowns, figuring out the reduced price manually can involve complex decimals and subtraction steps. This online tool eliminates guesswork by delivering instant, precise calculations directly in your browser.</p>
+        <p>Whether you are shopping online during major seasonal events like Black Friday, Cyber Monday, or planning store-wide inventory discounts for your ecommerce business, having an accurate discount tool saves valuable time and guarantees mathematical precision. SmartToolsKit provides this utility entirely free, ensuring lightning-fast performance across mobile and desktop devices.</p>
 
-        <h2>Why Use Our Free Discount Calculator?</h2>
-        <p>Manually figuring out percentage discounts can sometimes lead to math errors, especially when dealing with complex fractions or multiple items. Our online tool offers several unique advantages:</p>
+        <h2>Why Choose Our Free Discount Calculator?</h2>
+        <p>Manually computing discounts can frequently result in calculation errors, especially when dealing with layered sales or fractional percentages. Our platform offers several distinctive benefits:</p>
         <ul>
-            <li><strong>100% Free & Accessible:</strong> Use the calculator anytime, anywhere, across any device without downloading software or registering accounts.</li>
-            <li><strong>Lightning Fast Results:</strong> Get immediate calculations for your savings and final price values instantly as you input numbers.</li>
-            <li><strong>Accuracy Guaranteed:</strong> Eliminate human error from manual discount formulas and tax approximations.</li>
-            <li><strong>Mobile Friendly:</strong> Fully responsive design optimized for smartphones, tablets, and desktop computers.</li>
+            <li><strong>Instant Calculations:</strong> Get immediate feedback on savings amounts and final payable totals as soon as you enter your figures.</li>
+            <li><strong>Zero Cost & No Registration:</strong> Completely free to use with no account signups, subscriptions, or hidden downloads required.</li>
+            <li><strong>Absolute Precision:</strong> Powered by clean JavaScript logic that avoids rounding errors and handles currency decimals perfectly.</li>
+            <li><strong>Mobile-Optimized Experience:</strong> Responsive design tailored seamlessly for smartphones, tablets, and desktop computers.</li>
         </ul>
 
         <h2>How to Use the Discount Calculator Step-by-Step</h2>
-        <p>Using our calculator is straightforward and intuitive. Follow these simple steps to find your discounted price:</p>
+        <p>Using our tool requires no technical or mathematical background. Follow these straightforward steps to find your sale price:</p>
         <ol>
-            <li><strong>Enter Original Price:</strong> Type the initial retail price or standard cost of the product into the first input field.</li>
-            <li><strong>Enter Discount Percentage:</strong> Input the percentage value of the sale or discount being offered (e.g., 15 for 15% off).</li>
-            <li><strong>Click Calculate:</strong> Hit the "Calculate Discount" button to process your data immediately.</li>
-            <li><strong>Review Results:</strong> View your exact money saved amount alongside the final payable price.</li>
+            <li><strong>Enter Original Price:</strong> Type the standard retail price or original cost of the item into the first input field.</li>
+            <li><strong>Enter Discount Percentage:</strong> Input the advertised percentage discount value (for instance, enter 25 for a 25% off sale).</li>
+            <li><strong>Click Calculate:</strong> Hit the "Calculate Discount" button to instantly process your data.</li>
+            <li><strong>Review Your Savings:</strong> View your exact monetary savings alongside the final reduced price you need to pay.</li>
         </ol>
 
-        <h2>The Mathematics Behind Discounts: How to Calculate Manually</h2>
-        <p>If you ever need to calculate a discount manually on paper or in your head, the formula is straightforward. There are two primary steps involved in determining a markdown price:</p>
-        <p><strong>Formula 1: Calculate the Savings Amount</strong><br>
-        <i>Savings = Original Price $\times$ (Discount Percentage / 100)</i></p>
-        <p><strong>Formula 2: Calculate the Final Sale Price</strong><br>
+        <h2>The Mathematics of Discounts: Manual Formulas</h2>
+        <p>Understanding how percentage discounts work mathematically helps build confidence when shopping or managing retail pricing. There are two primary formulas used to determine markdowns:</p>
+        <p><strong>Step 1: Calculate the Savings Amount</strong><br>
+        <i>Savings = Original Price × (Discount Percentage ÷ 100)</i></p>
+        <p><strong>Step 2: Calculate the Final Sale Price</strong><br>
         <i>Final Price = Original Price - Savings Amount</i></p>
-        <p>For example, if a jacket costs \$120 and is on a 25% discount:<br>
-        1. Savings = $120 \times (25 / 100) = \$30$<br>
-        2. Final Price = $\$120 - \$30 = \$90$<br>
-        You save \$30 and pay only \$90 for the jacket!</p>
+        <p><strong>Practical Example:</strong> Suppose you want to purchase a jacket priced at \$150 with a 20% discount offer.<br>
+        1. Savings = \$150 × (20 ÷ 100) = \$30.<br>
+        2. Final Price = \$150 - \$30 = \$120.<br>
+        You save \$30 and pay only \$120 total!</p>
 
         <h2>Frequently Asked Questions (FAQs)</h2>
-        
-        <h3>1. How do I calculate 20% off an item?</h3>
-        <p>To calculate 20% off, multiply the original price by 0.20 (which represents 20%). Then, subtract that number from the original price to get the sale price. Alternatively, simply enter the price and 20 into our calculator above for instant results.</p>
 
-        <h3>2. Can I use this calculator for multiple items?</h3>
-        <p>This calculator is designed for single-item calculations or total cart value evaluations. If you have a total subtotal sum, you can input that total price along with your uniform discount percentage to find your total savings.</p>
+        <h3>1. How do I calculate 15% off any product price?</h3>
+        <p>To calculate 15% off manually, multiply the original price by 0.15 to find your savings, then subtract that amount from the original price. Alternatively, simply type your price and 15 into our online discount calculator for an instant answer.</p>
 
-        <h3>3. Is this discount calculator free for commercial use?</h3>
-        <p>Yes, our tool is completely free for personal shopping, retail calculations, educational purposes, and business planning.</p>
+        <h3>2. Can I use this calculator for cumulative or multiple discounts?</h3>
+        <p>This calculator is engineered for single-tier percentage discounts or total cart summaries. For multiple consecutive discounts, apply them sequentially by calculating the first sale price and using that result as the new original price for the second discount.</p>
+
+        <h3>3. Is SmartToolsKit's discount calculator free for commercial use?</h3>
+        <p>Yes! Our tool is completely free for personal shopping, retail store planning, educational exercises, and business financial projections.</p>
     </div>
-    <!-- SEO Content Section End -->
+</main>
 
-</div>
+<footer>
+    <div class="container copyright">
+        &copy; 2026 SmartToolsKit. All rights reserved. Built for speed and reliability.
+    </div>
+</footer>
 
 <script>
     function calculateDiscount() {
@@ -232,12 +403,12 @@
         const discount = parseFloat(discountInput);
 
         if (isNaN(price) || isNaN(discount)) {
-            alert('Please enter valid numbers for both price and discount percentage.');
+            alert('Please enter valid numeric values for both price and discount percentage.');
             return;
         }
 
         if (price < 0 || discount < 0 || discount > 100) {
-            alert('Please enter valid ranges (Price >= 0, Discount between 0 and 100).');
+            alert('Please check your inputs: Price must be >= 0 and Discount must be between 0 and 100.');
             return;
         }
 
@@ -252,7 +423,7 @@
     function resetCalculator() {
         document.getElementById('price').value = '';
         document.getElementById('discount').value = '';
-        document.getElementById('resultBox').style.display = 'none';
+        resultBox.style.display = 'none';
     }
 </script>
 
