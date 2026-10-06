@@ -123,12 +123,12 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <div class="form-group">
 <label for="loanAmount">Loan Amount (Principal)</label>
-<input type="number" id="loanAmount" placeholder="e.g., 500000">
+<input type="number" id="loanAmount" value="500000" placeholder="e.g., 500000">
 </div>
 
 <div class="form-group">
 <label for="interestRate">Annual Interest Rate (%)</label>
-<input type="number" step="0.01" id="interestRate" placeholder="e.g., 8.5">
+<input type="number" step="0.01" id="interestRate" value="8.5" placeholder="e.g., 8.5">
 </div>
 
 <div style="display:flex;gap:15px;">
@@ -319,8 +319,10 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const startDate = new Date(startDateInput);
-      const endDate = new Date(endDateInput);
+      const startParts = startDateInput.split('-');
+      const startDate = new Date(parseInt(startParts[0]), parseInt(startParts[1]) - 1, parseInt(startParts[2]));
+      const endParts = endDateInput.split('-');
+      const endDate = new Date(parseInt(endParts[0]), parseInt(endParts[1]) - 1, parseInt(endParts[2]));
 
       if (startDate >= endDate) {
         alert('Loan End Date must be strictly later than the Start Date.');
@@ -357,7 +359,7 @@ window.addEventListener('DOMContentLoaded', () => {
       scheduleDataForCsv = [['Payment Date', 'Principal Paid', 'Interest Paid', 'Remaining Balance']];
       scheduleBody.innerHTML = '';
 
-      let currentStartDate = new Date(startDate);
+      let currentStartDate = new Date(startDate.getTime());
       let balance = principal;
 
       for (let i = 1; i <= months; i++) {
@@ -389,13 +391,13 @@ window.addEventListener('DOMContentLoaded', () => {
   if (downloadCsvBtn) {
     downloadCsvBtn.addEventListener('click', () => {
       if (scheduleDataForCsv.length === 0) {
-        alert('Please calculate the loan EMI first.');
-        return;
-      }
+      alert('Please calculate the loan EMI first.');
+      return;
+    }
 
-      const csvRows = scheduleDataForCsv.map(e => e.join(",")).join("\n");
-      const blob = new Blob([csvRows], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
+    const csvRows = scheduleDataForCsv.map(e => e.join(",")).join("\n");
+    const blob = new Blob([csvRows], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.setAttribute("href", url);
     link.setAttribute("download", "loan_amortization_schedule.csv");
