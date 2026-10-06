@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Loan EMI Calculator with CSV Download - Amortization Schedule | SmartToolsKit</title>
-<meta name="description" content="Use our free online Loan EMI Calculator to compute monthly installments, view month-by-month amortization schedules, and download detailed reports as CSV files.">
+<title>Free Loan EMI Calculator with Start & End Dates | SmartToolsKit</title>
+<meta name="description" content="Use our free online Loan EMI Calculator with start and end date tracking to compute monthly installments, view calendar-based amortization schedules, and download CSV reports.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/loan-emi-calculator.html">
 <meta name="theme-color" content="#0F172A">
@@ -12,8 +12,8 @@
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/loan-emi-calculator.html">
-<meta property="og:title" content="Free Loan EMI Calculator with CSV Download | SmartToolsKit">
-<meta property="og:description" content="Compute accurate Equated Monthly Installments (EMI), total interest, and export amortization schedules as CSV.">
+<meta property="og:title" content="Free Loan EMI Calculator with Start & End Dates | SmartToolsKit">
+<meta property="og:description" content="Compute accurate Equated Monthly Installments (EMI), calendar-based repayment schedules between start and end dates, and export CSV reports.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -69,7 +69,7 @@ nav a:hover{color:var(--emerald-dark)}
 .stat-card span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:700}
 .stat-card strong{font-size:16px;color:var(--emerald-dark)}
 
-.schedule-wrapper{margin-top:20px;display:none}
+.schedule-wrapper{margin-top:20px}
 .schedule-table-container{max-height:250px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;background:#fff;margin-top:10px}
 .result-table{width:100%;border-collapse:collapse;font-size:13px}
 .result-table th,.result-table td{border:1px solid var(--border);padding:8px 10px;text-align:left}
@@ -118,8 +118,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <main class="container">
 <div class="tool-container">
-<h1>Loan EMI Calculator &amp; CSV Export</h1>
-<p class="subtitle">Calculate your Equated Monthly Installments, view repayment schedules, and download CSV reports.</p>
+<h1>Loan EMI Calculator with Start &amp; End Dates</h1>
+<p class="subtitle">Calculate Equated Monthly Installments, view calendar schedules between start and end dates, and download CSV reports.</p>
 
 <div class="form-group">
 <label for="loanAmount">Loan Amount (Principal)</label>
@@ -131,14 +131,14 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <input type="number" step="0.01" id="interestRate" placeholder="e.g., 8.5">
 </div>
 
-<div class="form-group">
-<label for="loanTenure">Loan Tenure</label>
-<div style="display:flex;gap:10px;">
-<input type="number" id="loanTenure" placeholder="e.g., 5" style="flex:2;">
-<select id="tenureType" style="flex:1;">
-<option value="years">Years</option>
-<option value="months">Months</option>
-</select>
+<div style="display:flex;gap:15px;">
+<div class="form-group" style="flex:1;">
+<label for="startDate">Loan Start Date</label>
+<input type="date" id="startDate">
+</div>
+<div class="form-group" style="flex:1;">
+<label for="endDate">Loan End Date</label>
+<input type="date" id="endDate">
 </div>
 </div>
 
@@ -161,13 +161,13 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 </div>
 
-<div class="schedule-wrapper" id="scheduleWrapper" style="display:block;">
-<label style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-top:16px;margin-bottom:6px;">Amortization Schedule (Month-by-Month):</label>
+<div class="schedule-wrapper" id="scheduleWrapper">
+<label style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-top:16px;margin-bottom:6px;">Calendar Amortization Schedule (Start to End Date):</label>
 <div class="schedule-table-container">
 <table class="result-table">
 <thead>
 <tr>
-<th>Month</th>
+<th>Payment Date</th>
 <th>Principal Paid</th>
 <th>Interest Paid</th>
 <th>Remaining Balance</th>
@@ -185,73 +185,74 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>What is a Loan EMI Calculator with CSV Export?</h2>
-<p>A Loan EMI Calculator with CSV Export is an advanced online financial management tool designed to compute monthly loan installments and generate detailed month-by-month amortization schedules. When borrowing funds for a home mortgage, vehicle purchase, educational loan, or personal credit, understanding how your payments break down between principal reduction and interest accumulation is vital. Calculating these figures manually across long repayment tenures is tedious and prone to arithmetic mistakes. Our free online calculator automates this entire computational workflow directly inside your browser, allowing you to review your complete financial trajectory and export the data as a spreadsheet CSV file instantly.</p>
+<h2>What is a Loan EMI Calculator with Start &amp; End Dates?</h2>
+<p>A Loan EMI Calculator with Start and End Dates is an advanced, professional-grade online financial tool engineered to compute monthly loan installments while mapping exact calendar-based amortization schedules between specific temporal boundaries. When securing financing for residential mortgages, vehicle purchases, business expansion, or personal credit lines, borrowers require absolute clarity regarding how monthly payments distribute over a defined timeframe. While calculating compound interest, principal reduction, and exact month counts manually across specific date ranges is complex and error-prone, our free online utility automates the entire computational workflow instantly within your browser.</p>
 
-<p>By entering three core variables—the total loan principal amount, the annual interest rate, and the repayment duration—the tool computes your exact Equated Monthly Installment (EMI), total interest payable over the lifetime of the loan, and cumulative repayment sums. Furthermore, the built-in amortization engine breaks down every single month's payment, letting you track how your balance decreases over time and download the complete report for offline financial record-keeping.</p>
+<p>By inputting your loan principal amount, annual interest rate, start date, and target end date, our tool automatically calculates the exact duration in months, determines your Equated Monthly Installment (EMI), computes total interest payable, and generates a precise calendar repayment schedule. Furthermore, our advanced date-range engine tracks every single monthly payment milestone, empowering you to export the complete amortization schedule directly into a spreadsheet CSV file for offline financial archiving and tax auditing.</p>
 
-<h2>Why Amortization Schedules and CSV Downloads Matter</h2>
-<p>An amortization schedule provides complete transparency into your loan repayment structure. In the early months of a standard loan tenure, a significant portion of your monthly EMI goes toward paying off accrued interest rather than reducing the actual principal balance. As time progresses, this ratio shifts, with more funds going toward principal reduction. Reviewing this month-by-month breakdown helps borrowers plan early prepayments strategically to minimize overall borrowing costs.</p>
+<h2>Why Date-Range Tracking and CSV Exports Matter</h2>
+<p>Incorporating specific start and end dates into your loan calculations provides crucial real-world perspective. Rather than viewing generic installment identifiers like Month 1 or Month 2, a date-bound schedule displays exact calendar payment dates (such as November 2026 through November 2031). This precise alignment ensures borrowers can seamlessly synchronize their debt obligations with salary cycles, seasonal cash flows, or business revenue projections.</p>
 
-<p>Being able to export this data into a downloadable CSV (Comma-Separated Values) file adds immense professional value. Users can open the exported spreadsheet in Microsoft Excel, Google Sheets, or Apple Numbers to perform deeper financial modeling, create custom charts, or merge the repayment plan into personal budget trackers without requiring any manual data entry.</p>
+<p>Additionally, exporting your repayment trajectory into a downloadable CSV (Comma-Separated Values) file adds immense professional utility. Users can open the downloaded spreadsheet in Microsoft Excel, Google Sheets, or Apple Numbers to perform deeper financial modeling, evaluate early prepayment strategies, or integrate the debt schedule directly into personal monthly budgeting systems without any manual data re-entry.</p>
 
 <table class="content-table">
 <thead>
 <tr>
 <th>Loan Metric</th>
-<th>Definition &amp; Role</th>
-<th>Impact on Financial Planning</th>
+<th>Definition &amp; Core Purpose</th>
+<th>Financial Benefit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Principal Component</td>
-<td>The portion of your EMI that directly reduces your borrowed debt.</td>
-<td>Builds equity and lowers the outstanding loan balance.</td>
+<td>Start &amp; End Dates</td>
+<td>Defines precise calendar boundaries for the loan tenure.</td>
+<td>Automatically calculates exact month counts and real calendar payment milestones.</td>
 </tr>
 <tr>
-<td>Interest Component</td>
-<td>The monthly fee charged by the lender for borrowing money.</td>
-<td>Represents the true cost of borrowing over time.</td>
+<td>Principal Reduction</td>
+<td>The portion of your EMI that directly decreases outstanding debt.</td>
+<td>Builds personal asset equity and reduces future compounding interest.</td>
 </tr>
 <tr>
-<td>Amortization Export</td>
-<td>CSV spreadsheet containing month-by-month payment tracking.</td>
-<td>Enables offline financial archiving, budgeting, and forecasting.</td>
+<td>CSV Spreadsheet Export</td>
+<td>Downloadable file containing month-by-month payment breakdowns.</td>
+<td>Enables offline archiving, forecasting, and advanced spreadsheet analysis.</td>
 </tr>
 </tbody>
 </table>
 
 <div class="security-note">
-<strong>User Security &amp; Privacy Assurance:</strong> All financial calculations, schedule generation routines, and CSV file exports run entirely within your local web browser using client-side JavaScript. Your confidential financial figures, loan amounts, and personal data never leave your device or get transmitted to any external server.
+<strong>User Security &amp; Privacy Assurance:</strong> All financial calculations, amortization schedules, date computations, and CSV file exports run entirely within your local web browser using client-side JavaScript. Your confidential financial figures, loan amounts, and personal data never leave your device or get transmitted to any external server.
 </div>
 
 <h2>How to Use the Loan EMI Calculator</h2>
-<p>Using our loan calculator tool with CSV export is fast, straightforward, and requires zero financial expertise:</p>
+<p>Using our loan calculator tool with start and end date tracking is fast, straightforward, and requires zero financial background:</p>
 <ul>
 <li><strong>Enter Loan Principal:</strong> Input your total desired borrowing amount in the loan amount field.</li>
-<li><strong>Specify Interest Rate:</strong> Enter the annual percentage rate (APR) provided by your lending institution.</li>
-<li><strong>Set Tenure &amp; Duration:</strong> Input your repayment timeframe and select whether it is measured in years or months.</li>
-<li><strong>Calculate &amp; Export:</strong> Click the calculate button to view your repayment summary, review the amortization table, and click "Download CSV" to save your report.</li>
+<li><strong>Specify Interest Rate:</strong> Enter the annual percentage rate (APR) provided by your financial institution.</li>
+<li><strong>Select Start Date:</strong> Pick the exact starting month and year for your loan disbursement using the calendar picker.</li>
+<li><strong>Select End Date:</strong> Choose your target loan maturity or completion date using the second calendar picker.</li>
+<li><strong>Calculate &amp; Export:</strong> Click the calculate button to review your repayment summary, examine the calendar schedule, and click "Download CSV" to save your report.</li>
 </ul>
 
 <h2>Best Practices for Effective Debt Management</h2>
-<p>To optimize your borrowing strategy and maintain financial health, keep these expert tips in mind:</p>
+<p>To optimize your borrowing strategy and maintain financial health throughout your loan tenure, keep these expert tips in mind:</p>
 <ul>
-<li><strong>Target a Sustainable EMI:</strong> Ensure your monthly loan installments do not exceed 35% of your total net monthly income.</li>
-<li><strong>Analyze Interest vs Principal:</strong> Review your amortization schedule to understand how much interest you save through early partial prepayments.</li>
-<li><strong>Keep Records Offline:</strong> Download and archive your amortization CSV files for your personal financial audits and tax documentation.</li>
+<li><strong>Keep EMIs Manageable:</strong> Ensure your total monthly loan installments do not exceed 35% of your net monthly income to prevent cash flow strain.</li>
+<li><strong>Monitor Interest vs Principal:</strong> Review your amortization schedule to understand how much interest you save through early partial prepayments.</li>
+<li><strong>Archive Financial Records:</strong> Download and securely store your amortization CSV files for long-term financial audits and future planning.</li>
 </ul>
 
 <h2>Frequently Asked Questions</h2>
-<h3>1. How do I download the loan amortization schedule?</h3>
-<p>Once you enter your loan details and click calculate, a detailed table appears below the summary. Simply click the "Download Amortization Schedule as CSV" button to save the file.</p>
+<h3>1. How is tenure calculated when using start and end dates?</h3>
+<p>The calculator automatically computes the exact number of months between your selected start date and end date to determine the precise repayment tenure.</p>
 
-<h3>2. Is this loan calculator completely free to use?</h3>
-<p>Yes, all features on SmartToolsKit are 100% free with no registration, subscription fees, or download limits.</p>
+<h3>2. Is this loan EMI calculator 100% free to use?</h3>
+<p>Yes, all features on SmartToolsKit are completely free with no registration, subscription fees, or download limits required.</p>
 
-<h3>3. Are my financial figures stored or sent to a server?</h3>
-<p>No. All calculations and CSV generation occur strictly within your local browser environment, ensuring absolute privacy and security.</p>
+<h3>3. Are my financial figures stored or transmitted to external servers?</h3>
+<p>No. All calculations and CSV generation execute strictly within your local browser environment, guaranteeing absolute privacy and security.</p>
 </div>
 </main>
 
@@ -291,20 +292,39 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <script>
 let scheduleDataForCsv = [];
 
+const today = new Date();
+document.getElementById('startDate').valueAsDate = today;
+const futureDate = new Date(today);
+futureDate.setFullYear(futureDate.getFullYear() + 5);
+document.getElementById('endDate').valueAsDate = futureDate;
+
 document.getElementById('calculateBtn').addEventListener('click', () => {
   const principal = parseFloat(document.getElementById('loanAmount').value);
   const annualRate = parseFloat(document.getElementById('interestRate').value);
-  let tenure = parseFloat(document.getElementById('loanTenure').value);
-  const tenureType = document.getElementById('tenureType').value;
+  const startDateInput = document.getElementById('startDate').value;
+  const endDateInput = document.getElementById('endDate').value;
   const resultBox = document.getElementById('resultBox');
   const scheduleBody = document.getElementById('scheduleBody');
 
-  if (isNaN(principal) || isNaN(annualRate) || isNaN(tenure) || principal <= 0 || annualRate < 0 || tenure <= 0) {
-    alert('Please enter valid positive numbers for all loan fields.');
+  if (isNaN(principal) || isNaN(annualRate) || principal <= 0 || annualRate < 0 || !startDateInput || !endDateInput) {
+    alert('Please enter valid loan details and select both start and end dates.');
     return;
   }
 
-  const months = tenureType === 'years' ? Math.round(tenure * 12) : Math.round(tenure);
+  const startDate = new Date(startDateInput);
+  const endDate = new Date(endDateInput);
+
+  if (startDate >= endDate) {
+    alert('Loan End Date must be strictly later than the Start Date.');
+    return;
+  }
+
+  let months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+  if (months <= 0) {
+    alert('The selected date range must span at least 1 month.');
+    return;
+  }
+
   const monthlyRate = annualRate / 12 / 100;
 
   let emi = 0;
@@ -326,26 +346,30 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
   document.getElementById('resInterest').textContent = totalInterest.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
   document.getElementById('resTotal').textContent = totalPayment.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
 
-  // Generate Amortization Schedule
-  scheduleDataForCsv = [['Month', 'Principal Paid', 'Interest Paid', 'Remaining Balance']];
+  scheduleDataForCsv = [['Payment Date', 'Principal Paid', 'Interest Paid', 'Remaining Balance']];
   scheduleBody.innerHTML = '';
 
+  let currentStartDate = new Date(startDate);
   let balance = principal;
+
   for (let i = 1; i <= months; i++) {
+    currentStartDate.setMonth(currentStartDate.getMonth() + 1);
+    const dateStr = currentStartDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
     let interestPayment = balance * monthlyRate;
     let principalPayment = emi - interestPayment;
     balance -= principalPayment;
-    if (balance < 0) balance = 0;
+    if (balance < 0 || i === months) balance = 0;
 
     scheduleDataForCsv.push([
-      i,
+      dateStr,
       principalPayment.toFixed(2),
       interestPayment.toFixed(2),
       balance.toFixed(2)
     ]);
 
     const row = document.createElement('tr');
-    row.innerHTML = `<td>${i}</td><td>$${principalPayment.toFixed(2)}</td><td>$${interestPayment.toFixed(2)}</td><td>$${balance.toFixed(2)}</td>`;
+    row.innerHTML = `<td>${dateStr}</td><td>$${principalPayment.toFixed(2)}</td><td>$${interestPayment.toFixed(2)}</td><td>$${balance.toFixed(2)}</td>`;
     scheduleBody.appendChild(row);
   }
 
@@ -375,10 +399,10 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 document.getElementById('acceptCookie').addEventListener('click', () => {
   localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
+  document.getElementById('cookieConsent').style.display = 'no
+      document.getElementById('cookieConsent').style.display = 'none';
 });
 </script>
 
 </body>
-  </html>
-  
+</html>
