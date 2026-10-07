@@ -130,7 +130,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <input type="number" step="any" id="p1_y" value="150">
 <span>?</span>
 </div>
-<button type="button" class="calc-btn" id="calcBtn1">Calculate Value</button>
+<button type="button" class="calc-btn" onclick="calculateP1()">Calculate Value</button>
 <div class="result-box" id="res1">Result: 30</div>
 </div>
 
@@ -142,7 +142,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <input type="number" step="any" id="p2_y" value="200">
 <span>?</span>
 </div>
-<button type="button" class="calc-btn" id="calcBtn2">Calculate Percentage</button>
+<button type="button" class="calc-btn" onclick="calculateP2()">Calculate Percentage</button>
 <div class="result-box" id="res2">Result: 22.5%</div>
 </div>
 
@@ -156,7 +156,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <label for="p3_to">Final Value (To)</label>
 <input type="number" step="any" id="p3_to" value="100">
 </div>
-<button type="button" class="calc-btn" id="calcBtn3">Calculate Change</button>
+<button type="button" class="calc-btn" onclick="calculateP3()">Calculate Change</button>
 <div class="result-box" id="res3">Result: 25% Increase</div>
 </div>
 
@@ -181,7 +181,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <input type="number" step="any" id="coupon2" value="10" style="background:#1E293B;color:#fff;border-color:#334155;">
 </div>
 </div>
-<button type="button" id="calcCouponBtn" style="width:100%;background:var(--emerald);color:#fff;border:none;padding:10px;border-radius:8px;font-weight:700;cursor:pointer;">Analyze True Discount</button>
+<button type="button" class="calc-btn" onclick="calculateCoupon()">Analyze True Discount</button>
 <div id="couponResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;display:none;line-height:1.6;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;"></div>
 </div>
 
@@ -317,92 +317,77 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie">Got It</button>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const btn1 = document.getElementById('calcBtn1');
-  if (btn1) {
-    btn1.addEventListener('click', () => {
-      const x = parseFloat(document.getElementById('p1_x').value);
-      const y = parseFloat(document.getElementById('p1_y').value);
-      const resBox = document.getElementById('res1');
-      if (isNaN(x) || isNaN(y)) { alert('Please enter valid numbers.'); return; }
-      const val = (x / 100) * y;
-      resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}`;
-      resBox.style.display = 'block';
-    });
-  }
+function calculateP1() {
+  const x = parseFloat(document.getElementById('p1_x').value);
+  const y = parseFloat(document.getElementById('p1_y').value);
+  const resBox = document.getElementById('res1');
+  if (isNaN(x) || isNaN(y)) { alert('Please enter valid numbers.'); return; }
+  const val = (x / 100) * y;
+  resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}`;
+  resBox.style.display = 'block';
+}
 
-  const btn2 = document.getElementById('calcBtn2');
-  if (btn2) {
-    btn2.addEventListener('click', () => {
-      const x = parseFloat(document.getElementById('p2_x').value);
-      const y = parseFloat(document.getElementById('p2_y').value);
-      const resBox = document.getElementById('res2');
-      if (isNaN(x) || isNaN(y) || y === 0) { alert('Please enter valid numbers (Y cannot be zero).'); return; }
-      const val = (x / y) * 100;
-      resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}%`;
-      resBox.style.display = 'block';
-    });
-  }
+function calculateP2() {
+  const x = parseFloat(document.getElementById('p2_x').value);
+  const y = parseFloat(document.getElementById('p2_y').value);
+  const resBox = document.getElementById('res2');
+  if (isNaN(x) || isNaN(y) || y === 0) { alert('Please enter valid numbers (Y cannot be zero).'); return; }
+  const val = (x / y) * 100;
+  resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}%`;
+  resBox.style.display = 'block';
+}
 
-  const btn3 = document.getElementById('calcBtn3');
-  if (btn3) {
-    btn3.addEventListener('click', () => {
-      const from = parseFloat(document.getElementById('p3_from').value);
-      const to = parseFloat(document.getElementById('p3_to').value);
-      const resBox = document.getElementById('res3');
-      if (isNaN(from) || isNaN(to) || from === 0) { alert('Please enter valid numbers.'); return; }
-      const diff = to - from;
-      const pct = (diff / Math.abs(from)) * 100;
-      const type = pct >= 0 ? 'Increase' : 'Decrease';
-      resBox.textContent = `Result: ${Math.abs(pct).toLocaleString('en-US', {maximumFractionDigits: 4})}% ${type}`;
-      resBox.style.display = 'block';
-    });
-  }
+function calculateP3() {
+  const from = parseFloat(document.getElementById('p3_from').value);
+  const to = parseFloat(document.getElementById('p3_to').value);
+  const resBox = document.getElementById('res3');
+  if (isNaN(from) || isNaN(to) || from === 0) { alert('Please enter valid numbers.'); return; }
+  const diff = to - from;
+  const pct = (diff / Math.abs(from)) * 100;
+  const type = pct >= 0 ? 'Increase' : 'Decrease';
+  resBox.textContent = `Result: ${Math.abs(pct).toLocaleString('en-US', {maximumFractionDigits: 4})}% ${type}`;
+  resBox.style.display = 'block';
+}
 
-  const btnCoupon = document.getElementById('calcCouponBtn');
-  if (btnCoupon) {
-    btnCoupon.addEventListener('click', () => {
-      const price = parseFloat(document.getElementById('originalPrice').value);
-      const c1 = parseFloat(document.getElementById('coupon1').value) || 0;
-      const c2 = parseFloat(document.getElementById('coupon2').value) || 0;
-      const resDiv = document.getElementById('couponResult');
-      if (isNaN(price) || price <= 0) { alert('Please enter a valid original price.'); return; }
+function calculateCoupon() {
+  const price = parseFloat(document.getElementById('originalPrice').value);
+  const c1 = parseFloat(document.getElementById('coupon1').value) || 0;
+  const c2 = parseFloat(document.getElementById('coupon2').value) || 0;
+  const resDiv = document.getElementById('couponResult');
+  if (isNaN(price) || price <= 0) { alert('Please enter a valid original price.'); return; }
 
-      const priceAfterC1 = price * (1 - c1 / 100);
-      const finalPrice = priceAfterC1 * (1 - c2 / 100);
-      const totalSaved = price - finalPrice;
-      const trueNetPct = (totalSaved / price) * 100;
-      const nominalSumPct = c1 + c2;
+  const priceAfterC1 = price * (1 - c1 / 100);
+  const finalPrice = priceAfterC1 * (1 - c2 / 100);
+  const totalSaved = price - finalPrice;
+  const trueNetPct = (totalSaved / price) * 100;
+  const nominalSumPct = c1 + c2;
 
-      let html = `🏷️ <strong>Stacked Coupon Breakdown:</strong><br>`;
-      html += `• <strong>Original Price:</strong> ${price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-      html += `• <strong>After ${c1}% Coupon:</strong> ${priceAfterC1.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-      html += `• <strong>After Extra ${c2}% Coupon:</strong> ${finalPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-      html += `• <strong>Total Money Saved:</strong> ${totalSaved.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-      html += `• <strong style="color:var(--emerald);">True Net Discount: ${trueNetPct.toFixed(2)}%</strong> (Nominal Sum Illusion: ${nominalSumPct}%)`;
+  let html = `🏷️ <strong>Stacked Coupon Breakdown:</strong><br>`;
+  html += `• <strong>Original Price:</strong> ${price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+  html += `• <strong>After ${c1}% Coupon:</strong> ${priceAfterC1.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+  html += `• <strong>After Extra ${c2}% Coupon:</strong> ${finalPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+  html += `• <strong>Total Money Saved:</strong> ${totalSaved.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+  html += `• <strong style="color:var(--emerald);">True Net Discount: ${trueNetPct.toFixed(2)}%</strong> (Nominal Sum Illusion: ${nominalSumPct}%)`;
 
-      resDiv.innerHTML = html;
-      resDiv.style.display = 'block';
-    });
-  }
+  resDiv.innerHTML = html;
+  resDiv.style.display = 'block';
+}
 
+window.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.getItem('cookiesAccepted')) {
     const cookieBanner = document.getElementById('cookieConsent');
     if (cookieBanner) cookieBanner.style.display = 'flex';
   }
+});
 
-  const acceptCookieBtn = document.getElementById('acceptCookie');
-  if (acceptCookiconst acceptCookieBtn = document.getElementById('acceptCookie');
-if (acceptCookieBtn) {
-  acceptCookieBtn.addEventListener('click', () => {
-    localStorage.setItem('cookiesAccepted', 'true');
-    const cookieBanner = document.getElementById('cookieConsent');
-    if (cookieBanner) cookieBanner.style.display = 'none';
-  });
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const cookieBanner = document.getElementById('cookieConsent');
+  if (cookieBanner) cookieBanner.style.display = 'none';
 }
 </script>
 
