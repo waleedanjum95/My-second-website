@@ -111,7 +111,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <nav>
 <a href="../index.html#categories">Categories</a>
 <a href="../index.html#tools">Tools</a>
-<a href="../about.html#about">About</a>
+<a href="../about.html">About</a>
 <a href="../contact.html" class="nav-button">Contact</a>
 </nav>
 </div>
@@ -326,88 +326,70 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <script>
-// Mode 1: What is X% of Y
-document.getElementById('calcBtn1').addEventListener('click', () => {
-  const x = parseFloat(document.getElementById('p1_x').value);
-  const y = parseFloat(document.getElementById('p1_y').value);
-  const resBox = document.getElementById('res1');
+window.addEventListener('DOMContentLoaded', () => {
+  // Mode 1: What is X% of Y
+  document.getElementById('calcBtn1').addEventListener('click', () => {
+    const x = parseFloat(document.getElementById('p1_x').value);
+    const y = parseFloat(document.getElementById('p1_y').value);
+    const resBox = document.getElementById('res1');
 
-  if (isNaN(x) || isNaN(y)) {
-    alert('Please enter valid numbers.');
-    return;
-  }
+    if (isNaN(x) || isNaN(y)) {
+      alert('Please enter valid numbers.');
+      return;
+    }
 
-  const val = (x / 100) * y;
-  resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}`;
-  resBox.style.display = 'block';
-});
+    const val = (x / 100) * y;
+    resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}`;
+    resBox.style.display = 'block';
+  });
 
-// Mode 2: X is what % of Y
-document.getElementById('calcBtn2').addEventListener('click', () => {
-  const x = parseFloat(document.getElementById('p2_x').value);
-  const y = parseFloat(document.getElementById('p2_y').value);
-  const resBox = document.getElementById('res2');
+  // Mode 2: X is what % of Y
+  document.getElementById('calcBtn2').addEventListener('click', () => {
+    const x = parseFloat(document.getElementById('p2_x').value);
+    const y = parseFloat(document.getElementById('p2_y').value);
+    const resBox = document.getElementById('res2');
 
-  if (isNaN(x) || isNaN(y) || y === 0) {
-    alert('Please enter valid numbers (Y cannot be zero).');
-    return;
-  }
+    if (isNaN(x) || isNaN(y) || y === 0) {
+      alert('Please enter valid numbers (Y cannot be zero).');
+      return;
+    }
 
-  const val = (x / y) * 100;
-  resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}%`;
-  resBox.style.display = 'block';
-});
+    const val = (x / y) * 100;
+    resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}%`;
+    resBox.style.display = 'block';
+  });
 
-// Mode 3: Percentage Increase / Decrease
-document.getElementById('calcBtn3').addEventListener('click', () => {
-  const from = parseFloat(document.getElementById('p3_from').value);
-  const to = parseFloat(document.getElementById('p3_to').value);
-  const resBox = document.getElementById('res3');
+  // Mode 3: Percentage Increase / Decrease
+  document.getElementById('calcBtn3').addEventListener('click', () => {
+    const from = parseFloat(document.getElementById('p3_from').value);
+    const to = parseFloat(document.getElementById('p3_to').value);
+    const resBox = document.getElementById('res3');
 
-  if (isNaN(from) || isNaN(to) || from === 0) {
-    alert('Please enter valid numbers (Initial value cannot be zero).');
-    return;
-  }
+    if (isNaN(from) || isNaN(to) || from === 0) {
+      alert('Please enter valid numbers (Initial value cannot be zero).');
+      return;
+    }
 
-  const diff = to - from;
-  const pct = (diff / Math.abs(from)) * 100;
-  const type = pct >= 0 ? 'Increase' : 'Decrease';
+    const diff = to - from;
+    const pct = (diff / Math.abs(from)) * 100;
+    const type = pct >= 0 ? 'Increase' : 'Decrease';
 
-  resBox.textContent = `Result: ${Math.abs(pct).toLocaleString('en-US', {maximumFractionDigits: 4})}% ${type}`;
-  resBox.style.display = 'block';
-});
+    resBox.textContent = `Result: ${Math.abs(pct).toLocaleString('en-US', {maximumFractionDigits: 4})}% ${type}`;
+    resBox.style.display = 'block';
+  });
 
-// Unique Feature: Multi-Coupon Stacking & True Discount Analyzer
-document.getElementById('calcCouponBtn').addEventListener('click', () => {
-  const price = parseFloat(document.getElementById('originalPrice').value);
-  const c1 = parseFloat(document.getElementById('coupon1').value) || 0;
-  const c2 = parseFloat(document.getElementById('coupon2').value) || 0;
-  const resDiv = document.getElementById('couponResult');
+  // Unique Feature: Multi-Coupon Stacking & True Discount Analyzer
+  document.getElementById('calcCouponBtn').addEventListener('click', () => {
+    const price = parseFloat(document.getElementById('originalPrice').value);
+    const c1 = parseFloat(document.getElementById('coupon1').value) || 0;
+    const c2 = parseFloat(document.getElementById('coupon2').value) || 0;
+    const resDiv = document.getElementById('couponResult');
+style="color:var(--emerald);">True Net Discount: ${trueNetPct.toFixed(2)}%</strong> (Nominal Sum Illusion: ${nominalSumPct}%)`;
 
-  if (isNaN(price) || price <= 0) {
-    alert('Please enter a valid original price.');
-    return;
-  }
+    resDiv.innerHTML = html;
+    resDiv.style.display = 'block';
+  });
 
-  // Compound successive discount calculation
-  const priceAfterC1 = price * (1 - c1 / 100);
-  const finalPrice = priceAfterC1 * (1 - c2 / 100);
-  const totalSaved = price - finalPrice;
-  const trueNetPct = (totalSaved / price) * 100;
-  const nominalSumPct = c1 + c2;
-
-  let html = `🏷️ <strong>Stacked Coupon Breakdown:</strong><br>`;
-  html += `• <strong>Original Price:</strong> ${price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-  html += `• <strong>After ${c1}% Coupon:</strong> ${priceAfterC1.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-  html += `• <strong>After Extra ${c2}% Coupon:</strong> ${finalPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-  html += `• <strong>Total Money Saved:</strong> ${totalSaved.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-  html += `• <strong style="color:var(--emerald);">True Net Discount: ${trueNetPct.toFixed(2)}%</strong> (Nominal Sum Illusion: ${nominalSumPct}%)`;
-
-  resDiv.innerHTML = html;
-  resDiv.style.display = 'block';
-});
-
-window.addEventListener('DOMContentLoaded', () => {window.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.getItem('cookiesAccepted')) {
     document.getElementById('cookieConsent').style.display = 'flex';
   }
@@ -421,3 +403,21 @@ document.getElementById('acceptCookie').addEventListener('click', () => {
 
 </body>
 </html>
+
+    if (isNaN(price) || price <= 0) {
+      alert('Please enter a valid original price.');
+      return;
+    }
+
+    const priceAfterC1 = price * (1 - c1 / 100);
+    const finalPrice = priceAfterC1 * (1 - c2 / 100);
+    const totalSaved = price - finalPrice;
+    const trueNetPct = (totalSaved / price) * 100;
+    const nominalSumPct = c1 + c2;
+
+    let html = `🏷️ <strong>Stacked Coupon Breakdown:</strong><br>`;
+    html += `• <strong>Original Price:</strong> ${price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+    html += `• <strong>After ${c1}% Coupon:</strong> ${priceAfterC1.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+    html += `• <strong>After Extra ${c2}% Coupon:</strong> ${finalPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+    html += `• <strong>Total Money Saved:</strong> ${totalSaved.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+    html += `• <strong style="color:var(--emerald);">True Net Discount: ${trueNetPct.toFixed(2)}%</strong> (Nominal Sum Illusion: ${nominalSumPct
