@@ -371,19 +371,16 @@ function calculateBundle() {
   let promoDescription = '';
 
   if (promoType === 'bogo_free') {
-    // Buy 2 Get 1 Free -> Every 3rd item is free
     const freeItems = Math.floor(qty / 3);
     const paidItems = qty - freeItems;
     bundleTotal = paidItems * originalPrice;
     promoDescription = `Buy 2 Get 1 Free (${freeItems} item(s) free out of ${qty})`;
   } else if (promoType === 'bogo_half') {
-    // Buy 1 get 2nd at 50% off -> every 2nd item is half price
     const halfItems = Math.floor(qty / 2);
     const fullItems = qty - halfItems;
     bundleTotal = (fullItems * originalPrice) + (halfItems * (originalPrice * 0.5));
     promoDescription = `Buy 1 Get 2nd at 50% Off (${halfItems} item(s) at half price)`;
   } else if (promoType === 'bulk_10') {
-    // 10% off if qty >= 5
     if (qty >= 5) {
       bundleTotal = standardTotal * 0.90;
       promoDescription = `Bulk 10% Off applied for buying ${qty} items (>= 5)`;
@@ -403,8 +400,6 @@ function calculateBundle() {
   html += `• <strong>Bundle Total Price:</strong> ${bundleTotal.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
   html += `• <strong>Total Bundle Savings:</strong> ${totalSaved.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} (${effectivePct.toFixed(1)}% Effective Off)<br>`;
   html += `• <strong style="color:var(--emerald);">True Effective Unit Cost:</strong> ${effectiveUnitCost.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} per item`;
-
- {style: 'currency', currency: 'USD'})} per item`;
 
   bundleDiv.innerHTML = html;
   bundleDiv.style.display = 'block';
