@@ -321,7 +321,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const btn1 = document.getElementById('calcBtn1');
   if (btn1) {
     btn1.addEventListener('click', () => {
@@ -394,10 +394,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const cookieBanner = document.getElementById('cookieConsent');
     if (cookieBanner) cookieBanner.style.display = 'flex';
   }
-});
 
-const acceptCookieBtn = document.getElementById('acceptCookie');
-if (acceptCookieBBtn = document.getElementById('acceptCookie');
+  const acceptCookieBtn = document.getElementById('acceptCookie');
+  if (acceptCookiBtn = document.getElementById('acceptCookie');
 if (acceptCookieBtn) {
   acceptCookieBtn.addEventListener('click', () => {
     localStorage.setItem('cookiesAccepted', 'true');
