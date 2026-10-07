@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Discount Calculator - Calculate Sale Price & Savings Instantly | SmartToolsKit</title>
-<meta name="description" content="Use our free online Discount Calculator to compute sale prices, saved amounts, and percentage discounts instantly for shopping, retail, and business deals.">
+<title>Free Discount Calculator &amp; BOGO Bulk Savings Analyzer | SmartToolsKit</title>
+<meta name="description" content="Use our free online Discount Calculator to compute sale prices, savings, and markdowns instantly. Includes a unique BOGO and tiered bulk discount true cost analyzer.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/discount-calculator.html">
 <meta name="theme-color" content="#0F172A">
@@ -12,8 +12,8 @@
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/discount-calculator.html">
-<meta property="og:title" content="Free Discount Calculator - Calculate Sale Prices Instantly | SmartToolsKit">
-<meta property="og:description" content="Compute final sale prices and total money saved quickly and accurately with our free online discount tool.">
+<meta property="og:title" content="Free Discount Calculator &amp; Bulk Savings Analyzer | SmartToolsKit">
+<meta property="og:description" content="Calculate sale prices and final savings accurately, and analyze BOGO deals and tiered retail promotions with our unique discount analyzer.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -57,17 +57,26 @@ nav a:hover{color:var(--emerald-dark)}
 
 .form-group{margin-bottom:16px}
 .form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
-.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
-.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:10px}
+.form-group input,.form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
 .calc-btn:hover{background:var(--emerald-dark)}
+
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
 
 .result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
 .result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:center}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
-.stat-card span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:700}
-.stat-card strong{font-size:18px;color:var(--emerald-dark)}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:center;margin-bottom:15px}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px}
+.stat-card span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700}
+.stat-card strong{font-size:16px;color:var(--emerald-dark)}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
@@ -75,12 +84,13 @@ nav a:hover{color:var(--emerald-dark)}
 .content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
 .content-section li{margin-bottom:6px}
 
-.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
-.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
-.content-table td{color:#475569}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.security-note{background:var(--soft);border-left:4px solid var(--emerald);padding:14px;border-radius:0 8px 8px 0;margin:20px 0;font-size:14px;color:var(--navy)}
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
 
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
@@ -90,7 +100,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
 
 #cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsentp{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 </style>
 </head>
@@ -111,19 +121,32 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <main class="container">
 <div class="tool-container">
 <h1>Discount Calculator</h1>
-<p class="subtitle">Calculate final sale prices, saved amounts, and percentage discounts instantly.</p>
+<p class="subtitle">Calculate sale prices, final savings, and markdowns instantly with high precision.</p>
 
 <div class="form-group">
 <label for="originalPrice">Original Price ($)</label>
-<input type="number" step="0.01" id="originalPrice" placeholder="e.g., 150.00">
+<input type="number" id="originalPrice" value="150" min="0" step="any">
 </div>
 
+<div class="grid-2">
 <div class="form-group">
-<label for="discountPercentage">Discount Percentage (%)</label>
-<input type="number" step="0.01" id="discountPercentage" placeholder="e.g., 20">
+<label for="discountValue">Discount Value</label>
+<input type="number" id="discountValue" value="20" min="0" step="any">
+</div>
+<div class="form-group">
+<label for="discountType">Discount Type</label>
+<select id="discountType">
+<option value="percentage" selected>Percentage Off (%)</option>
+<option value="amount">Fixed Amount Off ($)</option>
+</select>
+</div>
 </div>
 
-<button type="button" class="calc-btn" id="calculateBtn">Calculate Savings</button>
+<button type="button" class="calc-btn" onclick="calculateDiscount()">Calculate Sale Price</button>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All computations execute securely inside your local browser. No financial data is stored or transmitted externally.
+</div>
 
 <div class="result-box" id="resultBox">
 <h3>Discount Calculation Summary</h3>
@@ -133,82 +156,129 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <strong id="resSaved">$0.00</strong>
 </div>
 <div class="stat-card">
-<span>Final Price</span>
+<span>Final Sale Price</span>
 <strong id="resFinal">$0.00</strong>
 </div>
 </div>
 </div>
+
+<!-- UNIQUE MARKET-FIRST FEATURE: BOGO & Tiered Bulk Discount True Cost Analyzer -->
+<div class="unique-section">
+<h3>🏷️ Unique Feature: BOGO &amp; Tiered Bulk Discount True Cost Analyzer</h3>
+<p>Evaluate promotional bundle offers (such as "Buy 2 Get 1 Free" or volume discounts) to uncover your true unit cost and effective percentage savings!</p>
+<div class="form-group" style="margin-top:12px;">
+<label for="itemQty" style="color:#fff;">Total Items Purchased (Qty)</label>
+<input type="number" id="itemQty" value="3" min="1" step="1" style="background:#1E293B;color:#fff;border-color:#334155;">
+</div>
+<div class="form-group">
+<label for="promoType" style="color:#fff;">Promotional Bundle Deal</label>
+<select id="promoType" style="background:#1E293B;color:#fff;border-color:#334155;">
+<option value="bogo_half">Buy One, Get Second at 50% Off</option>
+<option value="bogo_free" selected>Buy 2, Get 1 Free (BOGO Free)</option>
+<option value="bulk_10">Buy 5+ Items (Extra 10% Bulk Off)</option>
+</select>
+</div>
+<button type="button" class="calc-btn" onclick="calculateBundle()">Analyze Bundle Deal</button>
+<div id="bundleResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;display:none;line-height:1.6;"></div>
+</div>
+
 </div>
 
 <!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>What is a Discount Calculator?</h2>
-<p>A Discount Calculator is an essential online financial and retail utility designed to compute final sale prices, customer savings, and percentage markdowns instantly. Whether you are shopping during seasonal clearance events, analyzing retail pricing strategies for an e-commerce business, or calculating wholesale margins, figuring out discounts manually can sometimes lead to calculation errors or wasted time. Our free online discount calculator automates this mathematical process securely inside your web browser, delivering precise pricing breakdowns within milliseconds.</p>
+<h2>Understanding Retail Pricing and Percentage Discounts</h2>
+<p>In modern commerce, retail pricing strategies rely heavily on promotional discounts, markdown events, seasonal clearances, and loyalty incentives. A discount represents a reduction from the original list price or manufacturer's suggested retail price (MSRP). For consumers, understanding how to calculate discounts accurately ensures smart budgeting, preventing misleading promotional illusions during major shopping holidays like Black Friday, Cyber Monday, or end-of-season clearance sales.</p>
 
-<p>By inputting two basic values—the original item price and the offered discount percentage—the tool instantly determines how much money you save and what your final out-of-pocket cost will be. Built with a clean, responsive layout, the discount calculator ensures smooth computations across desktop computers, tablets, and mobile smartphones without requiring any software downloads or user registrations.</p>
+<p>Our online Discount Calculator simplifies this retail math, allowing shoppers and merchants to compute final sale prices and total monetary savings instantly. Built on pure client-side arithmetic algorithms, our utility guarantees precise numerical outputs without requiring software downloads or network latency, ensuring complete privacy.</p>
 
-<h2>Why Calculating Discounts Accurately Matters</h2>
-<p>Understanding retail discounts and markdowns plays a vital role in smart personal budgeting and commercial enterprise management. When consumers shop during promotional sales, flash deals, or holiday events, stores often advertise percentage-off rates. Knowing how to calculate the exact monetary savings helps shoppers determine if a deal truly offers good value compared to competing products. It prevents impulsive buying driven by misleading promotional claims.</p>
+<h2>Decoding Promotional Illusions: BOGO Deals and Tiered Bundles</h2>
+<p>Beyond standard percentage markdowns, retailers deploy psychological pricing models such as "Buy One, Get One Free" (BOGO) or volume-based tiered discounts. Consumers often miscalculate the true economic value of these offers. For example, a "Buy 2, Get 1 Free" promotion on three identical items does not equate to a simple 33.3% markdown across all items if you only wanted one or two units. Our platform introduces an exclusive market-first feature: the <strong>BOGO &amp; Tiered Bulk Discount True Cost Analyzer</strong>, which breaks down exact unit costs and effective savings instantly.</p>
 
-<p>For business owners, retailers, and digital marketers, precise discount computations are crucial for setting competitive pricing models, managing profit margins, and running profitable promotional campaigns. Offering incorrect discounts can severely erode profit margins or fail to attract price-sensitive buyers. Utilizing a reliable digital calculator eliminates manual arithmetic errors and ensures transparent pricing strategies.</p>
+<p>By analyzing the effective price per unit and aggregate basket savings, shoppers can determine whether bulk promotional offers genuinely align with their purchasing requirements or if buying a single item remains more cost-effective.</p>
+
+<h2>The Mathematical Discount and Markdown Formulas</h2>
+<p>To compute retail markdowns manually or verify commercial invoices, utilize the following standardized mathematical formulas:</p>
+
+<div class="formula-box">
+<strong>Core Discount Calculation Formulas:</strong>
+1. Savings (Percentage Off) = Original Price $\times$ $\frac{\text{Discount \%}}{100}$<br>
+2. Final Sale Price (Percentage Off) = Original Price $-$ Savings<br>
+3. Final Sale Price (Fixed Amount Off) = Original Price $-$ Fixed Discount Amount<br>
+4. Effective Discount Percentage = $\left(\frac{\text{Total Savings}}{\text{Original Total Price}}\right) \times 100$
+</div>
+
+<p>By applying these core equations, consumers, retail managers, and financial analysts can evaluate pricing structures with absolute precision.</p>
+
+<h2>Global Retail Markdown Reference Matrix</h2>
+<p>The table below outlines common retail discount fractions and percentage equivalents relative to baseline pricing:</p>
 
 <table class="content-table">
 <thead>
 <tr>
-<th>Discount Metric</th>
-<th>Mathematical Formula</th>
-<th>Practical Retail Example</th>
+<th>Discount Fraction</th>
+<th>Percentage Off</th>
+<th>Multiplier (Final Price Factor)</th>
+<th>Common Retail Context</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Savings Amount</td>
-<td>Original Price * (Discount % / 100)</td>
-<td>Saving $30 on a $150 jacket marked down by 20 percent.</td>
+<td>1/10</td>
+<td>10%</td>
+<td>0.90</td>
+<td>Loyalty signup discount</td>
 </tr>
 <tr>
-<td>Final Sale Price</td>
-<td>Original Price - Savings Amount</td>
-<td>Paying $120 final out-of-pocket cost for the same jacket.</td>
+<td>1/5</td>
+<td>20%</td>
+<td>0.80</td>
+<td>Standard promotional coupon</td>
 </tr>
 <tr>
-<td>Markdown Percentage</td>
-<td>(Savings / Original Price) * 100</td>
-<td>Determining that a $50 markdown on a $200 item equals 25 percent off.</td>
+<td>1/4</td>
+<td>25%</td>
+<td>0.75</td>
+<td>Quarterly seasonal sale</td>
+</tr>
+<tr>
+<td>1/3</td>
+<td>33.33%</td>
+<td>0.67</td>
+<td>Flash sale markdown</td>
+</tr>
+<tr>
+<td>1/2</td>
+<td>50%</td>
+<td>0.50</td>
+<td>Mid-season clearance event</td>
+</tr>
+<tr>
+<td>3/4</td>
+<td>75%</td>
+<td>0.25</td>
+<td>Final liquidation clearance</td>
 </tr>
 </tbody>
 </table>
 
-<div class="security-note">
-<strong>User Security &amp; Privacy Assurance:</strong> All calculations, mathematical operations, and pricing data processing run entirely within your local web browser using client-side JavaScript. Your personal shopping details, business figures, and calculation inputs never leave your device or get transmitted to any external server.
-</div>
-
-<h2>How to Use the Discount Calculator</h2>
-<p>Using our discount calculator tool is straightforward, fast, and requires zero technical background:</p>
+<h2>How to Use the Discount Calculator &amp; Bundle Analyzer</h2>
+<p>Using our multi-purpose discount calculation utility is straightforward, fast, and user-friendly:</p>
 <ul>
-<li><strong>Enter Original Price:</strong> Input the initial retail or list price of the product in the first input box.</li>
-<li><strong>Specify Discount Percentage:</strong> Type in the percentage-off value advertised by the retailer or store.</li>
-<li><strong>Calculate Savings:</strong> Click the "Calculate Savings" button to trigger the client-side JavaScript calculation engine.</li>
-<li><strong>Review Results:</strong> Instantly view your total monetary savings and the exact final sale price displayed in the result summary.</li>
+<li><strong>Enter Original Price:</strong> Input the standard retail price of the item in dollars.</li>
+<li><strong>Select Discount Type:</strong> Choose whether your discount is a percentage (%) off or a fixed dollar ($) amount off.</li>
+<li><strong>Calculate Sale Price:</strong> Click the calculate button to view your exact monetary savings and final discounted price.</li>
+<li><strong>Analyze Bundle Promotions:</strong> Use our unique BOGO &amp; Bulk Analyzer at the bottom to evaluate promotional bundle offers and true unit costs!</li>
 </ul>
 
-<h2>Best Practices for Smart Shopping and Retail Pricing</h2>
-<p>To optimize your shopping budget or retail pricing strategy, keep these professional guidelines in mind:</p>
-<ul>
-<li><strong>Account for Additional Fees:</strong> Always remember that final checkout totals may include local sales taxes or shipping fees not reflected in standard percentage discounts.</li>
-<li><strong>Compare Unit Prices:</strong> When evaluating bulk discounts, compare the final cost per unit to ensure you are truly getting the best deal.</li>
-<li><strong>Utilize Automated Tools:</strong> Rely on secure client-side digital calculators during shopping sprees or business planning to ensure absolute mathematical precision.</li>
-</ul>
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. How do I calculate a percentage discount manually?</h3>
+<p>Multiply the original price by the discount percentage, then divide by 100 to find your savings amount. Subtract this savings figure from the original price to get the final sale price.</p>
 
-<h2>Frequently Asked Questions</h2>
-<h3>1. How do I calculate a 20% discount manually?</h3>
-<p>To calculate a 20% discount manually, multiply the original price by 0.20 to find your savings, then subtract that amount from the original price to get the final sale price.</p>
+<h3>2. Are promotional BOGO deals always better than a direct percentage discount?</h3>
+<p>Not necessarily. BOGO offers require purchasing multiple items to unlock the discount. If you only need a single unit, a direct percentage or fixed markdown on one item is often more economical.</p>
 
-<h3>2. Is this discount calculator completely free to use?</h3>
-<p>Yes, all tools on SmartToolsKit are 100% free with no usage limits, subscription fees, or registration requirements.</p>
-
-<h3>3. Will my inputted prices or calculation data be stored anywhere?</h3>
-<p>No. All calculations run strictly inside your local browser environment, ensuring complete data privacy and security.</p>
+<h3>3. Is my financial or shopping data tracked or stored externally?</h3>
+<p>No. All calculations run strictly inside your web browser client-side, ensuring complete data confidentiality and privacy.</p>
 </div>
 </main>
 
@@ -242,38 +312,109 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie">Got It</button>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
 
 <script>
-document.getElementById('calculateBtn').addEventListener('click', () => {
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cookieBanner = document.getElementById('cookieConsent');
+    if (cookieBanner) cookieBanner.style.display = 'flex';
+  }
+});
+
+function calculateDiscount() {
   const originalPrice = parseFloat(document.getElementById('originalPrice').value);
-  const discountPercentage = parseFloat(document.getElementById('discountPercentage').value);
+  const discountVal = parseFloat(document.getElementById('discountValue').value);
+  const discountType = document.getElementById('discountType').value;
   const resultBox = document.getElementById('resultBox');
 
-  if (isNaN(originalPrice) || isNaN(discountPercentage) || originalPrice < 0 || discountPercentage < 0 || discountPercentage > 100) {
-    alert('Please enter a valid original price and a discount percentage between 0 and 100.');
+  if (isNaN(originalPrice) || originalPrice < 0 || isNaN(discountVal) || discountVal < 0) {
+    alert('Please enter valid positive numbers for price and discount.');
     return;
   }
 
-  const savedAmount = originalPrice * (discountPercentage / 100);
-  const finalPrice = originalPrice - savedAmount;
+  let saved = 0;
+  let finalPrice = 0;
 
-  document.getElementById('resSaved').textContent = savedAmount.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resFinal').textContent = finalPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-
-  resultBox.style.display = 'block';
-});
-
-window.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookieConsent').style.display = 'flex';
+  if (discountType === 'percentage') {
+    if (discountVal > 100) {
+      alert('Discount percentage cannot exceed 100%.');
+      return;
+    }
+    saved = (originalPrice * discountVal) / 100;
+    finalPrice = originalPrice - saved;
+  } else {
+    saved = discountVal;
+    if (saved > originalPrice) saved = originalPrice;
+    finalPrice = originalPrice - saved;
   }
-});
-document.getElementById('acceptCookie').addEventListener('click', () => {
+
+  document.getElementById('resSaved').textContent = '$' + saved.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('resFinal').textContent = '$' + finalPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  resultBox.style.display = 'block';
+}
+
+function calculateBundle() {
+  const originalPrice = parseFloat(document.getElementById('originalPrice').value);
+  const qty = parseInt(document.getElementById('itemQty').value);
+  const promoType = document.getElementById('promoType').value;
+  const bundleDiv = document.getElementById('bundleResult');
+
+  if (isNaN(originalPrice) || originalPrice <= 0 || isNaN(qty) || qty <= 0) {
+    alert('Please enter a valid original price and item quantity.');
+    return;
+  }
+
+  const standardTotal = originalPrice * qty;
+  let bundleTotal = 0;
+  let promoDescription = '';
+
+  if (promoType === 'bogo_free') {
+    // Buy 2 Get 1 Free -> Every 3rd item is free
+    const freeItems = Math.floor(qty / 3);
+    const paidItems = qty - freeItems;
+    bundleTotal = paidItems * originalPrice;
+    promoDescription = `Buy 2 Get 1 Free (${freeItems} item(s) free out of ${qty})`;
+  } else if (promoType === 'bogo_half') {
+    // Buy 1 get 2nd at 50% off -> every 2nd item is half price
+    const halfItems = Math.floor(qty / 2);
+    const fullItems = qty - halfItems;
+    bundleTotal = (fullItems * originalPrice) + (halfItems * (originalPrice * 0.5));
+    promoDescription = `Buy 1 Get 2nd at 50% Off (${halfItems} item(s) at half price)`;
+  } else if (promoType === 'bulk_10') {
+    // 10% off if qty >= 5
+    if (qty >= 5) {
+      bundleTotal = standardTotal * 0.90;
+      promoDescription = `Bulk 10% Off applied for buying ${qty} items (>= 5)`;
+    } else {
+      bundleTotal = standardTotal;
+      promoDescription = `No bulk discount applied (requires 5+ items; current qty is ${qty})`;
+    }
+  }
+
+  const totalSaved = standardTotal - bundleTotal;
+  const effectivePct = standardTotal > 0 ? (totalSaved / standardTotal) * 100 : 0;
+  const effectiveUnitCost = bundleTotal / qty;
+
+  let html = `🏷️ <strong>Bundle Deal True Cost Analysis:</strong><br>`;
+  html += `• <strong>Promotion:</strong> ${promoDescription}<br>`;
+  html += `• <strong>Standard Total Price:</strong> ${standardTotal.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+  html += `• <strong>Bundle Total Price:</strong> ${bundleTotal.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
+  html += `• <strong>Total Bundle Savings:</strong> ${totalSaved.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} (${effectivePct.toFixed(1)}% Effective Off)<br>`;
+  html += `• <strong style="color:var(--emerald);">True Effective Unit Cost:</strong> ${effectiveUnitCost.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} per item`;
+
+ {style: 'currency', currency: 'USD'})} per item`;
+
+  bundleDiv.innerHTML = html;
+  bundleDiv.style.display = 'block';
+}
+
+function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
-});
+  const cookieBanner = document.getElementById('cookieConsent');
+  if (cookieBanner) cookieBanner.style.display = 'none';
+}
 </script>
 
 </body>
