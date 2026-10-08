@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Tip Calculator & Bill Splitter - Calculate Gratuity Instantly | SmartToolsKit</title>
-<meta name="description" content="Use our free online Tip Calculator and Bill Splitter to compute restaurant gratuity, divide checks evenly among multiple people, and calculate total costs instantly.">
+<title>Free Tip Calculator &amp; Bill Splitter with Pre-Tax Analyzer | SmartToolsKit</title>
+<meta name="description" content="Calculate tips, split restaurant bills evenly or custom, and compare pre-tax vs. post-tax gratuity baselines instantly with our free online Tip Calculator &amp; Bill Splitter.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/tip-calculator.html">
 <meta name="theme-color" content="#0F172A">
@@ -12,8 +12,8 @@
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/tip-calculator.html">
-<meta property="og:title" content="Free Tip Calculator & Bill Splitter - Calculate Gratuity Instantly | SmartToolsKit">
-<meta property="og:description" content="Compute accurate restaurant tips, gratuity percentages, and split checks easily with our free online bill splitting tool.">
+<meta property="og:title" content="Free Tip Calculator &amp; Bill Splitter | SmartToolsKit">
+<meta property="og:description" content="Accurate restaurant tip calculations, group bill splitting, and unique pre-tax vs post-tax gratuity fairness analysis.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -57,27 +57,29 @@ nav a:hover{color:var(--emerald-dark)}
 
 .form-group{margin-bottom:16px}
 .form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
-.form-group input:focus{border-color:var(--emerald)}
+.form-group input,.form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
 
-.tip-buttons{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
-.tip-btn{background:var(--soft);border:1px solid var(--border);padding:10px;border-radius:8px;font-weight:700;color:var(--navy);cursor:pointer;text-align:center;font-size:14px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.tip-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:8px}
+.tip-btn{background:var(--soft);border:1px solid var(--border);padding:10px;border-radius:8px;font-weight:700;cursor:pointer;color:var(--navy);text-align:center;font-size:14px}
 .tip-btn:hover,.tip-btn.active{background:var(--emerald);color:#fff;border-color:var(--emerald)}
 
-.btn-group{display:flex;gap:10px;margin-top:10px}
-.calc-btn{background:var(--emerald);color:#fff;border:none;flex:2;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.reset-btn{background:var(--soft);color:var(--navy);border:1px solid var(--border);flex:1;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
-.reset-btn:hover{background:var(--border)}
 
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
 
 .result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
 .result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:center;margin-bottom:15px}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px}
 .stat-card span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700}
 .stat-card strong{font-size:16px;color:var(--emerald-dark)}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
@@ -88,10 +90,10 @@ nav a:hover{color:var(--emerald-dark)}
 .formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
-.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
-.content-table td{color:#475569}
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
 
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
@@ -122,152 +124,160 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <main class="container">
 <div class="tool-container">
 <h1>Tip Calculator &amp; Bill Splitter</h1>
-<p class="subtitle">Calculate restaurant gratuity percentages and split checks evenly among multiple people instantly.</p>
+<p class="subtitle">Calculate gratuity tips, split restaurant bills evenly among groups, and evaluate pricing precision instantly.</p>
 
 <div class="form-group">
 <label for="billAmount">Bill Amount ($)</label>
-<input type="number" step="0.01" id="billAmount" placeholder="e.g., 85.50">
+<input type="number" id="billAmount" value="120" min="0" step="any">
 </div>
 
 <div class="form-group">
 <label>Select Tip Percentage</label>
-<div class="tip-buttons">
-<button type="button" class="tip-btn" data-tip="5">5%</button>
-<button type="button" class="tip-btn" data-tip="10">10%</button>
-<button type="button" class="tip-btn active" data-tip="15">15%</button>
-<button type="button" class="tip-btn" data-tip="18">18%</button>
-<button type="button" class="tip-btn" data-tip="20">20%</button>
+<div class="tip-btns">
+<div class="tip-btn" onclick="setTip(10)">10%</div>
+<div class="tip-btn" onclick="setTip(15)">15%</div>
+<div class="tip-btn active" onclick="setTip(18)">18%</div>
+<div class="tip-btn" onclick="setTip(20)">20%</div>
+<div class="tip-btn" onclick="setTip(25)">25%</div>
 </div>
-<input type="number" step="1" id="customTip" placeholder="Or enter custom tip %">
+<input type="number" id="tipPercentage" value="18" min="0" step="any" style="margin-top:8px;">
 </div>
 
+<div class="grid-2">
 <div class="form-group">
-<label for="splitCount">Number of People (Split)</label>
-<input type="number" min="1" id="splitCount" value="2" placeholder="e.g., 2">
+<label for="splitCount">Split Among (People)</label>
+<input type="number" id="splitCount" value="3" min="1" step="1">
+</div>
+<div class="form-group">
+<label for="salesTax">Estimated Sales Tax (%) [Optional]</label>
+<input type="number" id="salesTax" value="8" min="0" max="100" step="any">
+</div>
 </div>
 
-<div class="btn-group">
-<button type="button" class="calc-btn" id="calculateBtn">Calculate Split</button>
-<button type="button" class="reset-btn" id="resetBtn">Reset</button>
-</div>
+<button type="button" class="calc-btn" onclick="calculateTip()">Calculate Tip &amp; Split Bill</button>
 
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All calculations execute locally inside your web browser. No personal or financial data is saved on remote servers.
+<span>🔒 Client-Side Security:</span> All financial split computations execute securely inside your local browser. No financial data or queries are stored externally.
 </div>
 
 <div class="result-box" id="resultBox">
-<h3>Bill Breakdown Summary</h3>
+<h3>Tip &amp; Bill Splitting Summary</h3>
 <div class="stats-grid">
 <div class="stat-card">
-<span>Tip Amount</span>
+<span>Total Tip Amount</span>
 <strong id="resTip">$0.00</strong>
 </div>
 <div class="stat-card">
-<span>Total Bill</span>
+<span>Total Bill (Incl. Tip)</span>
 <strong id="resTotal">$0.00</strong>
 </div>
 <div class="stat-card">
-<span>Per Person</span>
-<strong id="resPerPerson">$0.00</strong>
+<span>Tip Per Person</span>
+<strong id="resPerTip">$0.00</strong>
+</div>
+<div class="stat-card">
+<span>Total Per Person</span>
+<strong id="resPerTotal">$0.00</strong>
 </div>
 </div>
 </div>
+
+<!-- UNIQUE MARKET-FIRST FEATURE: Pre-Tax vs Post-Tax Gratuity Baseline Analyzer -->
+<div class="unique-section">
+<h3>🍽️ Unique Feature: Pre-Tax vs. Post-Tax Gratuity Fairness Analyzer</h3>
+<p>Traditional etiquette suggests tipping on the pre-tax subtotal rather than the taxed grand total. Our analyzer compares pre-tax vs. post-tax tipping baselines to show your exact monetary variance!</p>
+<button type="button" class="calc-btn" onclick="analyzePreTaxTip()" style="margin-top:10px;">Analyze Gratuity Baseline</button>
+<div id="preTaxResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;display:none;line-height:1.6;"></div>
+</div>
+
 </div>
 
 <!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>Understanding Tip Calculation and Bill Splitting</h2>
-<p>Dining out with friends, family, or business colleagues is a wonderful social experience, but calculating gratuity and dividing check totals accurately at the end of the meal can often cause confusion. Whether you want to reward exceptional waiter service with a standard 15% or 20% tip, or split a complex restaurant bill evenly among a large group, doing the math manually can lead to awkward rounding errors or miscalculations. Our free online Tip Calculator and Bill Splitter automates this process instantly inside your web browser.</p>
+<h2>Understanding Restaurant Tipping Etiquette and Group Bill Splitting</h2>
+<p>In the hospitality and service industry, tipping—formally known as gratuity—serves as an essential economic component for service staff compensation. Whether dining out at upscale restaurants, ordering delivery, or enjoying cafe services, calculating the correct gratuity percentage while dividing checks fairly among a group of diners can often become cumbersome, especially when factoring in local sales taxes and varying individual contributions.</p>
 
-<p>Designed with a clean, responsive user interface and intuitive preset tip buttons, our utility eliminates guesswork. It computes exact gratuity amounts, adds them to your base subtotal, and divides the final grand total among any number of diners within milliseconds. No software downloads, mobile apps, or registration steps are required.</p>
+<p>Our online Tip Calculator &amp; Bill Splitter eliminates this mental friction. Designed with clean client-side arithmetic algorithms, our tool computes exact tip amounts and per-person split obligations instantaneously. By streamlining group check settlements, our platform ensures accurate, transparent, and hassle-free dining experiences for patrons and service personnel alike.</p>
 
-<h2>The Mathematical Tip and Bill Splitting Formulas</h2>
-<p>To compute restaurant tips and check divisions manually or verify your digital calculations, utilize the following core mathematical equations:</p>
+<h2>Decoding Pre-Tax vs. Post-Tax Tipping Dilemmas</h2>
+<p>A frequent debate in dining etiquette centers on whether gratuity should be calculated on the pre-tax bill subtotal or the post-tax grand total. Mathematically, sales tax represents a government-mandated consumption levy rather than a service rendered by restaurant waitstaff. Standard etiquette guidelines dictate that tips should ideally be calculated against the pre-tax cost of food and beverages.</p>
+
+<p>Our platform introduces an exclusive market-first feature: the <strong>Pre-Tax vs. Post-Tax Gratuity Fairness Analyzer</strong>. This unique utility contrasts tipping calculations derived from pre-tax sub-totals versus post-tax gross bills side-by-side, empowering diners to make informed, equitable tipping decisions.</p>
+
+<h2>The Mathematical Tip Calculation and Bill Splitting Formulas</h2>
+<p>To compute restaurant gratuity and split checks manually or verify automated billing systems, utilize the following core financial formulas:</p>
 
 <div class="formula-box">
-<strong>Tip and Total Calculation Formulas:</strong>
-1. Tip Amount = Bill Subtotal * (Tip Percentage / 100)<br>
-2. Total Gross Bill = Bill Subtotal + Tip Amount<br><br>
-<strong>Bill Splitting Formula:</strong>
-1. Amount Per Person = Total Gross Bill / Number of People
+<strong>Core Tip &amp; Splitting Formulas:</strong>
+1. Standard Tip Amount Calculation:<br>
+   • $\text{Tip Amount} = \text{Bill Amount} \times \left(\frac{\text{Tip \%}}{100}\right)$<br><br>
+2. Total Gross Bill Calculation:<br>
+   • $\text{Total Bill} = \text{Bill Amount} + \text{Tip Amount}$<br><br>
+3. Per-Person Split Calculations:<br>
+   • $\text{Tip Per Person} = \frac{\text{Tip Amount}}{\text{Number of People}}$<br>
+   • $\text{Total Per Person} = \frac{\text{Total Bill}}{\text{Number of People}}$
 </div>
 
-<p>By applying these standardized formulas, diners can easily determine fair contributions for each individual without any mathematical friction.</p>
+<p>By applying these standardized mathematical equations, diners and event organizers can divide group checks with absolute precision and fairness.</p>
 
-<h2>Common Gratuity Reference Matrix</h2>
-<p>The table below outlines sample pre-computed tip amounts and per-person splits for a $100.00 restaurant bill divided among different group sizes evaluated at a standard 15% gratuity rate.</p>
+<h2>Global Gratuity &amp; Tipping Reference Matrix</h2>
+<p>The table below outlines standard tipping customs and gratuity expectations across various global regions and service sectors:</p>
 
 <table class="content-table">
 <thead>
 <tr>
-<th>Bill Subtotal</th>
-<th>Tip Rate (%)</th>
-<th>Tip Amount</th>
-<th>Total Bill</th>
-<th>Split (2 People)</th>
+<th>Region / Country</th>
+<th>Standard Gratuity Expectation</th>
+<th>Customary Context &amp; Etiquette</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>$50.00</td>
-<td>15%</td>
-<td>$7.50</td>
-<td>$57.50</td>
-<td>$28.75</td>
+<td>United States &amp; Canada</td>
+<td>15% – 20%+</td>
+<td>Expected baseline for sit-down dining; service staff rely heavily on tips.</td>
 </tr>
 <tr>
-<td>$100.00</td>
-<td>15%</td>
-<td>$15.00</td>
-<td>$115.00</td>
-<td>$57.50</td>
+<td>Western Europe (EU)</td>
+<td>5% – 10% (Optional)</td>
+<td>Service charges often included in bills; small tips given for exceptional service.</td>
 </tr>
 <tr>
-<td>$150.00</td>
-<td>18%</td>
-<td>$27.00</td>
-<td>$177.00</td>
-<td>$88.50</td>
+<td>United Kingdom</td>
+<td>10% – 12.5%</td>
+<td>Frequently added automatically as a discretionary service charge on bills.</td>
 </tr>
 <tr>
-<td>$200.00</td>
-<td>20%</td>
-<td>$40.00</td>
-<td>$240.00</td>
-<td>$120.00</td>
+<td>Japan &amp; South Korea</td>
+<td>0% (Not Customary)</td>
+<td>Tipping is generally unfamiliar or can occasionally be considered rude.</td>
+</tr>
+<tr>
+<td>Latin America</td>
+<td>10% (Propina)</td>
+<td>Often added directly to restaurant checks (propina legal).</td>
 </tr>
 </tbody>
 </table>
 
-<h2>How to Use the Tip Calculator</h2>
-<p>Using our tip calculator tool is straightforward, fast, and user-friendly:</p>
+<h2>How to Use the Tip Calculator &amp; Bill Splitter</h2>
+<p>Using our multi-purpose tip calculation and check-splitting utility is straightforward, fast, and user-friendly:</p>
 <ul>
-<li><strong>Enter Bill Amount:</strong> Input your total restaurant check subtotal in the primary amount field.</li>
-<li><strong>Select Tip Percentage:</strong> Click one of the quick preset buttons (5%, 10%, 15%, 18%, 20%) or type a custom tip percentage.</li>
-<li><strong>Specify Number of People:</strong> Enter how many guests are sharing the total check cost.</li>
-<li><strong>Calculate &amp; Review:</strong> Click the calculation button to view your exact tip, total bill, and individual share instantly.</li>
-</ul>
-
-<h2>Best Practices for Restaurant Gratuity and Group Dinning</h2>
-<p>To ensure pleasant dining experiences and fair financial etiquette during group outings, keep these professional tips in mind:</p>
-<ul>
-<li><strong>Check for Service Charges:</strong> Some restaurants automatically include gratuity for large parties; verify your receipt before adding extra tips.</li>
-<li><strong>Tip on Pre-Tax Subtotal:</strong> Traditionally, gratuity is calculated on the pre-tax bill amount, though tipping on the total is also common practice.</li>
-<li><strong>Use Digital Splitters:</strong> Relying on an automated calculator prevents table confusion and ensures every guest pays their exact fair share.</li>
+<li><strong>Enter Bill Amount:</strong> Input your total restaurant bill or food subtotal into the designated field.</li>
+<li><strong>Select Tip Percentage:</strong> Click one of our quick-select percentage buttons (10%, 15%, 18%, 20%, 25%) or type a custom percentage.</li>
+<li><strong>Specify Party Size:</strong> Enter the number of people sharing the check to calculate per-person obligations.</li>
+<li><strong>Calculate &amp; Analyze:</strong> Click calculate for instant per-person totals, or use our pre-tax gratuity analyzer at the bottom!</li>
 </ul>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is the standard tipping percentage at restaurants?</h3>
-<p>A standard tipping percentage ranges between 15% and 20% depending on the quality of service provided by waitstaff.</p>
+<h3>1. Should I calculate the tip before or after sales tax?</h3>
+<p>Traditional etiquette recommends calculating your tip based on the pre-tax food and drink subtotal, though tipping on the grand total is also widely practiced.</p>
 
-<h3>2. Can I enter a custom tip percentage?</h3>
-<p>Yes! You can either select one of the quick preset buttons or type any custom percentage into the custom input field.</p>
+<h3>2. How do I handle bill splitting when people ordered different amounts?</h3>
+<p>For uneven orders, our tool provides an even baseline split; however, group members can calculate individual item totals separately before applying gratuity.</p>
 
-<h3>3. How is the per-person split calculated?</h3>
-<p>The total bill (subtotal plus tip) is divided equally by the specified number of people sharing the check.</p>
-
-<h3>4. Is this tip calculator completely free to use?</h3>
-<p>Yes, all tools on SmartToolsKit are 100% free with no usage limits or registration requirements.</p>
+<h3>3. Are my dining or financial bill calculations stored on external servers?</h3>
+<p>No. All calculations run strictly inside your web browser client-side, ensuring complete data confidentiality and privacy.</p>
 </div>
 </main>
 
@@ -301,72 +311,79 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie">Got It</button>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
 
 <script>
-let selectedTip = 15;
-
-document.querySelectorAll('.tip-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    selectedTip = parseFloat(e.target.getAttribute('data-tip'));
-    document.getElementById('customTip').value = '';
-  });
-});
-
-document.getElementById('customTip').addEventListener('input', (e) => {
-  const val = parseFloat(e.target.value);
-  if (!isNaN(val)) {
-    document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('active'));
-    selectedTip = val;
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cookieBanner = document.getElementById('cookieConsent');
+    if (cookieBanner) cookieBanner.style.display = 'flex';
   }
 });
 
-document.getElementById('calculateBtn').addEventListener('click', () => {
+function setTip(pct) {
+  document.getElementById('tipPercentage').value = pct;
+  document.querySelectorAll('.tip-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function calculateTip() {
   const bill = parseFloat(document.getElementById('billAmount').value);
+  const tipPct = parseFloat(document.getElementById('tipPercentage').value);
   const people = parseInt(document.getElementById('splitCount').value);
   const resultBox = document.getElementById('resultBox');
 
-  if (isNaN(bill) || bill < 0 || isNaN(people) || people < 1 || isNaN(selectedTip)) {
-    alert('Please enter a valid bill amount and number of people.');
+  if (isNaN(bill) || bill < 0 || isNaN(tipPct) || tipPct < 0 || isNaN(people) || people <= 0) {
+    alert('Please enter valid positive numbers for bill amount, tip percentage, and number of people.');
     return;
   }
 
-  const tipAmount = bill * (selectedTip / 100);
+  const tipAmount = (bill * tipPct) / 100;
   const totalBill = bill + tipAmount;
-  const perPerson = totalBill / people;
+  const tipPerPerson = tipAmount / people;
+  const totalPerPerson = totalBill / people;
 
-  document.getElementById('resTip').textContent = tipAmount.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resTotal').textContent = totalBill.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resPerPerson').textContent = perPerson.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-
+  document.getElementById('resTip').textContent = '$' + tipAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('resTotal').textContent = '$' + totalBill.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('resPerTip').textContent = '$' + tipPerPerson.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('resPerTotal').textContent = '$' + totalPerPerson.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
   resultBox.style.display = 'block';
-});
+}
 
-document.getElementById('resetBtn').addEventListener('click', () => {
-  document.getElementById('billAmount').value = '';
-  document.getElementById('customTip').value = '';
-  document.getElementById('splitCount').value = '2';
-  selectedTip = 15;
-  document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tip-btn')[2].classList.add('active'); // 15%
-  document.getElementById('resultBox').style.display = 'none';
-});
+function analyzePreTaxTip() {
+  const grossBill = parseFloat(document.getElementById('billAmount').value);
+  const tipPct = parseFloat(document.getElementById('tipPercentage').value);
+  const taxRate = parseFloat(document.getElementById('salesTax').value) || 0;
+  const preTaxDiv = document.getElementById('preTaxResult');
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookieConsent').style.display = 'flex';
+  if (isNaN(grossBill) || grossBill <= 0 || isNaN(tipPct) || tipPct < 0) {
+    alert('Please enter a valid bill amount and tip percentage.');
+    return;
   }
-});
 
-document.getElementById('acceptCookie').addEventListener('click', () => {
+  // Assuming billAmount entered is gross or subtotal
+  const preTaxSubtotal = taxRate > 0 ? grossBill / (1 + (taxRate / 100)) : grossBill;
+  const postTaxTip = (grossBill * tipPct) / 100;
+  const preTaxTip = (preTaxSubtotal * tipPct) / 100;
+  const variance = postTaxTip - preTaxTip;
+
+  let html = `🍽️ <strong>Pre-Tax vs. Post-Tax Gratuity Comparison:</strong><br><br>`;
+  html += `• <strong>Estimated Pre-Tax Subtotal:</strong> $${preTaxSubtotal.toFixed(2)}<br>`;
+  html += `• <strong>Tip on Pre-Tax Subtotal:</strong> <span style="color:var(--emerald);">$${preTaxTip.toFixed(2)}</span><br>`;
+  html += `• <strong>Tip on Gross Bill (Post-Tax):</strong> $${postTaxTip.toFixed(2)}<br>`;
+  html += `• <strong>Etiquette Variance Savings:</strong> You save <strong>$${variance.toFixed(2)}</strong> by tipping strictly on the pre-tax subtotal!`;
+
+  preTaxDiv.innerHTML = html;
+  preTaxDiv.style.display = 'block';
+}
+
+function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
-});
+  const cookieBanner = document.getElementById('cookieConsent');
+  if (cookieBanner) cookieBanner.style.display = 'none';
+}
 </script>
 
 </body>
-  </html>
-  
+</html>
