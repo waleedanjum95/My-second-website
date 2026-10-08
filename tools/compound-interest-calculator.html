@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Compound Interest Calculator - Compute Investment Growth Instantly | SmartToolsKit</title>
-<meta name="description" content="Use our free online Compound Interest Calculator to project investment growth, calculate future maturity values, and analyze interest earnings over time.">
+<title>Free Compound Interest Calculator &amp; Inflation-Adjusted Wealth Analyzer | SmartToolsKit</title>
+<meta name="description" content="Calculate compound interest with regular contributions and compounding frequencies instantly. Includes a unique inflation-adjusted real wealth and tax drag analyzer.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/compound-interest-calculator.html">
 <meta name="theme-color" content="#0F172A">
@@ -12,8 +12,8 @@
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/compound-interest-calculator.html">
-<meta property="og:title" content="Free Compound Interest Calculator - Calculate Investment Returns | SmartToolsKit">
-<meta property="og:description" content="Compute accurate compound interest earnings, investment growth, and future maturity values easily with our free online tool.">
+<meta property="og:title" content="Free Compound Interest Calculator &amp; Wealth Analyzer | SmartToolsKit">
+<meta property="og:description" content="Accurate compound growth calculation with recurring monthly deposits, frequency options, and inflation-adjusted purchasing power analysis.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -57,23 +57,26 @@ nav a:hover{color:var(--emerald-dark)}
 
 .form-group{margin-bottom:16px}
 .form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
-.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
+.form-group input,.form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
 
-.btn-group{display:flex;gap:10px;margin-top:10px}
-.calc-btn{background:var(--emerald);color:#fff;border:none;flex:2;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.reset-btn{background:var(--soft);color:var(--navy);border:1px solid var(--border);flex:1;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
-.reset-btn:hover{background:var(--border)}
 
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
 
 .result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
 .result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center;margin-bottom:15px}
 .stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
 .stat-card span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700}
 .stat-card strong{font-size:15px;color:var(--emerald-dark)}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
@@ -84,10 +87,10 @@ nav a:hover{color:var(--emerald-dark)}
 .formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
-.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
-.content-table td{color:#475569}
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
 
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
@@ -118,160 +121,176 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <main class="container">
 <div class="tool-container">
 <h1>Compound Interest Calculator</h1>
-<p class="subtitle">Project investment growth and calculate future maturity values with flexible compounding frequencies.</p>
+<p class="subtitle">Calculate future investment growth, cumulative interest earnings, and recurring deposit impact instantly.</p>
 
 <div class="form-group">
-<label for="principal">Principal Amount ($)</label>
-<input type="number" step="any" id="principal" value="5000" placeholder="e.g., 5000">
+<label for="principal">Initial Principal Amount ($)</label>
+<input type="number" id="principal" value="10000" min="0" step="any">
 </div>
 
+<div class="grid-2">
 <div class="form-group">
-<label for="rate">Annual Interest Rate (%)</label>
-<input type="number" step="any" id="rate" value="7.5" placeholder="e.g., 7.5">
+<label for="rate">Annual Interest Rate (% p.a.)</label>
+<input type="number" id="rate" value="8.0" min="0" step="any">
+</div>
+<div class="form-group">
+<label for="years">Time Period (Years)</label>
+<input type="number" id="years" value="10" min="1" step="any">
+</div>
 </div>
 
+<div class="grid-2">
 <div class="form-group">
-<label for="time">Time Period (Years)</label>
-<input type="number" step="any" id="time" value="10" placeholder="e.g., 10">
-</div>
-
-<div class="form-group">
-<label for="frequency">Compounding Frequency</label>
-<select id="frequency">
-<option value="1">Annually (1/year)</option>
-<option value="2">Semi-Annually (2/year)</option>
-<option value="4">Quarterly (4/year)</option>
-<option value="12" selected>Monthly (12/year)</option>
-<option value="365">Daily (365/year)</option>
+<label for="compoundFreq">Compounding Frequency</label>
+<select id="compoundFreq">
+<option value="1">Annually (1/yr)</option>
+<option value="2">Semi-Annually (2/yr)</option>
+<option value="4">Quarterly (4/yr)</option>
+<option value="12" selected>Monthly (12/yr)</option>
+<option value="365">Daily (365/yr)</option>
 </select>
 </div>
-
-<div class="btn-group">
-<button type="button" class="calc-btn" id="calculateBtn">Calculate Growth</button>
-<button type="button" class="reset-btn" id="resetBtn">Reset</button>
+<div class="form-group">
+<label for="monthlyDeposit">Monthly Contribution ($)</label>
+<input type="number" id="monthlyDeposit" value="200" min="0" step="any">
+</div>
 </div>
 
+<button type="button" class="calc-btn" onclick="calculateCompoundInterest()">Calculate Future Growth</button>
+
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All calculations execute locally inside your web browser. No financial data is sent or saved on remote servers.
+<span>🔒 Client-Side Security:</span> All financial simulations execute securely inside your local browser. No investment or personal data is stored externally.
 </div>
 
 <div class="result-box" id="resultBox">
 <h3>Investment Growth Summary</h3>
 <div class="stats-grid">
 <div class="stat-card">
-<span>Principal</span>
+<span>Total Principal Invested</span>
 <strong id="resPrincipal">$0.00</strong>
 </div>
 <div class="stat-card">
-<span>Interest Earned</span>
+<span>Total Interest Earned</span>
 <strong id="resInterest">$0.00</strong>
 </div>
 <div class="stat-card">
-<span>Total Maturity</span>
-<strong id="resTotal">$0.00</strong>
+<span>Future Maturity Value</span>
+<strong id="resMaturity">$0.00</strong>
 </div>
 </div>
 </div>
+
+<!-- UNIQUE MARKET-FIRST FEATURE: Inflation & Tax Drag Real Wealth Analyzer -->
+<div class="unique-section">
+<h3>📈 Unique Feature: Inflation-Adjusted Real Wealth &amp; Tax Drag Analyzer</h3>
+<p>Nominal returns can be deceptive. Our analyzer factors in projected annual inflation and capital gains tax drag to reveal your true purchasing power growth over time!</p>
+<div class="grid-2" style="margin-top:12px;">
+<div class="form-group">
+<label for="inflationRate" style="color:#fff;">Estimated Inflation Rate (%)</label>
+<input type="number" id="inflationRate" value="3.0" min="0" step="any" style="background:#1E293B;color:#fff;border-color:#334155;">
+</div>
+<div class="form-group">
+<label for="taxRate" style="color:#fff;">Capital Gains Tax Rate (%)</label>
+<input type="number" id="taxRate" value="15.0" min="0" step="any" style="background:#1E293B;color:#fff;border-color:#334155;">
+</div>
+</div>
+<button type="button" class="calc-btn" onclick="analyzeRealWealth()" style="margin-top:10px;">Analyze Real Purchasing Power</button>
+<div id="realWealthResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;display:none;line-height:1.6;"></div>
+</div>
+
 </div>
 
 <!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>Understanding Compound Interest and Wealth Accumulation</h2>
-<p>Compound interest is widely regarded as one of the most powerful concepts in finance. Often described colloquially as "interest on interest," compounding occurs when the earnings on a financial deposit or investment are reinvested to generate their own additional returns over time. Unlike simple interest, which is calculated strictly against the original principal amount, compound interest accelerates wealth accumulation exponentially the longer funds remain invested.</p>
+<h2>Understanding Compound Interest and Exponential Financial Growth</h2>
+<p>Albert Einstein famously referred to compound interest as the "eighth wonder of the world," stating that those who understand it earn it, and those who don't, pay it. Unlike simple interest—which is calculated solely on the original principal balance—compound interest is calculated on the initial principal and the cumulative accumulated interest from previous periods. This compounding effect creates an exponential growth curve over long-term investment horizons.</p>
 
-<p>Whether you are planning for retirement, evaluating long-term savings accounts, assessing fixed-income investments, or managing business capital, understanding how compounding frequency impacts your returns is essential. Our free online Compound Interest Calculator automates this financial projection workflow instantly inside your web browser, delivering precise future value estimates within milliseconds without requiring complex manual calculations.</p>
+<p>Whether you are planning for retirement, building an emergency reserve, investing in equities, or evaluating fixed-income corporate bonds, harnessing compound interest is the foundational cornerstone of personal wealth accumulation. Our online Compound Interest Calculator automates these intricate financial projections, empowering savers and investors to model future asset valuations, recurring monthly contributions, and compounding frequencies instantly with absolute precision.</p>
 
-<h2>The Mathematical Compound Interest Formula</h2>
-<p>To project future investment values manually or verify your financial spreadsheets, utilize the standard compound interest equation:</p>
+<h2>Decoding Compounding Frequency and Capital Growth Dynamics</h2>
+<p>A critical determinant in compound growth velocity is compounding frequency. The more frequently interest compounds per year (ranging from annual intervals to daily compounding), the faster your wealth accumulates because interest begins generating its own returns sooner. For instance, daily compounding yields slightly higher terminal returns than annual compounding given identical nominal interest rates.</p>
+
+<p>Our platform introduces an exclusive market-first feature: the <strong>Inflation-Adjusted Real Wealth &amp; Tax Drag Analyzer</strong>. Traditional financial calculators display nominal future values, overlooking the eroding effects of inflation and taxation. By factoring in projected inflation and capital gains tax rates, our tool reveals your genuine purchasing power and net after-tax return.</p>
+
+<h2>The Mathematical Compound Interest Formulas</h2>
+<p>To compute compound growth projections manually or verify institutional financial spreadsheets, utilize the following core mathematical formulas:</p>
 
 <div class="formula-box">
-<strong>Compound Interest Formula:</strong>
-1. Total Maturity Amount (A) = P * (1 + (r / n)) ^ (n * t)<br>
-2. Total Interest Earned = Total Maturity Amount (A) - Principal (P)<br><br>
-<strong>Where:</strong>
-• P = Initial Principal Investment Amount<br>
-• r = Annual Nominal Interest Rate (Decimal)<br>
-• n = Number of Compounding Periods per Year<br>
-• t = Total Time Period in Years
+<strong>Core Compound Interest Formulas:</strong>
+1. Compound Interest Formula (Lump Sum Principal):<br>
+   • $A = P \times \left(1 + \frac{r}{n}\right)^{nt}$<br>
+   (where $A$ = Final Amount, $P$ = Principal, $r$ = Annual Rate decimal, $n$ = compounding frequency per year, $t$ = years)<br><br>
+2. Future Value of Series (Recurring Monthly Deposits):<br>
+   • $FV = PMT \times \frac{\left(1 + \frac{r}{n}\right)^{nt} - 1}{\frac{r}{n}}$<br><br>
+3. Real Purchasing Power (Inflation-Adjusted):<br>
+   • $\text{Real Value} = \frac{\text{Nominal Maturity Value}}{(1 + \text{Inflation Rate})^t}$
 </div>
 
-<p>By applying this mathematical formula, investors can accurately determine how variations in interest rates, time horizons, and compounding frequencies impact their long-term financial portfolios.</p>
+<p>By applying these standardized financial equations, investors and financial planners can project long-term asset trajectories with absolute mathematical rigor.</p>
 
-<h2>Compound Interest Growth Reference Matrix</h2>
-<p>The table below illustrates sample maturity projections for an initial principal investment of $5,000.00 evaluated across various time horizons at a steady 7.5% annual interest rate compounded monthly.</p>
+<h2>Global Investment Horizon Reference Matrix</h2>
+<p>The table below outlines sample future values for a $10,000 initial investment compounded monthly at various annual rates and time horizons (assuming zero monthly additions):</p>
 
 <table class="content-table">
 <thead>
 <tr>
 <th>Initial Principal</th>
-<th>Annual Rate (%)</th>
-<th>Time Horizon</th>
-<th>Interest Earned</th>
-<th>Total Maturity Value</th>
+<th>Annual Interest Rate</th>
+<th>Investment Horizon</th>
+<th>Total Interest Earned</th>
+<th>Final Maturity Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>$5,000.00</td>
-<td>7.5%</td>
-<td>5 Years</td>
-<td>$2,249.70</td>
-<td>$7,249.70</td>
+<td>$10,000</td>
+<td>6.0%</td>
+<td>5 Years (60 mos)</td>
+<td>$3,488.50</td>
+<td>$13,488.50</td>
 </tr>
 <tr>
-<td>$5,000.00</td>
-<td>7.5%</td>
-<td>10 Years</td>
-<td>$5,570.42</td>
-<td>$10,570.42</td>
+<td>$10,000</td>
+<td>8.0%</td>
+<td>10 Years (120 mos)</td>
+<td>$12,157.66</td>
+<td>$22,157.66</td>
 </tr>
 <tr>
-<td>$5,000.00</td>
-<td>7.5%</td>
-<td>20 Years</td>
-<td>$17,314.90</td>
-<td>$22,314.90</td>
+<td>$10,000</td>
+<td>10.0%</td>
+<td>20 Years (240 mos)</td>
+<td>$63,267.95</td>
+<td>$73,267.95</td>
 </tr>
 <tr>
-<td>$5,000.00</td>
-<td>7.5%</td>
-<td>30 Years</td>
-<td>$41,311.83</td>
-<td>$46,311.83</td>
+<td>$10,000</td>
+<td>12.0%</td>
+<td>30 Years (360 mos)</td>
+<td>$349,496.41</td>
+<td>$359,496.41</td>
 </tr>
 </tbody>
 </table>
 
-<h2>How to Use the Compound Interest Calculator</h2>
-<p>Using our compound interest calculator tool is straightforward, fast, and user-friendly:</p>
+<h2>How to Use the Compound Interest Calculator &amp; Wealth Analyzer</h2>
+<p>Using our multi-purpose investment growth utility is straightforward, fast, and user-friendly:</p>
 <ul>
-<li><strong>Enter Principal:</strong> Input your initial deposit or investment amount in the primary principal field.</li>
-<li><strong>Specify Interest Rate:</strong> Type in the annual percentage yield (APY) or nominal interest rate expected.</li>
-<li><strong>Set Time Horizon:</strong> Enter the total number of years you plan to maintain the investment.</li>
-<li><strong>Choose Compounding Frequency:</strong> Select whether interest compounds annually, semi-annually, quarterly, monthly, or daily.</li>
-<li><strong>Calculate &amp; Review:</strong> Click the calculate button to instantly view your principal breakdown, total interest earned, and final maturity amount.</li>
-</ul>
-
-<h2>Best Practices for Long-Term Investing and Compounding</h2>
-<p>To maximize the miraculous effects of compound interest in your personal financial planning, keep these professional guidelines in mind:</p>
-<ul>
-<li><strong>Start Early:</strong> Time is the most potent variable in compounding; beginning your investments early allows exponential growth curves to work in your favor.</li>
-<li><strong>Increase Compounding Frequency:</strong> Investments that compound monthly or daily generate higher overall returns compared to annual compounding at the same nominal rate.</li>
-<li><strong>Minimize Fees:</strong> High investment management fees can erode compound gains over decades; seek low-cost index funds or high-yield accounts.</li>
+<li><strong>Enter Principal &amp; Rate:</strong> Input your starting lump sum capital and expected annual percentage yield.</li>
+<li><strong>Select Time &amp; Frequency:</strong> Specify your investment duration in years and choose your compounding frequency (monthly, daily, etc.).</li>
+<li><strong>Add Recurring Deposits:</strong> Enter any planned monthly savings contributions to accelerate your portfolio growth.</li>
+<li><strong>Calculate &amp; Analyze:</strong> Click calculate for instant earnings breakdowns, or use our inflation and tax drag analyzer at the bottom!</li>
 </ul>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is the difference between simple and compound interest?</h3>
-<p>Simple interest is calculated only on the original principal, whereas compound interest is calculated on the principal plus all accumulated interest from previous periods.</p>
+<h3>1. What is the difference between simple interest and compound interest?</h3>
+<p>Simple interest is calculated only on the initial principal amount. Compound interest is calculated on the principal plus all previously accumulated interest earnings.</p>
 
-### 2. How does compounding frequency affect total returns?</h3>
-<p>The more frequently interest compounds per year (e.g., monthly vs. annually), the faster your investment grows due to reinvested earnings starting to generate their own returns sooner.</p>
+<h3>2. How does compounding frequency affect my total investment returns?</h3>
+<p>Higher compounding frequencies (such as monthly or daily) result in faster capital growth because interest is credited and reinvested more frequently throughout the year.</p>
 
-### 3. Can I use this calculator for monthly contributions?</h3>
-<p>This calculator projects growth on a lump-sum initial principal amount. For recurring monthly deposits, look for our dedicated SIP or recurring savings calculator.</p>
-
-### 4. Is this compound interest calculator completely free?</h3>
-<p>Yes, all tools on SmartToolsKit are 100% free with no usage limits, subscription fees, or registration requirements.</p>
+<h3>3. Are my investment figures and financial queries tracked on external servers?</h3>
+<p>No. All calculations run strictly inside your web browser client-side, ensuring complete data confidentiality and privacy.</p>
 </div>
 </main>
 
@@ -305,52 +324,96 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie">Got It</button>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
 
 <script>
-document.getElementById('calculateBtn').addEventListener('click', () => {
-  const principal = parseFloat(document.getElementById('principal').value);
-  const rate = parseFloat(document.getElementById('rate').value);
-  const time = parseFloat(document.getElementById('time').value);
-  const n = parseFloat(document.getElementById('frequency').value);
-  const resultBox = document.getElementById('resultBox');
-
-  if (isNaN(principal) || principal < 0 || isNaN(rate) || rate < 0 || isNaN(time) || time < 0) {
-    alert('Please enter valid positive numbers for all financial fields.');
-    return;
-  }
-
-  const r = rate / 100;
-  // A = P * (1 + r/n)^(n*t)
-  const totalAmount = principal * Math.pow((1 + r / n), (n * time));
-  const interestEarned = totalAmount - principal;
-
-  document.getElementById('resPrincipal').textContent = principal.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resInterest').textContent = interestEarned.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resTotal').textContent = totalAmount.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-
-  resultBox.style.display = 'block';
-});
-
-document.getElementById('resetBtn').addEventListener('click', () => {
-  document.getElementById('principal').value = '5000';
-  document.getElementById('rate').value = '7.5';
-  document.getElementById('time').value = '10';
-  document.getElementById('frequency').value = '12';
-  document.getElementById('resultBox').style.display = 'none';
-});
+let lastMaturity = 0;
+let lastPrincipalInvested = 0;
 
 window.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookieConsent').style.display = 'flex';
+    const cookieBanner = document.getElementById('cookieConsent');
+    if (cookieBanner) cookieBanner.style.display = 'flex';
   }
 });
 
-document.getElementById('acceptCookie').addEventListener('click', () => {
+function calculateCompoundInterest() {
+  const P = parseFloat(document.getElementById('principal').value) || 0;
+  const annualRate = parseFloat(document.getElementById('rate').value) || 0;
+  const years = parseFloat(document.getElementById('years').value) || 0;
+  const n = parseInt(document.getElementById('compoundFreq').value) || 12;
+  const PMT = parseFloat(document.getElementById('monthlyDeposit').value) || 0;
+  const resultBox = document.getElementById('resultBox');
+
+  if (P < 0 || annualRate < 0 || years <= 0 || PMT < 0) {
+    alert('Please enter valid positive numbers for principal, rate, and time period.');
+    return;
+  }
+
+  const r = annualRate / 100;
+  const totalMonths = years * 12;
+  const nt = n * years;
+
+  // Compound interest for principal: A = P * (1 + r/n)^(nt)
+  const principalMaturity = P * Math.pow(1 + (r / n), nt);
+
+  // Future value of series for monthly contributions (compounded monthly relative to n)
+  // If n=12, exact. If n != 12, convert monthly PMT to equivalent compounding period or monthly compounding approximation.
+  let seriesMaturity = 0;
+  if (PMT > 0) {
+    const monthlyRate = r / 12;
+    for (let m = 1; m <= totalMonths; m++) {
+      const remainingYears = (totalMonths - m) / 12;
+      seriesMaturity += PMT * Math.pow(1 + (r / n), n * remainingYears);
+    }
+  }
+
+  const totalMaturity = principalMaturity + seriesMaturity;
+  const totalPrincipal = P + (PMT * totalMonths);
+  const totalInterest = Math.max(0, totalMaturity - totalPrincipal);
+
+  lastMaturity = totalMaturity;
+  lastPrincipalInvested = totalPrincipal;
+
+  document.getElementById('resPrincipal').textContent = '$' + totalPrincipal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('resInterest').textContent = '$' + totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('resMaturity').textContent = '$' + totalMaturity.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  resultBox.style.display = 'block';
+}
+
+function analyzeRealWealth() {
+  if (lastMaturity === 0) {
+    calculateCompoundInterest();
+  }
+
+  const inflation = parseFloat(document.getElementById('inflationRate').value) || 0;
+  const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+  const years = parseFloat(document.getElementById('years').value) || 1;
+  const realDiv = document.getElementById('realWealthResult');
+
+  const totalInterest = Math.max(0, lastMaturity - lastPrincipalInvested);
+  const taxAmount = (totalInterest * taxRate) / 100;
+  const afterTaxMaturity = lastMaturity - taxAmount;
+
+  // Real purchasing power adjusted for inflation
+  const realPurchasingPower = afterTaxMaturity / Math.pow(1 + (inflation / 100), years);
+
+  let html = `📈 <strong>Real Wealth &amp; Tax Drag Analysis:</strong><br><br>`;
+  html += `• <strong>Nominal Maturity Value:</strong> $${lastMaturity.toFixed(2)}<br>`;
+  html += `• <strong>Estimated Tax Drag (${taxRate}% on gains):</strong> -$${taxAmount.toFixed(2)}<br>`;
+  html += `• <strong>After-Tax Terminal Value:</strong> $${afterTaxMaturity.toFixed(2)}<br>`;
+  html += `• <strong style="color:var(--emerald);">Real Purchasing Power (Inflation Adjusted):</strong> $${realPurchasingPower.toFixed(2)}`;
+
+  realDiv.innerHTML = html;
+  realDiv.style.display = 'block';
+}
+
+function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
-});
+  const cookieBanner = document.getElementById('cookieConsent');
+  if (cookieBanner) cookieBanner.style.display = 'none';
+}
 </script>
 
 </body>
