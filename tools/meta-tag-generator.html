@@ -177,7 +177,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <button type="button" class="calc-btn" onclick="generateTags()">Generate Meta Tags</button>
 
-<div class="result-box" style="margin-top:20px;">
+<div class="result-box">
 <label for="metaOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;display:block;">Generated HTML Meta Tags</label>
 <textarea id="metaOutput" readonly></textarea>
 <button type="button" class="calc-btn" onclick="copyMetaTags()" style="margin-top:10px;">Copy Meta Tags Code</button>
@@ -191,7 +191,6 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="unique-section">
 <h3>📱 Unique Feature: Live Card Preview Simulator &amp; Truncation Warning</h3>
 <p>Preview exactly how your page will appear on Google search results and social media platforms (Facebook, LinkedIn, Twitter) in real-time!</p>
-
 
 <div style="margin-top:15px;">
 <strong style="font-size:12px;color:var(--emerald);">Google Search Snippet Preview:</strong>
@@ -244,7 +243,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
    • If $\text{Title} > 60$, flag pixel-width truncation warning.
 </div>
 
-<p>By applying these standardized SEO constraints, webmasters can ensure their search snippets remain fully visible and compelling across all device viewports.</p>
+<p>By applying these standardized SEO constraints, web masters can ensure their search snippets remain fully visible and compelling across all device viewports.</p>
 
 <h2>Global Meta Tag and Protocol Reference Matrix</h2>
 <p>The table below outlines essential meta tags, their protocol standards, and their primary publishing functions:</p>
@@ -354,43 +353,64 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function generateTags() {
-  const title = document.getElementById('pageTitle').value.trim();
-  const desc = document.getElementById('pageDesc').value.trim();
-  const canonical = document.getElementById('canonicalUrl').value.trim();
-  const robots = document.getElementById('robotsMeta').value;
-  const ogImg = document.getElementById('ogImage').value.trim();
-  const twCard = document.getElementById('twitterCard').value;
+  const titleEl = document.getElementById('pageTitle');
+  const descEl = document.getElementById('pageDesc');
+  const canonicalEl = document.getElementById('canonicalUrl');
+  const robotsEl = document.getElementById('robotsMeta');
+  const ogImgEl = document.getElementById('ogImage');
+  const twCardEl = document.getElementById('twitterCard');
+  const outputEl = document.getElementById('metaOutput');
+
+  if (!titleEl || !outputEl) return;
+
+  const title = titleEl.value.trim();
+  const desc = descEl ? descEl.value.trim() : '';
+  const canonical = canonicalEl ? canonicalEl.value.trim() : '';
+  const robots = robotsEl ? robotsEl.value : 'index, follow';
+  const ogImg = ogImgEl ? ogImgEl.value.trim() : '';
+  const twCard = twCardEl ? twCardEl.value : 'summary_large_image';
 
   // Extract domain for social preview
   let domain = "smarttoolskit.com";
   try {
     const urlObj = new URL(canonical);
     domain = urlObj.hostname.toUpperCase();
-    document.getElementById('prevUrl').textContent = `${urlObj.hostname} › ...`;
+    const prevUrl = document.getElementById('prevUrl');
+    if (prevUrl) prevUrl.textContent = `${urlObj.hostname} › ...`;
   } catch(e) {
-    document.getElementById('prevUrl').textContent = canonical;
+    const prevUrl = document.getElementById('prevUrl');
+    if (prevUrl) prevUrl.textContent = canonical;
   }
 
-  // Update live preview card elements
-  document.getElementById('prevGoogleTitle').textContent = title || 'Add a page title...';
-  document.getElementById('prevGoogleDesc').textContent = desc || 'Add a page description...';
-  document.getElementById('prevDomain').textContent = domain;
-  document.getElementById('prevSocialTitle').textContent = title || 'Add a page title...';
-  document.getElementById('prevSocialDesc').textContent = desc || 'Add a page description...';
+  // Update live preview card elements safely
+  const pGoogleTitle = document.getElementById('prevGoogleTitle');
+  const pGoogleDesc = document.getElementById('prevGoogleDesc');
+  const pDomain = document.getElementById('prevDomain');
+  const pSocialTitle = document.getElementById('prevSocialTitle');
+  const pSocialDesc = document.getElementById('prevSocialDesc');
+  const pSocialImgBox = document.getElementById('prevSocialImgBox');
+
+  if (pGoogleTitle) pGoogleTitle.textContent = title || 'Add a page title...';
+  if (pGoogleDesc) pGoogleDesc.textContent = desc || 'Add a page description...';
+  if (pDomain) pDomain.textContent = domain;
+  if (pSocialTitle) pSocialTitle.textContent = title || 'Add a page title...';
+  if (pSocialDesc) pSocialDesc.textContent = desc || 'Add a page description...';
   
-  if (ogImg) {
-    document.getElementById('prevSocialImgBox').style.backgroundImage = `url('${ogImg}')`;
-    document.getElementById('prevSocialImgBox').style.backgroundSize = 'cover';
-    document.getElementById('prevSocialImgBox').textContent = '';
-  } else {
-    document.getElementById('prevSocialImgBox').style.backgroundImage = 'none';
-    document.getElementById('prevSocialImgBox').textContent = 'Preview Image Placeholder';
+  if (pSocialImgBox) {
+    if (ogImg) {
+      pSocialImgBox.style.backgroundImage = `url('${ogImg}')`;
+      pSocialImgBox.style.backgroundSize = 'cover';
+      pSocialImgBox.textContent = '';
+    } else {
+      pSocialImgBox.style.backgroundImage = 'none';
+      pSocialImgBox.textContent = 'Preview Image Placeholder';
+    }
   }
 
   // Truncation Warnings
   let warnings = [];
   if (title.length > 60) {
-    warnings.push(`⚠️ Title is ${title.length} chars (Recommendended max: 60 chars). May truncate on Google.');
+    warnings.push(`⚠️ Title is ${title.length} chars (Recommended max: 60 chars). May truncate on Google.`);
   } else if (title.length < 30 && title.length > 0) {
     warnings.push(`ℹ️ Title is quite short (${title.length} chars). Aim for 50-60 characters.`);
   }
@@ -402,12 +422,14 @@ function generateTags() {
   }
 
   const warningBox = document.getElementById('truncationWarning');
-  if (warnings.length > 0) {
-    warningBox.innerHTML = warnings.join('<br>');
-    warningBox.style.display = 'block';
-  } else {
-    warningBox.innerHTML = '✅ Title and description lengths are within optimal SEO limits!';
-    warningBox.style.display = 'block';
+  if (warningBox) {
+    if (warnings.length > 0) {
+      warningBox.innerHTML = warnings.join('<br>');
+      warningBox.style.display = 'block';
+    } else {
+      warningBox.innerHTML = '✅ Title and description lengths are within optimal SEO limits!';
+      warningBox.style.display = 'block';
+    }
   }
 
   // Generate HTML code block
@@ -431,7 +453,7 @@ function generateTags() {
 <meta name="twitter:description" content="${escapeHTML(desc)}">
 <meta name="twitter:image" content="${escapeHTML(ogImg)}">`;
 
-  document.getElementById('metaOutput').value = htmlCode;
+  outputEl.value = htmlCode;
 }
 
 function escapeHTML(str) {
@@ -440,6 +462,7 @@ function escapeHTML(str) {
 
 function copyMetaTags() {
   const output = document.getElementById('metaOutput');
+  if (!output) return;
   output.select();
   output.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(output.value);
