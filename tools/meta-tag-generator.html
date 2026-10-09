@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Meta Tag &amp; OG Generator - Create SEO &amp; Social Tags | SmartToolsKit</title>
-<meta name="description" content="Use our free online Meta Tag & Open Graph Generator to create SEO meta titles, descriptions, and social media sharing tags instantly. Fast, accurate, and easy.">
+<title>Free Meta Tag &amp; Open Graph (OG) Generator | SmartToolsKit</title>
+<meta name="description" content="Generate SEO meta tags, Open Graph tags for Facebook &amp; LinkedIn, and Twitter Cards instantly with our free online Meta Tag Generator. Includes live card simulators.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/meta-tag-generator.html">
 <meta name="theme-color" content="#0F172A">
@@ -12,8 +12,8 @@
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/meta-tag-generator.html">
-<meta property="og:title" content="Free Meta Tag & OG Generator - Create SEO & Social Tags | SmartToolsKit">
-<meta property="og:description" content="Generate proper HTML meta tags and social Open Graph tags for your website.">
+<meta property="og:title" content="Free Meta Tag &amp; Open Graph Generator | SmartToolsKit">
+<meta property="og:description" content="Create production-ready SEO meta tags, social sharing cards, and live previews instantly with our advanced generator.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -39,7 +39,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,textarea{font-family:inherit}
+button,input,select,textarea{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -51,27 +51,58 @@ nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
 
 .form-group{margin-bottom:16px}
 .form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none}
-.form-group input:focus, .form-group textarea:focus{border-color:var(--emerald)}
-.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:10px}
+.form-group input, .form-group select, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group textarea{height:90px;resize:vertical}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{border-color:var(--emerald)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
+
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
 .calc-btn:hover{background:var(--emerald-dark)}
 
-.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:20px}
-.result-box textarea{width:100%;height:150px;background:#fff;border:1px solid var(--border);border-radius:6px;padding:10px;font-family:monospace;font-size:13px;resize:vertical;outline:none}
-.copy-btn{background:var(--navy);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px}
-.copy-btn:hover{background:var(--navy-light)}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
+.result-box textarea{width:100%;height:160px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:monospace;outline:none;background:#fff;resize:vertical}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+
+/* Preview Cards Styling */
+.preview-card{background:#fff;color:#0F172A;border-radius:8px;padding:14px;margin-top:12px;border:1px solid #334155}
+.google-preview{font-family:Arial,sans-serif}
+.google-url{font-size:12px;color:#4D5156}
+.google-title{font-size:18px;color:#1A0DAB;margin:2px 0;cursor:pointer}
+.google-desc{font-size:13px;color:#4D5156;line-height:1.4}
+
+.social-preview{border-radius:8px;overflow:hidden;border:1px solid #E2E8F0;background:#F8FAFC}
+.social-img{width:100%;height:140px;background:#E2E8F0;object-fit:cover;display:flex;align-items:center;justify-content:center;color:#64748B;font-size:12px}
+.social-body{padding:12px}
+.social-domain{font-size:11px;text-transform:uppercase;color:#64748B;margin-bottom:2px}
+.social-title{font-size:14px;font-weight:700;color:#0F172A;margin-bottom:4px}
+.social-desc{font-size:12px;color:#475569}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
 .content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
 .content-section li{margin-bottom:6px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
+
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
 
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
@@ -101,87 +132,182 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <main class="container">
 <div class="tool-container">
-<h1>Meta Tag &amp; OG Generator</h1>
-<p class="subtitle">Generate professional SEO meta tags and social media Open Graph cards.</p>
+<h1>Meta Tag &amp; Open Graph Generator</h1>
+<p class="subtitle">Generate production-ready SEO meta tags, Open Graph tags, and Twitter Cards instantly.</p>
 
 <div class="form-group">
-<label for="siteTitle">Page Title</label>
-<input type="text" id="siteTitle" placeholder="e.g., My Awesome Web Page">
+<label for="pageTitle">Page Title (Recommended: 50-60 characters)</label>
+<input type="text" id="pageTitle" value="Free Online Meta Tag Generator | SmartToolsKit" oninput="generateTags()">
 </div>
 
 <div class="form-group">
-<label for="siteDesc">Page Description</label>
-<textarea id="siteDesc" rows="3" placeholder="Brief summary of your webpage content (under 160 characters)..."></textarea>
+<label for="pageDesc">Page Description (Recommended: 150-160 characters)</label>
+<textarea id="pageDesc" oninput="generateTags()">Generate SEO meta tags, Open Graph tags for social sharing, and Twitter Cards instantly with our free online generator tool.</textarea>
 </div>
 
-<div class="form-group">
-<label for="siteKeywords">Meta Keywords (Comma separated)</label>
-<input type="text" id="siteKeywords" placeholder="tool, website, seo, free">
-</div>
-
+<div class="grid-2">
 <div class="form-group">
 <label for="canonicalUrl">Canonical URL</label>
-<input type="url" id="canonicalUrl" placeholder="https://example.com/page.html">
+<input type="text" id="canonicalUrl" value="https://smarttoolskit.com/tools/meta-tag-generator.html" oninput="generateTags()">
 </div>
-
 <div class="form-group">
-<label for="ogTitle">Open Graph Title (Facebook / LinkedIn)</label>
-<input type="text" id="ogTitle" placeholder="Catchy title for social feeds">
+<label for="robotsMeta">Robots Directive</label>
+<select id="robotsMeta" onchange="generateTags()">
+<option value="index, follow" selected>Index, Follow</option>
+<option value="noindex, nofollow">Noindex, Nofollow</option>
+<option value="index, nofollow">Index, Nofollow</option>
+<option value="noindex, follow">Noindex, Follow</option>
+</select>
+</div>
 </div>
 
-<div class="form-group">
-<label for="ogDesc">Open Graph Description</label>
-<textarea id="ogDesc" rows="2" placeholder="Social media preview description..."></textarea>
-</div>
-
+<div class="grid-2">
 <div class="form-group">
 <label for="ogImage">Open Graph Image URL</label>
-<input type="url" id="ogImage" placeholder="https://example.com/image.jpg">
+<input type="text" id="ogImage" value="https://smarttoolskit.com/assets/og-image.jpg" oninput="generateTags()">
+</div>
+<div class="form-group">
+<label for="twitterCard">Twitter Card Type</label>
+<select id="twitterCard" onchange="generateTags()">
+<option value="summary_large_image" selected>Summary Large Image</option>
+<option value="summary">Summary Card</option>
+</select>
+</div>
 </div>
 
-<button type="button" class="calc-btn" id="generateBtn">Generate Meta Tags</button>
+<button type="button" class="calc-btn" onclick="generateTags()">Generate Meta Tags</button>
 
-<div class="result-box" id="resultBoxWrapper" style="display:none;">
-<label style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;">Generated HTML Code:</label>
-<textarea id="outputTags" readonly></textarea>
-<button type="button" class="copy-btn" id="copyBtn">Copy Code</button>
+<div class="result-box" style="margin-top:20px;">
+<label for="metaOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;display:block;">Generated HTML Meta Tags</label>
+<textarea id="metaOutput" readonly></textarea>
+<button type="button" class="calc-btn" onclick="copyMetaTags()" style="margin-top:10px;">Copy Meta Tags Code</button>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All meta tag computations and previews execute securely inside your local browser. No data or website URLs are stored externally.
+</div>
+
+<!-- UNIQUE MARKET-FIRST FEATURE: Live Social Media Card Preview Simulator -->
+<div class="unique-section">
+<h3>📱 Unique Feature: Live Card Preview Simulator &amp; Truncation Warning</h3>
+<p>Preview exactly how your page will appear on Google search results and social media platforms (Facebook, LinkedIn, Twitter) in real-time!</p>
+
+
+<div style="margin-top:15px;">
+<strong style="font-size:12px;color:var(--emerald);">Google Search Snippet Preview:</strong>
+<div class="preview-card google-preview">
+<div class="google-url" id="prevUrl">https://smarttoolskit.com › tools</div>
+<div class="google-title" id="prevGoogleTitle">Free Online Meta Tag Generator | SmartToolsKit</div>
+<div class="google-desc" id="prevGoogleDesc">Generate SEO meta tags, Open Graph tags for social sharing...</div>
 </div>
 </div>
 
-<!-- Comprehensive SEO Content Section (450+ Words) -->
+<div style="margin-top:15px;">
+<strong style="font-size:12px;color:var(--emerald);">Social Media Card Preview (Facebook / LinkedIn / Twitter):</strong>
+<div class="preview-card social-preview">
+<div class="social-img" id="prevSocialImgBox">Preview Image Placeholder</div>
+<div class="social-body">
+<div class="social-domain" id="prevDomain">SMARTTOOLSKIT.COM</div>
+<div class="social-title" id="prevSocialTitle">Free Online Meta Tag Generator</div>
+<div class="social-desc" id="prevSocialDesc">Generate SEO meta tags, Open Graph tags for social sharing...</div>
+</div>
+</div>
+</div>
+
+<div id="truncationWarning" style="font-size:12px;color:#FBBF24;margin-top:12px;background:#1E293B;padding:10px;border-radius:6px;border:1px solid #334155;"></div>
+</div>
+
+</div>
+
+<!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>What is a Meta Tag &amp; Open Graph Generator?</h2>
-<p>A Meta Tag &amp; Open Graph (OG) Generator is an essential web development and search engine optimization (SEO) tool designed to create clean, accurate HTML meta tags for your website pages. Meta tags act as hidden snippets of text inside your webpage's header that describe its content to search engine crawlers like Googlebot, Bingbot, and social media platforms such as Facebook, Twitter, and LinkedIn. Without proper meta tags, search engines may misinterpret your page topic, resulting in poor search visibility and lower click-through rates.</p>
+<h2>Understanding Meta Tags, Open Graph Protocol, and Search Engine Optimization</h2>
+<p>Meta tags are snippets of HyperText Markup Language (HTML) code that provide structured metadata about a web page to search engines, web crawlers, and social media platforms. While meta tags do not appear directly on the visible webpage canvas, they dictate crucial ranking signals, browser behaviors, and rich preview cards when links are shared across external networks.</p>
 
-<h2>Why Meta Tags and Open Graph Tags Matter</h2>
-<p>Properly optimized meta titles and descriptions directly influence how your links appear on Search Engine Result Pages (SERPs). A compelling title and description can dramatically increase organic traffic by enticing users to click on your link over competitors. Meanwhile, Open Graph (OG) meta tags control how your content is displayed when shared across social networks. When someone shares your URL on Facebook or LinkedIn, the OG tags ensure that the correct title, engaging summary description, and high-resolution thumbnail preview image are automatically loaded, maximizing user engagement and brand authority.</p>
+<p>For digital marketers, web developers, bloggers, and SEO specialists, managing accurate title tags, meta descriptions, robots directives, and Open Graph protocols is essential for maximizing organic search traffic and social media click-through rates (CTR). Our online Meta Tag &amp; Open Graph Generator automates this configuration process, allowing users to build production-ready HTML headers instantly without manual coding errors.</p>
 
-<h2>How to Use the Meta Tag Generator</h2>
-<p>Using our tool is straightforward and requires zero coding experience:</p>
+<h2>Advanced Value Additions: Live Social Card Simulators &amp; Truncation Alerts</h2>
+<p>A frequent challenge in technical SEO involves character length and pixel truncation. Search engines like Google typically truncate title tags exceeding 60 characters and descriptions exceeding 160 characters with ellipses (...), reducing user engagement. Similarly, social media platforms require precise Open Graph image dimensions and card metadata.</p>
+
+<p>Our platform introduces an exclusive market-first feature: the <strong>Live Social Media Card Preview Simulator &amp; Truncation Warning</strong>. This unique utility renders real-time visual previews of Google search snippets and Facebook/Twitter sharing cards while dynamically alerting users if their text exceeds optimal character limits.</p>
+
+<h2>The Mathematical SEO &amp; Character Truncation Rules</h2>
+<p>To evaluate meta tag lengths programmatically or verify SEO audit standards in web engineering, utilize the following core metrics:</p>
+
+<div class="formula-box">
+<strong>Core Meta Tag SEO Formulas:</strong>
+1. Title Optimal Length Range:<br>
+   • $50 \le \text{Title Characters} \le 60$<br><br>
+2. Description Optimal Length Range:<br>
+   • $150 \le \text{Description Characters} \le 160$<br><br>
+3. Character Truncation Warning Threshold:<br>
+   • If $\text{Title} > 60$, flag pixel-width truncation warning.
+</div>
+
+<p>By applying these standardized SEO constraints, webmasters can ensure their search snippets remain fully visible and compelling across all device viewports.</p>
+
+<h2>Global Meta Tag and Protocol Reference Matrix</h2>
+<p>The table below outlines essential meta tags, their protocol standards, and their primary publishing functions:</p>
+
+<table class="content-table">
+<thead>
+<tr>
+<th>Meta Tag Type</th>
+<th>Standard Attribute</th>
+<th>Primary Function &amp; Platform Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title Tag</td>
+<td>`<title>`</td>
+<td>Primary ranking factor for search engines and browser tabs</td>
+</tr>
+<tr>
+<td>Meta Description</td>
+<td>`name="description"`</td>
+<td>Snippet summary displayed on search engine result pages (SERPs)</td>
+</tr>
+<tr>
+<td>Canonical Tag</td>
+<td>`rel="canonical"`</td>
+<td>Prevents duplicate content issues by specifying master URL</td>
+</tr>
+<tr>
+<td>Robots Directive</td>
+<td>`name="robots"`</td>
+<td>Instructs crawlers whether to index pages and follow links</td>
+</tr>
+<tr>
+<td>Open Graph Title</td>
+<td>`property="og:title"`</td>
+<td>Optimizes headline when shared on Facebook, LinkedIn, etc.</td>
+</tr>
+<tr>
+<td>Twitter Card</td>
+<td>`name="twitter:card"`</td>
+<td>Determines visual card layout size on Twitter/X streams</td>
+</tr>
+</tbody>
+</table>
+
+<h2>How to Use the Meta Tag &amp; OG Generator</h2>
+<p>Using our multi-purpose meta tag generation utility is straightforward, fast, and user-friendly:</p>
 <ul>
-<li><strong>Enter Page Details:</strong> Fill in your target page title, descriptive summary, and relevant comma-separated keywords.</li>
-<li><strong>Set Canonical Link:</strong> Provide the absolute canonical URL to prevent duplicate content indexing penalties by search engines.</li>
-<li><strong>Configure Social Cards:</strong> Add your Open Graph title, description, and preview banner image URL for social media sharing.</li>
-<li><strong>Generate &amp; Copy:</strong> Click the generate button to instantly compile all tags into a clean HTML block, then copy and paste it into the <code>&lt;head&gt;</code> section of your website.</li>
+<li><strong>Enter Page Details:</strong> Input your page title, meta description, canonical URL, and image links into the form fields.</li>
+<li><strong>Preview Live Cards:</strong> Watch the live simulator update your Google search snippet and social sharing cards in real-time.</li>
+<li><strong>Copy Code:</strong> Retrieve your production-ready HTML meta tags instantly using our copy button!</li>
 </ul>
 
-<h2>Best Practices for Writing Effective Meta Tags</h2>
-<p>To get the best results from your meta tags, keep these industry standards in mind:</p>
-<ul>
-<li><strong>Keep Titles Concise:</strong> Keep your SEO page title under 60 characters to prevent truncation on search engine result pages.</li>
-<li><strong>Optimize Descriptions:</strong> Keep meta descriptions between 140 to 160 characters while including relevant primary keywords naturally.</li>
-<li><strong>Use High-Quality Images:</strong> Ensure your Open Graph image dimensions meet platform recommendations (typically 1200x630 pixels) for crisp sharing previews.</li>
-</ul>
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Why are meta title and description lengths important for SEO?</h3>
+<p>If your title or description exceeds standard character limits, search engines truncate them with dots (...), which can lower your click-through rate.</p>
 
-<h2>Frequently Asked Questions</h2>
-<h3>1. Are these generated meta tags compatible with all web platforms?</h3>
-<p>Yes, the generated HTML tags follow universal W3C standards and work perfectly on static HTML sites, WordPress, Shopify, Vercel, and custom content management systems.</p>
+<h3>2. What is the Open Graph (OG) protocol?</h3>
+<p>Created by Facebook, Open Graph allows any web page to become a rich object in a social graph, ensuring custom titles, descriptions, and images appear when shared.</p>
 
-<h3>2. Is this tool 100% free to use?</h3>
-<p>Yes, all features on SmartToolsKit are completely free with no registration or usage limits required.</p>
-
-<h3>3. Will my data be saved on any external servers?</h3>
-<p>No. All meta tag generation processes occur directly within your web browser using client-side JavaScript, ensuring complete security and privacy.</p>
+<h3>3. Are my website data or meta tags stored on external servers?</h3>
+<p>No. All tag generation and visual simulations run strictly inside your web browser client-side, ensuring complete data confidentiality and privacy.</p>
 </div>
 </main>
 
@@ -215,73 +341,116 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie">Got It</button>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
 
 <script>
-const generateBtn = document.getElementById('generateBtn');
-const resultBoxWrapper = document.getElementById('resultBoxWrapper');
-const outputTags = document.getElementById('outputTags');
-const copyBtn = document.getElementById('copyBtn');
-
-// Helper function to sanitize URLs and remove accidental brackets or markdown links
-function sanitizeUrl(input) {
-  if (!input) return '';
-  input = input.trim();
-  let match = input.match(/\((.*?)\)/);
-  if (match) input = match[1];
-  return input.replace(/[\[\]]/g, '').trim();
-}
-
-generateBtn.addEventListener('click', () => {
-  const title = document.getElementById('siteTitle').value.trim();
-  const desc = document.getElementById('siteDesc').value.trim();
-  const keywords = document.getElementById('siteKeywords').value.trim();
-  const canonical = sanitizeUrl(document.getElementById('canonicalUrl').value);
-  const ogTitle = document.getElementById('ogTitle').value.trim();
-  const ogDesc = document.getElementById('ogDesc').value.trim();
-  const ogImage = sanitizeUrl(document.getElementById('ogImage').value);
-
-  let htmlCode = `<!-- Standard SEO Meta Tags -->\n`;
-  if (title) htmlCode += `<title>${escapeHtml(title)}</title>\n`;
-  if (desc) htmlCode += `<meta name="description" content="${escapeHtml(desc)}">\n`;
-  if (keywords) htmlCode += `<meta name="keywords" content="${escapeHtml(keywords)}">\n`;
-  if (canonical) htmlCode += `<link rel="canonical" href="${escapeHtml(canonical)}">\n`;
-  
-  if (ogTitle || ogDesc || ogImage) {
-    htmlCode += `\n<!-- Open Graph / Social Meta Tags -->\n`;
-    htmlCode += `<meta property="og:type" content="website">\n`;
-    if (canonical) htmlCode += `<meta property="og:url" content="${escapeHtml(canonical)}">\n`;
-    if (ogTitle) htmlCode += `<meta property="og:title" content="${escapeHtml(ogTitle)}">\n`;
-    if (ogDesc) htmlCode += `<meta property="og:description" content="${escapeHtml(ogDesc)}">\n`;
-    if (ogImage) htmlCode += `<meta property="og:image" content="${escapeHtml(ogImage)}">\n`;
-  }
-
-  outputTags.value = htmlCode;
-  resultBoxWrapper.style.display = 'block';
-});
-
-function escapeHtml(text) {
-  return text.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-copyBtn.addEventListener('click', () => {
-  outputTags.select();
-  navigator.clipboard.writeText(outputTags.value);
-  copyBtn.textContent = 'Copied!';
-  setTimeout(() => { copyBtn.textContent = 'Copy Code'; }, 2000);
-});
-
-// Cookie Consent Logic
 window.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookieConsent').style.display = 'flex';
+    const cookieBanner = document.getElementById('cookieConsent');
+    if (cookieBanner) cookieBanner.style.display = 'flex';
   }
+  generateTags();
 });
-document.getElementById('acceptCookie').addEventListener('click', () => {
+
+function generateTags() {
+  const title = document.getElementById('pageTitle').value.trim();
+  const desc = document.getElementById('pageDesc').value.trim();
+  const canonical = document.getElementById('canonicalUrl').value.trim();
+  const robots = document.getElementById('robotsMeta').value;
+  const ogImg = document.getElementById('ogImage').value.trim();
+  const twCard = document.getElementById('twitterCard').value;
+
+  // Extract domain for social preview
+  let domain = "smarttoolskit.com";
+  try {
+    const urlObj = new URL(canonical);
+    domain = urlObj.hostname.toUpperCase();
+    document.getElementById('prevUrl').textContent = `${urlObj.hostname} › ...`;
+  } catch(e) {
+    document.getElementById('prevUrl').textContent = canonical;
+  }
+
+  // Update live preview card elements
+  document.getElementById('prevGoogleTitle').textContent = title || 'Add a page title...';
+  document.getElementById('prevGoogleDesc').textContent = desc || 'Add a page description...';
+  document.getElementById('prevDomain').textContent = domain;
+  document.getElementById('prevSocialTitle').textContent = title || 'Add a page title...';
+  document.getElementById('prevSocialDesc').textContent = desc || 'Add a page description...';
+  
+  if (ogImg) {
+    document.getElementById('prevSocialImgBox').style.backgroundImage = `url('${ogImg}')`;
+    document.getElementById('prevSocialImgBox').style.backgroundSize = 'cover';
+    document.getElementById('prevSocialImgBox').textContent = '';
+  } else {
+    document.getElementById('prevSocialImgBox').style.backgroundImage = 'none';
+    document.getElementById('prevSocialImgBox').textContent = 'Preview Image Placeholder';
+  }
+
+  // Truncation Warnings
+  let warnings = [];
+  if (title.length > 60) {
+    warnings.push(`⚠️ Title is ${title.length} chars (Recommendended max: 60 chars). May truncate on Google.');
+  } else if (title.length < 30 && title.length > 0) {
+    warnings.push(`ℹ️ Title is quite short (${title.length} chars). Aim for 50-60 characters.`);
+  }
+
+  if (desc.length > 160) {
+    warnings.push(`⚠️ Description is ${desc.length} chars (Recommended max: 160 chars). May truncate on Google.`);
+  } else if (desc.length < 70 && desc.length > 0) {
+    warnings.push(`ℹ️ Description is quite short (${desc.length} chars). Aim for 150-160 characters.`);
+  }
+
+  const warningBox = document.getElementById('truncationWarning');
+  if (warnings.length > 0) {
+    warningBox.innerHTML = warnings.join('<br>');
+    warningBox.style.display = 'block';
+  } else {
+    warningBox.innerHTML = '✅ Title and description lengths are within optimal SEO limits!';
+    warningBox.style.display = 'block';
+  }
+
+  // Generate HTML code block
+  const htmlCode = `<!-- Standard SEO Meta Tags -->
+<title>${escapeHTML(title)}</title>
+<meta name="description" content="${escapeHTML(desc)}">
+<meta name="robots" content="${robots}">
+<link rel="canonical" href="${escapeHTML(canonical)}">
+
+<!-- Open Graph / Facebook / LinkedIn Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="${escapeHTML(canonical)}">
+<meta property="og:title" content="${escapeHTML(title)}">
+<meta property="og:description" content="${escapeHTML(desc)}">
+<meta property="og:image" content="${escapeHTML(ogImg)}">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="${twCard}">
+<meta name="twitter:url" content="${escapeHTML(canonical)}">
+<meta name="twitter:title" content="${escapeHTML(title)}">
+<meta name="twitter:description" content="${escapeHTML(desc)}">
+<meta name="twitter:image" content="${escapeHTML(ogImg)}">`;
+
+  document.getElementById('metaOutput').value = htmlCode;
+}
+
+function escapeHTML(str) {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function copyMetaTags() {
+  const output = document.getElementById('metaOutput');
+  output.select();
+  output.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(output.value);
+  alert('Generated meta tags code copied to clipboard successfully!');
+}
+
+function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
-});
+  const cookieBanner = document.getElementById('cookieConsent');
+  if (cookieBanner) cookieBanner.style.display = 'none';
+}
 </script>
 
 </body>
