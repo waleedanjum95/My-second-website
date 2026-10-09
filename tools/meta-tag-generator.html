@@ -137,22 +137,22 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <div class="form-group">
 <label for="pageTitle">Page Title (Recommended: 50-60 characters)</label>
-<input type="text" id="pageTitle" value="Free Online Meta Tag Generator | SmartToolsKit" oninput="generateTags()">
+<input type="text" id="pageTitle" value="Free Online Meta Tag Generator | SmartToolsKit">
 </div>
 
 <div class="form-group">
 <label for="pageDesc">Page Description (Recommended: 150-160 characters)</label>
-<textarea id="pageDesc" oninput="generateTags()">Generate SEO meta tags, Open Graph tags for social sharing, and Twitter Cards instantly with our free online generator tool.</textarea>
+<textarea id="pageDesc">Generate SEO meta tags, Open Graph tags for social sharing, and Twitter Cards instantly with our free online generator tool.</textarea>
 </div>
 
 <div class="grid-2">
 <div class="form-group">
 <label for="canonicalUrl">Canonical URL</label>
-<input type="text" id="canonicalUrl" value="https://smarttoolskit.com/tools/meta-tag-generator.html" oninput="generateTags()">
+<input type="text" id="canonicalUrl" value="https://smarttoolskit.com/tools/meta-tag-generator.html">
 </div>
 <div class="form-group">
 <label for="robotsMeta">Robots Directive</label>
-<select id="robotsMeta" onchange="generateTags()">
+<select id="robotsMeta">
 <option value="index, follow" selected>Index, Follow</option>
 <option value="noindex, nofollow">Noindex, Nofollow</option>
 <option value="index, nofollow">Index, Nofollow</option>
@@ -164,11 +164,11 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="grid-2">
 <div class="form-group">
 <label for="ogImage">Open Graph Image URL</label>
-<input type="text" id="ogImage" value="https://smarttoolskit.com/assets/og-image.jpg" oninput="generateTags()">
+<input type="text" id="ogImage" value="https://smarttoolskit.com/assets/og-image.jpg">
 </div>
 <div class="form-group">
 <label for="twitterCard">Twitter Card Type</label>
-<select id="twitterCard" onchange="generateTags()">
+<select id="twitterCard">
 <option value="summary_large_image" selected>Summary Large Image</option>
 <option value="summary">Summary Card</option>
 </select>
@@ -243,7 +243,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
    • If $\text{Title} > 60$, flag pixel-width truncation warning.
 </div>
 
-<p>By applying these standardized SEO constraints, web masters can ensure their search snippets remain fully visible and compelling across all device viewports.</p>
+<p>By applying these standardized SEO constraints, webmasters can ensure their search snippets remain fully visible and compelling across all device viewports.</p>
 
 <h2>Global Meta Tag and Protocol Reference Matrix</h2>
 <p>The table below outlines essential meta tags, their protocol standards, and their primary publishing functions:</p>
@@ -344,14 +344,6 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cookieBanner = document.getElementById('cookieConsent');
-    if (cookieBanner) cookieBanner.style.display = 'flex';
-  }
-  generateTags();
-});
-
 function generateTags() {
   const titleEl = document.getElementById('pageTitle');
   const descEl = document.getElementById('pageDesc');
@@ -363,11 +355,11 @@ function generateTags() {
 
   if (!titleEl || !outputEl) return;
 
-  const title = titleEl.value.trim();
-  const desc = descEl ? descEl.value.trim() : '';
-  const canonical = canonicalEl ? canonicalEl.value.trim() : '';
+  const title = titleEl.value;
+  const desc = descEl ? descEl.value : '';
+  const canonical = canonicalEl ? canonicalEl.value : '';
   const robots = robotsEl ? robotsEl.value : 'index, follow';
-  const ogImg = ogImgEl ? ogImgEl.value.trim() : '';
+  const ogImg = ogImgEl ? ogImgEl.value : '';
   const twCard = twCardEl ? twCardEl.value : 'summary_large_image';
 
   // Extract domain for social preview
@@ -459,6 +451,21 @@ function generateTags() {
 function escapeHTML(str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cookieBanner = document.getElementById('cookieConsent');
+    if (cookieBanner) cookieBanner.style.display = 'flex';
+  }
+  
+  generateTags();
+
+  // Listen to input changes in real-time
+  document.querySelectorAll('input, textarea, select').forEach(el => {
+    el.addEventListener('input', generateTags);
+    el.addEventListener('change', generateTags);
+  });
+});
 
 function copyMetaTags() {
   const output = document.getElementById('metaOutput');
