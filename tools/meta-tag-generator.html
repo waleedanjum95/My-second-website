@@ -57,7 +57,7 @@ nav a:hover{color:var(--emerald-dark)}
 
 .form-group{margin-bottom:16px}
 .form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input, .form-group select, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
+.form-group input, .form-group select, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text)}
 .form-group textarea{height:90px;resize:vertical}
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus{border-color:var(--emerald)}
 
@@ -70,7 +70,7 @@ nav a:hover{color:var(--emerald-dark)}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
 
 .result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
-.result-box textarea{width:100%;height:160px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:monospace;outline:none;background:#fff;resize:vertical}
+.code-output{width:100%;min-height:160px;max-height:280px;padding:12px;background:#0F172A;color:#38BDF8;border-radius:8px;font-family:monospace;font-size:13px;overflow:auto;white-space:pre-wrap;word-break:break-all;line-height:1.6;border:1px solid #334155}
 
 .unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
 .unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
@@ -178,8 +178,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <button type="button" class="calc-btn" onclick="generateTags()">Generate Meta Tags</button>
 
 <div class="result-box">
-<label for="metaOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;display:block;">Generated HTML Meta Tags</label>
-<textarea id="metaOutput" readonly></textarea>
+<label style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;display:block;">Generated HTML Meta Tags</label>
+<pre id="metaOutput" class="code-output"></pre>
 <button type="button" class="calc-btn" onclick="copyMetaTags()" style="margin-top:10px;">Copy Meta Tags Code</button>
 </div>
 
@@ -392,8 +392,6 @@ function generateTags() {
     if (ogImg) {
       pSocialImgBox.style.backgroundImage = `url('${ogImg}')`;
       pSocialImgBox.style.backgroundSize = 'cover';
-      pSocialImgBox.textContent = '';
-    } else {
       pSocialImgBox.style.backgroundImage = 'none';
       pSocialImgBox.textContent = 'Preview Image Placeholder';
     }
@@ -445,7 +443,7 @@ function generateTags() {
 <meta name="twitter:description" content="${escapeHTML(desc)}">
 <meta name="twitter:image" content="${escapeHTML(ogImg)}">`;
 
-  outputEl.value = htmlCode;
+  outputEl.textContent = htmlCode;
 }
 
 function escapeHTML(str) {
@@ -468,11 +466,9 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function copyMetaTags() {
-  const output = document.getElementById('metaOutput');
-  if (!output) return;
-  output.select();
-  output.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(output.value);
+  const outputEl = document.getElementById('metaOutput');
+  if (!outputEl) return;
+  navigator.clipboard.writeText(outputEl.textContent);
   alert('Generated meta tags code copied to clipboard successfully!');
 }
 
