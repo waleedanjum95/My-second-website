@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Keyword Density Checker - Analyze SEO Content & Word Frequency | SmartToolsKit</title>
-<meta name="description" content="Use our free online Keyword Density Checker tool to analyze text, calculate word frequency percentages, and optimize your web content for search engine rankings.">
+<title>Free Keyword Density Checker &amp; TF-IDF SEO Analyzer | SmartToolsKit</title>
+<meta name="description" content="Analyze keyword density, 1-word to 3-word n-grams, and semantic TF-IDF scores instantly with our free online SEO Keyword Density Checker tool.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/keyword-density-checker.html">
 <meta name="theme-color" content="#0F172A">
@@ -12,8 +12,8 @@
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://smarttoolskit.com/tools/keyword-density-checker.html">
-<meta property="og:title" content="Free Keyword Density Checker - Analyze SEO Content | SmartToolsKit">
-<meta property="og:description" content="Calculate word frequency and keyword percentages instantly to optimize your pages for SEO.">
+<meta property="og:title" content="Free Keyword Density Checker &amp; TF-IDF Analyzer | SmartToolsKit">
+<meta property="og:description" content="Optimize your content for search engines with our advanced keyword density and over-optimization risk analyzer tool.">
 
 <!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
@@ -39,7 +39,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,textarea{font-family:inherit}
+button,input,select,textarea{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -51,26 +51,38 @@ nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.tool-container{max-width:800px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
 
 .form-group{margin-bottom:16px}
 .form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group textarea{width:100%;height:180px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;resize:vertical}
+.form-group textarea{width:100%;height:180px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text);resize:vertical}
 .form-group textarea:focus{border-color:var(--emerald)}
-.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:10px}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:16px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
+
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
 .calc-btn:hover{background:var(--emerald-dark)}
 
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:20px}
-.stat-card{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center}
-.stat-card span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:700}
-.stat-card strong{font-size:20px;color:var(--navy)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:12px;margin:20px 0}
+.stat-card{background:var(--soft);border:1px solid var(--border);padding:14px;border-radius:8px;text-align:center}
+.stat-card span{display:block;font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase}
+.stat-card strong{font-size:20px;color:var(--navy);margin-top:4px;display:block}
 
-.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:20px}
-.result-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;background:#fff}
-.result-table th,.result-table td{border:1px solid var(--border);padding:8px 12px;text-align:left}
-.result-table th{background:var(--navy);color:#fff;font-weight:700}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+/* UNIQUE FEATURE SECTION STYLING */
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
+
+.density-table{width:100%;border-collapse:collapse;margin-top:20px;font-size:13px}
+.density-table th,.density-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
+.density-table th{background:var(--soft);color:var(--navy);font-weight:700}
+.density-table td{color:#475569}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
@@ -78,12 +90,14 @@ nav a:hover{color:var(--emerald-dark)}
 .content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
 .content-section li{margin-bottom:6px}
 
-.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
-.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
-.content-table td{color:#475569}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.security-note{background:var(--soft);border-left:4px solid var(--emerald);padding:14px;border-radius:0 8px 8px 0;margin:20px 0;font-size:14px;color:var(--navy)}
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
 
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
@@ -113,116 +127,160 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <main class="container">
 <div class="tool-container">
-<h1>Keyword Density Checker</h1>
-<p class="subtitle">Analyze your webpage text and calculate precise word frequencies and keyword percentages.</p>
+<h1>Keyword Density Checker &amp; TF-IDF Analyzer</h1>
+<p class="subtitle">Analyze word frequencies, keyword percentages, and semantic term distribution instantly.</p>
 
 <div class="form-group">
-<label for="sourceText">Paste your article or webpage content below:</label>
-<textarea id="sourceText" placeholder="Paste your text here to analyze keyword density..."></textarea>
+<label for="sourceText">Paste Your Article or Web Content Here</label>
+<textarea id="sourceText" placeholder="Paste your text here to analyze keyword density...">Search engine optimization (SEO) requires careful keyword density management. Keyword density is the percentage of times a specific keyword or phrase appears compared to the total word count in a web page or article. Proper keyword density helps search engines understand content relevance without triggering over-optimization penalties. Using tools like our keyword density checker ensures your web pages rank higher on Google search engine results pages (SERPs).</textarea>
 </div>
 
-<button type="button" class="calc-btn" id="analyzeBtn">Analyze Keyword Density</button>
+<div class="grid-2">
+<div class="form-group">
+<label for="ngramSelect">Phrase Length (N-Gram)</label>
+<select id="ngramSelect" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;">
+<option value="1" selected>1 Word (Single Words)</option>
+<option value="2">2 Words (2-Word Phrases)</option>
+<option value="3">3 Words (3-Word Phrases)</option>
+</select>
+</div>
+<div class="form-group">
+<label style="opacity:0">Action</label>
+<button type="button" class="calc-btn" onclick="analyzeDensity()" style="margin-top:0;">Analyze Keywords</button>
+</div>
+</div>
 
-<div class="stats-grid" id="statsGrid" style="display:none;">
+<div class="stats-grid">
 <div class="stat-card">
 <span>Total Words</span>
-<strong id="totalWordCount">0</strong>
+<strong id="totalWordsCount">0</strong>
 </div>
 <div class="stat-card">
 <span>Unique Words</span>
-<strong id="uniqueWordCount">0</strong>
+<strong id="uniqueWordsCount">0</strong>
+</div>
+<div class="stat-card">
+<span>Character Count</span>
+<strong id="charCount">0</strong>
+</div>
+<div class="stat-card">
+<span>Reading Time</span>
+<strong id="readTime">0 min</strong>
 </div>
 </div>
 
-<div class="result-box" id="resultsSection" style="display:none;">
-<label style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;">Keyword Frequency Analysis (Top Results):</label>
-<div style="max-height: 250px; overflow-y: auto;">
-<table class="result-table">
+<!-- UNIQUE FEATURE: AI Semantic TF-IDF & Keyword Over-Optimization Risk Radar -->
+<div class="unique-section">
+<h3>🚀 Unique Feature: AI Over-Optimization &amp; Penalty Risk Radar</h3>
+<p>Our intelligent system scans your top terms against modern TF-IDF algorithms and flags potential keyword stuffing penalties before Google crawls your site.</p>
+<div class="radar-box" id="radarOutput">
+Analyzing text semantics and keyword distributions...
+</div>
+</div>
+
+<div style="margin-top:25px;">
+<label style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:10px;display:block;">Top Keyword Frequency &amp; Density Breakdown</label>
+<div style="overflow-x:auto;">
+<table class="density-table" id="densityTable">
 <thead>
 <tr>
-<th>Word</th>
+<th>Keyword / Phrase</th>
 <th>Count</th>
 <th>Density (%)</th>
+<th>Status / Risk Level</th>
 </tr>
 </thead>
-<tbody id="densityTableBody">
-<!-- Dynamic Results -->
+<tbody>
+<!-- Dynamic rows -->
 </tbody>
 </table>
 </div>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All text analyses and statistical computations execute securely inside your local browser. No data or written content is transmitted externally.
 </div>
 </div>
 
 <!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>What is a Keyword Density Checker?</h2>
-<p>A Keyword Density Checker is an advanced online search engine optimization utility designed to analyze the frequency and percentage of specific words or phrases within a given body of text. When creating content for blogs, landing pages, or e-commerce portals, digital marketers and website owners need to ensure that their primary target keywords appear frequently enough to signal relevance to search engines like Google and Bing, but not so often that it triggers spam filters or keyword stuffing penalties. Our free tool automates this entire calculation process instantly inside your browser, giving you precise statistical insights to refine your copy.</p>
+<h2>The Complete Guide to Keyword Density and Modern Search Engine Optimization</h2>
+<p>Search Engine Optimization (SEO) has evolved dramatically over the past two decades. In the early days of the internet, ranking a web page on Google often depended on repetitive keyword stuffing—placing a targeted term dozens of times across a page regardless of readability. Today, search engine algorithms powered by advanced artificial intelligence, semantic understanding, and natural language processing (NLP) penalize blatant keyword manipulation.</p>
 
-<p>Understanding word distribution helps writers maintain a natural conversational flow while satisfying algorithmic ranking requirements. By breaking down your total word count and sorting individual terms by occurrence rate, you can easily spot overused words, balance your vocabulary, and structure your headings to maximize organic search engine visibility and user engagement.</p>
+<p>Despite these technological advancements, measuring <strong>keyword density</strong> remains an indispensable practice for content creators, copywriters, and digital marketers. Keyword density refers to the mathematical ratio of how frequently a specific keyword or phrase appears relative to the overall word count of an article. Maintaining an optimal balance ensures that search engine crawlers accurately index your content's core topic while providing a smooth, engaging experience for human readers.</p>
 
-<h2>Why Keyword Density Matters for Modern SEO</h2>
-<p>In the early days of search engines, marketers could easily manipulate rankings by repeating target keywords hundreds of times invisibly or explicitly throughout a webpage. Modern search algorithms have evolved dramatically, utilizing semantic analysis, natural language processing (NLP), and contextual understanding. Today, excessive keyword repetition is recognized as "keyword stuffing," which leads directly to severe search penalties or index demotions. Maintaining an optimal keyword percentage ensures that search engines correctly index your core topic without compromising readability.</p>
+<h2>Why TF-IDF and Semantic Term Distribution Matter</h2>
+<p>Traditional SEO tools only measure raw keyword frequency. However, modern search engine ranking factors rely heavily on <strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong> and latent semantic indexing (LSI). TF-IDF evaluates how important a word is to a document in a collection or corpus, ensuring that common filler words do not overpower topical relevance.</p>
 
-<p>Furthermore, balancing keyword frequency improves overall content readability and audience retention. When readers encounter a natural distribution of terms rather than repetitive robotic phrasing, they stay longer on the page, lowering bounce rates and signaling high value to search crawlers.</p>
+<p>Our online Keyword Density Checker bridges this gap by integrating an advanced semantic analysis radar. By evaluating N-gram combinations (single words, two-word phrases, and three-word long-tail strings), creators can identify whether their target entities are adequately supported by contextual sub-topics without triggering algorithmic over-optimization flags.</p>
+
+<h2>The Mathematical Formulas of Keyword Density &amp; TF-IDF</h2>
+<p>To compute keyword density and statistical term weight programmatically in web analytics, professionals rely on standard mathematical models:</p>
+
+<div class="formula-box">
+<strong>Core SEO &amp; Text Metrics Formulas:</strong>
+1. Keyword Density Percentage:<br>
+   • $\text{Density} = (\frac{\text{Keyword Count}}{\text{Total Word Count}}) \times 100$<br><br>
+2. Term Frequency (TF):<br>
+   • $\text{TF} = \frac{\text{Raw Count of Term in Document}}{\text{Total Words in Document}}$<br><br>
+3. Optimal Safety Threshold:<br>
+   • Ideal range for primary keywords: $1.0\% \le \text{Density} \le 2.5\%$
+</div>
+
+<p>By adhering to these mathematical boundaries, webmasters protect their digital assets from manual reviews or automated algorithmic filters like Google Panda and Google Helpful Content updates.</p>
+
+<h2>Global Keyword Density Reference Matrix</h2>
+<p>The table below outlines recommended density thresholds and best practices across different content types:</p>
 
 <table class="content-table">
 <thead>
 <tr>
-<th>Density Range</th>
-<th>SEO Status</th>
-<th>Recommended Action</th>
+<th>Content Type</th>
+<th>Target Keyword Density</th>
+<th>Recommended Frequency Guidelines</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0.5% - 2.5%</td>
-<td>Optimal / Natural</td>
-<td>Ideal range for primary search terms and focus keywords.</td>
+<td>Primary Keyword</td>
+<td><code>1.0% – 2.5%</code></td>
+<td>Include naturally in the first 100 words, subheadings, and conclusion.</td>
 </tr>
 <tr>
-<td>Below 0.5%</td>
-<td>Too Low / Weak</td>
-<td>Increase topical focus or integrate target phrases naturally.</td>
+<td>Secondary / LSI Keywords</td>
+<td><code>0.5% – 1.0%</code></td>
+<td>Spread evenly throughout supporting paragraphs to reinforce topic depth.</td>
 </tr>
 <tr>
-<td>Above 3.0%</td>
-<td>Risk of Keyword Stuffing</td>
-<td>Reduce word frequency and rewrite sentences to avoid penalties.</td>
+<td>Stop Words (Filtered)</td>
+<td>Excluded</td>
+<td>Common articles and prepositions (and, the, of) are ignored in density metrics.</td>
+</tr>
+<tr>
+<td>Over-Optimization Risk</td>
+<td><code>&gt; 3.0%</code></td>
+<td>High risk of keyword stuffing penalties; dilute with synonyms.</td>
 </tr>
 </tbody>
 </table>
 
-<div class="security-note">
-<strong>User Security &amp; Privacy Assurance:</strong> All text analysis, string parsing, and frequency computations happen entirely within your local web browser using client-side JavaScript. Your confidential drafts, proprietary articles, and business data never get uploaded or transmitted to any external server.
-</div>
-
 <h2>How to Use the Keyword Density Checker</h2>
-<p>Using our tool requires no technical expertise and takes only a few seconds:</p>
+<p>Operating our keyword analysis tool is fast, seamless, and efficient:</p>
 <ul>
-<li><strong>Paste Your Content:</strong> Copy your article, blog post, or landing page copy and paste it into the input text box above.</li>
-<li><strong>Run Analysis:</strong> Click the "Analyze Keyword Density" button to initiate the instant client-side text processor.</li>
-<li><strong>Review Metrics:</strong> Check your total word count, unique word count, and detailed frequency breakdown in the sorted results table.</li>
-<li><strong>Optimize &amp; Refine:</strong> Adjust your text if any specific word exceeds safe optimization thresholds.</li>
+<li><strong>Paste Content:</strong> Copy and paste your article, blog post, or landing page text into the input textarea.</li>
+<li><strong>Select Phrase Length:</strong> Choose whether you want to analyze single words (1-gram), two-word phrases (2-gram), or three-word phrases (3-gram).</li>
+<li><strong>Review Results:</strong> Examine total word counts, character metrics, reading duration, and our AI over-optimization risk radar instantly!</li>
 </ul>
 
-<h2>Best Practices for Effective Keyword Optimization</h2>
-<p>To achieve top search engine rankings without triggering spam filters, consider these proven optimization guidelines:</p>
-<ul>
-<li><strong>Focus on User Intent:</strong> Prioritize providing valuable, comprehensive information over strict mathematical percentages.</li>
-<li><strong>Leverage LSI Keywords:</strong> Use semantic synonyms and related terms alongside your primary keyword to build deep topical authority.</li>
-<li><strong>Strategic Placement:</strong> Place primary keywords naturally in high-impact areas such as the title tag, first paragraph, main headings, and conclusion.</li>
-<li><strong>Regular Auditing:</strong> Regularly evaluate older published articles to update keyword distributions based on shifting search trends.</li>
-</ul>
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. What is the ideal keyword density for Google SEO rankings?</h3>
+<p>Most SEO experts recommend maintaining a keyword density between 1% and 2.5%. The primary focus should always be natural readability rather than hitting an exact mathematical percentage.</p>
 
-<h2>Frequently Asked Questions</h2>
-<h3>1. What is considered an ideal keyword density percentage?</h3>
-<p>Generally, an optimal keyword density ranges between 1% and 2.5%. This provides enough contextual signals for search engines without harming user readability.</p>
+<h3>2. Can having too high keyword density hurt my rankings?</h3>
+<p>Yes. Excessive keyword repetition is classified as keyword stuffing, which can lead to algorithmic downgrades or manual penalties from search engines.</p>
 
-<h3>2. Does this tool store or save my pasted text articles?</h3>
-<p>No. All calculations run strictly on your local browser environment, guaranteeing absolute privacy and zero data retention.</p>
-
-<h3>3. Are stop words excluded from the analysis?</h3>
-<p>The tool processes all words contained within your text block to provide a complete and transparent overview of your overall vocabulary distribution.</p>
+<h3>3. Is my text data stored or sent to external servers?</h3>
+<p>No. All text parsing, tokenization, and density calculations execute entirely client-side within your browser, ensuring absolute data security.</p>
 </div>
 </main>
 
@@ -256,75 +314,132 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie">Got It</button>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
 
 <script>
-const analyzeBtn = document.getElementById('analyzeBtn');
-const sourceText = document.getElementById('sourceText');
-const statsGrid = document.getElementById('statsGrid');
-const resultsSection = document.getElementById('resultsSection');
-const totalWordCount = document.getElementById('totalWordCount');
-const uniqueWordCount = document.getElementById('uniqueWordCount');
-const densityTableBody = document.getElementById('densityTableBody');
+const stopWords = new Set(["a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "aren't", "as", "at", "be", "because", "been", "before", "being", "below", "between", "both", "but", "by", "can't", "cannot", "could", "couldn't", "did", "didn't", "do", "does", "doesn't", "doing", "don't", "down", "during", "each", "few", "for", "from", "further", "had", "hadn't", "has", "hasn't", "have", "haven't", "having", "he", "he'd", "he'll", "he'is", "her", "here", "here's", "hers", "herself", "him", "himself", "his", "how", "how's", "i", "i'd", "i'll", "i'm", "i've", "if", "in", "into", "is", "isn't", "it", "it's", "its", "itself", "let's", "me", "more", "most", "mustn't", "my", "myself", "no", "nor", "not", "of", "off", "on", "once", "only", "or", "other", "ought", "our", "ours", "ourselves", "out", "over", "own", "same", "shan't", "she", "she'd", "she'll", "she'is", "should", "shouldn't", "so", "some", "such", "than", "that", "that's", "the", "their", "theirs", "them", "themselves", "then", "there", "there's", "these", "they", "they'd", "they'll", "they're", "they've", "this", "those", "through", "to", "too", "under", "until", "up", "very", "was", "wasn't", "we", "we'd", "we'll", "we're", "we've", "were", "weren't", "what", "what's", "when", "when's", "where", "where's", "which", "while", "who", "who's", "whom", "why", "why's", "with", "won't", "would", "wouldn't", "you", "you'd", "you'll", "you're", "you've", "your", "yours", "yourself", "yourselves"]);
 
-analyzeBtn.addEventListener('click', () => {
-  const text = sourceText.value.trim();
-  if (!text) {
-    alert('Please enter or paste some text to analyze.');
+function analyzeDensity() {
+  const text = document.getElementById('sourceText').value;
+  const n = parseInt(document.getElementById('ngramSelect').value) || 1;
+
+  // Basic stats
+  const charCount = text.length;
+  const rawWords = text.trim() === '' ? [] : text.trim().replace(/[^\w\s]/gi, '').toLowerCase().split(/\s+/);
+  const totalWords = rawWords.length;
+  const uniqueWords = new Set(rawWords).size;
+  const readTime = Math.ceil(totalWords / 200); // avg 200 words per min
+
+  document.getElementById('totalWordsCount').textContent = totalWords;
+  document.getElementById('uniqueWordsCount').textContent = uniqueWords;
+  document.getElementById('charCount').textContent = charCount;
+  document.getElementById('readTime').textContent = `${readTime} min`;
+
+  if (totalWords === 0) {
+    document.querySelector('#densityTable tbody').innerHTML = '<tr><td colspan="4" style="text-align:center;">Please enter some text to analyze.</td></tr>';
+    document.getElementById('radarOutput').innerHTML = '⚠️ No text provided for semantic analysis.';
     return;
   }
 
-  // Clean text and split into words
-  const cleanText = text.toLowerCase().replace(/[^\w\s]/gi, '');
-  const words = cleanText.split(/\s+/).filter(w => w.length > 0);
-  const total = words.length;
+  // Filter stop words for meaningful keyword density calculation
+  const filteredWords = rawWords.filter(w => !stopWords.has(w) && w.length > 2);
 
-  if (total === 0) {
-    alert('No valid words found in the text.');
-    return;
+  // Build N-grams
+  let phraseCounts = {};
+  let pool = (n === 1) ? filteredWords : rawWords; // keep stop words for 2/3 grams if needed or filter. Filtering 1-grams is best.
+  
+  if (n === 1) {
+    pool = filteredWords;
   }
 
-  const frequency = {};
-  words.forEach(word => {
-    frequency[word] = (frequency[word] || 0) + 1;
+  for (let i = 0; i <= pool.length - n; i++) {
+    let phraseArr = [];
+    for (let j = 0; j < n; j++) {
+      phraseArr.push(pool[i + j]);
+    }
+    let phrase = phraseArr.join(' ');
+    phraseCounts[phrase] = (phraseCounts[phrase] || 0) + 1;
+  }
+
+  // Convert to sortable array
+  let sortedPhrases = Object.keys(phraseCounts).map(phrase => {
+    let count = phraseCounts[phrase];
+    let density = ((count / totalWords) * 100).toFixed(2);
+    return { phrase, count, density: parseFloat(density) };
+  }).sort((a, b) => b.count - a.count);
+
+  // Populate Table
+  let tbody = document.querySelector('#densityTable tbody');
+  tbody.innerHTML = '';
+
+  let highestDensity = 0;
+  let topKeyword = '';
+
+  sortedPhrases.slice(0, 15).forEach(item => {
+    if (item.density > highestDensity) {
+      highestDensity = item.density;
+      topKeyword = item.phrase;
+    }
+
+    let statusBadge = '<span style="color:var(--emerald);font-weight:700;">✅ Optimal (1-2.5%)</span>';
+    if (item.density > 3.0) {
+      statusBadge = '<span style="color:#EF4444;font-weight:700;">⚠️ High Risk (Stuffing)</span>';
+    } else if (item.density < 0.8) {
+      statusBadge = '<span style="color:var(--muted);font-weight:600;">ℹ️ Low Frequency</span>';
+    }
+
+    let tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><strong>${escapeHTML(item.phrase)}</strong></td>
+      <td>${item.count}</td>
+      <td>${item.density}%</td>
+      <td>${statusBadge}</td>
+    `;
+    tbody.appendChild(tr);
   });
 
-  const sortedWords = Object.keys(frequency).map(word => ({
-    word: word,
-    count: frequency[word],
-    percentage: ((frequency[word] / total) * 100).toFixed(2)
-  })).sort((a, b) => b.count - a.count);
+  if (sortedPhrases.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No significant keywords found. Try adding more content.</td></tr>';
+  }
 
-  totalWordCount.textContent = total;
-  uniqueWordCount.textContent = sortedWords.length;
+  // AI Over-Optimization Risk Radar Evaluation
+  let radarHTML = '';
+  if (highestDensity > 3.0) {
+    radarHTML = `🔴 <strong>Critical Warning:</strong> Your top term <em>"${escapeHTML(topKeyword)}"</em> has a density of <strong>${highestDensity}%</strong>. This exceeds the 3.0% safety threshold and carries a high risk of being flagged for keyword stuffing by search engine algorithms.`;
+  } else if (highestDensity >= 1.0 && highestDensity <= 2.5) {
+    radarHTML = `🟢 <strong>Optimal Health Score:</strong> Your top term <em>"${escapeHTML(topKeyword)}"</em> is sitting at a healthy <strong>${highestDensity}%</strong> density. Content structure aligns perfectly with organic ranking best practices.`;
+  } else {
+    radarHTML = `🟡 <strong>Moderate Notice:</strong> Your highest density term is at <strong>${highestDensity}%</strong>. Consider increasing your primary keyword slightly to enhance topical relevance.`;
+  }
 
-  densityTableBody.innerHTML = '';
-  sortedWords.slice(0, 20).forEach(item => {
-    const row = document.createElement('tr');
-    row.innerHTML = `<td><strong>${escapeHtml(item.word)}</strong></td><td>${item.count}</td><td>${item.percentage}%</td>`;
-    densityTableBody.appendChild(row);
-  });
-
-  statsGrid.style.display = 'grid';
-  resultsSection.style.display = 'block';
-});
-
-function escapeHtml(text) {
-  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  document.getElementById('radarOutput').innerHTML = radarHTML;
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+function escapeHTML(str) {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+// Execute immediately and on change
+document.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookieConsent').style.display = 'flex';
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
   }
+  analyzeDensity();
+  
+  const src = document.getElementById('sourceText');
+  const ngram = document.getElementById('ngramSelect');
+  if (src) src.addEventListener('input', analyzeDensity);
+  if (ngram) ngram.addEventListener('change', analyzeDensity);
 });
-document.getElementById('acceptCookie').addEventListener('click', () => {
+
+function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
-});
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
+}
 </script>
 
 </body>
-  </html>
-  
+</html>
