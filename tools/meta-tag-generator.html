@@ -103,6 +103,7 @@ nav a:hover{color:var(--emerald-dark)}
 .content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
 .content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
 .content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
 
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
@@ -236,11 +237,11 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="formula-box">
 <strong>Core Meta Tag SEO Formulas:</strong>
 1. Title Optimal Length Range:<br>
-   • $50 \le \text{Title Characters} \le 60$<br><br>
+   • 50 &le; Title Characters &le; 60<br><br>
 2. Description Optimal Length Range:<br>
-   • $150 \le \text{Description Characters} \le 160$<br><br>
+   • 150 &le; Description Characters &le; 160<br><br>
 3. Character Truncation Warning Threshold:<br>
-   • If $\text{Title} > 60$, flag pixel-width truncation warning.
+   • If Title &gt; 60, flag pixel-width truncation warning.
 </div>
 
 <p>By applying these standardized SEO constraints, webmasters can ensure their search snippets remain fully visible and compelling across all device viewports.</p>
@@ -259,32 +260,32 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <tbody>
 <tr>
 <td>Title Tag</td>
-<td>`<title>`</td>
+<td><td><code>&lt;title&gt;</code></td></td>
 <td>Primary ranking factor for search engines and browser tabs</td>
 </tr>
 <tr>
 <td>Meta Description</td>
-<td>`name="description"`</td>
+<td><td><code>name="description"</code></td></td>
 <td>Snippet summary displayed on search engine result pages (SERPs)</td>
 </tr>
 <tr>
 <td>Canonical Tag</td>
-<td>`rel="canonical"`</td>
+<td><td><code>rel="canonical"</code></td></td>
 <td>Prevents duplicate content issues by specifying master URL</td>
 </tr>
 <tr>
 <td>Robots Directive</td>
-<td>`name="robots"`</td>
+<td><td><code>name="robots"</code></td></td>
 <td>Instructs crawlers whether to index pages and follow links</td>
 </tr>
 <tr>
 <td>Open Graph Title</td>
-<td>`property="og:title"`</td>
+<td><td><code>property="og:title"</code></td></td>
 <td>Optimizes headline when shared on Facebook, LinkedIn, etc.</td>
 </tr>
 <tr>
 <td>Twitter Card</td>
-<td>`name="twitter:card"`</td>
+<td><td><code>name="twitter:card"</code></td></td>
 <td>Determines visual card layout size on Twitter/X streams</td>
 </tr>
 </tbody>
@@ -393,7 +394,7 @@ function generateTags() {
       pSocialImgBox.style.backgroundImage = `url('${ogImg}')`;
       pSocialImgBox.style.backgroundSize = 'cover';
       pSocialImgBox.textContent = '';
-    } else  {
+    } else {
       pSocialImgBox.style.backgroundImage = 'none';
       pSocialImgBox.textContent = 'Preview Image Placeholder';
     }
@@ -474,6 +475,12 @@ function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
   const cookieBanner = document.getElementById('cookieConsent');
   if (cookieBanner) cookieBanner.style.display = 'none';
+}
+
+// Cookie Banner Check
+if (!localStorage.getItem('cookiesAccepted')) {
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'flex';
 }
 </script>
 
