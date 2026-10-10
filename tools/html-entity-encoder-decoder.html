@@ -164,12 +164,12 @@ Analyzing entity density and XSS injection risks...
 
 <div class="content-section">
 <h2>Mastering HTML Entities, Character Escaping, and Web Security</h2>
-<p>In web development and browser rendering, certain characters hold reserved meanings within HTML syntax. For instance, the less-than sign (`<`) and greater-than sign (`>`) define HTML element tags. If a web developer attempts to display a literal code snippet like `<div>` directly inside a webpage without escaping, the browser will misinterpret it as an actual DOM element rather than plain text. <strong>HTML Entity Encoding</strong> solves this problem by replacing reserved characters with corresponding entity references (such as `&lt;` and `&gt;`). An <strong>AI HTML Entity Encoder / Decoder</strong> provides developers, security auditors, and content creators with an instant utility to secure and format markup safely.</p>
+<p>In web development and browser rendering, certain characters hold reserved meanings within HTML syntax. For instance, the less-than sign (`&lt;`) and greater-than sign (`&gt;`) define HTML element tags. If a web developer attempts to display a literal code snippet like `&lt;div&gt;` directly inside a webpage without escaping, the browser will misinterpret it as an actual DOM element rather than plain text. <strong>HTML Entity Encoding</strong> solves this problem by replacing reserved characters with corresponding entity references (such as `&amp;lt;` and `&amp;gt;`). An <strong>AI HTML Entity Encoder / Decoder</strong> provides developers, security auditors, and content creators with an instant utility to secure and format markup safely.</p>
 
-<p>Furthermore, proper entity encoding is the primary defense mechanism against <strong>Cross-Site Scripting (XSS)</strong> attacks. When user-generated input (such as comment sections or profile names) is rendered on a web page without being escaped, malicious actors can inject active JavaScript payloads (`<script>alert('XSS')</script>`). Converting special characters into safe HTML entities neutralizes malicious code execution entirely.</p>
+<p>Furthermore, proper entity encoding is the primary defense mechanism against <strong>Cross-Site Scripting (XSS)</strong> attacks. When user-generated input (such as comment sections or profile names) is rendered on a web page without being escaped, malicious actors can inject active JavaScript payloads (`&lt;script&gt;alert('XSS')&lt;/script&gt;`). Converting special characters into safe HTML entities neutralizes malicious code execution entirely.</p>
 
 <h2>Why Character Escaping and XSS Mitigation Matter</h2>
-<p>Web browsers rely on strict syntax rules to distinguish between markup instructions and textual content. Characters like ampersands (`&`), quotes (`"` and `'`), and angle brackets (`<` and `>`) must be safely converted into their respective named entities (`&amp;`, `&quot;`, `&apos;`, `&lt;`, `&gt;`) to prevent layout corruption and security vulnerabilities.</p>
+<p>Web browsers rely on strict syntax rules to distinguish between markup instructions and textual content. Characters like ampersands (`&amp;`), quotes (`"` and `'`), and angle brackets (`&lt;` and `&gt;`) must be safely converted into their respective named entities (`&amp;amp;`, `&amp;quot;`, `&amp;apos;`, `&amp;lt;`, `&amp;gt;`) to prevent layout corruption and security vulnerabilities.</p>
 
 <p>Our built-in <strong>Live XSS Risk Auditor</strong> scans your input strings in real time, detecting raw script tags, evaluating escaping coverage, and calculating exact security confidence indexes before your code reaches production.</p>
 
@@ -181,7 +181,7 @@ Analyzing entity density and XSS injection risks...
 1. Markup Expansion Ratio ($MER$):<br>
    • $MER = \frac{\text{Encoded Entity Length}}{\text{Original Character Length}} \times 100$<br><br>
 2. Reserved Symbol Density ($RSD$):<br>
-   • $RSD = \frac{\text{Count of Reserved Characters (<, >, \&, \", ')}}{\text{Total Input Characters}} \times 100$<br><br>
+   • $RSD = \frac{\text{Count of Reserved Characters (\&lt;, \&gt;, \&amp;, \&quot;, ')}}{\text{Total Input Characters}} \times 100$<br><br>
 3. XSS Vulnerability Index ($XVI$):<br>
    • Calculated based on unescaped tag delimiters and script execution potential.
 </div>
@@ -250,10 +250,10 @@ Analyzing entity density and XSS injection risks...
 
 <h2>Frequently Asked Questions (FAQ)</h2>
 <h3>1. What is an HTML entity?</h3>
-<p>An HTML entity is a piece of text ("code") that begins with an ampersand (`&`) and ends with a semicolon (`;`). They are used to display reserved characters that would otherwise be interpreted as HTML markup.</p>
+<p>An HTML entity is a piece of text ("code") that begins with an ampersand (`&amp;`) and ends with a semicolon (`;`). They are used to display reserved characters that would otherwise be interpreted as HTML markup.</p>
 
 <h3>2. How do HTML entities prevent XSS attacks?</h3>
-<p>By converting angle brackets (`<` and `>`) into `&lt;` and `&gt;`, browsers treat the input as harmless displayable text rather than executable HTML or JavaScript code.</p>
+<p>By converting angle brackets (`&lt;` and `&gt;`) into `&amp;lt;` and `&amp;gt;`, browsers treat the input as harmless displayable text rather than executable HTML or JavaScript code.</p>
 
 <h3>3. Is my data secure and private?</h3>
 <p>Yes! All encoding and decoding run entirely inside your browser client-side. No sensitive code snippets or templates are ever transmitted to external servers.</p>
@@ -291,8 +291,9 @@ Analyzing entity density and XSS injection risks...
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
 <button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-  </div>
-  <script>
+</div>
+
+<script>
 function encodeHTML(str) {
   return str.replace(/[&<>'"]/g, 
     tag => ({
@@ -306,8 +307,9 @@ function encodeHTML(str) {
 }
 
 function decodeHTML(str) {
-  const doc = new DOMParser().parseFromString(str, 'text/html');
-  return doc.documentElement.textContent;
+  const textArea = document.createElement('textarea');
+  textArea.innerHTML = str;
+  return textArea.value;
 }
 
 function processEntities() {
@@ -350,7 +352,7 @@ function processEntities() {
 
       let decLen = decoded.length;
       if (radarEl) {
-        radarEl.innerHTML = `🟢 <strong>Decoded Successfully:</strong> Decoded entity string length: ${decLen} characters. DOM parsing verified.`;
+        radarEl.innerHTML = `🟢 <strong>Decoded Successfully:</strong> Decoded entity string length: ${decLen} characters. Secure text rendering verified.`;
       }
     }
   } catch (error) {
@@ -401,5 +403,4 @@ function acceptCookies() {
 </script>
 
 </body>
-  </html>
-  
+</html>
