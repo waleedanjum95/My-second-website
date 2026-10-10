@@ -73,7 +73,6 @@ nav a:hover{color:var(--emerald-dark)}
 .result-box input{margin-bottom:12px;font-weight:700}
 .result-box textarea{width:100%;height:160px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical;color:var(--text)}
 
-/* UNIQUE FEATURE SECTION */
 .unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
 .unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
 .unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
@@ -173,7 +172,6 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <span>🔒 Client-Side Security:</span> All email generation, subject line parsing, and deliverability checks run securely inside your browser client-side. No private correspondence data is stored externally.
 </div>
 
-<!-- UNIQUE FEATURE: Live Email Subject Line & Deliverability Auditor -->
 <div class="unique-section">
 <h3>🚀 Unique Feature: Live Email Subject Line &amp; Deliverability Auditor</h3>
 <p>Our intelligent client-side auditor checks your subject line character length, scans for spam trigger words, and evaluates open-rate optimization in real time.</p>
@@ -183,7 +181,6 @@ Analyzing subject line length and spam compliance...
 </div>
 </div>
 
-<!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
 <h2>Mastering Email Copywriting and Automated Outreach for Digital Growth</h2>
 <p>In modern digital communication, email remains one of the highest-converting channels for B2B sales, customer support, and audience engagement. However, standing out in crowded inboxes requires craft, precision, and perfect tone alignment. An <strong>AI Email Generator</strong> automates the heavy lifting of drafting compelling subject lines, personalized greetings, and persuasive calls-to-action in seconds.</p>
@@ -307,7 +304,6 @@ Analyzing subject line length and spam compliance...
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
 <button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
-
 <script>
 function generateEmail() {
   const nameEl = document.getElementById('recipientName');
@@ -342,7 +338,6 @@ function generateEmail() {
     body = `Hi ${name},\n\nWelcome to our latest edition of SmartToolsKit updates! We have been working hard behind the scenes to build powerful new utilities for your workflow.\n\nKey highlight: ${points}\n\nHead over to our platform to explore the new features and test them live today.\n\nBest regards,\nWaleed Anjum\nSmartToolsKit`;
   }
 
-  // Tone adjustments
   if (tone === 'casual') {
     subject = `Hey ${name.split(' ')[0]} - quick thought for you!`;
     body = body.replace('Hi ', 'Hey ').replace('Best regards,', 'Cheers,');
@@ -357,7 +352,6 @@ function generateEmail() {
   subjectEl.value = subject;
   bodyEl.value = body;
 
-  // Live Deliverability & Spam Auditor
   let spamWords = ['free', 'guarantee', 'act now', 'click here', 'urgent', 'winner', 'cash'];
   let foundSpam = spamWords.filter(w => subject.toLowerCase().includes(w) || body.toLowerCase().includes(w));
   let charCount = subject.length;
@@ -368,7 +362,7 @@ function generateEmail() {
   } else if (foundSpam.length > 0) {
     radarHTML = `🔴 <strong>Spam Trigger Warning:</strong> Found potential spam words: <code>${foundSpam.join(', ')}</code>. This may lower inbox deliverability.`;
   } else {
-    radarHTML = `🟢 <strong>Deliverability Optimal:</strong> Subject line length (${charCount} chars) is optimal. Zero spam trigger words detected; high inbox placement expected.';
+    radarHTML = `🟢 <strong>Deliverability Optimal:</strong> Subject line length (${charCount} chars) is optimal. Zero spam trigger words detected; high inbox placement expected.`;
   }
 
   if (radarEl) radarEl.innerHTML = radarHTML;
