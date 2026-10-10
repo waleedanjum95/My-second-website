@@ -154,13 +154,19 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <button type="button" class="calc-btn" onclick="generateYouTubeMetadata()">Generate YouTube Metadata</button>
 
 <div class="result-box">
-<label for=" ytTitleOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;display:block;">Generated YouTube Title</label>
-<input type="text" id="ytTitleOutput" readonly>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+<label for="ytTitleOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Generated YouTube Title</label>
+<button type="button" onclick="copyTitleOnly()" style="background:var(--navy);color:#fff;border:none;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer;">Copy Title</button>
+</div>
+<input type="text" id="ytTitleOutput" readonly style="margin-bottom:14px;">
 
-<label for="ytDescOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;display:block;">Generated SEO Description &amp; Tags</label>
-<textarea id="ytDescOutput" readonly></textarea>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+<label for="ytDescOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Generated SEO Description &amp; Tags</label>
+<button type="button" onclick="copyDescOnly()" style="background:var(--navy);color:#fff;border:none;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer;">Copy Description</button>
+</div>
+<textarea id="ytDescOutput" readonly style="margin-bottom:12px;"></textarea>
 
-<button type="button" class="calc-btn" onclick="copyYouTubeCode()" style="margin-top:10px;">Copy Title &amp; Description</button>
+<button type="button" class="calc-btn" onclick="copyYouTubeCode()">Copy Both (Title &amp; Description)</button>
 </div>
 
 <div class="security-badge">
@@ -259,10 +265,10 @@ Analyzing title character length and CTR optimization...
 <h3>1. Is my video data secure and private?</h3>
 <p>Yes! All title generation, CTR calculations, and metadata formatting run entirely inside your browser client-side. No channel data or video records are ever transmitted to external servers.</p>
 
-### 2. What is the ideal character length for a YouTube title?</h3>
+<h3>2. What is the ideal character length for a YouTube title?</h3>
 <p>The ideal length is between 50 and 60 characters. This ensures the entire title is fully visible on mobile devices without getting cut off.</p>
 
-### 3. How do descriptions help with YouTube SEO?</h3>
+<h3>3. How do descriptions help with YouTube SEO?</h3>
 <p>YouTube reads the first three lines of your description to understand context. Including your primary keyword early helps the algorithm index your video for relevant search queries.</p>
 </div>
 </main>
@@ -298,8 +304,8 @@ Analyzing title character length and CTR optimization...
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
 <button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div>
-                                                             <script>
+</div>
+<script>
 function generateYouTubeMetadata() {
   const topicEl = document.getElementById('videoTopic');
   const catEl = document.getElementById('videoCategory');
@@ -347,6 +353,24 @@ function generateYouTubeMetadata() {
   if (radarEl) radarEl.innerHTML = radarHTML;
 }
 
+function copyTitleOnly() {
+  const titleOut = document.getElementById('ytTitleOutput');
+  if (!titleOut) return;
+  titleOut.select();
+  titleOut.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(titleOut.value);
+  alert('YouTube Title copied to clipboard successfully!');
+}
+
+function copyDescOnly() {
+  const descOut = document.getElementById('ytDescOutput');
+  if (!descOut) return;
+  descOut.select();
+  descOut.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(descOut.value);
+  alert('YouTube Description copied to clipboard successfully!');
+}
+
 function copyYouTubeCode() {
   const titleOut = document.getElementById('ytTitleOutput');
   const descOut = document.getElementById('ytDescOutput');
@@ -354,7 +378,7 @@ function copyYouTubeCode() {
 
   const fullText = `Title: ${titleOut.value}\n\nDescription:\n${descOut.value}`;
   navigator.clipboard.writeText(fullText);
-  alert('YouTube Title & Description copied to clipboard successfully!');
+  alert('Full Title & Description copied to clipboard successfully!');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
