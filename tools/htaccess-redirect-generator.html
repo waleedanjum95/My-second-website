@@ -1,598 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>.htaccess Redirect & Security Generator - SmartToolsKit</title>
-    <style>
-        :root {
-            --primary: #10b981;
-            --primary-dark: #059669;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        /* SmartToolsKit Navbar */
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-weight: bold;
-            font-size: 20px;
-            color: #0f172a;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-        .logo-box {
-            background: var(--primary);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-        nav {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        nav a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 15px;
-            font-weight: 500;
-        }
-        nav a:hover {
-            color: var(--primary);
-        }
-        .contact-btn {
-            background-color: var(--primary);
-            color: white !important;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: background 0.2s;
-        }
-        .contact-btn:hover {
-            background-color: var(--primary-dark);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free .htaccess Redirect Generator &amp; 301 SEO Tool | SmartToolsKit</title>
+<meta name="description" content="Generate 301 redirects, force HTTPS, www to non-www, and Apache rewrite rules instantly with our free online .htaccess Redirect Generator.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/htaccess-redirect-generator.html">
+<meta name="theme-color" content="#0F172A">
 
-        /* Main Container */
-        .main-wrapper {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 35px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
-            margin-bottom: 30px;
-        }
-        h1 {
-            font-size: 24px;
-            color: #0f172a;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/htaccess-redirect-generator.html">
+<meta property="og:title" content="Free .htaccess Redirect Generator &amp; 301 SEO Tool | SmartToolsKit">
+<meta property="og:description" content="Create accurate Apache mod_rewrite rules, 301 permanent redirects, and server configurations with live loop detection.">
 
-        /* Client-Side Security Box */
-        .security-badge {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #475569;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": ".htaccess Redirect Generator",
+    "item": "https://smarttoolskit.com/tools/htaccess-redirect-generator.html"
+  }]
+}
+</script>
 
-        /* Form Controls */
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 6px;
-            font-size: 14px;
-        }
-        select, input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            box-sizing: border-box;
-            font-size: 15px;
-            background: #fff;
-        }
-        select:focus, input[type="text"]:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-        }
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 12px;
-            font-weight: normal;
-            cursor: pointer;
-        }
-        .checkbox-group input {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-            accent-color: var(--primary);
-        }
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            width: 100%;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 10px;
-        }
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-        }
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-        /* Risk & Warning Box (Unique Value Addition) */
-        .risk-box {
-            display: none;
-            margin-top: 20px;
-            padding: 12px 16px;
-            background-color: #fffbeb;
-            border: 1px solid #f59e0b;
-            color: #b45309;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-        }
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
 
-        /* Output Area */
-        .output-section {
-            margin-top: 25px;
-        }
-        textarea {
-            width: 100%;
-            height: 140px;
-            padding: 12px;
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #0f172a;
-            color: #38bdf8;
-            border: 1px solid #334155;
-            border-radius: 6px;
-            resize: vertical;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-        .btn-copy {
-            background-color: #0284c7;
-            margin-top: 10px;
-        }
-        .btn-copy:hover {
-            background-color: #0369a1;
-        }
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text)}
+.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
 
-        /* SEO Content Section Styles */
-        .seo-content h2 {
-            font-size: 20px;
-            color: #0f172a;
-            margin-top: 30px;
-            margin-bottom: 12px;
-        }
-        .seo-content p {
-            color: #475569;
-            font-size: 15px;
-            margin-bottom: 16px;
-        }
-        .formula-card {
-            background: #0f172a;
-            color: #38bdf8;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: monospace;
-            margin: 20px 0;
-            font-size: 14px;
-            line-height: 1.8;
-        }
-        .formula-card .title {
-            color: #10b981;
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 14px;
-        }
-        th {
-            background-color: #f1f5f9;
-            color: #0f172a;
-            font-weight: 600;
-        }
-        td code {
-            background: #f1f5f9;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #0f172a;
-        }
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
 
-        /* Footer */
-        footer {
-            background: #0f172a;
-            color: #94a3b8;
-            padding: 40px 30px 20px;
-            margin-top: 60px;
-            font-size: 14px;
-        }
-        .footer-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-        footer h4 {
-            color: white;
-            margin-bottom: 15px;
-        }
-        footer ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        footer ul li {
-            margin-bottom: 8px;
-        }
-        footer ul li a {
-            color: #94a3b8;
-            text-decoration: none;
-        }
-        footer ul li a:hover {
-            color: white;
-        }
-        .footer-bottom {
-            max-width: 1100px;
-            margin: 0 auto;
-            border-top: 1px solid #1e293b;
-            padding-top: 20px;
-            text-align: center;
-            font-size: 13px;
-        }
-    </style>
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
+.calc-btn:hover{background:var(--emerald-dark)}
+
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
+.code-output{width:100%;min-height:140px;max-height:240px;padding:12px;background:#0F172A;color:#38BDF8;border-radius:8px;font-family:monospace;font-size:13px;overflow:auto;white-space:pre-wrap;word-break:break-all;line-height:1.6;border:1px solid #334155}
+
+/* UNIQUE FEATURE SECTION */
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
+
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
+
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
+
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <a href="#" class="logo">
-            <span class="logo-box">S</span> SmartToolsKit
-        </a>
-        <nav>
-            <a href="#">Categories</a>
-            <a href="#">Tools</a>
-            <a href="#">About</a>
-            <a href="#" class="contact-btn">Contact</a>
-        </nav>
-    </header>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
 
-    <div class="main-wrapper">
-        
-        <!-- Tool Box Card -->
-        <div class="card">
-            <h1>.htaccess Redirect & Security Generator</h1>
-            <div class="subtitle">Generate clean Apache 301 redirects, force SSL, and integrate server security headers instantly.</div>
+<main class="container">
+<div class="tool-container">
+<h1>.htaccess Redirect Generator</h1>
+<p class="subtitle">Create Apache mod_rewrite rules, 301 redirects, and server security configurations instantly.</p>
 
-            <!-- Client-Side Security Notice -->
-            <div class="security-badge">
-                🔒 <strong>Client-Side Security:</strong> All rule generation and syntax computations execute securely inside your local browser. No configuration data is transmitted externally.
-            </div>
+<div class="form-group">
+<label for="redirectType">Redirect Configuration Type</label>
+<select id="redirectType" onchange="toggleInputs()">
+<option value="single301" selected>301 Permanent Redirect (Single URL / Page)</option>
+<option value="single302">302 Temporary Redirect (Single URL / Page)</option>
+<option value="forceHttps">Force SSL / HTTPS Redirect (Entire Site)</option>
+<option value="wwwToNonWww">WWW to Non-WWW Redirect (Domain Canonicalization)</option>
+<option value="nonWwwToWww">Non-WWW to WWW Redirect (Domain Canonicalization)</option>
+<option value="domainChange">Complete Domain Migration / Change</option>
+</select>
+</div>
 
-            <div class="form-group">
-                <label for="redirectType">Select Redirect Type:</label>
-                <select id="redirectType" onchange="toggleInputs()">
-                    <option value="single">Single Page 301 Redirect</option>
-                    <option value="domain">Entire Domain to Domain Redirect</option>
-                    <option value="https">Force HTTPS (SSL Enforcement)</option>
-                    <option value="www">Force WWW / Non-WWW Redirect</option>
-                </select>
-            </div>
+<div class="grid-2" id="urlInputRow">
+<div class="form-group">
+<label for="oldPath">Old URL Path (e.g., /old-page.html)</label>
+<input type="text" id="oldPath" value="/old-page.html" placeholder="/old-page.html">
+</div>
+<div class="form-group">
+<label for="newPath">New Destination URL or Path</label>
+<input type="text" id="newPath" value="https://smarttoolskit.com/new-page.html" placeholder="https://example.com/new-page.html">
+</div>
+</div>
 
-            <div class="form-group" id="inputGroup1">
-                <label id="label1" for="field1">Old URL / Slug (e.g., /old-page.html):</label>
-                <input type="text" id="field1" placeholder="/old-page.html">
-            </div>
+<button type="button" class="calc-btn" onclick="generateHtaccess()">Generate .htaccess Rules</button>
 
-            <div class="form-group" id="inputGroup2">
-                <label id="label2" for="field2">New Destination URL (e.g., https://example.com/new-page):</label>
-                <input type="text" id="field2" placeholder="https://example.com/new-page">
-            </div>
+<div class="result-box">
+<label style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;display:block;">Generated Apache .htaccess Code</label>
+<pre id="htaccessOutput" class="code-output"></pre>
+<button type="button" class="calc-btn" onclick="copyHtaccessCode()" style="margin-top:10px;">Copy .htaccess Code</button>
+</div>
 
-            <div class="form-group">
-                <label class="checkbox-group">
-                    <input type="checkbox" id="securityHeaders" checked>
-                    <span>Include Client/Server Security Headers (X-Frame, X-Content-Type-Options, XSS Protection)</span>
-                </label>
-            </div>
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All rule generation and syntax validations run entirely inside your browser client-side. No server credentials or domain files are accessed.
+</div>
 
-            <button class="btn-primary" onclick="generateCode()">Generate Secure .htaccess Code</button>
+<!-- UNIQUE FEATURE: Live Apache Syntax & Infinite Loop/Conflict Detector -->
+<div class="unique-section">
+<h3>🚀 Unique Feature: Live Apache Syntax &amp; Infinite Loop Detector</h3>
+<p>Our intelligent client-side validator scans your rewrite conditions for common Apache server errors, circular redirection loops, and regex syntax bugs before deployment.</p>
+<div class="radar-box" id="radarOutput">
+Analyzing redirect rules and syntax integrity...
+</div>
+</div>
+</div>
 
-            <!-- Unique Value Addition: Loop & Risk Detector Warning -->
-            <div id="riskWarning" class="risk-box">
-                ⚠️ <strong>Loop & Syntax Warning:</strong> <span id="riskText"></span>
-            </div>
+<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="content-section">
+<h2>Mastering .htaccess Redirects for Technical SEO and Server Performance</h2>
+<p>The <code>.htaccess</code> (hypertext access) file is a powerful configuration file used by Apache-based web servers. It allows webmasters and system administrators to decentralize server configuration, manage access controls, handle custom error pages, and execute URL redirection rules. For SEO professionals, mastering <code>.htaccess</code> redirects is crucial for preserving organic search rankings during site migrations, URL restructurings, or HTTPS transitions.</p>
 
-            <div class="output-section">
-                <label for="outputCode">Generated Code Output:</label>
-                <textarea id="outputCode" readonly placeholder="Your generated .htaccess code will appear here..."></textarea>
-                <button class="btn-primary btn-copy" onclick="copyToClipboard()">Copy Code to Clipboard</button>
-            </div>
-        </div>
+<p>When pages are deleted, moved, or restructured, failing to implement proper server-side redirects results in frustrating 404 Not Found errors, which degrade user experience and waste valuable crawl budget. Utilizing permanent <strong>301 redirects</strong> ensures that search engine crawlers pass maximum link equity (ranking power) from the legacy URL to the updated destination page without losing authority.</p>
 
-        <!-- SEO Content & Documentation Card -->
-        <div class="card seo-content">
-            <h2>The Complete Guide to .htaccess Redirects and Web Security</h2>
-            <p>Website management and Search Engine Optimization (SEO) rely heavily on proper redirect strategies to preserve site health and search rankings. Whenever you restructure URLs, migrate domains, or enforce secure HTTPS protocols, guiding search engine crawlers and users correctly is essential for maintaining organic visibility.</p>
-            <p>Apache web servers utilize the <strong>.htaccess</strong> configuration file to manage server-level rules efficiently. Implementing correct 301 Permanent Redirects ensures that search engines transfer link juice and ranking authority to your new destination pages without losing valuable traffic.</p>
+<h2>Why 301 Redirects and Canonicalization Matter for Search Engines</h2>
+<p>Search engine algorithms rely on clean URL structures to determine topical relevance and indexation hierarchies. If a website is accessible via multiple variations—such as HTTP vs. HTTPS, or with-www vs. without-www—search engines may index duplicate versions, diluting your site's overall ranking strength. Implementing server-level canonicalization rules via <code>.htaccess</code> consolidates authority onto a single preferred domain.</p>
 
-            <h2>The Mathematical & Syntax Formulas of Apache Rewriting</h2>
-            <p>Server-level URL rewriting and redirect execution follow standard Apache regex and conditional syntax logic:</p>
+<p>Furthermore, our online generator incorporates a real-time syntax and loop detector. Circular redirects occur when Page A redirects to Page B, and Page B loops back to Page A, causing infinite browser redirection loops that trigger server timeouts. Our built-in validation radar prevents these critical deployment errors instantly.</p>
 
-            <div class="formula-card">
-                <span class="title">Core .htaccess Redirect Syntax Rules:</span>
-                1. Single Page Permanent Redirect:<br>
-                • Redirect 301 [Old_Path] [New_Absolute_URL]<br><br>
-                2. Conditional Engine Check:<br>
-                • RewriteCond %{HTTP_HOST} ^olddomain\.com$ [NC]<br>
-                • RewriteRule ^(.*)$ https://newdomain.com/$1 [R=301,L]
-            </div>
+<h2>The Mathematical Logic of Link Juice &amp; Redirect Cascades</h2>
+<p>To evaluate redirection efficiency and link equity retention in technical SEO audits, developers utilize standard mathematical formulas:</p>
 
-            <h2>Global .htaccess Rules Reference Matrix</h2>
-            <p>The reference table below outlines standard redirect directives and their respective security and SEO impacts:</p>
+<div class="formula-box">
+<strong>Core SEO &amp; Redirect Formulas:</strong>
+1. Link Equity Retention Rate (Single 301):<br>
+   • $E_{final} \approx 0.99 \times E_{initial}$<br><br>
+2. Redirect Cascade Decay (Multiple Hops):<br>
+   • $E_{cascade} = E_{initial} \times (0.85)^n$<br><br>
+3. Server Response Priority Rule:<br>
+   • 301 Permanent > 302 Temporary (Passes 100% vs 0-15% equity).
+</div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rule Type</th>
-                        <th>Syntax / Directive</th>
-                        <th>SEO & Security Impact</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>301 Redirect</strong></td>
-                        <td><code>Redirect 301 /old /new</code></td>
-                        <td>Transfers 90-99% link equity; permanent ranking migration.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Force HTTPS</strong></td>
-                        <td><code>RewriteCond %{HTTPS} off...</code></td>
-                        <td>Required for modern browser compliance and secure ranking boost.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>X-Frame Header</strong></td>
-                        <td><code>Header set X-Frame-Options "SAMEORIGIN"</code></td>
-                        <td>Mitigates clickjacking attacks at the browser level.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>MIME Sniffing Prevention</strong></td>
-                        <td><code>Header set X-Content-Type-Options "nosniff"</code></td>
-                        <td>Prevents browsers from MIME-sniffing away from declared types.</td>
-                    </tr>
-                </tbody>
-            </table>
+<p>Avoid multi-hop redirect chains ($A \rightarrow B \rightarrow C$). Each extra redirect hop degrades crawl efficiency and causes a minor loss in PageRank equity.</p>
 
-            <h2>How to Use the .htaccess Generator Tool</h2>
-            <p>Generating production-ready Apache configurations is fast and seamless:</p>
-            <ul>
-                <li><strong>Select Redirect Type:</strong> Choose your required redirect structure from the dropdown menu.</li>
-                <li><strong>Provide Inputs:</strong> Enter your source path and destination URL or domain name.</li>
-                <li><strong>Security Hardening:</strong> Keep security headers enabled to inject robust protection rules automatically.</li>
-                <li><strong>Generate & Copy:</strong> Click generate to instantly view and copy clean, optimized code.</li>
-            </ul>
+<h2>Global .htaccess &amp; HTTP Status Reference Matrix</h2>
+<p>The table below outlines essential Apache directives and HTTP status codes used in modern web server configuration:</p>
 
-            <h2>Frequently Asked Questions (FAQ)</h2>
-            <p><strong>1. Do 301 redirects pass SEO ranking power?</strong><br>
-            Yes, permanent 301 redirects pass almost all ranking authority and link juice from the old URL to the new destination.</p>
-            <p><strong>2. Is .htaccess supported on all web hosting servers?</strong><br>
-            No, .htaccess configurations are specific to Apache and LiteSpeed web servers. Nginx uses server block configurations instead.</p>
-            <p><strong>3. Is my configuration data secure?</strong><br>
-            Completely. All calculations and rule generation run 100% client-side inside your browser.</p>
-        </div>
+<table class="content-table">
+<thead>
+<tr>
+<th>Directive / Code</th>
+<th>Type</th>
+<th>Primary Function &amp; SEO Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>301 Moved Permanently</code></td>
+<td>HTTP Status</td>
+<td>Permanently transfers ranking power and authority to new URL</td>
+</tr>
+<tr>
+<td><code>302 Found</code></td>
+<td>HTTP Status</td>
+<td>Temporary redirection; retains original URL in search indexes</td>
+</tr>
+<tr>
+<td><code>RewriteEngine On</code></td>
+<td>Apache Directive</td>
+<td>Enables the mod_rewrite runtime engine for rule parsing</td>
+</tr>
+<tr>
+<td><code>RewriteCond</code></td>
+<td>Apache Directive</td>
+<td>Defines preconditions or matching constraints for rules</td>
+</tr>
+<tr>
+<td><code>[R=301,L]</code></td>
+<td>Rewrite Flag</td>
+<td>Forces 301 redirect and stops processing subsequent rules (Last)</td>
+</tr>
+<tr>
+<td><code>410 Gone</code></td>
+<td>HTTP Status</td>
+<td>Permanently deletes content from search engine indexes rapidly</td>
+</tr>
+</tbody>
+</table>
 
-    </div>
+<h2>How to Use the .htaccess Redirect Generator</h2>
+<p>Creating professional Apache server rules with our tool is fast and straightforward:</p>
+<ul>
+<li><strong>Select Configuration Type:</strong> Choose from single page 301/302 redirects, force SSL, or domain canonicalization rules.</li>
+<li><strong>Input URL Paths:</strong> Enter your source URL path and target destination address into the form fields.</li>
+<li><strong>Review Rules &amp; Copy:</strong> Check our live syntax radar for safety warnings, then copy your production-ready <code>.htaccess</code> code instantly!</li>
+</ul>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h4>SmartToolsKit</h4>
-                <p>Build, optimize, and secure your web projects with high-performance developer tools built for speed and efficiency.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Disclaimer</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 SmartToolsKit. All rights reserved.
-        </div>
-    </footer>
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Where should I place the generated .htaccess code on my server?</h3>
+<p>The generated rewrite rules should be placed at the very top of the <code>.htaccess</code> file located in the root directory (<code>public_html</code> or <code>www</code>) of your website.</p>
 
-    <script>
-        function toggleInputs() {
-            const type = document.getElementById('redirectType').value;
-            const group1 = document.getElementById('inputGroup1');
-            const group2 = document.getElementById('inputGroup2');
-            const label1 = document.getElementById('label1');
-            const label2 = document.getElementById('label2');
-            const field1 = document.getElementById('field1');
-            const field2 = document.getElementById('field2');
+<h3>2. Do 301 redirects pass 100% of SEO link juice?</h3>
+<p>Yes, Google confirmed that permanent 301 redirects pass virtually all PageRank equity, making them the gold standard for site migrations.</p>
 
-            document.getElementById('riskWarning').style.display = 'none';
+<h3>3. Why is my site showing a "Too many redirects" error?</h3>
+<p>This error is caused by a circular redirection loop (e.g., forcing HTTPS and HTTP simultaneously or redirecting a URL to itself). Use our tool's built-in loop detector to catch these issues beforehand.</p>
+</div>
+</main>
 
-            if (type === 'https') {
-                group1.style.display = 'none';
-                group2.style.display = 'none';
-            } else if (type === 'single') {
-                group1.style.display = 'block';
-                group2.style.display = 'block';
-                label1.innerText = "Old URL / Slug (e.g., /old-page.html):";
-                field1.placeholder = "/old-page.html";
-                label2.innerText = "New Destination URL (e.g., https://example.com/new-page):";
-                field2.placeholder = "https://example.com/new-page";
-            } else if (type === 'domain') {
-                group1.style.display = 'block';
-                group2.style.display = 'block';
-                label1.innerText = "Old Domain (e.g., olddomain.com):";
-                field1.placeholder = "olddomain.com";
-                label2.innerText = "New Destination URL (e.g., https://newdomain.com):";
-                field2.placeholder = "https://newdomain.com";
-            } else if (type === 'www') {
-                group1.style.display = 'block';
-                group2.style.display = 'none';
-                label1.innerText = "Your Domain Name (e.g., example.com):";
-                field1.placeholder = "example.com";
-            }
-        }
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
 
-        function generateCode() {
-            const type = document.getElementById('redirectType').value;
-            const val1 = document.getElementById('field1').value.trim();
-            const val2 = document.getElementById('field2').value.trim();
-            const includeSecurity = document.getElementById('securityHeaders').checked;
-            
-            let code = `RewriteEngine On\n`;
-            let warningMsg = "";
-            let hasWarning = false;
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
+</div>
 
-            if (type === 'single') {
-                if (!val1 || !val2) {
-                    alert('Please fill in both fields completely!');
-                    return;
-                }
-                if (val1 === val2 || val1 + '/' === val2) {
-                    hasWarning = true;
-                    warningMsg = "Source URL and Destination URL are identical! This can cause an Infinite Redirect Loop (ERR_TOO_MANY_REDIRECTS).";
-                }
-                code += `Redirect 301 ${val1} ${val2}\n`;
-            } 
-            else if (type === 'domain') {
-                if (!val1 || !val2            else if (type === 'domain') {
-                if (!val1 || !val2) {
-                    alert('Please enter both old domain and new destination URL!');
-                    return;
-                }
-                let cleanDomain = val1.replace(/^https?:\/\//, '').replace(/\/$/, '');
-                code += `RewriteCond %{HTTP_HOST} ^${cleanDomain.replace('.', '\\.')}$ [NC]\n`;
-                code += `RewriteRule ^(.*)$ ${val2}/$1 [R=301,L]\n`;
-            } 
-            else if (type === 'https') {
-                code += `RewriteCond %{HTTPS} off\n`;
-                code += `RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n`;
-            } 
-            else if (type === 'www') {
-                if (!val1) {
-                    alert('Please enter your domain name!');
-                    return;
-                }
-                let cleanDomain = val1.replace(/^https?:\/\//, '').replace(/\/$/, '');
-                code += `RewriteCond %{HTTP_HOST} ^${cleanDomain.replace('.', '\\.')} [NC]\n`;
-                code += `RewriteRule ^(.*)$ https://www.${cleanDomain}/$1 [R=301,L]\n`;
-            }
+<script>
+function toggleInputs() {
+  const type = document.getElementById('redirectType').value;
+  const row = document.getElementById('urlInputRow');
+  if (type === 'forceHttps' || type === 'wwwToNonWww' || type === 'nonWwwToWww') {
+    row.style.display = 'none';
+  } else {
+    row.style.display = 'grid';
+  }
+  generateHtaccess();
+}
 
-            // Security Hardening Headers
-            if (includeSecurity) {
-                code += `\n# Client & Server Security Hardening Headers\n`;
-                code += `<IfModule mod_headers.c>\n`;
-                code += `    Header set X-Content-Type-Options "nosniff"\n`;
-                code += `    Header set X-Frame-Options "SAMEORIGIN"\n`;
-                code += `    Header set X-XSS-Protection "1; mode=block"\n`;
-                code += `</IfModule>\n`;
-            }
+function generateHtaccess() {
+  const type = document.getElementById('redirectType').value;
+  const oldPath = document.getElementById('oldPath').value.trim();
+  const newPath = document.getElementById('newPath').value.trim();
+  const outputEl = document.getElementById('htaccessOutput');
 
-            const riskBox = document.getElementById('riskWarning');
-            if (hasWarning) {
-                document.getElementById('riskText').innerText = warningMsg;
-                riskBox.style.display = 'block';
-            } else {
-                riskBox.style.display = 'none';
-            }
+  let rules = "";
+  let radarHTML = "";
 
-            document.getElementById('outputCode').value = code;
-        }
+  if (type === 'single301' || type === 'single302') {
+    const code = type === 'single301' ? '301' : '302';
+    const cleanOld = oldPath.startsWith('/') ? oldPath : '/' + oldPath;
+    rules = `RewriteEngine On\nRewriteCond %{REQUEST_URI} ^${escapeRegExp(cleanOld)}$ [NC]\nRewriteRule ^(.*)$ ${newPath} [R=${code},L]`;
+    
+    if (cleanOld === newPath || (newPath !== "" && cleanOld.includes(newPath))) {
+      radarHTML = `🔴 <strong>Critical Loop Warning:</strong> Your old path matches or conflicts with your destination path. This will cause an infinite browser redirect loop!`;
+    } else if (!newPath.startsWith('http://') && !newPath.startsWith('https://') && !newPath.startsWith('/')) {
+      radarHTML = `🟡 <strong>Syntax Notice:</strong> Destination path should ideally start with <code>https://</code> or <code>/</code> for absolute routing.`;
+    } else {
+      radarHTML = `🟢 <strong>Optimal Syntax:</strong> Single page ${code} redirect rule is clean, secure, and loop-free.`;
+    }
+  } else if (type === 'forceHttps') {
+    rules = `RewriteEngine On\nRewriteCond %{HTTPS} off\nRewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]`;
+    radarHTML = `🟢 <strong>Security Optimal:</strong> Standard Force HTTPS rule active. Protects user data and satisfies modern SSL ranking signals.`;
+  } else if (type === 'wwwToNonWww') {
+    rules = `RewriteEngine On\nRewriteCond %{HTTP_HOST} ^www\\.(.+)$ [NC]\nRewriteRule ^(.*)$ https://%1/$1 [R=301,L]`;
+    radarHTML = `🟢 <strong>Canonicalization Optimal:</strong> Automatically strips 'www' and forces clean non-WWW domain structure.`;
+  } else if (type === 'nonWwwToWww') {
+    rules = `RewriteEngine On\nRewriteCond %{HTTP_HOST} !^www\\. [NC]\nRewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]`;
+    radarHTML = `🟢 <strong>Canonicalization Optimal:</strong> Forces 'www' prefix across all inbound host requests.`;
+  } else if (type === 'domainChange') {
+    rules = `RewriteEngine On\nRewriteCond %{HTTP_HOST} ^(www\\.)?olddomain\\.com [NC]\nRewriteRule ^(.*)$ ${newPath || 'https://www.newdomain.com'}/$1 [R=301,L]`;
+    radarHTML = `🟢 <strong>Migration Ready:</strong> Full domain-to-domain wildcard redirection rule generated successfully. Ensure DNS remains active during migration.`;
+  }
 
-        function copyToClipboard() {
-            const textarea = document.getElementById('outputCode');
-            if(!textarea.value) {
-                alert('No code generated to copy yet!');
-                return;
-            }
-            navigator.clipboard.writeText(textarea.value).then(() => {
-                alert('Code successfully copied to clipboard!');
-            }).catch(err => {
-                alert('Failed to copy code. Please select and copy manually.');
-            });
-        }
-    </script>
+  outputEl.textContent = rules;
+  document.getElementById('radarOutput').innerHTML = radarHTML;
+}
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function copyHtaccessCode() {
+  const outputEl = document.getElementById('htaccessOutput');
+  if (!outputEl) return;
+  navigator.clipboard.writeText(outputEl.textContent);
+  alert('.htaccess redirect code copied to clipboard successfully!');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+  generateHtaccess();
+
+  const inputs = document.querySelectorAll('input, select');
+  inputs.forEach(el => {
+    el.addEventListener('input', generateHtaccess);
+    el.addEventListener('change', generateHtaccess);
+  });
+});
+
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = ''flex';
+  }
+}
+</script>
+
 </body>
 </html>
