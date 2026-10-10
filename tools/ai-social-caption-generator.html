@@ -143,7 +143,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <label for="captionTone">Caption Tone &amp; Style</label>
 <select id="captionTone" onchange="generateSocialContent()">
 <option value="engaging" selected>Engaging &amp; Conversational</option>
-<option value="professional" tabindex="0">Professional &amp; Authoritative</option>
+<option value="professional">Professional &amp; Authoritative</option>
 <option value="inspirational">Inspirational &amp; Motivational</option>
 <option value="promotional">Promotional &amp; Sales-focused</option>
 </select>
@@ -300,8 +300,8 @@ Analyzing platform compliance and engagement reach...
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
 <button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-  </div>
-  <script>
+</div>
+<script>
 function generateSocialContent() {
   const topicEl = document.getElementById('postTopic');
   const platformEl = document.getElementById('socialPlatform');
@@ -317,29 +317,33 @@ function generateSocialContent() {
   const tone = toneEl ? toneEl.value : 'engaging';
 
   let caption = "";
-  let hashtags = "";
+  
+  // Smart dynamic hashtag generator from user input topic
+  let cleanTopic = topic.replace(/[^a-zA-Z0-9 ]/g, '');
+  let words = cleanTopic.split(/\s+/).filter(w => w.length > 2);
+  let dynamicTags = words.map(w => '#' + w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  let hashtags = `${dynamicTags} #SmartToolsKit #Trending #ViralPost #Explore`;
 
   if (platform === 'instagram') {
-    caption = `🚀 Big news! We are thrilled to announce: ${topic}. \n\nDrop a comment below and let us know your thoughts! Don't forget to save this post for later. 👇`;
-    hashtags = `#SmartToolsKit #WebTools #DigitalMarketing #Productivity #TechNews #StartupLife #WebDevelopment #CreatorEconomy`;
+    caption = `✨ Big reveal! We are beyond excited to announce: ${topic}. \n\nWe put our heart into making this happen. Drop a comment below with your thoughts and share this with a friend who needs to see this! 👇`;
   } else if (platform === 'linkedin') {
-    caption = `Excited to share our latest milestone: ${topic}. \n\nIn today's digital landscape, efficiency and automation are key to scaling operations. We built this solution to empower professionals and developers worldwide.\n\nWhat tools are currently driving your workflow? Let's discuss in the comments below.`;
-    hashtags = `#Innovation #WebDevelopment #TechTrends #SoftwareEngineering #DigitalTransformation #SmartToolsKit`;
+    caption = `Thrilled to share our latest milestone: ${topic}. \n\nInnovation and dedication are at the core of what we do. We built this to bring exceptional value to our audience.\n\nWhat are your thoughts on this? Let's connect and discuss in the comments below!`;
+    hashtags = `${dynamicTags} #Innovation #BusinessGrowth #Professional #SmartToolsKit`;
   } else if (platform === 'twitter') {
     caption = `Big update! 🚀 ${topic}. Check it out and let us know what you think! 👇`;
-    hashtags = `#Tech #WebDev #BuildInPublic #SmartToolsKit`;
+    hashtags = `${dynamicTags} #News #Trending #SmartToolsKit`;
   } else if (platform === 'facebook') {
-    caption = `We have something special to share with our community! 🎉 ${topic}. \n\nHead over to our website to explore the full experience. Tag a friend who needs to see this!`;
-    hashtags = `#Community #WebTools #OnlineServices #SmartToolsKit #ProductivityHacks`;
+    caption = `We have something special to share with our amazing community! 🎉 ${topic}. \n\nHead over to our platform to explore the full experience. Tag someone who will love this!`;
+    hashtags = `${dynamicTags} #Community #Updates #SmartToolsKit #ExploreMore`;
   }
 
-  // Tone tweaks
+  // Tone adjustments
   if (tone === 'professional') {
-    caption = `We are proud to announce our latest initiative: ${topic}. Designed with precision to optimize your daily workflow and digital efficiency.`;
+    caption = `We are proud to present our latest initiative: ${topic}. Designed with precision to ensure optimal quality and performance.`;
   } else if (tone === 'inspirational') {
-    caption = `Every great journey begins with a single step. Today, we take a massive leap forward: ${topic} ✨ Believe in your vision and keep building!`;
+    caption = `Every great dream starts with a vision. Today, we bring that vision to life: ${topic} ✨ Believe in the process and keep pushing forward!`;
   } else if (tone === 'promotional') {
-    caption = `🔥 Level up your workflow today! ${topic}. Experience lightning-fast performance and boost your productivity instantly. Click the link in bio to try it now!`;
+    caption = `🔥 Elevate your experience today! ${topic}. Experience unmatched quality and take action right now. Click the link to explore!`;
   }
 
   captionOut.value = caption;
@@ -352,7 +356,7 @@ function generateSocialContent() {
   if (platform === 'twitter' && charCount > 280) {
     radarHTML = `🔴 <strong>Platform Limit Warning:</strong> Caption is <strong>${charCount} characters</strong>. X (Twitter) limits posts to 280 characters.`;
   } else {
-    radarHTML = `🟢 <strong>Platform Optimal:</strong> Caption length (${charCount} chars) matches ${platform.toUpperCase()} best practices. High engagement potential projected!`;
+    radarHTML = `🟢 <strong>Platform Optimal:</strong> Caption length (${charCount} chars) matches ${platform.toUpperCase()} best practices with dynamic custom tags generated!`;
   }
 
   if (radarEl) radarEl.innerHTML = radarHTML;
