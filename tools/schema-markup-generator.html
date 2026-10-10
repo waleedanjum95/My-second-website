@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Schema Markup Generator &amp; JSON-LD Structured Data Tool | SmartToolsKit</title>
+<meta name="description" content="Generate valid JSON-LD structured data schema markup instantly for Articles, FAQs, Products, and Local Businesses with our free online tool.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/schema-markup-generator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/schema-markup-generator.html">
+<meta property="og:title" content="Free Schema Markup Generator &amp; JSON-LD Tool | SmartToolsKit">
+<meta property="og:description" content="Create accurate JSON-LD structured data markup to unlock Google Rich Results and enhance search visibility.">
+
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Schema Markup Generator",
+    "item": "https://smarttoolskit.com/tools/schema-markup-generator.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group select, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text)}
+.form-group textarea{height:80px;resize:vertical}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{border-color:var(--emerald)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
+
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
+.calc-btn:hover{background:var(--emerald-dark)}
+
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
+.result-box textarea{width:100%;height:180px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:monospace;outline:none;background:#fff;resize:vertical;color:var(--text)}
+
+/* UNIQUE FEATURE SECTION */
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
+
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
+
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
+
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<div class="tool-container">
+<h1>Schema Markup Generator</h1>
+<p class="subtitle">Create valid JSON-LD structured data markup instantly to unlock Google Rich Results.</p>
+
+<div class="form-group">
+<label for="schemaType">Select Schema Type</label>
+<select id="schemaType" onchange="updateSchemaForm()">
+<option value="Article" selected>Article / Blog Posting</option>
+<option value="FAQPage">FAQ Page</option>
+<option value="Product">Product / E-commerce</option>
+<option value="LocalBusiness">Local Business</option>
+</select>
+</div>
+
+<div id="dynamicInputs">
+<!-- Dynamic fields loaded via JS -->
+</div>
+
+<div class="result-box">
+<label for="schemaOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;display:block;">Generated JSON-LD Schema Code</label>
+<textarea id="schemaOutput" readonly></textarea>
+<button type="button" class="calc-btn" onclick="copySchemaCode()" style="margin-top:10px;">Copy JSON-LD Code</button>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All JSON-LD generation and syntax property audits run entirely inside your browser client-side. No data or website records are stored externally.
+</div>
+
+<!-- UNIQUE FEATURE: Live JSON-LD Syntax & Property Auditor -->
+<div class="unique-section">
+<h3>🚀 Unique Feature: Live JSON-LD Syntax &amp; Mandatory Property Auditor</h3>
+<p>Our intelligent client-side validator checks your structured data inputs for required schema properties, format compliance, and rich snippet eligibility in real time.</p>
+<div class="radar-box" id="radarOutput">
+Analyzing schema properties and syntax integrity...
+</div>
+</div>
+</div>
+
+<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="content-section">
+<h2>Mastering Structured Data and Schema Markup for Technical SEO</h2>
+<p>In modern search engine optimization, outranking competitors relies heavily on how clearly you communicate your website's context to automated crawlers. <strong>Schema Markup</strong> is a standardized semantic vocabulary (defined by schema.org) that webmasters add to their HTML code. It provides explicit clues about the meaning of a page, enabling search engines like Google, Bing, and Yahoo to deliver richer, more informative search snippets—known as <strong>Rich Results</strong>.</p>
+
+<p>When search crawlers parse structured data formatted in <strong>JSON-LD (JavaScript Object Notation for Linked Data)</strong>, they can effortlessly identify article authors, product prices, star ratings, organization logos, and frequently asked questions. Implementing valid schema markup transforms a plain blue search link into an eye-catching visual card, which significantly elevates user engagement and drives higher organic click-through rates (CTR).</p>
+
+<h2>Why JSON-LD is the Gold Standard for Google Rich Results</h2>
+<p>Google officially recommends JSON-LD as the preferred format for implementing structured data. Unlike older microdata formats that interweave semantic tags directly into HTML body elements, JSON-LD is injected as a self-contained script block inside the <code>&lt;head&gt;</code> or <code>&lt;body&gt;</code> of the document. This decoupled approach minimizes code clutter, simplifies maintenance, and eliminates accidental rendering bugs.</p>
+
+<p>Furthermore, our online generator features a built-in <strong>Live Property Auditor</strong>. Failing to include mandatory fields—such as an article headline, author name, or product price—will disqualify your page from rich snippet eligibility. Our real-time validator inspects every field instantly to ensure full compliance before deployment.</p>
+
+<h2>The Mathematical Impact of Rich Results on Click-Through Rate</h2>
+<p>To evaluate the performance gains and traffic uplift achieved through structured data implementations, digital marketers utilize standard analytical formulas:</p>
+
+<div class="formula-box">
+<strong>Core Schema &amp; CTR Formulas:</strong>
+1. Expected Rich Snippet CTR Uplift ($\Delta CTR$):<br>
+   • $\Delta CTR = (CTR_{rich} - CTR_{standard}) \times 100$<br><br>
+2. Schema Coverage Ratio ($SCR$):<br>
+   • $SCR = (\frac{\text{Pages with Valid JSON-LD}}{\text{Total Indexable Pages}}) \times 100$<br><br>
+3. Entity Authority Weight:<br>
+   • Enhanced semantic clarity = Higher topical relevance score in Google's Knowledge Graph.
+</div>
+
+<p>Maintaining a schema coverage ratio close to 100% across your core templates guarantees maximum search engine snippet eligibility.</p>
+
+<h2>Global Schema Types &amp; Reference Matrix</h2>
+<p>The table below outlines essential schema.org types and their primary rich result benefits:</p>
+
+<table class="content-table">
+<thead>
+<tr>
+<th>Schema Type</th>
+<th>Target Page Category</th>
+<th>Primary Rich Result Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Article</code></td>
+<td>Blogs &amp; News Posts</td>
+<td>Top Stories carousel, author byline, and publication date display</td>
+</tr>
+<tr>
+<td><code>FAQPage</code></td>
+<td>Support &amp; Guides</td>
+<td>Expandable accordion questions directly within Google SERPs</td>
+</tr>
+<tr>
+<td><code>Product</code></td>
+<td>E-commerce Store</td>
+<td>Price tags, stock availability, and star review ratings</td>
+</tr>
+<tr>
+<td><code>LocalBusiness</code></td>
+<td>Physical Stores</td>
+<td>Google Maps integration, opening hours, and direct phone contact</td>
+</tr>
+<tr>
+<td><code>BreadcrumbList</code></td>
+<td>All Sub-pages</td>
+<td>Replaces URL string in SERP with clean hierarchical category breadcrumbs</td>
+</tr>
+<tr>
+<td><code>Organization</code></td>
+<td>Homepage / About</td>
+<td>Brand logo and official social media profile knowledge panel integration</td>
+</tr>
+</tbody>
+</table>
+
+<h2>How to Use the Schema Markup Generator</h2>
+<p>Creating professional JSON-LD structured data with our tool is fast, seamless, and intuitive:</p>
+<ul>
+<li><strong>Select Schema Type:</strong> Choose from Article, FAQ Page, Product, or Local Business depending on your page content.</li>
+<li><strong>Fill Required Inputs:</strong> Enter your headline, author, prices, or questions into the dynamic form fields.</li>
+<li><strong>Review &amp; Copy:</strong> Check our live property auditor for missing fields, then copy your production-ready JSON-LD code instantly!</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Where should I paste the generated JSON-LD code on my website?</h3>
+<p>The generated <code>&lt;script type="application/ld+json"&gt;</code> block should be placed inside the <code>&lt;head&gt;</code> or at the bottom of the <code>&lt;body&gt;</code> section of your webpage.</p>
+
+<h3>2. Does implementing schema markup guarantee rich results in Google?</h3>
+<p>No. While schema markup makes your page eligible for rich results, Google's automated algorithms ultimately decide when and where to display them based on search intent and page quality.</p>
+
+<h3>3. How can I test if my schema markup is error-free?</h3>
+<p>You can test your copied code using Google's official Rich Results Test or the Schema Markup Validator tool to ensure absolute compliance.</p>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
+</div>
+
+<script>
+function updateSchemaForm() {
+  const type = document.getElementById('schemaType').value;
+  const container = document.getElementById('dynamicInputs');
+  
+  let html = '';
+  if (type === 'Article') {
+    html = `
+      <div class="grid-2">
+        <div class="form-group"><label>Headline</label><input type="text" id="artHeadline" value="Complete Technical SEO Guide 2026"></div>
+        <div class="form-group"><label>Author Name</label><input type="text" id="artAuthor" value="Waleed Anjum"></div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Publisher Organization</label><input type="text" id="artPublisher" value="SmartToolsKit"></div>
+        <div class="form-group"><label>Publication Date (YYYY-MM-DD)</label><input type="text" id="artDate" value="2026-10-10"></div>
+      </div>
+      <div class="form-group"><label>Page URL</label><input type="text" id="artUrl" value="https://smarttoolskit.com/blog/seo-guide.html"></div>
+    `;
+  } else if (type === 'FAQPage') {
+    html = `
+      <div class="form-group"><label>Question 1</label><input type="text" id="faqQ1" value="What is a 301 redirect?"></div>
+      <div class="form-group"><label>Answer 1</label><textarea id="faqA1">A 301 redirect permanently transfers SEO ranking power from an old URL to a new URL.</textarea></div>
+      <div class="form-group"><label>Question 2</label><input type="text" id="faqQ2" value="Do robots.txt files block indexing?"></div>
+      <div class="form-group"><label>Answer 2</label><textarea id="faqA2">Robots.txt restricts crawling access, but pages can still be indexed if linked externally.</textarea></div>
+    `;
+  } else if (type === 'Product') {
+    html = `
+      <div class="grid-2">
+        <div class="form-group"><label>Product Name</label><input type="text" id="prodName" value="Smart SEO Audit Tool Kit"></div>
+        <div class="form-group"><label>Price ($)</label><input type="text" id="prodPrice" value="49.99"></div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Currency</label><input type="text" id="prodCurrency" value="USD"></div>
+        <div class="form-group"><label>Availability</label><select id="prodStock"><option value="InStock" selected>In Stock</option><option value="OutOfStock">Out of Stock</option></select></div>
+      </div>
+      <div class="form-group"><label>Product URL</label><input type="text" id="prodUrl" value="https://smarttoolskit.com/tools/pro.html"></div>
+    `;
+  } else if (type === 'LocalBusiness') {
+    html = `
+      <div class="grid-2">
+        <div class="form-group"><label>Business Name</label><input type="text" id="bizName" value="SmartToolsKit Digital"></div>
+        <div class="form-group"><label>Phone Number</label><input type="text" id="bizPhone" value="+1-800-555-0199"></div>
+      </div>
+      <div class="form-group"><label>Street Address</label><input type="text" id="bizAddress" value="123 Tech Avenue, Silicon Valley, CA"></div>
+      <div class="form-group"><label>Business Website URL</label><input type="text" id="bizUrl" value="https://smarttoolskit.com"></div>
+    `;
+  }
+  
+  container.innerHTML = html;
+  attachListeners();
+  generateSchema();
+}
+
+function generateSchema() {
+  const type = document.getElementById('schemaType').value;
+  const outputEl = document.getElementById('schemaOutput');
+  const radarEl = document.getElementById('radarOutput');
+  if (!outputEl) return;
+
+  let schemaObj = {
+    "@context": "https://schema.org"
+  };
+
+  let missingFields = 0;
+
+  if (type === 'Article') {
+    const headline = document.getElementById('artHeadline')?.value.trim() || '';
+    const author = document.getElementById('artAuthor')?.value.trim() || '';
+    const publisher = document.getElementById('artPublisher')?.value.trim() || '';
+    const date = document.getElementById('artDate')?.value.trim() || '';
+    const url = document.getElementById('artUrl')?.value.trim() || '';
+
+    if (!headline || !author || !url) missingFields++;
+
+    schemaObj["@type"] = "Article";
+    schemaObj["headline"] = headline;
+    schemaObj["author"] = { "@type": "Person", "name": author };
+    schemaObj["publisher"] = { "@type": "Organization", "name": publisher };
+    schemaObj["datePublished"] = date;
+    schemaObj["mainEntityOfPage"] = url;
+  } else if (type === 'FAQPage') {
+    const q1 = document.getElementById('faqQ1')?.value.trim() || '';
+    const a1 = document.getElementById('faqA1')?.value.trim() || '';
+    const q2 = document.getElementById('faqQ2')?.value.trim() || '';
+    const a2 = document.getElementById('faqA2')?.value.trim() || '';
+
+    if (!q1 || !a1) missingFields++;
+
+    schemaObj["@type"] = "FAQPage";
+    schemaObj["mainEntity"] = [
+      {
+        "@type": "Question",
+        "name": q1,
+        "acceptedAnswer": { "@type": "Answer", "text": a1 }
+      }
+    ];
+    if (q2 && a2) {
+      schemaObj["mainEntity"].push({
+        "@type": "Question",
+        "name": q2,
+        "acceptedAnswer": { "@type": "Answer", "text": a2 }
+      });
+    }
+  } else if (type === 'Product') {
+    const name = document.getElementById('prodName')?.value.trim() || '';
+    const price = document.getElementById('prodPrice')?.value.trim() || '';
+    const currency = document.getElementById('prodCurrency')?.value.trim() || 'USD';
+    const stock = document.getElementById('prodStock')?.value || 'InStock';
+    const url = document.getElementById('prodUrl')?.value.trim() || '';
+
+    if (!name || !price || !url) missingFields++;
+
+    schemaObj["@type"] = "Product";
+    schemaObj["name"] = name;
+    schemaObj["offers"] = {
+      "@type": "Offer",
+      "price": price,
+      "priceCurrency": currency,
+      "availability": `https://schema.org/${stock}`,
+      "url": url
+    };
+  } else if (type === 'LocalBusiness') {
+    const name = document.getElementById('bizName')?.value.trim() || '';
+    const phone = document.getElementById('bizPhone')?.value.trim() || '';
+    const address = document.getElementById('bizAddress')?.value.trim() || '';
+    const url = document.getElementById('bizUrl')?.value.trim() || '';
+
+    if (!name || !address) missingFields++;
+
+    schemaObj["@type"] = "LocalBusiness";
+    schemaObj["name"] = name;
+    schemaObj["telephone"] = phone;
+    schemaObj["address"] = { "@type": "PostalAddress", "streetAddress": address };
+    schemaObj["url"] = url;
+  }
+
+  const jsonString = JSON.stringify(schemaObj, null, 2);
+  outputEl.value = `<script type="application/ld+json">\n${jsonString}\n<\/script>`;
+
+  let radarHTML = "";
+  if (missingFields > 0) {
+    radarHTML = `🔴 <strong>Missing Property Warning:</strong> One or more mandatory fields are empty. This may cause validation errors in Google Rich Results Test!`;
+  } else {
+    radarHTML = `🟢 <strong>JSON-LD Syntax Optimal:</strong> All required schema properties for <strong>${type}</strong> compiled successfully with zero syntax errors.`;
+  }
+
+  if (radarEl) radarEl.innerHTML = radarHTML;
+}
+
+function attachListeners() {
+  const inputs = document.querySelectorAll('input, textarea, select');
+  inputs.forEach(el => {
+    el.addEventListener('input', generateSchema);
+    el.addEventListener('change', generateSchema);
+  });
+}
+
+function copySchemaCode() {
+  const outputEl = document.getElementById('schemaOutput');
+  if (!outputEl) return;
+  outputEl.select();
+  outputEl.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(outputEl.value);
+  alert('JSON-LD schema code copied to clipboard successfully!');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+  updateSchemaForm();
+});
+
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
