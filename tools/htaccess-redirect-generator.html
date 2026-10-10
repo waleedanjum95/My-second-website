@@ -3,47 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced .htaccess Redirect Generator with Loop Detector & Security</title>
+    <title>.htaccess Redirect & Security Generator - SmartToolsKit</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
+            --primary: #10b981;
+            --primary-dark: #059669;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --border-color: #cbd5e1;
-            --warning-bg: #fffbeb;
-            --warning-border: #f59e0b;
-            --warning-text: #b45309;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             margin: 0;
-            padding: 20px;
+            padding: 0;
             line-height: 1.6;
         }
-        .container {
-            max-width: 750px;
-            background: var(--card-bg);
-            padding: 30px;
-            margin: 30px auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        /* SmartToolsKit Navbar */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        h2 {
-            text-align: center;
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
             color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .logo-box {
+            background: var(--primary);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: var(--primary);
+        }
+        .contact-btn {
+            background-color: var(--primary);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        .contact-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Main Container */
+        .main-wrapper {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
             margin-bottom: 25px;
         }
+
+        /* Client-Side Security Box */
+        .security-badge {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        /* Form Controls */
         .form-group {
             margin-bottom: 20px;
         }
         label {
             display: block;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-size: 14px;
         }
         select, input[type="text"] {
@@ -53,26 +132,28 @@
             border-radius: 6px;
             box-sizing: border-box;
             font-size: 15px;
-            transition: border-color 0.2s;
+            background: #fff;
         }
         select:focus, input[type="text"]:focus {
             border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
         .checkbox-group {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 12px;
             font-weight: normal;
+            cursor: pointer;
         }
         .checkbox-group input {
             width: 18px;
             height: 18px;
             cursor: pointer;
+            accent-color: var(--primary);
         }
-        button {
+        .btn-primary {
             background-color: var(--primary);
             color: white;
             border: none;
@@ -82,32 +163,33 @@
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
+            transition: background 0.2s;
+            margin-top: 10px;
         }
-        button:hover {
+        .btn-primary:hover {
             background-color: var(--primary-dark);
         }
-        button:active {
-            transform: scale(0.98);
-        }
-        /* Unique Value Addition: Loop & Risk Warning Box */
+
+        /* Risk & Warning Box (Unique Value Addition) */
         .risk-box {
             display: none;
             margin-top: 20px;
             padding: 12px 16px;
-            background-color: var(--warning-bg);
-            border: 1px solid var(--warning-border);
-            color: var(--warning-text);
+            background-color: #fffbeb;
+            border: 1px solid #f59e0b;
+            color: #b45309;
             border-radius: 6px;
             font-size: 14px;
             font-weight: 500;
         }
+
+        /* Output Area */
         .output-section {
-            margin-top: 30px;
+            margin-top: 25px;
         }
         textarea {
             width: 100%;
-            height: 150px;
+            height: 140px;
             padding: 12px;
             font-family: 'Courier New', Courier, monospace;
             background-color: #0f172a;
@@ -116,147 +198,368 @@
             border-radius: 6px;
             resize: vertical;
             font-size: 14px;
+            box-sizing: border-box;
         }
-        .copy-btn {
-            background-color: #10b981;
+        .btn-copy {
+            background-color: #0284c7;
             margin-top: 10px;
         }
-        .copy-btn:hover {
-            background-color: #059669;
+        .btn-copy:hover {
+            background-color: #0369a1;
+        }
+
+        /* SEO Content Section Styles */
+        .seo-content h2 {
+            font-size: 20px;
+            color: #0f172a;
+            margin-top: 30px;
+            margin-bottom: 12px;
+        }
+        .seo-content p {
+            color: #475569;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+        .formula-card {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 20px 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .formula-card .title {
+            color: #10b981;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            font-weight: 600;
+        }
+        td code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #0f172a;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px 30px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        footer h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        footer ul li {
+            margin-bottom: 8px;
+        }
+        footer ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        footer ul li a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>.htaccess Redirect & Security Generator</h2>
-    
-    <div class="form-group">
-        <label for="redirectType">Select Redirect Type:</label>
-        <select id="redirectType" onchange="toggleInputs()">
-            <option value="single">Single Page 301 Redirect</option>
-            <option value="domain">Entire Domain to Domain Redirect</option>
-            <option value="https">Force HTTPS (SSL Enforcement)</option>
-            <option value="www">Force Non-WWW to WWW</option>
-        </select>
-    </div>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <span class="logo-box">S</span> SmartToolsKit
+        </a>
+        <nav>
+            <a href="#">Categories</a>
+            <a href="#">Tools</a>
+            <a href="#">About</a>
+            <a href="#" class="contact-btn">Contact</a>
+        </nav>
+    </header>
 
-    <div class="form-group" id="oldUrlGroup">
-        <label for="oldUrl">Old URL / Slug (e.g., /old-page.html):</label>
-        <input type="text" id="oldUrl" placeholder="/old-page.html">
-    </div>
-
-    <div class="form-group" id="newUrlGroup">
-        <label for="newUrl">New Destination URL (e.g., https://example.com/new-page):</label>
-        <input type="text" id="newUrl" placeholder="https://example.com/new-page">
-    </div>
-
-    <!-- Unique Value Addition: Security Header Hardening Option -->
-    <div class="form-group">
-        <div class="checkbox-group">
-            <input type="checkbox" id="securityHeaders" checked>
-            <label for="securityHeaders" style="margin-bottom:0; cursor:pointer;">Include Client/Server Security Headers (HSTS & X-Frame Protection)</label>
-        </div>
-    </div>
-
-    <button onclick="generateCode()">Generate Secure .htaccess Code</button>
-
-    <!-- Unique Value Addition: Live Loop/Syntax Risk Warning Box -->
-    <div id="riskWarning" class="risk-box">
-        ⚠️ <strong>Warning / Optimization Notice:</strong> <span id="riskText"></span>
-    </div>
-
-    <div class="output-section">
-        <label for="outputCode">Generated Code Output:</label>
-        <textarea id="outputCode" readonly placeholder="Aapka code yahan generate hoga..."></textarea>
-        <button class="copy-btn" onclick="copyToClipboard()">Copy Code to Clipboard</button>
-    </div>
-</div>
-
-<script>
-    function toggleInputs() {
-        const type = document.getElementById('redirectType').value;
-        const oldGroup = document.getElementById('oldUrlGroup');
-        const newGroup = document.getElementById('newUrlGroup');
-
-        if (type === 'https' || type === 'www') {
-            oldGroup.style.display = 'none';
-            newGroup.style.display = 'none';
-        } else {
-            oldGroup.style.display = 'block';
-            newGroup.style.display = 'block';
-        }
-        document.getElementById('riskWarning').style.display = 'none';
-    }
-
-    function generateCode() {
-        const type = document.getElementById('redirectType').value;
-        const oldUrl = document.getElementById('oldUrl').value.trim();
-        const newUrl = document.getElementById('newUrl').value.trim();
-        const includeSecurity = document.getElementById('securityHeaders').checked;
+    <div class="main-wrapper">
         
-        let code = `RewriteEngine On\n`;
-        let warningMsg = "";
-        let hasWarning = false;
+        <!-- Tool Box Card -->
+        <div class="card">
+            <h1>.htaccess Redirect & Security Generator</h1>
+            <div class="subtitle">Generate clean Apache 301 redirects, force SSL, and integrate server security headers instantly.</div>
 
-        // Unique Feature: Risk & Loop Detection Logic
-        if (type === 'single') {
-            if (!oldUrl || !newUrl) {
-                alert('Barah-e-karam dono fields mukammal bharein!');
-                return;
+            <!-- Client-Side Security Notice -->
+            <div class="security-badge">
+                🔒 <strong>Client-Side Security:</strong> All rule generations and syntax computations execute securely inside your local browser. No data or written configuration is transmitted externally.
+            </div>
+
+            <div class="form-group">
+                <label for="redirectType">Select Redirect Type:</label>
+                <select id="redirectType" onchange="toggleInputs()">
+                    <option value="single">Single Page 301 Redirect</option>
+                    <option value="domain">Entire Domain to Domain Redirect</option>
+                    <option value="https">Force HTTPS (SSL Enforcement)</option>
+                    <option value="www">Force Non-WWW to WWW</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="oldUrlGroup">
+                <label for="oldUrl">Old URL / Slug (e.g., /old-page.html):</label>
+                <input type="text" id="oldUrl" placeholder="/old-page.html">
+            </div>
+
+            <div class="form-group" id="newUrlGroup">
+                <label for="newUrl">New Destination URL (e.g., https://example.com/new-page):</label>
+                <input type="text" id="newUrl" placeholder="https://example.com/new-page">
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-group">
+                    <input type="checkbox" id="securityHeaders" checked>
+                    <span>Include Client/Server Security Headers (X-Frame, X-Content-Type-Options)</span>
+                </label>
+            </div>
+
+            <button class="btn-primary" onclick="generateCode()">Generate Secure .htaccess Code</button>
+
+            <!-- Unique Value Addition: Loop & Risk Detector Warning -->
+            <div id="riskWarning" class="risk-box">
+                ⚠️ <strong>Loop & Syntax Warning:</strong> <span id="riskText"></span>
+            </div>
+
+            <div class="output-section">
+                <label for="outputCode">Generated Code Output:</label>
+                <textarea id="outputCode" readonly placeholder="Aapka code yahan generate hoga..."></textarea>
+                <button class="btn-primary btn-copy" onclick="copyToClipboard()">Copy Code to Clipboard</button>
+            </div>
+        </div>
+
+        <!-- SEO Content & Documentation Card -->
+        <div class="card seo-content">
+            <h2>The Complete Guide to .htaccess Redirects and Web Security</h2>
+            <p>Website management aur Search Engine Optimization (SEO) ki duniya mein redirects ek aisi bunyadi technique hain jo kisi bhi site ki health aur search rankings ko barqarar rakhne mein ahem kirdar ada karti hain. Jab aap apni website ka domain badalte hain, purane URLs remove karte hain, ya apni site ko HTTP se secure HTTPS par shift karte hain, toh users aur search engine crawlers ko sahi rasta dikhana lazmi ho jata hai.</p>
+            <p>Apache web servers par chalne wali <strong>.htaccess</strong> file server-level configurations ko control karne ka sab se taqatwar zariya hai. Jab aap 301 Permanent Redirects ka sahi istemaal karte hain, toh search engines purane page ki authority aur link juice ko baghair kisi nuqsan ke naye page par muntaqil kar dete hain.</p>
+
+            <h2>The Mathematical & Syntax Formulas of Apache Rewriting</h2>
+            <p>Server-level URL rewriting aur redirect execution ke liye Apache modules standard mathematical aur logical conditions par kaam karte hain:</p>
+
+            <div class="formula-card">
+                <span class="title">Core .htaccess Redirect Syntax Rules:</span>
+                1. Single Page Permanent Redirect:<br>
+                • Redirect 301 [Old_Path] [New_Absolute_URL]<br><br>
+                2. Conditional Engine Check:<br>
+                • RewriteCond %{HTTP_HOST} ^olddomain\.com$ [NC]<br>
+                • RewriteRule ^(.*)$ https://newdomain.com/$1 [R=301,L]
+            </div>
+
+            <h2>Global .htaccess Rules Reference Matrix</h2>
+            <p>Neeche di gayi table mein mukhtalif redirect aur security rules kemaqsad aur unke un-page asraat ko wazeh kiya gaya hai:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rule Type</th>
+                        <th>Syntax / Directive</th>
+                        <th>SEO & Security Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>301 Redirect</strong></td>
+                        <td><code>Redirect 301 /old /new</code></td>
+                        <td>Passes ~90-99% link juice; permanent ranking transfer.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Force HTTPS</strong></td>
+                        <td><code>RewriteCond %{HTTPS} off...</code></td>
+                        <td>Mandatory for modern browser security and SEO ranking boost.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>X-Frame Header</strong></td>
+                        <td><code>Header set X-Frame-Options "SAMEORIGIN"</code></td>
+                        <td>Protects against clickjacking attacks at browser level.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MIME Sniffing Prevention</strong></td>
+                        <td><code>Header set X-Content-Type-Options "nosniff"</code></td>
+                        <td>Stops browsers from MIME-sniffing away from declared content-type.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>How to Use the .htaccess Generator Tool</h2>
+            <p>Is advanced generator se code tayyar karna behad asan aur mehfooz hai:</p>
+            <ul>
+                <li><strong>Select Redirect Type:</strong> Dropdown se apni zaroorat ke mutabiq redirect option select karein (Misal ke taur par Single Page ya Force HTTPS).</li>
+                <li><strong>Provide Paths:</strong> Apne purane slug aur naye destination URL ko darj karein.</li>
+                <li><strong>Security Hardening:</strong> Security headers option ko check rehne dein taake code mein extra security layers shamil ho sakein.</li>
+                <li><strong>Generate & Copy:</strong> Generate button par click karke code hasil karein aur ek click mein clipboard par copy kar lein.</li>
+            </ul>
+
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <p><strong>1. Kya yeh redirects SEO par asar andaz hote hain?</strong><br>
+            Haan, 301 Permanent Redirects SEO ke liye sab se behtareen hain kyunki yeh purane page ki saari ranking power naye page par transfer kar dete hain.</p>
+            <p><strong>2. Kya .htaccess file har web server par kaam karti hai?</strong><br>
+            Nahi, .htaccess sirf Apache aur LiteSpeed web servers par kaam karti hai. Nginx servers par configuration alag hoti hai.</p>
+            <p><strong>3. Kya mera data server par save hota hai?</strong><br>
+            Bilkul nahi! Yeh tool mukammal tor par client-side (aapke browser ke andar) chalta hai, isliye aapka data bilkul secure rehta hai.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>SmartToolsKit</h4>
+                <p>Build, optimize, and secure your web projects with high-performance developer tools built for speed and efficiency.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 SmartToolsKit. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function toggleInputs() {
+            const type = document.getElementById('redirectType').value;
+            const oldGroup = document.getElementById('oldUrlGroup');
+            const newGroup = document.getElementById('newUrlGroup');
+
+            if (type === 'https' || type === 'www') {
+                oldGroup.style.display = 'none';
+                newGroup.style.display = 'none';
+            } else {
+                oldGroup.style.display = 'block';
+                newGroup.style.display = 'block';
             }
-            if (oldUrl === newUrl || oldUrl + '/' === newUrl) {
-                hasWarning = true;
-                warningMsg = "Old URL aur New URL aik jaise hain! Yeh Infinite Redirect Loop (ERR_TOO_MANY_REDIRECTS) paida kar sakta hai.";
-            }
-            code += `Redirect 301 ${oldUrl} ${newUrl}\n`;
-        } 
-        else if (type === 'domain') {
-            if (!newUrl) {
-                alert('Naya Destination URL lazmi darj karein!');
-                return;
-            }
-            code += `RewriteCond %{HTTP_HOST} ^olddomain\\.com$ [NC]\n`;
-            code += `RewriteRule ^(.*)$ ${newUrl}/$1 [R=301,L]\n`;
-        } 
-        else if (type === 'https') {
-            code += `RewriteCond %{HTTPS} off\n`;
-            code += `RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n`;
-        } 
-        else if (type === 'www') {
-            code += `RewriteCond %{HTTP_HOST} ^example\\.com [NC]\n`;
-            code += `RewriteRule ^(.*)$ https://www.example.com/$1 [R=301,L]\n`;
+            document.getElementById('riskWarning').style.display = 'none';
         }
 
-        // Client/Server Security Line & Security Headers Inclusion
-        if (includeSecurity) {
-            code += `\n# Client & Server Security Hardening Headers\n`;
-            code += `<IfModule mod_headers.c>\n`;
-            code += `    Header set X-Content-Type-Options "nosniff"\n`;
-            code += `    Header set X-Frame-Options "SAMEORIGIN"\n`;
-            code += `    Header set X-XSS-Protection "1; mode=block"\n`;
-            code += `</IfModule>\n`;
-        }
+        function generateCode() {
+            const type = document.getElementById('redirectType').value;
+            const oldUrl = document.getElementById('oldUrl').value.trim();
+            const newUrl = document.getElementById('newUrl').value.trim();
+            const includeSecurity = document.getElementById('securityHeaders').checked;
+            
+            let code = `RewriteEngine On\n`;
+            let warningMsg = "";
+            let hasWarning = false;
 
-        // Display Warning Box if triggered
-        const riskBox = document.getElementById('riskWarning');
-        if (hasWarning) {
-            document.getElementById('riskText').innerText = warningMsg;
-            riskBox.style.display = 'block';
-        } else {
-            riskBox.style.display = 'none';
-        }
+            // Unique Feature: Live Loop & Risk Detection
+            if (type === 'single') {
+                if (!oldUrl || !newUrl) {
+                    alert('Barah-e-karam dono fields mukammal bharein!');
+                    return;
+                }
+                if (oldUrl === newUrl || oldUrl + '/' === newUrl) {
+                    hasWarning = true;
+                    warningMsg = "Old URL aur New URL aik jaise hain! Yeh Infinite Redirect Loop (ERR_TOO_MANY_REDIRECTS) paida kar sakta hai.";
+                }
+                code += `Redirect 301 ${oldUrl} ${newUrl}\n`;
+            } 
+            else if (type === 'domain') {
+                if (!newUrl) {
+                    alert('Naya Destination URL lazmi darj karein!');
+                    return;
+                }
+                code += `RewriteCond %{HTTP_HOST} ^olddomain\\.com$ [NC]\n`;
+                code += `RewriteRule ^(.*)$ ${newUrl}/$1 [R=301,L]\n`;
+            } 
+            else if (type === 'https') {
+                code += `RewriteCond %{HTTPS} off\n`;
+                code += `RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n`;
+            } 
+            else if (type === 'www') {
+                code += `RewriteCond %{HTTP_HOST} ^example\\.com [NC]\n`;
+                code += `RewriteRule ^(.*)$ https://www.example.com/$1 [R=301,L]\n`;
+            }
 
-        document.getElementById('outputCode').value = code;
-    }
+            // Client & Server Security Hardening Headers
+            if (includeSecurity) {
+                code += `\n# Client & Server Security Hardenicode += `\n# Client & Server Security Hardening Headers\n`;
+code += `<IfModule mod_headers.c>\n`;
+code += `    Header set X-Content-Type-Options "nosniff"\n`;
+code += `    Header set X-Frame-Options "SAMEORIGIN"\n`;
+code += `    Header set X-XSS-Protection "1; mode=block"\n`;
+code += `</IfModule>\n`;
+}
 
-    function copyToClipboard() {
-        const textarea = document.getElementById('outputCode');
-        textarea.select();
-        document.execCommand('copy');
-        alert('Code successfully clipboard par copy ho gaya hai!');
-    }
-</script>
+const riskBox = document.getElementById('riskWarning');
+if (hasWarning) {
+    document.getElementById('riskText').innerText = warningMsg;
+    riskBox.style.display = 'block';
+} else {
+    riskBox.style.display = 'none';
+}
 
+document.getElementById('outputCode').value = code;
+}
+
+function copyToClipboard() {
+    const textarea = document.getElementById('outputCode');
+    textarea.select();
+    document.execCommand('copy');
+    alert('Code successfully clipboard par copy ho gaya hai!');
+}
+    </script>
 </body>
 </html>
