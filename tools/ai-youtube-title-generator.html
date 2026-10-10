@@ -70,7 +70,7 @@ nav a:hover{color:var(--emerald-dark)}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
 
 .result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
-.result-box input{margin-bottom:12px;font-weight:700}
+.result-box input{margin-bottom:16px;font-weight:700}
 .result-box textarea{width:100%;height:160px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical;color:var(--text)}
 
 .unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
@@ -156,17 +156,15 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="result-box">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
 <label for="ytTitleOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Generated YouTube Title</label>
-<button type="button" onclick="copyTitleOnly()" style="background:var(--navy);color:#fff;border:none;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer;">Copy Title</button>
+<button type="button" onclick="copyTitleOnly()" style="background:var(--emerald);color:#fff;border:none;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Copy Title</button>
 </div>
-<input type="text" id="ytTitleOutput" readonly style="margin-bottom:14px;">
+<input type="text" id="ytTitleOutput" readonly>
 
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
 <label for="ytDescOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Generated SEO Description &amp; Tags</label>
-<button type="button" onclick="copyDescOnly()" style="background:var(--navy);color:#fff;border:none;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer;">Copy Description</button>
+<button type="button" onclick="copyDescOnly()" style="background:var(--emerald);color:#fff;border:none;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Copy Description</button>
 </div>
-<textarea id="ytDescOutput" readonly style="margin-bottom:12px;"></textarea>
-
-<button type="button" class="calc-btn" onclick="copyYouTubeCode()">Copy Both (Title &amp; Description)</button>
+<textarea id="ytDescOutput" readonly></textarea>
 </div>
 
 <div class="security-badge">
@@ -369,16 +367,6 @@ function copyDescOnly() {
   descOut.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(descOut.value);
   alert('YouTube Description copied to clipboard successfully!');
-}
-
-function copyYouTubeCode() {
-  const titleOut = document.getElementById('ytTitleOutput');
-  const descOut = document.getElementById('ytDescOutput');
-  if (!titleOut || !descOut) return;
-
-  const fullText = `Title: ${titleOut.value}\n\nDescription:\n${descOut.value}`;
-  navigator.clipboard.writeText(fullText);
-  alert('Full Title & Description copied to clipboard successfully!');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
