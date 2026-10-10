@@ -186,14 +186,14 @@ Analyzing redirect rules and syntax integrity...
 <div class="formula-box">
 <strong>Core SEO &amp; Redirect Formulas:</strong>
 1. Link Equity Retention Rate (Single 301):<br>
-   • $E_{final} \approx 0.99 \times E_{initial}$<br><br>
+   • E_final ≈ 0.99 × E_initial<br><br>
 2. Redirect Cascade Decay (Multiple Hops):<br>
-   • $E_{cascade} = E_{initial} \times (0.85)^n$<br><br>
+   • E_cascade = E_initial × (0.85)^n<br><br>
 3. Server Response Priority Rule:<br>
    • 301 Permanent > 302 Temporary (Passes 100% vs 0-15% equity).
 </div>
 
-<p>Avoid multi-hop redirect chains ($A \rightarrow B \rightarrow C$). Each extra redirect hop degrades crawl efficiency and causes a minor loss in PageRank equity.</p>
+<p>Avoid multi-hop redirect chains (A → B → C). Each extra redirect hop degrades crawl efficiency and causes a minor loss in PageRank equity.</p>
 
 <h2>Global .htaccess &amp; HTTP Status Reference Matrix</h2>
 <p>The table below outlines essential Apache directives and HTTP status codes used in modern web server configuration:</p>
@@ -307,9 +307,12 @@ function toggleInputs() {
 
 function generateHtaccess() {
   const type = document.getElementById('redirectType').value;
-  const oldPath = document.getElementById('oldPath').value.trim();
-  const newPath = document.getElementById('newPath').value.trim();
+  const oldPathEl = document.getElementById('oldPath');
+  const newPathEl = document.getElementById('newPath');
   const outputEl = document.getElementById('htaccessOutput');
+
+  const oldPath = oldPathEl ? oldPathEl.value.trim() : '';
+  const newPath = newPathEl ? newPathEl.value.trim() : '';
 
   let rules = "";
   let radarHTML = "";
@@ -340,8 +343,9 @@ function generateHtaccess() {
     radarHTML = `🟢 <strong>Migration Ready:</strong> Full domain-to-domain wildcard redirection rule generated successfully. Ensure DNS remains active during migration.`;
   }
 
-  outputEl.textContent = rules;
-  document.getElementById('radarOutput').innerHTML = radarHTML;
+  if (outputEl) outputEl.textContent = rules;
+  const radarEl = document.getElementById('radarOutput');
+  if (radarEl) radarEl.innerHTML = radarHTML;
 }
 
 function escapeRegExp(string) {
@@ -370,10 +374,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
+  localStorage.setItem('cookiesAccept', 'true');
   const cb = document.getElementById('cookieConsent');
-  if (cb) cb.style.display = ''flex';
-  }
+  if (cb) cb.style.display = 'none';
 }
 </script>
 
