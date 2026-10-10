@@ -321,7 +321,6 @@ function combineKeywords() {
 
   let combined = [];
 
-  // Permutation logic
   if (list1.length > 0 && list2.length > 0 && list3.length > 0) {
     list1.forEach(i1 => {
       list2.forEach(i2 => {
@@ -344,11 +343,9 @@ function combineKeywords() {
     });
   }
 
-  // Remove duplicates
   let uniqueKeywords = [...new Set(combined)];
   outputEl.value = uniqueKeywords.join('\n');
 
-  // Live Auditor
   let radarHTML = "";
   if (uniqueKeywords.length === 0) {
     radarHTML = `🔴 <strong>Warning:</strong> No input lists detected. Please enter terms in List 1 or List 2 to generate keyword permutations.`;
@@ -390,7 +387,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputs = document.querySelectorAll('textarea, input[type="checkbox"]');
   inputs.forEach(el => {
     el.addEventListener('input', combineKeywords);
-    el.addEventListener('change', combineKeywords);});
+    el.addEventListener('change', combineKeywords);
+  });
+});
 
 function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
