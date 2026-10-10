@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free QR Code Generator with Logo &amp; Customizer | SmartToolsKit</title>
+<meta name="description" content="Generate custom QR codes with center logos, adjustable error correction, and instant PNG downloads using our free online QR Code Generator tool.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/qr-code-generator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/qr-code-generator.html">
+<meta property="og:title" content="Free QR Code Generator with Logo | SmartToolsKit">
+<meta property="og:description" content="Create branded QR codes with custom logos and instant downloads effortlessly with our browser-based tool.">
+
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "QR Code Generator",
+    "item": "https://smarttoolskit.com/tools/qr-code-generator.html"
+  }]
+}
+</script>
+
+<!-- QRCode.js Library CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group select, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text)}
+.form-group textarea{height:90px;resize:vertical}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{border-color:var(--emerald)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
+
+.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
+.calc-btn:hover{background:var(--emerald-dark)}
+
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:25px;margin-top:20px;text-align:center}
+.qr-display{display:flex;justify-content:center;align-items:center;margin:20px 0;background:#fff;padding:20px;border-radius:12px;border:1px solid var(--border);min-height:220px;position:relative}
+#qrcode canvas{display:block;margin:auto}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6;text-align:left}
+
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
+
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
+
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<div class="tool-container">
+<h1>AI QR Code Generator &amp; Logo Customizer</h1>
+<p class="subtitle">Generate custom QR codes with text, URLs, error correction control, and center brand logos instantly.</p>
+
+<div class="form-group">
+<label for="qrText">QR Code Content (URL or Text)</label>
+<textarea id="qrText" placeholder="Enter website URL or text...">https://smarttoolskit.com/</textarea>
+</div>
+
+<div class="grid-2">
+<div class="form-group">
+<label for="errorLevel">Error Correction Level</label>
+<select id="errorLevel" onchange="makeCode()">
+<option value="L">Low (7% recovery)</option>
+<option value="M" selected>Medium (15% recovery)</option>
+<option value="Q">Quartile (25% recovery)</option>
+<option value="H">High (30% recovery - Best for Logos)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="logoUpload">Upload Center Logo (Optional)</label>
+<input type="file" id="logoUpload" accept="image/*" onchange="handleLogoUpload(event)">
+</div>
+</div>
+
+<div class="result-box">
+<label style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;display:block;">Generated QR Code Preview</label>
+<div class="qr-display" id="qrcodeContainer">
+<div id="qrcode"></div>
+</div>
+<button type="button" class="calc-btn" onclick="downloadQRCode()" style="max-width:250px;margin:auto;">Download QR Code (PNG)</button>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All QR code matrix calculations, logo overlays, and image renderings run entirely inside your browser client-side. No user data, links, or image files are stored externally.
+</div>
+
+<div class="unique-section">
+<h3>🚀 Unique Feature: Live Error Correction &amp; Scannability Auditor</h3>
+<p>Our intelligent client-side auditor checks your data payload length, evaluates error correction resilience, and calculates ideal print dimensions in real time.</p>
+<div class="radar-box" id="radarOutput">
+Analyzing QR data density and scannability...
+</div>
+</div>
+</div>
+
+<div class="content-section">
+<h2>Mastering QR Code Marketing, Branding, and Scannability Optimization</h2>
+<p>In modern digital marketing and physical-to-digital (O2O) campaigns, Quick Response (QR) codes have become the ultimate bridge. Whether placed on product packaging, restaurant menus, business cards, or billboard advertisements, QR codes allow users to access websites, digital portfolios, or contact forms instantly with a single smartphone camera scan. An <strong>AI QR Code Generator</strong> simplifies this process by giving creators full control over data encoding, error correction resilience, and brand logo integration.</p>
+
+<p>For marketing professionals and business owners, generic black-and-white QR codes often blend into background designs and lack brand identity. By embedding a custom center logo and adjusting error correction levels, brands can create visually striking, trustworthy, and recognizable QR codes that drive significantly higher scan-through rates (STR).</p>
+
+<h2>Why Error Correction Levels and Center Logos Matter</h2>
+<p>QR codes use Reed-Solomon error correction algorithms to reconstruct damaged or obscured data. There are four distinct error correction levels: Low (L - 7%), Medium (M - 15%), Quartile (Q - 25%), and High (H - 30%). When you upload a center logo to brand your QR code, the logo physically covers a portion of the code matrix. Selecting High (H) error correction ensures that even with a logo covering up to 30% of the center, the scanner can still decode the underlying data effortlessly.</p>
+
+<p>Our built-in <strong>Live Scannability Auditor</strong> inspects your payload length in real time, alerting you if your text exceeds optimal density thresholds for reliable scanning.</p>
+
+<h2>The Mathematical Logic of QR Code Data Density and Matrix Modules</h2>
+<p>To evaluate QR code scannability and storage capacity during advanced digital deployments, engineers use standard quantitative formulas:</p>
+
+<div class="formula-box">
+<strong>Core QR Code Optimization Formulas:</strong>
+1. Version Matrix Dimension ($V_d$):<br>
+   • $V_d = 4 \times \text{Version} + 17$ (ranging from Version 1 [21x21] to Version 40 [177x177])<br><br>
+2. Data Capacity Limit ($C_{max}$):<br>
+   • Determined by Version size, Character Mode (Alphanumeric/Binary), and Error Correction Level.<br><br>
+3. Minimum Print Size ($S_{min}$):<br>
+   • $S_{min} = \frac{\text{Scanning Distance (cm)}}{10}$ (Ensures camera sensor resolution compatibility)
+</div>
+
+<p>Maintaining proper contrast ratios (dark modules on a light background) and keeping data payloads concise guarantees sub-second scanning across all mobile devices.</p>
+
+<h2>Global QR Code Standards &amp; Reference Matrix</h2>
+<p>The table below outlines essential QR code error correction levels and their primary operational use cases:</p>
+
+<table class="content-table">
+<thead>
+<tr>
+<th>Error Correction Level</th>
+<th>Recovery Capacity</th>
+<th>Primary Use Case &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Level L (Low)</strong></td>
+<td>~ 7% of data restored</td>
+<td>Clean digital displays, high-density inventory tracking where space is critical</td>
+</tr>
+<tr>
+<td><strong>Level M (Medium)</strong></td>
+<td>~ 15% of data restored</td>
+<td>Standard marketing flyers, posters, and general web link redirection</td>
+</tr>
+<tr>
+<td><strong>Level Q (Quartile)</strong></td>
+<td>~ 25% of data restored</td>
+<td>Outdoor signage prone to weather wear, slight grime, or partial scratching</td>
+</tr>
+<tr>
+<td><strong>Level H (High)</strong></td>
+<td>~ 30% of data restored</td>
+<td>Branded QR codes with center logos, product packaging, and luxury collateral</td>
+</tr>
+<tr>
+<td><strong>Alphanumeric Mode</strong></td>
+<td>Optimized for A-Z, 0-9</td>
+<td>Optimized encoding for serial numbers, ticket codes, and SMS strings</td>
+</tr>
+<tr>
+<td><strong>Binary / Byte Mode</strong></td>
+<td>Optimized for 8-bit data</td>
+<td>Standard encoding for URLs, vCards, Wi-Fi credentials, and rich text</td>
+</tr>
+</tbody>
+</table>
+
+<h2>How to Use the QR Code Generator Tool</h2>
+<p>Creating custom branded QR codes with our tool is fast, seamless, and intuitive:</p>
+<ul>
+<li><strong>Enter Content:</strong> Input your destination URL, text message, or contact data into the content box.</li>
+<li><strong>Select Error Correction:</strong> Choose your error correction level (Select 'High' if adding a logo).</li>
+<li><strong>Upload Logo:</strong> Optionally upload your brand logo image to display in the center of the QR code.</li>
+<li><strong>Download &amp; Deploy:</strong> Review our live scannability auditor, then download your high-resolution PNG instantly!</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Is my QR code data private and secure?</h3>
+<p>Yes! All QR matrix calculations, logo rendering, and image generation run entirely inside your browser client-side. No personal data, URLs, or image files are ever transmitted to external servers.</p>
+
+<h3>2. Can I scan a QR code with a logo covering the center?</h3>
+<p>Yes! As long as you select 'High' (H) error correction, the QR code can sustain up to 30% obstruction in the center while remaining fully scannable by all smartphones.</p>
+
+<h3>3. What is the best file format for printing QR codes?</h3>
+<p>PNG format generated by our tool is exceptionally crisp and ready for high-resolution printing on business cards, posters, and product packaging.</p>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
+  </div>
+  <script>
+let qrInstance = null;
+let uploadedLogoSrc = "";
+
+function makeCode() {
+  const textEl = document.getElementById('qrText');
+  const errorEl = document.getElementById('errorLevel');
+  const qrcodeDiv = document.getElementById('qrcode');
+  const radarEl = document.getElementById('radarOutput');
+
+  if (!qrcodeDiv) return;
+
+  const text = textEl ? textEl.value.trim() || 'https://smarttoolskit.com/' : 'https://smarttoolskit.com/';
+  const errorCorrection = errorEl ? errorEl.value : 'M';
+
+  qrcodeDiv.innerHTML = "";
+
+  // Map error correction string to QRCode library constants
+  let correctLevel = QRCode.CorrectLevel.M;
+  if (errorCorrection === 'L') correctLevel = QRCode.CorrectLevel.L;
+  if (errorCorrection === 'Q') correctLevel = QRCode.CorrectLevel.Q;
+  if (errorCorrection === 'H') correctLevel = QRCode.CorrectLevel.H;
+
+  qrInstance = new QRCode(qrcodeDiv, {
+    text: text,
+    width: 220,
+    height: 220,
+    colorDark: "#0F172A",
+    colorLight: "#ffffff",
+    correctLevel: correctLevel
+  });
+
+  // Handle center logo drawing if uploaded
+  setTimeout(() => {
+    if (uploadedLogoSrc) {
+      drawLogoOnQR();
+    }
+  }, 100);
+
+  // Live Scannability & Error Correction Auditor
+  let charCount = text.length;
+  let radarHTML = "";
+
+  if (charCount > 120 && errorCorrection === 'H') {
+    radarHTML = `🟡 <strong>Density Notice:</strong> Payload is <strong>${charCount} characters</strong> with 'High' error correction. Consider shortening the URL or text for faster mobile scanning.`;
+  } else if (uploadedLogoSrc && errorCorrection !== 'H') {
+    radarHTML = `⚠️ <strong>Logo Warning:</strong> You uploaded a center logo but error correction is set to <strong>${errorCorrection}</strong>. Switch to 'High (H)' to ensure 100% scannability.`;
+  } else {
+    radarHTML = `🟢 <strong>Scannability Optimal:</strong> Payload length (${charCount} chars) and error correction level (${errorCorrection}) are perfectly balanced for high-speed scanning!`;
+  }
+
+  if (radarEl) radarEl.innerHTML = radarHTML;
+}
+
+function handleLogoUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    uploadedLogoSrc = e.target.result;
+    makeCode();
+  };
+  reader.readAsDataURL(file);
+}
+
+function drawLogoOnQR() {
+  const qrcodeDiv = document.getElementById('qrcode');
+  const canvas = qrcodeDiv.querySelector('canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const img = new Image();
+  img.src = uploadedLogoSrc;
+  img.onload = function() {
+    const size = 50; // logo size in center
+    const x = (canvas.width - size) / 2;
+    const y = (canvas.height - size) / 2;
+
+    // Draw white background box for logo clarity
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(x - 4, y - 4, size + 8, size + 8);
+
+    ctx.drawImage(img, x, y, size, size);
+  };
+}
+
+function downloadQRCode() {
+  const qrcodeDiv = document.getElementById('qrcode');
+  const canvas = qrcodeDiv.querySelector('canvas');
+  if (!canvas) {
+    alert('Please generate a QR code first!');
+    return;
+  }
+
+  const link = document.createElement('a');
+  link.download = 'smarttoolskit-qr-code.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+  makeCode();
+
+  const textEl = document.getElementById('qrText');
+  if (textEl) {
+    textEl.addEventListener('input', makeCode);
+  }
+});
+
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
