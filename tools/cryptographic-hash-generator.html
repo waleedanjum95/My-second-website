@@ -301,7 +301,6 @@ Analyzing cryptographic hash collision resistance and security ratings...
 </div>
 
 <script>
-// Simple compact MD5 implementation for client-side hashing
 function md5(string) {
   function rotateLeft(lValue, iShiftBits) {
     return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
@@ -373,8 +372,8 @@ function md5(string) {
   }
   let x = [];
   let k, AA, BB, CC, DD, a, b, c, d;
-  let S11  = 7, S12 = 12, S13 = 17, S14 = 22;
-  let S21 = 5, S22 = 9, S23 = 14, S24 = 20;
+  let S11 = 7, S12 = 12, S13 = 17, S14 = 22;
+  let S21 = 5, S22 = 9, S2S23 = 14, S24 = 20;
   let S31 = 4, S32 = 11, S33 = 16, S34 = 23;
   let S41 = 6, S42 = 10, S43 = 15, S44 = 21;
   string = unescape(encodeURIComponent(string));
@@ -465,23 +464,18 @@ async function digestMessage(message, algorithm) {
 async function generateHashes() {
   const text = document.getElementById('inputText').value;
   
-  // MD5
   const md5Hash = md5(text);
   document.getElementById('md5Val').textContent = md5Hash;
 
-  // SHA-1
   const sha1Hash = await digestMessage(text, 'SHA-1');
   document.getElementById('sha1Val').textContent = sha1Hash;
 
-  // SHA-256
   const sha256Hash = await digestMessage(text, 'SHA-256');
   document.getElementById('sha256Val').textContent = sha256Hash;
 
-  // SHA-512
   const sha512Hash = await digestMessage(text, 'SHA-512');
   document.getElementById('sha512Val').textContent = sha512Hash;
 
-  // Audit evaluation
   const radarEl = document.getElementById('radarOutput');
   if (radarEl) {
     let risk = "Low (Using SHA-256/SHA-512)";
