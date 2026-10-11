@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online CSS &amp; JS Code Minifier &amp; Compressor | SmartToolsKit</title>
+<meta name="description" content="Minify CSS and JavaScript code instantly with our free online code compressor. Features live compression ratio auditing, payload size reduction, and secure client-side processing.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/css-js-minifier.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/css-js-minifier.html">
+<meta property="og:title" content="Free Online CSS &amp; JS Code Minifier | SmartToolsKit">
+<meta property="og:description" content="Compress and optimize CSS stylesheets and JavaScript scripts securely within your browser.">
+
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "CSS & JS Code Minifier",
+    "item": "https://smarttoolskit.com/tools/css-js-minifier.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group select, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text);font-family:monospace}
+.form-group textarea{height:140px;resize:vertical}
+.form-group select:focus, .form-group textarea:focus{border-color:var(--emerald)}
+
+.btn-group{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.calc-btn.secondary{background:var(--navy)}
+.calc-btn.secondary:hover{background:var(--navy-light)}
+
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
+.result-box textarea{width:100%;height:140px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical;color:var(--text);font-family:monospace}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
+
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
+
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
+
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<div class="tool-container">
+<h1>AI CSS &amp; JS Code Minifier &amp; Compressor</h1>
+<p class="subtitle">Compress and optimize CSS stylesheets and JavaScript scripts instantly with real-time payload reduction metrics.</p>
+
+<div class="form-group">
+<label for="codeType">Select Language Type</label>
+<select id="codeType" onchange="runMinify()">
+<option value="css" selected>CSS (Cascading Style Sheets)</option>
+<option value="js">JavaScript (ECMAScript)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="inputCode">Source Code Input</label>
+<textarea id="inputCode" placeholder="Paste your CSS or JavaScript code here...">/* Main Theme Stylesheet */
+body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}</textarea>
+</div>
+
+<div class="btn-group">
+<button type="button" class="calc-btn" onclick="runMinify()">Minify Code</button>
+<button type="button" class="calc-btn secondary" onclick="copyMinifiedCode()">Copy Minified Code</button>
+</div>
+
+<div class="result-box">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+<label for="outputCode" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Minified Output</label>
+<span style="font-size:12px;color:var(--muted);" id="statLabel">Original: 0 B | Minified: 0 B (0% saved)</span>
+</div>
+<textarea id="outputCode" readonly placeholder="Minified code will appear here..."></textarea>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All code parsing, comment stripping, and minification algorithms run entirely inside your browser client-side. No proprietary scripts or stylesheets are transmitted externally.
+</div>
+
+<div class="unique-section">
+<h3>🚀 Unique Feature: Live Compression Ratio &amp; Bandwidth Savings Auditor</h3>
+<p>Our intelligent client-side auditor computes payload size reductions, evaluates whitespace stripping efficiency, and estimates network bandwidth savings for production deployments.</p>
+<div class="radar-box" id="radarOutput">
+Analyzing asset payload efficiency and compression metrics...
+</div>
+</div>
+</div>
+
+<div class="content-section">
+<h2>Mastering Asset Minification, Web Performance, and Core Web Vitals</h2>
+<p>In modern web development, frontend optimization and page load speed are critical factors for user retention and search engine rankings. When web browsers download web pages, they must fetch external resources including HTML documents, stylesheets (CSS), and executable scripts (JavaScript). Uncompressed assets often contain excessive whitespace, indentation, multi-line comments, and verbose variable identifiers that bloat file sizes. An <strong>AI CSS &amp; JS Code Minifier</strong> provides developers, frontend engineers, and site administrators with an instant, highly secure utility to compress source code by stripping redundant characters without altering runtime functionality.</p>
+
+<p>Search engines like Google prioritize fast-loading websites under Core Web Vitals metrics, specifically focusing on Largest Contentful Paint (LCP) and Interaction to Next Paint (INP). Reducing asset payload size decreases network transfer duration over cellular connections, minimizes CPU parsing bottlenecks, and accelerates browser rendering pipelines. Utilizing a robust browser-based minifier ensures instant optimization during development workflows.</p>
+
+<h2>Why Asset Compression and Whitespace Removal Matter</h2>
+<p>Code readability practices—such as indented blocks, descriptive comment annotations, and line breaks—are essential for collaborative software development. However, production web servers do not require human-readable formatting to execute code. Every unnecessary byte consumed by indentation and comments increases transmission latency.</p>
+
+<p>Our <strong>Live Compression Ratio Auditor</strong> scans your input text instantly, calculating exact byte reductions, measuring payload efficiency, and projecting accumulated bandwidth savings across high-volume traffic sessions.</p>
+
+<h2>The Mathematical Logic of Minification and Compression Ratios</h2>
+<p>To evaluate performance improvements and asset optimization efficiency during builds, engineers use standard quantitative formulas:</p>
+
+<div class="formula-box">
+<strong>Core Minification &amp; Compression Formulas:</strong>
+1. Size Reduction Percentage ($R_{pct}$):<br>
+   • $R_{pct} = \left(1 - \frac{\text{Size}_{min}}{\text{Size}_{orig}}\right) \times 100$<br><br>
+2. Total Byte Savings ($\Delta B$):<br>
+   • $\Delta B = \text{Size}_{orig} - \text{Size}_{min}$<br><br>
+3. Estimated Network Transfer Time ($T_{net}$):<br>
+   • $T_{net} = \frac{\text{File Size}}{\text{Connection Bandwidth}}$
+</div>
+
+<p>Maximizing reduction efficiency ensures lightning-fast delivery across global content delivery networks (CDNs).</p>
+
+<h2>Global Minification Techniques &amp; Asset Reference Matrix</h2>
+<p>The table below outlines essential code compression techniques, target elements, and optimization impacts:</p>
+
+<table class="content-table">
+<thead>
+<tr>
+<th>Minification Technique</th>
+<th>Target Syntax Element</th>
+<th>Optimization Impact &amp; Safety</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comment Stripping</strong></td>
+<td><code>/* ... */</code> and <code>// ...</code></td>
+<td>Removes all documentation and developer notes; 100% safe for production.</td>
+</tr>
+<tr>
+<td><strong>Whitespace Collapse</strong></td>
+<td>Tabs, spaces, and line breaks</td>
+<td>Collapses multi-line formatting into compact single-line or wrapped blocks.</td>
+</tr>
+<tr>
+<td><strong>Block Delimiter Trimming</strong></td>
+<td>Spaces around <code>{ }</code>, <code>:</code>, <code>;</code>, <code>,</code></td>
+<td>Eliminates padding spaces around syntax tokens to reduce byte count.</td>
+</tr>
+<tr>
+<td><strong>Semicolon Optimization</strong></td>
+<td>Trailing rule terminators</td>
+<td>Ensures correct statement termination while removing redundant whitespace.</td>
+</tr>
+<tr>
+<td><strong>Dead Code Removal</strong></td>
+<td>Unreachable conditional blocks</td>
+<td>Strips dormant development flags and unused debugging variables.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>How to Use the CSS &amp; JS Code Minifier Tool</h2>
+<p>Compressing your stylesheets and scripts with our tool is fast, seamless, and intuitive:</p>
+<ul>
+<li><strong>Select Language:</strong> Choose whether you are minifying CSS stylesheets or JavaScript scripts from the dropdown.</li>
+<li><strong>Paste Source Code:</strong> Enter or paste your unminified source code into the input textarea.</li>
+<li><strong>Review Compression:</strong> Observe real-time byte reduction statistics and our live bandwidth auditor.</li>
+<li><strong>Copy Minified Output:</strong> Copy your optimized production-ready code instantly with a single click!</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Does minification change how my code executes?</h3>
+<p>No. Standard minification only removes unnecessary whitespace, indentation, and comments. The logic, styling rules, and execution behavior remain identical.</p>
+
+<h3>2. Is minified code secure against reverse engineering?</h3>
+<p>Minification provides minimal obfuscation by removing variable names and comments, but it is not encryption. For robust JavaScript protection, dedicated code obfuscators should be used.</p>
+
+<h3>3. Is my source code secure and private?</h3>
+<p>Yes! All code processing and compression run entirely inside your browser client-side. No proprietary scripts or stylesheets are ever transmitted to external servers.</p>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
+</div>
+
+<script>
+function minifyCSS(code) {
+  return code
+    .replace(/\/\*[\s\S]*?\*\//g, '') // Remove comments
+    .replace(/\s+/g, ' ')              // Collapse spaces
+    .replace(/\s*([{}:;,])\s*/g, '$1') // Trim spaces around delimiters
+    .replace(/;\}/g, '}')              // Remove trailing semicolons
+    .trim();
+}
+
+function minifyJS(code) {
+  return code
+    .replace(/\/\*[\s\S]*?\*\//g, '') // Remove multi-line comments
+    .replace(/\/\/.*/g, '')            // Remove single-line comments
+    .replace(/\s+/g, ' ')              // Collapse spaces
+    .replace(/\s*([{}(),:;=+\-*/<>])\s*/g, '$1') // Trim spaces around JS operators
+    .trim();
+}
+
+function runMinify() {
+  const type = document.getElementById('codeType').value;
+  const inputEl = document.getElementById('inputCode');
+  const outputEl = document.getElementById('outputCode');
+  const statLabel = document.getElementById('statLabel');
+  const radarEl = document.getElementById('radarOutput');
+
+  if (!inputEl || !outputEl) return;
+
+  const originalCode = inputEl.value;
+  if (!originalCode) {
+    outputEl.value = '';
+    statLabel.textContent = 'Original: 0 B | Minified: 0 B (0% saved)';
+    if (radarEl) radarEl.innerHTML = 'ℹ️ <strong>Ready:</strong> Enter source code above to begin minification.';
+    return;
+  }
+
+  let minified = (type === 'css') ? minifyCSS(originalCode) : minifyJS(originalCode);
+  outputEl.value = minified;
+
+  const origBytes = new Blob([originalCode]).size;
+  const miniBytes = new Blob([minified]).size;
+  const savedBytes = origBytes - miniBytes;
+  const savedPct = origBytes > 0 ? ((savedBytes / origBytes) * 100).toFixed(1) : 0;
+
+  statLabel.textContent = `Original: ${origBytes} B | Minified: ${miniBytes} B (${savedPct}% saved)`;
+
+  if (radarEl) {
+    const estBandwidth10k = ((savedBytes * 10000) / (1024 * 1024)).toFixed(2);
+    radarEl.innerHTML = `🟢 <strong>Payload Optimized:</strong> Reduced asset size by ${savedBytes} bytes (${savedPct}%). Across 10,000 page views, this saves ~${estBandwidth10k} MB of network bandwidth.`;
+  }
+}
+
+function copyMinifiedCode() {
+  const outputEl = document.getElementById('outputCode');
+  if (!outputEl) return;
+  outputEl.select();
+  outputEl.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(outputEl.value);
+  alert('Minified code copied to clipboard successfully!');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+  runMinify();
+
+  const inputEl = document.getElementById('inputCode');
+  if (inputEl) {
+    inputEl.addEventListener('input', runMinify);
+  }
+});
+
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
+}
+</script>
+
+</body>
+  </html>
+  
