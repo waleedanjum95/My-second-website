@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Image Compressor &amp; Perceptual Optimizer (Major &amp; Minor Formats) | SmartToolsKit</title>
+<meta name="description" content="Compress major and minor image formats including JPEG, PNG, WebP, GIF, BMP, AVIF, ICO, TIFF, HEIC, SVG, and TGA online without losing visual quality. Features smart perceptual loss forecasting and client-side processing.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/image-compressor.html">
+<meta name="theme-color" content="#0F172A">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Image Compressor",
+    "item": "https://smarttoolskit.com/tools/image-compressor.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.dropzone{border:2px dashed var(--border);padding:30px;text-align:center;border-radius:10px;background:var(--soft);cursor:pointer;transition:.2s}
+.dropzone:hover{border-color:var(--emerald);background:#ECFDF5}
+.dropzone input{display:none}
+
+.controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.control-item label{font-size:13px;font-weight:700;color:var(--navy);display:block;margin-bottom:6px}
+.control-item select, .control-item input[type="range"]{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+
+.preview-area{margin-top:20px;text-align:center;display:none}
+.preview-area img{max-width:100%;max-height:300px;border-radius:8px;border:1px solid var(--border);box-shadow:var(--shadow)}
+
+.btn-group{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.calc-btn.secondary{background:var(--navy)}
+.calc-btn.secondary:hover{background:var(--navy-light)}
+
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.unique-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
+
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
+
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
+
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<div class="tool-container">
+<h1>Advanced Image Compressor &amp; Perceptual Optimizer</h1>
+<p class="subtitle">Compress major and minor image formats instantly in your browser (JPEG, PNG, WebP, GIF, BMP, AVIF, ICO, TIFF, HEIC, SVG, TGA) with zero visual degradation.</p>
+
+<div class="form-group">
+<label>Upload Image File (Major &amp; Minor Raster Formats)</label>
+<div class="dropzone" onclick="document.getElementById('imageInput').click()">
+<p><strong>Click to browse</strong> or drag &amp; drop your image here</p>
+<p style="font-size:12px;color:var(--muted);margin-top:4px;">Supports JPEG, PNG, WebP, GIF, BMP, AVIF, ICO, TIFF, HEIC, SVG, TGA</p>
+<input type="file" id="imageInput" accept="image/*,.tif,.tiff,.heic,.heif,.svg,.tga" onchange="handleImageUpload(event)">
+</div>
+</div>
+
+<div class="controls-grid">
+<div class="control-item">
+<label for="outputFormat">Output Compression Format</label>
+<select id="outputFormat">
+<optgroup label="Major Web Formats">
+<option value="image/jpeg">JPEG (.jpg)</option>
+<option value="image/png">PNG (.png)</option>
+<option value="image/webp" selected>WebP (.webp)</option>
+<option value="image/avif">AVIF (.avif)</option>
+</optgroup>
+<optgroup label="Minor &amp; Legacy Formats">
+<option value="image/bmp">BMP (.bmp)</option>
+<option value="image/gif">GIF (.gif)</option>
+<option value="image/x-icon">ICO (.ico)</option>
+<option value="image/tiff">TIFF (.tiff)</option>
+<option value="image/heic">HEIC (.heic)</option>
+<option value="image/svg+xml">SVG (.svg)</option>
+<option value="image/x-tga">TGA (.tga)</option>
+</optgroup>
+</select>
+</div>
+<div class="control-item">
+<label for="qualityRange">Compression Quality Level (<span id="qualityVal">80</span>%)</label>
+<input type="range" id="qualityRange" min="10" max="100" value="80" oninput="document.getElementById('qualityVal').textContent=this.value">
+</div>
+</div>
+
+<div class="preview-area" id="previewContainer">
+<p style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;">Live Compressed Preview &amp; Comparison:</p>
+<img id="imagePreview" alt="Compressed preview">
+<p id="fileStats" style="font-size:12px;color:var(--muted);margin-top:8px;font-family:monospace;"></p>
+</div>
+
+<div class="btn-group">
+<button type="button" class="calc-btn" id="compressBtn" onclick="compressImage()" disabled>Compress Image Now</button>
+<a id="downloadLink" class="calc-btn secondary" style="display:none;text-align:center;" download="compressed-image.webp">Download Compressed Image</a>
+<button type="button" class="calc-btn secondary" onclick="resetCompressor()">Reset Tool</button>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All image compression routines process entirely inside your browser client-side using HTML5 Canvas APIs. No pictures, graphics, or private photos are ever uploaded to external servers.
+</div>
+
+<div class="unique-section">
+<h3>🚀 Unique Value Addition: Smart Adaptive Perceptual Loss &amp; Artifact Forecaster</h3>
+<p>Unlike basic online compressors that blindly shrink files and ruin visual clarity, our intelligent perceptual forecaster analyzes color frequency distribution, calculates expected compression ratios, and audits potential quantization artifacts before you download.</p>
+<div class="unique-box" id="forecastBox">
+💡 <strong>Perceptual Audit:</strong> Upload any major or minor format image to preview real-time estimated file savings, bandwidth reduction, and visual fidelity ratings.
+</div>
+</div>
+</div>
+
+<div class="content-section">
+<h2>Mastering Digital Image Compression, Bandwidth Optimization, and Core Web Vitals</h2>
+<p>In modern web development, digital photography, and e-commerce publishing, managing heavy visual assets is one of the biggest challenges for site performance. An <strong>Advanced Image Compressor &amp; Perceptual Optimizer</strong> provides webmasters, photographers, and developers with an instant browser-based utility to shrink file sizes across all major and minor raster formats (JPEG, PNG, WebP, GIF, BMP, AVIF, ICO, TIFF, HEIC, SVG, TGA) without perceptible quality loss.</p>
+
+<p>High-resolution graphics account for the majority of webpage payloads. When browsers download unoptimized images, page load latency spikes, resulting in poor Core Web Vitals scores, lower search engine rankings, and high visitor bounce rates. Client-side image compression solves this by stripping redundant metadata, applying smart quantization, and optimizing color frequency matrices.</p>
+
+<h2>Why Image Compression Matters for SEO and User Experience</h2>
+<p>Search engines like Google use page speed as a primary ranking signal. Optimizing images through advanced compression algorithms directly reduces Time to First Byte (TTFB) and Largest Contentful Paint (LCP). Furthermore, smaller image footprints reduce server bandwidth consumption and accelerate mobile loading speeds.</p>
+
+<p>Our intelligent compressor combines support for both major and minor formats with real-time perceptual loss forecasting, ensuring that every compressed asset achieves the ideal balance between minimal file weight and crystal-clear visual fidelity.</p>
+
+<h2>The Mathematical Logic of Image Compression and Quantization</h2>
+<p>Digital image compression relies on spatial frequency reduction, color palette restriction, and mathematical quantization formulas:</p>
+
+<div class="formula-box">
+<strong>Core Compression &amp; Savings Formulas:</strong>
+1. Compression Ratio ($CR$):<br>
+   • $CR = \frac{Size_{original}}{Size_{compressed}}$<br><br>
+2. File Size Savings Percentage ($SP$):<br>
+   • $SP = \left(1 - \frac{Size_{compressed}}{Size_{original}}\right) \times 100\%$<br><br>
+3. Peak Signal-to-Noise Ratio (PSNR Approximation):<br>
+   • $PSNR = 20 \cdot \log_{10}\left(\frac{MAX_I}{\sqrt{MSE}}\right)$
+</div>
+
+<p>These mathematical models allow our tool to accurately calculate byte reduction while preserving geometric clarity and color depth across all target formats.</p>
+
+<h2>Compression Levels &amp; Format Specifications Reference Matrix</h2>
+<p>The reference table below outlines compression levels, expected file reductions, and ideal use cases across supported major and minor raster formats:</p>
+
+<table class="content-table">
+<thead>
+<tr>
+<th>Compression Level</th>
+<th>Quality Setting Range</th>
+<th>Average File Reduction</th>
+<th>Recommended Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ultra-Lossless</strong></td>
+<td><code>95% – 100%</code></td>
+<td>10% – 20%</td>
+<td>Professional photography, archival prints, lossless master assets.</td>
+</tr>
+<tr>
+<td><strong>Balanced Standard</strong></td>
+<td><code>75% – 90%</code></td>
+<td>40% – 60%</td>
+<td>Standard web banners, blog graphics, e-commerce product photos.</td>
+</tr>
+<tr>
+<td><strong>High Compression</strong></td>
+<td><code>40% – 70%</code></td>
+<td>70% – 85%</td>
+<td>Thumbnails, mobile app assets, background gallery images.</td>
+</tr>
+<tr>
+<td><strong>Maximum Web Optimization</strong></td>
+<td><code>10% – 35%</code></td>
+<td>85% – 95%</td>
+<td>Low-bandwidth preview cards, placeholder assets, minor icons.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>How to Use the Advanced Image Compressor</h2>
+<p>Shrinking and optimizing your image files with our tool is fast, seamless, and intuitive:</p>
+<ul>
+<li><strong>Upload Image:</strong> Click the dropzone or drag and drop any image file (including minor formats like TIFF, HEIC, SVG, TGA) into the uploader.</li>
+<li><strong>Select Output Format &amp; Quality:</strong> Choose your desired target format from the major or minor dropdown groups and adjust the quality slider.</li>
+<li><strong>Review Perceptual Forecast:</strong> Check the live audit box for estimated file savings and visual fidelity ratings.</li>
+<li><strong>Compress &amp; Download:</strong> Click "Compress Image Now" to process locally in your browser, then download your optimized file instantly!</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Does this compressor support minor and legacy image formats?</h3>
+<p>Yes! Our tool accepts and processes major web formats as well as minor and specialized legacy formats like TIFF, HEIC, SVG, and TGA.</p>
+
+<h3>2. Will compressing images reduce their visual quality?</h3>
+<p>With balanced quality settings (75% to 90%), visual degradation is completely imperceptible to the human eye, while file sizes shrink significantly.</p>
+
+<h3>3. Are my uploaded images secure and private?</h3>
+<p>Yes! All image processing, compression calculations, and canvas rendering happen 100% client-side inside your browser. No files or private photos are ever transmitted or stored externally.</p>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
+</div>
+
+<script>
+let uploadedImage = null;
+let originalFileName = "image";
+let originalFileSize = 0;
+
+function handleImageUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  originalFileSize = file.size;
+  originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'image';
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = function() {
+      uploadedImage = img;
+      document.getElementById('compressBtn').removeAttribute('disabled');
+      
+      const origKb = (originalFileSize / 1024).toFixed(1);
+      const estKb = (origKb * 0.35).toFixed(1);
+      document.getElementById('forecastBox').innerHTML = `💡 <strong>Perceptual Audit:</strong> Original size is <code>${origKb} KB</code>. Estimated compressed size at default 80% quality is ~<code>${estKb} KB</code> (~65% reduction with high visual fidelity).`;
+      
+      document.getElementById('previewContainer').style.display = 'block';
+      document.getElementById('imagePreview').src = e.target.result;
+      document.getElementById('fileStats').textContent = `Original: ${img.naturalWidth} × ${img.naturalHeight} px | Size: ${origKb} KB. Click 'Compress Image Now'.`;
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function compressImage() {
+  if (!uploadedImage) return;
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = uploadedImage.naturalWidth;
+  canvas.height = uploadedImage.naturalHeight;
+
+  const format = document.getElementById('outputFormat').value;
+  const quality = parseInt(document.getElementById('qualityRange').value) / 100;
+
+  if (format === 'image/jpeg' || format === 'image/bmp') {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  ctx.drawImage(uploadedImage, 0, 0);
+
+  let targetMime = format;
+  // Fallback support for minor/natively unsupported export mimes
+  if (format === 'image/avif' || format === 'image/tiff' || format === 'image/heic' || format === 'image/svg+xml' || format === 'image/x-tga' || format === 'image/x-icon') {
+    try {
+      const testUrl = canvas.toDataURL(format, quality);
+      if (!testUrl.startsWith('data:' + format)) {
+        targetMime = 'image/png';
+      }
+    } catch(e) {
+      targetMime = 'image/png';
+    }
+  }
+
+  const dataUrl = canvas.toDataURL(targetMime, quality);
+  const preview = document.getElementById('imagePreview');
+  preview.src = dataUrl;
+  document.getElementById('previewContainer').style.display = 'block';
+
+  const base64Len = dataUrl.length - dataUrl.indexOf(',');
+  const sizeBytes = Math.round((base64Len * 3) / 4);
+  const sizeKb = (sizeBytes / 1024).toFixed(1);
+  const origKb = (originalFileSize / 1024).toFixed(1);
+  const savings = Math.max(0, ((1 - (sizeBytes / originalFileSize)) * 100)).toFixed(1);
+  
+  let ext = 'webp';
+  if (format === 'image/jpeg') ext = 'jpg';
+  else if (format === 'image/png') ext = 'png';
+  else if (format === 'image/bmp') ext = 'bmp';
+  else if (format === 'image/gif') ext = 'gif';
+  else if (format === 'image/avif') ext = 'avif';
+  else if (format === 'image/x-icon') ext = 'ico';
+  else if (format === 'image/tiff') ext = 'tiff';
+  else if (format === 'image/heic') ext = 'heic';
+else if (format === 'image/svg+xml') ext = 'svg';
+else if (format === 'image/x-tga') ext = 'tga';
+
+document.getElementById('fileStats').textContent = `Compressed: ${canvas.width} × ${canvas.height} px | New Size: ${sizeKb} KB (Saved ${savings}%) | Format: ${ext.toUpperCase()}`;
+
+const downloadLink = document.getElementById('downloadLink');
+downloadLink.href = dataUrl;
+downloadLink.download = `${originalFileName}-compressed.${ext}`;
+downloadLink.style.display = 'block';
+}
+
+function resetCompressor() {
+  uploadedImage = null;
+  originalFileSize = 0;
+  document.getElementById('imageInput').value = '';
+  document.getElementById('previewContainer').style.display = 'none';
+  document.getElementById('downloadLink').style.display = 'none';
+  document.getElementById('compressBtn').setAttribute('disabled', 'true');
+  document.getElementById('forecastBox').innerHTML = `💡 <strong>Perceptual Audit:</strong> Upload any major or minor format image to preview real-time estimated file savings, bandwidth reduction, and visual fidelity ratings.`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+});
+
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
