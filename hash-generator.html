@@ -6,7 +6,7 @@
 <title>Free Online Cryptographic Hash Generator (SHA-256, SHA-512) | SmartToolsKit</title>
 <meta name="description" content="Generate cryptographic hashes instantly (SHA-1, SHA-256, SHA-384, SHA-512) with our free online hash generator. Features live collision auditing and secure client-side Web Crypto processing.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/cryptographic-hash-generator.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/hash-generator.html">
 <meta name="theme-color" content="#0F172A">
 
 <script type="application/ld+json">
@@ -22,7 +22,7 @@
     "@type": "ListItem",
     "position": 2,
     "name": "Cryptographic Hash Generator",
-    "item": "https://smarttoolskit.com/tools/cryptographic-hash-generator.html"
+    "item": "https://smarttoolskit.com/tools/hash-generator.html"
   }]
 }
 </script>
@@ -170,7 +170,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 Analyzing cryptographic hash collision resistance and security ratings...
 </div>
 </div>
-</div> <!-- .tool-container properly closed here -->
+</div>
 
 <div class="content-section">
 <h2>Mastering Cryptographic Hash Functions, Data Integrity, and Security Auditing</h2>
@@ -242,7 +242,6 @@ Analyzing cryptographic hash collision resistance and security ratings...
 <h2>How to Use the Cryptographic Hash Generator Tool</h2>
 <p>Generating checksums and auditing hash security with our tool is fast, seamless, and intuitive:</p>
 <ul>
-<div>
 <li><strong>Input Data:</strong> Type or paste any text, source code, or data payload into the input textarea.</li>
 <li><strong>Instant Generation:</strong> Watch SHA-1, SHA-256, SHA-384, and SHA-512 hash values update simultaneously in real time.</li>
 <li><strong>Review Audit:</strong> Examine live collision risk assessments, bit-length metrics, and vulnerability warnings in the auditor box.</li>
@@ -318,7 +317,7 @@ async function generateHashes() {
       risk = "Moderate (Input too short; prone to dictionary lookup)";
       badge = "⚠️";
     }
-    radarEl.innerHTML = `${badge} <strong>Vulnerability Audit:</strong> Input length is ${text.length} characters. SHA-1 is legacy/deprecated, while SHA-256, SHA-384, and SHA-512 provide robust cryptographic protection against collision and brute-force attacks. — Status: <strong>${risk}</strong>.`;
+    radarEl.innerHTML = `${badge} <strong>Vulnerability Audit:"> Input length is ${text.length} characters. SHA-1 is legacy/deprecated, while SHA-256, SHA-384, and SHA-512 provide robust cryptographic protection against collision and brute-force attacks. — Status: <strong>${risk}</strong>.`;
   }
 }
 
@@ -350,5 +349,4 @@ function acceptCookies() {
 </script>
 
 </body>
-  </html>
-  
+</html>
