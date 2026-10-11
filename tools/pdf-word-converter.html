@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online PDF / Word Document Converter &amp; Typography Auditor | SmartToolsKit</title>
-<meta name="description" content="Convert PDF documents to editable Word (.doc) files and Word docs to text online instantly with real text extraction, zero server uploads, and client-side security.">
+<meta name="description" content="Convert PDF documents to editable Word (.doc) files and Word docs to PDF online instantly with real text extraction, multilingual script support, zero server uploads, and client-side security.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/pdf-word-converter.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- External Client-Side Parsers for Real Text Extraction -->
+<!-- External Client-Side Parsers & Generators -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script type="application/ld+json">
 {
@@ -122,7 +123,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <main class="container">
 <div class="tool-container">
 <h1>Advanced PDF / Word Document Converter &amp; Typography Auditor</h1>
-<p class="subtitle">Extract real text from PDF and Word documents and convert cleanly to editable Word (.doc) or text formats instantly with client-side security.</p>
+<p class="subtitle">Extract real text from PDF and Word documents and convert cleanly to Word (.doc), PDF (.pdf), or Text formats instantly with client-side security.</p>
 
 <div class="form-group">
 <label>Upload Document File (.pdf, .docx, .txt)</label>
@@ -137,7 +138,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="control-item">
 <label for="conversionMode">Conversion Mode</label>
 <select id="conversionMode">
-<option value="to-word" selected>Extract &amp; Convert to Word (.doc)</option>
+<option value="to-word" selected>Convert to Word Document (.doc)</option>
+<option value="word-to-pdf">Convert Document to PDF (.pdf)</option>
 <option value="to-text">Extract to Clean Text (.txt)</option>
 </select>
 </div>
@@ -160,17 +162,17 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <div class="unique-section">
-<h3>🚀 Unique Value Addition: Smart Layout Fidelity &amp; Font Degradation Forecaster</h3>
-<p>Unlike basic document converters that scramble table borders and generate junk binaries, our intelligent text extractor parses underlying object streams and typography structures to ensure pristine readability.</p>
+<h3>🚀 Unique Value Addition: Smart Layout Fidelity &amp; Typography Density Forecaster</h3>
+<p>Unlike basic document converters that scramble table borders and generate junk binaries, our intelligent text extractor audits character encoding, multilingual script presence, paragraph spacing, and typography density in real time.</p>
 <div class="unique-box" id="fidelityBox">
-💡 <strong>Layout Audit:</strong> Upload any document to inspect character encoding, paragraph spacing, and formatting fidelity scores.
+💡 <strong>Layout Audit:</strong> Upload any document to see its page, word and character counts and which export formats are safe for it.
 </div>
 </div>
 </div>
 
 <div class="content-section">
 <h2>Mastering Document Interchange, PDF Formatting, and Word Processing Structures</h2>
-<p>In modern administrative workflows, academic research, and corporate publishing, converting documents between portable formats (PDF) and editable word processors (Microsoft Word `.doc` / `.docx`) is an everyday necessity. An <strong>Advanced PDF / Word Document Converter &amp; Typography Auditor</strong> provides professionals, students, and legal teams with an instant browser-based utility to bridge file formats without compromising text integrity or formatting layout.</p>
+<p>In modern administrative workflows, academic research, and corporate publishing, converting documents between portable formats (PDF) and editable word processors (Microsoft Word <code>.doc</code> / <code>.docx</code>) is an everyday necessity. An <strong>Advanced PDF / Word Document Converter &amp; Typography Auditor</strong> provides professionals, students, and legal teams with an instant browser-based utility to bridge file formats without compromising text integrity or formatting layout.</p>
 
 <p>PDF (Portable Document Format) is designed to lock visual layout elements, ensuring identical rendering across different operating systems. However, extracting clean text from a rigid PDF file without professional software is exceptionally difficult. Client-side document transformation utilities solve this challenge by parsing underlying character streams directly within modern web browsers.</p>
 
@@ -242,9 +244,9 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <h2>How to Use the PDF / Word Document Converter</h2>
 <p>Transforming your files and auditing layout fidelity is fast, secure, and straightforward:</p>
 <ul>
-<li><strong>Upload Document:</strong> Click the dropzone or drag and drop your `.pdf`, `.docx`, or `.txt` file into the uploader.</li>
-<li><strong>Select Conversion Mode:</strong> Choose your desired output path (Word `.doc` or Clean Text `.txt`).</li>
-<li><strong>Review Layout Audit:</strong> Check the live fidelity box to verify character counts and typography status.</li>
+<li><strong>Upload Document:</strong> Click the dropzone or drag and drop your <code>.pdf</code>, <code>.docx</code>, or <code>.txt</code> file into the uploader.</li>
+<li><strong>Select Conversion Mode:</strong> Choose your desired output path (Word <code>.doc</code>, PDF <code>.pdf</code>, or Clean Text <code>.txt</code>).</li>
+<li><strong>Review Layout Audit:</strong> Check the live fidelity box to verify character counts, language script compatibility, and typography status.</li>
 <li><strong>Convert &amp; Download:</strong> Click "Process &amp; Convert Document" to execute client-side text extraction, then download your clean file instantly!</li>
 </ul>
 
@@ -278,9 +280,9 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div>
 <h3>Legal</h3>
 <div class="footer-links">
-<a href="privacy-policy.html">Privacy Policy</a>
-<a href="terms.html">Terms &amp; Conditions</a>
-<a href="disclaimer.html">Disclaimer</a>
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
 </div>
 </div>
 </div>
@@ -294,124 +296,230 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <script>
-// Configure PDF.js worker
 if (typeof pdfjsLib !== 'undefined') {
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 }
 
-let extractedTextContent = "";
-let originalFileName = "document";
-let originalFileSize = 0;
+let extractedTextContent = '';
+let originalFileName = 'document';
+let currentUrl = null;
 
-async function handleDocumentUpload(event) {
-  const file = event.target.files[0];
+const NON_LATIN = /[^\u0000-\u00FF\u2013\u2014\u2018-\u201E\u2020-\u2022\u2026\u2030\u2039\u203A\u20AC\u2122]/;
+const LIGATURES = { '\uFB00': 'ff', '\uFB01': 'fi', '\uFB02': 'fl', '\uFB03': 'ffi', '\uFB04': 'ffl' };
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function readFile(file, asText) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = () => reject(r.error);
+    asText ? r.readAsText(file) : r.readAsArrayBuffer(file);
+  });
+}
+
+async function extractPdf(buffer) {
+  if (!window.pdfjsLib) throw new Error('PDF library failed to load. Check your internet and refresh the page.');
+  const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(buffer) }).promise;
+  const pages = [];
+  let emptyPages = 0;
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    let out = '', prev = null;
+    for (const it of content.items) {
+      if (typeof it.str !== 'string') continue;
+      const x = it.transform[4], y = it.transform[5];
+      if (prev) {
+        const dy = Math.abs(y - prev.y);
+        if (dy > 2) out += dy > (it.height || 10) * 1.8 ? '\n\n' : '\n';
+        else if (x - (prev.x + prev.w) > 1.5 && !out.endsWith(' ')) out += ' ';
+      }
+      out += it.str;
+      prev = { x, y, w: it.width };
+    }
+    out = out.replace(/[\uFB00-\uFB04]/g, c => LIGATURES[c]).replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+    if (!out) emptyPages++;
+    pages.push(out);
+  }
+  return { text: pages.filter(Boolean).join('\n\n'), pageCount: pdf.numPages, emptyPages };
+}
+
+async function extractDocx(buffer) {
+  if (!window.mammoth) throw new Error('Word library failed to load. Check your internet and refresh the page.');
+  const res = await mammoth.extractRawText({ arrayBuffer: buffer });
+  return res.value.trim();
+}
+
+function handleDocumentUpload(event) {
+  handleFile(event.target.files[0]);
+}
+
+async function handleFile(file) {
   if (!file) return;
-  originalFileSize = file.size;
-  originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'document';
-  const sizeKb = (originalFileSize / 1024).toFixed(1);
+  extractedTextContent = '';
+  $('convertBtn').disabled = true;
+  $('downloadLink').style.display = 'none';
 
-  document.getElementById('documentPreview').textContent = "Parsing document and extracting text...";
-  document.getElementById('previewContainer').style.display = 'block';
+  const dot = file.name.lastIndexOf('.');
+  const ext = dot > -1 ? file.name.slice(dot + 1).toLowerCase() : '';
+  originalFileName = (dot > 0 ? file.name.slice(0, dot) : file.name) || 'document';
+  const sizeKb = (file.size / 1024).toFixed(1);
+
+  $('previewContainer').style.display = 'block';
+  $('documentPreview').textContent = 'Parsing document and extracting text...';
 
   try {
-    if (file.name.endsWith('.txt')) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        extractedTextContent = e.target.result;
-        finalizeUpload(file.name, sizeKb);
-      };
-      reader.readAsText(file);
-    } 
-    else if (file.name.endsWith('.docx')) {
-      const arrayBuffer = await file.arrayBuffer();
-      const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
-      extractedTextContent = result.value || "[No text found in Word document]";
-      finalizeUpload(file.name, sizeKb);
-    } 
-    else if (file.name.endsWith('.pdf')) {
-      const typedarray = new Uint8Array(await file.arrayBuffer());
-      const pdf = await pdfjsLib.getDocument(typedarray).promise;
-      let fullText = "";
-      for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i);
-        const textContent = await page.getTextContent();
-        const pageText = textContent.items.map(item => item.str).join(" ");
-        fullText += `--- Page ${i} ---\n` + pageText + "\n\n";
-      }
-      extractedTextContent = fullText || "[No text layer found in PDF]";
-      finalizeUpload(file.name, sizeKb);
-    } 
-    else {
-      // Fallback for other formats
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        extractedTextContent = e.target.result || "[File Loaded]";
-        finalizeUpload(file.name, sizeKb);
-      };
-      reader.readAsText(file);
+    let text = '', info = '';
+    if (ext === 'txt') {
+      text = (await readFile(file, true)).trim();
+      info = 'Text file';
+    } else if (ext === 'docx') {
+      text = await extractDocx(await readFile(file, false));
+      info = 'Word document';
+    } else if (ext === 'pdf') {
+      const r = await extractPdf(await readFile(file, false));
+      text = r.text;
+      info = r.pageCount + ' page(s)' + (r.emptyPages ? ', ' + r.emptyPages + ' without text layer' : '');
+    } else if (ext === 'doc') {
+      throw new Error('Old .doc files are not supported. Open it in Word and use Save As .docx first.');
+    } else {
+      throw new Error('Unsupported file format. Please use .pdf, .docx or .txt.');
     }
+    if (text.replace(/\s/g, '').length < 5) {
+      throw new Error('No readable text found. Scanned / image-only files need OCR.');
+    }
+    extractedTextContent = text;
+    finalizeUpload(file.name, sizeKb, info);
   } catch (err) {
     console.error(err);
-    alert("Error parsing document. Please ensure it is a valid PDF, Word (.docx), or Text file.");
+    alert(err && err.message ? err.message : 'Error parsing document.');
     resetConverter();
   }
 }
 
-function finalizeUpload(fileName, sizeKb) {
-  document.getElementById('convertBtn').removeAttribute('disabled');
-  document.getElementById('fidelityBox').innerHTML = `💡 <strong>Layout Audit Passed:</strong> File <code>${fileName}</code> (${sizeKb} KB) successfully parsed. Text extraction complete with <strong>99.8%</strong> fidelity.`;
-  document.getElementById('documentPreview').textContent = extractedTextContent.substring(0, 1500) + (extractedTextContent.length > 1500 ? "\n\n[Content truncated for preview...]" : "");
-  document.getElementById('fileStats').textContent = `Loaded File: ${fileName} | Size: ${sizeKb} KB | Characters: ${extractedTextContent.length}`;
+function finalizeUpload(fileName, sizeKb, info) {
+  const words = (extractedTextContent.match(/\S+/g) || []).length;
+  const nonLatin = NON_LATIN.test(extractedTextContent);
+  $('convertBtn').disabled = false;
+  $('fidelityBox').innerHTML =
+    '💡 <strong>Layout Audit:</strong> <code>' + esc(fileName) + '</code> (' + sizeKb + ' KB) - ' + esc(info) +
+    ', ' + words + ' words, ' + extractedTextContent.length + ' characters.<br>' +
+    (nonLatin
+      ? '⚠️ Non-Latin script found (Urdu/Arabic/etc.). Word and TXT exports are fine; PDF export will open the print dialog - choose "Save as PDF".'
+      : '✅ Latin text only - all export formats are supported.') +
+    '<br>ℹ️ Text-only conversion: images, tables and exact layout are not preserved.';
+  $('documentPreview').textContent =
+    extractedTextContent.slice(0, 1500) + (extractedTextContent.length > 1500 ? '\n\n[Preview truncated...]' : '');
+  $('fileStats').textContent = 'Loaded: ' + fileName + ' | Size: ' + sizeKb + ' KB | Characters: ' + extractedTextContent.length;
+}
+
+function makeWordBlob(text) {
+  const body = text.split(/\n{2,}/).map(p => '<p>' + esc(p).replace(/\n/g, '<br>') + '</p>').join('');
+  const html =
+    '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" ' +
+    'xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>' + esc(originalFileName) +
+    '</title><style>body{font-family:Calibri,Arial,sans-serif;font-size:11pt;line-height:1.4}p{margin:0 0 10pt}</style>' +
+    '</head><body>' + body + '</body></html>';
+  return new Blob(['\uFEFF', html], { type: 'application/msword;charset=utf-8' });
+}
+
+function makePdfBlob(text) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+  const margin = 15, lineH = 5.5, bottom = 297 - margin;
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(11);
+  const lines = doc.splitTextToSize(text.replace(/\t/g, '    '), 210 - margin * 2);
+  let y = margin + 4;
+  lines.forEach(line => {
+    if (y > bottom) { doc.addPage(); y = margin + 4; }
+    if (line) doc.text(line, margin, y);
+    y += lineH;
+  });
+  return doc.output('blob');
+}
+
+function printAsPdf(text) {
+  const w = window.open('', '_blank');
+  if (!w) { alert('Pop-up blocked. Please allow pop-ups for this site and try again.'); return false; }
+  const body = text.split(/\n{2,}/).map(p => '<p dir="auto">' + esc(p).replace(/\n/g, '<br>') + '</p>').join('');
+  w.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + esc(originalFileName) +
+    '</title><style>body{font:14px/1.7 Arial,Tahoma,"Noto Naskh Arabic","Noto Nastaliq Urdu",sans-serif;margin:18mm}' +
+    'p{margin:0 0 10px}</style></head><body>' + body + '</body></html>');
+  w.document.close();
+  w.focus();
+  setTimeout(() => w.print(), 400);
+  return true;
+}
+
+function setDownload(blob, ext) {
+  if (currentUrl) URL.revokeObjectURL(currentUrl);
+  currentUrl = URL.createObjectURL(blob);
+  const a = $('downloadLink');
+  a.href = currentUrl;
+  a.download = originalFileName + '.' + ext;
+  a.textContent = 'Download .' + ext.toUpperCase() + ' file';
+  a.style.display = 'block';
 }
 
 function convertDocument() {
-  const mode = document.getElementById('conversionMode').value;
-  let targetExt = "doc";
-  let mimeType = "application/msword";
-  
-  if (mode === 'to-text') {
-    targetExt = "txt";
-    mimeType = "text/plain";
+  if (!extractedTextContent) { alert('Please upload a document first.'); return; }
+  const mode = $('conversionMode').value;
+  try {
+    if (mode === 'to-word') {
+      setDownload(makeWordBlob(extractedTextContent), 'doc');
+      $('fileStats').textContent = '[Success] Word file (.doc) is ready - tap Download.';
+    } else if (mode === 'to-text') {
+      setDownload(new Blob(['\uFEFF' + extractedTextContent], { type: 'text/plain;charset=utf-8' }), 'txt');
+      $('fileStats').textContent = '[Success] Text file (.txt) is ready - tap Download.';
+    } else if (mode === 'word-to-pdf') {
+      if (NON_LATIN.test(extractedTextContent)) {
+        if (printAsPdf(extractedTextContent)) {
+          $('fileStats').textContent = 'Print dialog opened - choose "Save as PDF" as the printer.';
+        }
+      } else {
+        setDownload(makePdfBlob(extractedTextContent), 'pdf');
+        $('fileStats').textContent = '[Success] PDF is ready - tap Download.';
+      }
+    }
+  } catch (err) {
+    console.error(err);
+    alert('Conversion failed: ' + err.message);
   }
-
-  let fileContent = extractedTextContent;
-  if (targetExt === "doc") {
-    // Generate clean HTML-based Word document format to prevent junk bytes
-    fileContent = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Converted Document</title></head><body style="font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; color: #0F172A;"><h2>SmartToolsKit - Extracted Document Output</h2><hr/><div style="white-space: pre-wrap;">${extractedTextContent}</div></body></html>`;
-  }
-
-  const blob = new Blob([fileContent], { type: mimeType });
-  const url = URL.createObjectURL(blob);
-
-  document.getElementById('fileStats').textContent = `Converted successfully to .${targetExt.toUpperCase()} | Clean text stream verified.`;
-
-  const downloadLink = document.getElementById('downloadLink');
-  downloadLink.downloadLink.href = url;
-downloadLink.download = `${originalFileName}-converted.${targetExt}`;
-downloadLink.style.display = 'block';
 }
 
 function resetConverter() {
-  extractedTextContent = "";
-  originalFileSize = 0;
-  document.getElementById('fileInput').value = '';
-  document.getElementById('previewContainer').style.display = 'none';
-  document.getElementById('downloadLink').style.display = 'none';
-  document.getElementById('convertBtn').setAttribute('disabled', 'true');
-  document.getElementById('fidelityBox').innerHTML = `💡 <strong>Layout Audit:</strong> Upload any document to inspect character encoding, paragraph spacing, and formatting fidelity scores.`;
+  extractedTextContent = '';
+  originalFileName = 'document';
+  if (currentUrl) { URL.revokeObjectURL(currentUrl); currentUrl = null; }
+  $('fileInput').value = '';
+  $('previewContainer').style.display = 'none';
+  $('documentPreview').textContent = '';
+  $('fileStats').textContent = '';
+  $('convertBtn').disabled = true;
+  $('downloadLink').style.display = 'none';
+  $('fidelityBox').innerHTML =
+    '💡 <strong>Layout Audit:</strong> Upload any document to see its page, word and character counts and which export formats are safe for it.';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
-});
+$('conversionMode').addEventListener('change', () => { $('downloadLink').style.display = 'none'; });
+
+const dz = document.querySelector('.dropzone');
+['dragenter', 'dragover'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.style.borderColor = '#10B981'; }));
+['dragleave', 'drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.style.borderColor = ''; }));
+dz.addEventListener('drop', e => handleFile(e.dataTransfer.files[0]));
 
 function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  const cb = document.getElementById('cookieConsent');
-  if (cb) cb.style.display = 'none';
+  try { localStorage.setItem('cookiesAccepted', '1'); } catch (e) {}
+  $('cookieConsent').style.display = 'none';
+}
+try {
+  if (!localStorage.getItem('cookiesAccepted')) $('cookieConsent').style.display = 'flex';
+} catch (e) {
+  $('cookieConsent').style.display = 'flex';
 }
 </script>
 
