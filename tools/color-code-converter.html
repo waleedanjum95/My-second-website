@@ -402,9 +402,9 @@ function updateAllFromRgb(r, g, b) {
   const hslEl = document.getElementById('hslInput');
 
   if (pickerEl) pickerEl.value = hex;
-  if (hexEl) hexEl.value = hex;
-  if (rgbEl) rgbEl.value = `rgb(${r}, ${g}, ${b})`;
-  if (hslEl) hslEl.value = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+  if (hexEl && document.activeElement !== hexEl) hexEl.value = hex;
+  if (rgbEl && document.activeElement !== rgbEl) rgbEl.value = `rgb(${r}, ${g}, ${b})`;
+  if (hslEl && document.activeElement !== hslEl) hslEl.value = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
 
   const swatch = document.getElementById('colorSwatch');
   if (swatch) swatch.style.backgroundColor = hex;
@@ -441,12 +441,19 @@ function updateFromPicker(val) {
   if (rgb) updateAllFromRgb(rgb.r, rgb.g, rgb.b);
 }
 
-function updateFromHex(val) {
+functionupdateFromHex(val) {
+  const cleaned = val.trim();
+  if (cleaned === '' || cleaned === '#') {
+    const activeLabel = document.getElementById('activeFormatLabel');
+    if (activeLabel) activeLabel.textContent = `Active Format: Clearing...`;
+    return;
+  }
   const rgb = hexToRgb(val);
   if (rgb) updateAllFromRgb(rgb.r, rgb.g, rgb.b);
 }
 
 function updateFromRgb(val) {
+  if (val.trim() === '') return;
   const match = val.match(/\d+/g);
   if (match && match.length >= 3) {
     updateAllFromRgb(parseInt(match[0]), parseInt(match[1]), parseInt(match[2]));
@@ -454,6 +461,7 @@ function updateFromRgb(val) {
 }
 
 function updateFromHsl(val) {
+  if (val.trim() === '') return;
   const match = val.match(/[\d\.]+/g);
   if (match && match.length >= 3) {
     const rgb = hslToRgb(parseFloat(match[0]), parseFloat(match[1]), parseFloat(match[2]));
