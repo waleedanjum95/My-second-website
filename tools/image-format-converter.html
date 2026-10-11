@@ -374,9 +374,7 @@ function convertImage() {
   ctx.drawImage(uploadedImage, 0, 0);
 
   let targetMime = format;
-  // Fallback support for formats not natively supported by all canvas export implementations
   if (format === 'image/avif' || format === 'image/x-icon') {
-    // If browser doesn't natively export avif/ico via canvas toDataURL, fallback safely to png/webp
     try {
       const testUrl = canvas.toDataURL(format, quality);
       if (!testUrl.startsWith('data:' + format)) {
@@ -393,11 +391,12 @@ function convertImage() {
   document.getElementById('previewContainer').style.display = 'block';
 
   const base64Len = dataUrl.length - dataUrl.indexOf(',');
-  const sizeBytes = Math.round((base64) / 4);
+  const sizeBytes = Math.round((base64Len * 3) / 4);
   const sizeKb = (sizeBytes / 1024).toFixed(1);
   
   let ext = 'webp';
   if (format === 'image/jpeg') ext = 'jpg';
+  else if (format === 'image/png') ext = 'png';
   else if (format === 'image/png') ext = 'png';
   else if (format === 'image/bmp') ext = 'bmp';
   else if (format === 'image/gif') ext = 'gif';
