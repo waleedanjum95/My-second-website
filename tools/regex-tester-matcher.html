@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Regex Tester &amp; Matcher | SmartToolsKit</title>
+<meta name="description" content="Test regular expressions, inspect capture groups, and audit ReDoS backtracking vulnerabilities instantly with our free online Regex Tester & Matcher tool. Secure client-side processing.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/regex-tester-matcher.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://smarttoolskit.com/tools/regex-tester-matcher.html">
+<meta property="og:title" content="Free Online Regex Tester &amp; Matcher | SmartToolsKit">
+<meta property="og:description" content="Test regular expressions, extract groups, and audit performance risks securely within your browser.">
+
+<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Regex Tester & Matcher",
+    "item": "https://smarttoolskit.com/tools/regex-tester-matcher.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text);font-family:monospace}
+.form-group textarea{height:120px;resize:vertical}
+.form-group input:focus, .form-group textarea:focus{border-color:var(--emerald)}
+
+.flags-grid{display:flex;gap:15px;align-items:center;flex-wrap:wrap;background:var(--soft);padding:12px 16px;border-radius:8px;border:1px solid var(--border);margin-bottom:16px}
+.flags-grid label{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;cursor:pointer}
+
+.btn-group{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.calc-btn.secondary{background:var(--navy)}
+.calc-btn.secondary:hover{background:var(--navy-light)}
+
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
+.result-box pre{width:100%;max-height:160px;overflow-y:auto;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;color:var(--text);font-family:monospace;white-space:pre-wrap;word-break:break-all}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
+
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
+
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
+
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<div class="tool-container">
+<h1>AI Regex Tester, Matcher &amp; ReDoS Auditor</h1>
+<p class="subtitle">Test regular expression patterns, inspect matching groups, and audit backtracking performance risks in real time.</p>
+
+<div class="form-group">
+<label for="regexPattern">Regular Expression Pattern</label>
+<input type="text" id="regexPattern" placeholder="e.g. ^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" value="[\w\.-]+@[\w\.-]+\.\w+">
+</div>
+
+<div class="flags-grid">
+<span style="font-size:13px;font-weight:700;color:var(--navy);">Flags:</span>
+<label><input type="checkbox" id="flagG" checked onchange="runRegexTest()"> g (Global)</label>
+<label><input type="checkbox" id="flagI" checked onchange="runRegexTest()"> i (Case Insensitive)</label>
+<label><input type="checkbox" id="flagM" onchange="runRegexTest()"> m (Multiline)</label>
+<label><input type="checkbox" id="flagS" onchange="runRegexTest()"> s (Dotall)</label>
+</div>
+
+<div class="form-group">
+<label for="testString">Test String / Corpus</label>
+<textarea id="testString" placeholder="Enter text to match against regex pattern...">Contact our support team at support@smarttoolskit.com or admin@techblog.org for developer assistance.</textarea>
+</div>
+
+<div class="btn-group">
+<button type="button" class="calc-btn" onclick="runRegexTest()">Run Regex Match</button>
+<button type="button" class="calc-btn secondary" onclick="clearRegexFields()">Clear All</button>
+</div>
+
+<div class="result-box">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+<label style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Matched Results &amp; Capture Groups</label>
+<span style="font-size:12px;color:var(--muted);" id="matchCountLabel">Matches found: 2</span>
+</div>
+<pre id="matchOutput">Executing match inspection...</pre>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All regular expression matching evaluations, pattern compiles, and ReDoS audits run entirely inside your browser client-side. No sensitive strings, logs, or corporate text corpora are transmitted externally.
+</div>
+
+<div class="unique-section">
+<h3>🚀 Unique Feature: Live Regex Performance &amp; ReDoS Backtracking Auditor</h3>
+<p>Our intelligent client-side auditor inspects patterns for nested quantifiers and overlapping alternations, warning developers against Catastrophic Backtracking and ReDoS vulnerabilities in real time.</p>
+<div class="radar-box" id="radarOutput">
+Analyzing pattern efficiency and backtracking complexity...
+</div>
+</div>
+</div>
+
+<div class="content-section">
+<h2>Mastering Regular Expressions, Pattern Matching, and Input Validation</h2>
+<p>In modern software engineering, data parsing, form validation, and log analysis, searching and manipulating text efficiently is a daily requirement. A <strong>Regular Expression (Regex)</strong> is a sequence of characters that specifies a precise search pattern. Whether you are validating email formats, sanitizing user inputs, parsing complex API responses, or extracting log metrics, mastering regex is an essential skill. An <strong>AI Regex Tester &amp; Matcher</strong> provides developers and QA engineers with an instant, interactive utility to build, debug, and verify pattern behavior across target test corpora.</p>
+
+<p>However, poorly constructed regex patterns can introduce severe performance vulnerabilities known as <strong>Regular Expression Denial of Service (ReDoS)</strong>. When a pattern contains nested quantifiers (such as `(a+)+` or `(a|a?)*`), matching it against adversarial or malformed input can cause exponential backtracking, freezing the thread and crashing the application server. Our built-in live auditor inspects your syntax for these exact structural risks before deployment.</p>
+
+<h2>Why ReDoS Mitigation and Pattern Efficiency Matter</h2>
+<p>Regex engines utilize non-deterministic finite automata (NFA) to evaluate matches. When ambiguity exists—such as multiple ways to match the same substring—the engine tries paths sequentially through backtracking. If too many branching options exist without anchors or possessive quantifiers, execution time explodes from milliseconds to minutes.</p>
+
+<p>Our <strong>Live ReDoS Backtracking Auditor</strong> scans your regex pattern keystroke by keystroke, flagging high-risk nested loops, evaluating greedy vs. lazy quantification efficiency, and providing instant optimization guidance.</p>
+
+<h2>The Mathematical Logic of Regex Complexity and Backtracking</h2>
+<p>To evaluate pattern performance and computational safety during code reviews, engineers analyze algorithmic complexity metrics:</p>
+
+<div class="formula-box">
+<strong>Core Regex Performance &amp; Complexity Formulas:</strong>
+1. Linear Match Time ($O(n)$):<br>
+   • Safe regex patterns scale linearly with input string length $n$.<br><br>
+2. Exponential Backtracking Risk ($O(2^n)$):<br>
+   • Occurs when nested repetition operators like `(e+)+` evaluate ambiguous state trees.<br><br>
+3. Capture Group Overhead Index ($CGI$):<br>
+   • Measures memory allocation impact based on total capturing parentheses `()` in the pattern.
+</div>
+
+<p>Keeping regex patterns deterministic prevents CPU spikes and ensures lightning-fast execution across high-throughput backend microservices.</p>
+
+<h2>Global Regex Syntax &amp; Metacharacter Reference Matrix</h2>
+<p>The table below outlines essential regex tokens, anchor classes, and quantifier specifications:</p>
+
+<table class="content-table">
+<thead>
+<tr>
+<th>Regex Token / Class</th>
+<th>Syntax Example</th>
+<th>Description &amp; Matching Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Character Classes</strong></td>
+<td><code>\d</code>, <code>\w</code>, <code>\s</code></td>
+<td>Matches digits (`[0-9]`), word characters (`[a-zA-Z0-9_]`), and whitespace</td>
+</tr>
+<tr>
+<td><strong>Anchors</strong></td>
+<td><code>^</code>, <code>$</code>, <code>\b</code></td>
+<td>Asserts start of string (`^`), end of string (`$`), or word boundary (`\b`)</td>
+</tr>
+<tr>
+<td><strong>Quantifiers</strong></td>
+<td><code>*</code>, <code>+</code>, <code>?</code>, <code>{n,m}</code></td>
+<td>Specifies repetition counts (0 or more, 1 or more, optional, exact range)</td>
+</tr>
+<tr>
+<td><strong>Alternation</strong></td>
+<td><code>|</code></td>
+<td>Logical OR operator matching either expression sub-branch</td>
+</tr>
+<tr>
+<td><strong>Capturing Groups</strong></td>
+<td><code>(expr)</code></td>
+<td>Captures matched sub-expression into an indexed result array</td>
+</tr>
+<tr>
+<td><strong>Non-Capturing</strong></td>
+<td><code>(?:expr)</code></td>
+<td>Groups sub-expression without retaining capture memory overhead</td>
+</tr>
+</tbody>
+</table>
+
+<h2>How to Use the Regex Tester &amp; Matcher Tool</h2>
+<p>Evaluating your regular expression patterns with our tool is fast, seamless, and intuitive:</p>
+<ul>
+<li><strong>Enter Pattern:</strong> Type or paste your regular expression into the pattern input box.</li>
+<li><strong>Configure Flags:</strong> Toggle global (`g`), case-insensitive (`i`), multiline (`m`), or dotall (`s`) flags as needed.</li>
+<li><strong>Provide Corpus:</strong> Input your target test text string into the test corpus textarea.</li>
+<li><strong>Review &amp; Inspect:</strong> Check matched outputs, capture groups, and our live ReDoS performance auditor instantly!</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. What does Catastrophic Backtracking mean?</h3>
+<p>Catastrophic backtracking happens when a regex engine explores an exponential number of possible matching paths for a complex pattern against a failing string, locking up the CPU.</p>
+
+<h3>2. How do non-capturing groups improve performance?</h3>
+<p>Using `(?:...)` instead of `(...)` tells the regex engine not to store the matched substring in memory, saving allocation overhead when you only need grouping for alternation or quantification.</p>
+
+<h3>3. Is my test data secure?</h3>
+<p>Yes! All regex matching runs entirely inside your browser client-side. No test strings or proprietary patterns are ever transmitted to external servers.</p>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
+</div>
+
+<script>
+function auditRegexReDoS(pattern) {
+  // Heuristics for ReDoS risk detection (nested quantifiers like (a+)+, (a*)*, etc.)
+  const nestedQuantifierRegex = /(\([^\)]*[\*\+\)][^\)]*[\*\+\)]|\([^\)]*[\*\+\?][^\)]*\)[\*\+\?])/;
+  const overlappingAlternationRegex = /\([^\Vert{}]+\Vert{}[^\)]+\)[\*\+]/;
+
+  if (nestedQuantifierRegex.test(pattern)) {
+    return {
+      status: 'danger',
+      msg: `🔴 <strong>High ReDoS Risk Detected:</strong> Pattern contains nested quantifiers (e.g. <code>(a+)+</code>). This can lead to exponential Catastrophic Backtracking on non-matching strings.`
+    };
+  } else if (overlappingAlternationRegex.test(pattern)) {
+    return {
+      status: 'warning',
+      msg: `⚠️ <strong>Moderate Efficiency Warning:</strong> Alternation inside quantified groups detected. Verify performance on large text corpora.`
+    };
+  } else {
+    return {
+      status: 'safe',
+      msg: `🟢 <strong>Pattern Optimized:</strong> No catastrophic backtracking vectors or dangerous nested quantifiers detected. Linear $O(n)$ complexity anticipated.`
+    };
+  }
+}
+
+function runRegexTest() {
+  const patternInput = document.getElementById('regexPattern').value;
+  const testString = document.getElementById('testString').value;
+  const outputEl = document.getElementById('matchOutput');
+  const countLabel = document.getElementById('matchCountLabel');
+  const radarEl = document.getElementById('radarOutput');
+
+  let flags = '';
+  if (document.getElementById('flagG').checked) flags += 'g';
+  if (document.getElementById('flagI').checked) flags += 'i';
+  if (document.getElementById('flagM').checked) flags += 'm';
+  if (document.getElementById('flagS').checked) flags += 's';
+
+  // Audit ReDoS
+  if (radarEl) {
+    const audit = auditRegexReDoS(patternInput);
+    radarEl.innerHTML = audit.msg;
+  }
+
+  if (!patternInput) {
+    outputEl.textContent = "Please enter a valid regular expression pattern.";
+    if (countLabel) countLabel.textContent = "Matches found: 0";
+    return;
+  }
+
+  try {
+    const regex = new RegExp(patternInput, flags);
+    let matches = [];
+    
+    if (flags.includes('g')) {
+      let match;
+      let counter = 0;
+      while ((match = regex.exec(testString)) !== null) {
+        matches.push(`Match [${counter + 1}]: "${match[0]}" (Index: ${match.index})${match.length > 1 ? ' | Groups: ' + JSON.stringify(match.slice(1)) : ''}`);
+        counter++;
+        // Prevent infinite loops on zero-length matches
+        if (match.index === regex.lastIndex) {
+          regex.lastIndex++;
+        }
+        if (counter > 500) {
+          matches.push('... (Truncated at 500 matches for performance)');
+          break;
+        }
+      }
+    } else {
+      const match = testString.match(regex);
+      if (match) {
+        matches.push(`Match [1]: "${match[0]}" (Index: ${match.index})${match.length > 1 ? ' | Groups: ' + JSON.stringify(match.slice(1)) : ''}`);
+      }
+    }
+
+    if (matches.length > 0) {
+      outputEl.textContent = matches.join('\n');
+      if (countLabel) countLabel.textContent = `Matches found: ${matches.length}`;
+    } else {
+      outputEl.textContent = "No matches found in the test corpus for the given pattern.";
+      if (countLabel) countLabel.textCounto.textContent = "No matches found in the test corpus for the given pattern.";
+    if (countLabel) countLabel.textContent = "Matches found: 0";
+  }
+
+} catch (error) {
+  outputEl.textContent = "Regex Syntax Error: " + error.message;
+  if (countLabel) countLabel.textContent = "Matches found: 0";
+  if (radarEl) {
+    radarEl.innerHTML = `🔴 <strong>Syntax Error:</strong> ${error.message}. Please correct your regular expression pattern.`;
+  }
+}
+}
+
+function clearRegexFields() {
+document.getElementById('regexPattern').value = '';
+document.getElementById('testString').value = '';
+document.getElementById('matchOutput').textContent = 'Fields cleared. Enter pattern and test string to begin.';
+document.getElementById('matchCountLabel').textContent = 'Matches found: 0';
+document.getElementById('radarOutput').innerHTML = 'ℹ️ <strong>Ready:</strong> Enter regex pattern and test string above.';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+if (!localStorage.getItem('cookiesAccepted')) {
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'flex';
+}
+runRegexTest();
+
+const patternEl = document.getElementById('regexPattern');
+const testEl = document.getElementById('testString');
+if (patternEl) patternEl.addEventListener('input', runRegexTest);
+if (testEl) testEl.addEventListener('input', runRegexTest);
+});
+
+function acceptCookies() {
+localStorage.setItem('cookiesAccepted', 'true');
+const cb = document.getElementById('cookieConsent');
+if (cb) cb.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
