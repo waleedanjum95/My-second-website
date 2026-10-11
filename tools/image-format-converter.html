@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Universal Image Converter (JPG, PNG, WebP) | SmartToolsKit</title>
+<meta name="description" content="Convert images instantly between JPG, PNG, and WebP formats online with our free universal image converter. Features smart alpha transparency background padding, client-side processing, and zero quality loss.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/image-format-converter.html">
+<meta name="theme-color" content="#0F172A">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Universal Image Converter",
+    "item": "https://smarttoolskit.com/tools/image-format-converter.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.dropzone{border:2px dashed var(--border);padding:30px;text-align:center;border-radius:10px;background:var(--soft);cursor:pointer;transition:.2s}
+.dropzone:hover{border-color:var(--emerald);background:#ECFDF5}
+.dropzone input{display:none}
+
+.controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.control-item label{font-size:13px;font-weight:700;color:var(--navy);display:block;margin-bottom:6px}
+.control-item select, .control-item input[type="range"], .control-item input[type="color"]{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.control-item input[type="color"]{height:42px;padding:4px;cursor:pointer}
+
+.preview-area{margin-top:20px;text-align:center;display:none}
+.preview-area img{max-width:100%;max-height:300px;border-radius:8px;border:1px solid var(--border);box-shadow:var(--shadow)}
+
+.btn-group{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.calc-btn.secondary{background:var(--navy)}
+.calc-btn.secondary:hover{background:var(--navy-light)}
+
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.unique-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
+
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
+
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
+
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<div class="tool-container">
+<h1>Universal Image Converter &amp; Format Optimizer</h1>
+<p class="subtitle">Convert graphics instantly between JPG, PNG, and WebP formats directly in your browser with advanced compression and transparency controls.</p>
+
+<div class="form-group">
+<label>Upload Image File (PNG, JPG, WebP)</label>
+<div class="dropzone" onclick="document.getElementById('imageInput').click()">
+<p><strong>Click to browse</strong> or drag &amp; drop your image here</p>
+<p style="font-size:12px;color:var(--muted);margin-top:4px;">Supports high-res PNG, JPEG, and WebP images</p>
+<input type="file" id="imageInput" accept="image/*" onchange="handleImageUpload(event)">
+</div>
+</div>
+
+<div class="controls-grid">
+<div class="control-item">
+<label for="outputFormat">Target Image Format</label>
+<select id="outputFormat" onchange="updateFormatOptions()">
+<option value="image/jpeg">JPEG (.jpg / .jpeg)</option>
+<option value="image/png">PNG (.png)</option>
+<option value="image/webp" selected>WebP (.webp)</option>
+</select>
+</div>
+<div class="control-item">
+<label for="qualityRange">Compression Quality (<span id="qualityVal">90</span>%)</label>
+<input type="range" id="qualityRange" min="10" max="100" value="90" oninput="document.getElementById('qualityVal').textContent=this.value">
+</div>
+<div class="control-item" id="bgColorWrapper">
+<label for="bgColorPicker">Transparent Alpha Background Fill</label>
+<input type="color" id="bgColorPicker" value="#ffffff">
+</div>
+</div>
+
+<div class="preview-area" id="previewContainer">
+<p style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;">Live Converted Preview:</p>
+<img id="imagePreview" alt="Converted preview">
+<p id="fileStats" style="font-size:12px;color:var(--muted);margin-top:8px;font-family:monospace;"></p>
+</div>
+
+<div class="btn-group">
+<button type="button" class="calc-btn" id="convertBtn" onclick="convertImage()" disabled>Convert Image Format</button>
+<a id="downloadLink" class="calc-btn secondary" style="display:none;text-align:center;" download="converted-image.webp">Download Converted Image</a>
+<button type="button" class="calc-btn secondary" onclick="resetConverter()">Reset Tool</button>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All image conversion routines process entirely inside your browser client-side using HTML5 Canvas APIs. No images or graphics are ever uploaded to external servers.
+</div>
+
+<div class="unique-section">
+<h3>🚀 Unique Value Addition: Smart Alpha Background Padder &amp; Artifact Preventer</h3>
+<p>Standard online converters ruin transparent PNGs by rendering black boxes when converting to JPEG. Our intelligent background padder automatically detects transparent pixels and fills them with your chosen custom color.</p>
+<div class="unique-box">
+💡 <strong>Active Enhancement:</strong> When converting transparent graphics to JPEG, transparent alpha channels are blended with your selected background color matrix to eliminate ugly black edge artifacts.
+</div>
+</div>
+</div>
+
+<div class="content-section">
+<h2>Mastering Digital Image Conversion, Compression, and Web Performance</h2>
+<p>In modern web development, digital marketing, and content creation, optimizing image file formats is critical for site speed, user engagement, and SEO rankings. An <strong>Universal Image Converter &amp; Format Optimizer</strong> provides webmasters, designers, and developers with an instant browser-based utility to switch graphics between JPEG, PNG, and WebP formats without sacrificing visual fidelity.</p>
+
+<p>Choosing the correct image format directly influences page load times and Core Web Vitals. While PNG offers lossless quality with transparency, its file sizes are often massive. JPEG provides robust lossy compression for photographs, and WebP delivers next-generation compression combining transparency and superior compression ratios.</p>
+
+<h2>Why Image Format Optimization Matters for SEO</h2>
+<p>Search engines like Google prioritize fast-loading web pages. Unoptimized hero images, heavy banners, and poorly formatted graphics create latency, increasing bounce rates and degrading mobile performance. Converting legacy formats to next-gen WebP or optimized JPEGs reduces payload size significantly.</p>
+
+<p>Furthermore, our built-in <strong>Smart Alpha Background Padder</strong> solves a classic design challenge: converting transparent vector graphics or icons into opaque JPEGs without messy black artifacts.</p>
+
+<h2>The Mathematical Logic of Image Scaling and Compression</h2>
+<p>Digital image conversion and compression rely on spatial frequency transformation, quantization, and pixel matrix scaling formulas:</p>
+
+<div class="formula-box">
+<strong>Core Image Processing &amp; Scaling Formulas:</strong>
+1. Aspect Ratio Preservation ($AR$):<br>
+   • $AR = \frac{Width_{original}}{Height_{original}}$<br>
+   • $NewHeight = \frac{NewWidth}{AR}$<br><br>
+2. Compression Ratio ($CR$):<br>
+   • $CR = \frac{Size_{uncompressed}}{Size_{compressed}}$<br><br>
+3. Alpha Blending Formula ($C_{final}$):<br>
+   • $C_{final} = (\alpha \cdot C_{foreground}) + ((1 - α) \cdot C_{background})$
+</div>
+
+<p>Understanding these mathematical models ensures that resized and converted assets maintain crisp geometric proportions and accurate color representation.</p>
+
+<h2>Format Specifications &amp; Reference Matrix</h2>
+<p>The table below compares standard web image formats, capabilities, and ideal use cases:</p>
+
+<table class="content-table">
+<thead>
+<tr>
+<th>Image Format</th>
+<th>Compression Type</th>
+<th>Transparency Support</th>
+<th>Recommended Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JPEG (.jpg)</strong></td>
+<td>Lossy</td>
+<td>No</td>
+<td>Photographs, complex color gradients, high-detail blog banners.</td>
+</tr>
+<tr>
+<td><strong>PNG (.png)</strong></td>
+<td>Lossless</td>
+<td>Yes (Alpha Channel)</td>
+<td>Icons, logos, UI graphics requiring sharp edges and transparency.</td>
+</tr>
+<tr>
+<td><strong>WebP (.webp)</strong></td>
+<td>Lossy &amp; Lossless</td>
+<td>Yes</td>
+<td>Next-gen high-performance web assets, photographs, and UI graphics.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>How to Use the Universal Image Converter</h2>
+<p>Transforming and optimizing your graphics with our tool is fast, seamless, and intuitive:</p>
+<ul>
+<li><strong>Upload Image:</strong> Click the dropzone or drag and drop any PNG, JPEG, or WebP image into the uploader.</li>
+<li><strong>Select Format:</strong> Choose your target output format (JPEG, PNG, or WebP) from the format dropdown menu.</li>
+<li><strong>Adjust Settings:</strong> Fine-tune compression quality and pick a custom alpha background fill color if converting transparency to JPEG.</li>
+<li><strong>Convert &amp; Download:</strong> Click "Convert Image Format" to process locally in your browser, then download instantly!</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. What is the advantage of WebP over JPEG?</h3>
+<p>WebP provides superior compression algorithms compared to JPEG, resulting in file sizes that are typically 25% to 35% smaller while maintaining identical visual quality.</p>
+
+<h3>2. Why do transparent images turn black when converted to JPEG?</h3>
+<p>JPEG format does not support transparency (alpha channels). When transparent areas are saved as JPEG, browsers default them to black. Our built-in Smart Alpha Background Padder solves this by replacing transparency with a clean background color.</p>
+
+<h3>3. Are my uploaded images secure?</h3>
+<p>Yes! All image processing happens 100% client-side inside your browser using HTML5 Canvas APIs. No images or private graphics are ever transmitted or stored on external servers.</p>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
+</div>
+
+<script>
+let uploadedImage = null;
+let originalFileName = "image";
+
+function handleImageUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'image';
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = function() {
+      uploadedImage = img;
+      document.getElementById('convertBtn.disabled') || (document.getElementById('convertBtn').removeAttribute('disabled'));
+      convertImage();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function updateFormatOptions() {
+  const format = document.getElementById('outputFormat').value;
+  const bgWrapper = document.getElementById('bgColorWrapper');
+  if (format === 'image/jpeg') {
+    bgWrapper.style.display = 'block';
+  } else {
+    bgWrapper.style.display = 'none';
+  }
+  if (uploadedImage) convertImage();
+}
+
+function hexToRgb(hex) {
+  const bigint = parseInt(hex.replace('#',''), 16);
+  return { r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255 };
+}
+
+function convertImage() {
+  if (!uploadedImage) return;
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = uploadedImage.naturalWidth;
+  canvas.height = uploadedImage.naturalHeight;
+
+  const format = document.getElementById('outputFormat').value;
+  const quality = parseInt(document.getElementById('qualityRange').value) / 100;
+
+  if (format === 'image/jpeg') {
+    const hexColor = document.getElementById('bgColorPicker').value;
+    const rgb = hexToRgb(hexColor);
+    ctx.fillStyle = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  ctx.drawImage(uploadedImage, 0, 0);
+
+  const dataUrl = canvas.toDataURL(format, quality);
+  const preview = document.getElementById('imagePreview');
+  preview.src = dataUrl;
+  document.getElementById('previewContainer').style.display = 'block';
+
+  // Calculate approximate file size from base64
+  const base64Len = dataUrl.length - dataUrl.indexOf(',');
+  const sizeBytes = Math.round((base64Len * 3) / 4);
+  const sizeKb = (sizeBytes / 1024).toFixed(1);
+  
+  let ext = 'webp';
+  if (format === 'image/jpeg') ext = 'jpg';
+  if (format === 'image/png') ext = 'png';
+
+  document.getElementById('fileStats').textContent = `Dimensions: ${canvas.width} × ${canvas.height} px | Estimated Size: ${sizeKb} KB | Format: ${ext.toUpperCase()}`;
+
+  const downloadLink = document.getElementById('downloadLink');
+  downloadLink.href = dataUrl;
+  downloadLink.download = `${originalFileName}-converted.${ext}`;
+  downloadLink.style.display = 'block';
+}
+
+function resetConverter() {
+  uploadedImage = null;
+  document.getElementById('imageInput').value = '';
+  document.getElementById('previewContainer').style.display = 'none';
+  document.getElementById('downloadLink').style.display = 'none';
+  document.getElementById('convertBtn').setAttribute('disabled', 'true');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+  updateFormatOptions();
+});
+
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
+}
+</script>
+
+</body>
+  </html>
+  
