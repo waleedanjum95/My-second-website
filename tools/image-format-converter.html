@@ -147,7 +147,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <label for="qualityRange">Compression Quality (<span id="qualityVal">90</span>%)</label>
 <input type="range" id="qualityRange" min="10" max="100" value="90" oninput="document.getElementById('qualityVal').textContent=this.value">
 </div>
-<div class="control-item" id="bgColorWrapper">
+<div class="control-item" id="bgColorWrapper" style="display:none;">
 <label for="bgColorPicker">Transparent Alpha Background Fill</label>
 <input type="color" id="bgColorPicker" value="#ffffff">
 </div>
@@ -331,7 +331,9 @@ function handleImageUpload(event) {
     img.onload = function() {
       uploadedImage = img;
       document.getElementById('convertBtn').removeAttribute('disabled');
-      convertImage();
+      document.getElementById('fileStats').textContent = `Loaded: ${file.name} (${img.naturalWidth} × ${img.naturalHeight} px). Now click 'Convert Image Format'.`;
+      document.getElementById('previewContainer').style.display = 'block';
+      document.getElementById('imagePreview').src = e.target.result;
     };
     img.src = e.target.result;
   };
@@ -346,7 +348,6 @@ function updateFormatOptions() {
   } else {
     bgWrapper.style.display = 'none';
   }
-  if (uploadedImage) convertImage();
 }
 
 function hexToRgb(hex) {
@@ -390,20 +391,19 @@ function convertImage() {
   preview.src = dataUrl;
   document.getElementById('previewContainer').style.display = 'block';
 
-  const base64Len = dataUrl.length - dataUrl.indexOf(',');
+  const base64Len =dataUrl.length - dataUrl.indexOf(',');
   const sizeBytes = Math.round((base64Len * 3) / 4);
   const sizeKb = (sizeBytes / 1024).toFixed(1);
   
   let ext = 'webp';
   if (format === 'image/jpeg') ext = 'jpg';
   else if (format === 'image/png') ext = 'png';
-  else if (format === 'image/png') ext = 'png';
   else if (format === 'image/bmp') ext = 'bmp';
   else if (format === 'image/gif') ext = 'gif';
   else if (format === 'image/avif') ext = 'avif';
   else if (format === 'image/x-icon') ext = 'ico';
 
-  document.getElementById('fileStats').textContent = `Dimensions: ${canvas.width} × ${canvas.height} px | Estimated Size: ${sizeKb} KB | Format: ${ext.toUpperCase()}`;
+  document.getElementById('fileStats').textContent = `Converted Dimensions: ${canvas.width} × ${canvas.height} px | Size: ${sizeKb} KB | Format: ${ext.toUpperCase()}`;
 
   const downloadLink = document.getElementById('downloadLink');
   downloadLink.href = dataUrl;
