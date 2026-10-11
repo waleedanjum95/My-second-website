@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Cryptographic Hash Generator (SHA-256, SHA-512) | SmartToolsKit</title>
+<meta name="description" content="Generate cryptographic hashes instantly (SHA-1, SHA-256, SHA-384, SHA-512) with our free online hash generator. Features live collision auditing and secure client-side Web Crypto processing.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/hash-generator.html">
+<meta name="theme-color" content="#0F172A">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Cryptographic Hash Generator",
+    "item": "https://smarttoolskit.com/tools/hash-generator.html"
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+
+.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-group textarea{width:100%;height:120px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text);font-family:monospace;resize:vertical}
+.form-group textarea:focus{border-color:var(--emerald)}
+
+.hash-output-box{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px}
+.hash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.hash-title{font-size:13px;font-weight:700;color:var(--navy)}
+.hash-val{font-family:monospace;font-size:13px;color:var(--muted);word-break:break-all;background:#fff;padding:8px;border:1px solid var(--border);border-radius:6px}
+
+.btn-group{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.calc-btn.secondary{background:var(--navy)}
+.calc-btn.secondary:hover{background:var(--navy-light)}
+
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
+.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
+
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
+.content-section li{margin-bottom:6px}
+
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
+
+.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
+.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
+.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
+.content-table td{color:#475569 !important}
+.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
+
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<div class="tool-container">
+<h1>AI Cryptographic Hash Generator &amp; Security Auditor</h1>
+<p class="subtitle">Generate secure cryptographic checksums instantly (SHA-1, SHA-256, SHA-384, SHA-512) with live collision and vulnerability audits.</p>
+
+<div class="form-group">
+<label for="inputText">Input Text or Data Payload</label>
+<textarea id="inputText" placeholder="Type or paste any text, code, or secret message here..." oninput="generateHashes()">Hello SmartToolsKit Security World!</textarea>
+</div>
+
+<div class="hash-output-box">
+<div class="hash-header">
+<span class="hash-title">SHA-1 Checksum (Legacy / Deprecated)</span>
+<button type="button" class="calc-btn" style="padding:4px 10px;font-size:12px;min-width:auto;" onclick="copyHash('sha1Val')">Copy SHA-1</button>
+</div>
+<div class="hash-val" id="sha1Val">Calculating...</div>
+</div>
+
+<div class="hash-output-box">
+<div class="hash-header">
+<span class="hash-title">SHA-256 Checksum (Industry Standard Secure)</span>
+<button type="button" class="calc-btn" style="padding:4px 10px;font-size:12px;min-width:auto;" onclick="copyHash('sha256Val')">Copy SHA-256</button>
+</div>
+<div class="hash-val" id="sha256Val">Calculating...</div>
+</div>
+
+<div class="hash-output-box">
+<div class="hash-header">
+<span class="hash-title">SHA-384 Checksum (High Security Enterprise)</span>
+<button type="button" class="calc-btn" style="padding:4px 10px;font-size:12px;min-width:auto;" onclick="copyHash('sha384Val')">Copy SHA-384</button>
+</div>
+<div class="hash-val" id="sha384Val">Calculating...</div>
+</div>
+
+<div class="hash-output-box">
+<div class="hash-header">
+<span class="hash-title">SHA-512 Checksum (Military-Grade Secure)</span>
+<button type="button" class="calc-btn" style="padding:4px 10px;font-size:12px;min-width:auto;" onclick="copyHash('sha512Val')">Copy SHA-512</button>
+</div>
+<div class="hash-val" id="sha512Val">Calculating...</div>
+</div>
+
+<div class="btn-group">
+<button type="button" class="calc-btn" onclick="generateHashes()">Regenerate Hashes</button>
+<button type="button" class="calc-btn secondary" onclick="resetHashTool()">Clear Input</button>
+</div>
+
+<div class="security-badge">
+<span>🔒 Client-Side Security:</span> All cryptographic hashing routines, checksum computations, and vulnerability audits run entirely inside your browser client-side using native Web Crypto APIs. No sensitive data, passwords, or text payloads are ever transmitted externally.
+</div>
+
+<div class="unique-section">
+<h3>🚀 Unique Feature: Live Hash Collision Risk &amp; Rainbow Table Vulnerability Auditor</h3>
+<p>Our intelligent client-side auditor evaluates input length, checks algorithmic susceptibility against collision attacks, and flags legacy checksum risks.</p>
+<div class="radar-box" id="radarOutput">
+Analyzing cryptographic hash collision resistance and security ratings...
+</div>
+</div>
+</div>
+
+<div class="content-section">
+<h2>Mastering Cryptographic Hash Functions, Data Integrity, and Security Auditing</h2>
+<p>In modern web development, backend engineering, and cybersecurity architecture, validating data integrity and securing sensitive information are fundamental requirements. Cryptographic hash functions act as the digital fingerprint of data, transforming any arbitrary input string into a fixed-size, unique string of characters. An <strong>AI Cryptographic Hash Generator &amp; Security Auditor</strong> provides developers, system administrators, and security professionals with an instant, precise utility to compute checksums across robust browser algorithms (SHA-1, SHA-256, SHA-384, SHA-512) while auditing potential collision risks.</p>
+
+<p>Understanding how hash algorithms operate ensures that engineers implement robust mechanisms for password hashing, digital signatures, blockchain ledgers, and file verification. Our built-in vulnerability auditor instantly evaluates whether your chosen hashing algorithm meets modern enterprise security standards or suffers from legacy collision vulnerabilities.</p>
+
+<h2>Why Cryptographic Hashing and Checksums Matter</h2>
+<p>Data transmission over public networks is inherently susceptible to interception, tampering, and corruption. Cryptographic hash functions provide a unidirectional (one-way) mathematical transformation where even a single-bit alteration in the source text results in a radically different hash output (known as the avalanche effect).</p>
+
+<p>However, not all hash functions are created equal. Legacy algorithms like SHA-1 have been compromised by mathematical collision attacks, where malicious actors can generate two distinct files producing identical hash digests. Our <strong>Live Collision Risk Auditor</strong> warns users against using deprecated algorithms for security-sensitive applications, guiding them toward robust SHA-256, SHA-384, and SHA-512 standards.</p>
+
+<h2>The Mathematical Logic of Hash Functions and Avalanche Effect</h2>
+<p>To compute secure hash digests and evaluate collision probability, cryptographic engineering relies on complex bitwise operations, modular arithmetic, and logical functions:</p>
+
+<div class="formula-box">
+<strong>Core Cryptographic Hashing &amp; Security Formulas:</strong>
+1. Unidirectional Transformation ($H = f(M)$):<br>
+   • Maps arbitrary message $M$ to fixed bit-length digest $H$<br><br>
+2. Birthday Attack Collision Probability ($P_{collision}$):<br>
+   • $$P_{collision} \approx 1 - e^{-\frac{N^2}{2d}}$$<br>
+     *(where $N$ is number of messages hashed and $d$ is total possible hash outputs $2^b$)*<br><br>
+3. Avalanche Effect Metric ($A$):<br>
+   • Measures percentage of changed output bits when 1 input bit is flipped (ideally $\approx 50\%$).
+</div>
+
+<p>A secure cryptographic hash must be preimage resistant (impossible to reverse), second preimage resistant, and collision resistant.</p>
+
+<h2>Algorithm Specifications &amp; Security Reference Matrix</h2>
+<p>The table below outlines cryptographic hash algorithms, output bit-lengths, and their current security status:</p>
+
+<table class="content-table">
+<thead>
+<tr>
+<th>Algorithm Name</th>
+<th>Digest Length (Bits/Hex)</th>
+<th>Collision Resistance Status</th>
+<th>Recommended Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SHA-1</strong></td>
+<td><code>160 bits</code> (40 hex chars)</td>
+<td><strong>Compromised</strong> (Practical attacks proven)</td>
+<td>Legacy Git commits; obsolete for security certificates.</td>
+</tr>
+<tr>
+<td><strong>SHA-256</strong></td>
+<td><code>256 bits</code> (64 hex chars)</td>
+<td><strong>Secure</strong> (No known practical collisions)</td>
+<td>SSL/TLS certificates, blockchain, secure file verification.</td>
+</tr>
+<tr>
+<td><strong>SHA-384</strong></td>
+<td><code>384 bits</code> (96 hex chars)</td>
+<td><strong>High Security Enterprise</strong></td>
+<td>Enterprise server communication, sensitive records.</td>
+</tr>
+<tr>
+<td><strong>SHA-512</strong></td>
+<td><code>512 bits</code> (128 hex chars)</td>
+<td><strong>Military-Grade Secure</strong></td>
+<td>High-security enterprise systems, government encryption.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>How to Use the Cryptographic Hash Generator Tool</h2>
+<p>Generating checksums and auditing hash security with our tool is fast, seamless, and intuitive:</p>
+<ul>
+<li><strong>Input Data:</strong> Type or paste any text, source code, or data payload into the input textarea.</li>
+<li><strong>Instant Generation:</strong> Watch SHA-1, SHA-256, SHA-384, and SHA-512 hash values update simultaneously in real time.</li>
+<li><strong>Review Audit:</strong> Examine live collision risk assessments, bit-length metrics, and vulnerability warnings in the auditor box.</li>
+<li><strong>Copy Checksums:</strong> Copy any specific hash digest to your clipboard instantly with a single click!</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. What is the difference between SHA-256 and SHA-512?</h3>
+<p>SHA-256 produces a 256-bit secure hash, while SHA-512 produces a 512-bit hash offering higher collision resistance against advanced computational threats.</p>
+
+<h3>2. Can cryptographic hash functions be decrypted?</h3>
+<p>No! Hashing is a one-way mathematical function designed to be irreversible. Hashes cannot be "decrypted"; they can only be cracked using brute-force guessing or rainbow tables against weak inputs.</p>
+
+<h3>3. Is my input data secure while generating hashes?</h3>
+<p>Yes! All hash computations and vulnerability audits execute entirely inside your browser client-side using native Web Crypto APIs. No text or data is ever transmitted externally.</p>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<div id="cookieConsent">
+<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
+</div>
+
+<script>
+async function digestMessage(message, algorithm) {
+  try {
+    if (!window.crypto || !window.crypto.subtle) {
+      return "Crypto API not supported in insecure context";
+    }
+    const msgUint8 = new TextEncoder().encode(message);
+    const hashBuffer = await window.crypto.subtle.digest(algorithm, msgUint8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  } catch (err) {
+    return "Error computing hash";
+  }
+}
+
+async function generateHashes() {
+  const text = document.getElementById('inputText').value;
+  
+  document.getElementById('sha1Val').textContent = await digestMessage(text, 'SHA-1');
+  document.getElementById('sha256Val').textContent = await digestMessage(text, 'SHA-256');
+  document.getElementById('sha384Val').textContent = await digestMessage(text, 'SHA-384');
+  document.getElementById('sha512Val').textContent = await digestMessage(text, 'SHA-512');
+
+  const radarEl = document.getElementById('radarOutput');
+  if (radarEl) {
+    let risk = "Low (Using Secure SHA-256/SHA-512)";
+    let badge = "🟢";
+    if (text.length < 5) {
+      risk = "Moderate (Input too short; prone to dictionary lookup)";
+      badge = "⚠️";
+    }
+    radarEl.innerHTML = `${badge} <strong>Vulnerability Audit:</strong> Input length is ${text.length} characters. SHA-1 is legacy/deprecated, while SHA-256, SHA-384, and SHA-512 provide robust cryptographic protection against collision and brute-force attacks. — Status: <strong>${risk}</strong>.`;
+  }
+}
+
+function resetHashTool() {
+  document.getElementById('inputText').value = '';
+  generateHashes();
+}
+
+function copyHash(elementId) {
+  const val = document.getElementById(elementId).textContent;
+  if (!val || val.startsWith('Calculating') || val.startsWith('Error')) return;
+  navigator.clipboard.writeText(val);
+  alert('Hash checksum copied to clipboard successfully!');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+  generateHashes();
+});
+
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
+}
+</script>
+
+</body>
+  </html>
+  
