@@ -129,22 +129,22 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div>
 <div class="form-group">
 <label for="colorPicker">Color Picker</label>
-<input type="color" id="colorPicker" value="#10B981" style="height:42px;cursor:pointer;padding:4px;" oninput="updateFromPicker(this.value)">
+<input type="color" id="colorPicker" value="#10B981" style="height:42px;cursor:pointer;padding:4px;">
 </div>
 
 <div class="form-group">
 <label for="hexInput">HEX Color Code</label>
-<input type="text" id="hexInput" value="#10B981" oninput="updateFromHex(this.value)">
+<input type="text" id="hexInput" value="#10B981" placeholder="#10B981">
 </div>
 
 <div class="form-group">
 <label for="rgbInput">RGB Color Code</label>
-<input type="text" id="rgbInput" value="rgb(16, 185, 129)" oninput="updateFromRgb(this.value)">
+<input type="text" id="rgbInput" value="rgb(16, 185, 129)" placeholder="rgb(16, 185, 129)">
 </div>
 
 <div class="form-group">
 <label for="hslInput">HSL Color Code</label>
-<input type="text" id="hslInput" value="hsl(160, 84%, 39%)" oninput="updateFromHsl(this.value)">
+<input type="text" id="hslInput" value="hsl(160, 84%, 39%)" placeholder="hsl(160, 84%, 39%)">
 </div>
 </div>
 
@@ -312,17 +312,14 @@ Analyzing color contrast and WCAG compliance ratings...
 
 <script>
 function hexToRgb(hex) {
-  let cleaned = hex.replace(/^#/, '');
+  let cleaned = hex.replace(/^#/, '').trim();
   if (cleaned.length === 3) {
     cleaned = cleaned.split('').map(c => c + c).join('');
   }
   if (cleaned.length !== 6) return null;
   const num = parseInt(cleaned, 16);
-  return {
-    r: (num >> 16) & 255,
-    g: (num >> 8) & 255,
-    b: num & 255
-  };
+  if (isNaN(num)) return null;
+  return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
 }
 
 function rgbToHex(r, g, b) {
@@ -336,7 +333,6 @@ function rgbToHsl(r, g, b) {
   r /= 255; g /= 255; b /= 255;
   const max = Math.max(r, g, b), min = Math.min(r, g, b);
   let h, s, l = (max + min) / 2;
-
   if (max === min) {
     h = s = 0;
   } else {
@@ -349,17 +345,13 @@ function rgbToHsl(r, g, b) {
     }
     h /= 6;
   }
-  return {
-    h: Math.round(h * 360),
-    s: Math.round(s * 100),
-    l: Math.round(l * 100)
-  };
+  return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
 }
 
 function hslToRgb(h, s, l) {
+  h = ((h % 360) + 360) % 360;
   h /= 360; s /= 100; l /= 100;
   let r, g, b;
-
   if (s === 0) {
     r = g = b = l;
   } else {
@@ -377,11 +369,7 @@ function hslToRgb(h, s, l) {
     g = hue2rgb(p, q, h);
     b = hue2rgb(p, q, h - 1/3);
   }
-  return {
-    r: Math.round(r * 255),
-    g: Math.round(g * 255),
-    b: Math.round(b * 255)
-  };
+  return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
 }
 
 function getLuminance(r, g, b) {
@@ -392,19 +380,19 @@ function getLuminance(r, g, b) {
   return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
 }
 
-function updateAllFromRgb(r, g, b) {
+function updateColors(r, g, b, sourceField) {
   const hex = rgbToHex(r, g, b);
   const hsl = rgbToHsl(r, g, b);
 
-  const pickerEl = document.getElementById('colorPicker');
-  const hexEl = document.getElementById('hexInput');
-  const rgbEl = document.getElementById('rgbInput');
-  const hslEl = document.getElementById('hslInput');
+  const picker = document.getElementById('colorPicker');
+  const hexInput = document.getElementById('hexInput');
+  const rgbInput = document.getElementById('rgbInput');
+  const hslInput = document.getElementById('hslInput');
 
-  if (pickerEl) pickerEl.value = hex;
-  if (hexEl && document.activeElement !== hexEl) hexEl.value = hex;
-  if (rgbEl && document.activeElement !== rgbEl) rgbEl.value = `rgb(${r}, ${g}, ${b})`;
-  if (hslEl && document.activeElement !== hslEl) hslEl.value = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+  if (picker) picker.value = hex;
+  if (hexInput && sourceField !== 'hex') hexInput.value = hex;
+  if (rgbInput && sourceField !== 'rgb') rgbInput.value = `rgb(${r}, ${g}, ${b})`;
+  if (hslInput && sourceField !== 'hsl') hslInput.value = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
 
   const swatch = document.getElementById('colorSwatch');
   if (swatch) swatch.style.backgroundColor = hex;
@@ -419,66 +407,59 @@ function updateAllFromRgb(r, g, b) {
 
   const radarEl = document.getElementById('radarOutput');
   if (radarEl) {
-    let rating = 'Fail';
-    let colorBadge = '🔴';
-    if (bestContrast >= 7.0) {
-      rating = 'Pass (WCAG AAA - Excellent)';
-      colorBadge = '🟢';
-    } else if (bestContrast >= 4.5) {
-      rating = 'Pass (WCAG AA - Good)';
-      colorBadge = '🟢';
-    } else if (bestContrast >= 3.0) {
-      rating = 'Moderate (Large text only)';
-      colorBadge = '⚠️';
-    }
-
+    let rating = 'Fail', colorBadge = '🔴';
+    if (bestContrast >= 7.0) { rating = 'Pass (WCAG AAA - Excellent)'; colorBadge = '🟢'; }
+    else if (bestContrast >= 4.5) { rating = 'Pass (WCAG AA - Good)'; colorBadge = '🟢'; }
+    else if (bestContrast >= 3.0) { rating = 'Moderate (Large text only)'; colorBadge = '⚠️'; }
     radarEl.innerHTML = `${colorBadge} <strong>WCAG Contrast Audit:</strong> Contrast ratio vs black/white is <strong>${bestContrast}:1</strong> — Rating: <strong>${rating}</strong>.`;
   }
 }
 
-function updateFromPicker(val) {
+function handlePickerInput(val) {
   const rgb = hexToRgb(val);
-  if (rgb) updateAllFromRgb(rgb.r, rgb.g, rgb.b);
+  if (rgb) updateColors(rgb.r, rgb.g, rgb.b, 'picker');
 }
 
-functionupdateFromHex(val) {
+function handleHexInput(val) {
   const cleaned = val.trim();
-  if (cleaned === '' || cleaned === '#') {
+  if (cleaned === '' || cleaned === '#' {
     const activeLabel = document.getElementById('activeFormatLabel');
-    if (activeLabel) activeLabel.textContent = `Active Format: Clearing...`;
+    if (activeLabel) activeLabel.textContent = 'Active Format: Clearing...';
     return;
   }
   const rgb = hexToRgb(val);
-  if (rgb) updateAllFromRgb(rgb.r, rgb.g, rgb.b);
+  if (rgb) updateColors(rgb.r, rgb.g, rgb.b, 'hex');
 }
 
-function updateFromRgb(val) {
+function handleRgbInput(val) {
   if (val.trim() === '') return;
   const match = val.match(/\d+/g);
   if (match && match.length >= 3) {
-    updateAllFromRgb(parseInt(match[0]), parseInt(match[1]), parseInt(match[2]));
+    updateColors(parseInt(match[0]), parseInt(match[1]), parseInt(match[2]), 'rgb');
   }
 }
 
-function updateFromHsl(val) {
+function handleHslInput(val) {
   if (val.trim() === '') return;
   const match = val.match(/[\d\.]+/g);
   if (match && match.length >= 3) {
     const rgb = hslToRgb(parseFloat(match[0]), parseFloat(match[1]), parseFloat(match[2]));
-    updateAllFromRgb(rgb.r, rgb.g, rgb.b);
+    updateColors(rgb.r, rgb.g, rgb.b, 'hsl');
   }
 }
 
 function resetColorTool() {
-  updateFromHex('#10B981');
+  updateColors(16, 185, 129, 'hex');
+  document.getElementById('hexInput').value = '#10B981';
+  document.getElementById('rgbInput').value = 'rgb(16, 185, 129)';
+  document.getElementById('hslInput').value = 'hsl(160, 84%, 39%)';
 }
 
 function copyAllFormats() {
   const hex = document.getElementById('hexInput').value;
   const rgb = document.getElementById('rgbInput').value;
   const hsl = document.getElementById('hslInput').value;
-  const textToCopy = `HEX: ${hex}\nRGB: ${rgb}\nHSL: ${hsl}`;
-  navigator.clipboard.writeText(textToCopy);
+  navigator.clipboard.writeText(`HEX: ${hex}\nRGB: ${rgb}\nHSL: ${hsl}`);
   alert('All color formats copied to clipboard successfully!');
 }
 
@@ -487,7 +468,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cb = document.getElementById('cookieConsent');
     if (cb) cb.style.display = 'flex';
   }
-  updateFromHex('#10B981');
+  resetColorTool();
+
+  document.getElementById('colorPicker').addEventListener('input', e => handlePickerInput(e.target.value));
+  document.getElementById('hexInput').addEventListener('input', e => handleHexInput(e.target.value));
+  document.getElementById('rgbInput').addEventListener('input', e => handleRgbInput(e.target.value));
+  document.getElementById('hslInput').addEventListener('input', e => handleHslInput(e.target.value));
 });
 
 function acceptCookies() {
