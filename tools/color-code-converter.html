@@ -129,22 +129,22 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div>
 <div class="form-group">
 <label for="colorPicker">Color Picker</label>
-<input type="color" id="colorPicker" value="#10B981" style="height:42px;cursor:pointer;padding:4px;">
+<input type="color" id="colorPicker" value="#10B981" style="height:42px;cursor:pointer;padding:4px;" oninput="handlePickerInput(this.value)">
 </div>
 
 <div class="form-group">
 <label for="hexInput">HEX Color Code</label>
-<input type="text" id="hexInput" value="#10B981" placeholder="#10B981">
+<input type="text" id="hexInput" value="#10B981" placeholder="#10B981" oninput="handleHexInput(this.value)">
 </div>
 
 <div class="form-group">
 <label for="rgbInput">RGB Color Code</label>
-<input type="text" id="rgbInput" value="rgb(16, 185, 129)" placeholder="rgb(16, 185, 129)">
+<input type="text" id="rgbInput" value="rgb(16, 185, 129)" placeholder="rgb(16, 185, 129)" oninput="handleRgbInput(this.value)">
 </div>
 
 <div class="form-group">
 <label for="hslInput">HSL Color Code</label>
-<input type="text" id="hslInput" value="hsl(160, 84%, 39%)" placeholder="hsl(160, 84%, 39%)">
+<input type="text" id="hslInput" value="hsl(160, 84%, 39%)" placeholder="hsl(160, 84%, 39%)" oninput="handleHslInput(this.value)">
 </div>
 </div>
 
@@ -422,7 +422,7 @@ function handlePickerInput(val) {
 
 function handleHexInput(val) {
   const cleaned = val.trim();
-  if (cleaned === '' || cleaned === '#' {
+  if (cleaned === '' || cleaned === '#') {
     const activeLabel = document.getElementById('activeFormatLabel');
     if (activeLabel) activeLabel.textContent = 'Active Format: Clearing...';
     return;
@@ -449,10 +449,17 @@ function handleHslInput(val) {
 }
 
 function resetColorTool() {
-  updateColors(16, 185, 129, 'hex');
-  document.getElementById('hexInput').value = '#10B981';
-  document.getElementById('rgbInput').value = 'rgb(16, 185, 129)';
-  document.getElementById('hslInput').value = 'hsl(160, 84%, 39%)';
+  const picker = document.getElementById('colorPicker');
+  const hexInput = document.getElementById('hexInput');
+  const rgbInput = document.getElementById('rgbInput');
+  const hslInput = document.getElementById('hslInput');
+
+  if (picker) picker.value = '#10B981';
+  if (hexInput) hexInput.value = '#10B981';
+  if (rgbInput) rgbInput.value = 'rgb(16, 185, 129)';
+  if (hslInput) hslInput.value = 'hsl(160, 84%, 39%)';
+
+  updateColors(16, 185, 129, '');
 }
 
 function copyAllFormats() {
@@ -468,12 +475,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cb = document.getElementById('cookieConsent');
     if (cb) cb.style.display = 'flex';
   }
-  resetColorTool();
-
-  document.getElementById('colorPicker').addEventListener('input', e => handlePickerInput(e.target.value));
-  document.getElementById('hexInput').addEventListener('input', e => handleHexInput(e.target.value));
-  document.getElementById('rgbInput').addEventListener('input', e => handleRgbInput(e.target.value));
-  document.getElementById('hslInput').addEventListener('input', e => handleHslInput(e.target.value));
 });
 
 function acceptCookies() {
