@@ -4,18 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online Color Code Converter (HEX, RGB, HSL) | SmartToolsKit</title>
-<meta name="description" content="Convert color codes instantly between HEX, RGB, and HSL with our free online color converter. Features live color swatches, WCAG contrast auditing, and secure client-side processing.">
+<meta name="description" content="Convert color formats instantly between HEX, RGB, and HSL with live visual swatches, WCAG contrast audits, zero server uploads, and client-side security.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/color-code-converter.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/color-converter.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://smarttoolskit.com/tools/color-code-converter.html">
-<meta property="og:title" content="Free Online Color Code Converter (HEX, RGB, HSL) | SmartToolsKit">
-<meta property="og:description" content="Convert HEX, RGB, and HSL color codes with live visual previews and accessibility audits securely within your browser.">
-
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -29,7 +22,29 @@
     "@type": "ListItem",
     "position": 2,
     "name": "Color Code Converter",
-    "item": "https://smarttoolskit.com/tools/color-code-converter.html"
+    "item": "https://smarttoolskit.com/tools/color-converter.html"
+  }]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is the difference between HEX and HSL?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "HEX represents colors in hexadecimal numbers for web display, whereas HSL represents colors by Hue, Saturation, and Lightness, making it much easier to programmatically create color variations."
+    }
+  },{
+    "@type": "Question",
+    "name": "What does WCAG AAA compliance require?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "WCAG AAA compliance requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text to ensure maximum readability for visually impaired users."
+    }
   }]
 }
 </script>
@@ -39,7 +54,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -51,48 +66,46 @@ nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
-.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+.tool-layout{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:1000px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+@media(max-width:768px){.tool-layout{grid-template-columns:1fr}}
+.tool-container h1{font-size:22px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:13px;margin-bottom:20px}
 
-.converter-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;margin-bottom:20px}
-@media(max-width:768px){.converter-grid{grid-template-columns:1fr}}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:5px}
+.form-group input,.form-group select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.color-picker-input{width:100%;height:40px;border:none;border-radius:8px;cursor:pointer;background:none}
 
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text);font-family:monospace}
-.form-group input:focus{border-color:var(--emerald)}
+.swatch-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.color-preview-large{width:100%;height:180px;border-radius:8px;border:1px solid var(--border);margin-bottom:15px;box-shadow:var(--shadow)}
 
-.color-preview-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%}
-.color-swatch{width:100%;height:100px;border-radius:8px;border:1px solid var(--border);margin-bottom:12px;transition:background-color 0.2s ease}
-
-.btn-group{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;width:100%;margin-top:10px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.calc-btn.secondary{background:var(--navy)}
+.calc-btn.secondary{background:var(--navy);margin-top:8px}
 .calc-btn.secondary:hover{background:var(--navy-light)}
 
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted);grid-column:1/-1}
 
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:20px;grid-column:1/-1}
+.unique-section h3{color:var(--emerald);font-size:15px;margin-bottom:8px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:10px}
+.unique-box{background:#1E293B;border:1px solid #334155;padding:12px;border-radius:8px;font-size:13px;line-height:1.6}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
 .content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
 .content-section li{margin-bottom:6px}
 
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
 .content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
 .content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
 .content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
 .content-table td{color:#475569 !important}
-.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
+
+.author-meta{font-size:13px;color:var(--muted);margin-top:20px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
@@ -121,91 +134,77 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </header>
 
 <main class="container">
+<div class="tool-layout">
 <div class="tool-container">
-<h1>AI Color Code Converter (HEX, RGB, HSL)</h1>
-<p class="subtitle">Convert color formats instantly between HEX, RGB, and HSL with live visual swatches and accessibility audits.</p>
+<h1>Color Code Converter (HEX, RGB, HSL)</h1>
+<p class="subtitle">Convert color formats instantly with live visual swatches and accessibility audits.</p>
 
-<div class="converter-grid">
-<div>
 <div class="form-group">
-<label for="colorPicker">Color Picker</label>
-<input type="color" id="colorPicker" value="#10B981" style="height:42px;cursor:pointer;padding:4px;" oninput="handlePickerInput(this.value)">
+<label>Color Picker</label>
+<input type="color" id="colorPicker" class="color-picker-input" value="#10B981" oninput="updateFromPicker(this.value)">
 </div>
 
 <div class="form-group">
 <label for="hexInput">HEX Color Code</label>
-<input type="text" id="hexInput" value="#10B981" placeholder="#10B981" oninput="handleHexInput(this.value)">
+<input type="text" id="hexInput" value="#10B981" oninput="updateFromHex(this.value)">
 </div>
 
 <div class="form-group">
 <label for="rgbInput">RGB Color Code</label>
-<input type="text" id="rgbInput" value="rgb(16, 185, 129)" placeholder="rgb(16, 185, 129)" oninput="handleRgbInput(this.value)">
+<input type="text" id="rgbInput" value="rgb(16, 185, 129)" oninput="updateFromRgb(this.value)">
 </div>
 
 <div class="form-group">
 <label for="hslInput">HSL Color Code</label>
-<input type="text" id="hslInput" value="hsl(160, 84%, 39%)" placeholder="hsl(160, 84%, 39%)" oninput="handleHslInput(this.value)">
-</div>
-</div>
-
-<div class="color-preview-box">
-<div class="color-swatch" id="colorSwatch" style="background-color: #10B981;"></div>
-<span style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;" id="activeFormatLabel">Active Format: #10B981</span>
-<span style="font-size:12px;color:var(--muted);" id="colorNameLabel">Web Emerald Theme</span>
-</div>
+<input type="text" id="hslInput" value="hsl(160, 84%, 39%)" oninput="updateFromHsl(this.value)">
 </div>
 
-<div class="btn-group">
 <button type="button" class="calc-btn" onclick="copyAllFormats()">Copy All Code Formats</button>
-<button type="button" class="calc-btn secondary" onclick="resetColorTool()">Reset Default</button>
+<button type="button" class="calc-btn secondary" onclick="resetConverter()">Reset Default</button>
+</div>
+
+<div class="swatch-box">
+<div class="color-preview-large" id="colorPreviewBox" style="background-color: #10B981;"></div>
+<p style="font-size:14px;font-weight:700;color:var(--navy);" id="activeHexLabel">#10B981</p>
+<p style="font-size:12px;color:var(--muted);">Web Emerald Theme</p>
 </div>
 
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All color conversions, luminance computations, and contrast evaluations run entirely inside your browser client-side. No color palettes or design inputs are transmitted externally.
+<span>🔒 Client-Side Security:</span> All color conversions and contrast evaluations run entirely inside your browser client-side. No data is stored or transmitted externally.
 </div>
 
 <div class="unique-section">
 <h3>🚀 Unique Feature: Live WCAG Contrast Ratio &amp; Accessibility Auditor</h3>
 <p>Our intelligent client-side auditor calculates relative luminance and WCAG contrast ratios against standard text colors, validating UI accessibility compliance for web applications.</p>
-<div class="radar-box" id="radarOutput">
-Analyzing color contrast and WCAG compliance ratings...
+<div class="unique-box" id="wcagAuditResult">
+🟢 <strong>WCAG Contrast Audit:</strong> Contrast ratio vs block/white is <strong>8.28:1</strong> — Rating: <strong>Pass (WCAG AAA - Excellent)</strong>.
 </div>
 </div>
 </div>
 
 <div class="content-section">
-<h2>Mastering Color Spaces, Digital Palettes, and Web Accessibility</h2>
-<p>In web design, UI/UX engineering, and graphic development, working accurately with color codes is essential for creating visually appealing and brand-consistent interfaces. Colors on digital screens are represented through various mathematical models known as color spaces. The most widely used formats in web development are <strong>HEX (Hexadecimal)</strong>, <strong>RGB (Red, Green, Blue)</strong>, and <strong>HSL (Hue, Saturation, Lightness)</strong>. An <strong>AI Color Code Converter</strong> provides developers, designers, and digital creators with an instant, precise utility to translate colors seamlessly across these formats while ensuring strict adherence to accessibility standards.</p>
+<h2>Understanding Color Spaces and Web Accessibility</h2>
+<p>When working on CSS stylesheets and frontend UI designs, converting color codes accurately between HEX, RGB, and HSL is something I do every single day. Often, a color looks great on a mockup, but when applied to text, it fails readability guidelines. That is why I built this Color Code Converter tool—to give designers and developers an instant, reliable way to switch formats while checking contrast compliance in real time.</p>
 
-<p>Understanding how different color models function empowers developers to write cleaner stylesheets, implement dynamic theme switching (such as dark mode), and maintain high contrast ratios required by accessibility guidelines. Our built-in WCAG auditor evaluates whether your chosen color provides sufficient contrast for readable text.</p>
-
-<h2>Why HEX, RGB, and HSL Color Models Matter</h2>
-<p>Each color format serves a specific purpose in modern frontend workflows:</p>
-<ul>
-<li><strong>HEX Codes:</strong> Compact 6-digit or 3-digit hexadecimal strings (`#10B981`) heavily utilized in CSS stylesheets for static declarations.</li>
-<li><strong>RGB Function:</strong> Direct additive color mixing defining Red, Green, and Blue light intensities from 0 to 255, ideal for precise channel manipulation.</li>
-<li><strong>HSL Model:</strong> Human-centric color representation using Hue (color angle 0-360°), Saturation (vividness %), and Lightness (brightness %), making it intuitive for generating shades and tints.</li>
-</ul>
-
-<p>Our <strong>Live WCAG Contrast Auditor</strong> analyzes your active color against white and black backgrounds, computing contrast ratios to ensure your web designs meet WCAG 2.1 AA and AAA standards.</p>
+<p>Different color models serve unique purposes in modern web workflows. HEX codes are compact and widely used in static CSS declarations, RGB functions give precise control over additive color mixing for screen channels, and HSL makes it much easier to tweak lightness and saturation programmatically for dark mode themes.</p>
 
 <h2>The Mathematical Logic of Color Conversions and Luminance</h2>
-<p>To convert between color spaces and evaluate visual accessibility, engineers utilize standard mathematical algorithms:</p>
+<p>To convert between color spaces and evaluate visual accessibility, standard mathematical algorithms are applied directly in JavaScript:</p>
 
 <div class="formula-box">
 <strong>Core Color Conversion &amp; Luminance Formulas:</strong>
-1. Relative Luminance ($L$):<br>
-   • $L = 0.2126 \times R_{lin} + 0.7152 \times G_{lin} + 0.0722 \times B_{lin}$<br><br>
-2. WCAG Contrast Ratio ($CR$):<br>
-   • $CR = \frac{L_{lighter} + 0.05}{L_{darker} + 0.05}$<br><br>
-3. RGB to HSL Hue Calculation ($H$):<br>
+1. Relative Luminance Calculation:<br>
+   • L = (0.2126 * R_lin) + (0.7152 * G_lin) + (0.0722 * B_lin)<br><br>
+2. WCAG Contrast Ratio Calculation:<br>
+   • CR = (L_lighter + 0.05) / (L_darker + 0.05)<br><br>
+3. RGB to HSL Hue Mapping:<br>
    • Based on channel dominance angles among Red, Green, and Blue components.
 </div>
 
 <p>Maintaining a contrast ratio of at least 4.5:1 for normal text ensures compliance with web accessibility laws.</p>
 
-<h2>Standard Web Color Codes &amp; Format Reference Matrix</h2>
-<p>The table below outlines common web colors across HEX, RGB, and HSL specifications:</p>
+<h2>Standard Web Color Codes Reference Matrix</h2>
+<p>The reference table below outlines common web colors across HEX, RGB, and HSL specifications:</p>
 
 <table class="content-table">
 <thead>
@@ -218,40 +217,40 @@ Analyzing color contrast and WCAG compliance ratings...
 </thead>
 <tbody>
 <tr>
-<td><strong>Pure White</strong></td>
-<td><code>#FFFFFF</code></td>
-<td><code>rgb(255, 255, 255)</code></td>
-<td><code>hsl(0, 0%, 100%)</code></td>
+<td>Pure White</td>
+<td>#FFFFFF</td>
+<td>rgb(255, 255, 255)</td>
+<td>hsl(0, 0%, 100%)</td>
 </tr>
 <tr>
-<td><strong>Pure Black</strong></td>
-<td><code>#000000</code></td>
-<td><code>rgb(0, 0, 0)</code></td>
-<td><code>hsl(0, 0%, 0%)</code></td>
+<td>Pure Black</td>
+<td>#000000</td>
+<td>rgb(0, 0, 0)</td>
+<td>hsl(0, 0%, 0%)</td>
 </tr>
 <tr>
-<td><strong>SmartTools Emerald</strong></td>
-<td><code>#10B981</code></td>
-<td><code>rgb(16, 185, 129)</code></td>
-<td><code>hsl(160, 84%, 39%)</code></td>
+<td>SmartTools Emerald</td>
+<td>#10B981</td>
+<td>rgb(16, 185, 129)</td>
+<td>hsl(160, 84%, 39%)</td>
 </tr>
 <tr>
-<td><strong>Royal Blue</strong></td>
-<td><code>#2563EB</code></td>
-<td><code>rgb(37, 99, 235)</code></td>
-<td><code>hsl(221, 83%, 53%)</code></td>
+<td>Royal Blue</td>
+<td>#2563EB</td>
+<td>rgb(37, 99, 235)</td>
+<td>hsl(221, 83%, 53%)</td>
 </tr>
 <tr>
-<td><strong>Vibrant Amber</strong></td>
-<td><code>#F59E0B</code></td>
-<td><code>rgb(245, 158, 11)</code></td>
-<td><code>hsl(38, 92%, 50%)</code></td>
+<td>Vibrant Amber</td>
+<td>#F59E0B</td>
+<td>rgb(245, 158, 11)</td>
+<td>hsl(38, 92%, 50%)</td>
 </tr>
 <tr>
-<td><strong>Crimson Red</strong></td>
-<td><code>#EF4444</code></td>
-<td><code>rgb(239, 68, 68)</code></td>
-<td><code>hsl(0, 84%, 60%)</code></td>
+<td>Crimson Red</td>
+<td>#EF4444</td>
+<td>rgb(239, 68, 68)</td>
+<td>hsl(0, 84%, 60%)</td>
 </tr>
 </tbody>
 </table>
@@ -270,10 +269,12 @@ Analyzing color contrast and WCAG compliance ratings...
 <p>HEX represents colors in hexadecimal numbers for web display, whereas HSL represents colors by Hue, Saturation, and Lightness, making it much easier to programmatically create color variations.</p>
 
 <h3>2. What does WCAG AAA compliance require?</h3>
-<p>WCAG AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text to ensure maximum readability for visually impaired users.</p>
+<p>WCAG AAA compliance requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text to ensure maximum readability for visually impaired users.</p>
 
-<h3>3. Is my color data secure?</h3>
-<p>Yes! All color conversions and accessibility computations run entirely inside your browser client-side. No color values are ever transmitted externally.</p>
+<div class="author-meta">
+<span><strong>Written by:</strong> Waleed Anjum</span>
+<span><strong>Last Updated:</strong> October 2026</span>
+</div>
 </div>
 </main>
 
@@ -312,21 +313,17 @@ Analyzing color contrast and WCAG compliance ratings...
 
 <script>
 function hexToRgb(hex) {
-  let cleaned = hex.replace(/^#/, '').trim();
-  if (cleaned.length === 3) {
-    cleaned = cleaned.split('').map(c => c + c).join('');
-  }
-  if (cleaned.length !== 6) return null;
+  let cleaned = hex.replace('#','');
+  if (cleaned.length === 3) cleaned = cleaned.split('').map(c => c + c).join('');
   const num = parseInt(cleaned, 16);
-  if (isNaN(num)) return null;
-  return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+  return [num >> 16, (num >> 8) & 255, num & 255];
 }
 
 function rgbToHex(r, g, b) {
-  return '#' + [r, g, b].map(x => {
-    const hex = Math.max(0, Math.min(255, Math.round(x))).toString(16);
-    return hex.length === 1 ? '0' + hex : hex;
-  }).join('').toUpperCase();
+  return "#" + [r, g, b].map(x => {
+    const hex = x.toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+  }).join("").toUpperCase();
 }
 
 function rgbToHsl(r, g, b) {
@@ -345,11 +342,10 @@ function rgbToHsl(r, g, b) {
     }
     h /= 6;
   }
-  return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+  return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
 }
 
 function hslToRgb(h, s, l) {
-  h = ((h % 360) + 360) % 360;
   h /= 360; s /= 100; l /= 100;
   let r, g, b;
   if (s === 0) {
@@ -369,105 +365,87 @@ function hslToRgb(h, s, l) {
     g = hue2rgb(p, q, h);
     b = hue2rgb(p, q, h - 1/3);
   }
-  return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
 
-function getLuminance(r, g, b) {
-  const a = [r, g, b].map(v => {
-    v /= 255;
-    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-  });
-  return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+function updateFromHex(hex) {
+  if (!/^#?[0-9A-Fa-f]{6}$/.test(hex)) return;
+  if (!hex.startsWith('#')) hex = '#' + hex;
+  const [r, g, b] = hexToRgb(hex);
+  const [h, s, l] = rgbToHsl(r, g, b);
+  
+  document.getElementById('colorPicker').value = hex;
+  document.getElementById('rgbInput').value = `rgb(${r}, ${g}, ${b})`;
+  document.getElementById('hslInput').value = `hsl(${h}, ${s}%, ${l}%)`;
+  updatePreview(hex, r, g, b);
 }
 
-function updateColors(r, g, b, sourceField) {
+function updateFromRgb(rgbStr) {
+  const match = rgbStr.match(/\d+/g);
+  if (!match || match.length < 3) return;
+  const r = parseInt(match[0]), g = parseInt(match[1]), b = parseInt(match[2]);
+  if (r > 255 || g > 255 || b > 255) return;
+  
   const hex = rgbToHex(r, g, b);
-  const hsl = rgbToHsl(r, g, b);
-
-  const picker = document.getElementById('colorPicker');
-  const hexInput = document.getElementById('hexInput');
-  const rgbInput = document.getElementById('rgbInput');
-  const hslInput = document.getElementById('hslInput');
-
-  if (picker) picker.value = hex;
-  if (hexInput && sourceField !== 'hex') hexInput.value = hex;
-  if (rgbInput && sourceField !== 'rgb') rgbInput.value = `rgb(${r}, ${g}, ${b})`;
-  if (hslInput && sourceField !== 'hsl') hslInput.value = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
-
-  const swatch = document.getElementById('colorSwatch');
-  if (swatch) swatch.style.backgroundColor = hex;
-
-  const activeLabel = document.getElementById('activeFormatLabel');
-  if (activeLabel) activeLabel.textContent = `Active Format: ${hex}`;
-
-  const lum = getLuminance(r, g, b);
-  const contrastWhite = (1.05 / (lum + 0.05)).toFixed(2);
-  const contrastBlack = ((lum + 0.05) / 0.05).toFixed(2);
-  const bestContrast = Math.max(contrastWhite, contrastBlack);
-
-  const radarEl = document.getElementById('radarOutput');
-  if (radarEl) {
-    let rating = 'Fail', colorBadge = '🔴';
-    if (bestContrast >= 7.0) { rating = 'Pass (WCAG AAA - Excellent)'; colorBadge = '🟢'; }
-    else if (bestContrast >= 4.5) { rating = 'Pass (WCAG AA - Good)'; colorBadge = '🟢'; }
-    else if (bestContrast >= 3.0) { rating = 'Moderate (Large text only)'; colorBadge = '⚠️'; }
-    radarEl.innerHTML = `${colorBadge} <strong>WCAG Contrast Audit:</strong> Contrast ratio vs black/white is <strong>${bestContrast}:1</strong> — Rating: <strong>${rating}</strong>.`;
-  }
+  const [h, s, l] = rgbToHsl(r, g, b);
+  
+  document.getElementById('colorPicker').value = hex;
+  document.getElementById('hexInput').value = hex;
+  document.getElementById('hslInput').value = `hsl(${h}, ${s}%, ${l}%)`;
+  updatePreview(hex, r, g, b);
 }
 
-function handlePickerInput(val) {
-  const rgb = hexToRgb(val);
-  if (rgb) updateColors(rgb.r, rgb.g, rgb.b, 'picker');
+function updateFromHsl(hslStr) {
+  const match = hslStr.match(/\d+/g);
+  if (!match || match.length < 3) return;
+  const h = parseInt(match[0]), s = parseInt(match[1]), l = parseInt(match[2]);
+  
+  const [r, g, b] = hslToRgb(h, s, l);
+  const hex = rgbToHex(r, g, b);
+  
+  document.getElementById('colorPicker').value = hex;
+  document.getElementById('hexInput').value = hex;
+  document.getElementById('rgbInput').value = `rgb(${r}, ${g}, ${b})`;
+  updatePreview(hex, r, g, b);
 }
 
-function handleHexInput(val) {
-  const cleaned = val.trim();
-  if (cleaned === '' || cleaned === '#') {
-    const activeLabel = document.getElementById('activeFormatLabel');
-    if (activeLabel) activeLabel.textContent = 'Active Format: Clearing...';
-    return;
-  }
-  const rgb = hexToRgb(val);
-  if (rgb) updateColors(rgb.r, rgb.g, rgb.b, 'hex');
+function updateFromPicker(hex) {
+  document.getElementById('hexInput').value = hex;
+  updateFromHex(hex);
 }
 
-function handleRgbInput(val) {
-  if (val.trim() === '') return;
-  const match = val.match(/\d+/g);
-  if (match && match.length >= 3) {
-    updateColors(parseInt(match[0]), parseInt(match[1]), parseInt(match[2]), 'rgb');
-  }
-}
-
-function handleHslInput(val) {
-  if (val.trim() === '') return;
-  const match = val.match(/[\d\.]+/g);
-  if (match && match.length >= 3) {
-    const rgb = hslToRgb(parseFloat(match[0]), parseFloat(match[1]), parseFloat(match[2]));
-    updateColors(rgb.r, rgb.g, rgb.b, 'hsl');
-  }
-}
-
-function resetColorTool() {
-  const picker = document.getElementById('colorPicker');
-  const hexInput = document.getElementById('hexInput');
-  const rgbInput = document.getElementById('rgbInput');
-  const hslInput = document.getElementById('hslInput');
-
-  if (picker) picker.value = '#10B981';
-  if (hexInput) hexInput.value = '#10B981';
-  if (rgbInput) rgbInput.value = 'rgb(16, 185, 129)';
-  if (hslInput) hslInput.value = 'hsl(160, 84%, 39%)';
-
-  updateColors(16, 185, 129, '');
+function updatePreview(hex, r, g, b) {
+  document.getElementById('colorPreviewBox').style.backgroundColor = hex;
+  document.getElementById('activeHexLabel').textContent = hex;
+  
+  // Calculate relative luminance for WCAG audit
+  const rs = r/255, gs = g/255, bs = b/255;
+  const rLin = rs <= 0.03928 ? rs / 12.92 : Math.pow((rs + 0.055) / 1.055, 2.4);
+  const gLin = gs <= 0.03928 ? gs / 12.92 : Math.pow((gs + 0.055) / 1.055, 2.4);
+  const bLin = bs <= 0.03928 ? bs / 12.92 : Math.pow((bs + 0.055) / 1.055, 2.4);
+  const luminance = 0.2126 * rLin + 0.7152 * gLin + 0.0722 * bLin;
+  
+  const contrastWithWhite = (1.05) / (luminance + 0.05);
+  const ratio = contrastWithWhite.toFixed(2);
+  let rating = "Pass (WCAG AAA)";
+  if (contrastWithWhite < 4.5) rating = "Fail (Needs Improvement)";
+  else if (contrastWithWhite < 7) rating = "Pass (WCAG AA)";
+  
+  document.getElementById('wcagAuditResult').innerHTML = `🟢 <strong>WCAG Contrast Audit:</strong> Contrast ratio vs white is <strong>${ratio}:1</strong> — Rating: <strong>${rating}</strong>.`;
 }
 
 function copyAllFormats() {
   const hex = document.getElementById('hexInput').value;
   const rgb = document.getElementById('rgbInput').value;
   const hsl = document.getElementById('hslInput').value;
-  navigator.clipboard.writeText(`HEX: ${hex}\nRGB: ${rgb}\nHSL: ${hsl}`);
-  alert('All color formats copied to clipboard successfully!');
+  const text = `HEX: ${hex}\nRGB: ${rgb}\nHSL: ${hsl}`;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("All color formats copied to clipboard!");
+  });
+}
+
+function resetConverter() {
+  updateFromHex('#10B981');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -485,4 +463,5 @@ function acceptCookies() {
 </script>
 
 </body>
-</html>
+                                                                                                                </html>
+                                                                                                                
