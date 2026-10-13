@@ -36,14 +36,21 @@
     "name": "How is exact chronological age calculated between two dates?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Exact age is computed by finding the difference in years, months, and days while accounting for varying month lengths and leap years."
+      "text": "Exact age is computed by finding the difference in years, months, and days while accounting for varying month lengths and calendar leap years."
     }
   },{
     "@type": "Question",
     "name": "Does this age calculator account for leap years?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes, our algorithm accurately factors in leap years every 4 years to ensure day-level precision in total lifespan calculations."
+      "text": "Yes, our algorithm accurately factors in leap years (every 4 years, omitting century years unless divisible by 400) to ensure day-level precision."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are my birth date details saved or tracked on external servers?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All calculations run strictly inside your web browser client-side, ensuring complete data privacy and security."
     }
   }]
 }
@@ -95,10 +102,11 @@ nav a:hover{color:var(--emerald-dark)}
 .content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
 .content-section li{margin-bottom:6px}
 
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.content-table{width:100%!important;border-collapse:collapse!important;margin:20px 0!important;font-size:14px!important}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:550px;}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -115,6 +123,13 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 #cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
 #cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
@@ -135,22 +150,22 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>Age Calculator &amp; Life Milestone Tracker</h1>
-<p class="subtitle">Calculate your precise chronological age in years, months, weeks, days, hours, and minutes instantly.</p>
+<p class="subtitle">Calculate your precise chronological age in years, months, weeks, days, hours, and minutes instantly with our secure calculator.</p>
 
 <div class="calc-box">
 <h3>Calculate Your Exact Age</h3>
 <div class="form-row">
-<label>Date of Birth:</label>
+<label for="dob">Date of Birth:</label>
 <input type="date" id="dob" value="1995-06-15">
 </div>
 <div class="form-row" style="margin-top:10px;">
-<label>Target / Current Date:</label>
+<label for="targetDate">Target / Current Date:</label>
 <input type="date" id="targetDate">
 </div>
 <button type="button" class="calc-btn" onclick="calculateAge()">Calculate Exact Age</button>
 <div class="result-display" id="ageResult">
-<strong>Age:</strong> 31 Years, 3 Months, 28 Days<br>
-<strong>Total Breakdown:</strong> ~375 Months | ~1,630 Weeks | ~11,412 Days
+<strong>Age:</strong> Loading...<br>
+<strong>Total Breakdown:</strong> Loading...
 </div>
 </div>
 
@@ -160,45 +175,50 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <!-- Unique Feature -->
 <div class="unique-section">
-<h3>🧬 Unique Feature: Biological Milestone &amp; Life Stats Analyzer</h3>
-<p>Discover fascinating physiological metrics calculated from your exact time lived, including estimated heartbeats, breaths taken, and total sleep hours!</p>
+<h3>🧬 Biological Milestone &amp; Life Stats Analyzer</h3>
+<p>Discover fascinating physiological metrics calculated from your exact time lived, including estimated heartbeats, breaths taken, and total sleep accumulated!</p>
 <div class="unique-result" id="bioStatsResult">
-Estimated Heartbeats: ~1,308,000,000 | Breaths Taken: ~85,000,000 | Sleep Accumulated: ~3,800 Days
+Loading biological metrics...
 </div>
 </div>
-</div>
+</div> <!-- Closing .tool-container -->
+</div> <!-- Closing .tool-layout (Fixed nesting bug) -->
 
 <div class="content-section">
 <h2>Understanding Chronological Age and Date Calculations</h2>
-<p>When building user profiles, verifying account eligibility, or simply filling out official documentation, calculating exact age down to the day is something developers and everyday users encounter frequently. While knowing your age in years is easy, determining the exact breakdown of years, months, and days becomes mathematically tricky due to irregular month lengths, leap years, and varying calendar structures.</p>
+<p>When building user profiles, verifying account eligibility, or simply filling out official documentation, calculating exact age down to the day is something developers and everyday users encounter frequently. While knowing your age in years is easy, determining the exact breakdown of years, months, and days becomes mathematically tricky due to irregular month lengths, leap years, and varying calendar structures across different historical eras.</p>
 
-<p>Our online Age Calculator simplifies this entire process, allowing you to compute your exact chronological age instantly between any two dates. Powered by pure client-side JavaScript algorithms, the tool guarantees absolute privacy and instantaneous computation without requiring server requests or page reloads.</p>
+<p>Our online Age Calculator simplifies this entire process, allowing you to compute your exact chronological age instantly between any two dates. Powered by robust local JavaScript date algorithms, the tool guarantees absolute privacy and instantaneous computation without requiring server requests, backend database queries, or annoying page reloads.</p>
 
 <h2>Decoding Biological Life Stats and Physiological Milestones</h2>
-<p>Beyond standard calendar math, our platform introduces an exclusive market-first feature: the <strong>Biological Milestone &amp; Life Stats Analyzer</strong>. While traditional age tools only show calendar years, our tool estimates fascinating biological milestones based on medical averages—such as an average resting heart rate of 72 beats per minute, 16 breaths per minute, and an estimated 8 hours of daily rest.</p>
+<p>Beyond standard calendar math, our platform introduces an advanced analytical feature: the <strong>Biological Milestone &amp; Life Stats Analyzer</strong>. While traditional age tools only show basic calendar years, our tool estimates fascinating biological milestones based on established medical averages—such as an average resting heart rate of 72 beats per minute, 16 breaths per minute, and an estimated 8 hours of daily sleep rest.</p>
 
-<p>For instance, someone who has lived for 31 years has experienced over 1.3 billion heartbeats and accumulated more than 3,800 days of deep sleep. This unique analytical perspective gives users a deeper appreciation of time lived, turning a basic date-subtraction tool into an engaging life milestone dashboard.</p>
+<p>For instance, someone who has lived for over 31 years has experienced more than 1.17 billion heartbeats and accumulated thousands of days of restorative sleep. This unique analytical perspective gives users a deeper appreciation of time lived, turning a basic date-subtraction utility into an engaging personal life milestone dashboard.</p>
 
 <h2>The Mathematical Age and Time Calculation Formulas</h2>
-<p>To calculate exact chronological age and biological metrics manually or programmatically, utilize the following core mathematical equations:</p>
+<p>To calculate exact chronological age and biological metrics manually or programmatically without software libraries, utilize the following core mathematical equations:</p>
 
 <div class="formula-box">
 <strong>Core Chronological &amp; Biological Formulas:</strong>
-1. Year Difference:<br>
-   • Formula: Years = Target_Year - Birth_Year (adjusted if month/day has not occurred yet)<br><br>
-2. Total Days Calculation:<br>
-   • Formula: Total Days = (Target_Date - Birth_Date) / (1000 * 60 * 60 * 24)<br><br>
-3. Estimated Biological Heartbeats:<br>
-   • Formula: Heartbeats = Total Days * 24 hours * 60 minutes * 72 beats/min<br><br>
-4. Estimated Sleep Hours:<br>
-   • Formula: Sleep Days = Total Days * (8 / 24)
+1. Year Difference:
+• Years = Target_Year - Birth_Year (adjusted if month/day has not occurred yet)
+
+2. Total Days Calculation:
+• Total Days = (Target_Date - Birth_Date) / 86,400,000 ms
+
+3. Estimated Biological Heartbeats:
+• Heartbeats = Total Days * 1,440 minutes/day * 72 beats/min
+
+4. Estimated Sleep Accumulation:
+• Sleep Days = Total Days * (8 / 24 hours)
 </div>
 
-<p>By applying these robust algorithms, developers and statisticians can eliminate rounding errors and ensure consistent date arithmetic across different systems.</p>
+<p>By applying these rigorous algorithms, developers and statisticians can eliminate rounding errors and ensure consistent date arithmetic across all global time zones.</p>
 
 <h2>Global Generation and Age Milestone Reference Matrix</h2>
 <p>The reference table below outlines common generational brackets and age milestones as of 2026:</p>
 
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
@@ -241,22 +261,23 @@ Estimated Heartbeats: ~1,308,000,000 | Breaths Taken: ~85,000,000 | Sleep Accumu
 </tr>
 </tbody>
 </table>
+</div>
 
 <h2>How to Use the Age Calculator &amp; Milestone Tracker</h2>
 <p>Using our date calculator and biological milestone analyzer is fast, clean, and intuitive:</p>
 <ul>
-<li><strong>Select Date of Birth:</strong> Pick your exact birth date from the date picker interface.</li>
-<li><strong>Verify Target Date:</strong> By default, it uses today's date, but you can select any historical or future target date.</li>
-<li><strong>Calculate Exact Age:</strong> Click the calculation button to view your exact age in years, months, weeks, and days.</li>
-<li><strong>Explore Biological Stats:</strong> Scroll down slightly to review your estimated heartbeats, breaths taken, and accumulated sleep hours!</li>
+<li><strong>Select Date of Birth:</strong> Pick your exact birth date from the local date picker interface.</li>
+<li><strong>Verify Target Date:</strong> By default, it uses today's local date, but you can select any historical or future target date.</li>
+<li><strong>Calculate Exact Age:</strong> Click the calculation button to view your exact age in years, months, weeks, days, hours, and minutes.</li>
+<li><strong>Explore Biological Stats:</strong> Scroll down slightly to review your estimated heartbeats, breaths taken, and accumulated sleep duration!</li>
 </ul>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
 <h3>1. How is exact chronological age calculated between two dates?</h3>
-<p>Exact age is computed by finding the difference in years, months, and days while accounting for varying month lengths and leap years.</p>
+<p>Exact age is computed by finding the difference in years, months, and days while accounting for varying month lengths and calendar leap years.</p>
 
 <h3>2. Does this age calculator account for leap years?</h3>
-<p>Yes, our algorithm accurately factors in leap years every 4 years to ensure day-level precision in total lifespan calculations.</p>
+<p>Yes, our algorithm accurately factors in leap years (every 4 years, omitting century years unless divisible by 400) to ensure day-level precision.</p>
 
 <h3>3. Are my birth date details saved or tracked on external servers?</h3>
 <p>No. All calculations run strictly inside your web browser client-side, ensuring complete data privacy and security.</p>
@@ -306,9 +327,19 @@ Other Free Tools: <a href="percentage-calculator.html" style="color:var(--emeral
 </div>
 
 <script>
+// Pluralization helper function
+function pluralize(val, singular) {
+  return val === 1 ? `1 ${singular}` : `${val} ${singular}s`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('targetDate').value = today;
+  // Set local date for today without UTC timezone shifting bugs
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  document.getElementById('targetDate').value = `${year}-${month}-${day}`;
+  
   calculateAge();
   
   if (!localStorage.getItem('cookiesAccepted')) {
@@ -323,22 +354,27 @@ function calculateAge() {
   
   if (!dobVal || !targetVal) return;
   
-  const dob = new Date(dobVal);
-  const target = new Date(targetVal);
+  // Parse YYYY-MM-DD locally to avoid UTC timezone bugs across Americas/Asia
+  const [dobY, dobM, dobD] = dobVal.split('-').map(Number);
+  const [tY, tM, tD] = targetVal.split('-').map(Number);
   
-  if (dob > target) {
+  const dobDate = new Date(dobY, dobM - 1, dobD);
+  const targetDate = new Date(tY, tM - 1, tD);
+  
+  if (dobDate > targetDate) {
     document.getElementById('ageResult').innerHTML = '<span style="color:#F87171;">Error: Date of Birth cannot be after Target Date.</span>';
     document.getElementById('bioStatsResult').textContent = 'Calculation unavailable due to date error.';
     return;
   }
   
-  let years = target.getFullYear() - dob.getFullYear();
-  let months = target.getMonth() - dob.getMonth();
-  let days = target.getDate() - dob.getDate();
+  let years = tY - dobY;
+  let months = tM - dobM;
+  let days = tD - dobD;
   
   if (days < 0) {
     months--;
-    const prevMonth = new Date(target.getFullYear(), target.getMonth(), 0);
+    // Get total days in the month prior to target date month
+    const prevMonth = new Date(tY, tM - 1, 0);
     days += prevMonth.getDate();
   }
   
@@ -347,20 +383,22 @@ function calculateAge() {
     months += 12;
   }
   
-  const diffTime = Math.abs(target - dob);
+  const diffTime = targetDate - dobDate;
   const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
   const totalWeeks = Math.floor(totalDays / 7);
   const totalMonths = (years * 12) + months;
+  const totalHours = totalDays * 24;
+  const totalMinutes = totalHours * 60;
   
   document.getElementById('ageResult').innerHTML = `
-    <strong>Age:</strong> ${years} Years, ${months} Months, ${days} Days<br>
-    <strong>Total Breakdown:</strong> ~${totalMonths.toLocaleString()} Months | ~${totalWeeks.toLocaleString()} Weeks | ~${totalDays.toLocaleString()} Days
+    <strong>Age:</strong> ${pluralize(years, 'Year')}, ${pluralize(months, 'Month')}, ${pluralize(days, 'Day')}<br>
+    <strong>Total Breakdown:</strong> ~${totalMonths.toLocaleString()} Months | ~${totalWeeks.toLocaleString()} Weeks | ~${totalDays.toLocaleString()} Days | ~${totalHours.toLocaleString()} Hours | ~${totalMinutes.toLocaleString()} Minutes
   `;
   
-  // Biological stats calculations
-  const heartbeats = totalDays * 24 * 60 * 72; // ~72 bpm
-  const breaths = totalDays * 24 * 60 * 16;     // ~16 breaths/min
-  const sleepDays = Math.round(totalDays * (8 / 24)); // 8 hours per day
+  // Accurate biological stats calculations based on standard medical averages
+  const heartbeats = totalDays * 24 * 60 * 72; // 72 bpm
+  const breaths = totalDays * 24 * 60 * 16;     // 16 breaths/min
+  const sleepDays = Math.round(totalDays * (8 / 24)); // 8 hours daily sleep
   
   document.getElementById('bioStatsResult').innerHTML = `
     Estimated Heartbeats: ~${heartbeats.toLocaleString()} | Breaths Taken: ~${breaths.toLocaleString()} | Sleep Accumulated: ~${sleepDays.toLocaleString()} Days
