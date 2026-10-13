@@ -3,19 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Percentage Calculator &amp; Coupon Stacking Analyzer | SmartToolsKit</title>
-<meta name="description" content="Use our free online Percentage Calculator to compute values, increases, decreases, and ratios instantly. Includes a unique multi-coupon stacking discount analyzer.">
+<title>Free Online Percentage Calculator & Coupon Stacking Analyzer | SmartToolsKit</title>
+<meta name="description" content="Calculate percentage values, ratios, increases, decreases, and true multi-coupon retail discounts instantly with our secure, client-side online calculator.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/percentage-calculator.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://smarttoolskit.com/tools/percentage-calculator.html">
-<meta property="og:title" content="Free Percentage Calculator &amp; Coupon Analyzer | SmartToolsKit">
-<meta property="og:description" content="Calculate percentages, increases, and decreases accurately, and analyze stacked store discounts with our unique retail coupon analyzer.">
-
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,12 +27,34 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How do I calculate a percentage increase between two numbers?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Subtract the initial value from the final value, divide the difference by the initial value, and multiply the result by 100."
+    }
+  },{
+    "@type": "Question",
+    "name": "Why don't stacked coupons simply add together?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Retailers apply sequential compounding discounts where the second coupon is calculated from the reduced intermediate price rather than the original baseline."
+    }
+  }]
+}
+</script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input{font-family:inherit}
+button,input,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -51,44 +66,45 @@ nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 
-.calc-section-box{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:20px}
-.calc-section-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
-
-.form-group{margin-bottom:14px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
-.form-group input:focus{border-color:var(--emerald)}
-
-.inline-flex{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--navy)}
-.inline-flex input{width:90px;text-align:center}
-
-.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
+.form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.form-row input{width:110px;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none;text-align:center}
+.form-row input:focus{border-color:var(--emerald)}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;width:100%;margin-top:8px}
 .calc-btn:hover{background:var(--emerald-dark)}
 
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-.result-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:12px;font-size:14px;color:var(--emerald-dark);font-weight:bold;text-align:center;display:none}
+.result-display{background:var(--navy);color:#fff;padding:12px;border-radius:8px;margin-top:12px;font-size:14px;font-weight:700;text-align:center}
 
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:25px;margin-top:25px}
 .unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:15px}
+.coupon-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px}
+@media(max-width:600px){.coupon-grid{grid-template-columns:1fr}}
+.coupon-group label{display:block;font-size:12px;color:#94A3B8;margin-bottom:5px}
+.coupon-group input{width:100%;padding:10px;background:#1E293B;border:1px solid #334155;color:#fff;border-radius:8px;outline:none}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
 .content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
 .content-section li{margin-bottom:6px}
 
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
-.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
-.content-table td{color:#475569}
+.content-table{width:100%!important;border-collapse:collapse!important;margin:20px 0!important;font-size:14px!important}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
@@ -117,99 +133,108 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </header>
 
 <main class="container">
+<div class="tool-layout">
 <div class="tool-container">
-<h1>Percentage Calculator</h1>
-<p class="subtitle">Compute values, ratios, percentage increases, and decreases instantly with high precision.</p>
+<h1>Percentage Calculator &amp; Coupon Analyzer</h1>
+<p class="subtitle">Compute values, ratios, percentage increases, and retail discounts instantly with high precision.</p>
 
-<div class="calc-section-box">
+<!-- Calculator 1 -->
+<div class="calc-box">
 <h3>1. What is X% of Y?</h3>
-<div class="inline-flex">
+<div class="form-row">
 <span>What is</span>
-<input type="number" step="any" id="p1_x" value="20">
+<input type="number" id="p1_x" value="20">
 <span>% of</span>
-<input type="number" step="any" id="p1_y" value="150">
+<input type="number" id="p1_y" value="150">
 <span>?</span>
 </div>
-<button type="button" class="calc-btn" onclick="calculateP1()">Calculate Value</button>
-<div class="result-box" id="res1">Result: 30</div>
+<button type="button" class="calc-btn" onclick="calcPercentageValue()">Calculate Value</button>
+<div class="result-display" id="res1">Result: 30</div>
 </div>
 
-<div class="calc-section-box">
+<!-- Calculator 2 -->
+<div class="calc-box">
 <h3>2. X is what percentage of Y?</h3>
-<div class="inline-flex">
-<input type="number" step="any" id="p2_x" value="45">
+<div class="form-row">
+<input type="number" id="p2_x" value="45">
 <span>is what % of</span>
-<input type="number" step="any" id="p2_y" value="200">
+<input type="number" id="p2_y" value="200">
 <span>?</span>
 </div>
-<button type="button" class="calc-btn" onclick="calculateP2()">Calculate Percentage</button>
-<div class="result-box" id="res2">Result: 22.5%</div>
+<button type="button" class="calc-btn" onclick="calcPercentageOf()">Calculate Percentage</button>
+<div class="result-display" id="res2">Result: 22.5%</div>
 </div>
 
-<div class="calc-section-box">
+<!-- Calculator 3 -->
+<div class="calc-box">
 <h3>3. Percentage Increase or Decrease</h3>
-<div class="form-group">
-<label for="p3_from">Initial Value (From)</label>
-<input type="number" step="any" id="p3_from" value="80">
+<div class="form-row" style="margin-bottom:8px;">
+<label style="width:100%;font-size:12px;color:var(--muted);font-weight:700;">Initial Value (From):</label>
+<input type="number" id="p3_init" value="80" style="width:100%;">
 </div>
-<div class="form-group">
-<label for="p3_to">Final Value (To)</label>
-<input type="number" step="any" id="p3_to" value="100">
+<div class="form-row" style="margin-bottom:8px;">
+<label style="width:100%;font-size:12px;color:var(--muted);font-weight:700;">Final Value (To):</label>
+<input type="number" id="p3_final" value="100" style="width:100%;">
 </div>
-<button type="button" class="calc-btn" onclick="calculateP3()">Calculate Change</button>
-<div class="result-box" id="res3">Result: 25% Increase</div>
+<button type="button" class="calc-btn" onclick="calcPercentageChange()">Calculate Change</button>
+<div class="result-display" id="res3">Result: 25% Increase</div>
 </div>
 
 <div class="security-badge">
 <span>🔒 Client-Side Security:</span> All computations execute securely inside your local browser. No data is stored or transmitted externally.
 </div>
 
+<!-- Unique Feature -->
 <div class="unique-section">
 <h3>🏷️ Unique Feature: Multi-Coupon Stacking &amp; True Discount Analyzer</h3>
-<p>Enter your original price and stacked coupons to see your true net savings vs the sum illusion!</p>
-<div class="form-group">
-<label for="originalPrice" style="color:#fff;">Original Item Price ($)</label>
-<input type="number" step="any" id="originalPrice" value="120" style="background:#1E293B;color:#fff;border-color:#334155;">
+<p>Enter your original price and stacked promo codes to uncover your true net savings vs the store illusion!</p>
+<div class="coupon-grid">
+<div class="coupon-group">
+<label>Original Item Price ($)</label>
+<input type="number" id="coupon_price" value="120" oninput="analyzeStacking()">
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
-<div class="form-group" style="margin-bottom:0;">
-<label for="coupon1" style="color:#fff;">First Coupon (%)</label>
-<input type="number" step="any" id="coupon1" value="20" style="background:#1E293B;color:#fff;border-color:#334155;">
-</div>
-<div class="form-group" style="margin-bottom:0;">
-<label for="coupon2" style="color:#fff;">Second Coupon (%)</label>
-<input type="number" step="any" id="coupon2" value="10" style="background:#1E293B;color:#fff;border-color:#334155;">
+<div class="coupon-group">
+<label>First Coupon (%)</label>
+<input type="number" id="coupon_1" value="20" oninput="analyzeStacking()">
 </div>
 </div>
-<button type="button" class="calc-btn" onclick="calculateCoupon()">Analyze True Discount</button>
-<div id="couponResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;display:none;line-height:1.6;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;"></div>
+<div class="coupon-grid">
+<div class="coupon-group">
+<label>Second Coupon (%)</label>
+<input type="number" id="coupon_2" value="10" oninput="analyzeStacking()">
+</div>
+</div>
+<div class="result-display" id="couponResult" style="background:#1E293B;border:1px solid #334155;text-align:left;padding:15px;font-weight:normal;">
+Final Price: $86.40 | True Net Discount: 28% (Instead of 30% add-up illusion)
+</div>
+</div>
 </div>
 
-</div>
-
-<!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
 <h2>Understanding Percentages and Mathematical Proportions</h2>
-<p>The term percentage originates from the Latin phrase "per centum," meaning "by the hundred." A percentage represents a dimensionless ratio or fraction out of 100, denoted by the symbol %. Percentages are foundational to everyday life, mathematics, financial planning, commercial pricing, academic grading, and statistical data analysis. Whether you are calculating restaurant tips, computing mortgage interest, evaluating business profit margins, or analyzing scientific test scores, mastering percentage calculations is essential across both professional and personal domains.</p>
+<p>When I work on financial spreadsheets, e-commerce pricing models, or daily calculations, figuring out percentages accurately is something I do constantly. Whether you are splitting a restaurant bill, calculating mortgage interest, or evaluating business profit margins, having a fast and reliable tool saves a lot of time.</p>
 
-<p>Our online Percentage Calculator streamlines this mathematical workflow, enabling users to compute standard percentage proportions, ratios, and relative changes instantly. Powered by pure client-side arithmetic algorithms, our tool guarantees precise numerical calculations without requiring software downloads or network latency, ensuring complete user confidentiality.</p>
+<p>Our online Percentage Calculator simplifies this mathematical workflow, enabling you to compute standard percentage proportions, ratios, and relative changes instantly. Powered by pure client-side arithmetic algorithms, our tool guarantees precise numerical calculations without requiring software downloads or network latency.</p>
 
 <h2>Decoding Multi-Coupon Stacking and Retail Discount Illusions</h2>
 <p>Beyond standard arithmetic, our platform introduces an exclusive market-first feature: the <strong>Multi-Coupon Stacking &amp; True Discount Analyzer</strong>. During shopping sales, retailers often permit customers to stack multiple promotional offers—such as a 20% store-wide discount code followed by an extra 10% loyalty voucher at checkout. Consumers frequently assume these percentages simply add together (e.g., 20% + 10% = 30% off).</p>
 
-<p>In reality, retailers apply compound successive discounts. The second coupon is applied against the already-reduced price, not the original retail cost. For example, a $100 item discounted by 20% drops to $80. Applying an extra 10% off $80 reduces the final price to $72, yielding a true net discount of 28% rather than the perceived 30%. Our unique coupon analyzer exposes these compounding retail dynamics instantly, providing absolute clarity on your actual savings.</p>
+<p>In reality, retailers apply compounding successive discounts. The second coupon is applied against the already-reduced price, not the original retail cost. For example, a $100 item discounted by 20% drops to $80. Applying an extra 10% off $80 reduces the final price to $72, yielding a true net discount of 28% rather than the perceived 30%. Our unique coupon analyzer exposes these compounding retail dynamics instantly.</p>
 
 <h2>The Mathematical Percentage and Discount Formulas</h2>
 <p>To compute percentage values manually or verify financial spreadsheets, utilize the following core mathematical equations:</p>
 
 <div class="formula-box">
 <strong>Core Percentage Formulas:</strong>
-1. What is X% of Y? $\rightarrow$ Value = $(X / 100) * Y$<br>
-2. X is what % of Y? $\rightarrow$ Percentage = $(X / Y) * 100$<br>
-3. Percentage Increase / Decrease $\rightarrow$ Change = $((Final - Initial) / Initial) * 100$<br><br>
+1. What is X% of Y?<br>
+   • Formula: Value = (X / 100) * Y<br><br>
+2. X is what % of Y?<br>
+   • Formula: Percentage = (X / Y) * 100<br><br>
+3. Percentage Increase / Decrease Change:<br>
+   • Formula: Change = ((Final - Initial) / Initial) * 100<br><br>
 <strong>Compound Coupon Stacking Formula:</strong>
-1. Final Price = Original Price * $(1 - C_1 / 100) * (1 - C_2 / 100)$<br>
-2. True Net Discount % = $((Original - Final) / Original) * 100$
+1. Final Price = Original Price * (1 - C1 / 100) * (1 - C2 / 100)<br>
+2. True Net Discount % = ((Original - Final) / Original) * 100
 </div>
 
 <p>By applying these standardized mathematical equations, shoppers, students, and financial analysts can evaluate proportions with absolute precision.</p>
@@ -284,6 +309,11 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <h3>3. Are my percentage queries saved or tracked on external servers?</h3>
 <p>No. All calculations run strictly inside your web browser client-side, ensuring complete data privacy and security.</p>
+
+<div class="author-meta">
+<span><strong>Written by:</strong> Waleed Anjum</span>
+<span><strong>Last Updated:</strong> October 2026</span>
+</div>
 </div>
 </main>
 
@@ -321,75 +351,56 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <script>
-function calculateP1() {
-  const x = parseFloat(document.getElementById('p1_x').value);
-  const y = parseFloat(document.getElementById('p1_y').value);
-  const resBox = document.getElementById('res1');
-  if (isNaN(x) || isNaN(y)) { alert('Please enter valid numbers.'); return; }
-  const val = (x / 100) * y;
-  resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}`;
-  resBox.style.display = 'block';
+function calcPercentageValue() {
+  const x = parseFloat(document.getElementById('p1_x').value) || 0;
+  const y = parseFloat(document.getElementById('p1_y').value) || 0;
+  const res = (x / 100) * y;
+  document.getElementById('res1').textContent = "Result: " + res.toLocaleString();
 }
 
-function calculateP2() {
-  const x = parseFloat(document.getElementById('p2_x').value);
-  const y = parseFloat(document.getElementById('p2_y').value);
-  const resBox = document.getElementById('res2');
-  if (isNaN(x) || isNaN(y) || y === 0) { alert('Please enter valid numbers (Y cannot be zero).'); return; }
-  const val = (x / y) * 100;
-  resBox.textContent = `Result: ${val.toLocaleString('en-US', {maximumFractionDigits: 4})}%`;
-  resBox.style.display = 'block';
+function calcPercentageOf() {
+  const x = parseFloat(document.getElementById('p2_x').value) || 0;
+  const y = parseFloat(document.getElementById('p2_y').value) || 1;
+  const res = (x / y) * 100;
+  document.getElementById('res2').textContent = "Result: " + res.toFixed(2) + "%";
 }
 
-function calculateP3() {
-  const from = parseFloat(document.getElementById('p3_from').value);
-  const to = parseFloat(document.getElementById('p3_to').value);
-  const resBox = document.getElementById('res3');
-  if (isNaN(from) || isNaN(to) || from === 0) { alert('Please enter valid numbers.'); return; }
-  const diff = to - from;
-  const pct = (diff / Math.abs(from)) * 100;
-  const type = pct >= 0 ? 'Increase' : 'Decrease';
-  resBox.textContent = `Result: ${Math.abs(pct).toLocaleString('en-US', {maximumFractionDigits: 4})}% ${type}`;
-  resBox.style.display = 'block';
+function calcPercentageChange() {
+  const init = parseFloat(document.getElementById('p3_init').value) || 1;
+  const final = parseFloat(document.getElementById('p3_final').value) || 0;
+  const diff = final - init;
+  const pct = (diff / init) * 100;
+  const status = pct >= 0 ? "Increase" : "Decrease";
+  document.getElementById('res3').textContent = "Result: " + Math.abs(pct).toFixed(2) + "% " + status;
 }
 
-function calculateCoupon() {
-  const price = parseFloat(document.getElementById('originalPrice').value);
-  const c1 = parseFloat(document.getElementById('coupon1').value) || 0;
-  const c2 = parseFloat(document.getElementById('coupon2').value) || 0;
-  const resDiv = document.getElementById('couponResult');
-  if (isNaN(price) || price <= 0) { alert('Please enter a valid original price.'); return; }
-
-  const priceAfterC1 = price * (1 - c1 / 100);
-  const finalPrice = priceAfterC1 * (1 - c2 / 100);
-  const totalSaved = price - finalPrice;
-  const trueNetPct = (totalSaved / price) * 100;
-  const nominalSumPct = c1 + c2;
-
-  let html = `🏷️ <strong>Stacked Coupon Breakdown:</strong><br>`;
-  html += `• <strong>Original Price:</strong> ${price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-  html += `• <strong>After ${c1}% Coupon:</strong> ${priceAfterC1.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-  html += `• <strong>After Extra ${c2}% Coupon:</strong> ${finalPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-  html += `• <strong>Total Money Saved:</strong> ${totalSaved.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}<br>`;
-  html += `• <strong style="color:var(--emerald);">True Net Discount: ${trueNetPct.toFixed(2)}%</strong> (Nominal Sum Illusion: ${nominalSumPct}%)`;
-
-  resDiv.innerHTML = html;
-  resDiv.style.display = 'block';
+function analyzeStacking() {
+  const price = parseFloat(document.getElementById('coupon_price').value) || 0;
+  const c1 = parseFloat(document.getElementById('coupon_1').value) || 0;
+  const c2 = parseFloat(document.getElementById('coupon_2').value) || 0;
+  
+  const priceAfter1 = price * (1 - c1 / 100);
+  const finalPrice = priceAfter1 * (1 - c2 / 100);
+  const netDiscount = price > 0 ? ((price - finalPrice) / price) * 100 : 0;
+  
+  document.getElementById('couponResult').innerHTML = `Final Price: $${finalPrice.toFixed(2)} | True Net Discount: ${netDiscount.toFixed(1)}% (Instead of ${(c1+c2)}% add-up illusion)`;
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.getItem('cookiesAccepted')) {
-    const cookieBanner = document.getElementById('cookieConsent');
-    if (cookieBanner) cookieBanner.style.display = 'flex';
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
   }
+  analyzeStacking();
 });
 
 function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  const cookieBanner = document.getElementById('cookieConsent');
-  if (cookieBanner) cookieBanner.style.display = 'none';
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
 }
 </script>
 
 </body>
-</html>
+  </html>
+  
