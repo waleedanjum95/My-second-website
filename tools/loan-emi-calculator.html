@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online Loan EMI Calculator &amp; Prepayment Savings Simulator</title>
-<meta name="description" content="Calculate monthly loan EMI, simulate extra monthly prepayments to save interest, view payoff dates, and download CSV amortization schedules securely in your browser.">
+<meta name="description" content="Calculate monthly loan EMI between start and end dates, simulate extra prepayments, and download CSV amortization schedules securely.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/loan-emi-calculator.html">
 <meta name="theme-color" content="#0F172A">
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -20,444 +19,23 @@
   "browserRequirements": "Requires JavaScript. Requires HTML5."
 }
 </script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
-    "name": "How is monthly loan EMI calculated?",
+    "name": "How is monthly loan EMI calculated between start and end dates?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Monthly EMI is calculated using the standard formula: EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1], where P is principal, r is monthly interest rate, and n is tenure in months."
+      "text": "The loan tenure in months is automatically calculated from your selected start and end dates, and EMI is computed using the standard formula: EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1]."
     }
   },{
     "@type": "Question",
     "name": "How do extra monthly prepayments save interest?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Making extra monthly prepayments directly reduces the outstanding principal balance faster, which lowers the interest charged in subsequent months and shortens overall loan tenure."
-    }
-  },{
-    "@type": "Question",
-    "name": "Are my loan details stored on external servers?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "No. All financial calculations happen locally inside your browser client-side, ensuring complete privacy."
-    }
-  },{
-    "@type": "Question",
-    "name": "Can I download my loan amortization schedule as a CSV file?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Yes, our tool includes a built-in CSV export button that generates your month-by-month payment breakdown with exact start and end dates instantly."
-    }
-  },{
-    "@type": "Question",
-    "name": "Does this calculator account for varying month lengths in amortization?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Amortization schedules map monthly payment intervals sequentially from your chosen start date."
-    }
-  }]
-}
-</script>
-
-<style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
-a{color:inherit;text-decoration:none}
-button,input,select{font-family:inherit}
-.container{width:min(1120px,92%);margin:auto}
-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
-.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
-.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
-.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
-nav{display:flex;align-items:center;gap:24px}
-nav a{color:#475569;font-size:14px;font-weight:600}
-nav a:hover{color:var(--emerald-dark)}
-.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
-.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
-
-.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
-.form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.form-row label{width:100%;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
-.form-row input,.form-row select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
-.form-row input:focus,.form-row select:focus{border-color:var(--emerald)}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;width:100%;margin-top:10px}
-.calc-btn:hover{background:var(--emerald-dark)}
-
-.result-display{background:var(--navy);color:#fff;padding:15px;border-radius:8px;margin-top:12px;font-size:14px;line-height:1.7}
-.result-display strong{color:var(--emerald)}
-
-.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-bottom:20px}
-.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
-.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-text{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic;}
-
-.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
-.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
-.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:600px;}
-.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
-.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
-.content-table td{color:#475569!important}
-
-.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-
-footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
-footer h3{color:#fff;margin-bottom:10px;font-size:15px}
-footer p,footer a{color:#94A3B8;font-size:13px}
-.footer-links{display:flex;flex-direction:column;gap:6px}
-.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
-#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
-
-@media(max-width:768px){
-  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
-  nav{flex-wrap:wrap;justify-content:center;gap:15px}
-  .tool-layout{padding:20px;margin:20px auto}
-  .content-section{padding:20px;margin:30px auto}
-}
-</style>
-</head>
-<body>
-
-<header>
-<div class="container nav">
-<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
-<nav>
-<a href="../index.html#categories">Categories</a>
-<a href="../index.html#tools">Tools</a>
-<a href="../about.html">About</a>
-<a href="../contact.html" class="nav-button">Contact</a>
-</nav>
-</div>
-</header>
-
-<main class="container">
-<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
-<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Calculators</a> &gt; Loan EMI Calculator
-</div>
-
-<div class="tool-layout">
-<div class="tool-container">
-<h1>Loan EMI Calculator</h1>
-<p class="subtitle">Calculate monthly loan payments, simulate extra prepayments, estimate payoff dates, and download CSV amortization schedules.</p>
-
-<div class="calc-box">
-<h3>Loan Parameters</h3>
-<div class="form-row">
-<label for="loanAmount">Loan Amount ($):</label>
-<input type="number" id="loanAmount" value="100000" min="1" step="any" oninput="calculateEMI()">
-</div>
-<div class="form-row" style="margin-top:10px;">
-<label for="interestRate">Annual Interest Rate (%):</label>
-<input type="number" id="interestRate" value="7" min="0" step="any" oninput="calculateEMI()">
-</div>
-<div class="form-row" style="margin-top:10px;">
-<label for="loanTenure">Loan Tenure (Years):</label>
-<input type="number" id="loanTenure" value="5" min="1" step="1" oninput="calculateEMI()">
-</div>
-<div class="form-row" style="margin-top:10px;">
-<label for="startDate">Loan Start Date:</label>
-<input type="date" id="startDate" value="2026-11-01" oninput="calculateEMI()">
-</div>
-
-<div class="result-display" id="emiResult">
-<strong>Monthly EMI:</strong> Loading...<br>
-<strong>Total Interest:</strong> Loading...<br>
-<strong>Total Payment:</strong> Loading...<br>
-<strong>Estimated End Date:</strong> Loading...
-</div>
-</div>
-
-<!-- Genuinely Unique Feature: Extra Prepayment Savings Simulator -->
-<div class="unique-box">
-<h3>Extra Monthly Prepayment Savings Simulator</h3>
-<p>See how much interest you save and how many months you cut off your loan tenure by paying an extra amount each month.</p>
-<div class="form-row" style="margin-bottom:10px;">
-<label for="extraPayment" style="color:#CBD5E1;">Extra Monthly Prepayment ($ optional):</label>
-<input type="number" id="extraPayment" value="150" min="0" step="any" oninput="calculateEMI()" style="background:#1E293B;color:#fff;border:1px solid #334155;">
-</div>
-<div class="unique-result" id="prepaymentResult">
-Loading prepayment savings analysis...
-</div>
-<button type="button" class="calc-btn" onclick="downloadCSV()" style="background:var(--emerald);margin-top:15px;">Download Amortization Schedule (CSV)</button>
-</div>
-
-<div class="security-badge">
-<span>Client-side security:</span> all calculations happen in your browser. We do not collect, store, or send any data you enter.
-</div>
-<div class="disclaimer-text">
-Disclaimer: This calculator is for educational and estimation purposes only and does not constitute formal financial or lending advice.
-</div>
-</div>
-</div>
-
-<div class="content-section">
-<h2>Understanding Loan EMI and Amortization Schedules</h2>
-<p>When I plan to take out a mortgage, car loan, or personal financing, knowing exactly how much my monthly Equated Monthly Installment (EMI) will be is essential. Managing monthly cash flow requires clear visibility into how much money goes toward paying down the principal versus covering bank interest.</p>
-
-<p>Our online Loan EMI Calculator computes your exact monthly commitment instantly. By entering your principal loan amount, annual interest rate, tenure in years, and loan start date, you get an immediate breakdown of your financial obligations along with your exact loan completion date.</p>
-
-<h2>Interactive Unique Feature: Extra Prepayment Savings Simulator</h2>
-<p>Most basic loan calculators only show standard scheduled payments. However, when I look at long-term borrowing, making small additional payments each month can dramatically reduce total borrowing costs. Our built-in prepayment simulator lets you input an extra monthly contribution to instantly calculate how many months of debt you eliminate and how many dollars in interest you save.</p>
-
-<h2>How to Use the Loan EMI Calculator</h2>
-<p>Using this calculator takes just a few seconds:</p>
-<ul>
-<li>Enter your total desired loan principal amount in dollars.</li>
-<li>Specify the annual interest rate percentage charged by the lender.</li>
-<li>Input your loan repayment tenure in years.</li>
-<li>Select your loan start date using the date picker.</li>
-<li>Enter an optional extra monthly prepayment amount to see total interest savings and shortened tenure instantly.</li>
-<li>Click the download button to export your complete month-by-month CSV amortization schedule.</li>
-</ul>
-
-<h2>Core Loan EMI Mathematical Formulas</h2>
-<p>To calculate loan installments manually or programmatically, use these standard banking formulas:</p>
-
-<div class="formula-box">
-<strong>Standard Formulas:</strong>
-1. Monthly Interest Rate (r):
-• r = Annual Interest Rate / 12 / 100
-
-2. Total Tenure in Months (n):
-• n = Tenure in Years * 12
-
-3. Monthly EMI:
-• EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1]
-
-4. Prepayment Impact:
-• Extra payments are deducted directly from principal, shortening total amortization cycles.
-</div>
-
-<div class="table-responsive">
-<table class="content-table">
-<thead>
-<tr>
-<th>Calculation Metric</th>
-<th>Mathematical Equation</th>
-<th>Variables</th>
-<th>Example Output</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Monthly EMI</td>
-<td>[P * r * (1 + r)^n] / [(1 + r)^n - 1]</td>
-<td>P = 100,000, r = 7%/12, n = 60</td>
-<td>$1,980.12 per month</td>
-</tr>
-<tr>
-<td>Total Payment</td>
-<td>EMI * n</td>
-<td>EMI = 1,980.12, n = 60</td>
-<td>$118,807.20</td>
-</tr>
-<tr>
-<td>Total Interest</td>
-<td>Total Payment - Principal</td>
-<td>Payment = 118,807.20, P = 100k</td>
-<td>$18,807.20</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h2>Practical Worked Examples</h2>
-<p>Here are two real-world examples of how loan calculations work:</p>
-<ul>
-<li><strong>Example 1 (Standard Auto Loan):</strong> When I borrow $100,000 at 7% annual interest for 5 years (60 months), the monthly EMI is $1,980.12, totaling $118,807.20 with $18,807.20 in total interest. Adding an extra $150 monthly prepayment cuts several months off the tenure and saves hundreds in interest.</li>
-<li><strong>Example 2 (Personal Loan):</strong> If I borrow $50,000 at 5% annual interest for 3 years (36 months), the monthly EMI comes out to $1,498.54, resulting in total interest of $3,947.44.</li>
-</ul>
-
-<h2>Financial Benchmark Reference Table</h2>
-<p>The table below lists standard financial parameters and central banking convention guidelines used for loan amortization standards:</p>
-
-<div class="table-responsive">
-<table class="content-table">
-<thead>
-<tr>
-<th>Parameter Type</th>
-<th>Standard Industry Practice</th>
-<th>Regulatory Authority Reference</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Interest Calculation</td>
-<td>Reducing balance method</td>
-<td>Central Bank Lending Standards</td>
-</tr>
-<tr>
-<td>Tenure Measurement</td>
-<td>Monthly payment intervals</td>
-<td>ISO 8601 Calendar Standards</td>
-</tr>
-<tr>
-<td>Amortization Schedule</td>
-<td>Month-by-month principal &amp; interest split</td>
-<td>Financial Accounting Standards</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h2>Who Uses This Tool and When</h2>
-<p>Homebuyers use EMI calculators to evaluate mortgage affordability, car buyers use them to plan vehicle financing, and financial planners use them to demonstrate amortization schedules and prepayment strategies to clients.</p>
-
-<h2>Common Mistakes to Avoid</h2>
-<p>A common error is confusing annual interest rates with monthly interest rates when doing manual calculations, or ignoring how extra prepayments accelerate principal reduction.</p>
-
-<h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. How is monthly loan EMI calculated?</h3>
-<p>Monthly EMI is calculated using the standard formula: EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1], where P is principal, r is monthly interest rate, and n is tenure in months.</p>
-
-<h3>2. How do extra monthly prepayments save interest?</h3>
-<p>Making extra monthly prepayments directly reduces the outstanding principal balance faster, which lowers the interest charged in subsequent months and shortens overall loan tenure.</p>
-
-<h3>3. Are my loan details stored on external servers?</h3>
-<p>No. All financial calculations happen locally inside your browser client-side, ensuring complete privacy.</p>
-
-<h3>4. Can I download my loan amortization schedule as a CSV file?</h3>
-<p>Yes, our tool includes a built-in CSV export button that generates your month-by-month payment breakdown with exact start and end dates instantly.</p>
-
-<h3>5. Does this tool account for varying month lengths in amortization?</h3>
-<p>Amortization schedules map monthly payment intervals sequentially from your chosen start date.</p>
-
-<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Related Tools: <a href="percentage-calculator.html" style="color:var(--emerald);">Percentage Calculator</a>, <a href="age-calculator.html" style="color:var(--emerald);">Age Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>, <a href="gst-calculator.html" style="color:var(--emerald);">GST Calculator</a>
-</p>
-
-<div class="author-meta">
-<span>Author: Waleed Anjum</span>
-<span>Last updated: October 2026</span>
-</div>
-</div>
-</main>
-
-<footer>
-<div class="container">
-<div class="footer-grid">
-<div>
-<h3>SmartToolsKit</h3>
-<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
-</div>
-<div>
-<h3>Quick Links</h3>
-<div class="footer-links">
-<a href="../index.html">Home</a>
-<a href="../about.html">About Us</a>
-<a href="../contact.html">Contact Us</a>
-</div>
-</div>
-<div>
-<h3>Legal</h3>
-<div class="footer-links">
-<a href="../privacy-policy.html">Privacy Policy</a>
-<a href="../terms.html">Terms &amp; Conditions</a>
-<a href="../disclaimer.html">Disclaimer</a>
-</div>
-</div>
-</div>
-<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
-</div>
-</footer>
-
-<div id="cookieConsent">
-<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-</div>
-
-<script>
-let amortizationData = [];
-
-document.addEventListener('DOMContentLoaded', () => {
-  calculateEMI();
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
-});
-
-function calculateEMI() {
-  const principal = parseFloat(document.getElementById('loanAmount').value);
-  const annualRate = parseFloat(document.getElementById('interestRate').value);
-  const years = parseInt(document.getElementById('loanTenure').value);
-  const startDateInput = document.getElementById('startDate').value;
-  const extraPayment = parseFloat(document.getElementById('extraPayment').value) || 0;
-  
-  if (isNaN(principal) || isNaN(annualRate) || isNaN(years) || principal <= 0 || annualRate < 0 || years <= 0 || !startDateInput) {
-    document.getElementById('emiResult').innerHTML = '<span style="color:#F87171;">Please enter valid positive numbers and select a start date.</span>';
-    document.getElementById('prepaymentResult').textContent = 'Enter valid loan parameters to simulate prepayment savings.';
-    amortizationData = [];
-    return;
-  }
-  
-  const months = years * 12;
-  let emi = 0;
-  let totalPayment = 0;
-  let t<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online Loan EMI Calculator &amp; Prepayment Savings Simulator</title>
-<meta name="description" content="Calculate monthly loan EMI, simulate extra monthly prepayments to save interest, view payoff dates, and download CSV amortization schedules securely in your browser.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/loan-emi-calculator.html">
-<meta name="theme-color" content="#0F172A">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Loan EMI Calculator",
-  "url": "https://smarttoolskit.com/tools/loan-emi-calculator.html",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5."
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "How is monthly loan EMI calculated?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Monthly EMI is calculated using the standard formula: EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1], where P is principal, r is monthly interest rate, and n is tenure in months."
-    }
-  },{
-    "@type": "Question",
-    "name": "How do extra monthly prepayments save interest?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Making extra monthly prepayments directly reduces the outstanding principal balance faster, which lowers the interest charged in subsequent months and shortens overall loan tenure."
+      "text": "Making extra monthly prepayments directly reduces the outstanding principal balance faster, lowering subsequent interest charges and shortening overall loan tenure."
     }
   },{
     "@type": "Question",
@@ -478,12 +56,11 @@ function calculateEMI() {
     "name": "Does this tool account for varying month lengths in amortization?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Amortization schedules map monthly payment intervals sequentially from your chosen start date."
+      "text": "Amortization schedules map monthly payment intervals sequentially from your chosen start date to your end date."
     }
   }]
 }
 </script>
-
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -500,11 +77,9 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
 .tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
-
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
 .calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
 .form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
@@ -513,45 +88,35 @@ nav a:hover{color:var(--emerald-dark)}
 .form-row input:focus,.form-row select:focus{border-color:var(--emerald)}
 .calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;width:100%;margin-top:10px}
 .calc-btn:hover{background:var(--emerald-dark)}
-
 .result-display{background:var(--navy);color:#fff;padding:15px;border-radius:8px;margin-top:12px;font-size:14px;line-height:1.7}
 .result-display strong{color:var(--emerald)}
-
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-bottom:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
 .disclaimer-text{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic;}
-
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
 .content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
 .content-section li{margin-bottom:6px}
-
 .formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
 .table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
 .content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:600px;}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
-
 .author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
 #cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
 #cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
-
 @media(max-width:768px){
   .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
   nav{flex-wrap:wrap;justify-content:center;gap:15px}
@@ -561,7 +126,6 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -573,17 +137,14 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
 <div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
 <a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Calculators</a> &gt; Loan EMI Calculator
 </div>
-
 <div class="tool-layout">
 <div class="tool-container">
 <h1>Loan EMI Calculator</h1>
-<p class="subtitle">Calculate monthly loan payments, simulate extra prepayments, estimate payoff dates, and download CSV amortization schedules.</p>
-
+<p class="subtitle">Calculate monthly loan payments between start and end dates, simulate extra prepayments, and download CSV schedules.</p>
 <div class="calc-box">
 <h3>Loan Parameters</h3>
 <div class="form-row">
@@ -595,23 +156,20 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <input type="number" id="interestRate" value="7" min="0" step="any" oninput="calculateEMI()">
 </div>
 <div class="form-row" style="margin-top:10px;">
-<label for="loanTenure">Loan Tenure (Years):</label>
-<input type="number" id="loanTenure" value="5" min="1" step="1" oninput="calculateEMI()">
-</div>
-<div class="form-row" style="margin-top:10px;">
 <label for="startDate">Loan Start Date:</label>
 <input type="date" id="startDate" value="2026-11-01" oninput="calculateEMI()">
 </div>
-
+<div class="form-row" style="margin-top:10px;">
+<label for="endDate">Loan End Date:</label>
+<input type="date" id="endDate" value="2031-11-01" oninput="calculateEMI()">
+</div>
 <div class="result-display" id="emiResult">
 <strong>Monthly EMI:</strong> Loading...<br>
 <strong>Total Interest:</strong> Loading...<br>
 <strong>Total Payment:</strong> Loading...<br>
-<strong>Estimated End Date:</strong> Loading...
+<strong>Calculated Tenure:</strong> Loading...
 </div>
 </div>
-
-<!-- Genuinely Unique Feature: Extra Prepayment Savings Simulator -->
 <div class="unique-box">
 <h3>Extra Monthly Prepayment Savings Simulator</h3>
 <p>See how much interest you save and how many months you cut off your loan tenure by paying an extra amount each month.</p>
@@ -624,7 +182,6 @@ Loading prepayment savings analysis...
 </div>
 <button type="button" class="calc-btn" onclick="downloadCSV()" style="background:var(--emerald);margin-top:15px;">Download Amortization Schedule (CSV)</button>
 </div>
-
 <div class="security-badge">
 <span>Client-side security:</span> all calculations happen in your browser. We do not collect, store, or send any data you enter.
 </div>
@@ -633,88 +190,75 @@ Disclaimer: This calculator is for educational and estimation purposes only and 
 </div>
 </div>
 </div>
-
 <div class="content-section">
 <h2>Understanding Loan EMI and Amortization Schedules</h2>
 <p>When I plan to take out a mortgage, car loan, or personal financing, knowing exactly how much my monthly Equated Monthly Installment (EMI) will be is essential. Managing monthly cash flow requires clear visibility into how much money goes toward paying down the principal versus covering bank interest.</p>
-
-<p>Our online Loan EMI Calculator computes your exact monthly commitment instantly. By entering your principal loan amount, annual interest rate, tenure in years, and loan start date, you get an immediate breakdown of your financial obligations along with your exact loan completion date.</p>
-
+<p>Our online Loan EMI Calculator computes your exact monthly commitment instantly. By entering your principal loan amount, annual interest rate, start date, and target end date, you get an immediate breakdown of your financial obligations along with your exact payment tenure.</p>
 <h2>Interactive Unique Feature: Extra Prepayment Savings Simulator</h2>
 <p>Most basic loan calculators only show standard scheduled payments. However, when I look at long-term borrowing, making small additional payments each month can dramatically reduce total borrowing costs. Our built-in prepayment simulator lets you input an extra monthly contribution to instantly calculate how many months of debt you eliminate and how many dollars in interest you save.</p>
-
 <h2>How to Use the Loan EMI Calculator</h2>
 <p>Using this calculator takes just a few seconds:</p>
 <ul>
 <li>Enter your total desired loan principal amount in dollars.</li>
 <li>Specify the annual interest rate percentage charged by the lender.</li>
-<li>Input your loan repayment tenure in years.</li>
-<li>Select your loan start date using the date picker.</li>
-<li>Enter an optional extra monthly prepayment amount to see total interest savings and shortened tenure instantly.</li>
+<li>Select your loan start date and target end date using the date pickers.</li>
+<li>Enter an optional extra monthly prepayment amount to see total interest savings instantly.</li>
 <li>Click the download button to export your complete month-by-month CSV amortization schedule.</li>
 </ul>
-
 <h2>Core Loan EMI Mathematical Formulas</h2>
 <p>To calculate loan installments manually or programmatically, use these standard banking formulas:</p>
-
 <div class="formula-box">
 <strong>Standard Formulas:</strong>
 1. Monthly Interest Rate (r):
 • r = Annual Interest Rate / 12 / 100
-
-2. Total Tenure in Months (n):
-• n = Tenure in Years * 12
-
+2. Tenure in Months (n) from Start &amp; End Dates:
+• n = (End Year - Start Year) * 12 + (End Month - Start Month)
 3. Monthly EMI:
 • EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1]
-
-4. Prepayment Impact:
-• Extra payments are deducted directly from principal, shortening total amortization cycles.
+4. Total Payment &amp; Interest:
+• Total Payment = EMI * n
+• Total Interest = Total Payment - Principal
 </div>
-
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Calculation Metric</th>
-<th>Mathematical Equation</th>
+<th>Name</th>
+<th>Formula</th>
 <th>Variables</th>
-<th>Example Output</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Monthly EMI</td>
-<td>[P * r * (1 + r)^n] / [(1 + r)^n - 1]</td>
-<td>P = 100,000, r = 7%/12, n = 60</td>
-<td>$1,980.12 per month</td>
+<td>EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1]</td>
+<td>P = Principal, r = Monthly Rate, n = Months</td>
+<td>$100k, 7% for 60 mos = $1,980.12</td>
 </tr>
 <tr>
 <td>Total Payment</td>
-<td>EMI * n</td>
-<td>EMI = 1,980.12, n = 60</td>
-<td>$118,807.20</td>
+<td>Total Payment = EMI * n</td>
+<td>EMI = Monthly Installment, n = Months</td>
+<td>$1,980.12 * 60 = $118,807.20</td>
 </tr>
 <tr>
 <td>Total Interest</td>
-<td>Total Payment - Principal</td>
-<td>Payment = 118,807.20, P = 100k</td>
-<td>$18,807.20</td>
+<td>Total Interest = Total Payment - Principal</td>
+<td>Payment = Total Paid, P = Principal</td>
+<td>$118,807.20 - $100,000 = $18,807.20</td>
 </tr>
 </tbody>
 </table>
 </div>
-
 <h2>Practical Worked Examples</h2>
 <p>Here are two real-world examples of how loan calculations work:</p>
 <ul>
-<li><strong>Example 1 (Standard Auto Loan):</strong> When I borrow $100,000 at 7% annual interest for 5 years (60 months), the monthly EMI is $1,980.12, totaling $118,807.20 with $18,807.20 in total interest. Adding an extra $150 monthly prepayment cuts several months off the tenure and saves hundreds in interest.</li>
-<li><strong>Example 2 (Personal Loan):</strong> If I borrow $50,000 at 5% annual interest for 3 years (36 months), the monthly EMI comes out to $1,498.54, resulting in total interest of $3,947.44.</li>
+<li><strong>Example 1 (Standard Auto Loan):</strong> When I borrow $100,000 at 7% annual interest from Nov 2026 to Nov 2031 (60 months), the monthly EMI is $1,980.12, totaling $118,807.20 with $18,807.20 in total interest. Adding an extra $150 monthly prepayment cuts several months off the tenure and saves hundreds in interest.</li>
+<li><strong>Example 2 (Personal Loan):</strong> If I borrow $50,000 at 5% annual interest over a 36-month span, the monthly EMI comes out to $1,498.54, resulting in total interest of $3,947.44.</li>
 </ul>
-
 <h2>Financial Benchmark Reference Table</h2>
 <p>The table below lists standard financial parameters and central banking convention guidelines used for loan amortization standards:</p>
-
 <div class="table-responsive">
 <table class="content-table">
 <thead>
@@ -743,40 +287,30 @@ Disclaimer: This calculator is for educational and estimation purposes only and 
 </tbody>
 </table>
 </div>
-
 <h2>Who Uses This Tool and When</h2>
 <p>Homebuyers use EMI calculators to evaluate mortgage affordability, car buyers use them to plan vehicle financing, and financial planners use them to demonstrate amortization schedules and prepayment strategies to clients.</p>
-
 <h2>Common Mistakes to Avoid</h2>
 <p>A common error is confusing annual interest rates with monthly interest rates when doing manual calculations, or ignoring how extra prepayments accelerate principal reduction.</p>
-
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. How is monthly loan EMI calculated?</h3>
-<p>Monthly EMI is calculated using the standard formula: EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1], where P is principal, r is monthly interest rate, and n is tenure in months.</p>
-
+<h3>1. How is monthly loan EMI calculated between start and end dates?</h3>
+<p>The loan tenure in months is automatically calculated from your selected start and end dates, and EMI is computed using the standard formula: EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1].</p>
 <h3>2. How do extra monthly prepayments save interest?</h3>
-<p>Making extra monthly prepayments directly reduces the outstanding principal balance faster, which lowers the interest charged in subsequent months and shortens overall loan tenure.</p>
-
+<p>Making extra monthly prepayments directly reduces the outstanding principal balance faster, lowering subsequent interest charges and shortening overall loan tenure.</p>
 <h3>3. Are my loan details stored on external servers?</h3>
 <p>No. All financial calculations happen locally inside your browser client-side, ensuring complete privacy.</p>
-
 <h3>4. Can I download my loan amortization schedule as a CSV file?</h3>
 <p>Yes, our tool includes a built-in CSV export button that generates your month-by-month payment breakdown with exact start and end dates instantly.</p>
-
 <h3>5. Does this tool account for varying month lengths in amortization?</h3>
-<p>Amortization schedules map monthly payment intervals sequentially from your chosen start date.</p>
-
+<p>Amortization schedules map monthly payment intervals sequentially from your chosen start date to your end date.</p>
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
 Related Tools: <a href="percentage-calculator.html" style="color:var(--emerald);">Percentage Calculator</a>, <a href="age-calculator.html" style="color:var(--emerald);">Age Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>, <a href="gst-calculator.html" style="color:var(--emerald);">GST Calculator</a>
 </p>
-
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
 <span>Last updated: October 2026</span>
 </div>
 </div>
 </main>
-
 <footer>
 <div class="container">
 <div class="footer-grid">
@@ -804,15 +338,12 @@ Related Tools: <a href="percentage-calculator.html" style="color:var(--emerald);
 <div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
 </div>
 </footer>
-
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
 <button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
-
 <script>
 let amortizationData = [];
-
 document.addEventListener('DOMContentLoaded', () => {
   calculateEMI();
   if (!localStorage.getItem('cookiesAccepted')) {
@@ -820,22 +351,95 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cb) cb.style.display = 'flex';
   }
 });
-
 function calculateEMI() {
   const principal = parseFloat(document.getElementById('loanAmount').value);
   const annualRate = parseFloat(document.getElementById('interestRate').value);
-  const years = parseInt(document.getElementById('loanTenure').value);
   const startDateInput = document.getElementById('startDate').value;
+  const endDateInput = document.getElementById('endDate').value;
   const extraPayment = parseFloat(document.getElementById('extraPayment').value) || 0;
-  
-  if (isNaN(principal) || isNaN(annualRate) || isNaN(years) || principal <= 0 || annualRate < 0 || years <= 0 || !startDateInput) {
-    document.getElementById('emiResult').innerHTML = '<span style="color:#F87171;">Please enter valid positive numbers and select a start date.</span>';
+  if (isNaN(principal) || isNaN(annualRate) || principal <= 0 || annualRate < 0 || !startDateInput || !endDateInput) {
+    document.getElementById('emiResult').innerHTML = '<span style="color:#F87171;">Please enter valid numbers and select both start and end dates.</span>';
     document.getElementById('prepaymentResult').textContent = 'Enter valid loan parameters to simulate prepayment savings.';
     amortizationData = [];
     return;
   }
-  
-  const months = years * 12;
-  let emi = 0;
-  let totalPayment = 0;
-  let totalIn
+  const start = new Date(startDateInput);
+  const end = new Date(endDateInput);
+  const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+  if (months <= 0) {
+    document.getElementById('emiResult').innerHTML = '<span style="color:#F87171;">End date must be later than start date.</span>';
+    document.getElementById('prepaymentResult').textContent = 'Invalid tenure interval.';
+    amortizationData = [];
+    return;
+  }
+  let emi = 0, totalPayment = 0, totalInterest = 0;
+  amortizationData = [];
+  let startDate = new Date(start);
+  let balance = principal;
+  if (annualRate === 0) {
+    emi = principal / months;
+    totalPayment = principal;
+    totalInterest = 0;
+    for (let i = 1; i <= months; i++) {
+      let principalPaid = emi;
+      balance -= principalPaid;
+      let paymentDate = new Date(startDate);
+      paymentDate.setMonth(startDate.getMonth() + (i - 1));
+      amortizationData.push({ month: i, date: paymentDate.toISOString().split('T')[0], emi: emi, principal: principalPaid, interest: 0, balance: Math.max(0, balance) });
+    }
+  } else {
+    const r = annualRate / 12 / 100;
+    const mathPow = Math.pow(1 + r, months);
+    emi = (principal * r * mathPow) / (mathPow - 1);
+    let tempBalance = principal;
+    for (let i = 1; i <= months; i++) {
+      let interest = tempBalance * r;
+      let principalPaid = emi - interest;
+      tempBalance -= principalPaid;
+      totalInterest += interest;
+    }
+    totalPayment = principal + totalInterest;
+    let prepayBalance = principal, actualMonths = 0, prepayTotalInterest = 0;
+    for (let i = 1; i <= months * 2; i++) {
+      if (prepayBalance <= 0) break;
+      actualMonths = i;
+      let interest = prepayBalance * r;
+      let principalPaid = emi - interest;
+      let totalPrincipalPaid = principalPaid + extraPayment;
+      if (totalPrincipalPaid > prepayBalance) { totalPrincipalPaid = prepayBalance; }
+      prepayBalance -= totalPrincipalPaid;
+      prepayTotalInterest += interest;
+      let paymentDate = new Date(startDate);
+      paymentDate.setMonth(startDate.getMonth() + (i - 1));
+      amortizationData.push({ month: i, date: paymentDate.toISOString().split('T')[0], emi: emi + (totalPrincipalPaid > principalPaid ? extraPayment : 0), principal: totalPrincipalPaid, interest: interest, balance: Math.max(0, prepayBalance) });
+    }
+    let interestSaved = totalInterest - prepayTotalInterest;
+    let monthsSaved = months - actualMonths;
+    let prepayEndDate = new Date(startDate);
+    prepayEndDate.setMonth(startDate.getMonth() + actualMonths);
+    document.getElementById('prepaymentResult').innerHTML = `✨ <strong>Prepayment Impact:</strong> By paying an extra <strong>$${extraPayment.toFixed(2)}</strong> monthly, you will save <strong>$${interestSaved > 0 ? interestSaved.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2}) : '0.00'}</strong> in interest and pay off your loan <strong>${monthsSaved > 0 ? monthsSaved : 0} months earlier</strong> (New Payoff Date: ${prepayEndDate.toISOString().split('T')[0]})!`;
+  }
+  document.getElementById('emiResult').innerHTML = `<strong>Monthly EMI:</strong> $${emi.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}<br><strong>Standard Total Interest:</strong> $${totalInterest.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}<br><strong>Standard Total Payment:</strong> $${totalPayment.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}<br><strong>Calculated Tenure:</strong> ${months} Months (Start: ${startDateInput} to End: ${endDateInput})`;
+}
+function downloadCSV() {
+  if (amortizationData.length === 0) { alert('Please enter valid loan parameters first.'); return; }
+  let csvContent = "data:text/csv;charset=utf-8,Month,Payment Date,Total Payment ($),Principal Paid ($),Interest Paid ($),Remaining Balance ($)\r\n";
+  amortizationData.forEach(row => {
+    csvContent += `${row.month},${row.date},${row.emi.toFixed(2)},${row.principal.toFixed(2)},${row.interest.toFixed(2)},${row.balance.toFixed(2)}\r\n`;
+  });
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "loan_amortization_schedule.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
+}
+</script>
+</body>
+</html>
