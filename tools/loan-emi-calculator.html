@@ -159,26 +159,26 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <h3>Loan Parameters &amp; Schedule Config</h3>
 <div class="form-row">
 <label for="loanAmount">Loan Amount ($):</label>
-<input type="number" id="loanAmount" value="50000" min="100" step="100">
+<input type="number" id="loanAmount" value="50000" min="100" step="100" oninput="calculateEMI()">
 </div>
 <div class="form-row" style="margin-top:10px;">
 <label for="interestRate">Annual Interest Rate (%):</label>
-<input type="number" id="interestRate" value="7.5" min="0.1" step="0.1">
+<input type="number" id="interestRate" value="7.5" min="0.1" step="0.1" oninput="calculateEMI()">
 </div>
 <div class="form-row" style="margin-top:10px;">
 <label for="loanTenure">Loan Tenure (Years):</label>
-<input type="number" id="loanTenure" value="5" min="1" max="40">
+<input type="number" id="loanTenure" value="5" min="1" max="40" oninput="calculateEMI()">
 </div>
 <div class="form-row" style="margin-top:10px;">
 <label for="startDate">Loan Start Date:</label>
-<input type="date" id="startDate">
+<input type="date" id="startDate" onchange="calculateEMI()">
 </div>
 <button type="button" class="calc-btn" onclick="calculateEMI()">Calculate Loan EMI</button>
 
 <div class="result-display" id="emiResult">
-<strong>Monthly EMI:</strong> Loading...<br>
-<strong>Maturity End Date:</strong> Loading...<br>
-<strong>Total Payment:</strong> Loading... | <strong>Total Interest:</strong> Loading...
+<strong>Monthly EMI:</strong> Calculating...<br>
+<strong>Maturity End Date:</strong> Calculating...<br>
+<strong>Total Payment:</strong> Calculating... | <strong>Total Interest:</strong> Calculating...
 </div>
 <button type="button" class="csv-btn" onclick="downloadCSV()">📥 Download Amortization CSV</button>
 </div>
@@ -196,7 +196,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <input type="number" id="extraPayment" value="100" min="0" step="50" oninput="calculateEMI()" style="background:#1E293B;color:#fff;border:1px solid #334155;">
 </div>
 <div class="unique-result" id="prepaymentResult">
-Loading prepayment savings...
+Calculating prepayment savings...
 </div>
 </div>
 </div> <!-- Closing .tool-container -->
@@ -354,7 +354,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
   const day = String(now.getDate()).padStart(2, '0');
-  document.getElementById('startDate').value = `${year}-${month}-${day}`;
+  const dateInput = document.getElementById('startDate');
+  if (dateInput && !dateInput.value) {
+    dateInput.value = `${year}-${month}-${day}`;
+  }
   
   calculateEMI();
   
@@ -385,11 +388,13 @@ function calculateEMI() {
   const totalPaymentBase = emi * n;
   const totalInterestBase = totalPaymentBase - p;
   
-  // Parse start date locally
-  const [sY, sM, sD] = startDateVal.split('-').map(Number);
-  const startDate = new Date(sY, sM - 1, sD);
+  // Parse start date locally safely
+  const parts = startDateVal.split('-');
+  const sY = parseInt(parts[0], 10);
+  const sM = parseInt(parts[1], 10);
+  const sD = parseInt(parts[2], 10);
   
-  // Calculate standard end date
+  // Calculate standard end date using local Date constructor
   const endDate = new Date(sY, sM - 1 + n, sD);
   const endDateStr = endDate.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
   
@@ -400,7 +405,7 @@ function calculateEMI() {
   `;
   
   // Build amortization schedule & CSV data
-  globalAmortizationData = [];
+  globalAmortizationData =   globalAmortizationData = [];
   let balance = p;
   let currDate = new Date(sY, sM - 1, sD);
   
@@ -409,7 +414,7 @@ function calculateEMI() {
     const interestMonth = balance * r;
     let principalMonth = emi - interestMonth;
     balance -= principalMonth;
-    if (balan    if (balance < 0) balance = 0;
+    if (balance < 0) balance = 0;
     
     globalAmortizationData.push({
       month: i,
