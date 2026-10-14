@@ -3,19 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free GST Calculator &amp; Multi-Slab Tax Margin Analyzer | SmartToolsKit</title>
-<meta name="description" content="Calculate GST, VAT, exclusive and inclusive tax amounts instantly with our free online GST Calculator. Includes a unique multi-slab tax comparative margin analyzer.">
+<title>Free Online GST Calculator &amp; Reverse Tax Splitter | SmartToolsKit</title>
+<meta name="description" content="Calculate Goods and Services Tax (GST) instantly with forward/reverse calculations, CGST, SGST, IGST breakdown, and net profit margin analysis using our secure online calculator.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/gst-calculator.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://smarttoolskit.com/tools/gst-calculator.html">
-<meta property="og:title" content="Free GST Calculator &amp; Multi-Slab Tax Analyzer | SmartToolsKit">
-<meta property="og:description" content="Compute Goods and Services Tax (GST) and VAT accurately, add or remove tax instantly, and compare multi-slab tax impacts with our unique financial analyzer.">
-
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -30,6 +23,36 @@
     "position": 2,
     "name": "GST Calculator",
     "item": "https://smarttoolskit.com/tools/gst-calculator.html"
+  }]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How do you calculate GST forward and reverse amounts?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Forward GST adds tax to a net base price, while reverse GST extracts the original base price and tax component from a gross tax-inclusive amount."
+    }
+  },{
+    "@type": "Question",
+    "name5": "What is the difference between CGST, SGST, and IGST?",
+    "name": "What is the difference between CGST, SGST, and IGST?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "CGST and SGST are levied on intra-state supplies (split equally), whereas IGST is levied on inter-state transactions and imports."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are my business invoice calculations saved on external servers?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All computations run strictly inside your local web browser client-side, ensuring complete data privacy and security."
+    }
   }]
 }
 </script>
@@ -51,46 +74,45 @@ nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
 
-.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input,.form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
-.form-group input:focus,.form-group select:focus{border-color:var(--emerald)}
-
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-
-.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
+.form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.form-row label{width:100%;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.form-row input,.form-row select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.form-row input:focus,.form-row select:focus{border-color:var(--emerald)}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;width:100%;margin-top:8px}
 .calc-btn:hover{background:var(--emerald-dark)}
 
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+.result-display{background:var(--navy);color:#fff;padding:15px;border-radius:8px;margin-top:12px;font-size:14px;line-height:1.7}
+.result-display strong{color:var(--emerald)}
 
-.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
-.result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center;margin-bottom:15px}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
-.stat-card span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700}
-.stat-card strong{font-size:15px;color:var(--emerald-dark)}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
 
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
+.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:25px;margin-top:25px}
 .unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
+.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:15px}
+.unique-result{background:#1E293B;border:1px solid #334155;padding:15px;border-radius:8px;font-size:13px;color:#E2E8F0;line-height:1.6}
 
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
 .content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
 .content-section li{margin-bottom:6px}
 
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:600px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
@@ -102,6 +124,13 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 #cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
 #cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
@@ -119,148 +148,176 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </header>
 
 <main class="container">
+<div class="tool-layout">
 <div class="tool-container">
-<h1>GST Calculator</h1>
-<p class="subtitle">Compute Goods and Services Tax (GST) or VAT amounts, net totals, and gross prices instantly.</p>
+<h1>GST Calculator &amp; Reverse Tax Splitter</h1>
+<p class="subtitle">Calculate Goods and Services Tax (GST) instantly with forward/reverse modes, CGST, SGST, IGST breakdown, and profit margins.</p>
 
-<div class="form-group">
-<label for="baseAmount">Amount ($ / Currency)</label>
-<input type="number" id="baseAmount" value="1000" min="0" step="any">
-</div>
-
-<div class="grid-2">
-<div class="form-group">
-<label for="gstRate">GST / Tax Rate (%)</label>
-<input type="number" id="gstRate" value="18" min="0" max="100" step="any">
-</div>
-<div class="form-group">
-<label for="calcType">Calculation Mode</label>
-<select id="calcType">
-<option value="exclusive" selected>Add GST (Exclusive)</option>
-<option value="inclusive">Remove GST (Inclusive)</option>
+<div class="calc-box">
+<h3>GST Calculation Parameters</h3>
+<div class="form-row">
+<label for="calcMode">Calculation Mode:</label>
+<select id="calcMode" onchange="calculateGST()">
+<option value="exclusive">Add GST (Exclusive to Inclusive)</option>
+<option value="inclusive">Remove GST (Inclusive to Exclusive)</option>
 </select>
 </div>
+<div class="form-row" style="margin-top:10px;">
+<label for="amount">Amount ($):</label>
+<input type="number" id="amount" value="1000" min="0" step="1" oninput="calculateGST()">
 </div>
+<div class="form-row" style="margin-top:10px;">
+<label for="gstRate">GST Rate (%):</label>
+<select id="gstRate" onchange="calculateGST()">
+<option value="5">5% (Essential Goods)</option>
+<option value="12">12% (Standard Tier 1)</option>
+<option value="18" selected>18% (Standard Tier 2)</option>
+<option value="28">28% (Luxury &amp; Automobiles)</option>
+<option value="custom">Custom Rate...</option>
+</select>
+</div>
+<div class="form-row" id="customRateRow" style="margin-top:10px; display:none;">
+<label for="customRate">Enter Custom GST Rate (%):</label>
+<input type="number" id="customRate" value="15" min="0.1" max="100" step="0.1" oninput="calculateGST()">
+</div>
+<button type="button" class="calc-btn" onclick="calculateGST()">Calculate GST Breakdown</button>
 
-<button type="button" class="calc-btn" onclick="calculateGST()">Calculate GST</button>
+<div class="result-display" id="gstResult">
+<strong>Net Amount:</strong> $1,000.00<br>
+<strong>GST Amount:</strong> $180.00 (CGST: $90 | SGST: $90)<br>
+<strong>Gross Total:</strong> $1,180.00
+</div>
+</div>
 
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All financial tax computations execute securely inside your local browser. No financial data is stored or transmitted externally.
+<span>🔒 Client-Side Security:</span> All financial invoice computations execute securely inside your local browser. No business data is transmitted externally.
 </div>
 
-<div class="result-box" id="resultBox">
-<h3>GST Tax Calculation Summary</h3>
-<div class="stats-grid">
-<div class="stat-card">
-<span>Net Amount</span>
-<strong id="resNet">$0.00</strong>
-</div>
-<div class="stat-card">
-<span>GST Amount</span>
-<strong id="resTax">$0.00</strong>
-</div>
-<div class="stat-card">
-<span>Total Gross Amount</span>
-<strong id="resGross">$0.00</strong>
-</div>
-</div>
-</div>
-
-<!-- UNIQUE MARKET-FIRST FEATURE: Multi-Slab Comparative Tax Analyzer -->
+<!-- Unique Feature -->
 <div class="unique-section">
-<h3>📊 Unique Feature: Multi-Slab Tax &amp; Gross Margin Impact Analyzer</h3>
-<p>Compare your entered base amount across standard global tax brackets (5%, 12%, 18%, 28%) simultaneously to evaluate tax liability and gross pricing impact instantly!</p>
-<button type="button" class="calc-btn" onclick="calculateMultiSlab()" style="margin-top:10px;">Compare Standard Slabs</button>
-<div id="slabResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;display:none;line-height:1.6;"></div>
+<h3>💡 Unique Feature: Net Profit Margin &amp; Cost Analyzer</h3>
+<p>Want to know your actual profit after paying government tax? Enter your wholesale manufacturing cost below to calculate your true net profit margin!</p>
+<div class="form-row" style="margin-bottom:10px;">
+<label for="costPrice" style="color:#CBD5E1;">Wholesale / Production Cost ($):</label>
+<input type="number" id="costPrice" value="700" min="0" step="1" oninput="calculateGST()" style="background:#1E293B;color:#fff;border:1px solid #334155;">
 </div>
-
+<div class="unique-result" id="marginResult">
+Loading profit margin analysis...
 </div>
+</div>
+</div> <!-- Closing .tool-container -->
+</div> <!-- Closing .tool-layout -->
 
-<!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>Understanding Goods and Services Tax (GST) and Value-Added Taxation</h2>
-<p>Goods and Services Tax (GST), widely recognized internationally as Value-Added Tax (VAT), is a comprehensive indirect tax levied on the supply of goods and services at every point of the supply chain where value is added, from initial production to final point of retail consumption. Unlike traditional cascading taxes that incurred tax-on-tax burdens, modern GST frameworks ensure seamless credit mechanisms, promoting economic transparency and standardized commercial accounting.</p>
+<h2>Understanding GST and Tax Invoice Calculations</h2>
+<p>When I manage invoices, prepare business quotations, or file monthly tax returns, computing Goods and Services Tax (GST) accurately is critical. Whether you are dealing with forward tax additions or reverse tax extractions from a gross receipt, even a minor arithmetic slip can cause accounting discrepancies during audits.</p>
 
-<p>For business owners, merchants, accountants, and retail consumers, calculating accurate tax additions or extracting tax components from gross invoices is an essential daily requirement. Our online GST Calculator streamlines this workflow, empowering users to compute both exclusive tax additions and inclusive tax extractions instantly with absolute mathematical precision, requiring no software installations or external network requests.</p>
+<p>Our online GST Calculator simplifies this entire financial workflow. By letting you toggle between exclusive (adding tax) and inclusive (extracting tax) modes, our tool instantly splits transactions into proper tax components—such as CGST and SGST for local intra-state sales, or IGST for inter-state shipments. It eliminates manual rounding errors and gives you instant invoice clarity.</p>
 
-<h2>Decoding Tax Inclusion vs. Tax Exclusion in Commercial Invoicing</h2>
-<p>A frequent point of confusion in commercial transactions involves distinguishing between GST-exclusive and GST-inclusive pricing. When a price is specified as tax-exclusive, the stated amount represents the net product cost, and the applicable tax percentage is added on top at checkout to determine the final gross payable amount. Conversely, when a price is stated as tax-inclusive, the gross retail figure already embeds the tax liability, requiring reverse calculation to separate the net baseline value from the government levy.</p>
+<h2>How Our Unique Profit Margin Simulator Works</h2>
+<p>Standard tax calculators only show the gross total and tax amount. However, our platform introduces an exclusive market-first feature: the <strong>Net Profit Margin &amp; Cost Analyzer</strong>. When selling products, business owners often overlook how tax deductions affect their actual take-home earnings relative to production costs.</p>
 
-<p>Our platform introduces an exclusive market-first feature: the <strong>Multi-Slab Tax &amp; Gross Margin Impact Analyzer</strong>. This tool allows commercial vendors to evaluate base pricing across multiple tax slabs (such as 5%, 12%, 18%, and 28%) side-by-side, analyzing how shifting regulatory brackets affect final retail price points and profit margins.</p>
+<p>By entering your wholesale or manufacturing cost, our simulator instantly computes your true net profit dollars and percentage margin after accounting for tax obligations. This gives merchants a complete financial picture before closing a sale.</p>
 
-<h2>The Mathematical GST &amp; VAT Calculation Formulas</h2>
-<p>To compute tax additions and extractions manually or verify enterprise financial software, utilize the following core mathematical formulas:</p>
+<h2>The Mathematical GST Forward and Reverse Formulas</h2>
+<p>To calculate GST components, net prices, and gross totals manually or programmatically, utilize the following core mathematical equations:</p>
 
 <div class="formula-box">
-<strong>Core GST &amp; VAT Formulas:</strong>
-1. GST Exclusive (Add Tax):<br>
-   • GST Amount = $\text{Net Amount} \times \left(\frac{\text{GST Rate}}{100}\right)$<br>
-   • Gross Amount = $\text{Net Amount} + \text{GST Amount}$<br><br>
-2. GST Inclusive (Remove Tax):<br>
-   • Net Amount = $\frac{\text{Gross Amount}}{1 + \left(\frac{\text{GST Rate}}{100}\right)}$<br>
-   • GST Amount = $\text{Gross Amount} - \text{Net Amount}$
+<strong>Core GST &amp; Tax Formulas:</strong>
+1. Forward GST Calculation (Exclusive to Inclusive):
+• GST Amount = Net Amount * (GST Rate / 100)
+• Gross Total = Net Amount + GST Amount
+
+2. Reverse GST Calculation (Inclusive to Exclusive):
+• Net Amount = Gross Total / (1 + GST Rate / 100)
+• GST Amount = Gross Total - Net Amount
+
+3. Intra-State Tax Split (CGST &amp; SGST):
+• CGST = GST Amount / 2
+• SGST = GST Amount / 2
+
+4. Net Profit Margin:
+• Profit = Net Selling Price - Wholesale Cost
+• Margin % = (Profit / Net Selling Price) * 100
 </div>
 
-<p>By applying these standardized accounting equations, financial analysts and business operators can audit invoices and tax filings with absolute precision.</p>
+<p>By applying these robust formulas, accountants, retail business owners, and freelancers can verify tax compliance across multiple jurisdictions with absolute precision.</p>
 
-<h2>Global GST &amp; VAT Standard Reference Matrix</h2>
-<p>The table below outlines common international tax rate categories and their typical commercial applications across various jurisdictions:</p>
+<h2>Global GST and Consumption Tax Reference Matrix</h2>
+<p>The reference table below outlines standard GST and Value Added Tax (VAT) brackets across global markets as of 2026:</p>
 
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Tax Rate Slab</th>
-<th>Classification</th>
-<th>Typical Commercial &amp; Retail Application</th>
+<th>Tax Tier / Category</th>
+<th>Standard Rate Range</th>
+<th>Applicable Goods &amp; Services</th>
+<th>Compliance Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0% (Exempt)</td>
-<td>Zero-Rated / Exempt</td>
-<td>Unprocessed food staples, basic healthcare, educational services</td>
+<td>Essential / Reduced Rate</td>
+<td>3% – 5%</td>
+<td>Food grains, medical supplies, basic books</td>
+<td>Affordability for household essentials</td>
 </tr>
 <tr>
-<td>5%</td>
-<td>Reduced Rate</td>
-<td>Essential household goods, public transit, domestic energy</td>
+<td>Standard Tier 1</td>
+<td>10% – 12%</td>
+<td>Processed foods, specialized services</td>
+<td>Balanced consumer taxation</td>
 </tr>
 <tr>
-<td>12% - 15%</td>
-<td>Standard Lower Slab</td>
-<td>Processed foods, standard apparel, hospitality services</td>
+<td>Standard Tier 2</td>
+<td>15% – 18%</td>
+<td>IT services, apparel, electronics, manufacturing</td>
+<td>Primary government revenue stream</td>
 </tr>
 <tr>
-<td>18% - 20%</td>
-<td>Standard Tier Slab</td>
-<td>Commercial electronics, IT services, professional consultancy</td>
+<td>Luxury / High-Rate Tier</td>
+<td>25% – 28%</td>
+<td>Automobiles, luxury goods, aerated drinks</td>
+<td>Discretionary spending tax collection</td>
 </tr>
 <tr>
-<td>28% +</td>
-<td>Luxury / Premium Slab</td>
-<td>Automobiles, luxury goods, high-end entertainment</td>
+<td>Exempt / Zero-Rated</td>
+<td>0%</td>
+<td>Exports, fresh agricultural produce</td>
+<td>Tax credit chain continuity</td>
 </tr>
 </tbody>
 </table>
+</div>
 
-<h2>How to Use the GST Calculator &amp; Slab Analyzer</h2>
-<p>Using our multi-purpose GST and tax calculation utility is straightforward, fast, and user-friendly:</p>
+<h2>How to Use the GST Calculator &amp; Tax Splitter</h2>
+<p>Using our tax calculation tool is fast, clean, and intuitive:</p>
 <ul>
-<li><strong>Enter Base Amount:</strong> Input your monetary value into the input field.</li>
-<li><strong>Specify Tax Rate:</strong> Enter your applicable regional GST or VAT percentage rate.</li>
-<li><strong>Select Calculation Mode:</strong> Choose between adding tax (exclusive mode) or removing tax (inclusive mode).</li>
-<li><strong>Calculate &amp; Analyze:</strong> Click calculate for instant net and gross breakdowns, or use our multi-slab comparative analyzer at the bottom!</li>
+<li><strong>Select Calculation Mode:</strong> Choose whether you want to add GST to a base price or remove GST from a gross total.</li>
+<li><strong>Enter Amount:</strong> Input your baseline financial figure in dollars or local currency.</li>
+<li><strong>Choose Tax Rate:</strong> Pick a standard tier (5%, 12%, 18%, 28%) or enter a custom percentage.</li>
+<li><strong>Analyze Profit Margins:</strong> Scroll down slightly to input your wholesale cost and review your net business profit!</li>
 </ul>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is the difference between GST exclusive and GST inclusive?</h3>
-<p>Exclusive means tax is added on top of the net base amount, whereas inclusive means tax is already embedded inside the stated gross total.</p>
+<h3>1. How do you calculate GST forward and reverse amounts?</h3>
+<p>Forward GST adds tax to a net base price, while reverse GST extracts the original base price and tax component from a gross tax-inclusive amount.</p>
 
-<h3>2. How do I extract GST from a total gross receipt manually?</h3>
-<p>Divide the gross amount by `1 + (GST Rate / 100)` to find the net base amount. Subtract the net amount from the gross amount to isolate the GST component.</p>
+<h3>2. What is the difference between CGST, SGST, and IGST?</h3>
+<p>CGST and SGST are levied on intra-state supplies (split equally), whereas IGST is levied on inter-state transactions and imports.</p>
 
-<h3>3. Are my financial invoices or tax calculations tracked on external servers?</h3>
-<p>No. All calculations run strictly inside your web browser client-side, ensuring complete data confidentiality and privacy.</p>
+<h3>3. Are my business invoice calculations saved on external servers?</h3>
+<p>No. All computations run strictly inside your local web browser client-side, ensuring complete data privacy and security.</p>
+
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="sales-tax-calculator.html" style="color:var(--emerald);">Sales Tax Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>, <a href="percentage-calculator.html" style="color:var(--emerald);">Percentage Calculator</a>, <a href="currency-converter.html" style="color:var(--emerald);">Currency Converter</a>
+</p>
+
+<div class="author-meta">
+<span><strong>Written by:</strong> Waleed Anjum</span>
+<span><strong>Last Updated:</strong> October 2026</span>
+</div>
 </div>
 </main>
 
@@ -298,70 +355,92 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+  const rateSelect = document.getElementById('gstRate');
+  rateSelect.addEventListener('change', function() {
+    const customRow = document.getElementById('customRateRow');
+    if (this.value === 'custom') {
+      customRow.style.display = 'flex';
+    } else {
+      customRow.style.display = 'none';
+    }
+    calculateGST();
+  });
+  
+  calculateGST();
+  
   if (!localStorage.getItem('cookiesAccepted')) {
-    const cookieBanner = document.getElementById('cookieConsent');
-    if (cookieBanner) cookieBanner.style.display = 'flex';
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
   }
 });
 
 function calculateGST() {
-  const amount = parseFloat(document.getElementById('baseAmount').value);
-  const rate = parseFloat(document.getElementById('gstRate').value);
-  const mode = document.getElementById('calcType').value;
-  const resultBox = document.getElementById('resultBox');
-
-  if (isNaN(amount) || amount < 0 || isNaN(rate) || rate < 0 || rate > 100) {
-    alert('Please enter a valid positive amount and tax rate between 0 and 100.');
-    return;
-  }
-
-  let net = 0;
-  let tax = 0;
-  let gross = 0;
-
-  if (mode === 'exclusive') {
-    net = amount;
-    tax = (net * rate) / 100;
-    gross = net + tax;
-  } else {
-    gross = amount;
-    net = gross / (1 + (rate / 100));
-    tax = gross - net;
-  }
-
-  document.getElementById('resNet').textContent = '$' + net.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  document.getElementById('resTax').textContent = '$' + tax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  document.getElementById('resGross').textContent = '$' + gross.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  resultBox.style.display = 'block';
-}
-
-function calculateMultiSlab() {
-  const amount = parseFloat(document.getElementById('baseAmount').value);
-  const slabDiv = document.getElementById('slabResult');
-
-  if (isNaN(amount) || amount <= 0) {
-    alert('Please enter a valid positive base amount.');
-    return;
-  }
-
-  const slabs = [5, 12, 18, 28];
-  let html = `📊 <strong>Multi-Slab Tax Comparison (Base Amount: $${amount.toLocaleString()})</strong><br><br>`;
+  const mode = document.getElementById('calcMode').value;
+  const amt = parseFloat(document.getElementById('amount').value) || 0;
   
-  slabs.forEach(s => {
-    const tax = (amount * s) / 100;
-    const total = amount + tax;
-    html += `• <strong>${s}% Slab:</strong> Tax = $${tax.toFixed(2)} | Gross Total = <span style="color:var(--emerald);">$${total.toFixed(2)}</span><br>`;
-  });
-
-  slabDiv.innerHTML = html;
-  slabDiv.style.display = 'block';
+  let rateVal = document.getElementById('gstRate').value;
+  let rate = rateVal === 'custom' ? (parseFloat(document.getElementById('customRate').value) || 0) : parseFloat(rateVal);
+  const cost = parseFloat(document.getElementById('costPrice').value) || 0;
+  
+  if (amt < 0 || rate < 0) {
+    document.getElementById('gstResult').innerHTML = '<span style="color:#F87171;">Please enter valid positive numbers.</span>';
+    document.getElementById('marginResult').textContent = 'Enter valid parameters to analyze profit margins.';
+    return;
+  }
+  
+  let netAmt = 0;
+  let gstAmt = 0;
+  let grossAmt = 0;
+  
+  if (mode === 'exclusive') {
+    netAmt = amt;
+    gstAmt = netAmt * (rate / 100);
+    grossAmt = netAmt + gstAmt;
+  } else {
+    grossAmt = amt;
+    netAmt = grossAmt / (1 + rate / 100);
+    gstAmt = grossAmt - netAmt;
+  }
+  
+  const cgst = gstAmt / 2;
+  const sgst = gstAmt / 2;
+  
+  document.getElementById('gstResult').innerHTML = `
+    <strong>Net Amount:</strong> $${netAmt.toFixed(2)}<br>
+    <strong>GST Amount:</strong> $${gstAmt.toFixed(2)} (CGST: $${cgst.toFixed(2)} | SGST: $${sgst.toFixed(2)} | IGST: $${gstAmt.toFixed(2)})<br>
+    <strong>Gross Total:</strong> $${grossAmt.toFixed(2)}
+  `;
+  
+  // Profit margin analyzer logic
+  if (cost > 0 && netAmt > 0) {
+    const profit = netAmt - cost;
+    const marginPct = (profit / netAmt) * 100;
+    
+    document.getElementById('marginResult').innerHTML = `
+      ✨ <strong>Profit Margin Analysis:</strong> At a net selling price of $${netAmt.toFixed(2)} against a cost of $${cost.toFixed(2)}, your net profit is <strong>$${profit.toFixed(2)}</strong>, giving you a profit margin of <strong>${marginPct.toFixed(1)}%</strong>!
+    `;
+  } else {
+    document.getElementById('marginResult').innerHTML = `
+      ✨ Enter a wholesale cost above to analyze your net  // Profit margin analyzer logic
+  if (cost > 0 && netAmt > 0) {
+    const profit = netAmt - cost;
+    const marginPct = (profit / netAmt) * 100;
+    
+    document.getElementById('marginResult').innerHTML = `
+      ✨ <strong>Profit Margin Analysis:</strong> At a net selling price of $${netAmt.toFixed(2)} against a cost of $${cost.toFixed(2)}, your net profit is <strong>$${profit.toFixed(2)}</strong>, giving you a profit margin of <strong>${marginPct.toFixed(1)}%</strong>!
+    `;
+  } else {
+    document.getElementById('marginResult').innerHTML = `
+      ✨ Enter a wholesale cost above to analyze your net profit margins after tax deductions.
+    `;
+  }
 }
 
 function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  const cookieBanner = document.getElementById('cookieConsent');
-  if (cookieBanner) cookieBanner.style.display = 'none';
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
 }
 </script>
 
