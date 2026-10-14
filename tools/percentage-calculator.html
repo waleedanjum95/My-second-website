@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online Percentage Calculator &amp; Change Tool | SmartToolsKit</title>
-<meta name="description" content="Calculate percentages, find value proportions, and track percentage increases or decreases instantly with our secure browser-based tool.">
+<title>Free Online Percentage Calculator &amp; Successive Chain Simulator | SmartToolsKit</title>
+<meta name="description" content="Calculate percentages, find value changes, and simulate successive compound percentage chains instantly with our secure browser-based tool.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/percentage-calculator.html">
 <meta name="theme-color" content="#0F172A">
@@ -34,10 +34,10 @@
     }
   },{
     "@type": "Question",
-    "name": "How is percentage increase calculated?",
+    "name": "How is successive compound percentage calculated?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Percentage increase is calculated by subtracting the initial value from the final value, dividing by the initial value, and multiplying by 100."
+      "text": "Successive percentages are calculated by applying the first percentage change to the base value, and then applying the second percentage change to the resulting intermediate value."
     }
   },{
     "@type": "Question",
@@ -80,6 +80,10 @@ nav a:hover{color:var(--emerald-dark)}
 
 .result-display{background:var(--navy);color:#fff;padding:15px;border-radius:8px;margin-top:12px;font-size:14px;line-height:1.7}
 .result-display strong{color:var(--emerald)}
+
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-bottom:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
 
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
 
@@ -141,7 +145,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>Percentage Calculator</h1>
-<p class="subtitle">Calculate standard percentages and track percentage increases or decreases instantly.</p>
+<p class="subtitle">Calculate standard percentages, track value changes, and simulate successive compound percentage chains.</p>
 
 <div class="calc-box">
 <h3>1. Find Percentage of a Number</h3>
@@ -173,6 +177,27 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 </div>
 
+<!-- Interactive Unique Feature -->
+<div class="unique-box">
+<h3>3. Successive Percentage Chain Simulator</h3>
+<p>Calculate the net combined result when two percentage changes happen one after another (e.g., price markup followed by a discount).</p>
+<div class="form-row">
+<label for="baseVal" style="color:#CBD5E1;">Base Value:</label>
+<input type="number" id="baseVal" value="200" oninput="calcP3()" style="background:#1E293B;color:#fff;border:1px solid #334155;">
+</div>
+<div class="form-row" style="margin-top:10px;">
+<label for="pct1" style="color:#CBD5E1;">First Change (+% or -%):</label>
+<input type="number" id="pct1" value="20" oninput="calcP3()" style="background:#1E293B;color:#fff;border:1px solid #334155;">
+</div>
+<div class="form-row" style="margin-top:10px;">
+<label for="pct2" style="color:#CBD5E1;">Second Change (+% or -%):</label>
+<input type="number" id="pct2" value="-10" oninput="calcP3()" style="background:#1E293B;color:#fff;border:1px solid #334155;">
+</div>
+<div class="result-display" id="res3">
+<strong>Net Result:</strong> 216 (Combined Net Change: +8.00%)
+</div>
+</div>
+
 <div class="security-badge">
 <span>Client-side security:</span> all calculations happen in your browser. We do not collect, store, or send any data you enter.
 </div>
@@ -185,14 +210,15 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <p>Our online Percentage Calculator handles these computations instantly in your browser. Instead of doing manual math on paper or risking decimal placement errors, you can type your numbers and get immediate results.</p>
 
-<h2>Unique Feature: Step-by-Step Breakdown Explanation</h2>
-<p>Unlike basic calculators that only show a final number, this tool provides clear step-by-step arithmetic feedback so you can see exactly how the formula arrives at the final answer.</p>
+<h2>Interactive Unique Feature: Successive Percentage Chain Simulator</h2>
+<p>Standard percentage calculators only handle single-step equations. However, real-world retail and finance often involve stacked changes—such as a wholesale price increase followed by a seasonal promotional markdown, or multiple compounding discounts. Our built-in successive chain simulator lets you input a base value along with two consecutive percentage adjustments to instantly see the intermediate step, the final net value, and the combined cumulative percentage change.</p>
 
 <h2>How to Use the Percentage Calculator</h2>
 <p>Using this calculator takes just a few seconds:</p>
 <ul>
 <li>For part one, enter your target percentage rate and the base number to find the fractional value.</li>
 <li>For part two, enter your initial starting value and your final ending value to see the exact percentage growth or drop.</li>
+<li>For part three, enter a starting amount and two successive percentage adjustments to track compound changes.</li>
 <li>Results update automatically as you type each digit.</li>
 </ul>
 
@@ -206,6 +232,43 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 2. Percentage Increase / Decrease:
 • Formula: ((Final Value - Initial Value) / Initial Value) * 100
+
+3. Successive Compound Percentage:
+• Step 1 Value = Base * (1 + P1 / 100)
+• Final Value = Step 1 Value * (1 + P2 / 100)
+</div>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Formula Name</th>
+<th>Mathematical Equation</th>
+<th>Variables</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Percentage of Number</td>
+<td>(N * P) / 100</td>
+<td>N = Number, P = Percentage</td>
+<td>20% of 150 = 30</td>
+</tr>
+<tr>
+<td>Percentage Change</td>
+<td>((Final - Initial) / Initial) * 100</td>
+<td>Initial, Final values</td>
+<td>100 to 125 = +25%</td>
+</tr>
+<tr>
+<td>Successive Chain</td>
+<td>Base * (1 + P1/100) * (1 + P2/100)</td>
+<td>Base, P1, P2 percentages</td>
+<td>200 with +20% &amp; -10% = 216</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 <h2>Practical Worked Examples</h2>
@@ -258,17 +321,17 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <h2>Who Uses This Tool and When</h2>
-<p>Students use percentage calculators for homework problems, shoppers use them to figure out store discounts, and business professionals rely on them for profit margins and tax tracking.</p>
+<p>Students use percentage calculators for homework problems, shoppers use them to figure out store discounts, and business professionals rely on them for profit margins, tax tracking, and successive markup calculations.</p>
 
 <h2>Common Mistakes to Avoid</h2>
-<p>A common error is dividing by the wrong base value when calculating percentage increases. Always divide by the original starting value, not the final value.</p>
+<p>A common error is dividing by the wrong base value when calculating percentage increases, or adding two successive percentages together directly (e.g., assuming +20% and -10% equals a flat +10% instead of compounding correctly).</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
 <h3>1. How do you calculate a percentage of a number?</h3>
 <p>To find a percentage of a number, multiply the number by the percentage value and divide the result by 100.</p>
 
-<h3>2. How is percentage increase calculated?</h3>
-<p>Percentage increase is calculated by subtracting the initial value from the final value, dividing by the initial value, and multiplying by 100.</p>
+<h3>2. How is successive compound percentage calculated?</h3>
+<p>Successive percentages are calculated by applying the first percentage change to the base value, and then applying the second percentage change to the resulting intermediate value.</p>
 
 <h3>3. Are my calculation inputs sent to external servers?</h3>
 <p>No. All calculations happen locally inside your browser client-side.</p>
@@ -327,6 +390,7 @@ Related Tools: <a href="age-calculator.html" style="color:var(--emerald);">Age C
 document.addEventListener('DOMContentLoaded', () => {
   calcP1();
   calcP2();
+  calcP3();
   if (!localStorage.getItem('cookiesAccepted')) {
     const cb = document.getElementById('cookieConsent');
     if (cb) cb.style.display = 'flex';
@@ -364,6 +428,23 @@ function calcP2() {
   const pct = (diff / init) * 100;
   const type = pct >= 0 ? 'Increase' : 'Decrease';
   document.getElementById('res2').innerHTML = `<strong>Percentage Change:</strong> ${pct > 0 ? '+' : ''}${pct.toFixed(2)}% (${type})`;
+}
+
+function calcP3() {
+  const base = parseFloat(document.getElementById('baseVal').value);
+  const p1 = parseFloat(document.getElementById('pct1').value);
+  const p2 = parseFloat(document.getElementById('pct2').value);
+  
+  if (isNaN(base) || isNaN(p1) || isNaN(p2)) {
+    document.getElementById('res3').innerHTML = `<strong>Net Result:</strong> Please enter valid numbers.`;
+    return;
+  }
+  
+  const step1 = base * (1 + p1 / 100);
+  const final = step1 * (1 + p2 / 100);
+  const netPct = ((final - base) / base) * 100;
+  
+  document.getElementById('res3').innerHTML = `<strong>Net Result:</strong> ${final.toLocaleString(undefined, {maximumFractionDigits:2})} (Combined Net Change: ${netPct > 0 ? '+' : ''}${netPct.toFixed(2)}%)`;
 }
 
 function acceptCookies() {
