@@ -40,7 +40,6 @@
     }
   },{
     "@type": "Question",
-    "name5": "What is the difference between CGST, SGST, and IGST?",
     "name": "What is the difference between CGST, SGST, and IGST?",
     "acceptedAnswer": {
       "@type": "Answer",
@@ -168,7 +167,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 <div class="form-row" style="margin-top:10px;">
 <label for="gstRate">GST Rate (%):</label>
-<select id="gstRate" onchange="calculateGST()">
+<select id="gstRate" onchange="handleRateChange()">
 <option value="5">5% (Essential Goods)</option>
 <option value="12">12% (Standard Tier 1)</option>
 <option value="18" selected>18% (Standard Tier 2)</option>
@@ -356,24 +355,24 @@ Other Free Tools: <a href="sales-tax-calculator.html" style="color:var(--emerald
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const rateSelect = document.getElementById('gstRate');
-  rateSelect.addEventListener('change', function() {
-    const customRow = document.getElementById('customRateRow');
-    if (this.value === 'custom') {
-      customRow.style.display = 'flex';
-    } else {
-      customRow.style.display = 'none';
-    }
-    calculateGST();
-  });
-  
-  calculateGST();
+  handleRateChange();
   
   if (!localStorage.getItem('cookiesAccepted')) {
     const cb = document.getElementById('cookieConsent');
     if (cb) cb.style.display = 'flex';
   }
 });
+
+function handleRateChange() {
+  const rateSelect = document.getElementById('gstRate');
+  const customRow = document.getElementById('customRateRow');
+  if (rateSelect.value === 'custom') {
+    customRow.style.display = 'flex';
+  } else {
+    customRow.style.display = 'none';
+  }
+  calculateGST();
+}
 
 function calculateGST() {
   const mode = document.getElementById('calcMode').value;
@@ -422,23 +421,13 @@ function calculateGST() {
     `;
   } else {
     document.getElementById('marginResult').innerHTML = `
-      ✨ Enter a wholesale cost above to analyze your net  // Profit margin analyzer logic
-  if (cost > 0 && netAmt > 0) {
-    const profit = netAmt - cost;
-    const marginPct = (profit / netAmt) * 100;
-    
-    document.getElementById('marginResult').innerHTML = `
-      ✨ <strong>Profit Margin Analysis:</strong> At a net selling price of $${netAmt.toFixed(2)} against a cost of $${cost.toFixed(2)}, your net profit is <strong>$${profit.toFixed(2)}</strong>, giving you a profit margin of <strong>${marginPct.toFixed(1)}%</strong>!
-    `;
-  } else {
-    document.getElementById('marginResult').innerHTML = `
       ✨ Enter a wholesale cost above to analyze your net profit margins after tax deductions.
     `;
   }
 }
 
 function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
+  localStorage.getIItem('cookiesAccepted', 'true');
   const cb = document.getElementById('cookieConsent');
   if (cb) cb.style.display = 'none';
 }
