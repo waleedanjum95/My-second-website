@@ -147,11 +147,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 <div class="form-row" style="margin-top:10px;">
 <label for="loanTerm">Loan Term (Years):</label>
-<select id="loanTerm" onchange="calculateMortgage()">
-<option value="15">15 Years</option>
-<option value="20">20 Years</option>
-<option value="30" selected>30 Years</option>
-</select>
+<input type="number" id="loanTerm" value="30" min="1" max="100" step="1" oninput="calculateMortgage()">
 </div>
 <div class="result-display" id="mortgageResultMain">
 <strong>Monthly P&amp;I Payment:</strong> Loading...<br>
@@ -332,7 +328,7 @@ function calculateMortgage() {
   const price = parseFloat(document.getElementById('homePrice').value) || 0;
   const down = parseFloat(document.getElementById('downPayment').value) || 0;
   const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
-  const years = parseInt(document.getElementById('loanTerm').value) || 30;
+  const years = parseFloat(document.getElementById('loanTerm').value) || 30;
   const extraPmt = parseFloat(document.getElementById('extraPayment').value) || 0;
   
   const principal = price - down;
