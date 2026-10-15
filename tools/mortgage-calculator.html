@@ -3,39 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Mortgage Calculator with Custom Term & Payoff Reducer | SmartToolsKit</title>
-<meta name="description" content="Use our free online Mortgage Calculator to compute monthly home loan payments, customize any loan term, and simulate how extra principal payments shorten your loan.">
+<title>Free Online Mortgage Calculator &amp; Amortization Accelerator</title>
+<meta name="description" content="Calculate monthly mortgage payments, loan amortization, interest totals, and extra payment savings instantly with our secure, client-side calculator.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/mortgage-calculator.html">
 <meta name="theme-color" content="#0F172A">
-
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://smarttoolskit.com/tools/mortgage-calculator.html">
-<meta property="og:title" content="Free Mortgage Calculator & Payoff Reducer | SmartToolsKit">
-<meta property="og:description" content="Calculate monthly mortgage payments for any custom loan term and discover how extra monthly payments save thousands in bank interest.">
-
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Home",
-    "item": "https://smarttoolskit.com/"
+  "@type": "WebApplication",
+  "name": "Mortgage Calculator",
+  "url": "https://smarttoolskit.com/tools/mortgage-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How is the monthly mortgage payment calculated?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Monthly mortgage payments are calculated using the principal loan amount, annual interest rate, and total loan term in months via standard amortization formulas."
+    }
   },{
-    "@type": "ListItem",
-    "position": 2,
-    "name": "Mortgage Calculator",
-    "item": "https://smarttoolskit.com/tools/mortgage-calculator.html"
+    "@type": "Question",
+    "name": "How do extra monthly payments reduce my mortgage term?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Making extra principal payments reduces the remaining loan balance faster, which decreases the total interest charged over time and shortens the overall loan tenure."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are my mortgage calculations saved or tracked externally?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All financial computations execute strictly inside your local web browser client-side, ensuring complete data privacy and security."
+    }
   }]
 }
 </script>
-
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
@@ -50,64 +63,55 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:750px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
-.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
-
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-
-.btn-group{display:flex;gap:10px;margin-top:10px}
-.calc-btn{background:var(--emerald);color:#fff;border:none;flex:2;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
+.form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.form-row label{width:100%;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.form-row input,.form-row select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.form-row input:focus,.form-row select:focus{border-color:var(--emerald)}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;width:100%;margin-top:10px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.reset-btn{background:var(--soft);color:var(--navy);border:1px solid var(--border);flex:1;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px}
-.reset-btn:hover{background:var(--border)}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-
-.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px;display:none}
-.result-box h3{font-size:16px;color:var(--navy);margin-bottom:12px;text-align:center}
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:center;margin-bottom:15px}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
-.stat-card span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700}
-.stat-card strong{font-size:16px;color:var(--emerald-dark)}
-
-.unique-banner{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:8px;padding:15px;margin-top:15px;font-size:13px}
-.unique-banner h4{color:var(--emerald);margin-bottom:6px;font-size:14px}
-
+.result-display{background:var(--navy);color:#fff;padding:15px;border-radius:8px;margin-top:12px;font-size:14px;line-height:1.7}
+.result-display strong{color:var(--emerald)}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-bottom:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-text{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
 .content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
 .content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-.content-table th,.content-table td{border:1px solid var(--border);padding:10px 12px;text-align:left}
-.content-table th{background:var(--soft);color:var(--navy);font-weight:700}
-.content-table td{color:#475569}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:600px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
 #cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
 #cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -119,166 +123,172 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Calculators</a> &gt; Mortgage Calculator
+</div>
+<div class="tool-layout">
 <div class="tool-container">
-<h1>Mortgage Calculator &amp; Payoff Reducer</h1>
-<p class="subtitle">Compute monthly home loan installments and simulate how extra principal payments shorten your loan term.</p>
-
-<div class="grid-2">
-<div class="form-group">
-<label for="homePrice">Home Price ($)</label>
-<input type="number" step="any" id="homePrice" value="350000" placeholder="e.g., 350000">
+<h1>Mortgage Calculator &amp; Amortization Simulator</h1>
+<p class="subtitle">Calculate monthly home loan payments, interest totals, and amortization breakdowns instantly.</p>
+<div class="calc-box">
+<h3>Mortgage Parameters</h3>
+<div class="form-row">
+<label for="homePrice">Home Price ($):</label>
+<input type="number" id="homePrice" value="350000" min="0" step="any" oninput="calculateMortgage()">
 </div>
-<div class="form-group">
-<label for="downPayment">Down Payment ($)</label>
-<input type="number" step="any" id="downPayment" value="70000" placeholder="e.g., 70000">
+<div class="form-row" style="margin-top:10px;">
+<label for="downPayment">Down Payment ($):</label>
+<input type="number" id="downPayment" value="70000" min="0" step="any" oninput="calculateMortgage()">
+</div>
+<div class="form-row" style="margin-top:10px;">
+<label for="interestRate">Annual Interest Rate (%):</label>
+<input type="number" id="interestRate" value="6.5" min="0" step="any" oninput="calculateMortgage()">
+</div>
+<div class="form-row" style="margin-top:10px;">
+<label for="loanTerm">Loan Term (Years):</label>
+<select id="loanTerm" onchange="calculateMortgage()">
+<option value="15">15 Years</option>
+<option value="20">20 Years</option>
+<option value="30" selected>30 Years</option>
+</select>
+</div>
+<div class="result-display" id="mortgageResultMain">
+<strong>Monthly P&amp;I Payment:</strong> Loading...<br>
+<strong>Total Interest Paid:</strong> Loading...
 </div>
 </div>
-
-<div class="grid-2">
-<div class="form-group">
-<label for="interestRate">Annual Interest Rate (%)</label>
-<input type="number" step="any" id="interestRate" value="6.5" placeholder="e.g., 6.5">
+<div class="unique-box">
+<h3>Extra Monthly Payment / Principal Accelerator</h3>
+<p>Want to pay off your mortgage faster and save thousands in interest? Enter an extra monthly principal contribution below to simulate early loan payoff.</p>
+<div class="form-row" style="margin-bottom:10px;">
+<label for="extraPayment" style="color:#CBD5E1;">Extra Monthly Principal ($ optional):</label>
+<input type="number" id="extraPayment" value="200" min="0" step="any" oninput="calculateMortgage()" style="background:#1E293B;color:#fff;border:1px solid #334155;">
 </div>
-<div class="form-group">
-<label for="loanTerm">Loan Term (Custom Years)</label>
-<input type="number" step="1" min="1" max="50" id="loanTerm" value="30" placeholder="e.g., 30">
+<div class="unique-result" id="extraPaymentResult">
+Loading acceleration impact...
 </div>
 </div>
-
-<div class="form-group">
-<label for="extraPayment">⭐ Unique Feature: Extra Monthly Principal Payment ($)</label>
-<input type="number" step="any" id="extraPayment" value="150" placeholder="e.g., 150">
-</div>
-
-<div class="btn-group">
-<button type="button" class="calc-btn" id="calculateBtn">Calculate Mortgage</button>
-<button type="button" class="reset-btn" id="resetBtn">Reset</button>
-</div>
-
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All computations execute locally inside your web browser. No financial data is saved on remote servers.
+<span>Client-side security:</span> all calculations execute securely inside your local browser. No personal financial data is transmitted externally.
 </div>
-
-<div class="result-box" id="resultBox">
-<h3>Mortgage Payment Breakdown</h3>
-<div class="stats-grid">
-<div class="stat-card">
-<span>Principal &amp; Interest (P&amp;I)</span>
-<strong id="resMonthly">$0.00</strong>
-</div>
-<div class="stat-card">
-<span>Total Loan Amount</span>
-<strong id="resLoanAmount">$0.00</strong>
-</div>
-<div class="stat-card">
-<span>Total Interest Paid</span>
-<strong id="resTotalInterest">$0.00</strong>
-</div>
-<div class="stat-card">
-<span>Total Overall Cost</span>
-<strong id="resTotalCost">$0.00</strong>
-</div>
-</div>
-
-<div class="unique-banner" id="uniqueBanner">
-<h4>✨ Smart Accelerator Impact (Extra Payment Simulator)</h4>
-<p id="savingsText">By paying an extra $150.00 monthly towards your principal, you will save $0.00 in bank interest and pay off your mortgage 0 years early!</p>
+<div class="disclaimer-text">
+Disclaimer: This calculator is for educational and estimation purposes only and does not constitute formal mortgage, financial, or legal advice.
 </div>
 </div>
 </div>
-
-<!-- Comprehensive SEO Content Section (700+ Words) -->
 <div class="content-section">
-<h2>Understanding Mortgages and Custom Term Calculations</h2>
-<p>Purchasing residential or commercial real estate is one of the most significant financial milestones in a person's lifetime. For the vast majority of home buyers, securing a mortgage loan is necessary to bridge the gap between personal savings and property acquisition costs. A mortgage is a specialized loan secured by real property, wherein the borrower agrees to pay back borrowed capital over an agreed amortization schedule. Unlike rigid banking portals that restrict you to preset 15 or 30-year terms, our calculator allows you to enter any custom loan term in years to suit your specific financial roadmap.</p>
-
-<p>Calculating monthly mortgage commitments manually involves intricate exponential equations that factor in principal balances, compounding interest rates, and customized loan durations. Our free online Mortgage Calculator and Payoff Reducer streamlines this entire financial workflow directly inside your browser. Furthermore, our exclusive built-in <strong>Extra Principal Payment Simulator</strong> provides a unique web capability—allowing borrowers to visualize precisely how micro-contributions towards their principal balance shave years off their loan and yield massive cumulative interest savings.</p>
-
-<h2>The Mathematical Mortgage and Amortization Formulas</h2>
-<p>To compute standard monthly principal and interest (P&amp;I) obligations or verify lending institution amortization schedules for any custom term, utilize the following core mathematical equations:</p>
-
+<h2>Understanding Mortgage Financing and Amortization</h2>
+<p>When I evaluate property purchases, home financing structures, or long-term real estate investments, calculating mortgage amortization accurately is crucial. Understanding how principal and interest split over multi-decade loan terms prevents unexpected financial burdens.</p>
+<p>Our online Mortgage Calculator streamlines this entire planning process. By entering your property price, down payment, interest rate, and repayment term, our tool instantly computes exact monthly payments and total loan costs without manual calculation errors.</p>
+<h2>How Our Unique Principal Accelerator Works</h2>
+<p>Most standard mortgage tools only show baseline monthly payments. However, our platform introduces an advanced <strong>Extra Monthly Payment &amp; Principal Accelerator</strong>.</p>
+<p>By allocating even a small extra amount directly toward the principal each month, our tool dynamically simulates accelerated loan payoff, revealing how many years you can shave off your mortgage and how much total interest you will save.</p>
+<h2>The Mathematical Mortgage Amortization Formulas</h2>
+<p>To calculate monthly mortgage payments, total interest obligations, and accelerated payoff schedules manually or programmatically, utilize these core equations:</p>
 <div class="formula-box">
-<strong>Standard Monthly Mortgage Formula (P&amp;I):</strong>
-1. Monthly Interest Rate (r) = Annual Interest Rate / 12 / 100<br>
-2. Total Number of Monthly Payments (n) = Custom Loan Term in Years * 12<br>
-3. Monthly Payment (M) = P * [r(1 + r)^n] / [(1 + r)^n - 1]<br><br>
-<strong>Where:</strong>
-• P = Principal Loan Amount (Home Price minus Down Payment)<br>
-• M = Total Monthly Principal &amp; Interest Payment
+<strong>Core Mortgage Formulas:</strong>
+1. Loan Principal Amount:
+• Principal (P) = Home Price - Down Payment
+2. Monthly Interest Rate:
+• Monthly Rate (r) = Annual Interest Rate / 12 / 100
+3. Total Number of Payments:
+• Number of Months (n) = Loan Term in Years * 12
+4. Monthly Payment (P&amp;I):
+• M = P * [r(1 + r)^n] / [(1 + r)^n - 1]
 </div>
-
-<p>By applying these standardized financial formulas, prospective home buyers can accurately forecast monthly housing budgets and evaluate custom debt amortization schedules.</p>
-
-<h2>Mortgage Amortization &amp; Custom Term Reference Matrix</h2>
-<p>The table below outlines sample monthly payments and total interest obligations for a $350,000.00 home purchase with a $70,000.00 down payment ($280,000.00 loan amount) financed at a 6.5% annual interest rate across various custom loan terms.</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Loan Amount</th>
-<th>Interest Rate</th>
-<th>Custom Term</th>
-<th>Base Monthly (P&amp;I)</th>
-<th>Total Interest Paid</th>
+<th>Name</th>
+<th>Formula</th>
+<th>Variables</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>$280,000.00</td>
-<td>6.5%</td>
-<td>15 Years</td>
-<td>$2,438.54</td>
-<td>$158,937.20</td>
+<td>Principal Loan</td>
+<td>Price - Down Payment</td>
+<td>Price = $350k, Down = $70k</td>
+<td>$350,000 - $70,000 = $280,000</td>
 </tr>
 <tr>
-<td>$280,000.00</td>
-<td>6.5%</td>
-<td>20 Years</td>
-<td>$2,087.61</td>
-<td>$221,026.40</td>
+<td>Monthly Payment</td>
+<td>P * [r(1+r)^n] / [(1+r)^n - 1]</td>
+<td>P = $280k, r = 6.5%/12, n = 360</td>
+<td>$280,000 at 6.5% for 30 yrs = $1,769.24/mo</td>
 </tr>
 <tr>
-<td>$280,000.00</td>
-<td>6.5%</td>
-<td>25 Years</td>
-<td>$1,890.15</td>
-<td>$287,046.00</td>
-</tr>
-<tr>
-<td>$280,000.00</td>
-<td>6.5%</td>
-<td>30 Years</td>
-<td>$1,769.57</td>
-<td>$357,045.20</td>
+<td>Total Interest</td>
+<td>(Monthly Payment * n) - P</td>
+<td>Payment, Months, Principal</td>
+<td>($1,769.24 * 360) - $280,000 = $356,926.40</td>
 </tr>
 </tbody>
 </table>
-
-<h2>How to Use the Mortgage Calculator &amp; Payoff Reducer</h2>
-<p>Using our advanced mortgage calculation tool is straightforward, fast, and requires no financial background:</p>
-<ul>
-<li><strong>Enter Home Price:</strong> Input the total estimated purchase price of the residential property.</li>
-<li><strong>Specify Down Payment:</strong> Type in the cash amount you are paying upfront toward the purchase.</li>
-<li><strong>Set Interest Rate:</strong> Enter the annual percentage rate (APR) quoted by your mortgage lender.</li>
-<li><strong>Enter Custom Loan Term:</strong> Type any preferred loan duration in years (e.g., 10, 15, 22, 30) into the custom term field.</li>
-<li><strong>Add Extra Principal Payment:</strong> Enter any optional monthly amount you intend to pay above your standard bill to activate our unique accelerator simulator.</li>
-<li><strong>Calculate &amp; Review:</strong> Click the calculate button to instantly view your monthly breakdown, total interest obligations, and total time saved.</li>
-</ul>
-
+</div>
+<h2>Global Mortgage Benchmark Reference Matrix</h2>
+<p>The reference table below outlines typical mortgage rate ranges and lending norms across major international property markets as of 2026:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Region / Country</th>
+<th>Typical Mortgage Rate Range</th>
+<th>Standard Loan Terms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>United States</td>
+<td>5.5% – 7.5%</td>
+<td>15 &amp; 30-Year Fixed</td>
+</tr>
+<tr>
+<td>United Kingdom</td>
+<td>4.5% – 6.5%</td>
+<td>25 to 35-Year Fixed / Tracker</td>
+</tr>
+<tr>
+<td>Canada</td>
+<td>4.5% – 6.0%</td>
+<td>25-Year Amortization (5-Yr Fixed)</td>
+</tr>
+<tr>
+<td>Australia &amp; New Zealand</td>
+<td>5.5% – 7.0%</td>
+<td>30-Year Variable / Fixed</td>
+</tr>
+<tr>
+<td>Eurozone (EU)</td>
+<td>3.5% – 5.5%</td>
+<td>20 to 30-Year Fixed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Who Uses This Tool and When</h2>
+<p>First-time homebuyers use mortgage calculators to budget monthly housing expenses, real estate investors use them to analyze property cash flows, and homeowners use them to strategize early loan payoffs.</p>
+<h2>Common Mistakes to Avoid</h2>
+<p>A common mistake is focusing solely on the purchase price while ignoring how fluctuating interest rates and property loan terms dramatically alter total lifetime interest costs.</p>
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. Can I enter any custom number of years for my loan term?</h3>
-<p>Yes! Unlike restricted tools that limit you to 15 or 30 years, our calculator accepts any custom year input so you can model exact refinancing or custom payoff plans.</p>
-
-<h3>2. How does the Extra Principal Payment feature save money?</h3>
-<p>By paying extra toward your principal balance each month, you reduce the overall loan balance faster. Because interest is charged against the remaining principal, shrinking the balance sooner reduces total lifetime interest charges significantly.</p>
-
-<h3>3. Are my financial inputs stored or tracked on external servers?</h3>
-<p>No. All computations run strictly inside your web browser client-side, ensuring complete data privacy and security.</p>
+<h3>1. How is the monthly mortgage payment calculated?</h3>
+<p>Monthly mortgage payments are calculated using the principal loan amount, annual interest rate, and total loan term in months via standard amortization formulas.</p>
+<h3>2. How do extra monthly payments reduce my mortgage term?</h3>
+<p>Making extra principal payments reduces the remaining loan balance faster, which decreases the total interest charged over time and shortens the overall loan tenure.</p>
+<h3>3. Are my mortgage calculations saved or tracked externally?</h3>
+<p>No. All financial computations execute strictly inside your local web browser client-side, ensuring complete data privacy and security.</p>
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="salary-calculator.html" style="color:var(--emerald);">Salary Calculator</a>, <a href="budget-planner.html" style="color:var(--emerald);">Budget Planner</a>, <a href="investment-calculator.html" style="color:var(--emerald);">Investment Calculator</a>, <a href="percentage-calculator.html" style="color:var(--emerald);">Percentage Calculator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
-
 <footer>
 <div class="container">
 <div class="footer-grid">
@@ -306,100 +316,78 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
 </div>
 </footer>
-
 <div id="cookieConsent">
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie">Got It</button>
+<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
-
 <script>
-document.getElementById('calculateBtn').addEventListener('click', () => {
-  const price = parseFloat(document.getElementById('homePrice').value);
-  const down = parseFloat(document.getElementById('downPayment').value);
-  const annualRate = parseFloat(document.getElementById('interestRate').value);
-  const years = parseFloat(document.getElementById('loanTerm').value);
-  const extra = parseFloat(document.getElementById('extraPayment').value) || 0;
-  const resultBox = document.getElementById('resultBox');
-
-  if (isNaN(price) || isNaN(down) || isNaN(annualRate) || isNaN(years) || price < 0 || down < 0 || annualRate < 0 || years <= 0 || years > 50) {
-    alert('Please enter valid positive numbers. Loan term must be between 1 and 50 years.');
+document.addEventListener('DOMContentLoaded', () => {
+  calculateMortgage();
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+});
+function calculateMortgage() {
+  const price = parseFloat(document.getElementById('homePrice').value) || 0;
+  const down = parseFloat(document.getElementById('downPayment').value) || 0;
+  const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+  const years = parseInt(document.getElementById('loanTerm').value) || 30;
+  const extraPmt = parseFloat(document.getElementById('extraPayment').value) || 0;
+  
+  const principal = price - down;
+  if (principal <= 0 || annualRate < 0 || years <= 0) {
+    document.getElementById('mortgageResultMain').innerHTML = '<span style="color:#F87171;">Please enter valid financial parameters (home price must exceed down payment).</span>';
+    document.getElementById('extraPaymentResult').textContent = 'Enter valid parameters for acceleration analysis.';
     return;
   }
-
-  const loanAmount = price - down;
-  if (loanAmount <= 0) {
-    alert('Down payment cannot be greater than or equal to the home price.');
-    return;
-  }
-
+  
   const r = annualRate / 100 / 12;
   const n = years * 12;
-
-  // Standard Monthly P&I
-  const monthlyPI = loanAmount * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-  const totalStandardInterest = (monthlyPI * n) - loanAmount;
-  const totalStandardCost = price + totalStandardInterest;
-
-  // Unique Extra Payment Amortization Simulation Loop
-  let balance = loanAmount;
-  let totalInterestWithExtra = 0;
-  let monthsWithExtra = 0;
-  const totalMonthlyPayment = monthlyPI + extra;
-
-  while (balance > 0 && monthsWithExtra < (n * 2)) {
-    monthsWithExtra++;
-    let interestCharge = balance * r;
-    let principalPaid = totalMonthlyPayment - interestCharge;
+  
+  // Standard Monthly Payment (P&I)
+  const monthlyPayment = principal * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+  const totalStandardPaid = monthlyPayment * n;
+  const totalStandardInterest = totalStandardPaid - principal;
+  
+  document.getElementById('mortgageResultMain').innerHTML = `<strong>Monthly P&amp;I Payment:</strong> $${monthlyPayment.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}<br><strong>Total Interest Paid:</strong> $${totalStandardInterest.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+  
+  if (extraPmt > 0) {
+    let balance = principal;
+    let monthsWithExtra = 0;
+    let totalInterestExtra = 0;
+    const totalMonthly = monthlyPayment + extraPmt;
     
-    if (principalPaid > balance) {
-      principalPaid = balance;
-      interestCharge = balance * r;
+    while (balance > 0 && monthsWithExtra < n * 2) {
+      monthsWithExtra++;
+      const interestCharge = balance * r;
+      totalInterestExtra += interestCharge;
+      let principalPaid = totalMonthly - interestCharge;
+      if (principalPaid > balance) {
+        principalPaid = balance;
+      }
+      balance -= principalPaid;
+      if (balance <= 0.01) break;
     }
     
-    totalInterestWithExtra += interestCharge;
-    balance -= principalPaid;
-    if (balance <= 0) break;
-  }
-
-  const interestSaved = totalStandardInterest - totalInterestWithExtra;
-  const monthsSaved = n - monthsWithExtra;
-  const yearsSavedNum = (monthsSaved / 12).toFixed(1);
-
-  document.getElementById('resMonthly').textContent = monthlyPI.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resLoanAmount').textContent = loanAmount.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resTotalInterest').textContent = totalStandardInterest.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-  document.getElementById('resTotalCost').textContent = totalStandardCost.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-
-  if (extra > 0 && monthsSaved > 0) {
-    document.getElementById('savingsText').innerHTML = `By paying an extra <strong>${extra.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</strong> monthly towards your principal, you will save <strong>${interestSaved.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</strong> in bank interest and pay off your mortgage <strong>${yearsSavedNum} years</strong> early!`;
-    document.getElementById('uniqueBanner').style.display = 'block';
+    const monthsSaved = n - monthsWithExtra;
+    const interestSaved = totalStandardInterest - totalInterestExtra;
+    
+    if (monthsSaved > 0) {
+      const yearsSaved = (monthsSaved / 12).toFixed(1);
+      document.getElementById('extraPaymentResult').innerHTML = `✨ <strong>Accelerator Impact:</strong> Adding <strong>$${extraPmt.toFixed(2)}/mo</strong> extra pays off your mortgage approx. <strong>${yearsSaved} years faster</strong> and saves ~<strong>$${interestSaved.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</strong> in total interest!`;
+    } else {
+      document.getElementById('extraPaymentResult').innerHTML = `✨ <strong>Accelerator Impact:</strong> Extra payment of $${extraPmt.toFixed(2)}/mo reduces total interest paid by ~<strong>$${interestSaved.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</strong>.`;
+    }
   } else {
-    document.getElementById('uniqueBanner').style.display = 'none';
+    document.getElementById('extraPaymentResult').textContent = 'Enter an extra monthly principal contribution above to simulate accelerated loan payoff.';
   }
-
-  resultBox.style.display = 'block';
-});
-
-document.getElementById('resetBtn').addEventListener('click', () => {
-  document.getElementById('homePrice').value = '350000';
-  document.getElementById('downPayment').value = '70000';
-  document.getElementById('interestRate').value = '6.5';
-  document.getElementById('loanTerm').value = '30';
-  document.getElementById('extraPayment').value = '150';
-  document.getElementById('resultBox').style.display = 'none';
-});
-
-window.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookieConsent').style.display = 'flex';
-  }
-});
-
-document.getElementById('acceptCookie').addEventListener('click', () => {
+}
+function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
-});
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
+}
 </script>
-
 </body>
 </html>
