@@ -133,7 +133,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>Universal Unit Converter</h1>
-<p class="subtitle">Convert seamlessly between length, mass, temperature, data storage, and speed units instantly[span_0](start_span)[span_0](end_span).</p>
+<p class="subtitle">Convert seamlessly between length, mass, temperature, data storage, and speed units instantly.</p>
 <div class="calc-box">
 <h3>Select Conversion Category</h3>
 <div class="form-row">
@@ -169,7 +169,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 <div class="unique-box">
 <h3>Planetary Gravity Weight Scaler</h3>
-<p>Ever wondered how much you would weigh on Mars, Jupiter, or the Moon? Enter your Earth weight below to calculate your celestial weight across different planets[span_1](start_span)[span_1](end_span)!</p>
+<p>Ever wondered how much you would weigh on Mars, Jupiter, or the Moon? Enter your Earth weight below to calculate your celestial weight across different planets!</p>
 <div class="form-row" style="margin-bottom:10px;">
 <label for="earthWeight" style="color:#CBD5E1;">Earth Weight (kg):</label>
 <input type="number" id="earthWeight" value="70" min="0" step="any" oninput="calculatePlanetaryWeight()" style="background:#1E293B;color:#fff;border:1px solid #334155;">
@@ -190,7 +190,7 @@ Loading planetary weight...
 </div>
 </div>
 <div class="security-badge">
-<span>Client-side security:</span> all computations execute securely inside your local browser. No data is stored or transmitted to external servers.[span_2](start_span)[span_2](end_span)
+<span>Client-side security:</span> all computations execute securely inside your local web browser. No data is stored or transmitted to external servers.
 </div>
 <div class="disclaimer-text">
 Disclaimer: This calculator is for educational and estimation purposes only and does not constitute formal engineering, scientific, or nutritional advice.
@@ -199,11 +199,11 @@ Disclaimer: This calculator is for educational and estimation purposes only and 
 </div>
 <div class="content-section">
 <h2>Understanding Universal Unit Conversion Systems</h2>
-<p>Unit conversion is a fundamental mathematical process utilized across science, engineering, international commerce, culinary arts, and daily digital activities[span_3](start_span)[span_3](end_span). Throughout human history, civilizations developed distinct measurement standards, ranging from ancient imperial cubits to modern standardized metrics[span_4](start_span)[span_4](end_span). Today, the world primarily operates between two primary measurement frameworks: the International System of Units (SI / Metric System) and the United States Customary System (USCS / Imperial System)[span_5](start_span)[span_5](end_span). Because global communication and scientific research require absolute precision, reliable unit conversion tools are indispensable for translating values accurately[span_6](start_span)[span_6](end_span).</p>
-<p>Our online Universal Unit Converter bridges this gap by enabling users to convert instantly between multiple physical and digital measurement categories, including length, mass, temperature, data storage, and velocity[span_7](start_span)[span_7](end_span). Powered by pure client-side algorithms, our utility guarantees lightning-fast calculation speeds without requiring software downloads or network latency[span_8](start_span)[span_8](end_span).</p>
+<p>When I convert physical units, translate structural measurements, or evaluate engineering specifications, maintaining absolute precision is essential. Throughout my analytical work, I find that civilizations have historically developed distinct measurement standards, ranging from ancient imperial cubits to modern standardized metrics.</p>
+<p>Because global communication and scientific research require absolute accuracy, I rely on robust unit conversion tools to translate values seamlessly across length, mass, temperature, data storage, and velocity parameters without calculation errors.</p>
 <h2>How Our Unique Planetary Gravity Weight Scaler Works</h2>
-<p>Beyond standard physical unit conversions, our platform introduces an exclusive educational feature: the <strong>Planetary Gravity Weight Scaler</strong>[span_9](start_span)[span_9](end_span). While your actual body mass (measured in kilograms or pounds) remains constant regardless of where you travel in the universe, your weight is fundamentally a measure of gravitational force acting upon your mass[span_10](start_span)[span_10](end_span). Because every celestial body possesses a distinct mass and radius, gravitational pull ($g$) varies dramatically across our solar system[span_11](start_span)[span_11](end_span).</p>
-<p>For instance, Mars exhibits a surface gravity roughly 38% of Earth's pull, meaning an individual weighing 70 kg on Earth would weigh approximately 26.6 kg on the Martian surface[span_12](start_span)[span_12](end_span). Conversely, gas giants like Jupiter exert immense gravitational forces, multiplying human weight by a factor of 2.34[span_13](start_span)[span_13](end_span). Our interactive celestial scaler calculates these precise gravitational differentials instantly, merging astrophysics with practical utility to enhance user engagement and provide unique content value[span_14](start_span)[span_14](end_span).</p>
+<p>When I explore celestial mechanics or evaluate space exploration data, standard physical unit conversions only tell part of the story. That is why I integrated our exclusive educational feature: the <strong>Planetary Gravity Weight Scaler</strong>. While my actual body mass remains constant across the universe, my physical weight fundamentally depends on local gravitational pull.</p>
+<p>For instance, when I analyze Martian gravity, which is roughly 38% of Earth's pull, an individual weighing 70 kg on Earth would experience a reduced weight of approximately 26.6 kg. Conversely, massive gas giants like Jupiter exert an immense gravitational factor of 2.34, multiplying total weight significantly. I built this interactive celestial scaler to merge astrophysics with practical utility and enhance user engagement.</p>
 <h2>The Mathematical Conversion and Scaling Formulas</h2>
 <p>To compute standard unit conversions or verify scientific calculations manually, utilize the following core mathematical equations:</p>
 <div class="formula-box">
@@ -425,14 +425,13 @@ function convertUnits() {
   let formulaText = '';
   
   if (category === 'temp') {
-    // Temperature conversion logic
     let tempInC = val;
-    if (fromIndex === 1) tempInC = (val - 32) * (5/9); // F to C
-    else if (fromIndex === 2) tempInC = val - 273.15; // K to C
+    if (fromIndex === 1) tempInC = (val - 32) * (5/9);
+    else if (fromIndex === 2) tempInC = val - 273.15;
     
     let targetVal = tempInC;
-    if (toIndex === 1) targetVal = (tempInC * 9/5) + 32; // C to F
-    else if (toIndex === 2) targetVal = tempInC + 273.15; // C to K
+    if (toIndex === 1) targetVal = (tempInC * 9/5) + 32;
+    else if (toIndex === 2) targetVal = tempInC + 273.15;
     
     result = targetVal;
     formulaText = `Temperature translation between ${items[fromIndex].name} and ${items[toIndex].name}`;
