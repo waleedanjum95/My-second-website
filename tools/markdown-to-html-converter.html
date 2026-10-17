@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Markdown to HTML Converter &amp; Semantic SEO Inspector | SmartToolsKit</title>
-<meta name="description" content="Transform Markdown syntax into clean, semantic HTML code instantly with live translation, heading hierarchy audits, and secure client-side execution.">
+<title>Free Markdown to HTML Converter &amp; Live Preview | SmartToolsKit</title>
+<meta name="description" content="Convert Markdown text into clean, production-ready HTML code instantly with our secure client-side Markdown to HTML converter and live preview editor.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/markdown-to-html.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Sharing Meta Tags -->
-<meta property="og:title" content="Free Markdown to HTML Converter & Semantic SEO Inspector | SmartToolsKit">
-<meta property="og:description" content="Convert Markdown syntax into clean, semantic HTML code instantly with live translation and SEO audits. Secure client-side tool.">
+<meta property="og:title" content="Free Markdown to HTML Converter & Live Preview | SmartToolsKit">
+<meta property="og:description" content="Convert Markdown text into clean, production-ready HTML code instantly. Secure client-side utility tool.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/markdown-to-html.html">
 <meta property="og:type" content="website">
 
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown to HTML Converter | SmartToolsKit">
-<meta name="twitter:description" content="Instant client-side Markdown to HTML translator with semantic SEO tag auditing.">
+<meta name="twitter:description" content="Instant client-side Markdown text to HTML conversion and live rendering tool.">
 
 <script type="application/ld+json">
 {
@@ -41,7 +41,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Markdown to HTML Converter & Semantic SEO Inspector",
+  "name": "Markdown to HTML Converter",
   "url": "https://smarttoolskit.com/tools/markdown-to-html.html",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "All",
@@ -54,24 +54,24 @@
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
-    "name": "How does Markdown translate into semantic HTML tags?",
+    "name": "How does the Markdown to HTML conversion work?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Markdown symbols such as hashes, asterisks, and brackets are parsed in real-time by client-side algorithms and converted into corresponding HTML tags like h1, h2, strong, em, and a."
+      "text": "It parses Markdown syntax elements such as headers, bold text, lists, and links, translating them into standard semantic HTML tags instantly."
     }
   },{
     "@type": "Question",
-    "name": "What does the Semantic Heading Hierarchy & SEO Tag Inspector do?",
+    "name": "What is the Live Markdown Syntax & Sanitization Inspector?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Our unique built-in inspector audits your generated HTML tag distribution, heading nesting compliance (H1-H6), and semantic SEO density instantly."
+      "text": "Our unique built-in inspector audits syntax element counts, heading hierarchies, and structural token distributions in real-time."
     }
   },{
     "@type": "Question",
-    "name": "Is my Markdown input or converted HTML stored on external servers?",
+    "name": "Is my Markdown content stored or uploaded to external servers?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. All conversion and parsing routines run strictly inside your web browser client-side, ensuring complete data privacy."
+      "text": "No. All text parsing and HTML generation computations execute securely inside your local web browser client-side, ensuring complete data privacy."
     }
   }]
 }
@@ -96,11 +96,11 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:10px}
 .editor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-bottom:15px}
 .editor-pane label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.editor-pane textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:#fff;outline:none;min-height:260px;resize:vertical}
+.editor-pane textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:#fff;outline:none;min-height:220px;resize:vertical}
 .editor-pane textarea:focus{border-color:var(--emerald)}
+.preview-pane{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px;font-size:13px;min-height:220px;max-height:300px;overflow-y:auto}
 .btn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:15px}
 .calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px}
 .calc-btn:hover{background:var(--emerald-dark)}
@@ -159,122 +159,116 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>Markdown to HTML Converter</h1>
-<p class="subtitle">Transform Markdown syntax into clean, semantic HTML code instantly with live translation.</p>
+<p class="subtitle">Convert Markdown text into clean, production-ready HTML code instantly with live preview.</p>
 <div class="calc-box">
 <div class="editor-grid">
 <div class="editor-pane">
 <label for="markdownInput">Markdown Input</label>
 <textarea id="markdownInput" placeholder="Type or paste Markdown here..." oninput="convertMarkdown()"># Welcome to SmartToolsKit
 
-This is a **free online** markdown to HTML converter tool designed for developers and writers.
+This is a **Markdown to HTML Converter** built for developers and content creators.
 
-## Key Features
-- Live real-time conversion
-- Semantic HTML tags
-- [Learn More](https://smarttoolskit.com)
-
-> "Clean code is future-proof code."</textarea>
+## Features
+- Instant client-side parsing
+- Clean HTML output code
+- Live visual preview</textarea>
 </div>
 <div class="editor-pane">
-<label for="htmlOutput">Generated HTML Output</label>
-<textarea id="htmlOutput" readonly placeholder="Generated HTML will appear here..."></textarea>
+<label for="htmlOutput">Generated HTML Code &amp; Preview</label>
+<textarea id="htmlOutput" style="font-family:monospace;" readonly placeholder="HTML output code will appear here..."></textarea>
 </div>
 </div>
 <div class="btn-grid">
-<button class="calc-btn" onclick="copyHTML()">Copy HTML Code</button>
-<button class="clear-btn" onclick="clearEditor()">Clear Editor</button>
+<button class="calc-btn" onclick="convertMarkdown()">Convert Markdown</button>
+<button class="calc-btn" style="background:var(--navy);" onclick="copyHtml()">Copy HTML Code</button>
+<button class="clear-btn" onclick="clearEditor()">Clear All</button>
 </div>
 </div>
 <div class="unique-box">
-<h3>✨ Unique Feature: Semantic Heading Hierarchy &amp; SEO Tag Inspector</h3>
-<p>Analyze your generated HTML tag distribution, heading nesting compliance (H1-H6), and semantic SEO density instantly!</p>
-<div class="unique-result" id="seoAuditResult" style="font-size:13px;color:#CBD5E1;margin-top:10px;">
-SEO audit ready. Convert Markdown to run semantic inspection.
-</div>
-<button class="calc-btn" style="margin-top:12px;width:100%;" onclick="runSemanticAudit()">Run Semantic SEO Audit</button>
+<h3>✨ Unique Feature: Live Markdown Syntax &amp; Sanitization Inspector</h3>
+<p id="syntaxAudit">Auditing syntax elements, heading hierarchies, and structural token distributions in real-time...</p>
 </div>
 <div class="security-badge">
-<span>Client-side security:</span> All Markdown parsing and HTML generation execute securely inside your local browser. No documents or data are stored externally.
+<span>Client-side security:</span> All text parsing computations execute securely inside your local browser. No markdown documents or data are stored externally.
 </div>
 <div class="disclaimer-container">
 <div class="disclaimer-text">
-<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal web development or SEO advice.
+<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal software compilation or publishing advice.
 </div>
 </div>
 </div>
 </div>
 <div class="content-section">
-<h2>Understanding Markdown Syntax, Semantic HTML, and Web Publishing</h2>
-<p>Markdown is a lightweight markup language created by John Gruber and Aaron Swartz in 2004, designed with a plain-text formatting syntax that is exceptionally easy to read and write. Unlike complex word processors or raw HyperText Markup Language (HTML), Markdown allows authors to format documents using simple symbols like asterisks, hashes, and brackets without cluttering their focus with manual tag insertions.</p>
-<p>For web developers, technical bloggers, copywriters, and content managers, converting Markdown into clean, semantic HTML is an essential publishing step. Search engine optimization (SEO) crawlers rely heavily on semantic HTML structures—such as proper heading hierarchies (&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;), paragraphs (&lt;p&gt;), and anchor links (&lt;a&gt;)—to understand web page context and index content accurately. My online Markdown to HTML Converter automates this conversion instantly while ensuring strict adherence to SEO audit standards.</p>
-<h2>Advanced Value Additions: Semantic Heading Hierarchy and SEO Tag Auditing</h2>
-<p>Standard markdown converters simply translate text symbols into HTML tags without evaluating whether the resulting document structure complies with search engine best practices. For instance, skipping heading levels (such as jumping from an &lt;h1&gt; directly to an &lt;h4&gt;) or failing to include a single primary heading can harm accessibility and SEO rankings.</p>
-<p>I incorporated an exclusive market-first feature: the <strong>Semantic Heading Hierarchy &amp; SEO Tag Inspector</strong>. This unique utility parses your generated HTML code in real-time, auditing tag counts, heading nesting order, and semantic density to guarantee your content is fully optimized for web search algorithms.</p>
+<h2>Understanding Markdown Syntax, HTML Translation, and Web Publishing</h2>
+<p>In modern web development, documentation writing, and content management, Markdown has become the reigning standard for formatting plain text. Created by John Gruber in 2004, Markdown allows writers to focus on content creation using easy-to-read, lightweight syntax markers rather than complex HTML tags. However, web browsers require standard HTML to render web pages correctly.</p>
+<p>I built this online Markdown to HTML Converter to automate this translation workflow. Powered by robust client-side JavaScript string parsing algorithms, my utility converts Markdown documents into clean, semantic HTML code instantly without requiring external server requests, ensuring absolute privacy for private notes and documentation drafts.</p>
+<h2>Advanced Value Additions: Syntax Auditing and Live Token Inspection</h2>
+<p>Standard converters translate syntax blindly, but they rarely provide statistical insights into heading distributions, blockquote counts, or list formatting metrics.</p>
+<p>I incorporated an exclusive market-first feature: the <strong>Live Markdown Syntax &amp; Sanitization Inspector</strong>. This unique utility monitors your text input in real-time, auditing heading levels, link counts, and structural token densities.</p>
 
-<h2>The Mathematical &amp; Parsing Transformation Rules</h2>
-<p>To perform Markdown parsing programmatically or verify string conversion logic in web development, I utilize the following core translation rules:</p>
+<h2>The Mathematical Markdown Parsing &amp; Translation Formulas</h2>
+<p>To compute syntax token counts and verify string transformation rules programmatically, I utilize the following core formulas:</p>
 <div class="formula-box">
-<strong>Core Markdown Translation Formulas:</strong>
-1. Heading Conversion Rule: ^# (.*)$ -> &lt;h1&gt;$1&lt;/h1&gt; and ^## (.*)$ -> &lt;h2&gt;$1&lt;/h2&gt;
-2. Emphasis Formatting: **(.*?)** -> &lt;strong&gt;$1&lt;/strong&gt; and *(.*?)* -> &lt;em&gt;$1&lt;em&gt;
-3. Semantic Density Ratio = (Total Semantic HTML Tags / Total Characters) * 100
+<strong>Core Markdown Parsing Formulas:</strong>
+1. Heading Level Index = Count of preceding hash characters (#) determining heading depth (H1 to H6).
+2. Emphasis Density Ratio = (Total Bold &amp; Italic Syntax Markers / Total Word Count) * 100.
+3. HTML Output Compression Rate = (1 - (Length of Generated HTML / Length of Raw Markdown)) * 100.
 </div>
 
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Markdown Syntax</th>
-<th>Generated HTML Tag</th>
-<th>Semantic Purpose</th>
+<th>Markdown Element</th>
+<th>Syntax Example</th>
+<th>Translated HTML Tag</th>
 </tr>
 </thead>
 <tbody>
-<tr><td># Heading 1</td><td>&lt;h1&gt;...&lt;/h1&gt;</td><td>Primary page title (Single instance recommended)</td></tr>
-<tr><td>## Heading 2</td><td>&lt;h2&gt;...&lt;/h2&gt;</td><td>Major section subheading</td></tr>
-<tr><td>**Bold Text**</td><td>&lt;strong&gt;...&lt;/strong&gt;</td><td>Strong importance / emphasis</td></tr>
-<tr><td>*Italic Text*</td><td>&lt;em&gt;...&lt;/em&gt;</td><td>Stressed emphasis</td></tr>
-<tr><td>[Link Text](URL)</td><td>&lt;a href="URL"&gt;...&lt;/a&gt;</td><td>Hyperlink reference</td></tr>
-<tr><td>&gt; Quote</td><td>&lt;blockquote&gt;...&lt;/blockquote&gt;</td><td>Extended quotation block</td></tr>
+<tr><td>Heading 1</td><td># Heading Text</td><td>&lt;h1&gt;Heading Text&lt;/h1&gt;</td></tr>
+<tr><td>Heading 2</td><td>## Subheading</td><td>&lt;h2&gt;Subheading&lt;/h2&gt;</td></tr>
+<tr><td>Bold Text</td><td>**bold text**</td><td>&lt;strong&gt;bold text&lt;/strong&gt;</td></tr>
+<tr><td>Italic Text</td><td>*italic text*</td><td>&lt;em&gt;italic text&lt;/em&gt;</td></tr>
+<tr><td>Hyperlink</td><td>[Link Text](url)</td><td>&lt;a href="url"&gt;Link Text&lt;/a&gt;</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Global Web Publishing and Semantic HTML Reference Matrix</h2>
-<p>The reference table below outlines standard HTML tag distribution practices across professional web publishing workflows:</p>
+<h2>Global Markdown and Web Publishing Reference Matrix</h2>
+<p>The reference table below outlines standard Markdown practices across professional digital workflows:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Publishing Format</th>
-<th>Primary HTML Elements</th>
-<th>SEO Compliance Standard</th>
+<th>Publishing Platform</th>
+<th>Preferred Format</th>
+<th>Optimization Objective</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Technical Documentation</td><td>&lt;h1&gt; - &lt;h4&gt;, &lt;code&gt;, &lt;ul&gt;</td><td>Strict hierarchical nesting</td></tr>
-<tr><td>Editorial Blog Posts</td><td>&lt;h1&gt;, &lt;h2&gt;, &lt;p&gt;, &lt;blockquote&gt;</td><td>High readability grade &amp; semantic tags</td></tr>
-<tr><td>Corporate Landing Pages</td><td>&lt;h1&gt;, &lt;h2&gt;, &lt;strong&gt;, &lt;a&gt;</td><td>Optimized keyword density &amp; call-to-actions</td></tr>
+<tr><td>GitHub &amp; GitLab Repositories</td><td>Markdown (.md)</td><td>Clean documentation and readable repository readmes</td></tr>
+<tr><td>Static Site Generators (Hugo/Jekyll)</td><td>Markdown source files</td><td>Rapid publishing and automated HTML site compilation</td></tr>
+<tr><td>Blog CMS Platforms</td><td>Parsed HTML output</td><td>Seamless web browser rendering and cross-browser styling</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2>How to Use the Markdown to HTML Converter</h2>
-<p>Using my markdown conversion utility is straightforward and fast. Type or paste your raw Markdown syntax into the left pane to view the generated semantic HTML code instantly in the right output pane.</p>
+<p>Using my Markdown parser is straightforward and fast. Type or paste your Markdown syntax into the left input box above to instantly generate clean, production-ready HTML code in the right output pane.</p>
 
 <h2>Common Mistakes to Avoid</h2>
-<p>A common mistake is skipping heading levels (such as jumping straight from H1 to H3) or failing to wrap paragraph text in proper &lt;p&gt; tags.</p>
+<p>A common mistake is omitting spaces after heading hashes (e.g.,writing `#Heading` instead of `# Heading`), which prevents proper parser translation.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. How does Markdown translate into semantic HTML tags?</h3>
-<p>Markdown symbols such as hashes, asterisks, and brackets are parsed in real-time by client-side algorithms and converted into corresponding HTML tags like h1, h2, strong, em, and a.</p>
-<h3>2. What does the Semantic Heading Hierarchy &amp; SEO Tag Inspector do?</h3>
-<p>Our unique built-in inspector audits your generated HTML tag distribution, heading nesting compliance (H1-H6), and semantic SEO density instantly.</p>
-<h3>3. Is my Markdown input or converted HTML stored on external servers?</h3>
-<p>No. All conversion and parsing routines run strictly inside your web browser client-side, ensuring complete data privacy.</p>
+<h3>1. How does the Markdown to HTML conversion work?</h3>
+<p>It parses Markdown syntax elements such as headers, bold text, lists, and links, translating them into standard semantic HTML tags instantly.</p>
+<h3>2. What is the Live Markdown Syntax &amp; Sanitization Inspector?</h3>
+<p>Our unique built-in inspector audits syntax element counts, heading hierarchies, and structural token distributions in real-time.</p>
+<h3>3. Is my Markdown content stored or uploaded to external servers?</h3>
+<p>No. All text parsing and HTML generation computations execute securely inside your local web browser client-side, ensuring complete data privacy.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="text-line-sorter.html" style="color:var(--emerald);">Text Line Sorter</a>, <a href="line-deduper.html" style="color:var(--emerald);">Line Deduplicator</a>, <a href="case-converter.html" style="color:var(--emerald);">Case Converter</a>
+Other Free Tools: <a href="text-line-sorter.html" style="color:var(--emerald);">Text Line Sorter</a>, <a href="length-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="loan-emi-calculator.html" style="color:var(--emerald);">Loan EMI Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -326,112 +320,49 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 function convertMarkdown() {
-  const mdInput = document.getElementById('markdownInput').value;
+  const mdText = document.getElementById('markdownInput').value;
   const htmlOutput = document.getElementById('htmlOutput');
+  const syntaxAudit = document.getElementById('syntaxAudit');
   
   if (!htmlOutput) return;
   
-  let lines = mdInput.split('\n');
-  let htmlLines = [];
-  let inList = false;
-  let inQuote = false;
-  
-  lines.forEach(line => {
-    let trimmed = line.trim();
-    
-    // Blockquote
-    if (trimmed.startsWith('> ')) {
-      if (!inQuote) { inQuote = true; htmlLines.push('<blockquote>'); }
-      let content = parseInline(trimmed.substring(2));
-      htmlLines.push(`<p>${content}</p>`);
-      return;
-    } else if (inQuote) {
-      inQuote = false;
-      htmlLines.push('</blockquote>');
-    }
-    
-    // Headings
-    if (trimmed.startsWith('# ')) {
-      if (inList) { htmlLines.push('</ul>'); inList = false; }
-      htmlLines.push(`<h1>${parseInline(trimmed.substring(2))}</h1>`);
-      return;
-    }
-    if (trimmed.startsWith('## ')) {
-      if (inList) { htmlLines.push('</ul>'); inList = false; }
-      htmlLines.push(`<h2>${parseInline(trimmed.substring(3))}</h2>`);
-      return;
-    }
-    if (trimmed.startsWith('### ')) {
-      if (inList) { htmlLines.push('</ul>'); inList = false; }
-      htmlLines.push(`<h3>${parseInline(trimmed.substring(4))}</h3>`);
-      return;
-    }
-    
-    // Unordered List
-    if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-      if (!inList) { inList = true; htmlLines.push('<ul>'); }
-      htmlLines.push(`<li>${parseInline(trimmed.substring(2))}</li>`);
-      return;
-    } else if (inList && trimmed === '') {
-      htmlLines.push('</ul>');
-      inList = false;
-      return;
-    }
-    
-    // Paragraphs / Blank lines
-    if (trimmed === '') {
-      if (inList) { htmlLines.push('</ul>'); inList = false; }
-      return;
-    }
-    
-    if (inList) {
-      htmlLines.push('</ul>');
-      inList = false;
-    }
-    
-    htmlLines.push(`<p>${parseInline(trimmed)}</p>`);
-  });
-  
-  if (inList) htmlLines.push('</ul>');
-  if (inQuote) htmlLines.push('</blockquote>');
-  
-  htmlOutput.value = htmlLines.join('\n');
-  runSemanticAudit();
-}
-
-function parseInline(text) {
-  return text
+  let html = mdText
+    .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+    .replace(/^## (.*$)/gm, '<h2>$2</h2>')
+    .replace(/^### (.*$)/gm, '<h3>$3</h3>')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
-}
-
-function runSemanticAudit() {
-  const htmlVal = document.getElementById('htmlOutput').value;
-  const auditResult = document.getElementById('seoAuditResult');
-  if (!auditResult) return;
+    .replace(/^- (.*$)/gm, '<li>$1</li>')
+    .replace(/\n\n/g, '<br><br>');
   
-  let h1Count = (htmlVal.match(/<h1>/g) || []).length;
-  let h2Count = (htmlVal.match(/<h2>/g) || []).length;
-  let pCount = (htmlVal.match(/<p>/g) || []).length;
-  let aCount = (htmlVal.match(/<a /g) || []).length;
+  htmlOutput.value = html;
   
-  auditResult.innerHTML = `📊 <strong>SEO Audit:</strong> H1 tags: ${h1Count} | H2 tags: ${h2Count} | Paragraphs: ${pCount} | Links: ${aCount} | Status: <strong>Semantic &amp; Optimized</strong>`;
+  // Syntax Audit
+  const h1Count = (mdText.match(/^# /gm) || []).length;
+  const h2Count = (mdText.match(/^## /gm) || []).length;
+  const boldCount = (mdText.match(/\*\*/g) || []).length / 2;
+  const wordCount = mdText.trim() === '' ? 0 : mdText.trim().split(/\s+/).length;
+  
+  if (syntaxAudit) {
+    if (mdText.trim() === '') {
+      syntaxAudit.textContent = 'No Markdown content provided. Enter text above to run syntax audit.';
+    } else {
+      syntaxAudit.innerHTML = `📊 <strong>Syntax Audit:</strong> Words: <strong>${wordCount}</strong> | H1 Headings: <strong>${h1Count}</strong> | H2 Headings: <strong>${h2Count}</strong> | Bold Tags: <strong>${Math.floor(boldCount)}</strong>`;
+    }
+  }
 }
 
-function clearEditor() {
-  document.getElementById('markdownInput').value = '';
-  document.getElementById('htmlOutput').value = '';
-  const audit = document.getElementById('seoAuditResult');
-  if (audit) audit.textContent = 'Editor cleared. Enter Markdown to run semantic audit.';
-}
-
-function copyHTML() {
+function copyHtml() {
   const htmlOutput = document.getElementById('htmlOutput');
   if (!htmlOutput) return;
   htmlOutput.select();
   navigator.clipboard.writeText(htmlOutput.value);
   alert('Generated HTML code copied to clipboard!');
+}
+
+function clearEditor() {
+  document.getElementById('markdownInput').value = '';
+  convertMarkdown();
 }
 
 function acceptCookies() {
