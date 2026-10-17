@@ -3,43 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online Case Converter &amp; Programming Nomenclature Inspector | SmartToolsKit</title>
-<meta name="description" content="Convert text to uppercase, lowercase, title case, sentence case, camelCase, snake_case, and kebab-case instantly with our free online Case Converter.">
+<title>Free Online Case Converter &amp; Text Formatter</title>
+<meta name="description" content="Transform text casing across uppercase, lowercase, title case, sentence case, camelCase, snake_case, and slug formats instantly with our secure client-side converter.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/case-converter.html">
 <meta name="theme-color" content="#0F172A">
-
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
+<meta property="og:title" content="Free Online Case Converter & Text Formatter">
+<meta property="og:description" content="Convert text casing instantly across uppercase, lowercase, title case, and developer slug formats. Secure, client-side browser tool.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/case-converter.html">
-<meta property="og:title" content="Free Online Case Converter &amp; Nomenclature Inspector | SmartToolsKit">
-<meta property="og:description" content="Transform text casing instantly across uppercase, lowercase, title case, sentence case, and programming nomenclature formats.">
-
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Case Converter & Text Formatter | SmartToolsKit">
+<meta name="twitter:description" content="Instant client-side text case converter with developer nomenclature formatting.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Home",
-    "item": "https://smarttoolskit.com/"
+  "@type": "WebApplication",
+  "name": "Case Converter & Text Formatter",
+  "url": "https://smarttoolskit.com/tools/case-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is the difference between Title Case and Sentence case?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Title Case capitalizes the first letter of every major word in a phrase, whereas Sentence case capitalizes only the first letter of the first word in a sentence."
+    }
   },{
-    "@type": "ListItem",
-    "position": 2,
-    "name": "Case Converter",
-    "item": "https://smarttoolskit.com/tools/case-converter.html"
+    "@type": "Question",
+    "name": "How does the URL Slug converter work?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The slug converter transforms all text to lowercase, replaces spaces with hyphens, and removes special symbols to create clean, SEO-friendly web links."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is my typed text or private data stored on external servers?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All text transformations execute strictly inside your web browser client-side, ensuring complete data confidentiality and user privacy."
+    }
   }]
 }
 </script>
-
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,textarea,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -50,54 +70,55 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group textarea{width:100%;height:160px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical}
-.form-group textarea:focus{border-color:var(--emerald)}
-
-.btn-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:10px;margin-bottom:20px}
-.action-btn{background:var(--soft);color:var(--navy);border:1px solid var(--border);padding:10px 12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;transition:all 0.2s}
-.action-btn:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
+.form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.form-row label{width:100%;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.form-row textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none;min-height:130px;resize:vertical}
+.form-row textarea:focus{border-color:var(--emerald)}
+.btn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-top:15px}
+.case-btn{background:var(--white);color:var(--navy);border:1px solid var(--border);padding:10px 12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;transition:all .2s ease}
+.case-btn:hover{background:var(--soft);border-color:var(--emerald);color:var(--emerald-dark)}
+.case-btn.clear{background:#FEE2E2;color:#991B1B;border-color:#FCA5A5}
+.case-btn.clear:hover{background:#FECACA}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -109,72 +130,66 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Utilities</a> &gt; Case Converter &amp; Text Formatter
+</div>
+<div class="tool-layout">
 <div class="tool-container">
 <h1>Case Converter &amp; Text Formatter</h1>
 <p class="subtitle">Transform text casing across uppercase, lowercase, title case, sentence case, and slug formats instantly.</p>
-
-<div class="form-group">
-<label for="textInput">Enter or Paste Your Text Below</label>
-<textarea id="textInput" placeholder="Type or paste your text here to convert cases...">welcome to smarttoolskit free online case converter tool. transform your text formatting instantly!</textarea>
+<div class="calc-box">
+<h3>Enter or Paste Your Text Below</h3>
+<div class="form-row">
+<textarea id="textInput" placeholder="Type or paste your text here...">Welcome to SmartToolsKit free online case converter tool. Transform your text formatting instantly!</textarea>
 </div>
-
 <div class="btn-grid">
-<button type="button" class="action-btn" onclick="toUpper()">UPPERCASE</button>
-<button type="button" class="action-btn" onclick="toLower()">lowercase</button>
-<button type="button" class="action-btn" onclick="toTitle()">Title Case</button>
-<button type="button" class="action-btn" onclick="toSentence()">Sentence case</button>
-<button type="button" class="action-btn" onclick="toAlternating()">aLtErNaTiNg</button>
-<button type="button" class="action-btn" onclick="toInverse()">InVeRsE cAsE</button>
-<button type="button" class="action-btn" onclick="toSlug()">URL Slug</button>
-<button type="button" class="action-btn" onclick="clearText()" style="background:#FEE2E2;color:#991B1B;border-color:#FCA5A5;">Clear Text</button>
+<button class="case-btn" onclick="toUpper()">UPPERCASE</button>
+<button class="case-btn" onclick="toLower()">lowercase</button>
+<button class="case-btn" onclick="toTitle()">Title Case</button>
+<button class="case-btn" onclick="toSentence()">Sentence case</button>
+<button class="case-btn" onclick="toAlternating()">aLtErNaTiNg</button>
+<button class="case-btn" onclick="toInverse()">InVeRsE cAsE</button>
+<button class="case-btn" onclick="toSlug()">URL Slug</button>
+<button class="case-btn clear" onclick="clearText()">Clear Text</button>
 </div>
-
-<div class="security-badge">
-<span>🔒 Client-Side Security:</span> All text transformations execute securely inside your local browser. No written content or personal text is stored or transmitted externally.
 </div>
-
-<!-- UNIQUE MARKET-FIRST FEATURE: Programming Nomenclature & Compliance Inspector -->
-<div class="unique-section">
-<h3>💻 Unique Feature: Programming Nomenclature &amp; Compliance Inspector</h3>
+<div class="unique-box">
+<h3>✨ Unique Feature: Programming Nomenclature &amp; Compliance Inspector</h3>
 <p>Analyze your text across programming conventions (camelCase, snake_case, kebab-case) and check character/word densities simultaneously!</p>
-<button type="button" class="action-btn" onclick="inspectNomenclature()" style="background:var(--emerald);color:#fff;border-color:var(--emerald);margin-top:10px;width:100%;">Run Nomenclature Inspection</button>
-<div id="nomenclatureResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;display:none;line-height:1.6;"></div>
+<div class="unique-result" id="nomenclatureResult" style="font-size:13px;color:#CBD5E1;margin-top:10px;">
+Click inspector below or transform text to inspect nomenclature.
 </div>
-
+<button class="calc-btn" style="margin-top:12px;width:100%;" onclick="runNomenclatureInspection()">Run Nomenclature Inspection</button>
 </div>
-
-<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="security-badge">
+<span>Client-side security:</span> All text transformations execute securely inside your local browser. No written content or personal text is stored or transmitted externally.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal editorial or software engineering advice.
+</div>
+</div>
+</div>
+</div>
 <div class="content-section">
 <h2>Understanding Text Casing, Typography, and Editorial Formatting</h2>
-<p>In digital publishing, copywriting, programming, and data management, proper text formatting and letter casing are fundamental for readability and compliance. Whether you are formatting headings for a professional blog post, cleaning up messy data exported from legacy spreadsheets, or declaring variables in software engineering codebases, switching between uppercase, lowercase, title case, and camelCase is a daily necessity.</p>
-
-<p>Our online Case Converter &amp; Text Formatter streamlines this editorial workflow. Built on pure client-side JavaScript algorithms, our utility provides instantaneous text transformations without requiring software downloads or server uploads, guaranteeing absolute data confidentiality and privacy.</p>
-
+<p>In digital publishing, copywriting, programming, and data management, proper text formatting and letter casing are fundamental for readability and compliance. Whether I am formatting headings for a professional blog post, cleaning up messy data exported from legacy spreadsheets, or declaring variables in software engineering codebases, switching between uppercase, lowercase, title case, and camelCase is a daily necessity.</p>
+<p>I built this online Case Converter &amp; Text Formatter to streamline this editorial workflow. Built on pure client-side JavaScript algorithms, my utility provides instantaneous text transformations without requiring software downloads or server uploads, guaranteeing absolute data confidentiality and privacy.</p>
 <h2>Decoding Standard Text Cases and Programming Nomenclature</h2>
 <p>Different industries and applications demand distinct casing conventions. For instance, standard prose utilizes sentence case or title case, while database columns and programming variables often require snake_case (`user_profile_id`), camelCase (`userProfileId`), or kebab-case (`user-profile-id`). Mismanaging these formats can break software compilation or result in unprofessional typography.</p>
-
-<p>Our platform introduces an exclusive market-first feature: the <strong>Programming Nomenclature &amp; Compliance Inspector</strong>. This unique tool evaluates your text against standard developer variable naming conventions and slug formats simultaneously, helping developers and content creators bridge the gap between prose and code.</p>
+<p>I incorporated an exclusive market-first feature: the <strong>Programming Nomenclature &amp; Compliance Inspector</strong>. This unique tool evaluates text against standard developer naming conventions and slug formats simultaneously, helping developers and content creators bridge the gap between prose and code.</p>
 
 <h2>The Mathematical &amp; String Manipulation Rules</h2>
-<p>To perform text casing transformations programmatically or verify string manipulation logic in software engineering, utilize the following core string rules:</p>
-
+<p>To perform text casing transformations programmatically or verify string manipulation logic in software engineering, I utilize the following core string rules:</p>
 <div class="formula-box">
 <strong>Core String Casing Rules:</strong>
-1. Uppercase Conversion:<br>
-   • Transforms every alphabetic character to its upper Unicode equivalent ($\text{Char} \to \text{Uppercase}$).<br><br>
-2. Title Case Capitalization:<br>
-   • Capitalizes the first letter of every individual word while lowercasing remaining characters.<br><br>
-3. URL Slug Transformation:<br>
-   • Converts text to lowercase, replaces whitespace with hyphens (`-`), and strips special punctuation characters.
+1. Uppercase Conversion: Transforms every alphabetic character to its upper Unicode equivalent (Char -> Uppercase).
+2. Title Case Capitalization: Capitalizes the first letter of every individual word while lowercasing remaining characters.
+3. URL Slug Transformation: Converts text to lowercase, replaces whitespace with hyphens (-), and strips special punctuation characters.
 </div>
 
-<p>By applying these standardized string manipulation algorithms, developers and editors can format text outputs with absolute consistency and precision.</p>
-
-<h2>Global Casing and Typography Reference Matrix</h2>
-<p>The table below outlines common text case formats, their structural examples, and typical industry applications:</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
@@ -184,61 +199,57 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>UPPERCASE</td>
-<td>SMART TOOLS KIT</td>
-<td>Headlines, legal disclaimers, acronyms</td>
-</tr>
-<tr>
-<td>lowercase</td>
-<td>smart tools kit</td>
-<td>Email addresses, URLs, code tags</td>
-</tr>
-<tr>
-<td>Title Case</td>
-<td>Smart Tools Kit</td>
-<td>Book titles, article headings, UI buttons</td>
-</tr>
-<tr>
-<td>Sentence case</td>
-<td>Smart tools kit format.</td>
-<td>Standard body paragraphs, descriptions</td>
-</tr>
-<tr>
-<td>camelCase</td>
-<td>smartToolsKit</td>
-<td>JavaScript programming variables, APIs</td>
-</tr>
-<tr>
-<td>snake_case</td>
-<td>smart_tools_kit</td>
-<td>Python variables, SQL database columns</td>
-</tr>
-<tr>
-<td>kebab-case</td>
-<td>smart-tools-kit</td>
-<td>URL slugs, CSS class selectors, file names</td>
-</tr>
+<tr><td>UPPERCASE</td><td>SMART TOOLS KIT</td><td>Headlines, legal disclaimers, acronyms</td></tr>
+<tr><td>lowercase</td><td>smart tools kit</td><td>Email addresses, URLs, code tags</td></tr>
+<tr><td>Title Case</td><td>Smart Tools Kit</td><td>Book titles, article headings, UI buttons</td></tr>
+<tr><td>Sentence case</td><td>Smart tools kit format.</td><td>Standard body paragraphs, descriptions</td></tr>
+<tr><td>camelCase</td><td>smartToolsKit</td><td>JavaScript programming variables, APIs</td></tr>
+<tr><td>snake_case</td><td>smart_tools_kit</td><td>Python variables, SQL database columns</td></tr>
+<tr><td>kebab-case</td><td>smart-tools-kit</td><td>URL slugs, CSS class selectors, file names</td></tr>
 </tbody>
 </table>
+</div>
+
+<h2>Global Casing and Typography Reference Matrix</h2>
+<p>The reference table below outlines common text case formats, their structural examples, and typical industry applications:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Casing Tier</th>
+<th>Structural Pattern</th>
+<th>Primary Use Context</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Standard Prose</td><td>Sentence &amp; Title Case</td><td>Editorial content, publishing, UI labels</td></tr>
+<tr><td>Developer Variables</td><td>camelCase &amp; snake_case</td><td>Programming functions, database architecture</td></tr>
+<tr><td>Web Routing</td><td>kebab-case &amp; lowercase</td><td>URL structures, API endpoint naming</td></tr>
+</tbody>
+</table>
+</div>
 
 <h2>How to Use the Case Converter &amp; Formatter</h2>
-<p>Using our multi-purpose case conversion utility is straightforward, fast, and user-friendly:</p>
-<ul>
-<li><strong>Paste Text:</strong> Type or paste your unformatted content into the primary text box.</li>
-<li><strong>Select Case Format:</strong> Click any conversion button (UPPERCASE, lowercase, Title Case, Sentence case, etc.) to transform your text instantly.</li>
-<li><strong>Inspect Nomenclature:</strong> Use our unique developer nomenclature inspector at the bottom to convert your text into camelCase, snake_case, and URL slugs!</li>
-</ul>
+<p>Using my multi-purpose case conversion utility is straightforward, fast, and user-friendly. Type or paste your unformatted content into the primary text box, then click any conversion button to transform your text instantly.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A common mistake is applying uppercase styling to long blocks of running text, which significantly reduces reading comprehension and accessibility.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
 <h3>1. What is the difference between Title Case and Sentence case?</h3>
 <p>Title Case capitalizes the first letter of every major word in a phrase. Sentence case capitalizes only the first letter of the first word in a sentence (and proper nouns).</p>
-
 <h3>2. How does the URL Slug converter work?</h3>
 <p>The slug converter transforms all text to lowercase, replaces spaces with hyphens, and removes special symbols to create clean, SEO-friendly web links.</p>
-
 <h3>3. Is my typed text or private data stored on external servers?</h3>
-<p>No. All text transformations execute strictly inside your web browser client-side, ensuring complete data confidentiality and user privacy.</p>
+<p>No. All text transformations execute strictly inside your local web browser client-side, ensuring complete data confidentiality and user privacy.</p>
+
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="text-analyzer.html" style="color:var(--emerald);">All-in-One Text Analyzer</a>, <a href="time-zone-converter.html" style="color:var(--emerald);">Time Zone Converter</a>, <a href="length-distance-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -276,100 +287,94 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', function() {
   if (!localStorage.getItem('cookiesAccepted')) {
-    const cookieBanner = document.getElementById('cookieConsent');
-    if (cookieBanner) cookieBanner.style.display = 'flex';
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
   }
 });
 
 function toUpper() {
   const el = document.getElementById('textInput');
-  el.value = el.value.toUpperCase();
+  if (el) el.value = el.value.toUpperCase();
 }
 
 function toLower() {
   const el = document.getElementById('textInput');
-  el.value = el.value.toLowerCase();
+  if (el) el.value = el.value.toLowerCase();
 }
 
 function toTitle() {
   const el = document.getElementById('textInput');
+  if (!el) return;
   el.value = el.value.toLowerCase().replace(/(^\w{1})|(\s+\w{1})/g, match => match.toUpperCase());
 }
 
 function toSentence() {
   const el = document.getElementById('textInput');
+  if (!el) return;
   let text = el.value.toLowerCase();
-  el.value = text.replace(/(^\s*[\w])|([.!?]\s*[\w])/g, match => match.toUpperCase());
+  el.value = text.replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
 }
 
 function toAlternating() {
   const el = document.getElementById('textInput');
-  let text = el.value;
-  let result = '';
-  for (let i = 0; i < text.length; i++) {
-    result += i % 2 === 0 ? text[i].toLowerCase() : text[i].toUpperCase();
+  if (!el) return;
+  let chars = el.value.split('');
+  for (let i = 0; i < chars.length; i++) {
+    chars[i] = i % 2 === 0 ? chars[i].toLowerCase() : chars[i].toUpperCase();
   }
-  el.value = result;
+  el.value = chars.join('');
 }
 
 function toInverse() {
   const el = document.getElementById('textInput');
-  let text = el.value;
-  let result = '';
-  for (let i = 0; i < text.length; i++) {
-    let c = text[i];
-    result += c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase();
+  if (!el) return;
+  let chars = el.value.split('');
+  for (let i = 0; i < chars.length; i++) {
+    let c = chars[i];
+    chars[i] = c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase();
   }
-  el.value = result;
+  el.value = chars.join('');
 }
 
 function toSlug() {
   const el = document.getElementById('textInput');
+  if (!el) return;
   el.value = el.value.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
 function clearText() {
-  document.getElementById('textInput').value = '';
+  const el = document.getElementById('textInput');
+  if (el) el.value = '';
+  const res = document.getElementById('nomenclatureResult');
+  if (res) res.textContent = 'Text cleared. Enter text to inspect nomenclature.';
 }
 
-function inspectNomenclature() {
-  const text = document.getElementById('textInput').value.trim();
-  const resDiv = document.getElementById('nomenclatureResult');
-
-  if (text === '') {
-    alert('Please enter some text to inspect.');
+function runNomenclatureInspection() {
+  const el = document.getElementById('textInput');
+  const res = document.getElementById('nomenclatureResult');
+  if (!el || !res) return;
+  
+  const text = el.value.trim();
+  if (!text) {
+    res.innerHTML = '<span style="color:#F87171;">Please enter text in the box above to run nomenclature inspection.</span>';
     return;
   }
-
-  const words = text.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/);
   
-  // camelCase
-  let camel = words.map((w, idx) => idx === 0 ? w : w.charAt(0).toUpperCase() + w.slice(1)).join('');
+  const words = text.split(/\s+/).filter(Boolean);
+  const camel = words.map((w, idx) => idx === 0 ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('');
+  const snake = words.map(w => w.toLowerCase()).join('_');
+  const kebab = words.map(w => w.toLowerCase()).join('-');
   
-  // snake_case
-  let snake = words.join('_');
-  
-  // kebab-case
-  let kebab = words.join('-');
-
-  let html = `💻 <strong>Programming Nomenclature &amp; Format Inspection:</strong><br><br>`;
-  html += `• <strong>camelCase:</strong> <code>${camel}</code><br>`;
-  html += `• <strong>snake_case:</strong> <code>${snake}</code><br>`;
-  html += `• <strong>kebab-case / Slug:</strong> <code>${kebab}</code><br>`;
-  html += `• <strong>Total Words / Characters:</strong> ${words.length} words, ${text.length} characters`;
-
-  resDiv.innerHTML = html;
-  resDiv.style.display = 'block';
+  res.innerHTML = `⚙️ <strong>Nomenclature Analysis:</strong><br>• camelCase: <code>${camel}</code><br>• snake_case: <code>${snake}</code><br>• kebab-case: <code>${kebab}</code>`;
 }
 
 function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  const cookieBanner = document.getElementById('cookieConsent');
-  if (cookieBanner) cookieBanner.style.display = 'none';
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
 }
 </script>
-
 </body>
 </html>
