@@ -303,7 +303,7 @@ Circadian Analysis: Destination local time is approx. 16:00. Current status: Pea
 <p>No. All computations execute securely inside your local web browser client-side, ensuring complete data privacy.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="length-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="loan-calculator.html" style="color:var(--emerald);">Loan EMI Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>
+Other Free Tools: <a href="length-distance-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="loan-emi-calculator.html" style="color:var(--emerald);">Loan EMI Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -379,14 +379,10 @@ function convertTime() {
   let sourceDate = new Date(dtVal);
   if (isNaN(sourceDate.getTime())) return;
   
-  // Convert source time to UTC by subtracting source offset
   let utcTime = sourceDate.getTime() - (fromOffset * 3600 * 1000);
-  // Convert UTC time to target time by adding target offset
   let targetTime = new Date(utcTime + (toOffset * 3600 * 1000));
   
   let diffHours = toOffset - fromOffset;
-  let diffStr = diffHours >= intDiffStrFormat(diffHours) ? `+${diffHours}` : `${diffHours}`;
-  
   let options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
   let formattedTarget = targetTime.toLocaleDateString('en-US', options);
   
@@ -396,17 +392,12 @@ function convertTime() {
   outputBox.innerHTML = `🌍 <strong>Converted Time:</strong> ${formattedTarget}<br>⏱ <strong>Time Difference:</strong> ${diffHours >= 0 ? '+' : ''}${diffHours} hours (${fromName} to ${toName})`;
 }
 
-function intDiffStrFormat(val) {
-  return val;
-}
-
 function calculateJetLag() {
   const destOffset = parseFloat(document.getElementById('destCountry').value);
   const circadianOutput = document.getElementById('circadianOutput');
   
   if (!circadianOutput) return;
   
-  // Get current UTC hours + destination offset
   let nowUTC = new Date().getUTCHours() + new Date().getUTCMinutes() / 60;
   let destHour = (nowUTC + destOffset + 24) % 24;
   
@@ -421,7 +412,6 @@ function calculateJetLag() {
     status = "🌆 Evening Relaxation / Personal Time";
   }
   
-  let localHour = new Date().getHours();
   let hourDiff = Math.abs(destOffset - (new Date().getTimezoneOffset() / -60));
   let recoveryDays = (hourDiff / 1.5).toFixed(1);
   
