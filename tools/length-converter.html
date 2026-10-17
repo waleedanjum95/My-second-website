@@ -8,8 +8,6 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/length-distance-converter.html">
 <meta name="theme-color" content="#0F172A">
-
-<!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Free Online Length & Distance Converter & Cosmic Speed Simulator">
 <meta property="og:description" content="Convert length units instantly and simulate cosmic light-speed travel across distances. Secure, client-side browser tool.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/length-distance-converter.html">
@@ -17,7 +15,6 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Length & Distance Converter | SmartToolsKit">
 <meta name="twitter:description" content="Instant client-side length converter with a unique cosmic light-speed simulation feature.">
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -218,7 +215,6 @@ Loading cosmic simulation...
 <h2>Understanding Length and Distance Measurement Systems</h2>
 <p>When I evaluate engineering designs, architectural blueprints, or navigational maps, maintaining absolute precision across length dimensions is essential. Throughout history, I find that civilizations have relied heavily on spatial measurements to construct buildings, map territories, and trade goods. In modern times, global measurement standards are primarily divided into two major frameworks: the International System of Units (SI Metric System), which uses meters and kilometers, and the United States Customary System (USCS Imperial System), which utilizes feet, inches, yards, and miles.</p>
 <p>Because accurate translation between these disparate systems is vital for international collaboration and technical accuracy, I built this online Length &amp; Distance Converter to streamline the workflow. Powered entirely by lightweight client-side JavaScript algorithms, my platform guarantees instant calculation speeds without requiring software downloads or server requests.</p>
-
 <h2>Exploring Cosmic Distances and Light-Speed Travel</h2>
 <p>When exploring cosmic scales beyond standard terrestrial conversions, I incorporate an exclusive educational feature: the <strong>Cosmic Light-Speed &amp; Earth Laps Simulator</strong>. On Earth, distances measured in kilometers or miles can feel vast. However, on a cosmic scale, distance is measured by how long light takes to traverse the vacuum of space. Light travels at a constant speed of approximately 299,792,458 meters per second.</p>
 <p>For example, a distance of 40,000 kilometers is roughly equal to Earth's equatorial circumference. My unique interactive simulator calculates not only how many times a given distance wraps around Earth's equator but also precisely how many microseconds, seconds, or minutes a beam of light requires to travel that exact span, bridging terrestrial measurements with astrophysics.</p>
@@ -347,7 +343,7 @@ const lengthFactors = {
   in: 0.0254
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() {
   convertDistance();
   simulateCosmic();
   if (!localStorage.getItem('cookiesAccepted')) {
@@ -360,25 +356,25 @@ function convertDistance() {
   const valField = document.getElementById('distanceValue');
   const fromField = document.getElementById('fromUnit');
   const toField = document.getElementById('toUnit');
-  ay = document.getElementById('distanceResult');
-
+  const resultDisplay = document.getElementById('distanceResult');
+  
   if (!valField || !fromField || !toField || !resultDisplay) return;
-
+  
   const val = parseFloat(valField.value);
   const fromKey = fromField.value;
   const toKey = toField.value;
-
+  
   if (isNaN(val)) {
     resultDisplay.innerHTML = '<span style="color:#F87171;">Please enter a valid numeric distance value.</span>';
     return;
   }
-
+  
   const metersVal = val * lengthFactors[fromKey];
   const result = metersVal / lengthFactors[toKey];
   const ratio = lengthFactors[fromKey] / lengthFactors[toKey];
   const toText = toField.options[toField.selectedIndex].text;
   const fromText = fromField.options[fromField.selectedIndex].text;
-
+  
   resultDisplay.innerHTML = `<strong>Converted Value:</strong> ${result.toLocaleString(undefined, {maximumFractionDigits:6})} ${toText}<br><strong>Conversion Ratio:</strong> 1 ${fromText} = ${ratio.toLocaleString(undefined, {maximumFractionDigits:6})} ${toText}`;
 }
 
@@ -386,23 +382,23 @@ function simulateCosmic() {
   const valField = document.getElementById('cosmicValue');
   const unitField = document.getElementById('cosmicUnit');
   const resultDisplay = document.getElementById('cosmicResult');
-
+  
   if (!valField || !unitField || !resultDisplay) return;
-
+  
   const val = parseFloat(valField.value);
   const unitKey = unitField.value;
-
+  
   if (isNaN(val) || val < 0) {
     resultDisplay.innerHTML = '<span style="color:#F87171;">Please enter a valid positive distance for cosmic simulation.</span>';
     return;
   }
-
+  
   const meters = val * lengthFactors[unitKey];
   const c = 299792458;
   const timeSeconds = meters / c;
   const earthCircumference = 40075017;
   const earthLaps = meters / earthCircumference;
-
+  
   let timeFormatted = '';
   if (timeSeconds < 0.001) {
     timeFormatted = (timeSeconds * 1000000).toFixed(2) + ' microseconds';
@@ -415,7 +411,7 @@ function simulateCosmic() {
   } else {
     timeFormatted = (timeSeconds / 3600).toFixed(2) + ' hours';
   }
-
+  
   resultDisplay.innerHTML = `✨ <strong>Cosmic Simulation:</strong> A beam of light traverses this distance in approx. <strong>${timeFormatted}</strong>, which equals wrapping around Earth's equator <strong>${earthLaps.toLocaleString(undefined, {maximumFractionDigits:2})} times</strong>!`;
 }
 
@@ -425,13 +421,13 @@ function resetConverter() {
   const toUnit = document.getElementById('toUnit');
   const cosmicValue = document.getElementById('cosmicValue');
   const cosmicUnit = document.getElementById('cosmicUnit');
-
+  
   if (distanceValue) distanceValue.value = '10';
   if (fromUnit) fromUnit.value = 'km';
   if (toUnit) toUnit.value = 'm';
   if (cosmicValue) cosmicValue.value = '40000';
   if (cosmicUnit) cosmicUnit.value = 'km';
-
+  
   convertDistance();
   simulateCosmic();
 }
