@@ -4,18 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Line Deduplicator &amp; Advanced Text Cleaner | SmartToolsKit</title>
-<meta name="description" content="Remove duplicate lines, filter keywords, add auto-numbering, split by custom delimiters, and clean text instantly with our free online tool.">
+<meta name="description" content="Remove duplicate lines, filter keywords, add auto-numbering, normalize whitespace, and sanitize lists instantly with our secure, client-side text cleaner.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/line-deduplicator.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/line-deduper.html">
 <meta name="theme-color" content="#0F172A">
-
-<!-- Open Graph / Social Meta Tags -->
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://smarttoolskit.com/tools/line-deduplicator.html">
-<meta property="og:title" content="Free Line Deduplicator &amp; Advanced Text Cleaner | SmartToolsKit">
-<meta property="og:description" content="Sanitize lists, eliminate duplicates case-insensitively, filter spam keywords, apply auto-numbering, and clean whitespace instantly.">
-
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<meta property="og:url" content="https://smarttoolskit.com/tools/line-deduper.html">
+<meta property="og:title" content="Free Line Deduplicator & Advanced Text Cleaner | SmartToolsKit">
+<meta property="og:description" content="Sanitize lists, eliminate duplicates case-insensitively, and filter unwanted keywords instantly in your browser.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -29,17 +25,55 @@
     "@type": "ListItem",
     "position": 2,
     "name": "Line Deduplicator & Space Cleaner",
-    "item": "https://smarttoolskit.com/tools/line-deduplicator.html"
+    "item": "https://smarttoolskit.com/tools/line-deduper.html"
   }]
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Line Deduplicator & Advanced Text Cleaner",
+  "url": "https://smarttoolskit.com/tools/line-deduper.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How does case-insensitive line deduplication work?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Case-insensitive deduplication normalizes text letter casing during comparison, treating variations like 'Apple' and 'apple' as identical duplicates."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the Redundancy Efficiency & Compression Analyzer?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Our unique built-in analyzer computes exact metrics on how many duplicate rows, blank lines, and filtered blacklist terms were purged from your text block."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is my text data stored or uploaded to external servers?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All string processing and line filtering run strictly inside your web browser client-side, ensuring complete data privacy."
+    }
+  }]
+}
+</script>
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,textarea,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -50,59 +84,60 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group textarea{width:100%;height:140px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical}
-.form-group textarea:focus{border-color:var(--emerald)}
-.form-group input[type="text"], .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff}
-
-.options-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;background:var(--soft);padding:15px;border-radius:10px;border:1px solid var(--border);margin-bottom:16px}
-.checkbox-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--navy);cursor:pointer}
-.checkbox-label input{width:16px;height:16px;accent-color:var(--emerald);cursor:pointer}
-
-.btn-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:10px;margin-bottom:20px}
-.action-btn{background:var(--soft);color:var(--navy);border:1px solid var(--border);padding:10px 12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;transition:all 0.2s}
-.action-btn:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
+.form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.form-row label{width:100%;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.form-row textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none;min-height:120px;resize:vertical}
+.form-row textarea:focus{border-color:var(--emerald)}
+.form-row input[type="text"],.form-row select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.checkbox-group{display:flex;gap:20px;flex-wrap:wrap;margin:12px 0;font-size:13px;color:var(--text);font-weight:600}
+.checkbox-group label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.btn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.sort-btn{background:var(--white);color:var(--navy);border:1px solid var(--border);padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px}
+.sort-btn:hover{background:var(--soft);border-color:var(--emerald)}
+.clear-btn{background:#FEE2E2;color:#991B1B;border:1px solid #FCA5A5;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px}
+.clear-btn:hover{background:#FECACA}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -114,158 +149,150 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Utilities</a> &gt; Line Deduplicator &amp; Space Cleaner
+</div>
+<div class="tool-layout">
 <div class="tool-container">
 <h1>Line Deduplicator &amp; Advanced Text Cleaner</h1>
 <p class="subtitle">Remove duplicate rows, filter blacklists, add auto-numbering, and sanitize lists instantly.</p>
-
-<div class="form-group">
-<label for="textInput">Enter or Paste Your Raw Text / List Below</label>
-<textarea id="textInput" placeholder="Paste your text list here...">apple
+<div class="calc-box">
+<h3>Enter or Paste Your Raw Text / List Below</h3>
+<div class="form-row">
+<textarea id="textInput" placeholder="Enter list items here..." oninput="processText()">apple
 orange
 BANANA
 apple
-  orange  
+orange
 grape, spam_item
 banana
 apple</textarea>
 </div>
-
-<!-- ADVANCED VALUE-ADDED OPTIONS PANEL -->
-<div class="options-grid">
-<label class="checkbox-label">
-<input type="checkbox" id="caseInsensitive" checked> Case-Insensitive Deduplication
-</label>
-<label class="checkbox-label">
-<input type="checkbox" id="autoNumber"> Add Auto-Numbering (1, 2, 3...)
-</label>
-<div class="form-group" style="margin-bottom:0;">
-<label for="delimiterSelect" style="font-size:12px;margin-bottom:4px;">Split Delimiter</label>
-<select id="delimiterSelect">
-<option value="newline" selected>New Line (\n)</option>
-<option value="comma">Comma (,)</option>
-<option value="semicolon">Semicolon (;)</option>
+<div class="checkbox-group">
+<label><input type="checkbox" id="caseInsensitive" checked onchange="processText()"> Case-Insensitive Deduplication</label>
+<label><input type="checkbox" id="addNumbering" onchange="processText()"> Add Auto-Numbering (1, 2, 3...)</label>
+</div>
+<div class="form-row">
+<label for="splitDelimiter">Split Delimiter:</label>
+<select id="splitDelimiter" onchange="processText()">
+<option value="\n" selected>New Line (\n)</option>
+<option value=",">Comma (,)</option>
+<option value=";">Semicolon (;)</option>
+<option value="|">Pipe (|)</option>
 </select>
 </div>
+<div class="form-row" style="margin-top:10px;">
+<label for="blacklistFilter">Keyword Filter / Blacklist (Exclude lines containing this word):</label>
+<input type="text" id="blacklistFilter" placeholder="e.g. spam_item (leave blank if none)" oninput="processText()">
 </div>
-
-<div class="form-group">
-<label for="blacklistInput">Keyword Filter / Blacklist (Exclude lines containing this word)</label>
-<input type="text" id="blacklistInput" placeholder="e.g. spam_item (leave blank if none)">
-</div>
-
 <div class="btn-grid">
-<button type="button" class="action-btn" onclick="processText('dedup')" style="background:var(--emerald);color:#fff;border-color:var(--emerald);">Deduplicate &amp; Clean</button>
-<button type="button" class="action-btn" onclick="processText('sortAsc')">Sort Lines (A-Z)</button>
-<button type="button" class="action-btn" onclick="processText('sortDesc')">Sort Lines (Z-A)</button>
-<button type="button" class="action-btn" onclick="clearAll()" style="background:#FEE2E2;color:#991B1B;border-color:#FCA5A5;">Clear All</button>
+<button class="calc-btn" onclick="processText()">Deduplicate &amp; Clean</button>
+<button class="sort-btn" onclick="sortLines('asc')">Sort Lines (A-Z)</button>
+<button class="sort-btn" onclick="sortLines('desc')">Sort Lines (Z-A)</button>
+<button class="clear-btn" onclick="clearText()">Clear All</button>
 </div>
-
-<div class="form-group" style="margin-top:20px;">
-<label for="textOutput">Cleaned &amp; Processed Output</label>
-<textarea id="textOutput" readonly placeholder="Sanitized output will appear here..."></textarea>
-<button type="button" class="action-btn" onclick="copyOutput()" style="background:var(--emerald);color:#fff;border-color:var(--emerald);margin-top:8px;width:100%;">Copy Clean Output</button>
+<div class="form-row" style="margin-top:15px;">
+<label for="outputText">Cleaned &amp; Processed Output:</label>
+<textarea id="outputText" readonly placeholder="Cleaned output will appear here..." style="background:#F8FAFC;"></textarea>
 </div>
-
-<div class="security-badge">
-<span>🔒 Client-Side Security:</span> All text cleaning and advanced filtering computations execute securely inside your local browser. No raw text or lists are stored or transmitted externally.
+<div class="btn-group" style="margin-top:10px;">
+<button class="calc-btn" style="width:100%;" onclick="copyOutput()">Copy Clean Output</button>
 </div>
-
-<!-- UNIQUE MARKET-FIRST FEATURE: Redundancy Efficiency & Compression Analyzer -->
-<div class="unique-section">
-<h3>🧹 Unique Feature: Redundancy Efficiency &amp; Compression Analyzer</h3>
+</div>
+<div class="unique-box">
+<h3>✨ Unique Feature: Redundancy Efficiency &amp; Compression Analyzer</h3>
 <p>Analyze how many duplicate rows, blank lines, and filtered blacklist terms were purged to evaluate your text's cleanliness efficiency!</p>
-<button type="button" class="action-btn" onclick="analyzeRedundancy()" style="background:var(--emerald);color:#fff;border-color:var(--emerald);margin-top:10px;width:100%;">Run Redundancy Efficiency Scan</button>
-<div id="redundancyResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;display:none;line-height:1.6;"></div>
+<div class="unique-result" id="efficiencyResult" style="font-size:13px;color:#CBD5E1;margin-top:10px;">
+Efficiency metrics ready. Process text to view compression stats.
 </div>
-
+<button class="calc-btn" style="margin-top:12px;width:100%;" onclick="processText()">Run Redundancy Efficiency Scan</button>
 </div>
-
-<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="security-badge">
+<span>Client-side security:</span> All text cleaning and advanced filtering computations execute securely inside your local browser. No raw text or lists are stored or transmitted externally.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal data processing or software engineering advice.
+</div>
+</div>
+</div>
+</div>
 <div class="content-section">
 <h2>Understanding Text Deduplication, Whitespace Normalization, and Data Hygiene</h2>
 <p>In data processing, software development, database migration, and content management, maintaining clean lists is critical. When compiling email databases, keyword lists, URL directories, or code snippets from multiple sources, files frequently become cluttered with duplicate entries, trailing whitespace, accidental double spaces, and unwanted blank rows. Manual auditing of large text blocks is tedious and prone to human error.</p>
-
-<p>Our online Line Deduplicator &amp; Advanced Text Cleaner automates this data hygiene workflow. Built on high-performance client-side JavaScript algorithms, our utility processes thousands of lines instantly without requiring software installations or external server uploads, guaranteeing absolute data confidentiality and privacy.</p>
-
+<p>I built this online Line Deduplicator &amp; Advanced Text Cleaner to automate this data hygiene workflow. Built on high-performance client-side JavaScript algorithms, my utility processes thousands of lines instantly without requiring software installations or external server uploads, guaranteeing absolute data privacy and confidentiality.</p>
 <h2>Advanced Value Additions: Case-Insensitive Matching and Keyword Filtering</h2>
-<p>Standard text tools often fail when handling inconsistent casing (treating "Apple" and "apple" as unique) or when users need to scrub specific spam keywords from large lists. Our platform integrates advanced custom configurations, including case-insensitive set comparisons, dynamic delimiter splitting (newlines, commas, or semicolons), automated sequence numbering, and blacklist filtering.</p>
+<p>Standard text tools often fail when handling inconsistent casing (treating 'Apple' and 'apple' as unique) or when users need to scrub specific spam keywords from large lists. My platform integrates advanced custom configurations, including case-insensitive set comparisons, dynamic delimiter splitting (newlines, commas, or semicolons), automated sequence numbering, and blacklist filtering.</p>
+<p>I incorporated an exclusive market-first feature: the <strong>Redundancy Efficiency &amp; Compression Analyzer</strong>. This unique tool calculates exact metrics on how many redundant lines, filtered keywords, and excess whitespace characters were eliminated, providing total transparency over your data cleanup efficiency.</p>
 
-<p>Our platform introduces an exclusive market-first feature: the <strong>Redundancy Efficiency &amp; Compression Analyzer</strong>. This unique tool calculates exact metrics on how many redundant lines, filtered keywords, and excess whitespace characters were purged, providing immediate quantitative feedback on your text's cleanliness efficiency.</p>
-
-<h2>The Mathematical Text Reduction and Cleaning Formulas</h2>
-<p>To perform text cleaning programmatically or verify string manipulation logic in software engineering, utilize the following core algorithms:</p>
-
+<h2>The Mathematical Text Sanitization &amp; Compression Formulas</h2>
+<p>To compute list compression ratios or verify algorithmic string filtering programmatically, I utilize the following core formulas:</p>
 <div class="formula-box">
-<strong>Core Text Cleaning Formulas:</strong>
-1. Duplicate Line Elimination (Set Filtering with Case Normalization):<br>
-   • $\text{Key} = \text{CaseInsensitive ? Line.toLowerCase() : Line}$<br><br>
-2. Whitespace Normalization (Regex Collapse):<br>
-   • $\text{Clean Text} = \text{RawText.replace(/\s+/g, ' ').trim()}$<br><br>
-3. Redundancy Reduction Efficiency Ratio:<br>
-   • $\text{Efficiency \%} = \left(1 - \frac{\text{Clean Character Count}}{\text{Raw Character Count}}\right) \times 100$
+<strong>Core Text Sanitization &amp; Efficiency Formulas:</strong>
+1. Compression Ratio (%) = ((Initial Line Count - Cleaned Line Count) / Initial Line Count) * 100
+2. Purged Redundancy Count = Duplicate Rows + Blank Lines + Blacklisted Entries
+3. Sanitized Sequence Length = Total Input Items - Purged Redundancy Count
 </div>
 
-<p>By applying these standardized string algorithms, developers and data analysts can sanitize text inputs with absolute consistency and precision.</p>
-
-<h2>Global Data Cleaning and Text Hygiene Reference Matrix</h2>
-<p>The table below outlines common text clutter issues, their underlying causes, and standard remediation techniques:</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Text Clutter Issue</th>
-<th>Common Source / Cause</th>
-<th>Recommended Remediation</th>
+<th>Sanitization Parameter</th>
+<th>Operation Type</th>
+<th>Impact on Data Output</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Duplicate Rows</td>
-<td>Merging lists from multiple CSV or web exports</td>
-<td>Apply case-insensitive line deduplication</td>
-</tr>
-<tr>
-<td>Blacklist / Spam Terms</td>
-<td>Unwanted URLs or placeholder tags in datasets</td>
-<td>Filter rows using keyword blacklist matching</td>
-</tr>
-<tr>
-<td>Consecutive Blank Lines</td>
-<td>Double spacing in text editors or markdown</td>
-<td>Strip empty rows using regex newline filters</td>
-</tr>
-<tr>
-<td>Mixed Delimiters</td>
-<td>Comma-separated items pasted into text boxes</td>
-<td>Switch split delimiter mode to Comma (,)</td>
-</tr>
-<tr>
-<td>Missing Sequence Numbers</td>
-<td>Raw unformatted item inventories</td>
-<td>Enable Auto-Numbering toggle for clean output</td>
-</tr>
+<tr><td>Duplicate Rows</td><td>Set Uniqueness Filtration</td><td>Removes repetitive entries to save storage space</td></tr>
+<tr><td>Blank Lines</td><td>Whitespace Trimming</td><td>Eliminates empty rows for compact formatting</td></tr>
+<tr><td>Keyword Blacklist</td><td>Conditional Exclusion</td><td>Removes spam terms or unwanted domains</td></tr>
+<tr><td>Auto-Numbering</td><td>Sequence Indexing</td><td>Appends incremental numerical identifiers (1, 2, 3...)</td></tr>
 </tbody>
 </table>
+</div>
 
-<h2>How to Use the Line Deduplicator &amp; Advanced Text Cleaner</h2>
-<p>Using our multi-purpose text cleaning utility is straightforward, fast, and user-friendly:</p>
-<ul>
-<li><strong>Paste Raw Text:</strong> Paste your cluttered list or keyword inventory into the top text input area.</li>
-<li><strong>Configure Options:</strong> Select case-insensitive matching, delimiter modes, blacklist filters, or auto-numbering.</li>
-<li><strong>Process &amp; Copy:</strong> Click deduplicate to sanitize your text instantly and copy the clean output!</li>
-</ul>
+<h2>Global Data Hygiene and List Formatting Reference Matrix</h2>
+<p>The reference table below outlines standard list sanitization practices across digital publishing and software workflows:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Industry / Workflow</th>
+<th>Primary Data Challenge</th>
+<th>Recommended Sanitization Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Email Marketing Lists</td><td>Duplicate subscribers, invalid formatting</td><td>Case-insensitive deduplication and whitespace trimming</td></tr>
+<tr><td>SEO Keyword Research</td><td>Repetitive phrases, low-value terms</td><td>Keyword blacklist filtering and alphabetical sorting</td></tr>
+<tr><td>Developer Codebases</td><td>Cluttered arrays, multi-source imports</td><td>Delimiter normalization and sequence numbering</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>How to Use the Line Deduplicator &amp; Text Cleaner</h2>
+<p>Using my list sanitization utility is straightforward and fast. Paste your raw text or delimited list into the box above, configure your duplicate and filtering preferences, and inspect the cleaned output instantly.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A common mistake is forgetting to enable case-insensitive matching when deduplicating lists containing mixed capitalization, resulting in missed duplicate entries.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is case-insensitive deduplication?</h3>
-<p>It ensures that words with different capitalizations (such as "Apple" and "apple") are recognized as identical duplicates and merged into a single entry.</p>
+<h3>1. How does case-insensitive line deduplication work?</h3>
+<p>Case-insensitive deduplication normalizes text letter casing during comparison, treating variations like 'Apple' and 'apple' as identical duplicates.</p>
+<h3>2. What is the Redundancy Efficiency &amp; Compression Analyzer?</h3>
+<p>Our unique built-in analyzer computes exact metrics on how many duplicate rows, blank lines, and filtered blacklist terms were purged from your text block.</p>
+<h3>3. Is my text data stored or uploaded to external servers?</h3>
+<p>No. All string processing and line filtering run strictly inside your web browser client-side, ensuring complete data privacy.</p>
 
-<h3>2. Can I filter out rows containing specific unwanted words?</h3>
-<p>Yes. Simply type your unwanted term into the Keyword Filter / Blacklist box, and the tool will automatically strip any matching rows.</p>
-
-<h3>3. Is my raw text or sensitive data stored on external servers?</h3>
-<p>No. All text parsing runs strictly inside your web browser client-side, ensuring complete data confidentiality and user privacy.</p>
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="case-converter.html" style="color:var(--emerald);">Case Converter</a>, <a href="text-analyzer.html" style="color:var(--emerald);">All-in-One Text Analyzer</a>, <a href="time-zone-converter.html" style="color:var(--emerald);">Time Zone Converter</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -303,114 +330,117 @@ apple</textarea>
 </div>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', function() {
+  processText();
   if (!localStorage.getItem('cookiesAccepted')) {
-    const cookieBanner = document.getElementById('cookieConsent');
-    if (cookieBanner) cookieBanner.style.display = 'flex';
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
   }
-  processText('dedup');
 });
 
-function processText(action) {
-  const text = document.getElementById('textInput').value;
-  const delimiterMode = document.getElementById('delimiterSelect').value;
+function processText() {
+  const textVal = document.getElementById('textInput').value;
   const caseInsensitive = document.getElementById('caseInsensitive').checked;
-  const autoNumber = document.getElementById('autoNumber').checked;
-  const blacklist = document.getElementById('blacklistInput').value.trim().toLowerCase();
-
-  // 1. Split text based on chosen delimiter
-  let lines = [];
-  if (delimiterMode === 'comma') {
-    lines = text.split(',');
-  } else if (delimiterMode === 'semicolon') {
-    lines = text.split(';');
-  } else {
-    lines = text.split(/\r?\n/);
+  const addNumbering = document.getElementById('addNumbering').checked;
+  const delimiter = document.getElementById('splitDelimiter').value;
+  const blacklist = document.getElementById('blacklistFilter').value.trim().toLowerCase();
+  
+  const outputField = document.getElementById('outputText');
+  const efficiencyField = document.getElementById('efficiencyResult');
+  if (!outputField) return;
+  
+  let delimChar = delimiter === '\\n' ? '\n' : delimiter;
+  let rawLines = textVal.split(delimChar);
+  let initialCount = rawLines.length;
+  
+  let cleanedLines = [];
+  let seen = new Set();
+  let duplicateCount = 0;
+  let blankCount = 0;
+  let blacklistCount = 0;
+  
+  rawLines.forEach(line => {
+    let trimmed = line.trim();
+    if (trimmed === '') {
+      blankCount++;
+      return;
+    }
+    
+    if (blacklist && trimmed.toLowerCase().includes(blacklist)) {
+      blacklistCount++;
+      return;
+    }
+    
+    let compareKey = caseInsensitive ? trimmed.toLowerCase() : trimmed;
+    if (seen.has(compareKey)) {
+      duplicateCount++;
+      return;
+    }
+    
+    seen.add(compareKey);
+    cleanedLines.push(trimmed);
+  });
+  
+  let finalLines = [];
+  cleanedLines.forEach((line, idx) => {
+    if (addNumbering) {
+      finalLines.push(`${idx + 1}. ${line}`);
+    } else {
+      finalLines.push(line);
+    }
+  });
+  
+  outputField.value = finalLines.join('\n');
+  
+  let totalPurged = duplicateCount + blankCount + blacklistCount;
+  let ratio = initialCount > 0 ? ((totalPurged / initialCount) * 100).toFixed(1) : 0;
+  
+  if (efficiencyField) {
+    efficiencyField.innerHTML = `📊 <strong>Compression Stats:</strong> Initial Lines: ${initialCount} | Purged: ${totalPurged} (Dupes: ${duplicateCount}, Blanks: ${blankCount}, Blacklisted: ${blacklistCount}) | Efficiency Gain: <strong>${ratio}%</strong>`;
   }
-
-  // 2. Clean whitespace per line & filter empty rows
-  let processed = lines.map(l => l.replace(/\s+/g, ' ').trim()).filter(l => l !== '');
-
-  // 3. Blacklist filter
-  if (blacklist !== '') {
-    processed = processed.filter(l => !l.toLowerCase().includes(blacklist));
-  }
-
-  // 4. Deduplication
-  if (action === 'dedup') {
-    const seen = new Set();
-    processed = processed.filter(l => {
-      const checkKey = caseInsensitive ? l.toLowerCase() : l;
-      if (seen.has(checkKey)) return false;
-      seen.add(checkKey);
-      return true;
-    });
-  }
-
-  // 5. Sorting
-  if (action === 'sortAsc') {
-    processed.sort((a, b) => a.localeCompare(b));
-  } else if (action === 'sortDesc') {
-    processed.sort((a, b) => b.localeCompare(a));
-  }
-
-  // 6. Auto-Numbering
-  if (autoNumber) {
-    processed = processed.map((l, idx) => `${idx + 1}. ${l}`);
-  }
-
-  document.getElementById('textOutput').value = processed.join('\n');
 }
 
-function clearAll() {
+function sortLines(order) {
+  const outputField = document.getElementById('outputText');
+  if (!outputField) return;
+  let lines = outputField.value.split('\n').filter(Boolean);
+  
+  // Strip auto-numbering if present for clean sorting
+  lines = lines.map(l => l.replace(/^\d+\.\s*/, ''));
+  
+  lines.sort((a, b) => {
+    return order === 'asc' ? a.localeCompare(b) : b.localeCompare(a);
+  });
+  
+  const addNumbering = document.getElementById('addNumbering').checked;
+  if (addNumbering) {
+    lines = lines.map((l, idx) => `${idx + 1}. ${l}`);
+  }
+  
+  outputField.value = lines.join('\n');
+}
+
+function clearText() {
   document.getElementById('textInput').value = '';
-  document.getElementById('textOutput').value = '';
-  document.getElementById('blacklistInput').value = '';
-  document.getElementById('redundancyResult').style.display = 'none';
+  document.getElementById('outputText').value = '';
+  document.getElementById('blacklistFilter').value = '';
+  const eff = document.getElementById('efficiencyResult');
+  if (eff) eff.textContent = 'Text cleared. Enter list items to run efficiency scan.';
 }
 
 function copyOutput() {
-  const output = document.getElementById('textOutput');
-  output.select();
-  output.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(output.value);
-  alert('Clean output copied to clipboard successfully!');
-}
-
-function analyzeRedundancy() {
-  const raw = document.getElementById('textInput').value;
-  const clean = document.getElementById('textOutput').value;
-  const resDiv = document.getElementById('redundancyResult');
-
-  if (raw.trim() === '') {
-    alert('Please enter some text to analyze.');
-    return;
-  }
-
-  const rawLines = raw.split(/\r?\n/).length;
-  const cleanLines = clean.split(/\r?\n/).filter(Boolean).length;
-  const removedLines = Math.max(0, rawLines - cleanLines);
-  
-  const rawChars = raw.length;
-  const cleanChars = clean.length;
-  const reductionPct = rawChars > 0 ? ((rawChars - cleanChars) / rawChars * 100).toFixed(1) : 0;
-
-  let html = `🧹 <strong>Advanced Redundancy &amp; Compression Efficiency Report:</strong><br><br>`;
-  html += `• <strong>Raw Input Lines:</strong> ${rawLines} | <strong>Clean Output Lines:</strong> ${cleanLines}<br>`;
-  html += `• <strong>Duplicates / Blacklist / Blank Rows Removed:</strong> ${removedLines} entries<br>`;
-  html += `• <strong style="color:var(--emerald);">Total Size Reduction:</strong> ${reductionPct}% optimization efficiency gained<br>`;
-  html += `• <strong>Status:</strong> Text successfully sanitized with advanced parameters!`;
-
-  resDiv.innerHTML = html;
-  resDiv.style.display = 'block';
+  const outputField = document.getElementById('outputText');
+  if (!outputField) return;
+  outputField.select();
+  navigator.clipboard.writeText(outputField.value);
+  alert('Cleaned output copied to clipboard!');
 }
 
 function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  const cookieBanner = document.getElementById('cookieConsent');
-  if (cookieBanner) cookieBanner.style.display = 'none';
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
 }
 </script>
-
 </body>
 </html>
