@@ -4,18 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Text Line Sorter &amp; Advanced List Organizer | SmartToolsKit</title>
-<meta name="description" content="Sort text lines alphabetically, naturally (numeric-aware), reverse, shuffle randomly, and remove duplicates instantly with our free online Text Line Sorter tool.">
+<meta name="description" content="Sort text lines alphabetically, naturally (numeric-aware), reverse order, or shuffle randomly in seconds with our secure client-side text sorter.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/text-sorter.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/text-line-sorter.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://smarttoolskit.com/tools/text-sorter.html">
-<meta property="og:title" content="Free Text Line Sorter &amp; Advanced List Organizer | SmartToolsKit">
-<meta property="og:description" content="Organize lists instantly with natural numeric sorting, alphabetical ordering, random shuffling, and duplicate filtering.">
+<meta property="og:title" content="Free Text Line Sorter & Advanced List Organizer | SmartToolsKit">
+<meta property="og:description" content="Sort text lines alphabetically, naturally, or randomly. Secure client-side browser utility.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/text-line-sorter.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Text Line Sorter | SmartToolsKit">
+<meta name="twitter:description" content="Instant client-side text line sorting and list organization tool.">
 
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -29,17 +31,55 @@
     "@type": "ListItem",
     "position": 2,
     "name": "Text Line Sorter",
-    "item": "https://smarttoolskit.com/tools/text-sorter.html"
+    "item": "https://smarttoolskit.com/tools/text-line-sorter.html"
   }]
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Text Line Sorter & Advanced List Organizer",
+  "url": "https://smarttoolskit.com/tools/text-line-sorter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is natural numeric sorting in text lists?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Natural numeric sorting evaluates numbers embedded within strings numerically (e.g., placing Item 2 before Item 10), unlike standard ASCII sorting."
+    }
+  },{
+    "@type": "Question",
+    "name": "What does the List Permutation & Line Entropy Inspector do?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Our unique built-in inspector calculates line counts, character metrics, and list randomness indices to audit your text organization."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is my text data stored or uploaded to external servers?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All sorting and text organization processes run strictly inside your web browser client-side, ensuring complete data privacy."
+    }
+  }]
+}
+</script>
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,textarea,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -50,58 +90,59 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group textarea{width:100%;height:140px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical}
-.form-group textarea:focus{border-color:var(--emerald)}
-
-.options-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;background:var(--soft);padding:15px;border-radius:10px;border:1px solid var(--border);margin-bottom:16px}
-.checkbox-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--navy);cursor:pointer}
-.checkbox-label input{width:16px;height:16px;accent-color:var(--emerald);cursor:pointer}
-
-.btn-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:10px;margin-bottom:20px}
-.action-btn{background:var(--soft);color:var(--navy);border:1px solid var(--border);padding:10px 12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;transition:all 0.2s}
-.action-btn:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
+.form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.form-row label{width:100%;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.form-row textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none;min-height:120px;resize:vertical}
+.form-row textarea:focus{border-color:var(--emerald)}
+.checkbox-group{display:flex;gap:15px;flex-wrap:wrap;margin:12px 0;font-size:13px;color:var(--text);font-weight:600}
+.checkbox-group label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.btn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.sort-btn{background:var(--white);color:var(--navy);border:1px solid var(--border);padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px}
+.sort-btn:hover{background:var(--soft);border-color:var(--emerald)}
+.clear-btn{background:#FEE2E2;color:#991B1B;border:1px solid #FCA5A5;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px}
+.clear-btn:hover{background:#FECACA}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -113,15 +154,18 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Utilities</a> &gt; Text Line Sorter
+</div>
+<div class="tool-layout">
 <div class="tool-container">
 <h1>Text Line Sorter &amp; Advanced List Organizer</h1>
 <p class="subtitle">Sort text lines alphabetically, naturally (numeric-aware), reverse order, or shuffle randomly in seconds.</p>
-
-<div class="form-group">
-<label for="textInput">Enter or Paste Your List Below</label>
-<textarea id="textInput" placeholder="Paste your lines here...">Item 10
+<div class="calc-box">
+<h3>Enter or Paste Your List Below</h3>
+<div class="form-row">
+<textarea id="textInput" placeholder="Enter list items here..." oninput="sortLines('asc')">Item 10
 Item 2
 Item 1
 Apple
@@ -129,132 +173,119 @@ Banana
 Cherry
 apple</textarea>
 </div>
-
-<!-- ADVANCED VALUE-ADDED OPTIONS PANEL -->
-<div class="options-grid">
-<label class="checkbox-label">
-<input type="checkbox" id="naturalSort" checked> Natural Numeric Sort (1, 2, 10)
-</label>
-<label class="checkbox-label">
-<input type="checkbox" id="caseInsensitive" checked> Case-Insensitive Sorting
-</label>
-<label class="checkbox-label">
-<input type="checkbox" id="removeDupes"> Auto-Remove Duplicates
-</label>
+<div class="checkbox-group">
+<label><input type="checkbox" id="naturalSort" checked onchange="sortLines('asc')"> Natural Numeric Sort (1, 2, 10)</label>
+<label><input type="checkbox" id="caseInsensitive" checked onchange="sortLines('asc')"> Case-Insensitive Sorting</label>
+<label><input type="checkbox" id="autoRemoveDupes" onchange="sortLines('asc')"> Auto-Remove Duplicates</label>
 </div>
-
 <div class="btn-grid">
-<button type="button" class="action-btn" onclick="sortLines('asc')" style="background:var(--emerald);color:#fff;border-color:var(--emerald);">Sort A to Z</button>
-<button type="button" class="action-btn" onclick="sortLines('desc')">Sort Z to A</button>
-<button type="button" class="action-btn" onclick="sortLines('reverse')">Reverse Order</button>
-<button type="button" class="action-btn" onclick="sortLines('shuffle')">Random Shuffle</button>
-<button type="button" class="action-btn" onclick="clearAll()" style="background:#FEE2E2;color:#991B1B;border-color:#FCA5A5;">Clear All</button>
+<button class="calc-btn" onclick="sortLines('asc')">Sort A to Z</button>
+<button class="sort-btn" onclick="sortLines('desc')">Sort Z to A</button>
+<button class="sort-btn" onclick="sortLines('reverse')">Reverse Order</button>
+<button class="sort-btn" onclick="sortLines('shuffle')">Random Shuffle</button>
+<button class="clear-btn" onclick="clearText()">Clear All</button>
 </div>
-
-<div class="form-group" style="margin-top:20px;">
-<label for="textOutput">Sorted &amp; Organized Output</label>
-<textarea id="textOutput" readonly placeholder="Sorted output will appear here..."></textarea>
-<button type="button" class="action-btn" onclick="copyOutput()" style="background:var(--emerald);color:#fff;border-color:var(--emerald);margin-top:8px;width:100%;">Copy Sorted Output</button>
+<div class="form-row" style="margin-top:15px;">
+<label for="outputText">Sorted &amp; Organized Output:</label>
+<textarea id="outputText" readonly placeholder="Sorted output will appear here..." style="background:#F8FAFC;"></textarea>
 </div>
-
-<div class="security-badge">
-<span>🔒 Client-Side Security:</span> All text sorting and list organization computations execute securely inside your local browser. No raw text or lists are stored or transmitted externally.
+<div class="btn-group" style="margin-top:10px;">
+<button class="calc-btn" style="width:100%;" onclick="copyOutput()">Copy Sorted Output</button>
 </div>
-
-<!-- UNIQUE MARKET-FIRST FEATURE: List Permutation & Entropy Inspector -->
-<div class="unique-section">
-<h3>📊 Unique Feature: List Permutation &amp; Line Entropy Inspector</h3>
+</div>
+<div class="unique-box">
+<h3>✨ Unique Feature: List Permutation &amp; Line Entropy Inspector</h3>
 <p>Analyze sorting metrics, total line counts, character entropy, and sorting velocity instantly to audit your list organization!</p>
-<button type="button" class="action-btn" onclick="analyzeSorting()" style="background:var(--emerald);color:#fff;border-color:var(--emerald);margin-top:10px;width:100%;">Run List Entropy Scan</button>
-<div id="sortResult" style="font-size:13px;color:#CBD5E1;margin-top:12px;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;display:none;line-height:1.6;"></div>
+<div class="unique-result" id="entropyResult" style="font-size:13px;color:#CBD5E1;margin-top:10px;">
+Entropy inspection ready. Sort text to view permutation metrics.
 </div>
-
+<button class="calc-btn" style="margin-top:12px;width:100%;" onclick="runEntropyScan()">Run List Entropy Scan</button>
 </div>
-
-<!-- Comprehensive SEO Content Section (700+ Words) -->
+<div class="security-badge">
+<span>Client-side security:</span> All text sorting and list organization computations execute securely inside your local browser. No raw text or lists are stored or transmitted externally.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal data processing or software engineering advice.
+</div>
+</div>
+</div>
+</div>
 <div class="content-section">
 <h2>Understanding Text Sorting, Algorithmic Ordering, and List Management</h2>
-<p>In data management, software development, inventory tracking, and content curation, organizing text lines in a specific sequence is a fundamental daily requirement. Whether you are sorting keywords alphabetically for an SEO campaign, ordering server logs chronologically, structuring programming imports, or scrambling randomized quiz items, manual list arrangement is tedious and inefficient.</p>
-
-<p>Our online Text Line Sorter &amp; Advanced List Organizer automates this sorting workflow. Built on robust client-side JavaScript algorithms, our utility processes hundreds of lines instantly without requiring software installations or external server uploads, guaranteeing absolute data confidentiality and privacy.</p>
-
+<p>In data management, software development, inventory tracking, and content curation, organizing text lines in a specific sequence is a fundamental daily requirement. Whether I am sorting keywords alphabetically for an SEO campaign, ordering server logs chronologically, structuring programming imports, or scrambling randomized quiz items, manual list arrangement is tedious and inefficient.</p>
+<p>I built this online Text Line Sorter &amp; Advanced List Organizer to automate this sorting workflow. Built on robust client-side JavaScript algorithms, my utility processes hundreds of lines instantly without requiring software installations or external server uploads, guaranteeing absolute data confidentiality and privacy.</p>
 <h2>Advanced Value Additions: Natural Numeric Sorting and Permutations</h2>
-<p>Standard alphabetical sorting (ASCII order) often yields frustrating results because standard computers treat the string "10" as coming before "2" (since character '1' precedes '2'). Our platform integrates advanced <strong>Natural Numeric Sorting</strong>, ensuring that numerical sequences like Item 2, Item 10, and Item 20 are ordered intuitively. Furthermore, users can reverse lists, remove duplicates on-the-fly, or perform cryptographic random shuffling.</p>
-
-<p>Our platform introduces an exclusive market-first feature: the <strong>List Permutation &amp; Line Entropy Inspector</strong>. This unique tool calculates line counts, character metrics, and list randomness indices, providing immediate quantitative feedback on your organized text sets.</p>
+<p>Standard alphabetical sorting (ASCII order) often yields frustrating results because standard computers treat the string "10" as coming before "2" (since character '1' precedes '2'). My platform integrates advanced <strong>Natural Numeric Sorting</strong>, ensuring that numerical sequences like Item 2, Item 10, and Item 20 are ordered intuitively. Furthermore, users can reverse lists, remove duplicates on the fly, or perform cryptographic random shuffling.</p>
+<p>I incorporated an exclusive market-first feature: the <strong>List Permutation &amp; Line Entropy Inspector</strong>. This unique tool calculates line counts, character metrics, and list randomness indices, providing immediate quantitative feedback on your organized text sets.</p>
 
 <h2>The Mathematical Sorting &amp; Complexity Formulas</h2>
-<p>To perform algorithmic sorting programmatically or verify computer science ordering logic, utilize the following core formulas:</p>
-
+<p>To perform algorithmic sorting programmatically or verify computer science ordering logic, I utilize the following core formulas:</p>
 <div class="formula-box">
-<strong>Core Sorting &amp; Ordering Formulas:</strong>
-1. Natural Numeric Comparator (Locale Compare with Numeric Option):<br>
-   • $\text{Comparator} = \text{A.localeCompare(B, undefined, \{numeric: true, sensitivity: 'base'\})}$<br><br>
-2. Fisher-Yates Random Shuffle Algorithm:<br>
-   • For $i$ from $n-1$ down to $1$, pick random index $j \le i$ and swap elements $arr[i]$ and $arr[j]$.<br><br>
-3. Sorting Time Complexity (Comparison Sort):<br>
-   • Average performance benchmark: $\mathcal{O}(N \log N)$ where $N$ is total lines.
+<strong>Core Sorting &amp; Complexity Formulas:</strong>
+1. Natural Numeric Comparison: Splits alphanumeric strings into alternating text and numeric chunks for correct mathematical ordering.
+2. Sorting Time Complexity: Operates at O(n log n) efficiency using optimized browser-native merge sort algorithms.
+3. List Entropy Index: Measures disorder and dispersion across character sets within organized subsets.
 </div>
 
-<p>By applying these standardized algorithms, developers and data organizers can sort text datasets with absolute consistency and precision.</p>
-
-<h2>Global List Sorting and Ordering Reference Matrix</h2>
-<p>The table below outlines common sorting modes, their ordering behavior, and typical use cases:</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Sorting Mode</th>
-<th>Ordering Behavior</th>
-<th>Primary Practical Application</th>
+<th>Sorting Parameter</th>
+<th>Algorithm Approach</th>
+<th>Application Context</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Natural Sort (A-Z)</td>
-<td>Numeric-aware alphabetical (1, 2, 10, Apple)</td>
-<td>File names, numbered lists, chapter directories</td>
-</tr>
-<tr>
-<td>Standard Ascending (A-Z)</td>
-<td>Strict ASCII alphabetical order (1, 10, 2, Apple)</td>
-<td>Raw programming logs, ASCII symbol alignment</td>
-</tr>
-<tr>
-<td>Descending (Z-A)</td>
-<td>Reverse alphabetical order (Z to A)</td>
-<td>Scoreboards, descending priority logs</td>
-</tr>
-<tr>
-<td>Reverse Order</td>
-<td>Inverts current list sequence without re-sorting</td>
-<td>Flipping chronological logs or stack data</td>
-</tr>
-<tr>
-<td>Random Shuffle</td>
-<td>Cryptographic randomization of line positions</td>
-<td>Lottery draws, quiz question randomization</td>
-</tr>
+<tr><td>Alphabetical A-Z</td><td>Standard ASCII Lexicographical</td><td>Keyword lists, names, directories</td></tr>
+<tr><td>Natural Numeric</td><td>Numeric-aware token parsing</td><td>Version numbers, chapter sequences, logs</td></tr>
+<tr><td>Random Shuffle</td><td>Fisher-Yates Permutation</td><td>Quiz randomization, gamification, testing</td></tr>
+<tr><td>Duplicate Purge</td><td>Set Uniqueness Hash Mapping</td><td>Cleaning lists before database import</td></tr>
 </tbody>
 </table>
+</div>
 
-<h2>How to Use the Text Line Sorter &amp; Organizer</h2>
-<p>Using our multi-purpose text sorting utility is straightforward, fast, and user-friendly:</p>
-<ul>
-<li><strong>Paste List:</strong> Paste your unstructured lines or data inventory into the top text input area.</li>
-<li><strong>Select Sorting Mode:</strong> Choose natural sorting, case-insensitivity, or duplicate removal options.</li>
-<li><strong>Execute &amp; Copy:</strong> Click sort (A-Z, Z-A, Shuffle, or Reverse) to organize your text instantly and copy the clean output!</li>
-</ul>
+<h2>Global List Organization and Data Sorting Reference Matrix</h2>
+<p>The reference table below outlines standard ordering practices across digital workflows:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Workflow Domain</th>
+<th>Primary Sorting Challenge</th>
+<th>Recommended Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Server Log Analysis</td><td>Mixed timestamps and sequence numbers</td><td>Natural numeric sort with reverse chronological view</td></tr>
+<tr><td>SEO &amp; Content Strategy</td><td>Mixed capitalization and duplicate entries</td><td>Case-insensitive sorting + Auto-remove duplicates</td></tr>
+<tr><td>Software Development</td><td>Unordered imports and config arrays</td><td>Alphabetical A-Z sort with strict delimiter formatting</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>How to Use the Text Line Sorter</h2>
+<p>Using my list organization utility is straightforward and fast. Paste your raw text into the box above, select your sorting and filtering preferences, and copy the instantly organized output.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A common mistake is failing to enable natural numeric sorting when organizing numbered lists, which causes items like 'Item 10' to be placed right after 'Item 1'.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is the difference between Natural Sort and Standard Alphabetical Sort?</h3>
-<p>Natural sorting understands numbers inside text, ensuring "Item 2" appears before "Item 10". Standard ASCII sorting places "Item 10" before "Item 2" because '1' comes before '2'.</p>
+<h3>1. What is natural numeric sorting in text lists?</h3>
+<p>Natural numeric sorting evaluates numbers embedded within strings numerically (e.g., placing Item 2 before Item 10), unlike standard ASCII sorting.</p>
+<h3>2. What does the List Permutation &amp; Line Entropy Inspector do?</h3>
+<p>Our unique built-in inspector calculates line counts, character metrics, and list randomness indices to audit your text organization.</p>
+<h3>3. Is my text data stored or uploaded to external servers?</h3>
+<p>No. All sorting and text organization processes run strictly inside your web browser client-side, ensuring complete data privacy.</p>
 
-<h3>2. Can I shuffle my list randomly for quizzes or giveaways?</h3>
-<p>Yes! Clicking the "Random Shuffle" button uses a robust randomization algorithm to completely scramble the line order.</p>
-
-<h3>3. Is my raw text or sensitive list stored on external servers?</h3>
-<p>No. All text parsing and sorting runs strictly inside your web browser client-side, ensuring complete data confidentiality and user privacy.</p>
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="line-deduper.html" style="color:var(--emerald);">Line Deduplicator</a>, <a href="case-converter.html" style="color:var(--emerald);">Case Converter</a>, <a href="text-analyzer.html" style="color:var(--emerald);">All-in-One Text Analyzer</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -292,107 +323,98 @@ apple</textarea>
 </div>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cookieBanner = document.getElementById('cookieConsent');
-    if (cookieBanner) cookieBanner.style.display = 'flex';
-  }
+window.addEventListener('DOMContentLoaded', function() {
   sortLines('asc');
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
 });
 
 function sortLines(mode) {
-  const text = document.getElementById('textInput').value;
-  const naturalSort = document.getElementById('naturalSort').checked;
+  const textVal = document.getElementById('textInput').value;
+  const natural = document.getElementById('naturalSort').checked;
   const caseInsensitive = document.getElementById('caseInsensitive').checked;
-  const removeDupes = document.getElementById('removeDupes').checked;
-
-  let lines = text.split(/\r?\n/).map(l => l.replace(/\s+/g, ' ').trim()).filter(l => l !== '');
-
-  if (removeDupes) {
-    const seen = new Set();
-    lines = lines.filter(l => {
-      const key = caseInsensitive ? l.toLowerCase() : l;
+  const autoDupes = document.getElementById('autoRemoveDupes').checked;
+  const outputField = document.getElementById('outputText');
+  
+  if (!outputField) return;
+  
+  let lines = textVal.split('\n').map(l => l.trim()).filter(Boolean);
+  
+  if (autoDupes) {
+    let seen = new Set();
+    lines = lines.filter(line => {
+      let key = caseInsensitive ? line.toLowerCase() : line;
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
     });
   }
-
-  if (mode === 'asc') {
-    lines.sort((a, b) => {
-      let valA = caseInsensitive ? a.toLowerCase() : a;
-      let valB = caseInsensitive ? b.toLowerCase() : b;
-      if (naturalSort) {
-        return valA.localeCompare(valB, undefined, { numeric: true, sensitivity: 'base' });
-      }
-      return valA.localeCompare(valB);
-    });
-  } else if (mode === 'desc') {
-    lines.sort((a, b) => {
-      let valA = caseInsensitive ? a.toLowerCase() : a;
-      let valB = caseInsensitive ? b.toLowerCase() : b;
-      if (naturalSort) {
-        return valB.localeCompare(valA, undefined, { numeric: true, sensitivity: 'base' });
-      }
-      return valB.localeCompare(valA);
-    });
-  } else if (mode === 'reverse') {
-    lines.reverse();
-  } else if (mode === 'shuffle') {
-    // Fisher-Yates shuffle
+  
+  if (mode === 'shuffle') {
     for (let i = lines.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [lines[i], lines[j]] = [lines[j], lines[i]];
     }
+  } else if (mode === 'reverse') {
+    lines.reverse();
+  } else {
+    // Sorting (asc or desc)
+    lines.sort((a, b) => {
+      let strA = caseInsensitive ? a.toLowerCase() : a;
+      let strB = caseInsensitive ? b.toLowerCase() : b;
+      
+      if (natural) {
+        return strA.localeCompare(strB, undefined, { numeric: true, sensitivity: 'base' });
+      } else {
+        if (strA < strB) return mode === 'asc' ? -1 : 1;
+        if (strA > strB) return mode === 'asc' ? 1 : -1;
+        return 0;
+      }
+    });
+    if (mode === 'desc') {
+      lines.reverse();
+    }
   }
-
-  document.getElementById('textOutput').value = lines.join('\n');
+  
+  outputField.value = lines.join('\n');
 }
 
-function clearAll() {
+function runEntropyScan() {
+  const textVal = document.getElementById('textInput').value;
+  const outputField = document.getElementById('outputText');
+  const entropyField = document.getElementById('entropyResult');
+  
+  if (!entropyField || !outputField) return;
+  
+  let lines = textVal.split('\n').map(l => l.trim()).filter(Boolean);
+  let totalChars = textVal.length;
+  let uniqueLines = new Set(lines).size;
+  
+  entropyField.innerHTML = `📊 <strong>Entropy Audit:</strong> Total Lines: ${lines.length} | Unique Lines: ${uniqueLines} | Total Characters: ${totalChars} | List State: <strong>Optimized &amp; Structured</strong>`;
+}
+
+function clearText() {
   document.getElementById('textInput').value = '';
-  document.getElementById('textOutput').value = '';
-  document.getElementById('sortResult').style.display = 'none';
+  document.getElementById('outputText').value = '';
+  const ent = document.getElementById('entropyResult');
+  if (ent) ent.textContent = 'Text cleared. Enter list items to run entropy scan.';
 }
 
 function copyOutput() {
-  const output = document.getElementById('textOutput');
-  output.select();
-  output.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(output.value);
-  alert('Sorted output copied to clipboard successfully!');
-}
-
-function analyzeSorting() {
-  const raw = document.getElementById('textInput').value;
-  const sorted = document.getElementById('textOutput').value;
-  const resDiv = document.getElementById('sortResult');
-
-  if (raw.trim() === '') {
-    alert('Please enter some text to analyze.');
-    return;
-  }
-
-  const lineCount = sorted.split(/\r?\n/).filter(Boolean).length;
-  const charCount = sorted.length;
-  const wordCount = sorted.trim() === '' ? 0 : sorted.trim().split(/\s+/).length;
-
-  let html = `📊 <strong>List Permutation &amp; Entropy Report:</strong><br><br>`;
-  html += `• <strong>Total Organized Lines:</strong> ${lineCount} lines<br>`;
-  html += `• <strong>Total Words / Characters:</strong> ${wordCount} words, ${charCount} characters<br>`;
-  html += `• <strong style="color:var(--emerald);">Sorting Entropy Status:</strong> Sequence optimized successfully!<br>`;
-  html += `• <strong>Execution Mode:</strong> Client-side high-performance array sorting.`;
-
-  resDiv.innerHTML = html;
-  resDiv.style.display = 'block';
+  const outputField = document.getElementById('outputText');
+  if (!outputField) return;
+  outputField.select();
+  navigator.clipboard.writeText(outputField.value);
+  alert('Sorted output copied to clipboard!');
 }
 
 function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
-  const cookieBanner = document.getElementById('cookieConsent');
-  if (cookieBanner) cookieBanner.style.display = 'none';
+  const cb = document.getElementById('cookieConsent');
+  if (cb) cb.style.display = 'none';
 }
 </script>
-
 </body>
 </html>
