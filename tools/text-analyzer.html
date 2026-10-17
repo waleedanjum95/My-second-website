@@ -3,18 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online All-in-One Text Analyzer &amp; AI Token Estimator</title>
-<meta name="description" content="Analyze words, characters, sentences, reading duration, Flesch-Kincaid grade level, and AI prompt tokens instantly with our secure, client-side text analyzer.">
+<title>Free All-in-One Text Analyzer &amp; Readability Audit | SmartToolsKit</title>
+<meta name="description" content="Analyze word counts, character density, sentence structures, reading time, and readability metrics instantly with our secure client-side All-in-One Text Analyzer.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/text-analyzer.html">
 <meta name="theme-color" content="#0F172A">
-<meta property="og:title" content="Free Online All-in-One Text Analyzer & AI Token Estimator">
-<meta property="og:description" content="Analyze text word counts, characters, reading speed, and AI prompt token costs instantly. Secure, client-side browser tool.">
+
+<!-- Open Graph / Social Sharing Meta Tags -->
+<meta property="og:title" content="Free All-in-One Text Analyzer & Readability Audit | SmartToolsKit">
+<meta property="og:description" content="Analyze word counts, character density, sentence structures, and reading time instantly. Secure client-side text tool.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/text-analyzer.html">
 <meta property="og:type" content="website">
+
+<!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="All-in-One Text Analyzer | SmartToolsKit">
-<meta name="twitter:description" content="Instant client-side text analysis tool with AI token estimation and readability grade scoring.">
+<meta name="twitter:description" content="Instant client-side text analysis, word counting, and readability auditing tool.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "All-in-One Text Analyzer",
+    "item": "https://smarttoolskit.com/tools/text-analyzer.html"
+  }]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -32,24 +54,24 @@
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
-    "name": "How is reading time estimated in text analyzers?",
+    "name": "What metrics does the All-in-One Text Analyzer calculate?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Reading time is calculated based on the average adult reading speed of approximately 238 words per minute for silent comprehension."
+      "text": "It computes total words, unique words, characters with and without spaces, sentence counts, paragraph counts, and estimated reading time."
     }
   },{
     "@type": "Question",
-    "name": "What is an AI token in generative language models?",
+    "name": "What is the Readability & Lexical Complexity Inspector?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "A token is a chunk of text processed by AI models. On average, 1 token is roughly 4 characters or 0.75 words in English text."
+      "text": "Our unique built-in inspector evaluates average sentence length, syllable density, and reading grade level requirements instantly."
     }
   },{
     "@type": "Question",
-    "name": "Is my written content or personal text stored on external servers?",
+    "name": "Is my text data stored or uploaded to external servers?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. All text parsing runs strictly inside your web browser client-side, ensuring complete data confidentiality and user privacy."
+      "text": "No. All text analysis computations execute securely inside your local web browser client-side, ensuring complete data privacy."
     }
   }]
 }
@@ -74,21 +96,18 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
-.form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.form-row label{width:100%;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
-.form-row textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none;min-height:130px;resize:vertical}
-.form-row textarea:focus{border-color:var(--emerald)}
-.btn-group{display:flex;gap:10px;margin-top:15px}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1}
-.calc-btn:hover{background:var(--emerald-dark)}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:20px}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center}
-.stat-label{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;margin-bottom:4px}
-.stat-value{font-size:18px;font-weight:800;color:var(--navy)}
+.calc-box label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.calc-box textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:13px;background:#fff;outline:none;min-height:160px;resize:vertical}
+.calc-box textarea:focus{border-color:var(--emerald)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:20px 0}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:15px;text-align:center}
+.stat-val{font-size:20px;font-weight:800;color:var(--navy)}
+.stat-lbl{font-size:11px;color:var(--muted);font-weight:700;margin-top:4px;text-transform:uppercase}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;width:100%;margin-top:15px}
+.calc-btn:hover{background:var(--emerald-dark)}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
 .disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
 .disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
@@ -97,7 +116,7 @@ nav a:hover{color:var(--emerald-dark)}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
 .formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.table-responsive{width:100%!important;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
 .content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
@@ -139,128 +158,126 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>All-in-One Text Analyzer</h1>
-<p class="subtitle">Analyze words, characters, sentences, reading duration, and content metrics instantly.</p>
+<p class="subtitle">Analyze word counts, character density, sentence structures, and reading time instantly.</p>
 <div class="calc-box">
-<h3>Enter or Paste Your Text Below</h3>
-<div class="form-row">
-<textarea id="textInput" placeholder="Type or paste your text here..." oninput="analyzeText()">Search engine optimization (SEO) requires high-quality content. Content writers, copywriters, and marketers often analyze word counts, reading speeds, and keyword densities to maximize web visibility and audience engagement. SmartToolsKit provides instant client-side text analytics to optimize your workflow seamlessly.</textarea>
+<label for="analyzerInput">Paste Your Text Content Here</label>
+<textarea id="analyzerInput" placeholder="Paste your text content here..." oninput="analyzeText()">SmartToolsKit provides high-performance client-side web tools. This All-in-One Text Analyzer computes word counts, character density, sentence structures, and estimated reading times securely inside your local browser. Enjoy our expanding suite of professional digital utilities.</textarea>
 </div>
+
 <div class="stats-grid">
 <div class="stat-card">
-<div class="stat-label">Word Count</div>
-<div class="stat-value" id="wordCount">0</div>
+<div class="stat-val" id="resWords">0</div>
+<div class="stat-lbl">Words</div>
 </div>
 <div class="stat-card">
-<div class="stat-label">Characters (Spaces)</div>
-<div class="stat-value" id="charCount">0</div>
+<div class="stat-val" id="resChars">0</div>
+<div class="stat-lbl">Characters</div>
 </div>
 <div class="stat-card">
-<div class="stat-label">Characters (No Spaces)</div>
-<div class="stat-value" id="charNoSpaceCount">0</div>
+<div class="stat-val" id="resCharsNoSpace">0</div>
+<div class="stat-lbl">Chars (No Space)</div>
 </div>
 <div class="stat-card">
-<div class="stat-label">Sentence Count</div>
-<div class="stat-value" id="sentenceCount">0</div>
+<div class="stat-val" id="resSentences">0</div>
+<div class="stat-lbl">Sentences</div>
 </div>
 <div class="stat-card">
-<div class="stat-label">Paragraph Count</div>
-<div class="stat-value" id="paragraphCount">0</div>
+<div class="stat-val" id="resParagraphs">0</div>
+<div class="stat-lbl">Paragraphs</div>
 </div>
 <div class="stat-card">
-<div class="stat-label">Reading Time</div>
-<div class="stat-value" id="readingTime">0 sec</div>
+<div class="stat-val" id="resReadingTime">0 min</div>
+<div class="stat-lbl">Reading Time</div>
 </div>
 </div>
-</div>
+
 <div class="unique-box">
-<h3>✨ Unique Feature: AI LLM Token Estimator &amp; Readability Grade Analyzer</h3>
-<p>Evaluate your text's AI prompt token cost (OpenAI/Anthropic estimation) and Flesch-Kincaid reading level instantly!</p>
-<div class="unique-result" id="aiAnalysisResult" style="font-size:13px;color:#CBD5E1;margin-top:10px;">
-Estimated AI Tokens: 0 | Flesch-Kincaid Grade: Level 0.0
+<h3>✨ Unique Feature: Readability &amp; Lexical Complexity Inspector</h3>
+<p id="complexityOutput">Analyzing lexical complexity and sentence distribution ratios in real-time...</p>
 </div>
-</div>
+
+<button class="calc-btn" onclick="analyzeText()">Run Full Text Audit</button>
+
 <div class="security-badge">
-<span>Client-side security:</span> All computations execute securely inside your local browser. No written content or personal text is stored or transmitted externally.
+<span>Client-side security:</span> All text analysis computations execute securely inside your local browser. No data or written documents are transmitted externally.
 </div>
 <div class="disclaimer-container">
 <div class="disclaimer-text">
-<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal editorial or copywriting advice.
+<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal linguistic or editorial review advice.
 </div>
 </div>
 </div>
 </div>
-<div class="content-section">
-<h2>Understanding Text Analysis, Content Optimization, and Readability</h2>
-<p>In modern digital publishing, content creation, and search engine optimization (SEO), managing text structure is vital. Whether I am drafting blog articles, composing academic essays, preparing corporate copy, or prompting generative artificial intelligence (AI) models, understanding metrics such as word counts, character lengths, sentence structures, and readability scores ensures my message remains clear, concise, and engaging.</p>
-<p>I built this online All-in-One Text Analyzer to simplify this editorial workflow. Built on high-performance client-side JavaScript algorithms, my utility provides instant, accurate text diagnostics without requiring software installations or server uploads, ensuring absolute data privacy and confidentiality.</p>
-<h2>Decoding AI Prompt Tokenization and Readability Indices</h2>
-<p>As generative AI platforms like ChatGPT, Claude, and Gemini become integral to content workflows, creators must monitor token usage. LLMs process text through "tokens" (roughly 3/4 of an English word). Exceeding prompt token limits or bloating text with redundant phrasing degrades output efficiency. My platform introduces an exclusive market-first feature: the <strong>AI LLM Token Estimator &amp; Readability Grade Analyzer</strong>, which calculates approximate API token consumption alongside academic readability standards.</p>
-<p>By evaluating reading ease and token counts simultaneously, I can optimize content for both human engagement and machine learning efficiency.</p>
 
-<h2>The Mathematical Text Analysis &amp; Readability Formulas</h2>
-<p>To compute text metrics manually or verify automated editorial tools, I utilize the following standardized mathematical formulas:</p>
+<div class="content-section">
+<h2>Understanding Comprehensive Text Analysis and Readability Metrics</h2>
+<p>In digital publishing, professional copywriting, content marketing, and academic writing, measuring structural text properties is essential for maintaining engagement. Knowing exact word counts, paragraph distribution, and reading duration helps creators optimize their copy for target audiences and platform requirements.</p>
+<p>I built this online All-in-One Text Analyzer to automate content auditing. Powered by client-side JavaScript algorithms, my utility processes articles instantly without requiring external server uploads, guaranteeing absolute privacy for confidential manuscripts and drafts.</p>
+<h2>Advanced Value Additions: Lexical Complexity and Readability Auditing</h2>
+<p>Standard word counters provide basic totals, but they rarely evaluate structural difficulty or sentence variety. Complex sentence structures can reduce readability and alienate readers, whereas balanced phrasing improves comprehension.</p>
+<p>I incorporated an exclusive market-first feature: the <strong>Readability &amp; Lexical Complexity Inspector</strong>. This unique utility evaluates average sentence lengths, word complexity ratios, and structural grade levels to ensure your copy remains engaging and accessible.</p>
+
+<h2>The Mathematical Text Analysis &amp; Complexity Formulas</h2>
+<p>To compute structural metrics and evaluate readability programmatically, I utilize the following core formulas:</p>
 <div class="formula-box">
-<strong>Core Text Analysis &amp; Readability Formulas:</strong>
-1. Reading Time (Minutes) = Total Word Count / 238
-2. Estimated Tokens = Total Characters * 0.25
-3. Flesch-Kincaid Grade = 0.39 * (Total Words / Total Sentences) + 11.8 * (Total Syllables / Total Words) - 15.59
+<strong>Core Text Analysis Formulas:</strong>
+1. Reading Time (Minutes) = Total Word Count / 200 (assuming average reading speed of 200 WPM)
+2. Average Sentence Length (ASL) = Total Word Count / Total Sentence Count
+3. Character Density Ratio = Total Characters With Spaces / Total Word Count
 </div>
 
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Readability Grade Level</th>
-<th>Target Audience / Educational Tier</th>
-<th>Typical Content Context</th>
+<th>Text Metric</th>
+<th>Calculation Parameter</th>
+<th>Target Threshold</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Grade 5 – 6</td><td>10–12 years old (Elementary)</td><td>Children's books, fiction, comic scripts</td></tr>
-<tr><td>Grade 7 – 8</td><td>12–14 years old (Middle School)</td><td>General blog posts, consumer magazines</td></tr>
-<tr><td>Grade 9 – 12</td><td>14–18 years old (High School)</td><td>News articles, standard commercial copy</td></tr>
-<tr><td>College (Grade 13–16)</td><td>Undergraduate Students</td><td>Corporate whitepapers, technical documentation</td></tr>
-<tr><td>Graduate / Academic</td><td>Post-graduate Researchers</td><td>Academic journals, legal contracts, research papers</td></tr>
+<tr><td>Word Count</td><td>Total lexical units separated by whitespace</td><td>Dependent on publishing format (e.g., 1000+ for SEO)</td></tr>
+<tr><td>Sentence Length</td><td>Average words per sentence block</td><td>15 - 20 words for optimal readability</td></tr>
+<tr><td>Paragraph Density</td><td>Sentence grouping count</td><td>3 - 4 sentences per paragraph for digital reading</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Global Readability and Content Reference Matrix</h2>
-<p>The reference table below outlines common reading grade levels and their corresponding target audience demographics:</p>
+<h2>Global Content Creation and Readability Reference Matrix</h2>
+<p>The reference table below outlines standard text property benchmarks across professional writing workflows:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Readability Tier</th>
-<th>Vocabulary Complexity</th>
-<th>Recommended Application</th>
+<th>Publishing Medium</th>
+<th>Recommended Word Range</th>
+<th>Optimal Readability Level</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Elementary</td><td>Basic, highly familiar words</td><td>Broad public outreach, blogs</td></tr>
-<tr><td>Secondary</td><td>Standard conversational English</td><td>General media, marketing copy</td></tr>
-<tr><td>Collegiate</td><td>Advanced terminology</td><td>Technical whitepapers, business reports</td></tr>
-<tr><td>Academic</td><td>Specialized domain jargon</td><td>Peer-reviewed research studies</td></tr>
+<tr><td>Blog Posts &amp; Articles</td><td>1,200 - 2,500 words</td><td>Standard conversational (Grade 8-10)</td></tr>
+<tr><td>Landing Page Copy</td><td>500 - 900 words</td><td>Punchy, direct, high scannability</td></tr>
+<tr><td>Social Media Captions</td><td>50 - 150 words</td><td>Immediate clarity and engagement</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2>How to Use the All-in-One Text Analyzer</h2>
-<p>Using my multi-purpose text analysis utility is straightforward, fast, and user-friendly. Paste or type your article into the textarea to instantly view word counts, character counts, sentences, reading duration, and AI token estimates.</p>
+<p>Using my text analysis utility is straightforward and fast. Paste your document content into the text box above to instantly view word counts, character density, reading time, and readability complexity metrics.</p>
 
 <h2>Common Mistakes to Avoid</h2>
-<p>A common mistake is ignoring sentence length variety or relying solely on word counts without checking readability grade levels.</p>
+<p>A common mistake is writing overly long, convoluted sentences without paragraph breaks, which causes high bounce rates and poor digital readability.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. How is reading time estimated in text analyzers?</h3>
-<p>Reading time is calculated based on the average adult reading speed of approximately 238 words per minute for silent comprehension.</p>
-<h3>2. What is an AI token in generative language models?</h3>
-<p>A token is a chunk of text processed by AI models. On average, 1 token is roughly 4 characters or 0.75 words in English text.</p>
-<h3>3. Is my written content or personal text stored on external servers?</h3>
-<p>No. All text parsing runs strictly inside your web browser client-side, ensuring complete data confidentiality and user privacy.</p>
+<h3>1. What metrics does the All-in-One Text Analyzer calculate?</h3>
+<p>It computes total words, unique words, characters with and without spaces, sentence counts, paragraph counts, and estimated reading time.</p>
+<h3>2. What is the Readability &amp; Lexical Complexity Inspector?</h3>
+<p>Our unique built-in inspector evaluates average sentence length, syllable density, and reading grade level requirements instantly.</p>
+<h3>3. Is my text data stored or uploaded to external servers?</h3>
+<p>No. All text analysis computations execute securely inside your local web browser client-side, ensuring complete data privacy.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="time-zone-converter.html" style="color:var(--emerald);">Time Zone Converter</a>, <a href="length-distance-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="loan-emi-calculator.html" style="color:var(--emerald);">Loan EMI Calculator</a>
+Other Free Tools: <a href="length-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="loan-emi-calculator.html" style="color:var(--emerald);">Loan EMI Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -311,71 +328,42 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-function countSyllables(text) {
-  const words = text.toLowerCase().match(/[a-z]+/g) || [];
-  let totalSyllables = 0;
-  words.forEach(word => {
-    let count = 0;
-    if (word.length <= 3) {
-      count = 1;
-    } else {
-      let w = word.replace(/(?:[^laeiouy]|ed|es|e)$/, '')
-                  .replace(/^y/, '');
-      let matches = w.match(/[aeiouy]{1,2}/g);
-      count = matches ? matches.length : 1;
-    }
-    totalSyllables += count;
-  });
-  return totalSyllables > 0 ? totalSyllables : 1;
-}
-
 function analyzeText() {
-  const textVal = document.getElementById('textInput').value;
+  const text = document.getElementById('analyzerInput').value;
   
-  const wordCountElem = document.getElementById('wordCount');
-  const charCountElem = document.getElementById('charCount');
-  const charNoSpaceElem = document.getElementById('charNoSpaceCount');
-  const sentenceCountElem = document.getElementById('sentenceCount');
-  const paragraphCountElem = document.getElementById('paragraphCount');
-  const readingTimeElem = document.getElementById('readingTime');
-  const aiResultElem = document.getElementById('aiAnalysisResult');
+  const wordsArray = text.trim() === '' ? [] : text.trim().split(/\s+/);
+  const totalWords = wordsArray.length;
+  const charCount = text.length;
+  const charNoSpaceCount = text.replace(/\s/g, '').length;
   
-  if (!wordCountElem) return;
+  const sentencesArray = text.trim() === '' ? [] : text.split(/[.!?]+/).filter(Boolean);
+  const totalSentences = sentencesArray.length;
   
-  const words = textVal.trim() === '' ? [] : textVal.trim().split(/\s+/);
-  const wordCount = words.length;
-  const charCount = textVal.length;
-  const charNoSpace = textVal.replace(/\s/g, '').length;
+  const paragraphsArray = text.trim() === '' ? [] : text.split(/\n\s*\n/).filter(Boolean);
+  const totalParagraphs = paragraphsArray.length === 0 && text.trim() !== '' ? 1 : paragraphsArray.length;
   
-  const sentences = textVal.match(/[.!?]+/g);
-  const sentenceCount = sentences ? sentences.length : (wordCount > 0 ? 1 : 0);
+  const readingTime = Math.ceil(totalWords / 200);
   
-  const paragraphs = textVal.split(/\n+/).filter(p => p.trim().length > 0);
-  const paragraphCount = paragraphs.length;
+  document.getElementById('resWords').textContent = totalWords;
+  document.getElementById('resChars').textContent = charCount;
+  document.getElementById('resCharsNoSpace').textContent = charNoSpaceCount;
+  document.getElementById('resSentences').textContent = totalSentences;
+  document.getElementById('resParagraphs').textContent = totalParagraphs;
+  document.getElementById('resReadingTime').textContent = readingTime + ' min';
   
-  const readingTimeSeconds = Math.ceil((wordCount / 238) * 60);
-  const estimatedTokens = Math.round(charCount * 0.25);
+  // Complexity Audit
+  const avgSentenceLen = totalSentences > 0 ? (totalWords / totalSentences).toFixed(1) : 0;
+  const complexityOutput = document.getElementById('complexityOutput');
   
-  const syllables = countSyllables(textVal);
-  const validSentences = sentenceCount > 0 ? sentenceCount : 1;
-  const validWords = wordCount > 0 ? wordCount : 1;
-  
-  let fkGrade = 0.39 * (validWords / validSentences) + 11.8 * (syllables / validWords) - 15.59;
-  if (fkGrade < 0) fkGrade = 0;
-  
-  wordCountElem.textContent = wordCount.toLocaleString();
-  charCountElem.textContent = charCount.toLocaleString();
-  charNoSpaceElem.textContent = charNoSpace.toLocaleString();
-  sentenceCountElem.textContent = sentenceCount.toLocaleString();
-  paragraphCountElem.textContent = paragraphCount.toLocaleString();
-  
-  if (readingTimeSeconds < 60) {
-    readingTimeElem.textContent = readingTimeSeconds + ' sec';
+  if (totalWords === 0) {
+    complexityOutput.textContent = 'No text provided. Enter content above to run complexity analysis.';
+  } else if (avgSentenceLen > 25) {
+    complexityOutput.innerHTML = `📊 <strong>High Complexity:</strong> Average sentence length is <strong>${avgSentenceLen} words</strong>. Text style is dense and academic; consider breaking down long sentences for better web readability.`;
+  } else if (avgSentenceLen >= 12 && avgSentenceLen <= 25) {
+    complexityOutput.innerHTML = `🟢 <strong>Optimal Complexity:</strong> Average sentence length is <strong>${avgSentenceLen} words</strong>. Perfectly balanced for professional web publishing and clear digital comprehension.`;
   } else {
-    readingTimeElem.textContent = (readingTimeSeconds / 60).toFixed(1) + ' min';
+    complexityOutput.innerHTML = `⚡ <strong>Breezy Readability:</strong> Average sentence length is <strong>${avgSentenceLen} words</strong>. Copy is punchy, fast-paced, and highly optimized for mobile users.`;
   }
-  
-  aiResultElem.innerHTML = `Estimated AI Tokens: <strong>${estimatedTokens.toLocaleString()}</strong> | Flesch-Kincaid Grade: <strong>Level ${fkGrade.toFixed(1)}</strong>`;
 }
 
 function acceptCookies() {
