@@ -211,9 +211,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 <div class="content-section">
 <h2>Understanding Lorem Ipsum, Typography Placeholders, and Web Design</h2>
-<p>In web design, graphic layout, desktop publishing, and typography, Lorem Ipsum serves as the standard placeholder dummy text. Derived from classical Latin literature dating back to 45 BC—specifically Cicero's philosophical treatise "De finibus bonorum et malorum" ("The Extremes of Good and Evil")—scrambled Latin has been utilized by printers and typesetters for centuries to test visual layouts without being distracted by readable content.</p>
-<p>When designers build wireframes, user interfaces, or editorial mockups, placing actual readable text often causes stakeholders to focus on copywriting nuances rather than visual hierarchy, grid alignment, font weights, and spacing. Our online Lorem Ipsum Generator streamlines this creative workflow, enabling web developers and designers to generate custom-tailored dummy text by paragraphs, words, or characters instantly with absolute precision.</p>
-<h2>Advanced Value Additions: Industry-Specific Persona Blending</h2>
+<p>In web design, graphic layout, desktop publishing, and typography, Lorem Ipsum serves as the standard placeholder dummy text. Derived from classical Latin literature dating back to 45 BC—specifically Cicero's philosophical treatise "De finibus bonorum et malorum" ("The Extremes of Good and Evil")—scrambled Latin has
+  <h2>Advanced Value Additions: Industry-Specific Persona Blending</h2>
 <p>While traditional Latin filler text remains the industry standard, modern digital designers frequently prefer placeholder copy that reflects the actual domain context of the project—such as SaaS software metrics, e-commerce retail terminology, or legal corporate agreements. Standard generators lack this contextual flexibility.</p>
 <p>I incorporated an exclusive market-first feature: the <strong>Persona-Blended Industry Dummy Copy Generator</strong>. This unique utility allows creators to inject specialized industry vocabulary directly into their generated mockups, bridging the gap between raw placeholder text and realistic content framing.</p>
 
@@ -277,7 +276,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <p>No. All text generation scripts execute securely inside your local web browser client-side, ensuring complete data privacy.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="text-diff-checker.html" style="color:var(--emerald);">Text Diff Checker</a>, <a href="markdown-to-html.html" style="color:var(--emerald);">Markdown to HTML Converter</a>, <a href="text-line-sorter.html" style="color:var(--emerald);">Text Line Sorter</a>
+Other Free Tools: <a href="text-sorter.html" style="color:var(--emerald);">Text Line Sorter</a>, <a href="diff-checker.html" style="color:var(--emerald);">Text Diff Checker</a>, <a href="markdown-to-html.html" style="color:var(--emerald);">Markdown to HTML Converter</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -356,10 +355,10 @@ function generateLorem() {
   if (unit === 'paragraphs') {
     let paragraphs = [];
     for (let p = 0; p < qty; p++) {
-      let sentenceCount = Math.floor(Math.random() * 3) + 4; // 4-6 sentences
+      let sentenceCount = Math.floor(Math.random() * 3) + 4;
       let pSentences = [];
       for (let s = 0; s < sentenceCount; s++) {
-        let wordCount = Math.floor(Math.random() * 6) + 8; // 8-13 words
+        let wordCount = Math.floor(Math.random() * 6) + 8;
         let sentenceWords = [];
         for (let w = 0; w < wordCount; w++) {
           let randWord = pool[Math.floor(Math.random() * pool.length)];
