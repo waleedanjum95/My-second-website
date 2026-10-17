@@ -3,23 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online Time Zone Converter &amp; Jet Lag Recovery Calculator</title>
-<meta name="description" content="Convert time accurately between global cities and time zones instantly with our secure, client-side time zone converter and circadian sleep simulator.">
+<title>Free Time Zone Converter &amp; Jet Lag Calculator | SmartToolsKit</title>
+<meta name="description" content="Convert time accurately between global cities and time zones instantly. Calculate hour differences, coordinate international meetings, and estimate jet lag recovery.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/time-zone-converter.html">
 <meta name="theme-color" content="#0F172A">
-<meta property="og:title" content="Free Online Time Zone Converter & Jet Lag Recovery Calculator">
-<meta property="og:description" content="Convert time across global cities instantly and calculate biological jet lag recovery. Secure, client-side browser tool.">
+
+<!-- Open Graph / Social Sharing Meta Tags -->
+<meta property="og:title" content="Free Time Zone Converter & Jet Lag Calculator | SmartToolsKit">
+<meta property="og:description" content="Convert time accurately between global cities and time zones instantly. Secure client-side tool.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/time-zone-converter.html">
 <meta property="og:type" content="website">
+
+<!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Time Zone Converter | SmartToolsKit">
-<meta name="twitter:description" content="Instant client-side time zone converter with a circadian sleep-state and jet lag recovery calculator.">
+<meta name="twitter:description" content="Instant client-side time zone conversion and jet lag recovery estimation tool.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Time Zone Converter",
+    "item": "https://smarttoolskit.com/tools/time-zone-converter.html"
+  }]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Time Zone Converter",
+  "name": "Time Zone Converter & Jet Lag Calculator",
   "url": "https://smarttoolskit.com/tools/time-zone-converter.html",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "All",
@@ -42,7 +64,7 @@
     "name": "What is the Circadian Sleep-State & Jet Lag Recovery Calculator?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Our unique utility estimates traveler circadian rhythm states and computes biological adjustment duration based on hour offsets."
+      "text": "Our unique cosmic simulator computes traveler circadian rhythm states and biological adjustment duration based on hour offsets."
     }
   },{
     "@type": "Question",
@@ -59,7 +81,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select{font-family:inherit}
+button,input,textarea,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -74,19 +96,16 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.calc-box h3{font-size:15px;color:var(--navy);margin-bottom:12px}
-.form-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.form-row label{width:100%;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
-.form-row input,.form-row select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
-.form-row input:focus,.form-row select:focus{border-color:var(--emerald)}
-.btn-group{display:flex;gap:10px;margin-top:15px}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1}
+.form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px}
+.form-group{flex:1;min-width:250px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group select,.form-group input{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1}
 .calc-btn:hover{background:var(--emerald-dark)}
-.reset-btn{background:var(--muted);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1}
+.reset-btn{background:#64748B;color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px}
 .reset-btn:hover{background:#475569}
-.result-display{background:var(--navy);color:#fff;padding:15px;border-radius:8px;margin-top:15px;font-size:14px;line-height:1.7}
-.result-display strong{color:var(--emerald)}
-.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-bottom:20px}
+.output-box{background:var(--navy);color:#fff;border-radius:8px;padding:15px;margin-top:15px;font-size:13px}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
@@ -141,59 +160,63 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <h1>Time Zone Converter</h1>
 <p class="subtitle">Convert time accurately between global cities and time zones instantly.</p>
 <div class="calc-box">
-<h3>Select Date &amp; Time</h3>
+<h3 style="font-size:15px;color:var(--navy);margin-bottom:12px;">Select Date &amp; Time</h3>
 <div class="form-row">
-<label for="datetimeInput">Date &amp; Time:</label>
-<input type="datetime-local" id="datetimeInput" oninput="convertTimezone()">
+<div class="form-group" style="flex:100%;">
+<label for="datetimeInput">Date &amp; Time</label>
+<input type="datetime-local" id="datetimeInput" oninput="convertTime()">
 </div>
-<div class="form-row" style="margin-top:10px;">
-<label for="fromZone">From Time Zone:</label>
-<select id="fromZone" onchange="convertTimezone()">
-<option value="5">Karachi / Islamabad (PKT) [UTC+5]</option>
-<option value="0">London (GMT/BST) [UTC+0]</option>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="fromZone">From Time Zone</label>
+<select id="fromZone" onchange="convertTime()">
+<option value="5" selected>Karachi / Islamabad (PKT) [UTC+5]</option>
+<option value="0">London (GMT/UTC) [UTC+0]</option>
 <option value="-5">New York (EST/EDT) [UTC-5]</option>
 <option value="4">Dubai (GST) [UTC+4]</option>
 <option value="8">Singapore (SGT) [UTC+8]</option>
-<option value="1">Paris (CET/CEST) [UTC+1]</option>
+<option value="1">Paris (CET) [UTC+1]</option>
 <option value="9">Tokyo (JST) [UTC+9]</option>
 </select>
 </div>
-<div class="form-row" style="margin-top:10px;">
-<label for="toZone">To Time Zone:</label>
-<select id="toZone" onchange="convertTimezone()">
+<div class="form-group">
+<label for="toZone">To Time Zone</label>
+<select id="toZone" onchange="convertTime()">
 <option value="5">Karachi / Islamabad (PKT) [UTC+5]</option>
-<option value="0">London (GMT/BST) [UTC+0]</option>
+<option value="0">London (GMT/UTC) [UTC+0]</option>
 <option value="-5" selected>New York (EST/EDT) [UTC-5]</option>
 <option value="4">Dubai (GST) [UTC+4]</option>
 <option value="8">Singapore (SGT) [UTC+8]</option>
-<option value="1">Paris (CET/CEST) [UTC+1]</option>
+<option value="1">Paris (CET) [UTC+1]</option>
 <option value="9">Tokyo (JST) [UTC+9]</option>
 </select>
 </div>
-<div class="btn-group">
-<button class="calc-btn" onclick="convertTimezone()">Convert Time Zone</button>
-<button class="reset-btn" onclick="resetConverter()">Reset</button>
 </div>
-<div class="result-display" id="timezoneResult">
-<strong>Converted Time:</strong> Loading...<br>
-<strong>Time Difference:</strong> Loading...
+<div style="display:flex;gap:10px;margin-top:10px;">
+<button class="calc-btn" onclick="convertTime()">Convert Time</button>
+<button class="reset-btn" onclick="resetForm()">Reset</button>
+</div>
+<div class="output-box" id="conversionOutput">
+Converted Time: Loading...
 </div>
 </div>
 <div class="unique-box">
 <h3>✨ Unique Feature: Circadian Sleep-State &amp; Jet Lag Recovery Calculator</h3>
 <p>Traveling or calling abroad? Check if people in your destination country are currently sleeping, eating, or working, and calculate your exact biological jet lag recovery duration!</p>
-<div class="form-row" style="margin-bottom:10px;">
-<label for="destCountry" style="color:#CBD5E1;">Select Destination Country / City:</label>
-<select id="destCountry" style="background:#1E293B;color:#fff;border:1px solid #334155;" onchange="analyzeSleepState()">
-<option value="5">United Arab Emirates - Dubai (GST)</option>
-<option value="0" selected>United Kingdom - London (GMT)</option>
+<div class="form-group" style="margin-top:10px;">
+<label for="destCountry" style="color:#CBD5E1;">Select Destination Country / City</label>
+<select id="destCountry" onchange="calculateJetLag()" style="background:#1E293B;color:#fff;border-color:#334155;">
+<option value="0">United Kingdom - London (GMT)</option>
+<option value="5" selected>Pakistan - Karachi / Islamabad (PKT)</option>
 <option value="-5">United States - New York (EST)</option>
+<option value="4">United Arab Emirates - Dubai (GST)</option>
 <option value="8">Singapore - Singapore (SGT)</option>
 <option value="9">Japan - Tokyo (JST)</option>
 </select>
 </div>
-<div class="unique-result" id="sleepResult" style="font-size:13px;color:#CBD5E1;margin-top:10px;">
-Analyzing sleep state and jet lag recovery...
+<div id="circadianOutput" style="font-size:13px;color:#34D399;margin-top:10px;font-weight:600;">
+Circadian Analysis: Destination local time is approx. 16:00. Current status: Peak Working Hours / Business Time.
 </div>
 </div>
 <div class="security-badge">
@@ -208,19 +231,19 @@ Analyzing sleep state and jet lag recovery...
 </div>
 <div class="content-section">
 <h2>Understanding Global Time Zones and International Scheduling</h2>
-<p>In our hyper-connected global economy, international communication, remote workforces, and cross-border commerce have made time zone coordination an essential daily activity. The Earth is divided into 24 primary longitudinal time zones, rotating 15 degrees every hour relative to the Prime Meridian (0° longitude). Because political boundaries, daylight saving time (DST) adjustments, and regional offsets dictate local clocks, calculating time differences manually across distant continents can often lead to missed appointments or scheduling errors.</p>
+<p>In our hyper-connected global economy, international communication, remote workforces, and cross-border commerce have made time zone coordination an essential daily activity. The Earth is divided into 24 primary longitudinal time zones, rotating 15 degrees every hour relative to the Prime Meridian (0 degree longitude). Because political boundaries, daylight saving time (DST) adjustments, and regional offsets dictate local clocks, calculating time differences manually across distant continents can often lead to missed appointments or scheduling errors.</p>
 <p>I built this online Time Zone Converter to simplify this complex international workflow, enabling users to convert dates and times instantly between major global cities. Powered by advanced browser-native internationalization standards, my utility guarantees precise hour and minute transformations without requiring external software or manual offset calculations.</p>
 <h2>Exploring Circadian Rhythms and Biological Jet Lag Recovery</h2>
 <p>Beyond standard time conversions, I incorporated an exclusive market-first feature: the <strong>Circadian Sleep-State &amp; Jet Lag Recovery Calculator</strong>. When humans cross multiple time zones rapidly via air travel, our internal biological clock (circadian rhythm) remains synchronized with our departure location, creating a temporal mismatch known as jet lag. Symptoms include fatigue, insomnia, and reduced cognitive performance.</p>
-<p>Medical sleep science indicates that human circadian readjustment typically requires approximately 1 day of recovery for every 1 hour of time difference crossed. Furthermore, traveling eastward is generally harder on the body than traveling westward due to phase-advance requirements. My unique tool evaluates the hour difference between your local system time and your target destination, instantly predicting current biological sleep states (e.g., Deep Sleep, Peak Alertness, or Meal Time) and estimating your exact recovery duration across worldwide countries.</p>
+<p>Medical sleep science indicates that human readjustment typically requires approximately 1 day of recovery for every 1 hour of time difference crossed. Furthermore, traveling eastward is generally harder on the body than traveling westward due to phase-advance requirements. My unique tool evaluates the hour difference between your local system time and your target destination, instantly predicting current biological sleep states (e.g., Deep Sleep, Peak Alertness, or Meal Time) and estimating full adaptation schedules.</p>
 
-<h2>The Mathematical Time Offset Calculation Formulas</h2>
-<p>To compute time zone conversions manually or verify international schedules, I utilize the following core mathematical equations:</p>
+<h2>The Mathematical Time Zone &amp; Jet Lag Calculation Formulas</h2>
+<p>To compute hour offsets and biological recovery windows programmatically, I utilize the following core formulas:</p>
 <div class="formula-box">
 <strong>Time Zone &amp; Jet Lag Calculation Formulas:</strong>
 1. Target Time = Source Time + (Target Zone UTC Offset - Source Zone UTC Offset)
-2. Hour Difference (Δh) = Absolute Difference between Local and Destination Hours
-3. Estimated Jet Lag Recovery Days = Δh / 1.5 Days
+2. Hour Difference (delta h) = Absolute Difference between Local and Destination Hours
+3. Estimated Jet Lag Recovery Days = delta h / 1.5 Days
 </div>
 
 <div class="table-responsive">
@@ -280,7 +303,7 @@ Analyzing sleep state and jet lag recovery...
 <p>No. All computations execute securely inside your local web browser client-side, ensuring complete data privacy.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="length-distance-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="loan-emi-calculator.html" style="color:var(--emerald);">Loan EMI Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>
+Other Free Tools: <a href="length-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="loan-calculator.html" style="color:var(--emerald);">Loan EMI Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -331,13 +354,13 @@ window.addEventListener('DOMContentLoaded', function() {
   const hours = String(now.getHours()).padStart(2, '0');
   const minutes = String(now.getMinutes()).padStart(2, '0');
   
-  const dtField = document.getElementById('datetimeInput');
-  if (dtField) {
-    dtField.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+  const datetimeInput = document.getElementById('datetimeInput');
+  if (datetimeInput) {
+    datetimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
   }
   
-  convertTimezone();
-  analyzeSleepState();
+  convertTime();
+  calculateJetLag();
   
   if (!localStorage.getItem('cookiesAccepted')) {
     const cb = document.getElementById('cookieConsent');
@@ -345,71 +368,67 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-function convertTimezone() {
+function convertTime() {
   const dtVal = document.getElementById('datetimeInput').value;
   const fromOffset = parseFloat(document.getElementById('fromZone').value);
   const toOffset = parseFloat(document.getElementById('toZone').value);
-  const resultDisplay = document.getElementById('timezoneResult');
+  const outputBox = document.getElementById('conversionOutput');
   
-  if (!dtVal) {
-    resultDisplay.innerHTML = '<span style="color:#F87171;">Please select a valid date and time.</span>';
-    return;
-  }
+  if (!dtVal || !outputBox) return;
   
-  const sourceDate = new Date(dtVal);
-  if (isNaN(sourceDate.getTime())) {
-    resultDisplay.innerHTML = '<span style="color:#F87171;">Invalid date format entered.</span>';
-    return;
-  }
+  let sourceDate = new Date(dtVal);
+  if (isNaN(sourceDate.getTime())) return;
   
-  // Convert source time to UTC by subtracting source offset hours
-  const sourceUTC = sourceDate.getTime() - (fromOffset * 3600 * 1000);
-  // Target time in milliseconds
-  const targetTimeMs = sourceUTC + (toOffset * 3600 * 1000);
-  const targetDate = new Date(targetTimeMs);
+  // Convert source time to UTC by subtracting source offset
+  let utcTime = sourceDate.getTime() - (fromOffset * 3600 * 1000);
+  // Convert UTC time to target time by adding target offset
+  let targetTime = new Date(utcTime + (toOffset * 3600 * 1000));
   
-  const diffHours = toOffset - fromOffset;
-  const fromText = document.getElementById('fromZone').options[document.getElementById('fromZone').selectedIndex].text;
-  const toText = document.getElementById('toZone').options[document.getElementById('toZone').selectedIndex].text;
+  let diffHours = toOffset - fromOffset;
+  let diffStr = diffHours >= intDiffStrFormat(diffHours) ? `+${diffHours}` : `${diffHours}`;
   
-  const formattedTarget = targetDate.toLocaleString(undefined, {
-    dateStyle: 'full',
-    timeStyle: 'medium'
-  });
+  let options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+  let formattedTarget = targetTime.toLocaleDateString('en-US', options);
   
-  resultDisplay.innerHTML = `<strong>Converted Time:</strong> ${formattedTarget}<br><strong>Time Difference:</strong> ${diffHours >= 0 ? '+' + diffHours : diffHours} hours (${fromText} to ${toText})`;
+  let fromName = document.getElementById('fromZone').selectedOptions[0].text;
+  let toName = document.getElementById('toZone').selectedOptions[0].text;
+  
+  outputBox.innerHTML = `🌍 <strong>Converted Time:</strong> ${formattedTarget}<br>⏱ <strong>Time Difference:</strong> ${diffHours >= 0 ? '+' : ''}${diffHours} hours (${fromName} to ${toName})`;
 }
 
-function analyzeSleepState() {
+function intDiffStrFormat(val) {
+  return val;
+}
+
+function calculateJetLag() {
   const destOffset = parseFloat(document.getElementById('destCountry').value);
-  const resultDisplay = document.getElementById('sleepResult');
+  const circadianOutput = document.getElementById('circadianOutput');
   
-  const d = new Date();
-  const utcHours = d.getUTCHours() + d.getUTCMinutes() / 60;
-  let destHours = (utcHours + destOffset) % 24;
-  if (destHours < 0) destHours += 24;
+  if (!circadianOutput) return;
   
-  let sleepState = '';
-  if (destHours >= 23 || destHours < 7) {
-    sleepState = 'Deep Sleep / Resting (Local time is night)';
-  } else if (destHours >= 7 && destHours < 9) {
-    sleepState = 'Morning Routine / Breakfast';
-  } else if (destHours >= 9 && destHours < 17) {
-    sleepState = 'Peak Working Hours / Business Time';
-  } else if (destHours >= 17 && destHours < 21) {
-    sleepState = 'Evening Relaxation / Dinner';
+  // Get current UTC hours + destination offset
+  let nowUTC = new Date().getUTCHours() + new Date().getUTCMinutes() / 60;
+  let destHour = (nowUTC + destOffset + 24) % 24;
+  
+  let status = "";
+  if (destHour >= 23 || destHour < 7) {
+    status = "🌙 Deep Sleep / Night Time Hours";
+  } else if (destHour >= 7 && destHour < 9) {
+    status = "☕ Morning Routine / Breakfast Time";
+  } else if (destHour >= 9 && destHour < 17) {
+    status = "💼 Peak Working Hours / Business Time";
   } else {
-    sleepState = 'Late Night Wind Down';
+    status = "🌆 Evening Relaxation / Personal Time";
   }
   
-  const localOffset = -d.getTimezoneOffset() / 60;
-  const hourDiff = Math.abs(destOffset - localOffset);
-  const recoveryDays = (hourDiff / 1.5).toFixed(1);
+  let localHour = new Date().getHours();
+  let hourDiff = Math.abs(destOffset - (new Date().getTimezoneOffset() / -60));
+  let recoveryDays = (hourDiff / 1.5).toFixed(1);
   
-  resultDisplay.innerHTML = `🌙 <strong>Circadian Analysis:</strong> Destination local time is approx. <strong>${Math.floor(destHours)}:00</strong>. Current status: <strong>${sleepState}</strong>.<br>✈️ <strong>Jet Lag Recovery Estimate:</strong> ~${recoveryDays} days required for biological synchronization (${hourDiff}h offset).`;
+  circadianOutput.innerHTML = `🌙 Circadian Analysis: Destination local time is approx. ${Math.floor(destHour)}:00. Current status: ${status}.<br>✈️ Estimated Jet Lag Recovery: ~${recoveryDays} days required for biological synchronization (${hourDiff}h offset).`;
 }
 
-function resetConverter() {
+function resetForm() {
   const now = new Date();
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -418,12 +437,9 @@ function resetConverter() {
   const minutes = String(now.getMinutes()).padStart(2, '0');
   
   document.getElementById('datetimeInput').value = `${year}-${month}-${day}T${hours}:${minutes}`;
-  document.getElementById('fromZone').value = '5';
-  document.getElementById('toZone').value = '-5';
-  document.getElementById('destCountry').value = '0';
-  
-  convertTimezone();
-  analyzeSleepState();
+  document.getElementById('fromZone').value = "5";
+  document.getElementById('toZone').value = "-5";
+  convertTime();
 }
 
 function acceptCookies() {
