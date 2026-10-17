@@ -268,7 +268,7 @@ This is a **Markdown to HTML Converter** built for developers and content creato
 <p>No. All text parsing and HTML generation computations execute securely inside your local web browser client-side, ensuring complete data privacy.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="text-line-sorter.html" style="color:var(--emerald);">Text Line Sorter</a>, <a href="length-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="loan-emi-calculator.html" style="color:var(--emerald);">Loan EMI Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>
+Other Free Tools: <a href="text-sorter.html" style="color:var(--emerald);">Text Line Sorter</a>, <a href="length-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="loan-emi-calculator.html" style="color:var(--emerald);">Loan EMI Calculator</a>, <a href="discount-calculator.html" style="color:var(--emerald);">Discount Calculator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -337,7 +337,6 @@ function convertMarkdown() {
   
   htmlOutput.value = html;
   
-  // Syntax Audit
   const h1Count = (mdText.match(/^# /gm) || []).length;
   const h2Count = (mdText.match(/^## /gm) || []).length;
   const boldCount = (mdText.match(/\*\*/g) || []).length / 2;
