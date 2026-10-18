@@ -345,11 +345,6 @@ function generateKeywords() {
   
   if (!output) return;
   
-  let rawPermutations = [];
-  
-  // Cartesian product logic across lists
-  let listA = l1.length > t => l1 : [""];
-  // Let's implement robust combining across 1, 2 or 3 lists
   let lists = [l1, l2, l3].filter(l => l.length > 0);
   
   if (lists.length === 0) {
@@ -358,13 +353,6 @@ function generateKeywords() {
     return;
   }
   
-  function cartesian(arrs) {
-    return arrs.reduce((a, b) => {
-      return a.flatMap(x => b.map(y => x ? x + " " + y : y));
-    }, [sub => sub]);
-  }
-  
-  // Simplified safe cartesian
   let results = [];
   function combine(listsIndex, currentStr) {
     if (listsIndex === lists.length) {
