@@ -376,10 +376,10 @@ function generateSocialContent() {
   } else if (platform === 'linkedin') {
     if (tone === 'authoritative') {
       caption = `Excited to share our latest milestone: ${topic}.\n\nIn modern software development, simplifying complex tasks is key to scaling productivity. We engineered this solution to solve real bottlenecks for professionals worldwide.\n\nWhat are your thoughts on streamlining digital workflows? Let's discuss in the comments below. 👇`;
+    } else if (tone === 'promotional') {
+      caption = `Driving digital efficiency forward. Proud to unveil ${topic}. Explore our platform today and boost your professional productivity.`;
     } else {
       caption = `Big news for digital professionals! 🚀 We just launched ${topic}.\n\nCheck it out and let us know how this can help accelerate your daily projects.`;
-    } else {
-      caption = `Driving digital efficiency forward. Proud to unveil ${topic}. Explore our platform today and boost your professional productivity.`;
     }
     hashtags = `#DigitalTransformation #${topic.replace(/[^a-zA-Z0-9]/g, '')} #Innovation #SoftwareDevelopment #SmartToolsKit`;
   } else if (platform === 'twitter') {
@@ -412,7 +412,7 @@ function copyHashtagText() {
   if (!hashtagOutput) return;
   hashtagOutput.select();
   navigator.clipboard.writeText(hashtagOutput.value);
-  alert('Targeted hashtags copied to clipboard separate!');
+  alert('Targeted hashtags copied to clipboard!');
 }
 
 function acceptCookies() {
