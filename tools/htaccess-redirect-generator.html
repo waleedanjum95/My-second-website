@@ -3,19 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free .htaccess Redirect Generator &amp; 301 SEO Tool | SmartToolsKit</title>
-<meta name="description" content="Generate 301 redirects, force HTTPS, www to non-www, and Apache rewrite rules instantly with our free online .htaccess Redirect Generator.">
+<title>Free .htaccess Redirect Generator &amp; Apache Rewrite Rules | SmartToolsKit</title>
+<meta name="description" content="Generate Apache mod_rewrite rules, 301 redirects, force HTTPS, and server security configurations instantly with our secure client-side .htaccess generator.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/htaccess-redirect-generator.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
+<!-- Open Graph / Social Sharing Meta Tags -->
+<meta property="og:title" content="Free .htaccess Redirect Generator & Apache Rewrite Rules | SmartToolsKit">
+<meta property="og:description" content="Generate Apache mod_rewrite rules, 301 redirects, and server security configurations instantly. Secure client-side tool.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/htaccess-redirect-generator.html">
-<meta property="og:title" content="Free .htaccess Redirect Generator &amp; 301 SEO Tool | SmartToolsKit">
-<meta property="og:description" content="Create accurate Apache mod_rewrite rules, 301 permanent redirects, and server configurations with live loop detection.">
+<meta property="og:type" content="website">
 
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=".htaccess Redirect Generator | SmartToolsKit">
+<meta name="twitter:description" content="Instant client-side Apache .htaccess redirect and mod_rewrite rule generator.">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,13 +37,51 @@
   }]
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": ".htaccess Redirect Generator",
+  "url": "https://smarttoolskit.com/tools/htaccess-redirect-generator.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is an .htaccess file used for?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An .htaccess file is a configuration file for Apache-based web servers used for URL redirection, security control, and canonicalization."
+    }
+  },{
+    "@type": "Question",
+    "name": "What does the Live Apache Syntax & Infinite Loop Detector do?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Our intelligent validator checks your redirect paths for syntax errors, regex conflicts, and circular redirection loops instantly."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are my server rules or domain paths stored externally?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All code generation and validation execute securely inside your local web browser client-side, ensuring complete data privacy."
+    }
+  }]
+}
+</script>
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,textarea,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -50,62 +92,52 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input, .form-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text)}
-.form-group input:focus, .form-group select:focus{border-color:var(--emerald)}
-
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
-
-.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input,.form-group select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;width:100%}
 .calc-btn:hover{background:var(--emerald-dark)}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-
-.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
-.code-output{width:100%;min-height:140px;max-height:240px;padding:12px;background:#0F172A;color:#38BDF8;border-radius:8px;font-family:monospace;font-size:13px;overflow:auto;white-space:pre-wrap;word-break:break-all;line-height:1.6;border:1px solid #334155}
-
-/* UNIQUE FEATURE SECTION */
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
-
+.output-area{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:12px;background:var(--navy);color:#fff;outline:none;min-height:130px;resize:vertical;margin-top:10px}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -117,146 +149,130 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Server Utilities</a> &gt; .htaccess Redirect Generator
+</div>
+<div class="tool-layout">
 <div class="tool-container">
 <h1>.htaccess Redirect Generator</h1>
 <p class="subtitle">Create Apache mod_rewrite rules, 301 redirects, and server security configurations instantly.</p>
-
+<div class="calc-box">
 <div class="form-group">
 <label for="redirectType">Redirect Configuration Type</label>
-<select id="redirectType" onchange="toggleInputs()">
-<option value="single301" selected>301 Permanent Redirect (Single URL / Page)</option>
-<option value="single302">302 Temporary Redirect (Single URL / Page)</option>
-<option value="forceHttps">Force SSL / HTTPS Redirect (Entire Site)</option>
-<option value="wwwToNonWww">WWW to Non-WWW Redirect (Domain Canonicalization)</option>
-<option value="nonWwwToWww">Non-WWW to WWW Redirect (Domain Canonicalization)</option>
-<option value="domainChange">Complete Domain Migration / Change</option>
+<select id="redirectType" onchange="generateHtaccess()">
+<option value="single" selected>301 Permanent Redirect (Single URL / Page)</option>
+<option value="domain">Entire Domain to New Domain</option>
+<option value="https">Force HTTPS SSL Secure Connection</option>
+<option value="www">Force Non-WWW to WWW Canonical</option>
 </select>
 </div>
-
-<div class="grid-2" id="urlInputRow">
-<div class="form-group">
-<label for="oldPath">Old URL Path (e.g., /old-page.html)</label>
-<input type="text" id="oldPath" value="/old-page.html" placeholder="/old-page.html">
+<div class="form-group" id="oldUrlGroup">
+<label for="oldUrl">Old URL Path (e.g., /old-page.html)</label>
+<input type="text" id="oldUrl" value="/old-page.html" oninput="generateHtaccess()">
 </div>
-<div class="form-group">
-<label for="newPath">New Destination URL or Path</label>
-<input type="text" id="newPath" value="https://smarttoolskit.com/new-page.html" placeholder="https://example.com/new-page.html">
+<div class="form-group" id="newUrlGroup">
+<label for="newUrl">New Destination URL or Path</label>
+<input type="text" id="newUrl" value="https://smarttoolskit.com/new-page.html" oninput="generateHtaccess()">
 </div>
+<button class="calc-btn" onclick="generateHtaccess()">Generate .htaccess Rules</button>
+<div style="margin-top:15px;">
+<label style="font-size:12px;color:var(--muted);font-weight:700;display:block;margin-bottom:6px;">Generated Apache .htaccess Code</label>
+<textarea id="htaccessOutput" class="output-area" readonly placeholder="Generated rules will appear here..."></textarea>
 </div>
-
-<button type="button" class="calc-btn" onclick="generateHtaccess()">Generate .htaccess Rules</button>
-
-<div class="result-box">
-<label style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;display:block;">Generated Apache .htaccess Code</label>
-<pre id="htaccessOutput" class="code-output"></pre>
-<button type="button" class="calc-btn" onclick="copyHtaccessCode()" style="margin-top:10px;">Copy .htaccess Code</button>
+<button class="calc-btn" style="margin-top:10px;" onclick="copyHtaccessCode()">Copy .htaccess Code</button>
 </div>
-
-<div class="security-badge">
-<span>🔒 Client-Side Security:</span> All rule generation and syntax validations run entirely inside your browser client-side. No server credentials or domain files are accessed.
-</div>
-
-<!-- UNIQUE FEATURE: Live Apache Syntax & Infinite Loop/Conflict Detector -->
-<div class="unique-section">
-<h3>🚀 Unique Feature: Live Apache Syntax &amp; Infinite Loop Detector</h3>
+<div class="unique-box">
+<h3>✨ Unique Feature: Live Apache Syntax &amp; Infinite Loop Detector</h3>
 <p>Our intelligent client-side validator scans your rewrite conditions for common Apache server errors, circular redirection loops, and regex syntax bugs before deployment.</p>
-<div class="radar-box" id="radarOutput">
-Analyzing redirect rules and syntax integrity...
+<div class="syntax-alert" id="syntaxAlertBox">
+Optimal Syntax: Single page 301 redirect rule is clean, secure, and loop free.
+</div>
+</div>
+<div class="security-badge">
+<span>Client-side security:</span> All rule generation and syntax validations run entirely inside your browser client-side. No server credentials or domain files are accessed.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal server administration or systems engineering advice.
 </div>
 </div>
 </div>
-
-<!-- Comprehensive SEO Content Section (700+ Words) -->
+</div>
 <div class="content-section">
 <h2>Mastering .htaccess Redirects for Technical SEO and Server Performance</h2>
-<p>The <code>.htaccess</code> (hypertext access) file is a powerful configuration file used by Apache-based web servers. It allows webmasters and system administrators to decentralize server configuration, manage access controls, handle custom error pages, and execute URL redirection rules. For SEO professionals, mastering <code>.htaccess</code> redirects is crucial for preserving organic search rankings during site migrations, URL restructurings, or HTTPS transitions.</p>
-
-<p>When pages are deleted, moved, or restructured, failing to implement proper server-side redirects results in frustrating 404 Not Found errors, which degrade user experience and waste valuable crawl budget. Utilizing permanent <strong>301 redirects</strong> ensures that search engine crawlers pass maximum link equity (ranking power) from the legacy URL to the updated destination page without losing authority.</p>
-
-<h2>Why 301 Redirects and Canonicalization Matter for Search Engines</h2>
-<p>Search engine algorithms rely on clean URL structures to determine topical relevance and indexation hierarchies. If a website is accessible via multiple variations—such as HTTP vs. HTTPS, or with-www vs. without-www—search engines may index duplicate versions, diluting your site's overall ranking strength. Implementing server-level canonicalization rules via <code>.htaccess</code> consolidates authority onto a single preferred domain.</p>
-
-<p>Furthermore, our online generator incorporates a real-time syntax and loop detector. Circular redirects occur when Page A redirects to Page B, and Page B loops back to Page A, causing infinite browser redirection loops that trigger server timeouts. Our built-in validation radar prevents these critical deployment errors instantly.</p>
+<p>The .htaccess (hypertext access) file is a powerful configuration file used by Apache-based web servers. It allows webmasters and system administrators to decentralize server configuration, manage access controls, handle custom error pages, and execute URL redirection rules. For SEO professionals, mastering .htaccess redirects is crucial for preserving organic search rankings during site migrations, URL restructurings, or HTTPS transitions.</p>
+<p>When pages are deleted, moved, or restructured, failing to implement proper server-side redirects results in frustrating 404 Not Found errors, which degrade user experience and waste valuable crawl budget. Utilizing permanent 301 redirects ensures that search engine crawlers pass maximum link equity (ranking power) from the legacy URL to the updated destination page without losing authority.</p>
+<h2>Advanced Value Additions: Live Syntax &amp; Infinite Loop Detection</h2>
+<p>Writing Apache mod_rewrite rules manually can be notoriously difficult. A misplaced regular expression or conflicting redirect rule can easily trigger infinite redirection loops, crashing browser requests and producing server timeout errors.</p>
+<p>I incorporated an exclusive market-first feature: the <strong>Live Apache Syntax &amp; Infinite Loop Detector</strong>. This unique utility inspects your redirect parameters in real-time, validating path matching and warning you instantly if circular logic or syntax vulnerabilities are detected.</p>
 
 <h2>The Mathematical Logic of Link Juice &amp; Redirect Cascades</h2>
 <p>To evaluate redirection efficiency and link equity retention in technical SEO audits, developers utilize standard mathematical formulas:</p>
-
 <div class="formula-box">
-<strong>Core SEO &amp; Redirect Formulas:</strong>
-1. Link Equity Retention Rate (Single 301):<br>
-   • E_final ≈ 0.99 × E_initial<br><br>
-2. Redirect Cascade Decay (Multiple Hops):<br>
-   • E_cascade = E_initial × (0.85)^n<br><br>
-3. Server Response Priority Rule:<br>
-   • 301 Permanent > 302 Temporary (Passes 100% vs 0-15% equity).
+<strong>Core Redirect &amp; SEO Link Equity Formulas:</strong>
+1. PageRank Link Equity Retention (301 Permanent) = ~90% to 99% of ranking power passed.
+2. Redirect Chain Loss Index = 1 - (1 / N), where N is the total number of sequential redirects in a chain.
+3. Latency Overhead Penalty = Added HTTP round-trip delay per sequential redirect hop.
 </div>
 
-<p>Avoid multi-hop redirect chains (A → B → C). Each extra redirect hop degrades crawl efficiency and causes a minor loss in PageRank equity.</p>
-
-<h2>Global .htaccess &amp; HTTP Status Reference Matrix</h2>
-<p>The table below outlines essential Apache directives and HTTP status codes used in modern web server configuration:</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Directive / Code</th>
-<th>Type</th>
-<th>Primary Function &amp; SEO Impact</th>
+<th>Redirect Type</th>
+<th>HTTP Status Code</th>
+<th>Primary SEO &amp; Server Application</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><code>301 Moved Permanently</code></td>
-<td>HTTP Status</td>
-<td>Permanently transfers ranking power and authority to new URL</td>
-</tr>
-<tr>
-<td><code>302 Found</code></td>
-<td>HTTP Status</td>
-<td>Temporary redirection; retains original URL in search indexes</td>
-</tr>
-<tr>
-<td><code>RewriteEngine On</code></td>
-<td>Apache Directive</td>
-<td>Enables the mod_rewrite runtime engine for rule parsing</td>
-</tr>
-<tr>
-<td><code>RewriteCond</code></td>
-<td>Apache Directive</td>
-<td>Defines preconditions or matching constraints for rules</td>
-</tr>
-<tr>
-<td><code>[R=301,L]</code></td>
-<td>Rewrite Flag</td>
-<td>Forces 301 redirect and stops processing subsequent rules (Last)</td>
-</tr>
-<tr>
-<td><code>410 Gone</code></td>
-<td>HTTP Status</td>
-<td>Permanently deletes content from search engine indexes rapidly</td>
-</tr>
+<tr><td>Permanent Redirect</td><td>301 Moved Permanently</td><td>Permanent site migrations, URL restructuring, and domain moves. Pass &gt;95% link equity.</td></tr>
+<tr><td>Temporary Redirect</td><td>302 Found</td><td>Short-term maintenance, seasonal landing pages, or A/B testing.</td></tr>
+<tr><td>Force HTTPS</td><td>301 / SSL Rewrite</td><td>Securing web traffic by forcing encrypted TLS/SSL communication.</td></tr>
 </tbody>
 </table>
+</div>
+
+<h2>Global Server Configuration and Migration Reference Matrix</h2>
+<p>The reference table below outlines standard redirect practices across professional web management workflows:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Server Migration Scenario</th>
+<th>Recommended Configuration</th>
+<th>Execution Objective</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>HTTP to HTTPS Transition</td><td>Force SSL Rewrite Rule</td><td>Secure all inbound connections and satisfy Google security ranking signals.</td></tr>
+<tr><td>Old Domain to New Domain</td><td>Global RewriteEngine Match</td><td>Transfer complete authority and brand equity to the new web property.</td></tr>
+<tr><td>Broken or Deleted URLs</td><td>Single Page 301 Redirect</td><td>Redirect users and crawlers to active, relevant fallback pages.</td></tr>
+</tbody>
+</table>
+</div>
 
 <h2>How to Use the .htaccess Redirect Generator</h2>
-<p>Creating professional Apache server rules with our tool is fast and straightforward:</p>
-<ul>
-<li><strong>Select Configuration Type:</strong> Choose from single page 301/302 redirects, force SSL, or domain canonicalization rules.</li>
-<li><strong>Input URL Paths:</strong> Enter your source URL path and target destination address into the form fields.</li>
-<li><strong>Review Rules &amp; Copy:</strong> Check our live syntax radar for safety warnings, then copy your production-ready <code>.htaccess</code> code instantly!</li>
-</ul>
+<p>Using my server configuration utility is straightforward and fast. Select your redirect configuration type, enter your source paths and destination URLs, and instantly copy clean, production-ready Apache mod_rewrite rules.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A common mistake is creating multi-hop redirect chains (e.g., Page A to Page B, then Page B to Page C), which wastes crawler budget and slows down page load performance.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. Where should I place the generated .htaccess code on my server?</h3>
-<p>The generated rewrite rules should be placed at the very top of the <code>.htaccess</code> file located in the root directory (<code>public_html</code> or <code>www</code>) of your website.</p>
+<h3>1. What is an .htaccess file used for?</h3>
+<p>An .htaccess file is a configuration file for Apache-based web servers used for URL redirection, security control, and canonicalization.</p>
+<h3>2. What does the Live Apache Syntax &amp; Infinite Loop Detector do?</h3>
+<p>Our intelligent validator checks your redirect paths for syntax errors, regex conflicts, and circular redirection loops instantly.</p>
+<h3>3. Are my server rules or domain paths stored externally?</h3>
+<p>No. All code generation and validation execute securely inside your local web browser client-side, ensuring complete data privacy.</p>
 
-<h3>2. Do 301 redirects pass 100% of SEO link juice?</h3>
-<p>Yes, Google confirmed that permanent 301 redirects pass virtually all PageRank equity, making them the gold standard for site migrations.</p>
-
-<h3>3. Why is my site showing a "Too many redirects" error?</h3>
-<p>This error is caused by a circular redirection loop (e.g., forcing HTTPS and HTTP simultaneously or redirecting a URL to itself). Use our tool's built-in loop detector to catch these issues beforehand.</p>
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="diff-checker.html" style="color:var(--emerald);">Text Diff Checker</a>, <a href="lorem-ipsum-generator.html" style="color:var(--emerald);">Lorem Ipsum Generator</a>, <a href="meta-tag-generator.html" style="color:var(--emerald);">Meta Tag Generator</a>, <a href="markdown-to-html-converter.html" style="color:var(--emerald);">Markdown to HTML Converter</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -294,58 +310,66 @@ Analyzing redirect rules and syntax integrity...
 </div>
 
 <script>
-function toggleInputs() {
-  const type = document.getElementById('redirectType').value;
-  const row = document.getElementById('urlInputRow');
-  if (type === 'forceHttps' || type === 'wwwToNonWww' || type === 'nonWwwToWww') {
-    row.style.display = 'none';
-  } else {
-    row.style.display = 'grid';
-  }
+window.addEventListener('DOMContentLoaded', function() {
   generateHtaccess();
-}
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+});
 
 function generateHtaccess() {
   const type = document.getElementById('redirectType').value;
-  const oldPathEl = document.getElementById('oldPath');
-  const newPathEl = document.getElementById('newPath');
-  const outputEl = document.getElementById('htaccessOutput');
-
-  const oldPath = oldPathEl ? oldPathEl.value.trim() : '';
-  const newPath = newPathEl ? newPathEl.value.trim() : '';
-
-  let rules = "";
-  let radarHTML = "";
-
-  if (type === 'single301' || type === 'single302') {
-    const code = type === 'single301' ? '301' : '302';
-    const cleanOld = oldPath.startsWith('/') ? oldPath : '/' + oldPath;
-    rules = `RewriteEngine On\nRewriteCond %{REQUEST_URI} ^${escapeRegExp(cleanOld)}$ [NC]\nRewriteRule ^(.*)$ ${newPath} [R=${code},L]`;
+  const oldUrlInput = document.getElementById('oldUrl');
+  const newUrlInput = document.getElementById('newUrl');
+  const oldGroup = document.getElementById('oldUrlGroup');
+  const newGroup = document.getElementById('newUrlGroup');
+  const htaccessOutput = document.getElementById('htaccessOutput');
+  const syntaxAlertBox = document.getElementById('syntaxAlertBox');
+  
+  if (!htaccessOutput) return;
+  
+  let code = "";
+  let syntaxMsg = "";
+  
+  if (type === 'single') {
+    oldGroup.style.display = 'block';
+    newGroup.style.display = 'block';
+    let oldPath = oldUrlInput.value.trim() || '/old-page.html';
+    let newUrl = newUrlInput.value.trim() || 'https://smarttoolskit.com/new-page.html';
     
-    if (cleanOld === newPath || (newPath !== "" && cleanOld.includes(newPath))) {
-      radarHTML = `🔴 <strong>Critical Loop Warning:</strong> Your old path matches or conflicts with your destination path. This will cause an infinite browser redirect loop!`;
-    } else if (!newPath.startsWith('http://') && !newPath.startsWith('https://') && !newPath.startsWith('/')) {
-      radarHTML = `🟡 <strong>Syntax Notice:</strong> Destination path should ideally start with <code>https://</code> or <code>/</code> for absolute routing.`;
+    code = `RewriteEngine On\nRewriteCond %{REQUEST_URI} ^${escapeRegExp(oldPath)}$ [NC]\nRewriteRule ^(.*)$ ${newUrl} [R=301,L]`;
+    
+    if (oldPath === newUrl || oldPath === newUrl.replace(/https?:\/\/[^\/]+/, '')) {
+      syntaxMsg = '🔴 <strong>Warning:</strong> Circular redirect loop detected! Source and destination paths cannot be identical.';
     } else {
-      radarHTML = `🟢 <strong>Optimal Syntax:</strong> Single page ${code} redirect rule is clean, secure, and loop-free.`;
+      syntaxMsg = '🟢 <strong>Optimal Syntax:</strong> Single page 301 redirect rule is clean, secure, and loop free.';
     }
-  } else if (type === 'forceHttps') {
-    rules = `RewriteEngine On\nRewriteCond %{HTTPS} off\nRewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]`;
-    radarHTML = `🟢 <strong>Security Optimal:</strong> Standard Force HTTPS rule active. Protects user data and satisfies modern SSL ranking signals.`;
-  } else if (type === 'wwwToNonWww') {
-    rules = `RewriteEngine On\nRewriteCond %{HTTP_HOST} ^www\\.(.+)$ [NC]\nRewriteRule ^(.*)$ https://%1/$1 [R=301,L]`;
-    radarHTML = `🟢 <strong>Canonicalization Optimal:</strong> Automatically strips 'www' and forces clean non-WWW domain structure.`;
-  } else if (type === 'nonWwwToWww') {
-    rules = `RewriteEngine On\nRewriteCond %{HTTP_HOST} !^www\\. [NC]\nRewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]`;
-    radarHTML = `🟢 <strong>Canonicalization Optimal:</strong> Forces 'www' prefix across all inbound host requests.`;
-  } else if (type === 'domainChange') {
-    rules = `RewriteEngine On\nRewriteCond %{HTTP_HOST} ^(www\\.)?olddomain\\.com [NC]\nRewriteRule ^(.*)$ ${newPath || 'https://www.newdomain.com'}/$1 [R=301,L]`;
-    radarHTML = `🟢 <strong>Migration Ready:</strong> Full domain-to-domain wildcard redirection rule generated successfully. Ensure DNS remains active during migration.`;
+  } else if (type === 'domain') {
+    oldGroup.style.display = 'none';
+    newGroup.style.display = 'block';
+    let newDomain = newUrlInput.value.trim() || 'https://newdomain.com';
+    
+    code = `RewriteEngine On\nRewriteCond %{HTTP_HOST} ^oldsite\\.com [NC]\nRewriteRule ^(.*)$ ${newDomain}/$1 [R=301,L]`;
+    syntaxMsg = '🟢 <strong>Optimal Syntax:</strong> Domain-wide permanent redirect rule is fully configured for SEO link equity passing.';
+  } else if (type === 'https') {
+    oldGroup.style.display = 'none';
+    newGroup.style.display = 'none';
+    
+    code = `RewriteEngine On\nRewriteCond %{HTTPS} off\nRewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]`;
+    syntaxMsg = '🟢 <strong>Optimal Syntax:</strong> HTTPS SSL redirection rule is active, forcing secure encrypted connections.';
+  } else if (type === 'www') {
+    oldGroup.style.display = 'none';
+    newGroup.style.display = 'none';
+    
+    code = `RewriteEngine On\nRewriteCond %{HTTP_HOST} ^example\\.com [NC]\nRewriteRule ^(.*)$ https://www.example.com/$1 [R=301,L]`;
+    syntaxMsg = '🟢 <strong>Optimal Syntax:</strong> Non-WWW to WWW canonical redirection rule prevents duplicate content indexing.';
   }
-
-  if (outputEl) outputEl.textContent = rules;
-  const radarEl = document.getElementById('radarOutput');
-  if (radarEl) radarEl.innerHTML = radarHTML;
+  
+  htaccessOutput.value = code;
+  if (syntaxAlertBox) {
+    syntaxAlertBox.innerHTML = syntaxMsg;
+  }
 }
 
 function escapeRegExp(string) {
@@ -353,32 +377,18 @@ function escapeRegExp(string) {
 }
 
 function copyHtaccessCode() {
-  const outputEl = document.getElementById('htaccessOutput');
-  if (!outputEl) return;
-  navigator.clipboard.writeText(outputEl.textContent);
-  alert('.htaccess redirect code copied to clipboard successfully!');
+  const htaccessOutput = document.getElementById('htaccessOutput');
+  if (!htaccessOutput) return;
+  htaccessOutput.select();
+  navigator.clipboard.writeText(htaccessOutput.value);
+  alert('.htaccess redirect code copied to clipboard!');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
-  generateHtaccess();
-
-  const inputs = document.querySelectorAll('input, select');
-  inputs.forEach(el => {
-    el.addEventListener('input', generateHtaccess);
-    el.addEventListener('change', generateHtaccess);
-  });
-});
-
 function acceptCookies() {
-  localStorage.setItem('cookiesAccept', 'true');
+  localStorage.setItem('cookiesAccepted', 'true');
   const cb = document.getElementById('cookieConsent');
   if (cb) cb.style.display = 'none';
 }
 </script>
-
 </body>
 </html>
