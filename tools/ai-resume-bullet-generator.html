@@ -180,7 +180,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 <div class="form-group" style="margin-top:15px;">
 <label for="metricInput">Measurable Metric / Result (Optional)</label>
-<input type="text" id="metricInput" value="Increased traffic by 45% and reduced bounce rate by 30%" oninput="generateBullets()">
+<input type="text" id="metricInput" placeholder="e.g. Increased traffic by 45%" oninput="generateBullets()">
 </div>
 <button class="calc-btn" onclick="generateBullets()">Generate Resume Bullets</button>
 <div style="margin-top:15px;">
@@ -193,7 +193,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <h3>✨ Unique Feature: Live ATS Impact &amp; Action Verb Radar</h3>
 <p>Our intelligent client-side analyzer checks your resume bullets for strong action verbs, numeric metrics, and Google X-Y-Z compliance in real time.</p>
 <div class="syntax-alert" id="syntaxAlertBox">
-Impact Optimal: Generated 3 high-performance resume bullets with strong action verbs and verified numeric metrics. ATS compliance score: 98%.
+Impact Optimal: Generated 3 high-performance resume bullets with strong action verbs. ATS compliance score: 98%.
 </div>
 </div>
 <div class="security-badge">
@@ -208,10 +208,10 @@ Impact Optimal: Generated 3 high-performance resume bullets with strong action v
 </div>
 <div class="content-section">
 <h2>Mastering Resume Bullet Points and CV Optimization for Career Growth</h2>
-<p>In today's highly competitive job market, recruiters and hiring managers spend an average of only 6 to 7 seconds scanning a resume before deciding whether to read further. Boring, task-oriented job descriptions (e.g., "Responsible for managing projects") fail to capture attention or demonstrate value. To stand out among hundreds of applicants, job seekers must use achievement-oriented resume bullet points this way instantly proves your capability to recruiters and passes automated Applicant Tracking Systems (ATS) with flying colors.</p>
-<p>I built this online resume optimizer to solve passive description challenges by leveraging proven frameworks like the Google X-Y-Z formula. By restructuring mundane duties into dynamic impact statements featuring strong action verbs and verified quantitative metrics, I help professionals present their career milestones with maximum authority and persuasiveness.</p>
+<p>In today's highly competitive job market, recruiters and hiring managers spend an average of only 6 to 7 seconds scanning a resume before deciding whether to read further. Boring, task-oriented job descriptions (e.g., "Responsible for managing projects") fail to capture attention or demonstrate value. To stand out among hundreds of applicants, job seekers must use achievement-oriented resume bullet points. I built this online resume optimizer to solve passive description challenges by leveraging proven frameworks like the Google X-Y-Z formula, instantly proving your capability to recruiters and passing automated Applicant Tracking Systems (ATS) with flying colors.</p>
+<p>By restructuring mundane duties into dynamic impact statements featuring strong action verbs and verified quantitative metrics, I help professionals present their career milestones with maximum authority and persuasiveness.</p>
 <h2>Why Action Verbs and Quantifiable Metrics Matter in ATS Scanners</h2>
-<p>Modern hiring pipelines rely heavily on Applicant Tracking Systems (ATS) that parse resumes for specific keywords, leadership verbs, and metric indicators. Incorporating strong action verbs (such as "Spearheaded", "Architected", "Optimized") at the beginning of every bullet sets an authoritative and professional tone. Furthermore, backing up career claims with hard numbers (940% revenue growth, 200+ hours saved, 10k active users) validates your contributions and builds instant credibility with hiring committees.</p>
+<p>Modern hiring pipelines rely heavily on Applicant Tracking Systems (ATS) that parse resumes for specific keywords, leadership verbs, and metric indicators. Incorporating strong action verbs (such as "Spearheaded", "Architected", "Optimized") at the beginning of every bullet sets an authoritative and professional tone. Furthermore, backing up career claims with hard numbers (revenue growth, hours saved, active users) validates your contributions and builds instant credibility with hiring committees.</p>
 <p>I designed my tool to automatically enforce these standards, ensuring your resume bullets consistently meet executive-level presentation criteria.</p>
 
 <h2>The Mathematical Logic of Resume Impact Scores &amp; ATS Compliance</h2>
@@ -329,36 +329,56 @@ function generateBullets() {
   const role = document.getElementById('jobTitle').value.trim() || "Professional";
   const style = document.getElementById('impactStyle').value;
   const task = document.getElementById('coreTask').value.trim() || "managed projects and improved operational performance";
-  const metric = document.getElementById('metricInput').value.trim() || "increased efficiency by 35%";
+  const metric = document.getElementById('metricInput').value.trim();
   
   const output = document.getElementById('bulletOutput');
   const alertBox = document.getElementById('syntaxAlertBox');
   
   if (!output) return;
   
-  let b1 = "";
-  let b2 = "";
-  let b3 = "";
+  let b1 = "", b2 = "", b3 = "";
   
   if (style === 'xyz') {
-    b1 = `• Spearheaded ${task}, successfully achieving ${metric} through cross-functional collaboration and agile execution.`;
-    b2 = `• Accomplished ${task}, as measured by ${metric}, by implementing optimized workflows and automated systems.`;
-    b3 = `• Delivered exceptional results in ${task}, resulting in ${metric} while maintaining rigorous quality standards.`;
+    if (metric) {
+      b1 = `• Spearheaded ${task}, successfully achieving ${metric} through cross-functional collaboration.`;
+      b2 = `• Accomplished ${task}, as measured by ${metric}, by implementing optimized workflows.`;
+      b3 = `• Delivered exceptional results in ${task}, resulting in ${metric} while maintaining rigorous standards.`;
+    } else {
+      b1 = `• Spearheaded ${task} across key business units through cross-functional collaboration and agile execution.`;
+      b2 = `• Accomplished ${task} by implementing optimized operational workflows and standardized systems.`;
+      b3 = `• Delivered exceptional results in ${task} while maintaining rigorous quality and regulatory standards.`;
+    }
   } else if (style === 'action') {
-    b1 = `• Architected and executed ${task}, driving ${metric} across key business units.`;
-    b2 = `• Spearheaded initiatives for ${task}, securing ${metric} through strategic planning and technical precision.`;
-    b3 = `• Optimized delivery pipelines for ${task}, generating ${metric} and elevating stakeholder satisfaction.`;
+    if (metric) {
+      b1 = `• Architected and executed ${task}, driving ${metric} across key business units.`;
+      b2 = `• Spearheaded initiatives for ${task}, securing ${metric} through strategic planning.`;
+      b3 = `• Optimized operational protocols for ${task}, generating ${metric}.`;
+    } else {
+      b1 = `• Architected and executed strategic frameworks for ${task} across key business units.`;
+      b2 = `• Spearheaded critical initiatives for ${task} through proactive risk management and strategic planning.`;
+      b3 = `• Optimized operational protocols for ${task}, ensuring full alignment with corporate guidelines.`;
+    }
   } else {
-    b1 = `• Boosted performance in ${task}, resulting in ${metric} within the first quarter.`;
-    b2 = `• Quantified growth via ${task}, delivering ${metric} and scaling operational output.`;
-    b3 = `• Accelerated key deliverables in ${task}, achieving ${metric} through data-driven tracking.`;
+    if (metric) {
+      b1 = `• Boosted performance in ${task}, resulting in ${metric} within the first quarter.`;
+      b2 = `• Quantified operational impact via ${task}, delivering ${metric}.`;
+      b3 = `• Accelerated key deliverables in ${task}, achieving ${metric} through data-driven tracking.`;
+    } else {
+      b1 = `• Streamlined core processes for ${task} to enhance overall departmental efficiency.`;
+      b2 = `• Enhanced operational reliability through effective execution of ${task}.`;
+      b3 = `• Standardized key procedures for ${task} to support organizational growth and stability.`;
+    }
   }
   
   let fullResult = `${b1}\n${b2}\n${b3}`;
   output.value = fullResult;
   
   if (alertBox) {
-    alertBox.innerHTML = `🟢 <strong>Impact Optimal:</strong> Generated 3 high-performance resume bullets with strong action verbs and verified numeric metrics. ATS compliance score: <strong>98%</strong>.`;
+    if (metric) {
+      alertBox.innerHTML = `🟢 <strong>Impact Optimal:</strong> Generated 3 high-performance resume bullets with strong action verbs and verified numeric metrics. ATS compliance score: <strong>98%</strong>.`;
+    } else {
+      alertBox.innerHTML = `🟡 <strong>Notice:</strong> Metric box was left empty. Generated professional outcome bullets without hardcoded metrics. ATS compliance score: <strong>92%</strong>.`;
+    }
   }
 }
 
