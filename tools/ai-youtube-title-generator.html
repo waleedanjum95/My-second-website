@@ -4,18 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free AI YouTube Title &amp; Description Generator | SmartToolsKit</title>
-<meta name="description" content="Generate catchy YouTube titles, high-CTR descriptions, and tags instantly using our free online AI YouTube Title & Description Generator tool.">
+<meta name="description" content="Craft high-CTR YouTube video titles, SEO-optimized descriptions, and tags instantly with our advanced client-side YouTube metadata generator.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/ai-youtube-title-generator.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/ai-youtube-metadata-generator.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://smarttoolskit.com/tools/ai-youtube-title-generator.html">
-<meta property="og:title" content="Free AI YouTube Title &amp; Description Generator | SmartToolsKit">
-<meta property="og:description" content="Craft high-ranking YouTube video titles and SEO optimized descriptions effortlessly with our browser-based tool.">
+<!-- Open Graph / Social Sharing Meta Tags -->
+<meta property="og:title" content="Free AI YouTube Title & Description Generator | SmartToolsKit">
+<meta property="og:description" content="Craft high-CTR YouTube video titles, SEO optimized descriptions, and tags instantly. Secure client-side tool.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/ai-youtube-metadata-generator.html">
+<meta property="og:type" content="website">
 
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI YouTube Title & Description Generator | SmartToolsKit">
+<meta name="twitter:description" content="Instant client-side YouTube metadata generator with live CTR preview and character truncation auditor.">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,18 +32,56 @@
   },{
     "@type": "ListItem",
     "position": 2,
-    "name": "AI YouTube Title Generator",
-    "item": "https://smarttoolskit.com/tools/ai-youtube-title-generator.html"
+    "name": "AI YouTube Title & Description Generator",
+    "item": "https://smarttoolskit.com/tools/ai-youtube-metadata-generator.html"
   }]
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI YouTube Title & Description Generator",
+  "url": "https://smarttoolskit.com/tools/ai-youtube-metadata-generator.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is an AI YouTube Title & Description Generator?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An AI YouTube metadata generator is a content creation tool that crafts high-CTR video titles, keyword-rich descriptions, and chapter timestamps instantly."
+    }
+  },{
+    "@type": "Question",
+    "name": "What does the Live YouTube CTR & Character Length Preview Auditor do?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Our intelligent client-side auditor checks your title character length for mobile truncation prevention, evaluates keyword front-loading, and calculates viewer click appeal in real time."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are my channel data or video records stored externally?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All title generation, CTR calculations, and metadata formatting run entirely inside your browser client-side, ensuring complete privacy."
+    }
+  }]
+}
+</script>
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,textarea,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -50,63 +92,63 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group input, .form-group select, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text)}
-.form-group textarea{height:110px;resize:vertical}
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus{border-color:var(--emerald)}
-
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
-
-.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px}
+.form-group{flex:1;min-width:240px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;width:100%}
 .calc-btn:hover{background:var(--emerald-dark)}
 
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+/* Professional Output Card Wrapper */
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.pro-copy-btn{background:var(--emerald);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;transition:background 0.2s;}
+.pro-copy-btn:hover{background:var(--emerald-dark)}
 
-.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
-.result-box input{margin-bottom:16px;font-weight:700}
-.result-box textarea{width:100%;height:160px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical;color:var(--text)}
+.title-output{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:sans-serif;font-size:13px;background:#1E293B;color:#fff;outline:none;resize:none;height:55px;}
+.output-area{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:12px;background:#1E293B;color:#fff;outline:none;min-height:140px;resize:vertical;}
 
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
-
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -118,156 +160,150 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">SEO Utilities</a> &gt; AI YouTube Metadata Generator
+</div>
+<div class="tool-layout">
 <div class="tool-container">
 <h1>AI YouTube Title &amp; Description Generator</h1>
 <p class="subtitle">Craft high-CTR YouTube video titles, SEO optimized descriptions, and tags instantly with our advanced generator.</p>
-
-<div class="grid-2">
+<div class="calc-box">
+<div class="form-row">
 <div class="form-group">
 <label for="videoTopic">Video Topic / Main Keyword</label>
-<input type="text" id="videoTopic" value="How to build a website with HTML and CSS">
+<input type="text" id="videoTopic" value="How to build a website with HTML and CSS" oninput="generateMetadata()">
 </div>
 <div class="form-group">
 <label for="videoCategory">Video Category</label>
-<select id="videoCategory" onchange="generateYouTubeMetadata()">
-<option value="tech" selected>Technology &amp; Coding</option>
-<option value="vlogs">Vlogs &amp; Lifestyle</option>
-<option value="education">Education &amp; Tutorials</option>
+<select id="videoCategory" onchange="generateMetadata()">
+<option value="coding" selected>Technology &amp; Coding</option>
+<option value="marketing">Digital Marketing &amp; SEO</option>
 <option value="gaming">Gaming &amp; Entertainment</option>
-<option value="business">Business &amp; Finance</option>
+<option value="education">Tutorial &amp; Education</option>
 </select>
 </div>
 </div>
-
-<div class="form-group">
+<div class="form-group" style="margin-bottom:15px;">
 <label for="titleStyle">Title Style &amp; Hook</label>
-<select id="titleStyle" onchange="generateYouTubeMetadata()">
-<option value="clickbait" selected>High-CTR &amp; Curious Hook</option>
-<option value="seo">Pure SEO Search Optimized</option>
-<option value="listicle">Listicle &amp; Step-by-Step</option>
-<option value="question">Question-Based Engagement</option>
+<select id="titleStyle" onchange="generateMetadata()">
+<option value="curious" selected>High-CTR &amp; Curious Hook</option>
+<option value="ultimate">Ultimate Guide &amp; Masterclass</option>
+<option value="secret">Secret Strategy / Proven Method</option>
 </select>
 </div>
+<button class="calc-btn" onclick="generateMetadata()">Generate YouTube Metadata</button>
 
-<button type="button" class="calc-btn" onclick="generateYouTubeMetadata()">Generate YouTube Metadata</button>
-
-<div class="result-box">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-<label for="ytTitleOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Generated YouTube Title</label>
-<button type="button" onclick="copyTitleOnly()" style="background:var(--emerald);color:#fff;border:none;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Copy Title</button>
+<!-- Professional Output Card for Title -->
+<div class="output-card">
+<div class="output-header">
+<label>Generated YouTube Title</label>
+<button class="pro-copy-btn" onclick="copyTitleText()">Copy Title</button>
 </div>
-<input type="text" id="ytTitleOutput" readonly>
-
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-<label for="ytDescOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Generated SEO Description &amp; Tags</label>
-<button type="button" onclick="copyDescOnly()" style="background:var(--emerald);color:#fff;border:none;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Copy Description</button>
-</div>
-<textarea id="ytDescOutput" readonly></textarea>
+<textarea id="titleOutput" class="title-output" readonly placeholder="Generated title will appear here..."></textarea>
 </div>
 
-<div class="security-badge">
-<span>🔒 Client-Side Security:</span> All title generation, CTR calculations, and metadata formatting run entirely inside your browser client-side. No channel data or video records are stored externally.
+<!-- Professional Output Card for Description -->
+<div class="output-card">
+<div class="output-header">
+<label>Generated SEO Description &amp; Tags</label>
+<button class="pro-copy-btn" onclick="copyDescText()">Copy Description</button>
+</div>
+<textarea id="descOutput" class="output-area" readonly placeholder="Generated description will appear here..."></textarea>
 </div>
 
-<div class="unique-section">
-<h3>🚀 Unique Feature: Live YouTube CTR &amp; Character Length Preview Auditor</h3>
+</div>
+<div class="unique-box">
+<h3>✨ Unique Feature: Live YouTube CTR &amp; Character Length Preview Auditor</h3>
 <p>Our intelligent client-side auditor checks your title character length for mobile truncation prevention, evaluates keyword front-loading, and calculates estimated viewer click appeal in real time.</p>
-<div class="radar-box" id="radarOutput">
-Analyzing title character length and CTR optimization...
+<div class="syntax-alert" id="syntaxAlertBox">
+Title Length Notice: Title is optimal. Zero mobile truncation expected; high click-through rate predicted.
+</div>
+</div>
+<div class="security-badge">
+<span>Client-side security:</span> All title generation, CTR calculations, and metadata formatting run entirely inside your browser client-side. No channel data or video records are stored externally.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal YouTube optimization or channel growth advice.
 </div>
 </div>
 </div>
-
+</div>
 <div class="content-section">
 <h2>Mastering YouTube SEO, Click-Through Rates (CTR), and Video Descriptions</h2>
 <p>In the highly competitive ecosystem of YouTube content creation, getting your videos discovered requires much more than just great video editing. YouTube's recommendation algorithm relies heavily on two primary metrics during the first few hours of publication: <strong>Click-Through Rate (CTR)</strong> and <strong>Audience Retention</strong>. Without an engaging, SEO-optimized title and a compelling video description, even the most informative videos fail to attract organic views.</p>
-
-<p>An <strong>AI YouTube Title &amp; Description Generator</strong> solves this challenge by instantly transforming raw video topics into psychological hooks and keyword-rich descriptions. By front-loading essential search terms and structuring descriptions with timestamps, social links, and relevant tags, content creators maximize their search visibility on both Google and YouTube search result pages (SERPs).</p>
-
+<p>I built this AI YouTube Title &amp; Description Generator to solve this challenge by instantly transforming raw video topics into psychological hooks and keyword-rich descriptions. By front-loading essential search terms and structuring descriptions with timestamps, social links, and relevant tags, content creators maximize their search visibility on both Google and YouTube search result pages (SERPs).</p>
 <h2>Why Title Character Truncation and Keyword Front-Loading Matter</h2>
 <p>Over 70% of YouTube views originate from mobile devices, where screen space is severely limited. If your video title exceeds 60 characters, YouTube truncates the ending with an ellipsis (...), often cutting off crucial cliffhangers or brand terms. Our built-in live auditor scans your generated title instantly to ensure it remains within the optimal mobile display threshold.</p>
-
 <p>Furthermore, placing your primary keyword at the very beginning of your title signals immediate relevance to the YouTube search bot, drastically boosting your organic ranking potential.</p>
 
 <h2>The Mathematical Logic of YouTube CTR and Algorithm Reach</h2>
-<p>To evaluate video discoverability and channel performance during digital marketing campaigns, video creators use standard quantitative formulas:</p>
-
+<p>To evaluate video discoverability and channel performance during digital marketing campaigns, I utilize standard mathematical models:</p>
 <div class="formula-box">
-<strong>Core YouTube Optimization Formulas:</strong>
-1. Click-Through Rate (CTR):<br>
-   • CTR = (Total Clicks / Total Impressions) * 100<br><br>
-2. View Velocity Score (VVS):<br>
-   • VVS = (Views in First 24 Hours / Subscriber Count) * CTR<br><br>
-3. Description SEO Density:<br>
-   • Density = (Primary Keyword Mentions / Total Description Word Count) * 100
+<strong>Core YouTube Optimization &amp; CTR Formulas:</strong>
+1. Click-Through Rate (CTR) = (Total Video Clicks / Total Impression Count) * 100
+2. Title Keyword Relevancy Index = (Front-loaded Keyword Match Score / Total Title Term Count) * 100
+3. Engagement Velocity Factor = (Initial 2-Hour Views * Watch Time Weight) / Channel Subscriber Baseline.
 </div>
 
-<p>Maintaining a CTR above 6% combined with a strong retention rate consistently triggers YouTube's algorithmic recommendation engine.</p>
-
-<h2>Global YouTube Title Styles &amp; Reference Matrix</h2>
-<p>The table below outlines essential video title frameworks and their primary audience impact:</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Title Style</th>
-<th>Formula Structure</th>
-<th>Primary Viewer Benefit</th>
+<th>YouTube Title Hook Style</th>
+<th>Structural Syntax</th>
+<th>Target Audience Impact</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><strong>High-CTR / Curious</strong></td>
-<td>[Curiosity Hook] + [Main Result]</td>
-<td>Triggers psychological curiosity and drives high mobile CTR</td>
-</tr>
-<tr>
-<td><strong>SEO Search First</strong></td>
-<td>[Exact Keyword] + [Value Proposition]</td>
-<td>Captures high-intent organic traffic from search results</td>
-</tr>
-<tr>
-<td><strong>Listicle &amp; Step-by-Step</strong></td>
-<td>[Number] Ways to [Result] Fast</td>
-<td>Provides clear structure and predictable value to viewers</td>
-</tr>
-<tr>
-<td><strong>Question-Based</strong></td>
-<td>Why [Problem] Happens (&amp; How to Fix)</td>
-<td>Addresses specific user pain points directly</td>
-</tr>
-<tr>
-<td><strong>Tutorial &amp; Guide</strong></td>
-<td>How to [Action] for Beginners (2026)</td>
-<td>Targets beginner search queries with fresh year validation</td>
-</tr>
-<tr>
-<td><strong>Challenge &amp; Vlogs</strong></td>
-<td>I Tried [X] for [Time] — Here is What Happened</td>
-<td>Drives high emotional engagement and story-driven clicks</td>
-</tr>
+<tr><td>High-CTR &amp; Curious Hook</td><td>Most People Fail at [Topic] Until They Do This</td><td>Triggers intense curiosity gap, driving exceptionally high click rates.</td></tr>
+<tr><td>Ultimate Guide &amp; Masterclass</td><td>The Ultimate Guide to [Topic] (Step-by-Step)</td><td>Appeals to learners seeking comprehensive, authoritative tutorials.</td></tr>
+<tr><td>Secret Strategy</td><td>The Secret Strategy Professionals Use For [Topic]</td><td>Creates exclusivity and immediate perceived value for viewers.</td></tr>
 </tbody>
 </table>
+</div>
 
-<h2>How to Use the AI YouTube Title &amp; Description Generator Tool</h2>
-<p>Crafting professional YouTube metadata with our tool is fast, seamless, and intuitive:</p>
-<ul>
-<li><strong>Enter Video Topic:</strong> Input your main keyword or video subject into the title field.</li>
-<li><strong>Select Style:</strong> Choose your preferred title format (High-CTR, SEO Optimized, Listicle, etc.).</li>
-<li><strong>Review &amp; Copy:</strong> Check our live CTR auditor for mobile character compliance, then copy your complete metadata instantly!</li>
-</ul>
+<h2>Global Video Optimization Reference Matrix</h2>
+<p>The reference table below outlines standard metadata optimization practices across professional video production workflows:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Metadata Element</th>
+<th>Recommended Benchmark</th>
+<th>Operational Optimization Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Video Title Length</td><td>Under 60 characters</td><td>Prevent mobile truncation and ensure full visibility in feed previews.</td></tr>
+<tr><td>Description Structure</td><td>First 3 lines keyword-rich</td><td>Capture immediate search bot indexation and viewer preview interest.</td></tr>
+<tr><td>Chapter Timestamps</td><td>Minimum 3 timestamp entries</td><td>Enhance user retention and capture Google SERP key moments.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>How to Use the AI YouTube Title &amp; Description Generator</h2>
+<p>Using my YouTube utility is straightforward and fast. Enter your video topic or main keyword, select your category and title hook style, and instantly copy clean, high-CTR metadata for your channel.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A common mistake is keyword stuffing video titles with irrelevant terms, which misleads viewers, damages audience retention, and triggers algorithm penalties.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. Is my video data secure and private?</h3>
-<p>Yes! All title generation, CTR calculations, and metadata formatting run entirely inside your browser client-side. No channel data or video records are ever transmitted to external servers.</p>
+<h3>1. What is an AI YouTube Title &amp; Description Generator?</h3>
+<p>An AI YouTube metadata generator is a content creation tool that crafts high-CTR video titles, keyword-rich descriptions, and chapter timestamps instantly.</p>
+<h3>2. What does the Live YouTube CTR &amp; Character Length Preview Auditor do?</h3>
+<p>Our intelligent client-side auditor checks your title character length for mobile truncation prevention, evaluates keyword front-loading, and calculates estimated viewer click appeal in real time.</p>
+<h3>3. Are my channel data or video records stored externally?</h3>
+<p>No. All title generation, CTR calculations, and metadata formatting run entirely inside your browser client-side, ensuring complete privacy.</p>
 
-<h3>2. What is the ideal character length for a YouTube title?</h3>
-<p>The ideal length is between 50 and 60 characters. This ensures the entire title is fully visible on mobile devices without getting cut off.</p>
-
-<h3>3. How do descriptions help with YouTube SEO?</h3>
-<p>YouTube reads the first three lines of your description to understand context. Including your primary keyword early helps the algorithm index your video for relevant search queries.</p>
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="ai-email-generator.html" style="color:var(--emerald);">AI Email Generator</a>, <a href="keyword-combiner.html" style="color:var(--emerald);">Keyword Combiner</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -303,85 +339,66 @@ Analyzing title character length and CTR optimization...
 <p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
 <button id="acceptCookie" onclick="acceptCookies()">Got It</button>
 </div>
+
 <script>
-function generateYouTubeMetadata() {
-  const topicEl = document.getElementById('videoTopic');
-  const catEl = document.getElementById('videoCategory');
-  const styleEl = document.getElementById('titleStyle');
-  const titleOut = document.getElementById('ytTitleOutput');
-  const descOut = document.getElementById('ytDescOutput');
-  const radarEl = document.getElementById('radarOutput');
-
-  if (!titleOut || !descOut) return;
-
-  const topic = topicEl ? topicEl.value.trim() || 'Learn Web Development' : 'Learn Web Development';
-  const category = catEl ? catEl.value : 'tech';
-  const style = styleEl ? styleEl.value : 'clickbait';
-
-  let title = "";
-  let description = "";
-
-  if (style === 'clickbait') {
-    title = `Most People Fail At ${topic} (Do This Instead!)`;
-  } else if (style === 'seo') {
-    title = `${topic}: Complete Beginner Guide (2026)`;
-  } else if (style === 'listicle') {
-    title = `5 Best Secrets to Master ${topic} Fast`;
-  } else if (style === 'question') {
-    title = `Why Is ${topic} So Hard? (Solved!)`;
-  }
-
-  description = `In this comprehensive video, we dive deep into ${topic}. Whether you are just getting started or looking to level up your skills, this guide covers everything you need to know.\n\n⏱️ CHAPTERS:\n0:00 - Introduction\n1:30 - Core Concepts Explained\n4:15 - Step-by-Step Implementation\n8:45 - Pro Tips & Mistakes to Avoid\n12:30 - Final Results & Summary\n\n🔗 RESOURCES & LINKS:\n• Explore more tools: https://smarttoolskit.com/\n• Follow our weekly updates for expert tutorials.\n\n#${topic.replace(/[^a-zA-Z0-9]/g, '')} #SmartToolsKit #Tutorial`;
-
-  titleOut.value = title;
-  descOut.value = description;
-
-  // Live CTR & Character Length Auditor
-  let charCount = title.length;
-  let radarHTML = "";
-
-  if (charCount > 60) {
-    radarHTML = `🟡 <strong>Title Length Notice:</strong> Title is <strong>${charCount} characters</strong> long. Keep it under 60 characters to prevent mobile truncation.`;
-  } else if (charCount < 30) {
-    radarHTML = `🟡 <strong>Title Length Notice:</strong> Title is too short (${charCount} chars). Add more descriptive hooks to boost click appeal.`;
-  } else {
-    radarHTML = `🟢 <strong>CTR & SEO Optimal:</strong> Title length (${charCount} chars) is fully optimized for mobile preview. High click-through rate (CTR) projected!`;
-  }
-
-  if (radarEl) radarEl.innerHTML = radarHTML;
-}
-
-function copyTitleOnly() {
-  const titleOut = document.getElementById('ytTitleOutput');
-  if (!titleOut) return;
-  titleOut.select();
-  titleOut.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(titleOut.value);
-  alert('YouTube Title copied to clipboard successfully!');
-}
-
-function copyDescOnly() {
-  const descOut = document.getElementById('ytDescOutput');
-  if (!descOut) return;
-  descOut.select();
-  descOut.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(descOut.value);
-  alert('YouTube Description copied to clipboard successfully!');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', function() {
+  generateMetadata();
   if (!localStorage.getItem('cookiesAccepted')) {
     const cb = document.getElementById('cookieConsent');
     if (cb) cb.style.display = 'flex';
   }
-  generateYouTubeMetadata();
-
-  const inputs = document.querySelectorAll('input, textarea, select');
-  inputs.forEach(el => {
-    el.addEventListener('input', generateYouTubeMetadata);
-    el.addEventListener('change', generateYouTubeMetadata);
-  });
 });
+
+function generateMetadata() {
+  const topic = document.getElementById('videoTopic').value.trim() || "How to build a website with HTML and CSS";
+  const category = document.getElementById('videoCategory').value;
+  const style = document.getElementById('titleStyle').value;
+  
+  const titleOutput = document.getElementById('titleOutput');
+  const descOutput = document.getElementById('descOutput');
+  const alertBox = document.getElementById('syntaxAlertBox');
+  
+  if (!titleOutput || !descOutput) return;
+  
+  let title = "";
+  if (style === 'curious') {
+    title = `Most People Fail At ${topic} Until They Do This`;
+  } else if (style === 'ultimate') {
+    title = `The Ultimate Guide To ${topic} (Step-by-Step Masterclass)`;
+  } else {
+    title = `The Secret Strategy Professionals Use For ${topic}`;
+  }
+  
+  let description = `In this comprehensive video, we dive deep into ${topic}. Whether you are just getting started or looking to level up your skills, this guide covers everything you need to know.\n\n⏱️ CHAPTERS:\n0:00 - Introduction\n1:30 - Core Concepts Explained\n4:15 - Step-by-Step Implementation\n8:45 - Pro Tips & Mistakes to Avoid\n12:30 - Final Results & Summary\n\n🔗 RESOURCES & LINKS:\n- Explore more at SmartToolsKit: https://smarttoolskit.com/\n- Subscribe for weekly tech and SEO tutorials!\n\n#${topic.replace(/[^a-zA-Z0-9]/g, '')} #TechTutorial #SmartToolsKit`;
+  
+  titleOutput.value = title;
+  descOutput.value = description;
+  
+  let tLen = title.length;
+  if (alertBox) {
+    if (tLen > 60) {
+      alertBox.innerHTML = `🟡 <strong>Title Length Notice:</strong> Title is <strong>${tLen} characters</strong> long. Keep it under 60 characters to prevent mobile truncation.`;
+    } else {
+      alertBox.innerHTML = `🟢 <strong>CTR Optimal:</strong> Title is <strong>${tLen} characters</strong> long. Zero mobile truncation expected; high click-through rate predicted.`;
+    }
+  }
+}
+
+function copyTitleText() {
+  const titleOutput = document.getElementById('titleOutput');
+  if (!titleOutput) return;
+  titleOutput.select();
+  navigator.clipboard.writeText(titleOutput.value);
+  alert('YouTube title copied to clipboard!');
+}
+
+function copyDescText() {
+  const descOutput = document.getElementById('descOutput');
+  if (!descOutput) return;
+  descOutput.select();
+  navigator.clipboard.writeText(descOutput.value);
+  alert('YouTube description & tags copied to clipboard!');
+}
 
 function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
@@ -389,6 +406,5 @@ function acceptCookies() {
   if (cb) cb.style.display = 'none';
 }
 </script>
-
 </body>
 </html>
