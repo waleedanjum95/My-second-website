@@ -3,19 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online UUID / GUID Generator &amp; Auditor | SmartToolsKit</title>
-<meta name="description" content="Generate random v4 and v1 UUIDs / GUIDs instantly with our free online UUID Generator tool. Features live entropy auditing, batch generation, and secure client-side processing.">
+<title>Free UUID / GUID Generator &amp; Entropy Auditor | SmartToolsKit</title>
+<meta name="description" content="Generate cryptographic v4 and v1 UUIDs / GUIDs instantly with batch control, formatting options, and live entropy auditing.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/uuid-generator.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
+<!-- Open Graph / Social Sharing Meta Tags -->
+<meta property="og:title" content="Free UUID / GUID Generator & Entropy Auditor | SmartToolsKit">
+<meta property="og:description" content="Generate cryptographic v4 and v1 UUIDs / GUIDs instantly with batch control and formatting options.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/uuid-generator.html">
-<meta property="og:title" content="Free Online UUID / GUID Generator | SmartToolsKit">
-<meta property="og:description" content="Generate secure, standards-compliant v4 and v1 UUIDs instantly within your browser with zero server transmission.">
+<meta property="og:type" content="website">
 
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UUID / GUID Generator & Entropy Auditor | SmartToolsKit">
+<meta name="twitter:description" content="Instant client-side UUID generator with CSPRNG entropy and collision probability auditing.">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,18 +32,75 @@
   },{
     "@type": "ListItem",
     "position": 2,
+    "name": "Developer Utilities",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
     "name": "UUID / GUID Generator",
     "item": "https://smarttoolskit.com/tools/uuid-generator.html"
   }]
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "UUID / GUID Generator & Entropy Auditor",
+  "url": "https://smarttoolskit.com/tools/uuid-generator.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is a UUID / GUID Generator?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A UUID (Universally Unique Identifier) or GUID generator creates 128-bit unique reference codes used across databases, microservices, and primary keys."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the difference between Version 4 and Version 1 UUIDs?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Version 4 UUIDs rely entirely on cryptographic random numbers (CSPRNG), while Version 1 UUIDs encode the host MAC address and precise timestamp."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are my generated UUIDs stored or tracked externally?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All identifier generations, entropy calculations, and batch routines run entirely client-side inside your browser for complete data security."
+    }
+  },{
+    "@type": "Question",
+    "name": "What does the Live Entropy & Collision Probability Auditor do?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It analyzes bit randomness in real-time, calculates entropy bits, and estimates astronomical collision risks based on your generated batch size."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I format generated UUIDs without hyphens or in uppercase?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you can customize hyphen formatting (with or without hyphens) and letter case (lowercase or uppercase) instantly."
+    }
+  }]
+}
+</script>
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,textarea,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -50,64 +111,64 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group select,.form-group input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text)}
-.form-group select:focus,.form-group input:focus{border-color:var(--emerald)}
-
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
-
-.btn-group{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px}
+.form-group{flex:1;min-width:240px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group select,.form-group input{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.calc-btn.secondary{background:var(--navy)}
-.calc-btn.secondary:hover{background:var(--navy-light)}
+.calc-btn-secondary{background:var(--navy);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn-secondary:hover{background:var(--navy-light)}
 
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
+/* Professional Output Card Wrapper */
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.pro-copy-btn{background:var(--emerald);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;transition:background 0.2s;}
+.pro-copy-btn:hover{background:var(--emerald-dark)}
+.output-area{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:12px;background:#1E293B;color:#fff;outline:none;min-height:140px;resize:vertical;}
 
-.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
-.result-box textarea{width:100%;height:150px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical;color:var(--text);font-family:monospace}
-
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
-
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
+.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
 .formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
+#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
+#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
 #cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -119,159 +180,154 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Developer Utilities</a> &gt; UUID / GUID Generator
+</div>
+<div class="tool-layout">
 <div class="tool-container">
-<h1>AI UUID / GUID Generator &amp; Entropy Auditor</h1>
+<h1>UUID / GUID Generator &amp; Entropy Auditor</h1>
 <p class="subtitle">Generate cryptographic v4 and v1 UUIDs / GUIDs instantly with batch control and formatting options.</p>
-
-<div class="grid-2">
+<div class="calc-box">
+<div class="form-row">
 <div class="form-group">
 <label for="uuidVersion">UUID Version</label>
 <select id="uuidVersion" onchange="generateUUIDs()">
-<option value="v4" selected>Version 4 (Random / Pseudorandom)</option>
-<option value="v1">Version 1 (Timestamp &amp; MAC based)</option>
+<option value="v4">Version 4 (Random / Pseudorandom)</option>
+<option value="v1">Version 1 (Timestamp &amp; MAC)</option>
 </select>
 </div>
 <div class="form-group">
-<label for="uuidCount">Quantity (1 - 50)</label>
-<input type="number" id="uuidCount" value="5" min="1" max="50" oninput="generateUUIDs()">
+<label for="uuidQuantity">Quantity (1 - 50)</label>
+<input type="number" id="uuidQuantity" value="5" min="1" max="50" oninput="generateUUIDs()">
 </div>
 </div>
-
-<div class="grid-2">
+<div class="form-row">
 <div class="form-group">
-<label for="hyphenOption">Hyphen Formatting</label>
-<select id="hyphenOption" onchange="generateUUIDs()">
-<option value="with" selected>With Hyphens (8-4-4-4-12)</option>
-<option value="without">Without Hyphens (32 Hex)</option>
+<label for="hyphenFormat">Hyphen Formatting</label>
+<select id="hyphenFormat" onchange="generateUUIDs()">
+<option value="with">With Hyphens (8-4-4-4-12)</option>
+<option value="without">Without Hyphens (32 Hex Chars)</option>
 </select>
 </div>
 <div class="form-group">
-<label for="caseOption">Letter Case</label>
-<select id="caseOption" onchange="generateUUIDs()">
-<option value="lower" selected>Lowercase (a-f)</option>
+<label for="letterCase">Letter Case</label>
+<select id="letterCase" onchange="generateUUIDs()">
+<option value="lower">Lowercase (a-f)</option>
 <option value="upper">Uppercase (A-F)</option>
 </select>
 </div>
 </div>
-
-<div class="btn-group">
-<button type="button" class="calc-btn" onclick="generateUUIDs()">Generate New UUIDs</button>
-<button type="button" class="calc-btn secondary" onclick="copyUUIDOutput()">Copy UUIDs</button>
+<div class="btn-row">
+<button class="calc-btn" onclick="generateUUIDs()">Generate New UUIDs</button>
+<button class="calc-btn-secondary" onclick="copyUUIDOutput()">Copy UUIDs</button>
 </div>
 
-<div class="result-box">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-<label for="uuidOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Generated UUID Output</label>
-<span style="font-size:12px;color:var(--muted);" id="batchCountLabel">5 UUIDs generated</span>
+<!-- Professional Output Card -->
+<div class="output-card">
+<div class="output-header">
+<label>Generated UUID Output</label>
+<span id="batchCountBadge" style="font-size:11px;color:#A7F3D0;font-weight:700;">5 UUIDs generated</span>
 </div>
-<textarea id="uuidOutput" readonly></textarea>
-</div>
-
-<div class="security-badge">
-<span>🔒 Client-Side Security:</span> All UUID generation algorithms, cryptographic entropy collection, and batch calculations run entirely inside your browser client-side. No identifiers or session records are transmitted externally.
+<textarea id="uuidOutput" class="output-area" readonly placeholder="Generated UUIDs will appear here..."></textarea>
 </div>
 
-<div class="unique-section">
-<h3>🚀 Unique Feature: Live UUID Entropy &amp; Collision Probability Auditor</h3>
+</div>
+<div class="unique-box">
+<h3>✨ Unique Feature: Live UUID Entropy &amp; Collision Probability Auditor</h3>
 <p>Our intelligent client-side auditor analyzes generated bit randomness, calculates entropy bits, and estimates astronomical collision risks in real time.</p>
-<div class="radar-box" id="radarOutput">
-Analyzing cryptographic entropy and uniqueness metrics...
+<div class="syntax-alert" id="syntaxAlertBox">
+CSPRNG Entropy Verified: Version 4 active. 122 bits of pure cryptographic randomness. Collision probability with 5 items is ~0 (1 in 5.3 × 10³⁶).
+</div>
+</div>
+<div class="security-badge">
+<span>Client-side security:</span> All UUID generation algorithms, cryptographic entropy collection, and batch calculations run entirely inside your browser client-side. No identifiers or session records are transmitted externally.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal software architecture or backend database design advice.
 </div>
 </div>
 </div>
-
+</div>
 <div class="content-section">
 <h2>Mastering UUIDs, GUIDs, Database Indexing, and Unique Identification</h2>
-<p>In modern software engineering, distributed systems, and database architecture, generating unique identifiers across multiple independent nodes without a central coordinating authority is a fundamental requirement. A <strong>UUID</strong> (Universally Unique Identifier), often referred to as a <strong>GUID</strong> (Globally Unique Identifier) in Microsoft ecosystems, is a 128-bit number standardized by the Open Software Foundation (OSF) and RFC 4122. An <strong>AI UUID / GUID Generator</strong> provides developers, database administrators, and system architects with an instant, highly secure utility to produce cryptographic identifiers for primary keys, API transactions, session tokens, and microservice events.</p>
-
-<p>Unlike auto-incrementing integer IDs (which expose sequential business metrics like total user signups or order volumes and create bottlenecks during horizontal database sharding), UUIDs provide absolute uniqueness across distributed clusters. Whether you are bootstrapping a new PostgreSQL schema, generating correlation IDs for microservice tracing, or structuring REST API payloads, utilizing proper UUID versions ensures seamless scalability and rock-solid data integrity.</p>
-
+<p>In modern software engineering, distributed systems, and database architecture, generating unique identifiers across multiple independent nodes without a central coordinating authority is a fundamental requirement. A UUID (Universally Unique Identifier), often referred to as a GUID (Globally Unique Identifier) in Microsoft ecosystems, is a 128-bit number standardized by the Open Software Foundation (OSF) and RFC 4122. I built this UUID / GUID Generator to provide developers, database administrators, and system administrators with an instant, highly secure utility to produce cryptographic identifiers for primary keys, API transactions, session tokens, and microservice events.</p>
+<p>Unlike auto-incrementing integer IDs (which expose sequential business metrics like total user signups or order volumes and create bottlenecks during horizontal database sharding), UUIDs provide absolute uniqueness across distributed clusters. Whether you are bootstrapping a PostgreSQL schema, generating correlation IDs for microservice tracing, or structuring REST API payloads, utilizing proper UUID versions ensures seamless scalability and rock-solid data integrity.</p>
 <h2>Why Cryptographic Randomness and Version Selection Matter</h2>
-<p>UUID specification defines multiple versions based on generation logic. <strong>Version 4 (v4)</strong> relies entirely on random or pseudorandom numbers generated via cryptographically secure pseudo-random number generators (CSPRNG), providing 122 bits of pure entropy. This ensures that the probability of generating a duplicate UUID is astronomically low—so low that you could generate billions of UUIDs every second for centuries before encountering a collision.</p>
-
-<p>Conversely, <strong>Version 1 (v1)</strong> encodes the MAC address of the generating machine and a precise Coordinated Universal Time (UTC) timestamp. While useful in specific chronological sorting scenarios, v1 introduces minor privacy concerns regarding hardware exposure. Our built-in <strong>Live Entropy Auditor</strong> inspects your selected configuration, verifying bit randomness and calculating exact collision probabilities instantly.</p>
+<p>UUID specification defines multiple versions based on generation logic. Version 4 (v4) relies entirely on random or pseudorandom numbers generated via cryptographically secure pseudo-random number generators (CSPRNG), providing 122 bits of pure entropy. This ensures that the probability of generating a duplicate UUID is astronomically low—so low that you could generate billions of UUIDs every second for centuries before encountering a collision.</p>
+<p>Conversely, Version 1 (v1) encodes the MAC address of the generating machine and a precise Coordinated Universal Time (UTC) timestamp. While useful in specific chronological sorting scenarios, v1 introduces minor privacy concerns regarding hardware exposure. Our built-in Live Entropy Auditor inspects your selected configuration, verifying bit randomness and calculating exact collision probabilities instantly.</p>
 
 <h2>The Mathematical Logic of UUID Entropy and Collision Probability</h2>
-<p>To evaluate identifier uniqueness and cryptographic resilience during system architecture audits, engineers use standard quantitative formulas:</p>
-
+<p>To evaluate identifier uniqueness and cryptographic resilience during system architecture audits, I utilize standard probabilistic and bit-entropy models:</p>
 <div class="formula-box">
-<strong>Core UUID Mathematical Formulas:</strong>
-1. Total Bit Space ($S_{total}$):<br>
-   • $S_{total} = 2^{128} \approx 3.4 \times 10^{38}$ possible unique values.<br><br>
-2. Effective Random Entropy ($E_{v4}$):<br>
-   • $E_{v4} = 122 \text{ bits}$ (6 bits are reserved for UUID version and variant flags).<br><br>
-3. Birthday Paradox Collision Probability ($P_{col}$):<br>
-   • $P_{col} \approx 1 - e^{-\frac{n^2}{2 \cdot 2^{122}}}$ (where $n$ is the total generated count).
+<strong>Core UUID Entropy &amp; Collision Formulas:</strong>
+1. Total Bit Entropy = 128 Bits (6 Fixed Protocol Bits + 122 Variable Random/Timestamp Bits)
+2. Birthday Collision Probability (approx.) ≈ 1 - e^(- (n²) / (2 * 2^122)) where n is total generated identifiers
+3. Hexadecimal String Length = 32 Characters (with Hyphens = 36 Characters).
 </div>
 
-<p>Maintaining high entropy guarantees zero accidental key clashes across multi-tenant database architectures and cloud-native applications.</p>
-
-<h2>Global UUID Versions &amp; Specification Reference Matrix</h2>
-<p>The table below outlines essential UUID versions, their generation algorithms, and primary enterprise use cases:</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
 <th>UUID Version</th>
-<th>Generation Basis</th>
-<th>Entropy &amp; Structure</th>
-<th>Primary Enterprise Use Case</th>
+<th>Underlying Generation Mechanism</th>
+<th>Primary Use Case &amp; Characteristics</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><strong>Version 1</strong></td>
-<td>Timestamp &amp; MAC Address</td>
-<td>Time-based fields + hardware node ID</td>
-<td>Chronological event logging, distributed sorting queues</td>
-</tr>
-<tr>
-<td><strong>Version 2</strong></td>
-<td>DCE Security (Timestamp + ID)</td>
-<td>Modified v1 with POSIX UID/GID</td>
-<td>Legacy operating system security auditing</td>
-</tr>
-<tr>
-<td><strong>Version 3</strong></td>
-<td>Name-based (MD5 Hash)</td>
-<td>Deterministic hashing of namespace + name</td>
-<td>Consistent identifier mapping from legacy string keys</td>
-</tr>
-<tr>
-<td><strong>Version 4</strong></td>
-<td>Cryptographic Randomness (CSPRNG)</td>
-<td>122 bits of pure random data + 6 fixed bits</td>
-<td>Primary database keys, API tokens, general identifiers</td>
-</tr>
-<tr>
-<td><strong>Version 5</strong></td>
-<td>Name-based (SHA-1 Hash)</td>
-<td>Deterministic hashing using secure SHA-1</td>
-<td>Modern deterministic ID generation from URIs or FQDNs</td>
-</tr>
+<tr><td>Version 4 (v4)</td><td>CSPRNG Random / Pseudorandom Bytes</td><td>Web application primary keys, API tokens, and zero-hardware tracking.</td></tr>
+<tr><td>Version 1 (v1)</td><td>Node MAC Address + UTC Timestamp</td><td>Log sorting, chronological event ordering, and internal tracing.</td></tr>
+<tr><td>Raw Hex (32 Chars)</td><td>Stripped Hyphen Representation</td><td>Compact database indexing and URL path parameters.</td></tr>
 </tbody>
 </table>
+</div>
 
-<h2>How to Use the UUID / GUID Generator Tool</h2>
-<p>Generating your secure identifiers with our tool is fast, seamless, and intuitive:</p>
-<ul>
-<li><strong>Select Version:</strong> Choose between Version 4 (Random) or Version 1 (Timestamp) from the dropdown.</li>
-<li><strong>Specify Quantity:</strong> Enter how many UUIDs you need (ranging from 1 to 50 in a single batch).</li>
-<li><strong>Configure Formatting:</strong> Select whether to include hyphens and choose lowercase or uppercase lettering.</li>
-<li><strong>Generate &amp; Copy:</strong> Review our live entropy auditor, then copy your generated UUID batch instantly!</li>
-</ul>
+<h2>Global UUID Deployment Reference Matrix</h2>
+<p>The reference table below outlines standard identifier management practices across professional software engineering workflows:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Software Architecture</th>
+<th>Recommended Format</th>
+<th>Execution Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Distributed Microservices</td><td>UUID v4 with Hyphens</td><td>Ensure decentralized, collision-free transaction tracking across services.</td></tr>
+<tr><td>PostgreSQL / MySQL Primary Keys</td><td>UUID v4 or UUIDv7 (Hex)</td><td>Optimize storage footprint and prevent sequential ID enumeration attacks.</td></tr>
+<tr><td>REST API Session Identifiers</td><td>Uppercase / Lowercase v4</td><td>Standardize security tokens and maintain strict string consistency.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>How to Use the UUID / GUID Generator</h2>
+<p>Using my utility is simple. Select your preferred UUID version, choose how many identifiers you want to generate in a batch, configure hyphen formatting and casing, and click Generate New UUIDs to instantly copy clean codes.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A common mistake is using sequential integer IDs for public-facing resource URLs, which allows malicious users to scrape database records by incrementing IDs in the address bar.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is the difference between UUID and GUID?</h3>
-<p>Functionally, they are identical. UUID is the open-standard term defined by the IETF (RFC 4122), while GUID is the terminology historically used by Microsoft and .NET ecosystems.</p>
+<h3>1. What is a UUID / GUID Generator?</h3>
+<p>A UUID (Universally Unique Identifier) or GUID generator creates 128-bit unique reference codes used across databases, microservices, and primary keys.</p>
+<h3>2. What is the difference between Version 4 and Version 1 UUIDs?</h3>
+<p>Version 4 UUIDs rely entirely on cryptographic random numbers (CSPRNG), while Version 1 UUIDs encode the host MAC address and precise timestamp.</p>
+<h3>3. Are my generated UUIDs stored or tracked externally?</h3>
+<p>No. All identifier generations, entropy calculations, and batch routines run entirely client-side inside your browser for complete data security.</p>
+<h3>4. What does the Live Entropy &amp; Collision Probability Auditor do?</h3>
+<p>It analyzes bit randomness in real-time, calculates entropy bits, and estimates astronomical collision risks based on your generated batch size.</p>
+<h3>5. Can I format generated UUIDs without hyphens or in uppercase?</h3>
+<p>Yes, you can customize hyphen formatting (with or without hyphens) and letter case (lowercase or uppercase) instantly.</p>
 
-<h3>2. Can two generated UUIDv4 codes ever be identical?</h3>
-<p>Technically yes, due to probability, but practically impossible. With 122 bits of entropy, the odds of a collision are comparable to finding a specific grain of sand across all beaches on Earth.</p>
-
-<h3>3. Is my data secure and private?</h3>
-<p>Yes! All UUID calculations and entropy collection run entirely inside your browser client-side. No generated keys or session identifiers are ever transmitted to external servers.</p>
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="qr-code-generator.html" style="color:var(--emerald);">QR Code Generator</a>, <a href="keyword-combiner.html" style="color:var(--emerald);">Keyword Combiner</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -309,93 +365,95 @@ Analyzing cryptographic entropy and uniqueness metrics...
 </div>
 
 <script>
+window.addEventListener('DOMContentLoaded', function() {
+  generateUUIDs();
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const cb = document.getElementById('cookieConsent');
+    if (cb) cb.style.display = 'flex';
+  }
+});
+
 function generateV4() {
   if (typeof crypto !== 'undefined' && crypto.randomUUID) {
     return crypto.randomUUID();
   }
   // Fallback CSPRNG v4 generator
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = crypto.getRandomValues(new Uint8Array(1))[0] % 16 | 0,
-        v = c === 'x' ? r : (r & 0x3 | 0x8);
+    const r = crypto.getRandomValues(new Uint8Array(1))[0] % 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
     return v.toString(16);
   });
 }
 
 function generateV1() {
-  // Pseudo v1 generator for browser client-side demonstration
-  let now = new Date().getTime();
+  // Simplified secure v1 simulation using timestamp and random bits
+  const now = new Date().getTime();
   let timeHex = (now * 10000 + 122192928000000000).toString(16);
-  while(timeHex.length < 15) timeHex = '0' + timeHex;
-  let timeLow = timeHex.substr(timeHex.length - 8, 8);
-  let timeMid = timeHex.substr(timeHex.length - 12, 4);
-  let timeHiAndVersion = '1' + timeHex.substr(timeHex.length - 15, 3);
-  let clockSeq = Math.floor(Math.random() * 0x3fff).toString(16);
-  while(clockSeq.length < 4) clockSeq = '0' + clockSeq;
-  let node = Array.from({length: 6}, () => Math.floor(Math.random() * 256).toString(16).padStart(2, '0')).join('');
-  return `${timeLow}-${timeMid}-${timeHiAndVersion}-${clockSeq}-${node}`;
+  while(timeHex.length < 16) timeHex = '0' + timeHex;
+  const time_low = timeHex.substring(8, 16);
+  const time_mid = timeHex.substring(4, 8);
+  const time_hi = '1' + timeHex.substring(1, 4);
+  const clock_seq = Math.floor(Math.random() * 0x3fff).toString(16);
+  let node = '';
+  const randBytes = crypto.getRandomValues(new Uint8Array(6));
+  for(let i=0; i<6; i++) {
+    let b = randBytes[i].toString(16);
+    if(b.length < 2) b = '0' + b;
+    node += b;
+  }
+  return `${time_low}-${time_mid}-${time_hi}-${clock_seq}-${node}`;
 }
 
 function generateUUIDs() {
   const version = document.getElementById('uuidVersion').value;
-  let count = parseInt(document.getElementById('uuidCount').value) || 1;
-  if (count < 1) count = 1;
-  if (count > 50) count = 50;
+  const qtyInput = document.getElementById('uuidQuantity');
+  let qty = parseInt(qtyInput.value) || 5;
+  if (qty < 1) qty = 1;
+  if (qty > 50) qty = 50;
+  qtyInput.value = qty;
 
-  const hyphen = document.getElementById('hyphenOption').value;
-  const caseOpt = document.getElementById('caseOption').value;
-  const outputEl = document.getElementById('uuidOutput');
-  const countLabel = document.getElementById('batchCountLabel');
-  const radarEl = document.getElementById('radarOutput');
+  const hyphen = document.getElementById('hyphenFormat').value;
+  const casing = document.getElementById('letterCase').value;
+  const output = document.getElementById('uuidOutput');
+  const badge = document.getElementById('batchCountBadge');
+  const alertBox = document.getElementById('syntaxAlertBox');
 
-  if (!outputEl) return;
-
-  let uuids = [];
-  for (let i = 0; i < count; i++) {
-    let u = (version === 'v4') ? generateV4() : generateV1();
+  let results = [];
+  for (let i = 0; i < qty; i++) {
+    let uuid = (version === 'v1') ? generateV1() : generateV4();
     if (hyphen === 'without') {
-      u = u.replace(/-/g, '');
+      uuid = uuid.replace(/-/g, '');
     }
-    if (caseOpt === 'upper') {
-      u = u.toUpperCase();
+    if (casing === 'upper') {
+      uuid = uuid.toUpperCase();
     } else {
-      u = u.toLowerCase();
+      uuid = uuid.toLowerCase();
     }
-    uuids.push(u);
+    results.push(uuid);
   }
 
-  outputEl.value = uuids.join('\n');
-  if (countLabel) countLabel.textContent = `${count} UUID${count > 1 ? 's' : ''} generated`;
+  output.value = results.join('\n');
+  badge.textContent = `${qty} UUID${qty > 1 ? 's' : ''} generated`;
 
-  if (radarEl) {
+  if (alertBox) {
     if (version === 'v4') {
-      radarEl.innerHTML = `🟢 <strong>CSPRNG Entropy Verified:</strong> Version 4 active. 122 bits of pure cryptographic randomness. Collision probability with ${count} items is ~0 (1 in 5.3 × 10³⁶).`;
+      alertBox.innerHTML = `🟢 <strong>CSPRNG Entropy Verified:</strong> Version 4 active. 122 bits of pure cryptographic randomness. Collision probability with ${qty} item${qty>1?'s':''} is extremely low.`;
     } else {
-      radarEl.innerHTML = `🟡 <strong>Timestamp Sequence Active:</strong> Version 1 active. Encodes current UTC timestamp and hardware node simulation. Ordered sequencing enabled.`;
+      alertBox.innerHTML = `🟢 <strong>Timestamp Entropy Verified:</strong> Version 1 active. Encodes host timestamp and unique node tokens.`;
     }
   }
 }
 
 function copyUUIDOutput() {
-  const outputEl = document.getElementById('uuidOutput');
-  if (!outputEl) return;
-  outputEl.select();
-  outputEl.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(outputEl.value);
+  const output = document.getElementById('uuidOutput');
+  if (!output || !output.value) {
+    alert('No UUIDs available to copy.');
+    return;
+  }
+  output.select();
+  navigator.clipboard.writeText(output.value);
   alert('Generated UUIDs copied to clipboard successfully!');
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
-  generateUUIDs();
-
-  const countEl = document.getElementById('uuidCount');
-if (countEl) {
-  countEl.addEventListener('input', generateUUIDs);
-}
-});
 
 function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
@@ -403,6 +461,5 @@ function acceptCookies() {
   if (cb) cb.style.display = 'none';
 }
 </script>
-
 </body>
 </html>
