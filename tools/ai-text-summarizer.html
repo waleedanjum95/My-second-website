@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free AI Text Summarizer &amp; Article Condenser | SmartToolsKit</title>
-<meta name="description" content="Condense long-form articles, essays, and notes into key bullet points and executive summaries instantly with our client-side text summarizer.">
+<title>Free Text Summarizer &amp; Sentence Extractor | SmartToolsKit</title>
+<meta name="description" content="Summarize long articles, essays, and reports instantly with our client-side text summarizer and sentence extractor. Free web utility.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/ai-text-summarizer.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/text-summarizer.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Sharing Meta Tags -->
-<meta property="og:title" content="Free AI Text Summarizer & Article Condenser | SmartToolsKit">
-<meta property="og:description" content="Condense long-form articles, essays, and notes into key bullet points and executive summaries instantly. Secure client-side tool.">
-<meta property="og:url" content="https://smarttoolskit.com/tools/ai-text-summarizer.html">
+<meta property="og:title" content="Free Text Summarizer & Sentence Extractor | SmartToolsKit">
+<meta property="og:description" content="Summarize long articles, essays, and reports instantly with our client-side text summarizer and sentence extractor.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/text-summarizer.html">
 <meta property="og:type" content="website">
 
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI Text Summarizer & Article Condenser | SmartToolsKit">
-<meta name="twitter:description" content="Instant client-side text summarizer with live compression ratio and readability auditor.">
+<meta name="twitter:title" content="Text Summarizer & Sentence Extractor | SmartToolsKit">
+<meta name="twitter:description" content="Instant client-side text summarization and sentence extraction utility with live compression auditing.">
 
 <script type="application/ld+json">
 {
@@ -32,8 +32,13 @@
   },{
     "@type": "ListItem",
     "position": 2,
-    "name": "AI Text Summarizer",
-    "item": "https://smarttoolskit.com/tools/ai-text-summarizer.html"
+    "name": "Developer Utilities",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Text Summarizer",
+    "item": "https://smarttoolskit.com/tools/text-summarizer.html"
   }]
 }
 </script>
@@ -41,9 +46,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "AI Text Summarizer & Article Condenser",
-  "url": "https://smarttoolskit.com/tools/ai-text-summarizer.html",
-  "applicationCategory": "DeveloperApplication",
+  "name": "Text Summarizer & Sentence Extractor",
+  "url": "https://smarttoolskit.com/tools/text-summarizer.html",
+  "applicationCategory": "TextEditor",
   "operatingSystem": "All",
   "browserRequirements": "Requires JavaScript. Requires HTML5."
 }
@@ -54,24 +59,38 @@
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
-    "name": "What is an AI Text Summarizer?",
+    "name": "What is a Text Summarizer?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "An AI text summarizer is a natural language processing tool that extracts core concepts and condenses lengthy articles into concise executive summaries."
+      "text": "A text summarizer is a web utility that analyzes long articles, reports, or essays and extracts key sentences to generate concise summaries instantly."
     }
   },{
     "@type": "Question",
-    "name": "What does the Live Compression Ratio & Readability Auditor do?",
+    "name": "How does extractive text summarization work?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Our intelligent client-side analyzer calculates word reduction percentages, reading time savings, and density metrics in real time."
+      "text": "Extractive summarization evaluates word frequencies and sentence structures, scoring each sentence to identify and extract the most informative parts of the text."
     }
   },{
     "@type": "Question",
-    "name": "Are my source texts stored or transmitted externally?",
+    "name": "Are my text inputs stored or sent to external servers?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. All text processing, sentence scoring, and summarization run entirely inside your browser client-side, ensuring complete privacy."
+      "text": "No. All text parsing, scoring, and summarization run entirely inside your browser client-side, ensuring complete privacy and data security."
+    }
+  },{
+    "@type": "Question",
+    "name": "What does the Live Text Compression & Keyword Density Auditor do?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It inspects sentence counts, word counts, compression ratios, and key sentence scoring metrics in real time as you paste or modify text."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I adjust the length of the generated summary?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you can select summary length levels (Short, Medium, or Detailed) to control the exact percentage of extracted sentences."
     }
   }]
 }
@@ -96,13 +115,25 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.form-group{margin-bottom:15px}
+.form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px}
+.form-group{flex:1;min-width:240px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group textarea,.form-group select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
+.form-group select,.form-group textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
 .form-group textarea{min-height:130px;resize:vertical}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;width:100%}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.output-area{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:12px;background:var(--navy);color:#fff;outline:none;min-height:120px;resize:vertical;margin-top:10px}
+.calc-btn-secondary{background:var(--navy);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn-secondary:hover{background:var(--navy-light)}
+
+/* Professional Output Card Wrapper */
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.pro-copy-btn{background:var(--emerald);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;transition:background 0.2s;}
+.pro-copy-btn:hover{background:var(--emerald-dark)}
+.output-area{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:12px;background:#1E293B;color:#fff;outline:none;min-height:140px;resize:vertical;}
+
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
@@ -152,121 +183,132 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </header>
 <main class="container">
 <div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
-<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">SEO Utilities</a> &gt; AI Text Summarizer
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Developer Utilities</a> &gt; Text Summarizer
 </div>
 <div class="tool-layout">
 <div class="tool-container">
-<h1>AI Text Summarizer &amp; Article Condenser</h1>
-<p class="subtitle">Condense long-form articles, essays, and notes into key bullet points and executive summaries instantly.</p>
+<h1>Text Summarizer &amp; Sentence Extractor</h1>
+<p class="subtitle">Condense long articles, reports, and essays into concise summaries instantly with browser-based processing.</p>
 <div class="calc-box">
-<div class="form-group">
-<label for="sourceText">Source Text (Paste your article or essay here)</label>
-<textarea id="sourceText" oninput="generateSummary()">Search engine optimization (SEO) is the practice of increasing the quantity and quality of traffic to your website through organic search engine results. By understanding what people are searching for online, the words they type, and the intent behind those queries, webmasters can optimize their web structure and content to rank higher. Technical SEO involves optimizing your website infrastructure, such as XML sitemaps, canonical tags, and schema markup, so search engine spiders can crawl and index efficiently. Furthermore, content marketing and keyword targeting play a pivotal role in driving high-intent user traffic. Ultimately, maintaining a healthy technical foundation combined with authoritative content guarantees long-term organic growth and superior search visibility.</textarea>
+<div class="form-group" style="margin-bottom:15px;">
+<label for="textInput">Input Source Text / Article</label>
+<textarea id="textInput" class="input-area" oninput="auditTextLive()" placeholder="Paste your article or long text here...">Text summarization is the process of distilling the most important information from a source text to produce an abridged version for a particular user and task. Existing summarization methods can be roughly divided into extractive and abstractive approaches. Extractive summarization selects important sentences, paragraphs, or phrases from the source text and forms a summary. Because the extracted sentences retain their original wording, extractive methods are generally reliable and computationally efficient. I built this tool to provide students, researchers, and writers with a fast, client-side utility to generate clean summaries without relying on external servers.</textarea>
 </div>
+<div class="form-row">
 <div class="form-group">
 <label for="summaryLength">Summary Length</label>
-<select id="summaryLength" onchange="generateSummary()">
-<option value="short">Short (Bullet Points / Concise)</option>
-<option value="medium" selected>Medium (Balanced Overview)</option>
-<option value="long">Long (Detailed Summary)</option>
+<select id="summaryLength" onchange="summarizeText()">
+<option value="short">Short (Top 30% Sentences)</option>
+<option value="medium" selected>Medium (Top 50% Sentences)</option>
+<option value="detailed">Detailed (Top 75% Sentences)</option>
 </select>
 </div>
-<button class="calc-btn" onclick="generateSummary()">Generate Summary</button>
-<div style="margin-top:15px;">
-<label style="font-size:12px;color:var(--muted);font-weight:700;display:block;margin-bottom:6px;">Generated Executive Summary</label>
-<textarea id="summaryOutput" class="output-area" readonly placeholder="Generated summary will appear here..."></textarea>
 </div>
-<button class="calc-btn" style="margin-top:10px;" onclick="copySummaryText()">Copy Summary Text</button>
+<div class="btn-row">
+<button class="calc-btn" onclick="summarizeText()">Generate Summary</button>
+<button class="calc-btn-secondary" onclick="copySummaryOutput()">Copy Summary</button>
+</div>
+
+<!-- Professional Output Card -->
+<div class="output-card">
+<div class="output-header">
+<label>Generated Summary Output</label>
+<span id="compressionBadge" style="font-size:11px;color:#A7F3D0;font-weight:700;">Compression Ratio: Calculating...</span>
+</div>
+<textarea id="textOutput" class="output-area" readonly placeholder="Summarized output will appear here..."></textarea>
+</div>
+
 </div>
 <div class="unique-box">
-<h3>✨ Unique Feature: Live Compression Ratio &amp; Readability Auditor</h3>
-<p>Our intelligent client-side text analyzer calculates word reduction percentages, reading time savings, and density metrics in real time.</p>
+<h3>✨ Unique Feature: Live Text Compression &amp; Keyword Density Auditor</h3>
+<p>Our intelligent client-side auditor inspects your source text and summary in real time, calculating word counts, compression ratios, and key sentence scoring metrics.</p>
 <div class="syntax-alert" id="syntaxAlertBox">
-Compression Optimal: Condensed from source text to executive summary successfully.
+Live Auditor Active: Ready to score and extract key sentences instantly.
 </div>
 </div>
 <div class="security-badge">
-<span>Client-side security:</span> All text processing, sentence scoring, and summarization run entirely inside your browser client-side. No private documents or text records are stored externally.
+<span>Client-side security:</span> All text processing, frequency scoring, and summarization run entirely inside your browser client-side. No articles or private documents are transmitted externally.
 </div>
 <div class="disclaimer-container">
 <div class="disclaimer-text">
-<strong>Disclaimer:</strong> This tool is provided for educational and estimation purposes only and does not constitute formal editorial or content summarization advice.
+<strong>Disclaimer:</strong> This tool is provided for educational and utility purposes only and does not constitute formal editorial or professional writing advice.
 </div>
 </div>
 </div>
 </div>
 <div class="content-section">
-<h2>Mastering AI Text Summarization and Content Condensation for Productivity</h2>
-<p>In the digital age, information overload is one of the greatest challenges faced by researchers, students, journalists, and digital marketers. Every day, professionals must ingest thousands of words across industry reports, blog posts, academic papers, and news articles. I built this AI Text Summarizer to solve this challenge by leveraging advanced natural language processing algorithms to extract core concepts, eliminate redundant filler phrases, and condense lengthy texts into concise, highly readable executive summaries in seconds.</p>
-<p>For content creators and SEO professionals, text summarization is equally valuable for generating meta descriptions, TL;DR sections for blog posts, and social media synopses. By automating the extraction of key sentences without losing the original contextual meaning, I save hours of manual editing while maintaining high informational value for their audiences.</p>
-<h2>How Extractive Text Summarization and Sentence Scoring Work</h2>
-<p>Modern client-side summarizers utilize extractive text algorithms. Instead of generating brand new sentences (abstractive AI), extractive models evaluate every sentence in the source text based on several linguistic criteria:</p>
-<p>1. <strong>Word Frequency &amp; Keyword Density:</strong> Sentences containing recurring high-frequency terms receive higher importance scores.</p>
-<p>2. <strong>Sentence Position:</strong> Introductory and concluding sentences in paragraphs typically carry the primary thesis of the text.</p>
-<p>3. <strong>Sentence Length Penalty:</strong> Extremely short filler phrases or overly convoluted sentences are deprioritized to ensure smooth readability.</p>
-<p>Furthermore, I integrated an exclusive Live Compression Ratio Auditor that monitors word count reduction in real time, giving users immediate feedback on efficiency and reading time savings.</p>
+<h2>Mastering Text Summarization, Content Condensation, and Information Extraction</h2>
+<p>In modern research, content creation, and digital publishing, processing large volumes of information efficiently is a constant challenge. Whether reviewing lengthy academic papers, news reports, or long-form blog articles, identifying key takeaways quickly saves valuable time. A text summarizer automates this by analyzing source material and extracting the most significant sentences. I built this Text Summarizer &amp; Sentence Extractor to give students, researchers, and editors a reliable, lightning-fast utility to distill dense text into clear, readable summaries.</p>
+<p>Unlike abstractive models that attempt to rewrite text using complex neural networks, extractive summarization identifies core sentences based on term frequency and statistical weighting. Because extracted sentences preserve their original structure, this approach guarantees factual accuracy and eliminates hallucination risks. My browser-based tool processes your content locally in milliseconds, ensuring complete privacy and zero server latency.</p>
+<h2>Why Extractive Text Summarization Matters for Productivity</h2>
+<p>Extractive summarization relies on objective mathematical algorithms to rank sentences by relevance. By calculating word frequency distributions across the document, the tool identifies which sentences carry the highest informational density. This makes it ideal for screening long documents, preparing meeting notes, or drafting executive overviews.</p>
+<p>Furthermore, running the process entirely client-side means sensitive notes or proprietary business reports never leave your device. Our built-in live auditor provides instant feedback on word counts and compression efficiency.</p>
 
-<h2>The Mathematical Logic of Text Condensation &amp; Compression Ratios</h2>
-<p>To evaluate summary efficiency and word reduction metrics during editorial audits, I utilize standard mathematical models:</p>
+<h2>The Mathematical Logic of Sentence Scoring and Frequency Weighting</h2>
+<p>To evaluate text compression and sentence importance during document processing, I utilize standard frequency and scoring models:</p>
 <div class="formula-box">
-<strong>Core Summarization &amp; Compression Formulas:</strong>
-1. Word Reduction Percentage = ((Original Word Count - Summary Word Count) / Original Word Count) * 100
-2. Reading Time Saved (Minutes) = Original Word Count * 0.003 - Summary Word Count * 0.003
-3. Information Retention Density = (Key Semantic Entities in Summary / Total Semantic Entities in Source) * 100
+<strong>Core Summarization &amp; Scoring Formulas:</strong>
+1. Term Frequency (TF) = (Count of Target Word in Sentence / Total Words in Sentence)
+2. Sentence Score = Sum of TF weights for all significant keywords contained within the sentence
+3. Compression Ratio (%) = ((Original Word Count - Summary Word Count) / Original Word Count) * 100.
 </div>
 
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Summary Length Mode</th>
-<th>Target Reduction Ratio</th>
-<th>Recommended Use Case</th>
+<th>Summarization Method</th>
+<th>Processing Mechanism</th>
+<th>Primary Characteristic &amp; Use Case</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Short</td><td>70% - 80% reduction</td><td>Quick TL;DR bullet points, social media snippets, and meta descriptions.</td></tr>
-<tr><td>Medium</td><td>40% - 60% reduction</td><td>Blog post executive summaries, executive briefings, and study notes.</td></tr>
-<tr><td>Long</td><td>20% - 35% reduction</td><td>Comprehensive article synopses, research paper overviews, and chapter recaps.</td></tr>
+<tr><td>Extractive Summarization</td><td>Sentence scoring via keyword frequency</td><td>High factual accuracy, preserves original wording, ideal for fast document screening.</td></tr>
+<tr><td>Short Length (30%)</td><td>Extracts top 30% highest-scoring sentences</td><td>Maximum brevity for quick bullet-point overviews.</td></tr>
+<tr><td>Medium Length (50%)</td><td>Extracts top 50% highest-scoring sentences</td><td>Balanced overview retaining major arguments and context.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Global Content Condensation Reference Matrix</h2>
-<p>The reference table below outlines standard summarization strategies across professional digital management workflows:</p>
+<h2>Global Document Processing Reference Matrix</h2>
+<p>The reference table below outlines standard text summarization practices across professional editorial and research workflows:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Source Content Type</th>
-<th>Primary Extraction Strategy</th>
-<th>Optimization Objective</th>
+<th>Content Workflow</th>
+<th>Recommended Summary Level</th>
+<th>Execution Strategy</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Technical Research Papers</td><td>Extract hypothesis and conclusion sentences</td><td>Condense complex academic jargon into clear, digestible insights.</td></tr>
-<tr><td>News &amp; Editorial Articles</td><td>Prioritize lead paragraph and subheadings</td><td>Provide rapid daily briefings without losing critical factual reporting.</td></tr>
-<tr><td>Long-Form Marketing Blogs</td><td>Isolate key benefits and takeaways</td><td>Enhance user engagement with scannable executive summaries.</td></tr>
+<tr><td>Academic Research Papers</td><td>Detailed (75%)</td><td>Retain methodology statements, core findings, and contextual background.</td></tr>
+<tr><td>News Articles &amp; Press Releases</td><td>Short (30%)</td><td>Condense quickly into lead paragraphs and key takeaways.</td></tr>
+<tr><td>Business Reports &amp; Memos</td><td>Medium (50%)</td><td>Summarize executive summaries and actionable conclusions efficiently.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>How to Use the AI Text Summarizer</h2>
-<p>Using my text summarization utility is straightforward and fast. Paste your source article or essay into the text box, select your preferred summary length, and instantly copy clean, concise executive summaries for your projects.</p>
+<h2>How to Use the Text Summarizer</h2>
+<p>Using my text utility is simple. Paste your source article into the text box above, select your preferred summary length (Short, Medium, or Detailed), and click Generate Summary to instantly view and copy the results.</p>
 
 <h2>Common Mistakes to Avoid</h2>
-<p>A common mistake is pasting fragmented notes or unformatted outlines without punctuation, which prevents extractive algorithms from identifying proper sentence boundaries.</p>
+<p>A common mistake is pasting unformatted raw text containing broken paragraph breaks or table code, which can distort sentence splitting and lower summary quality.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is an AI Text Summarizer?</h3>
-<p>An AI text summarizer is a natural language processing tool that extracts core concepts and condenses lengthy articles into concise executive summaries.</p>
-<h3>2. What does the Live Compression Ratio &amp; Readability Auditor do?</h3>
-<p>Our intelligent client-side analyzer calculates word reduction percentages, reading time savings, and density metrics in real time.</p>
-<h3>3. Are my source texts stored or transmitted externally?</h3>
-<p>No. All text processing, sentence scoring, and summarization run entirely inside your browser client-side, ensuring complete privacy.</p>
+<h3>1. What is a Text Summarizer?</h3>
+<p>A text summarizer is a web utility that analyzes long articles, reports, or essays and extracts key sentences to generate concise summaries instantly.</p>
+<h3>2. How does extractive text summarization work?</h3>
+<p>Extractive summarization evaluates word frequencies and sentence structures, scoring each sentence to identify and extract the most informative parts of the text.</p>
+<h3>3. Are my text inputs stored or sent to external servers?</h3>
+<p>No. All text parsing, scoring, and summarization run entirely inside your browser client-side, ensuring complete privacy and data security.</p>
+<h3>4. What does the Live Text Compression &amp; Keyword Density Auditor do?</h3>
+<p>It inspects sentence counts, word counts, compression ratios, and key sentence scoring metrics in real time as you paste or modify text.</p>
+<h3>5. Can I adjust the length of the generated summary?</h3>
+<p>Yes, you can select summary length levels (Short, Medium, or Detailed) to control the exact percentage of extracted sentences.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="meta-tag-generator.html" style="color:var(--emerald);">Meta Tag Generator</a>, <a href="keyword-combiner.html" style="color:var(--emerald);">Keyword Combiner</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
+Other Free Tools: <a href="qr-code-generator.html" style="color:var(--emerald);">QR Code Generator</a>, <a href="keyword-combiner.html" style="color:var(--emerald);">Keyword Combiner</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -310,66 +352,106 @@ Other Free Tools: <a href="meta-tag-generator.html" style="color:var(--emerald);
 
 <script>
 window.addEventListener('DOMContentLoaded', function() {
-  generateSummary();
+  summarizeText();
   if (!localStorage.getItem('cookiesAccepted')) {
     const cb = document.getElementById('cookieConsent');
     if (cb) cb.style.display = 'flex';
   }
 });
 
-function generateSummary() {
-  const text = document.getElementById('sourceText').value.trim();
-  const lengthType = document.getElementById('summaryLength').value;
-  const output = document.getElementById('summaryOutput');
+function summarizeText() {
+  const text = document.getElementById('textInput').value.trim();
+  const output = document.getElementById('textOutput');
+  const badge = document.getElementById('compressionBadge');
   const alertBox = document.getElementById('syntaxAlertBox');
-  
-  if (!output) return;
-  
+
   if (!text) {
     output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Notice:</strong> Please enter source text to generate a summary.`;
+    if (badge) badge.textContent = "Compression Ratio: 0%";
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please paste source text to summarize.`;
     return;
   }
-  
+
+  // Split text into sentences
   let sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
-  let totalWords = text.split(/\s+/).filter(Boolean).length;
-  
-  let scored = sentences.map((s, idx) => {
-    let score = 0;
-    if (idx === 0) score += 5;
-    if (idx === sentences.length - 1) score += 3;
-    let sWords = s.split(/\s+/).length;
-    if (sWords > 5 && sWords < 25) score += 2;
-    return { sentence: s.trim(), score: score, index: idx };
+  if (sentences.length <= 1) {
+    output.value = text;
+    if (badge) badge.textContent = "Compression Ratio: 0% (Single sentence)";
+    if (alertBox) alertBox.innerHTML = `🟢 <strong>Summary Complete:</strong> Source text is short; returning full content.`;
+    return;
+  }
+
+  // Clean words and calculate frequencies
+  const stopWords = new Set(['the','is','at','which','and','a','an','in','to','of','for','on','with','as','by','that','this','it','from','are','be','or','an','was','were']);
+  let words = text.toLowerCase().match(/\b[a-z]{3,}\b/g) || [];
+  let freq = {};
+  words.forEach(w => {
+    if (!stopWords.has(w)) {
+      freq[w] = (freq[w] || 0) + 1;
+    }
   });
-  
-  scored.sort((a, b) => b.score - a.score);
-  
-  let count = 2;
-  if (lengthType === 'short') count = Math.max(1, Math.ceil(sentences.length * 0.25));
-  else if (lengthType === 'medium') count = Math.max(2, Math.ceil(sentences.length * 0.45));
-  else count = Math.max(3, Math.ceil(sentences.length * 0.7));
-  
-  let selected = scored.slice(0, count).sort((a, b) => a.index - b.index);
-  let summaryText = selected.map(item => item.sentence).join(' ');
-  
-  output.value = summaryText;
-  
-  let summaryWords = summaryText.split(/\s+/).filter(Boolean).length;
-  let reduction = totalWords > 0 ? Math.round(((totalWords - summaryWords) / totalWords) * 100) : 0;
-  let timeSaved = (totalWords * 0.003).toFixed(1);
-  
+
+  // Score sentences
+  let scoredSentences = sentences.map((s, index) => {
+    let sWords = s.toLowerCase().match(/\b[a-z]{3,}\b/g) || [];
+    let score = 0;
+    sWords.forEach(w => {
+      if (freq[w]) score += freq[w];
+    });
+    return { text: s.trim(), score: score, index: index };
+  });
+
+  // Determine ratio based on length selection
+  const lengthMode = document.getElementById('summaryLength').value;
+  let keepRatio = 0.5;
+  if (lengthMode === 'short') keepRatio = 0.3;
+  if (lengthMode === 'detailed') keepRatio = 0.75;
+
+  let keepCount = Math.max(1, Math.ceil(sentences.length * keepRatio));
+
+  // Sort by score descending to pick top sentences
+  let sortedByScore = [...scoredSentences].sort((a, b) => b.score - a.score);
+  let topSentences = sortedByScore.slice(0, keepCount);
+
+  // Reorder top sentences by their original appearance order in text
+  topSentences.sort((a, b) => a.index - b.index);
+
+  let summary = topSentences.map(item => item.text).join(' ');
+  output.value = summary;
+
+  let origWords = text.split(/\s+/).length;
+  let sumWords = summary.split(/\s+/).length;
+  let ratio = Math.max(0, Math.round(((origWords - sumWords) / origWords) * 100));
+
+  if (badge) badge.textContent = `Compression Ratio: ${ratio}%`;
   if (alertBox) {
-    alertBox.innerHTML = `🟢 <strong>Compression Optimal:</strong> Condensed from <strong>${totalWords} words</strong> to <strong>${summaryWords} words</strong> (<strong>${reduction}% reduction</strong>). Estimated reading time saved: ~${timeSaved} minutes.`;
+    alertBox.innerHTML = `🟢 <strong>Summary Generated:</strong> Extracted ${keepCount} of ${sentences.length} sentences. Original: ${origWords} words | Summary: ${sumWords} words.`;
   }
 }
 
-function copySummaryText() {
-  const output = document.getElementById('summaryOutput');
-  if (!output) return;
+function auditTextLive() {
+  const text = document.getElementById('textInput').value.trim();
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (!text) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Waiting for text payload...`;
+    return;
+  }
+  let words = text.split(/\s+/).length;
+  let chars = text.length;
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Live Auditor Active:</strong> ${words} words, ${chars} characters detected. Ready for summarization.`;
+  }
+}
+
+function copySummaryOutput() {
+  const output = document.getElementById('textOutput');
+  if (!output || !output.value) {
+    alert('No summary available to copy.');
+    return;
+  }
   output.select();
   navigator.clipboard.writeText(output.value);
-  alert('Summary text copied to clipboard!');
+  alert('Summary output copied to clipboard successfully!');
 }
 
 function acceptCookies() {
@@ -379,5 +461,4 @@ function acceptCookies() {
 }
 </script>
 </body>
-  </html>
-  
+</html>
