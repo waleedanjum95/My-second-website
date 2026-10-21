@@ -32,7 +32,7 @@
   },{
     "@type": "ListItem",
     "position": 2,
-    "name": "Developer Utilities",
+    "name": "Writing Tools",
     "item": "https://smarttoolskit.com/#categories"
   },{
     "@type": "ListItem",
@@ -126,7 +126,6 @@ nav a:hover{color:var(--emerald-dark)}
 .calc-btn-secondary{background:var(--navy);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn-secondary:hover{background:var(--navy-light)}
 
-/* Professional Output Card Wrapper */
 .output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
 .output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
 .output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
@@ -183,7 +182,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </header>
 <main class="container">
 <div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
-<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Developer Utilities</a> &gt; Text Summarizer
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Writing Tools</a> &gt; Text Summarizer
 </div>
 <div class="tool-layout">
 <div class="tool-container">
@@ -209,7 +208,6 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <button class="calc-btn-secondary" onclick="copySummaryOutput()">Copy Summary</button>
 </div>
 
-<!-- Professional Output Card -->
 <div class="output-card">
 <div class="output-header">
 <label>Generated Summary Output</label>
@@ -372,7 +370,6 @@ function summarizeText() {
     return;
   }
 
-  // Split text into sentences
   let sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
   if (sentences.length <= 1) {
     output.value = text;
@@ -381,7 +378,6 @@ function summarizeText() {
     return;
   }
 
-  // Clean words and calculate frequencies
   const stopWords = new Set(['the','is','at','which','and','a','an','in','to','of','for','on','with','as','by','that','this','it','from','are','be','or','an','was','were']);
   let words = text.toLowerCase().match(/\b[a-z]{3,}\b/g) || [];
   let freq = {};
@@ -391,7 +387,6 @@ function summarizeText() {
     }
   });
 
-  // Score sentences
   let scoredSentences = sentences.map((s, index) => {
     let sWords = s.toLowerCase().match(/\b[a-z]{3,}\b/g) || [];
     let score = 0;
@@ -401,7 +396,6 @@ function summarizeText() {
     return { text: s.trim(), score: score, index: index };
   });
 
-  // Determine ratio based on length selection
   const lengthMode = document.getElementById('summaryLength').value;
   let keepRatio = 0.5;
   if (lengthMode === 'short') keepRatio = 0.3;
@@ -409,11 +403,9 @@ function summarizeText() {
 
   let keepCount = Math.max(1, Math.ceil(sentences.length * keepRatio));
 
-  // Sort by score descending to pick top sentences
   let sortedByScore = [...scoredSentences].sort((a, b) => b.score - a.score);
   let topSentences = sortedByScore.slice(0, keepCount);
 
-  // Reorder top sentences by their original appearance order in text
   topSentences.sort((a, b) => a.index - b.index);
 
   let summary = topSentences.map(item => item.text).join(' ');
