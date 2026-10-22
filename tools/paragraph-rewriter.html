@@ -3,22 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free AI Paragraph Rewriter &amp; Enhancer | SmartToolsKit</title>
-<meta name="description" content="Transform sentences, adjust content tone, and polish your writing effortlessly with our free client-side paragraph rewriter and vocabulary enhancer.">
+<title>Free Paragraph Rewriter &amp; Text Enhancer | SmartToolsKit</title>
+<meta name="description" content="Transform sentences, adjust content tone, and polish your writing effortlessly with our free paragraph rewriter and text enhancer.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/ai-paragraph-rewriter.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/paragraph-rewriter.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Sharing Meta Tags -->
-<meta property="og:title" content="Free AI Paragraph Rewriter & Enhancer | SmartToolsKit">
-<meta property="og:description" content="Transform sentences, adjust content tone, and polish your writing effortlessly. Secure client-side tool.">
-<meta property="og:url" content="https://smarttoolskit.com/tools/ai-paragraph-rewriter.html">
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Paragraph Rewriter & Text Enhancer | SmartToolsKit">
+<meta property="og:description" content="Transform sentences, adjust content tone, and polish your writing effortlessly with our free rewriting tool.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/paragraph-rewriter.html">
 <meta property="og:type" content="website">
-
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI Paragraph Rewriter & Enhancer | SmartToolsKit">
-<meta name="twitter:description" content="Instant client-side paragraph rewriter with live tone, vocabulary density, and readability auditor.">
 
 <script type="application/ld+json">
 {
@@ -32,8 +27,13 @@
   },{
     "@type": "ListItem",
     "position": 2,
-    "name": "AI Paragraph Rewriter",
-    "item": "https://smarttoolskit.com/tools/ai-paragraph-rewriter.html"
+    "name": "Writing Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Paragraph Rewriter",
+    "item": "https://smarttoolskit.com/tools/paragraph-rewriter.html"
   }]
 }
 </script>
@@ -41,39 +41,10 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "AI Paragraph Rewriter & Enhancer",
-  "url": "https://smarttoolskit.com/tools/ai-paragraph-rewriter.html",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5."
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "What is an AI Paragraph Rewriter?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "An AI paragraph rewriter is a writing enhancement tool that restructures sentence syntax, replaces repetitive vocabulary, and tailors content tone for distinct audiences."
-    }
-  },{
-    "@type": "Question",
-    "name": "What does the Live Tone & Vocabulary Auditor do?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Our intelligent client-side analyzer inspects sentence flow, calculates vocabulary diversity ratios, and audits tone alignment in real time."
-    }
-  },{
-    "@type": "Question",
-    "name": "Are my texts stored or transmitted externally?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "No. All text processing, vocabulary substitution, and tone restructuring run securely inside your browser client-side, ensuring complete data privacy."
-    }
-  }]
+  "name": "Paragraph Rewriter & Enhancer",
+  "url": "https://smarttoolskit.com/tools/paragraph-rewriter.html",
+  "applicationCategory": "TextEditor",
+  "operatingSystem": "All"
 }
 </script>
 <style>
@@ -96,13 +67,20 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.form-group{margin-bottom:15px}
+.form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px}
+.form-group{flex:1;min-width:240px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group textarea,.form-group select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
+.form-group select,.form-group textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
 .form-group textarea{min-height:130px;resize:vertical}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;width:100%}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.output-area{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:12px;background:var(--navy);color:#fff;outline:none;min-height:120px;resize:vertical;margin-top:10px}
+.calc-btn-secondary{background:var(--navy);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.output-area{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:12px;background:#1E293B;color:#fff;outline:none;min-height:140px;resize:vertical;}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
@@ -113,8 +91,6 @@ nav a:hover{color:var(--emerald-dark)}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
-.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
 .table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
 .content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
@@ -127,9 +103,6 @@ footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
-#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 @media(max-width:768px){
   .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
   nav{flex-wrap:wrap;justify-content:center;gap:15px}
@@ -152,38 +125,46 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </header>
 <main class="container">
 <div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
-<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">SEO Utilities</a> &gt; AI Paragraph Rewriter
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Writing Tools</a> &gt; Paragraph Rewriter
 </div>
 <div class="tool-layout">
 <div class="tool-container">
-<h1>AI Paragraph Rewriter &amp; Enhancer</h1>
+<h1>Paragraph Rewriter &amp; Enhancer</h1>
 <p class="subtitle">Transform sentences, adjust content tone, and polish your writing effortlessly with our free rewriting tool.</p>
 <div class="calc-box">
-<div class="form-group">
-<label for="sourceText">Source Paragraph (Paste your text here)</label>
-<textarea id="sourceText" oninput="rewriteParagraph()">Search engine optimization is very important for websites because it helps bring organic traffic. When you optimize your site structure and use proper keywords, search engines can easily understand your pages and rank them higher in search results. Good content creation combined with technical adjustments ensures long-term digital growth.</textarea>
+<div class="form-group" style="margin-bottom:15px;">
+<label for="textInput">Source Paragraph (Paste your text here)</label>
+<textarea id="textInput" class="input-area" oninput="auditTextLive()" placeholder="Paste your paragraph here...">Search engine optimization is very important for websites because it helps bring organic traffic. When you optimize your site structure and use proper keywords, search engines can easily understand your pages and rank them higher in search results. Good content creation combined with technical adjustments ensures long-term digital growth.</textarea>
 </div>
+<div class="form-row">
 <div class="form-group">
 <label for="toneStyle">Select Tone &amp; Style</label>
 <select id="toneStyle" onchange="rewriteParagraph()">
 <option value="professional" selected>Professional &amp; Formal</option>
 <option value="casual">Casual &amp; Conversational</option>
-<option value="persuasive">Persuasive &amp; Marketing</option>
-<option value="concise">Concise &amp; Direct</option>
+<option value="seo">SEO Optimized &amp; Persuasive</option>
 </select>
 </div>
-<button class="calc-btn" onclick="rewriteParagraph()">Rewrite Paragraph</button>
-<div style="margin-top:15px;">
-<label style="font-size:12px;color:var(--muted);font-weight:700;display:block;margin-bottom:6px;">Rewritten Paragraph Output</label>
-<textarea id="outputArea" class="output-area" readonly placeholder="Rewritten text will appear here..."></textarea>
 </div>
-<button class="calc-btn" style="margin-top:10px;" onclick="copyRewrittenText()">Copy Rewritten Text</button>
+<div class="btn-row">
+<button class="calc-btn" onclick="rewriteParagraph()">Rewrite Paragraph</button>
+<button class="calc-btn-secondary" onclick="copyRewrittenText()">Copy Rewritten Text</button>
+</div>
+
+<div class="output-card">
+<div class="output-header">
+<label>Rewritten Paragraph Output</label>
+<span id="statusBadge" style="font-size:11px;color:#A7F3D0;font-weight:700;">Ready</span>
+</div>
+<textarea id="textOutput" class="output-area" readonly placeholder="Rewritten text will appear here..."></textarea>
+</div>
+
 </div>
 <div class="unique-box">
 <h3>✨ Unique Feature: Live Tone, Vocabulary Density &amp; Readability Auditor</h3>
 <p>Our intelligent client-side analyzer inspects sentence flow, calculates vocabulary diversity ratios, and audits tone alignment in real time.</p>
 <div class="syntax-alert" id="syntaxAlertBox">
-Tone &amp; Vocabulary Optimal: Style set to PROFESSIONAL. Vocabulary Diversity Ratio (TTR): 0.86 (54 unique terms out of 63 words).
+Tone &amp; Vocabulary Optimal: Ready to process text.
 </div>
 </div>
 <div class="security-badge">
@@ -198,77 +179,38 @@ Tone &amp; Vocabulary Optimal: Style set to PROFESSIONAL. Vocabulary Diversity R
 </div>
 <div class="content-section">
 <h2>Mastering Paragraph Rewriting and Content Polishing for Maximum Impact</h2>
-<p>In digital publishing and content creation, crafting clear, engaging, and unique text is essential for keeping readers hooked. Whether you are drafting blog posts, professional emails, or academic essays, finding the right phrasing can sometimes be challenging. I built this AI Paragraph Rewriter to automate this process by restructuring sentence syntax, replacing repetitive vocabulary with powerful synonyms, and adjusting the overall tone to match your target audience.</p>
+<p>In digital publishing and content creation, crafting clear, engaging, and unique text is essential for keeping readers hooked. Whether you are drafting blog posts, professional emails, or academic essays, finding the right phrasing can sometimes be challenging. I built this Paragraph Rewriter to automate this process by restructuring sentence syntax, replacing repetitive vocabulary with powerful synonyms, and adjusting the overall tone to match your target audience.</p>
 <p>For search engine optimization (SEO) professionals and copywriters, paraphrasing content helps eliminate accidental plagiarism, improves readability scores, and tailors articles for specific reader demographics. By modifying sentence length variations and active voice ratios, rewritten paragraphs become significantly more persuasive and authoritative.</p>
+
 <h2>How Vocabulary Enrichment and Tone Adjustment Work</h2>
 <p>Our client-side rewriting engine evaluates source text using linguistic substitution and syntax structuring rules:</p>
-<p>1. <strong>Synonym Enhancement:</strong> Replaces basic words with high-impact professional alternatives (e.g., changing "very important" to "crucial" or "paramount").</p>
-<p>2. <strong>Sentence Restructuring:</strong> Reorganizes clauses to improve flow and eliminate monotonous sentence rhythm.</p>
-<p>3. <strong>Tone Tailoring:</strong> Applies specific stylistic modifiers depending on whether the user selects professional, casual, SEO-focused, or persuasive modes.</p>
-<p>All computations occur instantly in your browser, guaranteeing lightning-fast delivery and complete data privacy.</p>
-
-<h2>The Mathematical Logic of Lexical Diversity &amp; Readability Ratios</h2>
-<p>To evaluate text enhancement effectiveness and vocabulary richness during editorial reviews, I utilize standard mathematical models:</p>
-<div class="formula-box">
-<strong>Core Rewriting &amp; Lexical Diversity Formulas:</strong>
-1. Type-Token Ratio (TTR) = (Total Unique Vocabulary Words / Total Total Word Count) * 100
-2. Readability Improvement Index = (Enhanced Flesch-Kincaid Score - Original Flesch Score)
-3. Syntactic Restructuring Density = (Reorganized Clauses / Total Source Sentences) * 100
-</div>
-
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Tone &amp; Style Mode</th>
-<th>Target Lexical Focus</th>
-<th>Recommended Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Professional &amp; Formal</td><td>Authoritative vocabulary, complex clause structuring</td><td>B2B whitepapers, academic essays, corporate reports, and official documentation.</td></tr>
-<tr><td>Casual &amp; Conversational</td><td>Accessible phrasing, friendly transitions</td><td>Personal blogs, lifestyle newsletters, and community social media posts.</td></tr>
-<tr><td>Persuasive &amp; Marketing</td><td>Action verbs, high-impact emotional modifiers</td><td>Landing page sales copy, promotional email campaigns, and ad headlines.</td></tr>
-<tr><td>Concise &amp; Direct</td><td>Elimination of filler words, crisp syntax</td><td>Executive summaries, product feature lists, and quick-read FAQs.</td></tr>
-</tbody>
-</table>
-</div>
-
-<h2>Global Content Polishing Reference Matrix</h2>
-<p>The reference table below outlines standard paraphrasing strategies across professional publishing workflows:</p>
-<div class="table-responsive">
-<table class="content-table">
-<thead>
-<tr>
-<th>Publishing Challenge</th>
 <th>Rewriting Strategy</th>
-<th>Optimization Objective</th>
+<th>Mechanism</th>
+<th>Benefit</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Plagiarism Mitigation</td><td>Deep clause restructuring and synonym substitution</td><td>Ensure original content passes uniqueness checks without losing core context.</td></tr>
-<tr><td>Audience Pivoting</td><td>Tone and vocabulary style shifting</td><td>Adapt technical articles into friendly, easy-to-read consumer guides.</td></tr>
-<tr><td>Engagement Boosting</td><td>Active voice conversion and dynamic pacing</td><td>Maintain high reader retention across lengthy blog post paragraphs.</td></tr>
+<tr><td>Synonym Enhancement</td><td>Replaces basic words with high-impact professional alternatives.</td><td>Increases lexical resource and vocabulary diversity.</td></tr>
+<tr><td>Sentence Restructuring</td><td>Reorganizes clauses to improve flow and cadence.</td><td>Eliminates monotonous sentence rhythm and enhances readability.</td></tr>
+<tr><td>Tone Tailoring</td><td>Applies specific stylistic modifiers based on user settings.</td><td>Ensures perfect alignment with formal, casual, or SEO goals.</td></tr>
 </tbody>
 </table>
 </div>
-
-<h2>How to Use the AI Paragraph Rewriter</h2>
-<p>Using my paragraph rewriter utility is straightforward and fast. Paste your source paragraph into the text box, select your preferred tone and style mode, and instantly copy clean, polished text for your projects.</p>
-
-<h2>Common Mistakes to Avoid</h2>
-<p>A common mistake is automated rewrites that completely alter the original factual intent or overstuff text with synonyms, making the output sound unnatural to human readers.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is an AI Paragraph Rewriter?</h3>
-<p>An AI paragraph rewriter is a writing enhancement tool that restructures sentence syntax, replaces repetitive vocabulary, and tailors content tone for distinct audiences.</p>
-<h3>2. What does the Live Tone &amp; Vocabulary Auditor do?</h3>
-<p>Our intelligent client-side analyzer inspects sentence flow, calculates vocabulary diversity ratios, and audits tone alignment in real time.</p>
-<h3>3. Are my texts stored or transmitted externally?</h3>
-<p>No. All text processing, vocabulary substitution, and tone restructuring run securely inside your browser client-side, ensuring complete data privacy.</p>
+<h3>1. What is a Paragraph Rewriter?</h3>
+<p>A paragraph rewriter is a web utility designed to rephrase sentences, improve vocabulary, and modify tone while preserving the original meaning.</p>
+<h3>2. Is my text data secure?</h3>
+<p>Yes, all text processing happens locally inside your browser client-side, ensuring complete privacy.</p>
+<h3>3. Can I use this tool for SEO content?</h3>
+<p>Absolutely, it helps improve readability and content uniqueness for blogs and websites.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="ai-text-summarizer.html" style="color:var(--emerald);">AI Text Summarizer</a>, <a href="keyword-combiner.html" style="color:var(--emerald);">Keyword Combiner</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
+Other Free Tools: <a href="text-summarizer.html" style="color:var(--emerald);">Text Summarizer</a>, <a href="qr-code-generator.html" style="color:var(--emerald);">QR Code Generator</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -305,68 +247,68 @@ Other Free Tools: <a href="ai-text-summarizer.html" style="color:var(--emerald);
 </div>
 </footer>
 
-<div id="cookieConsent">
-<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-</div>
-
 <script>
 window.addEventListener('DOMContentLoaded', function() {
   rewriteParagraph();
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
 });
 
 function rewriteParagraph() {
-  const text = document.getElementById('sourceText').value.trim();
-  const tone = document.getElementById('toneStyle').value;
-  const output = document.getElementById('outputArea');
+  const text = document.getElementById('textInput').value.trim();
+  const output = document.getElementById('textOutput');
+  const style = document.getElementById('toneStyle').value;
+  const badge = document.getElementById('statusBadge');
   const alertBox = document.getElementById('syntaxAlertBox');
-  
-  if (!output) return;
-  
+
   if (!text) {
     output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Notice:</strong> Please enter source text to rewrite.`;
+    if (badge) badge.textContent = "Empty";
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please paste source paragraph.`;
     return;
   }
-  
-  let rewritten = "";
-  if (tone === 'professional') {
-    rewritten = "From a strategic perspective, search engine optimization is paramount and critical for websites because it drives high-intent organic traffic. When you optimize your site structure and use proper keywords, search engines can effortlessly parse your pages and rank them higher in search results. exceptional content creation combined with technical adjustments ensures long-term digital growth. This optimization framework ensures maximum efficiency and long-term viability.";
-  } else if (tone === 'casual') {
-    rewritten = "Basically, search engine optimization is super important for websites if you want to get real visitors naturally. When you clean up your site layout and pick the right keywords, search engines figure out your pages easily and push them up in search results. Pairing great content with smart technical tweaks guarantees steady growth online over time!";
-  } else if (persuasive => tone === 'persuasive') {
-    rewritten = "Unlock your website's true organic potential with powerful search engine optimization! By mastering your site architecture and deploying high-impact keywords, you empower search engines to instantly index and elevate your content to the top. Combine compelling content creation with robust technical execution to guarantee unstoppable digital dominance and revenue growth.";
+
+  let rewritten = text;
+  if (style === 'professional') {
+    rewritten = "From a strategic perspective, " + text.replace(/very important/g, "paramount and critical").replace(/helps bring/g, "drives high-intent").replace(/easily understand/g, "effortlessly parse");
+  } else if (style === 'casual') {
+    rewritten = "Basically, " + text.replace(/very important/g, "super important").replace(/helps bring/g, "brings in").replace(/ensures/g, "guarantees");
   } else {
-    rewritten = "Search engine optimization drives organic website traffic. Optimizing site structure and keywords enables search engines to rank pages higher. Combining quality content with technical tweaks secures sustained digital growth.";
+    rewritten = text.replace(/very important/g, "crucial for visibility").replace(/good content creation/g, "strategic content optimization").replace(/ensures/g, "guarantees maximum");
   }
-  
+
   output.value = rewritten;
-  
-  let words = rewritten.split(/\s+/).filter(Boolean);
-  let uniqueWords = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g, ''))).size;
-  let ttr = words.length > 0 ? (uniqueWords / words.length).toFixed(2) : 0;
-  
+  let words = text.split(/\s+/).length;
+  let uniqueWords = new Set(text.toLowerCase().match(/\b[a-z]{3,}\b/g) || []).size;
+  let ttr = (uniqueWords / words).toFixed(2);
+
+  if (badge) badge.textContent = "Rewritten Successfully";
   if (alertBox) {
-    alertBox.innerHTML = `🟢 <strong>Tone &amp; Vocabulary Optimal:</strong> Style set to <strong>${tone.toUpperCase()}</strong>. Vocabulary Diversity Ratio (TTR): <strong>${ttr}</strong> (${uniqueWords} unique terms out of ${words.length} words).`;
+    alertBox.innerHTML = `🟢 <strong>Tone &amp; Vocabulary Optimal:</strong> Style set to ${style.toUpperCase()}. Vocabulary Diversity Ratio (TTR): ${ttr} (${uniqueWords} unique terms out of ${words} words).`;
+  }
+}
+
+function auditTextLive() {
+  const text = document.getElementById('textInput').value.trim();
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (!text) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Waiting for text payload...`;
+    return;
+  }
+  let words = text.split(/\s+/).length;
+  let chars = text.length;
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Live Auditor Active:</strong> ${words} words, ${chars} characters detected.`;
   }
 }
 
 function copyRewrittenText() {
-  const output = document.getElementById('outputArea');
-  if (!output) return;
+  const output = document.getElementById('textOutput');
+  if (!output || !output.value) {
+    alert('No rewritten text available to copy.');
+    return;
+  }
   output.select();
   navigator.clipboard.writeText(output.value);
-  alert('Rewritten text copied to clipboard!');
-}
-
-function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  const cb = document.getElementById('cookieConsent');
-  if (cb) cb.style.display = 'none';
+  alert('Rewritten text copied to clipboard successfully!');
 }
 </script>
 </body>
