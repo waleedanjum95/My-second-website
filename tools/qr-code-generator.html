@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online QR Code Generator | SmartToolsKit</title>
-<meta name="description" content="Generate custom QR codes for websites, text, and data instantly with our free online browser-based QR code generator.">
+<title>Free Online QR Code Generator with Logo | SmartToolsKit</title>
+<meta name="description" content="Generate custom QR codes with center logos for websites, text, and data instantly with our free online browser-based QR code generator.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/qr-code-generator.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
-<meta property="og:title" content="Free Online QR Code Generator | SmartToolsKit">
-<meta property="og:description" content="Generate custom QR codes for websites and text instantly.">
+<meta property="og:title" content="Free Online QR Code Generator with Logo | SmartToolsKit">
+<meta property="og:description" content="Generate custom QR codes with center logos instantly.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/qr-code-generator.html">
 <meta property="og:type" content="website">
 
@@ -73,7 +73,7 @@ nav a:hover{color:var(--emerald-dark)}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
 .form-group{margin-bottom:15px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group input,.form-group textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
+.form-group input, .form-group textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
 .form-group textarea{min-height:90px;resize:vertical}
 .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
 .calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
@@ -130,12 +130,16 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 <div class="tool-layout">
 <div class="tool-container">
-<h1>QR Code Generator</h1>
-<p class="subtitle">Generate high-resolution custom QR codes for websites, plain text, and contact links instantly.</p>
+<h1>QR Code Generator with Logo</h1>
+<p class="subtitle">Generate custom QR codes with center logos for websites and data instantly.</p>
 <div class="calc-box">
 <div class="form-group">
 <label for="textInput">Website URL or Text String</label>
 <textarea id="textInput" oninput="generateQRCode()" placeholder="Enter URL or text here...">https://smarttoolskit.com</textarea>
+</div>
+<div class="form-group">
+<label for="logoInput">Upload Center Logo (Optional - PNG/JPG)</label>
+<input type="file" id="logoInput" accept="image/*" onchange="generateQRCode()">
 </div>
 <div class="btn-row">
 <button class="calc-btn" onclick="generateQRCode()">Generate QR Code</button>
@@ -148,14 +152,14 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 </div>
 <div class="unique-box">
-<h3>✨ Unique Feature: Instant Browser-Side Rasterization</h3>
-<p>Our generator creates crisp, high-contrast QR matrices locally inside your browser without communicating with external tracking servers.</p>
+<h3>✨ Unique Feature: Browser-Side Branded Matrix Rendering</h3>
+<p>Our generator creates crisp QR codes locally and embeds your custom center logo securely inside your browser environment.</p>
 <div class="syntax-alert" id="syntaxAlertBox">
-QR Generator Active: Ready to render scannable matrix.
+QR Generator Active: Ready to render matrix.
 </div>
 </div>
 <div class="security-badge">
-<span>Client-side security:</span> All matrix encoding occurs directly inside your browser environment. No text data or URLs are transmitted externally.
+<span>Client-side security:</span> All image processing and matrix encoding occur directly inside your browser. No data or logo files are sent externally.
 </div>
 <div class="disclaimer-container">
 <div class="disclaimer-text">
@@ -165,12 +169,12 @@ QR Generator Active: Ready to render scannable matrix.
 </div>
 </div>
 <div class="content-section">
-<h2>Understanding QR Codes and Their Modern Digital Utility</h2>
-<p>Quick Response (QR) codes have become an essential element of modern digital communication, bridging the gap between offline print media and online web destinations. A QR code is a matrix barcode capable of storing URLs, contact cards, text strings, and network credentials. I built this online QR Code Generator to help developers, marketers, and business owners instantly create crisp, scannable codes right from their web browsers.</p>
-<p>Unlike traditional barcodes that store data in one dimension, QR codes store data in both horizontal and vertical directions, allowing them to hold significantly more information and include built-in error correction capabilities.</p>
+<h2>Understanding QR Codes and Brand Logo Integration</h2>
+<p>Quick Response (QR) codes have become an essential element of modern digital communication, bridging the gap between offline print media and online web destinations. A QR code is a matrix barcode capable of storing URLs, contact cards, text strings, and network credentials. I built this online QR Code Generator to help developers, marketers, and business owners instantly create crisp, scannable codes featuring custom center logos right from their web browsers.</p>
+<p>By leveraging high-level error correction (Level H), these QR codes remain fully scannable even when a branded company logo is embedded directly in the center of the matrix.</p>
 
 <h2>Why Client-Side QR Generation Matters</h2>
-<p>When generating QR codes for sensitive links or private staging servers, data privacy is crucial. By performing all matrix calculations locally via browser scripts, your input strings remain strictly confidential on your device.</p>
+<p>When generating branded QR codes for sensitive links or private staging servers, data privacy is crucial. By performing all matrix calculations and logo overlays locally via browser scripts, your input strings and image files remain strictly confidential on your device.</p>
 
 <div class="table-responsive">
 <table class="content-table">
@@ -182,9 +186,9 @@ QR Generator Active: Ready to render scannable matrix.
 </tr>
 </thead>
 <tbody>
-<tr><td>Error Correction</td><td>High Level (Level H)</td><td>Allows the code to remain readable even if partially damaged or obscured.</td></tr>
-<tr><td>Encoding Format</td><td>Alphanumeric / UTF-8</td><td>Supports standard URLs, plain text descriptions, and web parameters.</td></tr>
-<tr><td>Rendering Engine</td><td>Client-Side DOM Canvas</td><td>Produces vector-sharp raster outputs instantaneously.</td></tr>
+<tr><td>Error Correction</td><td>High Level (Level H)</td><td>Allows the code to remain readable even when partially covered by a center logo.</td></tr>
+<tr><td>Logo Integration</td><td>Canvas Image Embedding</td><td>Enhances brand identity and professional presentation on marketing materials.</td></tr>
+<tr><td>Rendering Engine</td><td>Client-Side DOM Canvas</td><td>Produces vector-sharp raster outputs instantaneously without cloud uploads.</td></tr>
 </tbody>
 </table>
 </div>
@@ -203,7 +207,7 @@ QR Generator Active: Ready to render scannable matrix.
 <tbody>
 <tr><td>Contrast Ratio</td><td>Dark Matrix on Light Background</td><td>Always maintain high contrast (e.g., black on white) for optimal scanner recognition.</td></tr>
 <tr><td>Quiet Zone</td><td>Minimum 4 modules margin</td><td>Ensure adequate white space around the perimeter so smartphone cameras can detect boundaries.</td></tr>
-<tr><td>URL Length</td><td>Shortened URLs preferred</td><td>Use concise links to reduce matrix density and improve mobile scan speeds.</td></tr>
+<tr><td>Logo Size</td><td>Maximum 20% to 25% of area</td><td>Keep the center logo compact so error correction can successfully recover obscured pixels.</td></tr>
 </tbody>
 </table>
 </div>
@@ -211,21 +215,21 @@ QR Generator Active: Ready to render scannable matrix.
 <h2>Step-by-Step Guide on How to Use the QR Code Generator</h2>
 <p>Using this developer utility is straightforward and fast:</p>
 <p><strong>Step 1:</strong> Type or paste your target website URL or text string into the input box above.</p>
-<p><strong>Step 2:</strong> The tool automatically renders the scannable QR matrix in real-time as you type.</p>
-<p><strong>Step 3:</strong> Save or screenshot the generated QR code matrix for your marketing or project materials.</p>
+<p><strong>Step 2:</strong> Optionally upload a brand or profile logo image using the file selector.</p>
+<p><strong>Step 3:</strong> The tool automatically renders the scannable QR matrix with your embedded logo instantly.</p>
 
 <h2>Common Mistakes to Avoid in QR Code Creation</h2>
-<p>A common mistake is placing complex low-contrast colors or background textures directly over the barcode matrix, which frequently causes smartphone scanners to fail. Always maintain clean contrast.</p>
+<p>A common mistake is uploading an overly large logo that covers too many data modules, causing smartphone scanners to fail. Keeping the logo compact prevents scanning errors.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is a QR Code Generator?</h3>
-<p>A QR code generator is a utility that translates text strings and URLs into scannable two-dimensional barcode matrices.</p>
-<h3>2. Is my input data sent or stored on a server?</h3>
-<p>No. All matrix rendering happens entirely inside your browser client-side, ensuring complete data privacy.</p>
-<h3>3. Can QR codes expire?</h3>
-<p>Static QR codes generated directly from URLs do not expire unless the destination webpage goes offline or changes its address.</p>
-<h3>4. Why is high contrast important for QR codes?</h3>
-<p>Smartphones rely on light and dark contrast differentiation to detect alignment patterns and decode the embedded data accurately.</p>
+<h3>1. What is a QR Code Generator with Logo?</h3>
+<p>A QR code generator with logo is a utility that translates text strings into scannable barcodes while embedding a custom brand image in the center.</p>
+<h3>2. Is my input data or logo uploaded to a server?</h3>
+<p>No. All matrix rendering and image processing happen entirely inside your browser client-side, ensuring complete data privacy.</p>
+<h3>3. Will the QR code still scan with a logo in the center?</h3>
+<p>Yes, because the tool utilizes High-Level error correction (Level H), which allows successful scanning even if portions of the matrix are covered.</p>
+<h3>4. What image formats are supported for logos?</h3>
+<p>You can upload standard image formats including PNG, JPG, and JPEG files.</p>
 <h3>5. Is this tool 100% free?</h3>
 <p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
@@ -278,6 +282,7 @@ function generateQRCode() {
   const text = document.getElementById('textInput').value.trim();
   const container = document.getElementById('qrcodeCanvas');
   const alertBox = document.getElementById('syntaxAlertBox');
+  const logoInput = document.getElementById('logoInput');
   
   container.innerHTML = "";
 
@@ -287,17 +292,50 @@ function generateQRCode() {
   }
 
   try {
+    // Generate base QR code with High error correction for logo support
     qrcodeInstance = new QRCode(container, {
       text: text,
-      width: 180,
-      height: 180,
+      width: 200,
+      height: 200,
       colorDark: "#0F172A",
       colorLight: "#ffffff",
       correctLevel: QRCode.CorrectLevel.H
     });
 
-    if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>QR Code Generated:</strong> Matrix successfully rendered client-side. Ready for scanning.`;
+    // Check if logo is uploaded
+    if (logoInput && logoInput.files && logoInput.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const logoSrc = e.target.result;
+        setTimeout(() => {
+          const canvas = container.querySelector('canvas');
+          if (canvas) {
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            img.src = logoSrc;
+            img.onload = function() {
+              const size = 50;
+              const x = (canvas.width - size) / 2;
+              const y = (canvas.height - size) / 2;
+              
+              // Draw white background box behind logo for clear visibility
+              ctx.fillStyle = "#ffffff";
+              ctx.fillRect(x - 4, y - 4, size + 8, size + 8);
+              
+              // Draw the logo image in the center
+              ctx.drawImage(img, x, y, size, size);
+              if (alertBox) {
+                alertBox.innerHTML = `🟢 <strong>QR Code & Logo Generated:</strong> Custom branded matrix rendered successfully client-side.`;
+              }
+            };
+          }
+        }, 120);
+      };
+      reader.readAsDataURL(logoInput.files[0]);
+    } else {
+      if (alertBox) {
+        alertBox.innerHTML = `🟢 <strong>QR Code Generated:</strong> Matrix successfully rendered client-side. Ready for scanning.`;
+      }
     }
   } catch (err) {
     if (alertBox) {
