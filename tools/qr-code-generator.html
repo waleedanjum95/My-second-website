@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online QR Code Generator with Logo | SmartToolsKit</title>
-<meta name="description" content="Generate custom QR codes with center logos for websites, text, and data instantly with our free online browser-based QR code generator.">
+<meta name="description" content="Generate custom QR codes with center logos and download them instantly as PNG with our free online browser-based QR code generator.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/qr-code-generator.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Free Online QR Code Generator with Logo | SmartToolsKit">
-<meta property="og:description" content="Generate custom QR codes with center logos instantly.">
+<meta property="og:description" content="Generate custom QR codes with center logos and download them instantly.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/qr-code-generator.html">
 <meta property="og:type" content="website">
 
@@ -131,7 +131,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>QR Code Generator with Logo</h1>
-<p class="subtitle">Generate custom QR codes with center logos for websites and data instantly.</p>
+<p class="subtitle">Generate custom QR codes with center logos and download them instantly.</p>
 <div class="calc-box">
 <div class="form-group">
 <label for="textInput">Website URL or Text String</label>
@@ -148,6 +148,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="output-card">
 <div class="output-header"><label>Generated QR Code Output</label></div>
 <div id="qrcodeCanvas"></div>
+<button class="calc-btn" onclick="downloadQRCode()" style="margin-top:14px;background:#1E293B;border:1px solid #334155;">Download QR Code (PNG)</button>
 </div>
 
 </div>
@@ -216,7 +217,7 @@ QR Generator Active: Ready to render matrix.
 <p>Using this developer utility is straightforward and fast:</p>
 <p><strong>Step 1:</strong> Type or paste your target website URL or text string into the input box above.</p>
 <p><strong>Step 2:</strong> Optionally upload a brand or profile logo image using the file selector.</p>
-<p><strong>Step 3:</strong> The tool automatically renders the scannable QR matrix with your embedded logo instantly.</p>
+<p><strong>Step 3:</strong> Click download to save your generated branded QR code matrix instantly as a PNG image.</p>
 
 <h2>Common Mistakes to Avoid in QR Code Creation</h2>
 <p>A common mistake is uploading an overly large logo that covers too many data modules, causing smartphone scanners to fail. Keeping the logo compact prevents scanning errors.</p>
@@ -292,7 +293,6 @@ function generateQRCode() {
   }
 
   try {
-    // Generate base QR code with High error correction for logo support
     qrcodeInstance = new QRCode(container, {
       text: text,
       width: 200,
@@ -302,7 +302,6 @@ function generateQRCode() {
       correctLevel: QRCode.CorrectLevel.H
     });
 
-    // Check if logo is uploaded
     if (logoInput && logoInput.files && logoInput.files[0]) {
       const reader = new FileReader();
       reader.onload = function(e) {
@@ -318,11 +317,9 @@ function generateQRCode() {
               const x = (canvas.width - size) / 2;
               const y = (canvas.height - size) / 2;
               
-              // Draw white background box behind logo for clear visibility
               ctx.fillStyle = "#ffffff";
               ctx.fillRect(x - 4, y - 4, size + 8, size + 8);
               
-              // Draw the logo image in the center
               ctx.drawImage(img, x, y, size, size);
               if (alertBox) {
                 alertBox.innerHTML = `🟢 <strong>QR Code & Logo Generated:</strong> Custom branded matrix rendered successfully client-side.`;
@@ -341,6 +338,25 @@ function generateQRCode() {
     if (alertBox) {
       alertBox.innerHTML = `🔴 <strong>Error:</strong> Failed to render QR code matrix.`;
     }
+  }
+}
+
+function downloadQRCode() {
+  const canvas = document.querySelector('#qrcodeCanvas canvas');
+  const alertBox = document.getElementById('syntaxAlertBox');
+  
+  if (!canvas) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please generate a QR code first before downloading.`;
+    return;
+  }
+
+  const link = document.createElement('a');
+  link.download = 'smarttoolskit-qr-code.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Download Successful:</strong> QR code image saved to your device.`;
   }
 }
 </script>
