@@ -387,7 +387,6 @@ function compressImage() {
 
   ctx.drawImage(originalImage, 0, 0);
 
-  // Map browser-supported canvas export types safely
   let canvasMime = format;
   if(['image/bmp', 'image/gif', 'image/icon', 'image/tiff', 'image/heic', 'image/svg+xml', 'image/x-tga'].includes(format)) {
     canvasMime = 'image/png';
