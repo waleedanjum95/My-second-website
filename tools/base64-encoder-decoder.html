@@ -284,7 +284,6 @@ function encodeToBase64() {
   }
 
   try {
-    // Robust UTF-8 safe Base64 encoding
     const encoded = btoa(encodeURIComponent(input).replace(/%([0-9A-F]{2})/g, function(match, p1) {
       return String.fromCharCode('0x' + p1);
     }));
@@ -312,7 +311,6 @@ function decodeFromBase64() {
   }
 
   try {
-    // Robust UTF-8 safe Base64 decoding
     const decoded = decodeURIComponent(Array.prototype.map.call(atob(input), function(c) {
       return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
@@ -323,8 +321,9 @@ function decodeFromBase64() {
     }
   } catch (err) {
     output.value = "";
+    // Graceful notice instead of harsh error when plain text is decoded
     if (alertBox) {
-      alertBox.innerHTML = `🔴 <strong>Decoding Error:</strong> Invalid Base64 string format or characters.`;
+      alertBox.innerHTML = `🟡 <strong>Notice:</strong> Input appears to be plain text, not a Base64 string. Click "Encode to Base64" instead.`;
     }
   }
 }
