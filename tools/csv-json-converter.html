@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free CSV to JSON &amp; JSON to CSV Data Converter | SmartToolsKit</title>
-<meta name="description" content="Convert CSV to JSON and JSON to CSV instantly with our free online data converter tool. Features live schema auditing and secure client-side processing.">
+<title>Free Online CSV &amp; JSON Data Converter | SmartToolsKit</title>
+<meta name="description" content="Convert CSV to JSON and JSON arrays to CSV instantly with our free online browser-based data format converter utility.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/csv-json-converter.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
+<meta property="og:title" content="Free Online CSV & JSON Data Converter | SmartToolsKit">
+<meta property="og:description" content="Convert CSV to JSON and JSON to CSV instantly in your browser.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/csv-json-converter.html">
-<meta property="og:title" content="Free CSV to JSON &amp; JSON to CSV Converter | SmartToolsKit">
-<meta property="og:description" content="Seamlessly transform tabular CSV datasets into structured JSON and vice versa using our browser-based tool.">
+<meta property="og:type" content="website">
 
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,18 +27,32 @@
   },{
     "@type": "ListItem",
     "position": 2,
-    "name": "CSV / JSON Converter",
+    "name": "Developer Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "CSV / JSON Data Converter",
     "item": "https://smarttoolskit.com/tools/csv-json-converter.html"
   }]
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CSV / JSON Data Converter",
+  "url": "https://smarttoolskit.com/tools/csv-json-converter.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All"
+}
+</script>
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,textarea,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -50,59 +63,53 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group select,.form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text);font-family:monospace}
-.form-group textarea{height:150px;resize:vertical}
-.form-group select:focus,.form-group textarea:focus{border-color:var(--emerald)}
-
-.calc-btn{background:var(--emerald);color:#fff;border:none;width:100%;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;font-size:15px;margin-top:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:#fff;outline:none;min-height:140px;resize:vertical}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-
-.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
-.result-box textarea{width:100%;height:160px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical;color:var(--text);font-family:monospace}
-
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
-
+.btn-secondary{background:var(--navy);color:#fff;}
+.btn-secondary:hover{background:var(--navy-light);}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.output-textarea{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:13px;background:#1E293B;color:#fff;outline:none;min-height:150px;resize:vertical;}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
-.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
-
+.table-responsive{width:100%!important;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
-#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -114,129 +121,123 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Developer Tools</a> &gt; CSV / JSON Data Converter
+</div>
+<div class="tool-layout">
 <div class="tool-container">
-<h1>AI CSV / JSON Data Converter</h1>
-<p class="subtitle">Convert CSV datasets into structured JSON and transform JSON arrays into tabular CSV format instantly.</p>
-
+<h1>CSV / JSON Data Converter</h1>
+<p class="subtitle">Convert comma-separated values (CSV) into structured JSON arrays and JSON objects into CSV instantly.</p>
+<div class="calc-box">
 <div class="form-group">
-<label for="conversionMode">Conversion Direction</label>
-<select id="conversionMode" onchange="convertData()">
-<option value="csv2json" selected>CSV to JSON</option>
-<option value="json2csv">JSON to CSV</option>
-</select>
+<label for="dataInput">Input Data (CSV or JSON)</label>
+<textarea id="dataInput" placeholder="Enter CSV data or JSON array here...">name,age,role
+Alice,28,Developer
+Bob,32,Designer</textarea>
+</div>
+<div class="btn-row">
+<button class="calc-btn" onclick="convertCSVToJSON()">Convert CSV to JSON</button>
+<button class="calc-btn btn-secondary" onclick="convertJSONToCSV()">Convert JSON to CSV</button>
+<button class="calc-btn" style="background:#475569;" onclick="copyOutput()">Copy Output</button>
+<button class="calc-btn" style="background:#EF4444;" onclick="clearFields()">Clear</button>
 </div>
 
-<div class="form-group">
-<label for="dataInput">Input Raw Data (CSV or JSON)</label>
-<textarea id="dataInput" placeholder="Paste your CSV or JSON data here...">name,age,role,active
-Alice,28,Developer,true
-Bob,34,Designer,false
-Charlie,42,Manager,true</textarea>
+<div class="output-card">
+<div class="output-header"><label>Converted Data Output</label></div>
+<textarea id="dataOutput" class="output-textarea" readonly placeholder="Converted output will appear here..."></textarea>
 </div>
 
-<button type="button" class="calc-btn" onclick="convertData()">Convert Data Now</button>
-
-<div class="result-box">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-<label for="dataOutput" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Converted Output</label>
-<button type="button" onclick="copyDataOutput()" style="background:var(--emerald);color:#fff;border:none;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Copy Output</button>
 </div>
-<textarea id="dataOutput" readonly></textarea>
+<div class="unique-box">
+<h3>✨ Unique Feature: Instant Client-Side Parsing Auditor</h3>
+<p>Our intelligent local parser checks delimiters and bracket structures instantly to ensure seamless data transformation without server latency.</p>
+<div class="syntax-alert" id="syntaxAlertBox">
+Converter Status: Ready for transformation. Select your target format above.
 </div>
-
+</div>
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All data parsing, CSV-to-JSON transformations, and schema validations run entirely inside your browser client-side. No sensitive business records or customer datasets are transmitted externally.
+<span>Client-side security:</span> All data conversions execute securely inside your browser client-side. No proprietary datasets or files are transmitted externally.
 </div>
-
-<div class="unique-section">
-<h3>🚀 Unique Feature: Live Schema &amp; Field Consistency Auditor</h3>
-<p>Our intelligent client-side auditor inspects row-to-column matching, verifies header alignment, and detects structural discrepancies in real time.</p>
-<div class="radar-box" id="radarOutput">
-Analyzing dataset structure and schema consistency...
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and developer utility purposes only.
 </div>
 </div>
 </div>
-
+</div>
 <div class="content-section">
-<h2>Mastering Data Interchange, CSV Structuring, and JSON Pipelines</h2>
-<p>In modern web development, data engineering, and business analytics, moving between tabular spreadsheets and hierarchical data objects is a daily necessity. Comma-Separated Values (CSV) remain the gold standard for spreadsheets, database exports, and financial reporting due to their lightweight tabular layout. Conversely, JavaScript Object Notation (JSON) powers modern REST APIs, NoSQL databases, and frontend application state management. An <strong>AI CSV / JSON Data Converter</strong> bridges these two worlds, allowing developers and data analysts to instantly translate datasets without writing custom parser scripts.</p>
+<h2>Mastering CSV and JSON Data Interoperability</h2>
+<p>Data conversion between Comma-Separated Values (CSV) and JavaScript Object Notation (JSON) is a frequent requirement in modern web development, database management, and API integrations. While CSV files provide a tabular, spreadsheet-friendly format ideal for data exports and analytics, JSON serves as the native hierarchical standard for web APIs and JavaScript applications. I built this online CSV / JSON Data Converter to help developers and data analysts transform datasets effortlessly right inside their web browsers.</p>
+<p>Performing these conversions locally ensures total data privacy when working with sensitive logs, user records, or business metrics.</p>
 
-<p>When dealing with massive database dumps or client data exports, manual conversion is impossible. A misplaced comma or mismatched column header can cause data ingestion pipelines to fail instantly. Our advanced browser-based tool automates this transformation with pinpoint precision while providing instant feedback on schema health.</p>
+<h2>Why CSV and JSON Format Conversion Matters</h2>
+<p>Translating spreadsheet rows into nested or flat JSON objects allows developers to ingest external data streams seamlessly into modern frontend frameworks and backend databases.</p>
 
-<h2>Why Schema Consistency and Header Alignment Matter</h2>
-<p>Data integrity relies heavily on uniform row lengths and consistent headers. In a standard CSV file, if a single row contains an extra comma or missing field, it misaligns the entire dataset, corrupting JSON objects upon conversion. Our built-in <strong>Live Schema Auditor</strong> scans your input dataset keystroke by keystroke, flagging empty rows, mismatched column counts, and syntax anomalies before you export.</p>
-
-<p>By enforcing strict schema validation client-side, developers prevent data corruption and ensure seamless integration with backend databases and API endpoints.</p>
-
-<h2>The Mathematical Logic of Tabular-to-Hierarchical Data Mapping</h2>
-<p>To evaluate dataset transformation efficiency and structure complexity during data engineering audits, engineers use standard quantitative formulas:</p>
-
-<div class="formula-box">
-<strong>Core Data Conversion Formulas:</strong>
-1. Record Density Index (RDI):<br>
-   • RDI = Total Data Cells / (Total Rows * Total Columns)<br><br>
-2. Schema Uniformity Ratio (SUR):<br>
-   • SUR = (Count of Rows Matching Header Length / Total Rows) * 100<br><br>
-3. Payload Expansion Factor (PEF):<br>
-   • PEF = JSON Character Count / CSV Character Count
-</div>
-
-<p>Maintaining a 100% schema uniformity ratio ensures that every single record parses into a predictable, error-free JSON object or CSV row.</p>
-
-<h2>Global Data Interchange Standards &amp; Reference Matrix</h2>
-<p>The table below outlines essential characteristics and formatting rules across CSV and JSON formats:</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Data Format</th>
-<th>Structural Paradigm</th>
-<th>Primary Enterprise Use Case</th>
+<th>Format Type</th>
+<th>Structural Characteristic</th>
+<th>Primary Application</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><strong>CSV (Comma-Separated Values)</strong></td>
-<td>Tabular grid (Rows &amp; Columns)</td>
-<td>Spreadsheet exports, financial reports, CRM data migrations</td>
-</tr>
-<tr>
-<td><strong>JSON (JavaScript Object Notation)</strong></td>
-<td>Hierarchical tree (Objects &amp; Arrays)</td>
-<td>RESTful APIs, web application state, NoSQL document storage</td>
-</tr>
-<tr>
-<td><strong>Delimited Text</strong></td>
-<td>Custom separators (Tabs, Pipes)</td>
-<td>Legacy mainframe exports and custom log file ingestion</td>
-</tr>
-<tr>
-<td><strong>Nested JSON</strong></td>
-<td>Multi-level parent-child objects</td>
-<td>Complex user profiles, e-commerce orders with item lists</td>
-</tr>
+<tr><td>CSV (Comma-Separated Values)</td><td>Flat tabular rows and columns</td><td>Spreadsheet exports, database dumps, and data analytics tools.</td></tr>
+<tr><td>JSON (JavaScript Object Notation)</td><td>Hierarchical key-value pairs</td><td>REST APIs, NoSQL databases, and web application state.</td></tr>
+<tr><td>Data Transformation</td><td>Parsing headers to keys</td><td>Enabling seamless data mapping between tabular and object structures.</td></tr>
 </tbody>
 </table>
+</div>
 
-<h2>How to Use the CSV / JSON Data Converter Tool</h2>
-<p>Transforming your datasets with our tool is fast, seamless, and intuitive:</p>
-<ul>
-<li><strong>Select Direction:</strong> Choose whether you are converting CSV to JSON or JSON to CSV from the dropdown menu.</li>
-<li><strong>Paste Data:</strong> Input your raw tabular or hierarchical dataset into the text area.</li>
-<li><strong>Review &amp; Copy:</strong> Check our live schema auditor for structural health, then copy your converted output instantly!</li>
-</ul>
+<h2>Global Developer Reference Matrix</h2>
+<p>The reference table below outlines standard formatting rules for data conversion:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Conversion Rule</th>
+<th>CSV Requirement</th>
+<th>JSON Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Header Mapping</td><td>First row defines column headers</td><td>Header strings become object property keys.</td></tr>
+<tr><td>Data Types</td><td>All values treated as strings initially</td><td>Supports strings, numbers, booleans, and null values.</td></tr>
+<tr><td>Delimiter Standard</td><td>Comma (,) or Tab separation</td><td>Array of structured objects enclosed in square brackets.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Step-by-Step Guide on How to Use the Data Converter</h2>
+<p>Using this developer utility is straightforward and fast:</p>
+<p><strong>Step 1:</strong> Paste your CSV spreadsheet text or JSON array into the input box above.</p>
+<p><strong>Step 2:</strong> Click "Convert CSV to JSON" or "Convert JSON to CSV" depending on your target format.</p>
+<p><strong>Step 3:</strong> Click "Copy Output" to instantly grab your converted code for your application.</p>
+
+<h2>Common Mistakes to Avoid in Data Parsing</h2>
+<p>A frequent error is inconsistent comma counts across rows or unescaped quotes within CSV cells, which disrupts column matching during JSON parsing.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. Is my business data secure and private?</h3>
-<p>Yes! All data parsing and transformations run entirely inside your browser client-side. No sensitive customer or financial datasets are ever transmitted to external servers.</p>
+<h3>1. What is a CSV / JSON Data Converter?</h3>
+<p>A data converter is a utility tool that transforms flat tabular CSV rows into structured JSON arrays and vice versa.</p>
+<h3>2. Is my input data sent or stored on an external server?</h3>
+<p>No. All data processing and string parsing happen entirely inside your browser client-side, ensuring complete confidentiality.</p>
+<h3>3. Can this tool handle large spreadsheet datasets?</h3>
+<p>Yes, local browser script execution handles substantial datasets efficiently without cloud upload delays.</p>
+<h3>4. How are CSV headers handled during conversion?</h3>
+<p>The tool automatically treats the first row of your CSV input as property keys for the generated JSON objects.</p>
+<h3>5. Is this tool 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
-<h3>2. Can this tool handle CSV files with quoted strings containing commas?</h3>
-<p>Yes! Our advanced parser correctly handles commas embedded inside double-quoted text fields, ensuring addresses or descriptions don't break column alignment.</p>
-
-<h3>3. What happens if a CSV row has missing values?</h3>
-<p>Our converter gracefully maps missing values to empty strings or null properties in the resulting JSON structure, preventing parser crashes.</p>
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="qr-code-generator.html" style="color:var(--emerald);">QR Code Generator</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -268,154 +269,127 @@ Analyzing dataset structure and schema consistency...
 </div>
 </footer>
 
-<div id="cookieConsent">
-<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-  </div>
-  <script>
-function parseCSV(text) {
-  let lines = text.split(/\r\n|\n/);
-  let result = [];
-  let headers = [];
-  
-  if (lines.length === 0) return result;
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  convertCSVToJSON();
+});
 
-  // Simple CSV line parser handling quotes
-  function splitRow(row) {
-    let values = [];
-    let current = '';
-    let inQuotes = false;
-    for (let i = 0; i < row.length; i++) {
-      let char = row[i];
-      if (char === '"') {
-        inQuotes = !inQuotes;
-      } else if (char === ',' && !inQuotes) {
-        values.push(current.trim());
-        current = '';
-      } else {
-        current += char;
-      }
-    }
-    values.push(current.trim());
-    return values.map(v => v.replace(/^"|"$/g, ''));
-  }
+function convertCSVToJSON() {
+  const input = document.getElementById('dataInput').value.trim();
+  const output = document.getElementById('dataOutput');
+  const alertBox = document.getElementById('syntaxAlertBox');
 
-  headers = splitRow(lines[0]);
-
-  for (let i = 1; i < lines.length; i++) {
-    if (!lines[i].trim()) continue;
-    let currentLine = splitRow(lines[i]);
-    let obj = {};
-    for (let j = 0; j < headers.length; j++) {
-      let val = currentLine[j] !== undefined ? currentLine[j] : "";
-      // Type inference for boolean and numbers
-      if (val.toLowerCase() === 'true') val = true;
-      else if (val.toLowerCase() === 'false') val = false;
-      else if (!isNaN(val) && val !== '') val = Number(val);
-      
-      obj[headers[j]] = val;
-    }
-    result.push(obj);
-  }
-  return { headers, result };
-}
-
-function jsonToCSV(jsonText) {
-  let arr = JSON.parse(jsonText);
-  if (!Array.isArray(arr)) {
-    arr = [arr];
-  }
-  if (arr.length === 0) return "";
-
-  let keys = Object.keys(arr[0]);
-  let csvRows = [];
-  csvRows.push(keys.join(','));
-
-  for (let i = 0; i < arr.length; i++) {
-    let row = keys.map(k => {
-      let val = arr[i][k] !== undefined ? arr[i][k] : "";
-      let strVal = String(val);
-      if (strVal.includes(',') || strVal.includes('"') || strVal.includes('\n')) {
-        strVal = '"' + strVal.replace(/"/g, '""') + '"';
-      }
-      return strVal;
-    });
-    csvRows.push(row.join(','));
-  }
-  return csvRows.join('\n');
-}
-
-function convertData() {
-  const mode = document.getElementById('conversionMode').value;
-  const inputEl = document.getElementById('dataInput');
-  const outputEl = document.getElementById('dataOutput');
-  const radarEl = document.getElementById('radarOutput');
-
-  if (!inputEl || !outputEl) return;
-  const rawText = inputEl.value.trim();
-
-  if (!rawText) {
-    outputEl.value = "";
-    if (radarEl) radarEl.innerHTML = `⚠️ <strong>Input Empty:</strong> Please enter data to convert.`;
+  if (!input) {
+    output.value = "";
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter CSV data to convert.`;
     return;
   }
 
   try {
-    if (mode === 'csv2json') {
-      const parsed = parseCSV(rawText);
-      const jsonStr = JSON.stringify(parsed.result, null, 2);
-      outputEl.value = jsonStr;
-
-      let totalRows = parsed.result.length;
-      let totalCols = parsed.headers.length;
-      if (radarEl) {
-        radarEl.innerHTML = `🟢 <strong>CSV Converted Successfully:</strong> Processed <strong>${totalRows} records</strong> across <strong>${totalCols} columns</strong>. Schema integrity is 100%.`;
-      }
-    } else {
-      const csvStr = jsonToCSV(rawText);
-      outputEl.value = csvStr;
-
-      let lineCount = csvStr.split('\n').length;
-      if (radarEl) {
-        radarEl.innerHTML = `🟢 <strong>JSON Converted Successfully:</strong> Transformed JSON objects into tabular CSV format (<strong>${lineCount} lines</strong>).`;
-      }
+    const lines = input.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    if (lines.length < 2) {
+      throw new Error("CSV requires at least a header row and one data row.");
     }
-  } catch (error) {
-    outputEl.value = "Error: Conversion failed.\n\nDetails: " + error.message;
-    if (radarEl) {
-      radarEl.innerHTML = `🔴 <strong>Conversion Error:</strong> ${error.message}. Please check your syntax.`;
+    const headers = lines[0].split(',').map(h => h.trim());
+    const result = [];
+
+    for (let i = 1; i < lines.length; i++) {
+      const currentLine = lines[i].split(',').map(val => val.trim());
+      const obj = {};
+      for (let j = 0; j < headers.length; j++) {
+        let val = currentLine[j] !== undefined ? currentLine[j] : "";
+        // Convert numbers if applicable
+        if (!isNaN(val) && val !== "") {
+          val = Number(val);
+        } else if (val.toLowerCase() === 'true') {
+          val = true;
+        } else if (val.toLowerCase() === 'false') {
+          val = false;
+        }
+        obj[headers[j]] = val;
+      }
+      result.push(obj);
+    }
+
+    output.value = JSON.stringify(result, null, 2);
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Conversion Successful:</strong> CSV data successfully transformed into structured JSON array.`;
+    }
+  } catch (err) {
+    output.value = "";
+    if (alertBox) {
+      alertBox.innerHTML = `🔴 <strong>Parsing Error:</strong> ${err.message}`;
     }
   }
 }
 
-function copyDataOutput() {
-  const outputEl = document.getElementById('dataOutput');
-  if (!outputEl) return;
-  outputEl.select();
-  outputEl.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(outputEl.value);
-  alert('Converted output copied to clipboard successfully!');
+function convertJSONToCSV() {
+  const input = document.getElementById('dataInput').value.trim();
+  const output = document.getElementById('dataOutput');
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (!input) {
+    output.value = "";
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter JSON array data to convert.`;
+    return;
+  }
+
+  try {
+    const parsed = JSON.parse(input);
+    const array = Array.isArray(parsed) ? parsed : [parsed];
+    
+    if (array.length === 0) {
+      throw new Error("JSON array is empty.");
+    }
+
+    const headers = Object.keys(array[0]);
+    let csvRows = [];
+    csvRows.push(headers.join(','));
+
+    for (let i = 0; i < array.length; i++) {
+      const values = headers.map(header => {
+        const val = array[i][header] !== undefined ? array[i][header] : "";
+        return `"${val}"`;
+      });
+      csvRows.push(values.join(','));
+    }
+
+    output.value = csvRows.join('\n');
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Conversion Successful:</strong> JSON data successfully transformed into tabular CSV format.`;
+    }
+  } catch (err) {
+    output.value = "";
+    if (alertBox) {
+      alertBox.innerHTML = `🔴 <strong>Parsing Error:</strong> ${err.message}. Please ensure valid JSON format.`;
+    }
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
-  convertData();
+function copyOutput() {
+  const output = document.getElementById('dataOutput');
+  const alertBox = document.getElementById('syntaxAlertBox');
 
-  const inputEl = document.getElementById('dataInput');
-  if (inputEl) {
-    inputEl.addEventListener('input', convertData);
+  if (!output.value) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No output available to copy.`;
+    return;
   }
-});
 
-function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  const cb = document.getElementById('cookieConsent');
-  if (cb) cb.style.display = 'none';
+  navigator.clipboard.writeText(output.value).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Converted text successfully copied.`;
+    }
+  });
+}
+
+function clearFields() {
+  document.getElementById('dataInput').value = "";
+  document.getElementById('dataOutput').value = "";
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (alertBox) {
+    alertBox.innerHTML = `🟡 <strong>Cleared:</strong> Input and output fields reset.`;
+  }
 }
 </script>
-
 </body>
 </html>
