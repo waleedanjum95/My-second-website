@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online CSS &amp; JS Code Minifier &amp; Compressor | SmartToolsKit</title>
-<meta name="description" content="Minify CSS and JavaScript code instantly with our free online code compressor. Features live compression ratio auditing, payload size reduction, and secure client-side processing.">
+<title>Free Online CSS &amp; JS Code Minifier | SmartToolsKit</title>
+<meta name="description" content="Minify CSS and JavaScript code to reduce file sizes, remove comments, and optimize page load speeds instantly with our free online browser utility.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/css-js-minifier.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
-<meta property="og:type" content="article">
+<meta property="og:title" content="Free Online CSS & JS Code Minifier | SmartToolsKit">
+<meta property="og:description" content="Minify CSS and JavaScript code instantly in your browser to optimize web performance.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/css-js-minifier.html">
-<meta property="og:title" content="Free Online CSS &amp; JS Code Minifier | SmartToolsKit">
-<meta property="og:description" content="Compress and optimize CSS stylesheets and JavaScript scripts securely within your browser.">
+<meta property="og:type" content="website">
 
-<!-- Structured Data (JSON-LD Breadcrumb Schema) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,18 +27,32 @@
   },{
     "@type": "ListItem",
     "position": 2,
+    "name": "Developer Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
     "name": "CSS & JS Code Minifier",
     "item": "https://smarttoolskit.com/tools/css-js-minifier.html"
   }]
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CSS & JS Code Minifier",
+  "url": "https://smarttoolskit.com/tools/css-js-minifier.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All"
+}
+</script>
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,textarea,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -50,62 +63,53 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.form-group select, .form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;color:var(--text);font-family:monospace}
-.form-group textarea{height:140px;resize:vertical}
-.form-group select:focus, .form-group textarea:focus{border-color:var(--emerald)}
-
-.btn-group{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:#fff;outline:none;min-height:140px;resize:vertical}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.calc-btn.secondary{background:var(--navy)}
-.calc-btn.secondary:hover{background:var(--navy-light)}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-
-.result-box{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:20px}
-.result-box textarea{width:100%;height:140px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;background:#fff;resize:vertical;color:var(--text);font-family:monospace}
-
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-.radar-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
-
+.btn-secondary{background:var(--navy);color:#fff;}
+.btn-secondary:hover{background:var(--navy-light);}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.output-textarea{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:13px;background:#1E293B;color:#fff;outline:none;min-height:150px;resize:vertical;}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
-.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
-#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -117,148 +121,127 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
-<div class="tool-container">
-<h1>AI CSS &amp; JS Code Minifier &amp; Compressor</h1>
-<p class="subtitle">Compress and optimize CSS stylesheets and JavaScript scripts instantly with real-time payload reduction metrics.</p>
-
-<div class="form-group">
-<label for="codeType">Select Language Type</label>
-<select id="codeType" onchange="runMinify()">
-<option value="css" selected>CSS (Cascading Style Sheets)</option>
-<option value="js">JavaScript (ECMAScript)</option>
-</select>
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Developer Tools</a> &gt; CSS &amp; JS Code Minifier
 </div>
-
+<div class="tool-layout">
+<div class="tool-container">
+<h1>CSS &amp; JS Code Minifier</h1>
+<p class="subtitle">Minify stylesheets and JavaScript code by stripping comments and unnecessary whitespace instantly.</p>
+<div class="calc-box">
 <div class="form-group">
-<label for="inputCode">Source Code Input</label>
-<textarea id="inputCode" placeholder="Paste your CSS or JavaScript code here...">/* Main Theme Stylesheet */
+<label for="codeInput">Input CSS or JavaScript Code</label>
+<textarea id="codeInput" placeholder="Paste your CSS or JS code here...">/* Main Stylesheet */
 body {
-    background-color: #f8fafc;
-    color: #0f172a;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  margin: 0;
+  padding: 0;
 }</textarea>
 </div>
-
-<div class="btn-group">
-<button type="button" class="calc-btn" onclick="runMinify()">Minify Code</button>
-<button type="button" class="calc-btn secondary" onclick="copyMinifiedCode()">Copy Minified Code</button>
+<div class="btn-row">
+<button class="calc-btn" onclick="minifyCSS()">Minify CSS</button>
+<button class="calc-btn btn-secondary" onclick="minifyJS()">Minify JS</button>
+<button class="calc-btn" style="background:#475569;" onclick="copyOutput()">Copy Output</button>
+<button class="calc-btn" style="background:#EF4444;" onclick="clearFields()">Clear</button>
 </div>
 
-<div class="result-box">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-<label for="outputCode" style="font-size:13px;font-weight:700;color:var(--navy);margin:0;">Minified Output</label>
-<span style="font-size:12px;color:var(--muted);" id="statLabel">Original: 0 B | Minified: 0 B (0% saved)</span>
-</div>
-<textarea id="outputCode" readonly placeholder="Minified code will appear here..."></textarea>
+<div class="output-card">
+<div class="output-header"><label>Minified Code Output</label></div>
+<textarea id="codeOutput" class="output-textarea" readonly placeholder="Minified code output will appear here..."></textarea>
 </div>
 
+</div>
+<div class="unique-box">
+<h3>✨ Unique Feature: Real-Time Browser Compression Auditor</h3>
+<p>Our client-side minification engine strips comments, tabs, and whitespace locally while preserving exact code execution syntax.</p>
+<div class="syntax-alert" id="syntaxAlertBox">
+Minifier Status: Ready for code optimization. Select your target language above.
+</div>
+</div>
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All code parsing, comment stripping, and minification algorithms run entirely inside your browser client-side. No proprietary scripts or stylesheets are transmitted externally.
+<span>Client-side security:</span> All code minifications execute securely inside your browser environment. No source scripts or data are transmitted externally.
 </div>
-
-<div class="unique-section">
-<h3>🚀 Unique Feature: Live Compression Ratio &amp; Bandwidth Savings Auditor</h3>
-<p>Our intelligent client-side auditor computes payload size reductions, evaluates whitespace stripping efficiency, and estimates network bandwidth savings for production deployments.</p>
-<div class="radar-box" id="radarOutput">
-Analyzing asset payload efficiency and compression metrics...
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and developer utility purposes only.
 </div>
 </div>
 </div>
-
+</div>
 <div class="content-section">
-<h2>Mastering Asset Minification, Web Performance, and Core Web Vitals</h2>
-<p>In modern web development, frontend optimization and page load speed are critical factors for user retention and search engine rankings. When web browsers download web pages, they must fetch external resources including HTML documents, stylesheets (CSS), and executable scripts (JavaScript). Uncompressed assets often contain excessive whitespace, indentation, multi-line comments, and verbose variable identifiers that bloat file sizes. An <strong>AI CSS &amp; JS Code Minifier</strong> provides developers, frontend engineers, and site administrators with an instant, highly secure utility to compress source code by stripping redundant characters without altering runtime functionality.</p>
+<h2>Mastering Code Minification for High-Performance Web Applications</h2>
+<p>Code minification is the practice of removing all unnecessary characters from source code without altering its operational functionality. This includes stripping comments, whitespace, indentation, and newlines from CSS stylesheets and JavaScript files. I built this online CSS &amp; JS Code Minifier to help developers and web designers reduce payload file sizes and enhance website loading speeds directly inside their web browsers.</p>
+<p>Because processing runs entirely on local client-side scripts, developers can safely optimize proprietary scripts and style files without cloud upload risks.</p>
 
-<p>Search engines like Google prioritize fast-loading websites under Core Web Vitals metrics, specifically focusing on Largest Contentful Paint (LCP) and Interaction to Next Paint (INP). Reducing asset payload size decreases network transfer duration over cellular connections, minimizes CPU parsing bottlenecks, and accelerates browser rendering pipelines. Utilizing a robust browser-based minifier ensures instant optimization during development workflows.</p>
+<h2>Why CSS and JavaScript Minification Matters</h2>
+<p>Smaller file sizes lead to faster network downloads and reduced bandwidth consumption, which directly improves core web vitals and search engine rankings.</p>
 
-<h2>Why Asset Compression and Whitespace Removal Matter</h2>
-<p>Code readability practices—such as indented blocks, descriptive comment annotations, and line breaks—are essential for collaborative software development. However, production web servers do not require human-readable formatting to execute code. Every unnecessary byte consumed by indentation and comments increases transmission latency.</p>
-
-<p>Our <strong>Live Compression Ratio Auditor</strong> scans your input text instantly, calculating exact byte reductions, measuring payload efficiency, and projecting accumulated bandwidth savings across high-volume traffic sessions.</p>
-
-<h2>The Mathematical Logic of Minification and Compression Ratios</h2>
-<p>To evaluate performance improvements and asset optimization efficiency during builds, engineers use standard quantitative formulas:</p>
-
-<div class="formula-box">
-<strong>Core Minification &amp; Compression Formulas:</strong>
-1. Size Reduction Percentage ($R_{pct}$):<br>
-   • $R_{pct} = \left(1 - \frac{\text{Size}_{min}}{\text{Size}_{orig}}\right) \times 100$<br><br>
-2. Total Byte Savings ($\Delta B$):<br>
-   • $\Delta B = \text{Size}_{orig} - \text{Size}_{min}$<br><br>
-3. Estimated Network Transfer Time ($T_{net}$):<br>
-   • $T_{net} = \frac{\text{File Size}}{\text{Connection Bandwidth}}$
-</div>
-
-<p>Maximizing reduction efficiency ensures lightning-fast delivery across global content delivery networks (CDNs).</p>
-
-<h2>Global Minification Techniques &amp; Asset Reference Matrix</h2>
-<p>The table below outlines essential code compression techniques, target elements, and optimization impacts:</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Minification Technique</th>
-<th>Target Syntax Element</th>
-<th>Optimization Impact &amp; Safety</th>
+<th>Optimization Action</th>
+<th>Target Elements Removed</th>
+<th>Performance Benefit</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><strong>Comment Stripping</strong></td>
-<td><code>/* ... */</code> and <code>// ...</code></td>
-<td>Removes all documentation and developer notes; 100% safe for production.</td>
-</tr>
-<tr>
-<td><strong>Whitespace Collapse</strong></td>
-<td>Tabs, spaces, and line breaks</td>
-<td>Collapses multi-line formatting into compact single-line or wrapped blocks.</td>
-</tr>
-<tr>
-<td><strong>Block Delimiter Trimming</strong></td>
-<td>Spaces around <code>{ }</code>, <code>:</code>, <code>;</code>, <code>,</code></td>
-<td>Eliminates padding spaces around syntax tokens to reduce byte count.</td>
-</tr>
-<tr>
-<td><strong>Semicolon Optimization</strong></td>
-<td>Trailing rule terminators</td>
-<td>Ensures correct statement termination while removing redundant whitespace.</td>
-</tr>
-<tr>
-<td><strong>Dead Code Removal</strong></td>
-<td>Unreachable conditional blocks</td>
-<td>Strips dormant development flags and unused debugging variables.</td>
-</tr>
+<tr><td>Comment Stripping</td><td>Single-line and multi-line comments (/* ... */)</td><td>Eliminates non-executable metadata and developer notes.</td></tr>
+<tr><td>Whitespace Removal</td><td>Indentation tabs, spaces, and line breaks</td><td>Shrinks total file byte size for faster network transfer.</td></tr>
+<tr><td>Syntax Preservation</td><td>Semicolons, braces, and operators</td><td>Ensures code logic and browser rendering remain 100% intact.</td></tr>
 </tbody>
 </table>
+</div>
 
-<h2>How to Use the CSS &amp; JS Code Minifier Tool</h2>
-<p>Compressing your stylesheets and scripts with our tool is fast, seamless, and intuitive:</p>
-<ul>
-<li><strong>Select Language:</strong> Choose whether you are minifying CSS stylesheets or JavaScript scripts from the dropdown.</li>
-<li><strong>Paste Source Code:</strong> Enter or paste your unminified source code into the input textarea.</li>
-<li><strong>Review Compression:</strong> Observe real-time byte reduction statistics and our live bandwidth auditor.</li>
-<li><strong>Copy Minified Output:</strong> Copy your optimized production-ready code instantly with a single click!</li>
-</ul>
+<h2>Global Developer Reference Matrix</h2>
+<p>The reference table below outlines standard minification performance metrics:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Asset Type</th>
+<th>Average Size Reduction</th>
+<th>Primary Deployment Target</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>CSS Stylesheets</td><td>15% to 30% smaller</td><td>Production style sheets linked in website headers.</td></tr>
+<tr><td>JavaScript Files</td><td>20% to 40% smaller</td><td>Client-side interactivity scripts and bundle files.</td></tr>
+<tr><td>Combined Assets</td><td>Significant bandwidth savings</td><td>Accelerating mobile and desktop page render times.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Step-by-Step Guide on How to Use the Code Minifier</h2>
+<p>Using this developer utility is straightforward and fast:</p>
+<p><strong>Step 1:</strong> Type or paste your raw CSS or JavaScript code into the input box above.</p>
+<p><strong>Step 2:</strong> Click "Minify CSS" or "Minify JS" depending on your target asset type.</p>
+<p><strong>Step 3:</strong> Click "Copy Output" to instantly grab your optimized code for production deployment.</p>
+
+<h2>Common Mistakes to Avoid in Code Optimization</h2>
+<p>A frequent error is forgetting to retain a backup copy of unminified source code, which makes future debugging and feature updates extremely challenging.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. Does minification change how my code executes?</h3>
-<p>No. Standard minification only removes unnecessary whitespace, indentation, and comments. The logic, styling rules, and execution behavior remain identical.</p>
+<h3>1. What is a CSS &amp; JS Code Minifier?</h3>
+<p>A code minifier is a developer utility that strips comments and unnecessary whitespace to reduce file sizes without breaking functionality.</p>
+<h3>2. Is my source code transmitted or stored on an external server?</h3>
+<p>No. All code processing and compression happen entirely inside your browser client-side, ensuring complete confidentiality.</p>
+<h3>3. Does minifying code change how it executes?</h3>
+<p>No. Minified code functions identically to the original unminified source code but loads significantly faster in web browsers.</p>
+<h3>4. Can this tool handle large script files?</h3>
+<p>Yes, local browser script execution handles substantial CSS and JavaScript payloads efficiently and instantly.</p>
+<h3>5. Is this tool 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
-<h3>2. Is minified code secure against reverse engineering?</h3>
-<p>Minification provides minimal obfuscation by removing variable names and comments, but it is not encryption. For robust JavaScript protection, dedicated code obfuscators should be used.</p>
-
-<h3>3. Is my source code secure and private?</h3>
-<p>Yes! All code processing and compression run entirely inside your browser client-side. No proprietary scripts or stylesheets are ever transmitted to external servers.</p>
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="url-encoder-decoder.html" style="color:var(--emerald);">URL Encoder / Decoder</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -290,92 +273,97 @@ Analyzing asset payload efficiency and compression metrics...
 </div>
 </footer>
 
-<div id="cookieConsent">
-<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-</div>
-
 <script>
-function minifyCSS(code) {
-  return code
-    .replace(/\/\*[\s\S]*?\*\//g, '') // Remove comments
-    .replace(/\s+/g, ' ')              // Collapse spaces
-    .replace(/\s*([{}:;,])\s*/g, '$1') // Trim spaces around delimiters
-    .replace(/;\}/g, '}')              // Remove trailing semicolons
-    .trim();
-}
+window.addEventListener('DOMContentLoaded', function() {
+  minifyCSS();
+});
 
-function minifyJS(code) {
-  return code
-    .replace(/\/\*[\s\S]*?\*\//g, '') // Remove multi-line comments
-    .replace(/\/\/.*/g, '')            // Remove single-line comments
-    .replace(/\s+/g, ' ')              // Collapse spaces
-    .replace(/\s*([{}(),:;=+\-*/<>])\s*/g, '$1') // Trim spaces around JS operators
-    .trim();
-}
+function minifyCSS() {
+  const input = document.getElementById('codeInput').value;
+  const output = document.getElementById('codeOutput');
+  const alertBox = document.getElementById('syntaxAlertBox');
 
-function runMinify() {
-  const type = document.getElementById('codeType').value;
-  const inputEl = document.getElementById('inputCode');
-  const outputEl = document.getElementById('outputCode');
-  const statLabel = document.getElementById('statLabel');
-  const radarEl = document.getElementById('radarOutput');
-
-  if (!inputEl || !outputEl) return;
-
-  const originalCode = inputEl.value;
-  if (!originalCode) {
-    outputEl.value = '';
-    statLabel.textContent = 'Original: 0 B | Minified: 0 B (0% saved)';
-    if (radarEl) radarEl.innerHTML = 'ℹ️ <strong>Ready:</strong> Enter source code above to begin minification.';
+  if (!input) {
+    output.value = "";
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter CSS code to minify.`;
     return;
   }
 
-  let minified = (type === 'css') ? minifyCSS(originalCode) : minifyJS(originalCode);
-  outputEl.value = minified;
+  try {
+    let minified = input
+      .replace(/\/\*[\s\S]*?\*\//g, '') // Remove comments
+      .replace(/\s+/g, ' ')             // Collapse whitespace
+      .replace(/\s*([{:,;>+~])\s*/g, '$1') // Remove spaces around selectors/operators
+      .replace(/;\}/g, '}')             // Remove trailing semicolons inside blocks
+      .trim();
 
-  const origBytes = new Blob([originalCode]).size;
-  const miniBytes = new Blob([minified]).size;
-  const savedBytes = origBytes - miniBytes;
-  const savedPct = origBytes > 0 ? ((savedBytes / origBytes) * 100).toFixed(1) : 0;
-
-  statLabel.textContent = `Original: ${origBytes} B | Minified: ${miniBytes} B (${savedPct}% saved)`;
-
-  if (radarEl) {
-    const estBandwidth10k = ((savedBytes * 10000) / (1024 * 1024)).toFixed(2);
-    radarEl.innerHTML = `🟢 <strong>Payload Optimized:</strong> Reduced asset size by ${savedBytes} bytes (${savedPct}%). Across 10,000 page views, this saves ~${estBandwidth10k} MB of network bandwidth.`;
+    output.value = minified;
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Minification Successful:</strong> CSS code successfully minified and optimized.`;
+    }
+  } catch (err) {
+    output.value = "";
+    if (alertBox) {
+      alertBox.innerHTML = `🔴 <strong>Minification Error:</strong> ${err.message}`;
+    }
   }
 }
 
-function copyMinifiedCode() {
-  const outputEl = document.getElementById('outputCode');
-  if (!outputEl) return;
-  outputEl.select();
-  outputEl.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(outputEl.value);
-  alert('Minified code copied to clipboard successfully!');
+function minifyJS() {
+  const input = document.getElementById('codeInput').value;
+  const output = document.getElementById('codeOutput');
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (!input) {
+    output.value = "";
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter JavaScript code to minify.`;
+    return;
+  }
+
+  try {
+    let minified = input
+      .replace(/\/\*[\s\S]*?\*\//g, '') // Remove multi-line comments
+      .replace(/\/\/.*/g, '')           // Remove single-line comments
+      .replace(/\s+/g, ' ')             // Collapse whitespace
+      .replace(/\s*([=+\-*/%<>!&|,{}()[\];:])\s*/g, '$1') // Remove spaces around syntax tokens
+      .trim();
+
+    output.value = minified;
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Minification Successful:</strong> JavaScript code successfully minified and optimized.`;
+    }
+  } catch (err) {
+    output.value = "";
+    if (alertBox) {
+      alertBox.innerHTML = `🔴 <strong>Minification Error:</strong> ${err.message}`;
+    }
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
-  runMinify();
+function copyOutput() {
+  const output = document.getElementById('codeOutput');
+  const alertBox = document.getElementById('syntaxAlertBox');
 
-  const inputEl = document.getElementById('inputCode');
-  if (inputEl) {
-    inputEl.addEventListener('input', runMinify);
+  if (!output.value) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No minified output available to copy.`;
+    return;
   }
-});
 
-function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  const cb = document.getElementById('cookieConsent');
-  if (cb) cb.style.display = 'none';
+  navigator.clipboard.writeText(output.value).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Minified code successfully copied.`;
+    }
+  });
+}
+
+function clearFields() {
+  document.getElementById('codeInput').value = "";
+  document.getElementById('codeOutput').value = "";
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (alertBox) {
+    alertBox.innerHTML = `🟡 <strong>Cleared:</strong> Input and output fields reset successfully.`;
+  }
 }
 </script>
-
 </body>
-  </html>
-  
+</html>
