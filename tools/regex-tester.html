@@ -286,7 +286,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 function testRegex() {
   const pattern = document.getElementById('regexPattern').value;
-  const flags = document.getElementById('regexFlags').value;
+  let flags = document.getElementById('regexFlags').value;
   const text = document.getElementById('testString').value;
   const output = document.getElementById('matchOutput');
   const alertBox = document.getElementById('syntaxAlertBox');
@@ -298,6 +298,10 @@ function testRegex() {
   }
 
   try {
+    // Automatically ensure 'g' flag for safe matchAll processing
+    if (!flags.includes('g')) {
+      flags += 'g';
+    }
     const regex = new RegExp(pattern, flags);
     const matches = [...text.matchAll(regex)];
     
