@@ -403,7 +403,11 @@ function clearAllOutputs() {
   document.getElementById('outHsl').textContent = "---";
   const preview = document.getElementById('colorPreviewBox');
   preview.style.backgroundColor = "#F1F5F9";
-  preview.textContent = `Live Preview: Cleared`;
+  preview.textContent = `Live Preview: Invalid / Empty`;
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (alertBox) {
+    alertBox.innerHTML = `🟡 <strong>Waiting for input:</strong> Enter a valid color code.`;
+  }
 }
 
 function convertFromHex() {
@@ -412,7 +416,6 @@ function convertFromHex() {
 
   if (!val) {
     clearAllOutputs();
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> HEX input is empty. Type a valid color code.`;
     return;
   }
 
@@ -432,7 +435,6 @@ function convertFromRgb() {
 
   if (!val) {
     clearAllOutputs();
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> RGB input is empty.`;
     return;
   }
 
@@ -452,7 +454,6 @@ function convertFromHsl() {
 
   if (!val) {
     clearAllOutputs();
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> HSL input is empty.`;
     return;
   }
 
@@ -469,8 +470,16 @@ function convertFromHsl() {
 
 function copyActiveCode() {
   const hex = document.getElementById('outHex').textContent;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (!hex || hex === "---") {
+    if (alertBox) {
+      alertBox.innerHTML = `🟡 <strong>Warning:</strong> Koi valid HEX code available nahi hai copy karne ke liye.`;
+    }
+    return;
+  }
+
   navigator.clipboard.writeText(hex).then(() => {
-    const alertBox = document.getElementById('syntaxAlertBox');
     if (alertBox) {
       alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> HEX code ${hex} successfully copied.`;
     }
