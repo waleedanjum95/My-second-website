@@ -399,26 +399,59 @@ function updateAll(r, g, b) {
 
 function convertFromHex() {
   const val = document.getElementById('hexInput').value.trim();
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (!val) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter a HEX color code.`;
+    return;
+  }
+
   const rgb = hexToRgb(val);
   if (rgb) {
     updateAll(rgb.r, rgb.g, rgb.b);
+  } else {
+    if (alertBox) {
+      alertBox.innerHTML = `🟡 <strong>Invalid HEX:</strong> Enter a valid 3 or 6 digit HEX code (e.g., #FF5733).`;
+    }
   }
 }
 
 function convertFromRgb() {
   const val = document.getElementById('rgbInput').value.trim();
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (!val) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter an RGB color code.`;
+    return;
+  }
+
   const parts = val.split(',').map(p => parseInt(p.trim(), 10));
   if (parts.length === 3 && !parts.some(isNaN)) {
     updateAll(parts[0], parts[1], parts[2]);
+  } else {
+    if (alertBox) {
+      alertBox.innerHTML = `🟡 <strong>Invalid RGB:</strong> Enter format like r, g, b (e.g., 16, 185, 129).`;
+    }
   }
 }
 
 function convertFromHsl() {
   const val = document.getElementById('hslInput').value.trim().replace(/%/g, '');
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (!val) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter an HSL color code.`;
+    return;
+  }
+
   const parts = val.split(',').map(p => parseFloat(p.trim()));
   if (parts.length === 3 && !parts.some(isNaN)) {
     const rgb = hslToRgb(parts[0], parts[1], parts[2]);
     updateAll(rgb.r, rgb.g, rgb.b);
+  } else {
+    if (alertBox) {
+      alertBox.innerHTML = `🟡 <strong>Invalid HSL:</strong> Enter format like h, s, l (e.g., 160, 84, 39).`;
+    }
   }
 }
 
