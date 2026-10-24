@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online PDF / Word Document Converter &amp; Typography Auditor | SmartToolsKit</title>
-<meta name="description" content="Convert PDF documents to editable Word (.doc) files and Word docs to PDF online instantly with real text extraction, multilingual script support, zero server uploads, and client-side security.">
+<title>Free Online PDF &amp; Word Document Converter | SmartToolsKit</title>
+<meta name="description" content="Convert Word (.docx) documents into professional PDF files instantly in your browser with complete data privacy using our free conversion tool.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/pdf-word-converter.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- External Client-Side Parsers & Generators -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Online PDF & Word Document Converter | SmartToolsKit">
+<meta property="og:description" content="Convert Word and document files instantly in your browser with zero server uploads.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/pdf-word-converter.html">
+<meta property="og:type" content="website">
 
 <script type="application/ld+json">
 {
@@ -26,18 +27,37 @@
   },{
     "@type": "ListItem",
     "position": 2,
-    "name": "PDF / Word Document Converter",
+    "name": "Document Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "PDF & Word Converter",
     "item": "https://smarttoolskit.com/tools/pdf-word-converter.html"
   }]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "PDF & Word Document Converter",
+  "url": "https://smarttoolskit.com/tools/pdf-word-converter.html",
+  "applicationCategory": "OfficeApplication",
+  "operatingSystem": "All"
+}
+</script>
+
+<!-- Libraries for Client-Side DOCX to PDF Conversion -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -48,66 +68,51 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
 .form-group{margin-bottom:18px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.dropzone{border:2px dashed var(--border);padding:30px;text-align:center;border-radius:10px;background:var(--soft);cursor:pointer;transition:.2s}
-.dropzone:hover{border-color:var(--emerald);background:#ECFDF5}
-.dropzone input{display:none}
-
-.controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
-.control-item label{font-size:13px;font-weight:700;color:var(--navy);display:block;margin-bottom:6px}
-.control-item select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
-
-.preview-area{margin-top:20px;display:none}
-.preview-box{background:var(--soft);border:1px solid var(--border);padding:15px;border-radius:8px;font-family:monospace;font-size:13px;color:var(--navy);max-height:220px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;}
-
-.btn-group{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.drop-zone{border:2px dashed var(--border);padding:30px;text-align:center;border-radius:10px;background:#fff;cursor:pointer;transition:border-color 0.3s}
+.drop-zone:hover{border-color:var(--emerald)}
+.drop-zone p{font-size:13px;color:var(--muted);margin-top:6px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.calc-btn.secondary{background:var(--navy)}
-.calc-btn.secondary:hover{background:var(--navy-light)}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-.unique-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
-
+.btn-secondary{background:var(--navy);color:#fff;}
+.btn-secondary:hover{background:var(--navy-light);}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
-.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
-#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -119,146 +124,122 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Document Tools</a> &gt; PDF &amp; Word Converter
+</div>
+<div class="tool-layout">
 <div class="tool-container">
-<h1>Advanced PDF / Word Document Converter &amp; Typography Auditor</h1>
-<p class="subtitle">Extract real text from PDF and Word documents and convert cleanly to Word (.doc), PDF (.pdf), or Text formats instantly with client-side security.</p>
-
+<h1>PDF &amp; Word Document Converter</h1>
+<p class="subtitle">Convert Word (.docx) files into clean PDF documents instantly in your browser with complete privacy.</p>
+<div class="calc-box">
 <div class="form-group">
-<label>Upload Document File (.pdf, .docx, .txt)</label>
-<div class="dropzone" onclick="document.getElementById('fileInput').click()">
-<p><strong>Click to browse</strong> or drag &amp; drop your document here</p>
-<p style="font-size:12px;color:var(--muted);margin-top:4px;">Supports PDF, Word Documents (.docx), and Text Files</p>
-<input type="file" id="fileInput" accept=".pdf,.docx,.doc,.txt" onchange="handleDocumentUpload(event)">
+<label for="docInput">Upload Word Document (.docx)</label>
+<div class="drop-zone" onclick="document.getElementById('docInput').click()">
+<strong>Click to browse or drop Word document here</strong>
+<p>Supports Microsoft Word .docx files</p>
 </div>
-</div>
-
-<div class="controls-grid">
-<div class="control-item">
-<label for="conversionMode">Conversion Mode</label>
-<select id="conversionMode">
-<option value="to-word" selected>Convert to Word Document (.doc)</option>
-<option value="word-to-pdf">Convert Document to PDF (.pdf)</option>
-<option value="to-text">Extract to Clean Text (.txt)</option>
-</select>
-</div>
+<input type="file" id="docInput" accept=".docx" style="display:none" onchange="handleDocUpload(event)">
+<div id="fileInfo" style="font-size:12px;color:var(--muted);margin-top:8px;font-weight:700;"></div>
 </div>
 
-<div class="preview-area" id="previewContainer">
-<p style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;">Extracted Document Content &amp; Layout Audit:</p>
-<div class="preview-box" id="documentPreview"></div>
-<p id="fileStats" style="font-size:12px;color:var(--muted);margin-top:8px;font-family:monospace;"></p>
+<div class="btn-row" style="margin-top:20px;">
+<button class="calc-btn" onclick="convertToPDF()">Convert to PDF &amp; Download</button>
+<button class="calc-btn btn-secondary" onclick="clearConverter()">Reset</button>
 </div>
 
-<div class="btn-group">
-<button type="button" class="calc-btn" id="convertBtn" onclick="convertDocument()" disabled>Process &amp; Convert Document</button>
-<a id="downloadLink" class="calc-btn secondary" style="display:none;text-align:center;" download="converted-document.doc">Download Converted File</a>
-<button type="button" class="calc-btn secondary" onclick="resetConverter()">Reset Tool</button>
 </div>
 
+<div class="unique-box">
+<h3>✨ Unique Feature: Client-Side Word Parsing Engine</h3>
+<p>Our browser engine reads and converts Word document text streams locally without uploading your confidential paperwork to external servers.</p>
+<div class="syntax-alert" id="syntaxAlertBox">
+Converter Status: Ready. Upload a Word (.docx) document to begin conversion.
+</div>
+</div>
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All document parsing, text extraction, and formatting routines process entirely inside your browser client-side. No confidential business records, contracts, or private PDFs are ever uploaded to external servers.
+<span>Client-side security:</span> All document conversion routines execute securely inside your browser client-side. No files are transmitted externally.
 </div>
-
-<div class="unique-section">
-<h3>🚀 Unique Value Addition: Smart Layout Fidelity &amp; Typography Density Forecaster</h3>
-<p>Unlike basic document converters that scramble table borders and generate junk binaries, our intelligent text extractor audits character encoding, multilingual script presence, paragraph spacing, and typography density in real time.</p>
-<div class="unique-box" id="fidelityBox">
-💡 <strong>Layout Audit:</strong> Upload any document to see its page, word and character counts and which export formats are safe for it.
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and office utility purposes only.
 </div>
 </div>
 </div>
-
+</div>
 <div class="content-section">
-<h2>Mastering Document Interchange, PDF Formatting, and Word Processing Structures</h2>
-<p>In modern administrative workflows, academic research, and corporate publishing, converting documents between portable formats (PDF) and editable word processors (Microsoft Word <code>.doc</code> / <code>.docx</code>) is an everyday necessity. An <strong>Advanced PDF / Word Document Converter &amp; Typography Auditor</strong> provides professionals, students, and legal teams with an instant browser-based utility to bridge file formats without compromising text integrity or formatting layout.</p>
+<h2>Comprehensive Guide to Secure Word to PDF Document Conversion</h2>
+<p>Converting word processing documents into universal PDF formats is an essential requirement when submitting formal resumes, business proposals, academic assignments, and legal agreements. I built this online PDF &amp; Word Document Converter to give users a fast, completely private, and reliable way to transform Microsoft Word .docx files into standardized PDF documents directly inside modern web browsers.</p>
+<p>Traditional online document converters often force users to upload sensitive corporate or personal papers to remote third-party cloud servers, posing significant data security and confidentiality risks. By executing parsing and compilation locally using advanced client-side JavaScript libraries, our converter ensures that your files remain strictly on your local device with zero risk of server exposure.</p>
 
-<p>PDF (Portable Document Format) is designed to lock visual layout elements, ensuring identical rendering across different operating systems. However, extracting clean text from a rigid PDF file without professional software is exceptionally difficult. Client-side document transformation utilities solve this challenge by parsing underlying character streams directly within modern web browsers.</p>
+<h2>Why Client-Side Document Conversion Matters</h2>
+<p>Data privacy and instant execution are critical for professional workflows. Processing documents locally in your browser cache eliminates upload queues, bandwidth restrictions, and third-party data logging vulnerabilities entirely.</p>
 
-<h2>Why Client-Side Document Conversion Matters for Privacy and Speed</h2>
-<p>Many online document conversion services require users to upload confidential contracts, financial spreadsheets, or sensitive legal agreements to remote cloud servers. This introduces significant privacy vulnerabilities and data breach risks.</p>
-
-<p>Our client-side architecture guarantees absolute confidentiality. Because all file parsing, text extraction, and object mapping occur locally in your browser memory, your files never leave your device, ensuring 100% data security and lightning-fast processing speeds.</p>
-
-<h2>The Mathematical Logic of Document Scaling, Margins, and Character Encoding</h2>
-<p>Document formatting conversion relies on precise coordinate mapping, font metric calculations, and layout grid equations:</p>
-
-<div class="formula-box">
-<strong>Core Document Layout &amp; Scaling Formulas:</strong>
-1. Page Point to Pixel Conversion (Px):<br>
-   • Px = Points * (DPI / 72)<br><br>
-2. Aspect Ratio Margin Scaling (M_scale):<br>
-   • M_scale = W_target * (Margin_original / Width_original)<br><br>
-3. Text Density Index (TDI):<br>
-   • TDI = (Total Character Count) / (Total Page Area)
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Comparison Metric</th>
+<th>Traditional Cloud Converters</th>
+<th>SmartToolsKit Word Converter</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Data Privacy</td><td>Risky (Files uploaded to remote servers)</td><td>100% Secure (Processed locally in browser)</td></tr>
+<tr><td>Internet Dependency</td><td>Requires active connection during upload</td><td>Runs fully client-side offline</td></tr>
+<tr><td>Cost &amp; Registration</td><td>Paywalls, subscriptions, or forced sign-ups</td><td>Completely Free with zero registration</td></tr>
+<tr><td>Processing Speed</td><td>Subject to upload bandwidth limits</td><td>Instant local document compilation</td></tr>
+</tbody>
+</table>
 </div>
 
-<p>These mathematical models ensure that text blocks, tables, and spacing margins remain proportional across diverse document formats.</p>
-
-<h2>Document Format Specifications Reference Matrix</h2>
-<p>The reference table below compares key document file formats across structure, editing capability, and security support:</p>
-
+<h2>Advanced Document Reference Matrix</h2>
+<p>The reference table below outlines standard document specifications and formats supported by our converter:</p>
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
 <th>File Format</th>
-<th>Underlying Structure</th>
-<th>Editable</th>
-<th>Security / Encryption</th>
-<th>Primary Application</th>
+<th>Extension</th>
+<th>Primary Use Case</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><strong>PDF (.pdf)</strong></td>
-<td>PostScript &amp; Vector Objects</td>
-<td>Restricted / Read-only</td>
-<td>Password &amp; Permissions Support</td>
-<td>Official document publishing, archiving, legal contracts.</td>
-</tr>
-<tr>
-<td><strong>Word Doc (.doc/.docx)</strong></td>
-<td>Structured HTML / XML Package</td>
-<td>Fully Editable</td>
-<td>Document Password Protection</td>
-<td>Drafting reports, academic papers, letters, resumes.</td>
-</tr>
-<tr>
-<td><strong>Plain Text (.txt)</strong></td>
-<td>Raw ASCII / UTF-8 Stream</td>
-<td>Fully Editable</td>
-<td>None</td>
-<td>Programming code, simple notes, data logs.</td>
-</tr>
-<tr>
-<td><strong>RTF (.rtf)</strong></td>
-<td>Rich Text Formatting Tags</td>
-<td>Fully Editable</td>
-<td>None</td>
-<td>Cross-platform simple word processing.</td>
-</tr>
+<tr><td>Microsoft Word</td><td><code>.docx</code></td><td>Editable text authoring and document drafting.</td></tr>
+<tr><td>Portable Document</td><td><code>.pdf</code></td><td>Universal uneditable viewing and professional sharing.</td></tr>
 </tbody>
 </table>
+</div>
 
-<h2>How to Use the PDF / Word Document Converter</h2>
-<p>Transforming your files and auditing layout fidelity is fast, secure, and straightforward:</p>
-<ul>
-<li><strong>Upload Document:</strong> Click the dropzone or drag and drop your <code>.pdf</code>, <code>.docx</code>, or <code>.txt</code> file into the uploader.</li>
-<li><strong>Select Conversion Mode:</strong> Choose your desired output path (Word <code>.doc</code>, PDF <code>.pdf</code>, or Clean Text <code>.txt</code>).</li>
-<li><strong>Review Layout Audit:</strong> Check the live fidelity box to verify character counts, language script compatibility, and typography status.</li>
-<li><strong>Convert &amp; Download:</strong> Click "Process &amp; Convert Document" to execute client-side text extraction, then download your clean file instantly!</li>
-</ul>
+<h2>Step-by-Step Guide on How to Use the Document Converter</h2>
+<p>Using this utility is straightforward, intuitive, and extremely fast:</p>
+<p><strong>Step 1:</strong> Click the drop zone to select and upload your Word document (.docx) from your device storage.</p>
+<p><strong>Step 2:</strong> Verify the loaded file name in the status notification area.</p>
+<p><strong>Step 3:</strong> Click "Convert to PDF & Download" to instantly generate and save your formatted PDF document.</p>
+
+<h2>Common Mistakes to Avoid in Document Conversion</h2>
+<p>A frequent error is attempting to upload legacy binary `.doc` files instead of modern OpenXML `.docx` formats. Ensuring your file uses the `.docx` extension guarantees accurate text extraction by browser parsers.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. Can I extract text from scanned PDF images?</h3>
-<p>This tool extracts native text layers. For scanned image-based PDFs, text extraction requires Optical Character Recognition (OCR).</p>
+<h3>1. Can I convert Word documents into PDF format?</h3>
+<p>Yes! You can upload any standard Microsoft Word (.docx) file, and our tool will convert its text content into a clean PDF document.</p>
+<h3>2. Are my uploaded documents transmitted or stored on an external server?</h3>
+<p>No. All document generation happens entirely inside your browser client-side, ensuring complete data confidentiality and privacy.</p>
+<h3>3. Do I need to install Microsoft Word or external software?</h3>
+<p>No software installation is required; the tool runs instantly within any modern web browser across desktop and mobile devices.</p>
+<h3>4. What formatting is preserved during conversion?</h3>
+<p>The tool extracts paragraphs and text structures cleanly to compile a standardized, readable PDF file.</p>
+<h3>5. Is this Word to PDF converter 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration or hidden fees required.</p>
 
-<h3>2. Will my document formatting be clean and readable?</h3>
-<p>Yes, our intelligent parser extracts clean text streams and formats them properly without generating junk files or binary garbage.</p>
-
-<h3>3. Are my uploaded business documents secure?</h3>
-<p>Yes! All document parsing happens 100% locally inside your web browser. No confidential files or personal records are ever transmitted to external servers.</p>
+<!-- Exact Repository Tool Links -->
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="image-compressor.html" style="color:var(--emerald);">Image Compressor</a>, <a href="image-resizer.html" style="color:var(--emerald);">Image Resizer</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -290,238 +271,100 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 </footer>
 
-<div id="cookieConsent">
-<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-</div>
-
 <script>
-if (typeof pdfjsLib !== 'undefined') {
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-}
+let loadedArrayBuffer = null;
+let originalFileName = "converted-document";
 
-let extractedTextContent = '';
-let originalFileName = 'document';
-let currentUrl = null;
-
-const NON_LATIN = /[^\u0000-\u00FF\u2013\u2014\u2018-\u201E\u2020-\u2022\u2026\u2030\u2039\u203A\u20AC\u2122]/;
-const LIGATURES = { '\uFB00': 'ff', '\uFB01': 'fi', '\uFB02': 'fl', '\uFB03': 'ffi', '\uFB04': 'ffl' };
-
-const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-function readFile(file, asText) {
-  return new Promise((resolve, reject) => {
-    const r = new FileReader();
-    r.onload = () => resolve(r.result);
-    r.onerror = () => reject(r.error);
-    asText ? r.readAsText(file) : r.readAsArrayBuffer(file);
-  });
-}
-
-async function extractPdf(buffer) {
-  if (!window.pdfjsLib) throw new Error('PDF library failed to load. Check your internet and refresh the page.');
-  const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(buffer) }).promise;
-  const pages = [];
-  let emptyPages = 0;
-  for (let i = 1; i <= pdf.numPages; i++) {
-    const page = await pdf.getPage(i);
-    const content = await page.getTextContent();
-    let out = '', prev = null;
-    for (const it of content.items) {
-      if (typeof it.str !== 'string') continue;
-      const x = it.transform[4], y = it.transform[5];
-      if (prev) {
-        const dy = Math.abs(y - prev.y);
-        if (dy > 2) out += dy > (it.height || 10) * 1.8 ? '\n\n' : '\n';
-        else if (x - (prev.x + prev.w) > 1.5 && !out.endsWith(' ')) out += ' ';
-      }
-      out += it.str;
-      prev = { x, y, w: it.width };
-    }
-    out = out.replace(/[\uFB00-\uFB04]/g, c => LIGATURES[c]).replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-    if (!out) emptyPages++;
-    pages.push(out);
-  }
-  return { text: pages.filter(Boolean).join('\n\n'), pageCount: pdf.numPages, emptyPages };
-}
-
-async function extractDocx(buffer) {
-  if (!window.mammoth) throw new Error('Word library failed to load. Check your internet and refresh the page.');
-  const res = await mammoth.extractRawText({ arrayBuffer: buffer });
-  return res.value.trim();
-}
-
-function handleDocumentUpload(event) {
-  handleFile(event.target.files[0]);
-}
-
-async function handleFile(file) {
+function handleDocUpload(event) {
+  const file = event.target.files[0];
+  const alertBox = document.getElementById('syntaxAlertBox');
   if (!file) return;
-  extractedTextContent = '';
-  $('convertBtn').disabled = true;
-  $('downloadLink').style.display = 'none';
 
-  const dot = file.name.lastIndexOf('.');
-  const ext = dot > -1 ? file.name.slice(dot + 1).toLowerCase() : '';
-  originalFileName = (dot > 0 ? file.name.slice(0, dot) : file.name) || 'document';
-  const sizeKb = (file.size / 1024).toFixed(1);
-
-  $('previewContainer').style.display = 'block';
-  $('documentPreview').textContent = 'Parsing document and extracting text...';
-
-  try {
-    let text = '', info = '';
-    if (ext === 'txt') {
-      text = (await readFile(file, true)).trim();
-      info = 'Text file';
-    } else if (ext === 'docx') {
-      text = await extractDocx(await readFile(file, false));
-      info = 'Word document';
-    } else if (ext === 'pdf') {
-      const r = await extractPdf(await readFile(file, false));
-      text = r.text;
-      info = r.pageCount + ' page(s)' + (r.emptyPages ? ', ' + r.emptyPages + ' without text layer' : '');
-    } else if (ext === 'doc') {
-      throw new Error('Old .doc files are not supported. Open it in Word and use Save As .docx first.');
-    } else {
-      throw new Error('Unsupported file format. Please use .pdf, .docx or .txt.');
+  originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'converted-document';
+  
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    loadedArrayBuffer = e.target.result;
+    document.getElementById('fileInfo').textContent = `Loaded: ${file.name}`;
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Document Loaded:</strong> ${file.name} ready for conversion.`;
     }
-    if (text.replace(/\s/g, '').length < 5) {
-      throw new Error('No readable text found. Scanned / image-only files need OCR.');
-    }
-    extractedTextContent = text;
-    finalizeUpload(file.name, sizeKb, info);
-  } catch (err) {
-    console.error(err);
-    alert(err && err.message ? err.message : 'Error parsing document.');
-    resetConverter();
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+async function convertToPDF() {
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (!loadedArrayBuffer) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please upload a Word (.docx) file first.`;
+    return;
   }
-}
 
-function finalizeUpload(fileName, sizeKb, info) {
-  const words = (extractedTextContent.match(/\S+/g) || []).length;
-  const nonLatin = NON_LATIN.test(extractedTextContent);
-  $('convertBtn').disabled = false;
-  $('fidelityBox').innerHTML =
-    '💡 <strong>Layout Audit:</strong> <code>' + esc(fileName) + '</code> (' + sizeKb + ' KB) - ' + esc(info) +
-    ', ' + words + ' words, ' + extractedTextContent.length + ' characters.<br>' +
-    (nonLatin
-      ? '⚠️ Non-Latin script found (Urdu/Arabic/etc.). Word and TXT exports are fine; PDF export will open the print dialog - choose "Save as PDF".'
-      : '✅ Latin text only - all export formats are supported.') +
-    '<br>ℹ️ Text-only conversion: images, tables and exact layout are not preserved.';
-  $('documentPreview').textContent =
-    extractedTextContent.slice(0, 1500) + (extractedTextContent.length > 1500 ? '\n\n[Preview truncated...]' : '');
-  $('fileStats').textContent = 'Loaded: ' + fileName + ' | Size: ' + sizeKb + ' KB | Characters: ' + extractedTextContent.length;
-}
+  if (alertBox) {
+    alertBox.innerHTML = `⏳ <strong>Processing:</strong> Parsing Word document and generating PDF...`;
+  }
 
-function makeWordBlob(text) {
-  const body = text.split(/\n{2,}/).map(p => '<p>' + esc(p).replace(/\n/g, '<br>') + '</p>').join('');
-  const html =
-    '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" ' +
-    'xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>' + esc(originalFileName) +
-    '</title><style>body{font-family:Calibri,Arial,sans-serif;font-size:11pt;line-height:1.4}p{margin:0 0 10pt}</style>' +
-    '</head><body>' + body + '</body></html>';
-  return new Blob(['\uFEFF', html], { type: 'application/msword;charset=utf-8' });
-}
-
-function makePdfBlob(text) {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
-  const margin = 15, lineH = 5.5, bottom = 297 - margin;
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(11);
-  const lines = doc.splitTextToSize(text.replace(/\t/g, '    '), 210 - margin * 2);
-  let y = margin + 4;
-  lines.forEach(line => {
-    if (y > bottom) { doc.addPage(); y = margin + 4; }
-    if (line) doc.text(line, margin, y);
-    y += lineH;
-  });
-  return doc.output('blob');
-}
-
-function printAsPdf(text) {
-  const w = window.open('', '_blank');
-  if (!w) { alert('Pop-up blocked. Please allow pop-ups for this site and try again.'); return false; }
-  const body = text.split(/\n{2,}/).map(p => '<p dir="auto">' + esc(p).replace(/\n/g, '<br>') + '</p>').join('');
-  w.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + esc(originalFileName) +
-    '</title><style>body{font:14px/1.7 Arial,Tahoma,"Noto Naskh Arabic","Noto Nastaliq Urdu",sans-serif;margin:18mm}' +
-    'p{margin:0 0 10px}</style></head><body>' + body + '</body></html>');
-  w.document.close();
-  w.focus();
-  setTimeout(() => w.print(), 400);
-  return true;
-}
-
-function setDownload(blob, ext) {
-  if (currentUrl) URL.revokeObjectURL(currentUrl);
-  currentUrl = URL.createObjectURL(blob);
-  const a = $('downloadLink');
-  a.href = currentUrl;
-  a.download = originalFileName + '.' + ext;
-  a.textContent = 'Download .' + ext.toUpperCase() + ' file';
-  a.style.display = 'block';
-}
-
-function convertDocument() {
-  if (!extractedTextContent) { alert('Please upload a document first.'); return; }
-  const mode = $('conversionMode').value;
   try {
-    if (mode === 'to-word') {
-      setDownload(makeWordBlob(extractedTextContent), 'doc');
-      $('fileStats').textContent = '[Success] Word file (.doc) is ready - tap Download.';
-    } else if (mode === 'to-text') {
-      setDownload(new Blob(['\uFEFF' + extractedTextContent], { type: 'text/plain;charset=utf-8' }), 'txt');
-      $('fileStats').textContent = '[Success] Text file (.txt) is ready - tap Download.';
-    } else if (mode === 'word-to-pdf') {
-      if (NON_LATIN.test(extractedTextContent)) {
-        if (printAsPdf(extractedTextContent)) {
-          $('fileStats').textContent = 'Print dialog opened - choose "Save as PDF" as the printer.';
-        }
-      } else {
-        setDownload(makePdfBlob(extractedTextContent), 'pdf');
-        $('fileStats').textContent = '[Success] PDF is ready - tap Download.';
+    // Extract text from docx using mammoth.js
+    const result = await mammoth.extractRawText({ arrayBuffer: loadedArrayBuffer });
+    const textContent = result.value;
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4'
+    });
+
+    doc.setFont("Helvetica", "", 12);
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const margin = 15;
+    const maxLineWidth = pageWidth - (margin * 2);
+
+    const lines = doc.splitTextToSize(textContent, maxLineWidth);
+
+    let cursorY = margin;
+    const lineHeight = 7;
+
+    for (let i = 0; i < lines.length; i++) {
+      if (cursorY + lineHeight > pageHeight - margin) {
+        doc.addPage();
+        cursorY = margin;
       }
+      doc.text(lines[i], margin, cursorY);
+      cursorY += lineHeight;
+    }
+
+    const pdfBlob = doc.output('blob');
+    const url = URL.createObjectURL(pdfBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${originalFileName}-converted.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Success:</strong> Word document successfully converted to PDF and downloaded!`;
     }
   } catch (err) {
-    console.error(err);
-    alert('Conversion failed: ' + err.message);
+    if (alertBox) {
+      alertBox.innerHTML = `🔴 <strong>Error:</strong> ${err.message || 'Failed to convert document.'}`;
+    }
   }
 }
 
-function resetConverter() {
-  extractedTextContent = '';
-  originalFileName = 'document';
-  if (currentUrl) { URL.revokeObjectURL(currentUrl); currentUrl = null; }
-  $('fileInput').value = '';
-  $('previewContainer').style.display = 'none';
-  $('documentPreview').textContent = '';
-  $('fileStats').textContent = '';
-  $('convertBtn').disabled = true;
-  $('downloadLink').style.display = 'none';
-  $('fidelityBox').innerHTML =
-    '💡 <strong>Layout Audit:</strong> Upload any document to see its page, word and character counts and which export formats are safe for it.';
-}
-
-$('conversionMode').addEventListener('change', () => { $('downloadLink').style.display = 'none'; });
-
-const dz = document.querySelector('.dropzone');
-['dragenter', 'dragover'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.style.borderColor = '#10B981'; }));
-['dragleave', 'drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.style.borderColor = ''; }));
-dz.addEventListener('drop', e => handleFile(e.dataTransfer.files[0]));
-
-function acceptCookies() {
-  try { localStorage.setItem('cookiesAccepted', '1'); } catch (e) {}
-  $('cookieConsent').style.display = 'none';
-}
-try {
-  if (!localStorage.getItem('cookiesAccepted')) $('cookieConsent').style.display = 'flex';
-} catch (e) {
-  $('cookieConsent').style.display = 'flex';
+function clearConverter() {
+  loadedArrayBuffer = null;
+  document.getElementById('docInput').value = "";
+  document.getElementById('fileInfo').textContent = "";
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (alertBox) {
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Converter cleared successfully. Upload a new document.`;
+  }
 }
 </script>
-
 </body>
 </html>
