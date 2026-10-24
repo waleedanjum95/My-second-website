@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online PDF Merge &amp; Split Utility | SmartToolsKit</title>
+<meta name="description" content="Merge multiple PDF documents or split pages into separate files instantly in your browser with complete privacy using our free utility.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/pdf-merge-split.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Online PDF Merge & Split Utility | SmartToolsKit">
+<meta property="og:description" content="Merge and split PDF documents instantly in your browser with zero server uploads.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/pdf-merge-split.html">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Document Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "PDF Merge & Split Utility",
+    "item": "https://smarttoolskit.com/tools/pdf-merge-split.html"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "PDF Merge & Split Utility",
+  "url": "https://smarttoolskit.com/tools/pdf-merge-split.html",
+  "applicationCategory": "OfficeApplication",
+  "operatingSystem": "All"
+}
+</script>
+
+<!-- pdf-lib Library for Client-Side PDF Manipulation -->
+<script src="https://unpkg.com/pdf-lib@1.4.0/dist/pdf-lib.min.js"></script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.tabs-nav{display:flex;gap:10px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:12px}
+.tab-btn{background:var(--soft);border:1px solid var(--border);padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;color:var(--muted);font-size:13px}
+.tab-btn.active{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.drop-zone{border:2px dashed var(--border);padding:30px;text-align:center;border-radius:10px;background:#fff;cursor:pointer;transition:border-color 0.3s}
+.drop-zone:hover{border-color:var(--emerald)}
+.drop-zone p{font-size:13px;color:var(--muted);margin-top:6px}
+.file-list{margin-top:12px;display:flex;flex-direction:column;gap:6px;max-height:150px;overflow-y:auto}
+.file-item{background:#fff;border:1px solid var(--border);padding:8px 12px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+.form-row{display:flex;gap:15px;margin-bottom:15px;flex-wrap:wrap}
+.form-group-half{flex:1;min-width:200px}
+.form-group input{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.btn-secondary{background:var(--navy);color:#fff;}
+.btn-secondary:hover{background:var(--navy-light);}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Document Tools</a> &gt; PDF Merge &amp; Split Utility
+</div>
+<div class="tool-layout">
+<div class="tool-container">
+<h1>PDF Merge &amp; Split Utility</h1>
+<p class="subtitle">Combine multiple PDF files into one document or split pages into individual files instantly in your browser.</p>
+
+<div class="tabs-nav">
+<button class="tab-btn active" onclick="switchTab('merge')">Merge PDFs</button>
+<button class="tab-btn" onclick="switchTab('split')">Split PDF</button>
+</div>
+
+<!-- Merge Tab Content -->
+<div id="mergeTab" class="tab-content active">
+<div class="calc-box">
+<div class="form-group">
+<label for="mergeInputs">Upload PDF Files (Select Multiple)</label>
+<div class="drop-zone" onclick="document.getElementById('mergeInputs').click()">
+<strong>Click to browse or drop PDF files here</strong>
+<p>Supports multiple .pdf files</p>
+</div>
+<input type="file" id="mergeInputs" accept="application/pdf" multiple style="display:none" onchange="handleMergeFiles(event)">
+<div class="file-list" id="mergeFileList"></div>
+</div>
+
+<div class="btn-row" style="margin-top:20px;">
+<button class="calc-btn" onclick="mergePDFs()">Merge &amp; Download PDF</button>
+<button class="calc-btn btn-secondary" onclick="clearMerge()">Reset</button>
+</div>
+</div>
+</div>
+
+<!-- Split Tab Content -->
+<div id="splitTab" class="tab-content">
+<div class="calc-box">
+<div class="form-group">
+<label for="splitInput">Upload Single PDF File</label>
+<div class="drop-zone" onclick="document.getElementById('splitInput').click()">
+<strong>Click to browse or drop PDF file here</strong>
+<p>Supports single .pdf file</p>
+</div>
+<input type="file" id="splitInput" accept="application/pdf" style="display:none" onchange="handleSplitFile(event)">
+<div id="splitFileInfo" style="font-size:12px;color:var(--muted);margin-top:8px;font-weight:700;"></div>
+</div>
+
+<div class="form-row">
+<div class="form-group form-group-half">
+<label for="splitPageNum">Extract Page Number</label>
+<input type="number" id="splitPageNum" placeholder="e.g., 1" min="1">
+</div>
+</div>
+
+<div class="btn-row" style="margin-top:20px;">
+<button class="calc-btn" onclick="splitPDF()">Extract Page &amp; Download</button>
+<button class="calc-btn btn-secondary" onclick="clearSplit()">Reset</button>
+</div>
+</div>
+</div>
+
+<div class="unique-box">
+<h3>✨ Unique Feature: Client-Side PDF Engine</h3>
+<p>Our browser-based pipeline merges and splits PDF documents locally without uploading your confidential paperwork to external servers.</p>
+<div class="syntax-alert" id="syntaxAlertBox">
+Utility Status: Ready. Upload PDF files to begin merging or splitting.
+</div>
+</div>
+<div class="security-badge">
+<span>Client-side security:</span> All PDF operations execute securely inside your browser client-side. No documents are transmitted externally.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and office utility purposes only.
+</div>
+</div>
+</div>
+  </div>
+  <div class="content-section">
+<h2>Mastering PDF Document Management Securely</h2>
+<p>Managing professional documentation often requires combining separate invoice pages, merging reports, or extracting individual chapters from large manuals. I built this online PDF Merge &amp; Split Utility to give users a fast, private, and powerful way to organize PDF files directly inside their web browsers.</p>
+<p>By executing document manipulation locally using client-side JavaScript libraries, users maintain complete confidentiality and avoid the security risks associated with third-party cloud upload services.</p>
+
+<h2>Why Client-Side PDF Processing Matters</h2>
+<p>Traditional online tools require uploading sensitive contracts or financial statements to remote servers. Client-side processing ensures your files never leave your local device.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Operation</th>
+<th>Processing Mechanism</th>
+<th>Data Privacy</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>PDF Merging</td><td>Combining page buffers via PDF-Lib</td><td>100% Local Browser Execution</td></tr>
+<tr><td>PDF Splitting</td><td>Page extraction and independent compilation</td><td>Instant secure download</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Global Document Reference Matrix</h2>
+<p>The reference table below outlines standard PDF utility capabilities:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Function</th>
+<th>Input Requirement</th>
+<th>Output Result</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Merge Tool</td><td>Two or more PDF documents</td><td>Single unified PDF file</td></tr>
+<tr><td>Split Tool</td><td>Single PDF document</td><td>Extracted target page document</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Step-by-Step Guide on How to Use the Utility</h2>
+<p>Using this office utility is straightforward and fast:</p>
+<p><strong>Step 1:</strong> Select either the "Merge PDFs" or "Split PDF" tab above.</p>
+<p><strong>Step 2:</strong> Upload your target PDF files using the secure drop zones.</p>
+<p><strong>Step 3:</strong> Click the action button to process and download your updated PDF file.</p>
+
+<h2>Common Mistakes to Avoid in PDF Management</h2>
+<p>A frequent error is uploading password-protected or encrypted PDF files without first unlocking them, which can cause processing errors in browser engines.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Can I merge multiple PDF files together?</h3>
+<p>Yes, you can upload multiple PDF documents in the Merge tab, and they will be joined sequentially into one file.</p>
+<h3>2. Are my confidential PDFs transmitted or stored externally?</h3>
+<p>No. All document processing happens entirely inside your browser client-side, ensuring complete data confidentiality.</p>
+<h3>3. How does the split feature work?</h3>
+<p>Upload a source PDF file, specify the exact page number you wish to extract, and download it instantly.</p>
+<h3>4. Do I need to install any software?</h3>
+<p>No software installation is required; the tool runs instantly within any modern web browser.</p>
+<h3>5. Is this tool 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
+
+<!-- Exact Repository Tool Links -->
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="image-compressor.html" style="color:var(--emerald);">Image Compressor</a>, <a href="image-resizer.html" style="color:var(--emerald);">Image Resizer</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+let mergeFiles = [];
+let splitFileBytes = null;
+let splitFileName = "document";
+
+function switchTab(tabName) {
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+  
+  if (tabName === 'merge') {
+    document.querySelector('.tabs-nav button:nth-child(1)').classList.add('active');
+    document.getElementById('mergeTab').classList.add('active');
+  } else {
+    document.querySelector('.tabs-nav button:nth-child(2)').classList.add('active');
+    document.getElementById('splitTab').classList.add('active');
+  }
+}
+
+function handleMergeFiles(event) {
+  const files = event.target.files;
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (!files || files.length === 0) return;
+
+  for (let i = 0; i < files.length; i++) {
+    mergeFiles.push(files[i]);
+  }
+  renderMergeList();
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Files Added:</strong> ${mergeFiles.length} PDF(s) ready for merging.`;
+  }
+}
+
+function renderMergeList() {
+  const listContainer = document.getElementById('mergeFileList');
+  listContainer.innerHTML = "";
+  mergeFiles.forEach((file, index) => {
+    const item = document.createElement('div');
+    item.className = 'file-item';
+    item.innerHTML = `<span>${index + 1}. ${file.name}</span>`;
+    listContainer.appendChild(item);
+  });
+}
+
+async function mergePDFs() {
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (mergeFiles.length < 2) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please upload at least 2 PDF files to merge.`;
+    return;
+  }
+
+  if (alertBox) {
+    alertBox.innerHTML = `⏳ <strong>Merging:</strong> Compiling PDF documents locally...`;
+  }
+
+  try {
+    const { PDFDocument } = PDFLib;
+    const mergedPdf = await PDFDocument.create();
+
+    for (let i = 0; i < mergeFiles.length; i++) {
+      const fileBytes = await mergeFiles[i].arrayBuffer();
+      const pdf = await PDFDocument.load(fileBytes);
+      const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+      copiedPages.forEach((page) => mergedPdf.addPage(page));
+    }
+
+    const mergedPdfBytes = await mergedPdf.save();
+    const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'merged-document.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Merge Success:</strong> PDFs successfully merged and downloaded.`;
+    }
+  } catch (err) {
+    if (alertBox) {
+      alertBox.innerHTML = `🔴 <strong>Error:</strong> ${err.message || 'Failed to merge PDF files.'}`;
+    }
+  }
+}
+
+function clearMerge() {
+  mergeFiles = [];
+  document.getElementById('mergeInputs').value = "";
+  document.getElementById('mergeFileList').innerHTML = "";
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (alertBox) {
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Merge utility cleared successfully.`;
+  }
+}
+
+function handleSplitFile(event) {
+  const file = event.target.files[0];
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (!file) return;
+
+  splitFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'document';
+  
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    splitFileBytes = e.target.result;
+    document.getElementById('splitFileInfo').textContent = `Loaded: ${file.name}`;
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>PDF Loaded:</strong> ${file.name} ready for splitting.`;
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+async function splitPDF() {
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (!splitFileBytes) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please upload a PDF file first.`;
+    return;
+  }
+
+  const pageNum = parseInt(document.getElementById('splitPageNum').value, 10);
+  if (isNaN(pageNum) || pageNum < 1) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please enter a valid page number to extract.`;
+    return;
+  }
+
+  if (alertBox) {
+    alertBox.innerHTML = `⏳ <strong>Splitting:</strong> Extracting page locally...`;
+  }
+
+  try {
+    const { PDFDocument } = PDFLib;
+    const pdfDoc = await PDFDocument.load(splitFileBytes);
+    const totalPages = pdfDoc.getPageCount();
+
+    if (pageNum > totalPages) {
+      if (alertBox) alertBox.innerHTML = `🔴 <strong>Error:</strong> Page number exceeds total document pages (${totalPages}).`;
+      return;
+    }
+
+    const subDoc = await PDFDocument.create();
+    const [extractedPage] = await subDoc.copyPages(pdfDoc, [pageNum - 1]);
+    subDoc.addPage(extractedPage);
+
+    const subPdfBytes = await subDoc.save();
+    const blob = new Blob([subPdfBytes], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${splitFileName}-page-${pageNum}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Split Success:</strong> Page ${pageNum} extracted and downloaded successfully.`;
+    }
+  } catch (err) {
+    if (alertBox) {
+      alertBox.innerHTML = `🔴 <strong>Error:</strong> ${err.message || 'Failed to split PDF file.'}`;
+    }
+  }
+}
+
+function clearSplit() {
+  splitFileBytes = null;
+  document.getElementById('splitInput').value = "";
+  document.getElementById('splitPageNum').value = "";
+  document.getElementById('splitFileInfo').textContent = "";
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (alertBox) {
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Split utility cleared successfully.`;
+  }
+}
+</script>
+</body>
+</html>
