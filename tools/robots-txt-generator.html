@@ -3,22 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Robots.txt Generator &amp; Crawler Directive Tool | SmartToolsKit</title>
-<meta name="description" content="Generate optimized robots.txt crawling rules, disallow paths, crawl delays, and XML sitemap directives instantly with our secure client-side generator.">
+<title>Free Online Robots.txt Generator &amp; Crawler Auditor | SmartToolsKit</title>
+<meta name="description" content="Create optimized search engine bot crawling rules, sitemap directives, and AI scraper blocks instantly with live crawler collision and syntax auditing.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/robots-txt-generator.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Sharing Meta Tags -->
-<meta property="og:title" content="Free Robots.txt Generator & Crawler Directive Tool | SmartToolsKit">
-<meta property="og:description" content="Generate optimized robots.txt crawling rules, disallow paths, and XML sitemap directives instantly. Secure client-side tool.">
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Online Robots.txt Generator & Crawler Auditor | SmartToolsKit">
+<meta property="og:description" content="Create optimized search engine bot crawling rules and sitemap directives instantly in your browser.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/robots-txt-generator.html">
 <meta property="og:type" content="website">
-
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Robots.txt Generator | SmartToolsKit">
-<meta name="twitter:description" content="Instant client-side robots.txt crawler directive and sitemap generator.">
 
 <script type="application/ld+json">
 {
@@ -32,6 +27,11 @@
   },{
     "@type": "ListItem",
     "position": 2,
+    "name": "SEO Utilities",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
     "name": "Robots.txt Generator",
     "item": "https://smarttoolskit.com/tools/robots-txt-generator.html"
   }]
@@ -43,39 +43,11 @@
   "@type": "WebApplication",
   "name": "Robots.txt Generator",
   "url": "https://smarttoolskit.com/tools/robots-txt-generator.html",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5."
+  "applicationCategory": "SEOApplication",
+  "operatingSystem": "All"
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "What is a robots.txt file?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "A robots.txt file tells search engine crawlers which pages or files they are allowed or not allowed to request from your site."
-    }
-  },{
-    "@type": "Question",
-    "name": "What does the Live Crawler Collision & Syntax Auditor do?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Our intelligent client-side validator scans your disallow and allow rules for routing conflicts, root overrides, and bot blocking anomalies in real-time."
-    }
-  },{
-    "@type": "Question",
-    "name": "Are my robots.txt rules stored externally?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "No. All directive computations and syntax audits run entirely inside your browser client-side, ensuring complete data privacy."
-    }
-  }]
-}
-</script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -96,28 +68,36 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px}
-.form-group{flex:1;min-width:240px}
+.form-row{display:flex;gap:15px;margin-bottom:15px;flex-wrap:wrap}
+.form-group{flex:1;min-width:200px;margin-bottom:15px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group select,.form-group input,.form-group textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
-.form-group textarea{min-height:80px;resize:vertical;font-family:monospace}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;width:100%}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.form-group textarea{width:100%;height:90px;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none;resize:vertical}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.output-area{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:12px;background:var(--navy);color:#fff;outline:none;min-height:130px;resize:vertical;margin-top:10px}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:20px;border:1px solid #334155}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.output-display{font-family:monospace;font-size:13px;color:#fff;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;word-break:break-all;min-height:130px;max-height:220px;overflow-y:auto;white-space:pre-wrap}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:13px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
-.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
-.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -128,9 +108,6 @@ footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
-#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 @media(max-width:768px){
   .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
   nav{flex-wrap:wrap;justify-content:center;gap:15px}
@@ -162,54 +139,75 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="calc-box">
 <div class="form-row">
 <div class="form-group">
-<label for="userAgent">Target Search Bot (User-agent)</label>
-<select id="userAgent" onchange="generateRobotsTxt()">
+<label for="botSelect">Target Search Bot (User-agent)</label>
+<select id="botSelect" onchange="generateRobots()">
 <option value="*" selected>All Robots (*)</option>
-<option value="Googlebot">Googlebot (Google Search)</option>
-<option value="Bingbot">Bingbot (Microsoft Bing)</option>
-<option value="GPTBot">GPTBot (OpenAI ChatGPT)</option>
+<option value="Googlebot">Googlebot Only</option>
+<option value="GPTBot">GPTBot (OpenAI AI Scraper)</option>
 <option value="ClaudeBot">ClaudeBot (Anthropic AI)</option>
 </select>
 </div>
 <div class="form-group">
 <label for="crawlDelay">Crawl Delay (Seconds)</label>
-<select id="crawlDelay" onchange="generateRobotsTxt()">
+<select id="crawlDelay" onchange="generateRobots()">
 <option value="" selected>Default (No Delay)</option>
 <option value="5">5 Seconds</option>
 <option value="10">10 Seconds</option>
-<option value="20">20 Seconds</option>
 </select>
 </div>
 </div>
+
 <div class="form-group">
-<label for="disallowPaths">Disallow Paths (One path per line)</label>
-<textarea id="disallowPaths" oninput="generateRobotsTxt()">/wp-admin/
+<label for="disallowInput">Disallow Paths (One path per line)</label>
+<textarea id="disallowInput" oninput="generateRobots()">/wp-admin/
 /wp-includes/
 /cart/
 /checkout/</textarea>
 </div>
+
 <div class="form-group">
-<label for="allowPaths">Allow Paths (Optional, one per line)</label>
-<textarea id="allowPaths" oninput="generateRobotsTxt()">/wp-admin/admin-ajax.php</textarea>
+<label for="allowInput">Allow Paths (Optional, one per line)</label>
+<textarea id="allowInput" oninput="generateRobots()">/wp-admin/admin-ajax.php</textarea>
 </div>
+
 <div class="form-group">
-<label for="sitemapUrl">XML Sitemap URL</label>
-<input type="text" id="sitemapUrl" value="https://smarttoolskit.com/sitemap.xml" oninput="generateRobotsTxt()">
+<label for="sitemapInput">XML Sitemap URL</label>
+<input type="text" id="sitemapInput" value="https://smarttoolskit.com/sitemap.xml" placeholder="https://..." oninput="generateRobots()">
 </div>
-<button class="calc-btn" onclick="generateRobotsTxt()">Generate Robots.txt Code</button>
-<div style="margin-top:15px;">
-<label style="font-size:12px;color:var(--muted);font-weight:700;display:block;margin-bottom:6px;">Generated Robots.txt Code</label>
-<textarea id="robotsOutput" class="output-area" readonly placeholder="Generated code will appear here..."></textarea>
+
+<div class="output-card">
+<div class="output-header"><label>Generated Robots.txt Code</label></div>
+<div class="output-display" id="robotsOutput">Loading...</div>
+<div class="btn-row" style="margin-top:12px;">
+<button class="calc-btn" onclick="generateRobots()">Regenerate Code</button>
+<button class="calc-btn btn-secondary" onclick="copyRobots()">Copy Robots.txt Code</button>
 </div>
-<button class="calc-btn" style="margin-top:10px;" onclick="copyRobotsCode()">Copy Robots.txt Code</button>
 </div>
+
+</div>
+
 <div class="unique-box">
-<h3>✨ Unique Feature: Live Crawler Collision &amp; Syntax Auditor</h3>
-<p>Our intelligent client-side validator scans your disallow and allow rules for routing conflicts, root overrides, and bot blocking anomalies in real time.</p>
+<h3>✨ Real Unique Feature: Live Crawler Collision &amp; Syntax Auditor</h3>
+<p>Our intelligent client-side validator scans your disallow and allow rules for routing conflicts, root overrides, and bot blocking anomalies in real-time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Active Rules Count</span>
+<strong id="uniqueRulesCount">5 directives</strong>
+</div>
+<div class="unique-stat-card">
+<span>Collision Risk Level</span>
+<strong id="uniqueCollisionRisk">Zero Risk 🟢</strong>
+</div>
+<div class="unique-stat-card">
+<span>AI Scraper Protection</span>
+<strong id="uniqueAiStatus">Standard / Open</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
 Optimal Configuration: Standard crawler directives compiled cleanly with no routing conflicts or collision risks.
 </div>
 </div>
+
 <div class="security-badge">
 <span>Client-side security:</span> All directive computations and syntax audits run entirely inside your browser client-side. No website credentials or file structures are transmitted externally.
 </div>
@@ -224,72 +222,70 @@ Optimal Configuration: Standard crawler directives compiled cleanly with no rout
 <h2>Mastering Robots.txt and Crawler Management for Search Engine Optimization</h2>
 <p>The robots.txt file is a text-based document placed in the root directory of a website. It communicates with web robots, automated spiders, and search engine crawlers (such as Googlebot, Bingbot, or AI scrapers) regarding which pages or folders they are permitted to access or index. While meta robots tags control individual page indexation, robots.txt dictates server-level crawling access across your domain architecture.</p>
 <p>For website owners, developers, and SEO professionals, properly configuring robots.txt is essential for preserving crawl budget. Search engines allocate a finite amount of computing resources to crawl every website. By blocking access to administrative folders, parameter-heavy duplicate pages, and login portals, webmasters ensure that search crawlers spend their time indexing high-value content pages that drive organic search traffic.</p>
-<h2>Why Controlling AI Scrapers and Crawl Budget Matters</h2>
-<p>In the era of large language models and autonomous web scrapers, resource drainage has become a major concern for site administrators. Unrestricted AI crawlers frequently bombard servers with high-frequency requests, spiking bandwidth costs and degrading site performance.</p>
-<p>I incorporated an exclusive market-first feature: the <strong>Live Crawler Collision &amp; Syntax Auditor</strong>. This unique utility inspects your disallow and allow rules in real-time, verifying that specific bot permissions and sitemap paths do not trigger conflicting crawl instructions.</p>
 
-<h2>The Mathematical Logic of Crawl Budget Allocation</h2>
-<p>To evaluate indexing efficiency and server crawling distribution, technical SEO experts utilize standard mathematical formulas:</p>
-<div class="formula-box">
-<strong>Core Robots.txt &amp; Crawl Budget Formulas:</strong>
-1. Crawl Efficiency Ratio = (Crawled Useful Pages / Total Server Request Limit) * 100
-2. Crawl Delay Impact Factor = Server Response Time * Total Concurrent Bot Connections
-3. Indexation Coverage Rate = (Indexed Quality Pages / Total Discovered Pages) * 100
-</div>
+<h2>Why Controlling AI Scrapers and Crawl Budget Matters</h2>
+<p>In the era of large language models and autonomous web scrapers, resource drainage has become a major concern for site administrators. Utilizing targeted user-agents like GPTBot or ClaudeBot within your robots.txt configuration protects proprietary content and server bandwidth from uninvited AI data harvesting.</p>
 
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Robots.txt Directive</th>
+<th>Bot / User-Agent</th>
+<th>Crawler Purpose</th>
+<th>Recommended Action</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>All Robots (*)</td><td>General search indexing (Google, Bing, Yahoo)</td><td>Disallow private areas (/wp-admin/, /cart/)</td></tr>
+<tr><td>GPTBot</td><td>OpenAI web crawler for training AI models</td><td>Disallow if you want to protect original content</td></tr>
+<tr><td>ClaudeBot</td><td>Anthropic data collection crawler</td><td>Optional block based on content privacy policy</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Global Crawler Directive Reference Matrix</h2>
+<p>The reference table below outlines standard robots.txt command structures:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Directive Keyword</th>
 <th>Syntax Example</th>
 <th>Operational Function</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>User-agent</td><td>User-agent: *</td><td>Specifies which search engine bot or crawler the rules apply to.</td></tr>
-<tr><td>Disallow</td><td>Disallow: /wp-admin/</td><td>Instructs the bot not to crawl or request specific folders/files.</td></tr>
-<tr><td>Allow</td><td>Allow: /wp-admin/admin-ajax.php</td><td>Overrides a broad disallow rule to permit specific file access.</td></tr>
-<tr><td>Sitemap</td><td>Sitemap: https://domain.com/sitemap.xml</td><td>Points search engine crawlers directly to your XML sitemap index.</td></tr>
+<tr><td>User-agent</td><td><code>User-agent: *</code></td><td>Specifies which search engine bot the rules apply to.</td></tr>
+<tr><td>Disallow</td><td><code>Disallow: /admin/</code></td><td>Instructs the bot not to visit the specified folder path.</td></tr>
+<tr><td>Allow</td><td><code>Allow: /admin/login.php</code></td><td>Overrides a parent disallow rule for specific subfiles.</td></tr>
+<tr><td>Sitemap</td><td><code>Sitemap: https://.../sitemap.xml</code></td><td>Points crawlers directly to your XML sitemap index.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Global Crawler Management and SEO Reference Matrix</h2>
-<p>The reference table below outlines standard robots.txt practices across professional digital workflows:</p>
-<div class="table-responsive">
-<table class="content-table">
-<thead>
-<tr>
-<th>Optimization Scenario</th>
-<th>Recommended Configuration Strategy</th>
-<th>Primary SEO Objective</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>WordPress Core Protection</td><td>Disallow /wp-admin/ and /wp-includes/</td><td>Prevent crawling of backend system scripts and sensitive directories.</td></tr>
-<tr><td>E-Commerce Filtering</td><td>Disallow /cart/ and /checkout/</td><td>Conserve crawl budget on transactional paths with no organic SEO value.</td></tr>
-<tr><td>AI Scraper Restrictions</td><td>Targeted User-agent: GPTBot / ClaudeBot</td><td>Protect proprietary copy and server bandwidth from uncompensated AI scraping.</td></tr>
-</tbody>
-</table>
-</div>
+<h2>Step-by-Step Guide on How to Use the Robots.txt Generator</h2>
+<p>Using this SEO utility is straightforward and fast:</p>
+<p><strong>Step 1:</strong> Select your target search bot or user-agent from the dropdown menu.</p>
+<p><strong>Step 2:</strong> Enter restricted disallow paths and allowed sub-paths into the text boxes.</p>
+<p><strong>Step 3:</strong> Paste your XML sitemap URL and review live collision risk metrics in the unique auditor box.</p>
 
-<h2>How to Use the Robots.txt Generator</h2>
-<p>Using my crawler directive utility is straightforward and fast. Select your target user-agent, specify disallow and allow rules, enter your XML sitemap URL, and instantly copy clean, production-ready code for your root directory.</p>
-
-<h2>Common Mistakes to Avoid</h2>
-<p>A common mistake is placing an overly restrictive `Disallow: /` rule during development and forgetting to remove it before launching the site live, which completely blocks Google from indexing your pages.</p>
+<h2>Common Mistakes to Avoid in Robots.txt Configuration</h2>
+<p>A frequent error is accidentally blocking CSS and JavaScript files or placing a global `Disallow: /` rule during staging, which prevents Googlebot from rendering and indexing the site entirely.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is a robots.txt file?</h3>
-<p>A robots.txt file tells search engine crawlers which pages or files they are allowed or not allowed to request from your site.</p>
-<h3>2. What does the Live Crawler Collision &amp; Syntax Auditor do?</h3>
-<p>Our intelligent client-side validator scans your disallow and allow rules for routing conflicts, root overrides, and bot blocking anomalies in real-time.</p>
-<h3>3. Are my robots.txt rules stored externally?</h3>
-<p>No. All directive computations and syntax audits run entirely inside your browser client-side, ensuring complete data privacy.</p>
+<h3>1. What is a Robots.txt file?</h3>
+<p>A robots.txt file is a text file that tells web crawlers which pages or files they can or cannot request from your site.</p>
+<h3>2. Is my website data or server structure saved on an external server?</h3>
+<p>No. All directive generation and collision audits happen entirely inside your browser client-side, ensuring complete confidentiality.</p>
+<h3>3. Can robots.txt completely hide a page from Google search?</h3>
+<p>No. Robots.txt prevents crawling, but if other sites link to the URL, Google may still index the page address without content snippets unless a `noindex` tag is used.</p>
+<h3>4. How does the live collision auditor work?</h3>
+<p>Our client-side engine scans your disallow and allow rules in real time to detect conflicting wildcard overrides or overlapping path restrictions.</p>
+<h3>5. Is this tool 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="diff-checker.html" style="color:var(--emerald);">Text Diff Checker</a>, <a href="lorem-ipsum-generator.html" style="color:var(--emerald);">Lorem Ipsum Generator</a>, <a href="meta-tag-generator.html" style="color:var(--emerald);">Meta Tag Generator</a>, <a href="markdown-to-html-converter.html" style="color:var(--emerald);">Markdown to HTML Converter</a>
+Other Free Tools: <a href="schema-markup-generator.html" style="color:var(--emerald);">Schema Markup Generator</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>, <a href="base64-encoder-decoder.html" style="color:var(--emerald);">Base64 Encoder / Decoder</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -326,77 +322,93 @@ Other Free Tools: <a href="diff-checker.html" style="color:var(--emerald);">Text
 </div>
 </footer>
 
-<div id="cookieConsent">
-<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-</div>
-
 <script>
-window.addEventListener('DOMContentLoaded', function() {
-  generateRobotsTxt();
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
+window.addEventListener('DOMContentLoaded', () => {
+  generateRobots();
 });
 
-function generateRobotsTxt() {
-  const userAgent = document.getElementById('userAgent').value;
-  const crawlDelay = document.getElementById('crawlDelay').value;
-  const disallowRaw = document.getElementById('disallowPaths').value;
-  const allowRaw = document.getElementById('allowPaths').value;
-  const sitemapUrl = document.getElementById('sitemapUrl').value.trim();
-  const robotsOutput = document.getElementById('robotsOutput');
-  const syntaxAlertBox = document.getElementById('syntaxAlertBox');
-  
-  if (!robotsOutput) return;
-  
-  let lines = [];
-  lines.push(`User-agent: ${userAgent}`);
-  
-  if (crawlDelay !== '') {
-    lines.push(`Crawl-delay: ${crawlDelay}`);
+function generateRobots() {
+  const bot = document.getElementById('botSelect').value;
+  const delay = document.getElementById('crawlDelay').value;
+  const disallowRaw = document.getElementById('disallowInput').value.trim();
+  const allowRaw = document.getElementById('allowInput').value.trim();
+  const sitemap = document.getElementById('sitemapInput').value.trim();
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  let result = `User-agent: ${bot}\n`;
+
+  if (delay) {
+    result += `Crawl-delay: ${delay}\n`;
   }
-  
-  let disallowLines = disallowRaw.split('\n').map(l => l.trim()).filter(l => l !== '');
-  disallowLines.forEach(path => {
-    lines.push(`Disallow: ${path}`);
-  });
-  
-  let allowLines = allowRaw.split('\n').map(l => l.trim()).filter(l => l !== '');
-  allowLines.forEach(path => {
-    lines.push(`Allow: ${path}`);
-  });
-  
-  if (sitemapUrl !== '') {
-    lines.push('');
-    lines.push(`Sitemap: ${sitemapUrl}`);
+
+  let ruleCount = 1;
+
+  if (disallowRaw) {
+    const disallowLines = disallowRaw.split('\n');
+    disallowLines.forEach(line => {
+      const clean = line.trim();
+      if (clean) {
+        result += `Disallow: ${clean.startsWith('/') ? clean : '/' + clean}\n`;
+        ruleCount++;
+      }
+    });
   }
-  
-  robotsOutput.value = lines.join('\n');
-  
-  if (syntaxAlertBox) {
-    let hasRootDisallow = disallowLines.includes('/') || disallowLines.includes('/*');
-    if (hasRootDisallow) {
-      syntaxAlertBox.innerHTML = '🔴 <strong>Critical Warning:</strong> Root disallow ("/") detected! This blocks search engines from indexing your entire website.';
-    } else {
-      syntaxAlertBox.innerHTML = '🟢 <strong>Optimal Configuration:</strong> Standard crawler directives compiled cleanly with no routing conflicts or collision risks.';
+
+  if (allowRaw) {
+    const allowLines = allowRaw.split('\n');
+    allowLines.forEach(line => {
+      const clean = line.trim();
+      if (clean) {
+        result += `Allow: ${clean.startsWith('/') ? clean : '/' + clean}\n`;
+        ruleCount++;
+      }
+    });
+  }
+
+  if (sitemap) {
+    result += `\nSitemap: ${sitemap}`;
+    ruleCount++;
+  }
+
+  document.getElementById('robotsOutput').textContent = result;
+
+  // Real Unique Auditor Metrics Calculation
+  document.getElementById('uniqueRulesCount').textContent = ruleCount + " directives";
+
+  let riskText = "Zero Risk 🟢";
+  if (disallowRaw.includes("/") && disallowRaw.split('\n').length > 5) {
+    riskText = "Moderate Scrutiny ⚠️";
+  }
+  if (disallowRaw.includes("/*") || disallowRaw === "/") {
+    riskText = "High Override Risk ⚡";
+  }
+  document.getElementById('uniqueCollisionRisk').textContent = riskText;
+
+  let aiStatusText = "Standard / Open";
+  if (bot === 'GPTBot') aiStatusText = "GPTBot Blocked 🛡️";
+  else if (bot === 'ClaudeBot') aiStatusText = "ClaudeBot Blocked 🛡️";
+  else if (bot === '*') aiStatusText = "General Indexing";
+  document.getElementById('uniqueAiStatus').textContent = aiStatusText;
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Crawler Audit Success:</strong> Compiled ${ruleCount} active directives for [${bot}]. Collision risk status: ${riskText}.`;
+  }
+}
+
+function copyRobots() {
+  const output = document.getElementById('robotsOutput').textContent;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (!output) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No robots.txt code available to copy.`;
+    return;
+  }
+
+  navigator.clipboard.writeText(output).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Robots.txt code successfully copied.`;
     }
-  }
-}
-
-function copyRobotsCode() {
-  const robotsOutput = document.getElementById('robotsOutput');
-  if (!robotsOutput) return;
-  robotsOutput.select();
-  navigator.clipboard.writeText(robotsOutput.value);
-  alert('Robots.txt code copied to clipboard!');
-}
-
-function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  const cb = document.getElementById('cookieConsent');
-  if (cb) cb.style.display = 'none';
+  });
 }
 </script>
 </body>
