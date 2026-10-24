@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online BMR &amp; TDEE Calorie Calculator | SmartToolsKit</title>
+<meta name="description" content="Calculate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) instantly in your browser to plan your weight goals.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/bmr-tdee-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Online BMR & TDEE Calorie Calculator | SmartToolsKit">
+<meta property="og:description" content="Calculate your daily calorie needs, BMR, and TDEE instantly in your browser with complete privacy.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/bmr-tdee-calculator.html">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Health Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "BMR & TDEE Calculator",
+    "item": "https://smarttoolskit.com/tools/bmr-tdee-calculator.html"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "BMR & TDEE Calorie Calculator",
+  "url": "https://smarttoolskit.com/tools/bmr-tdee-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All"
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-row{display:flex;gap:15px;margin-bottom:15px;flex-wrap:wrap}
+.form-group-half{flex:1;min-width:200px}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:15px}
+.stat-card{background:var(--navy);color:#fff;padding:12px 15px;border-radius:8px;font-size:13px}
+.stat-card span{display:block;font-size:11px;color:#94A3B8;margin-bottom:4px;text-transform:uppercase}
+.stat-card strong{font-family:monospace;font-size:15px;color:#34D399}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.btn-secondary{background:var(--navy);color:#fff;}
+.btn-secondary:hover{background:var(--navy-light);}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Health Tools</a> &gt; BMR &amp; TDEE Calculator
+</div>
+<div class="tool-layout">
+<div class="tool-container">
+<h1>BMR &amp; TDEE Calorie Calculator</h1>
+<p class="subtitle">Calculate your Basal Metabolic Rate and Total Daily Energy Expenditure instantly in your browser.</p>
+<div class="calc-box">
+<div class="form-row">
+<div class="form-group form-group-half">
+<label for="genderSelect">Gender</label>
+<select id="genderSelect">
+<option value="male" selected>Male</option>
+<option value="female">Female</option>
+</select>
+</div>
+<div class="form-group form-group-half">
+<label for="ageInput">Age (Years)</label>
+<input type="number" id="ageInput" placeholder="e.g., 25" min="10" max="120">
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group form-group-half">
+<label for="heightInput">Height (cm)</label>
+<input type="number" id="heightInput" placeholder="e.g., 175" min="50" max="250">
+</div>
+<div class="form-group form-group-half">
+<label for="weightInput">Weight (kg)</label>
+<input type="number" id="weightInput" placeholder="e.g., 70" min="20" max="300">
+</div>
+</div>
+
+<div class="form-group">
+<label for="activityLevel">Activity Level</label>
+<select id="activityLevel">
+<option value="1.2">Sedentary (Little or no exercise)</option>
+<option value="1.375">Lightly Active (Light exercise 1-3 days/week)</option>
+<option value="1.55" selected>Moderately Active (Moderate exercise 3-5 days/week)</option>
+<option value="1.725">Very Active (Hard exercise 6-7 days/week)</option>
+<option value="1.9">Super Active (Very hard exercise or physical job)</option>
+</select>
+</div>
+
+<div class="stats-grid" id="statsBox" style="display:none;">
+<div class="stat-card">
+<span>Basal Metabolic Rate (BMR)</span>
+<strong id="bmrResult">0 kcal</strong>
+</div>
+<div class="stat-card">
+<span>Daily Energy (TDEE)</span>
+<strong id="tdeeResult">0 kcal</strong>
+</div>
+<div class="stat-card">
+<span>Weight Goal Target</span>
+<strong id="goalResult">Maintain: 0 kcal</strong>
+</div>
+</div>
+
+<div class="btn-row" style="margin-top:20px;">
+<button class="calc-btn" onclick="calculateCalories()">Calculate Calories</button>
+<button class="calc-btn btn-secondary" onclick="clearCalculator()">Reset</button>
+</div>
+
+</div>
+
+<div class="unique-box">
+<h3>✨ Unique Feature: Real-Time Dynamic Metabolic Breakdown</h3>
+<p>Our client-side engine computes precise Mifflin-St Jeor metabolic metrics locally and projects target caloric goals for fat loss or muscle building instantly.</p>
+<div class="syntax-alert" id="syntaxAlertBox">
+Calculator Status: Ready. Enter your biometrics and activity level to compute calorie targets.
+</div>
+</div>
+<div class="security-badge">
+<span>Client-side security:</span> All calculations execute securely inside your browser client-side. No personal health data is transmitted externally.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and wellness reference purposes only and does not substitute professional nutritional advice.
+</div>
+</div>
+</div>
+  </div>
+  <div class="content-section">
+<h2>Comprehensive Guide to BMR, TDEE, and Daily Calorie Planning</h2>
+<p>Understanding how many calories your body burns on a daily basis is the fundamental baseline for managing weight, whether your objective is fat loss, muscle hypertrophy, or maintaining your current physique. Basal Metabolic Rate (BMR) represents the absolute minimum amount of energy your body requires to maintain vital organ function at rest. Total Daily Energy Expenditure (TDEE) builds upon your BMR by factoring in daily physical movement and exercise.</p>
+<p>I built this online BMR &amp; TDEE Calorie Calculator to give users a fast, completely private, and highly accurate tool utilizing the scientific Mifflin-St Jeor equation directly inside modern web browsers without sending sensitive personal metrics to external cloud servers.</p>
+
+<h2>Understanding Activity Multipliers and Energy Expenditure</h2>
+<p>Your lifestyle and daily activity level play a massive role in determining total caloric burn. The table below outlines standard multipliers used to translate resting metabolic rate into active daily energy expenditure.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Activity Level</th>
+<th>Weekly Exercise Frequency</th>
+<th>TDEE Multiplier Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Sedentary</td><td>Little or no structured exercise</td><td>BMR $\times 1.20$</td></tr>
+<tr><td>Lightly Active</td><td>Light exercise / sports 1–3 days/week</td><td>BMR $\times 1.375$</td></tr>
+<tr><td>Moderately Active</td><td>Moderate exercise / sports 3–5 days/week</td><td>BMR $\times 1.55$</td></tr>
+<tr><td>Very Active</td><td>Hard exercise / sports 6–7 days/week</td><td>BMR $\times 1.725$</td></tr>
+<tr><td>Super Active</td><td>Very heavy physical training or labor job</td><td>BMR $\times 1.90$</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Advanced Caloric Target Reference Matrix</h2>
+<p>The reference table below highlights sample caloric breakdowns for different body objectives based on calculated TDEE:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Weight Objective</th>
+<th>Caloric Adjustment Strategy</th>
+<th>Expected Weekly Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Aggressive Fat Loss</td><td>TDEE minus 750 kcal/day</td><td>Approx. 0.75 kg weight loss per week</td></tr>
+<tr><td>Moderate Weight Loss</td><td>TDEE minus 500 kcal/day</td><td>Approx. 0.50 kg weight loss per week</td></tr>
+<tr><td>Weight Maintenance</td><td>Consuming exact TDEE calories</td><td>Stable weight equilibrium</td></tr>
+<tr><td>Lean Muscle Gain</td><td>TDEE plus 300 to 500 kcal/day</td><td>Controlled muscular hypertrophy</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Step-by-Step Guide on How to Use the Calorie Calculator</h2>
+<p>Using this wellness utility is straightforward, intuitive, and extremely fast:</p>
+<p><strong>Step 1:</strong> Select your gender and enter your age in years.</p>
+<p><strong>Step 2:</strong> Input your height in centimeters (cm) and your body weight in kilograms (kg).</p>
+<p><strong>Step 3:</strong> Choose your current weekly activity level from the dropdown menu.</p>
+<p><strong>Step 4:</strong> Click "Calculate Calories" to instantly view your precise BMR, TDEE, and customized goal targets.</p>
+
+<h2>Common Mistakes to Avoid in Calorie Tracking</h2>
+<p>A frequent error is overestimating daily physical activity levels while selecting multipliers, which often leads to slower-than-expected weight loss results. It is always best to start with a conservative activity estimate.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. What is the difference between BMR and TDEE?</h3>
+<p>BMR is the energy your body burns strictly at rest, whereas TDEE includes all daily movement, digestion, and exercise calories burned.</p>
+<h3>2. Is my personal health data saved or transmitted externally?</h3>
+<p>No. All calculations happen entirely inside your browser client-side, ensuring complete data confidentiality and privacy.</p>
+<h3>3. How accurate is the Mifflin-St Jeor equation?</h3>
+<p>Scientific studies show that the Mifflin-St Jeor formula is currently the most reliable and clinically validated predictive equation for estimating resting metabolic rate.</p>
+<h3>4. Do I need to register an account to use this tool?</h3>
+<p>No account registration or login is required; all SmartToolsKit utilities are 100% free.</p>
+<h3>5. How should I use my TDEE score for weight loss?</h3>
+<p>To lose weight safely, subtract 300 to 500 calories from your calculated TDEE score while maintaining a balanced, nutrient-dense diet.</p>
+
+<!-- Exact Repository Tool Links -->
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="image-compressor.html" style="color:var(--emerald);">Image Compressor</a>, <a href="image-resizer.html" style="color:var(--emerald);">Image Resizer</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+function calculateCalories() {
+  const gender = document.getElementById('genderSelect').value;
+  const age = parseFloat(document.getElementById('ageInput').value);
+  const height = parseFloat(document.getElementById('heightInput').value);
+  const weight = parseFloat(document.getElementById('weightInput').value);
+  const activity = parseFloat(document.getElementById('activityLevel').value);
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (isNaN(age) || isNaN(height) || isNaN(weight) || age <= 0 || height <= 0 || weight <= 0) {
+    if (alertBox) {
+      alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please enter valid biometric numbers for age, height, and weight.`;
+    }
+    return;
+  }
+
+  // Mifflin-St Jeor Equation
+  // Men: (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) + 5
+  // Women: (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) − 161
+  let bmr = (10 * weight) + (6.25 * height) - (5 * age);
+  if (gender === 'male') {
+    bmr += 5;
+  } else {
+    bmr -= 161;
+  }
+
+  const tdee = bmr * activity;
+  const lossTarget = Math.round(tdee - 500);
+  const gainTarget = Math.round(tdee + 500);
+  const maintainTarget = Math.round(tdee);
+
+  document.getElementById('bmrResult').textContent = Math.round(bmr) + ' kcal/day';
+  document.getElementById('tdeeResult').textContent = Math.round(tdee) + ' kcal/day';
+  document.getElementById('goalResult').textContent = `Maintain: ${maintainTarget} | Loss: ${lossTarget}`;
+  document.getElementById('statsBox').style.display = 'grid';
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Metabolic Analysis:</strong> Your BMR is ${Math.round(bmr)} kcal and TDEE is ${Math.round(tdee)} kcal daily.`;
+  }
+}
+
+function clearCalculator() {
+  document.getElementById('ageInput').value = "";
+  document.getElementById('heightInput').value = "";
+  document.getElementById('weightInput').value = "";
+  document.getElementById('statsBox').style.display = 'none';
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (alertBox) {
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Calculator cleared successfully. Enter new biometrics.`;
+  }
+}
+</script>
+</body>
+</html>
