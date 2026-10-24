@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online Color Code Converter (HEX / RGB / HSL) | SmartToolsKit</title>
-<meta name="description" content="Convert color codes between HEX, RGB, and HSL formats instantly with live color previews and copy utilities using our free browser tool.">
+<meta name="description" content="Convert color codes between HEX, RGB, and HSL formats instantly with live color previews, WCAG contrast analyzer, and copy utilities using our free browser tool.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/color-code-converter.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Free Online Color Code Converter (HEX / RGB / HSL) | SmartToolsKit">
-<meta property="og:description" content="Convert color codes between HEX, RGB, and HSL formats instantly in your browser.">
+<meta property="og:description" content="Convert color codes between HEX, RGB, and HSL formats instantly in your browser with live WCAG contrast analysis.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/color-code-converter.html">
 <meta property="og:type" content="website">
 
@@ -85,7 +85,11 @@ nav a:hover{color:var(--emerald-dark)}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:13px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
 .disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
 .disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
@@ -131,7 +135,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>Color Code Converter (HEX / RGB / HSL)</h1>
-<p class="subtitle">Convert color codes seamlessly between HEX, RGB, and HSL formats with instant live color previews.</p>
+<p class="subtitle">Convert color codes seamlessly between HEX, RGB, and HSL formats with instant live color previews and accessibility audits.</p>
 <div class="calc-box">
 <div class="form-row">
 <div class="form-group">
@@ -177,10 +181,24 @@ Live Preview: #10B981
 
 </div>
 <div class="unique-box">
-<h3>✨ Unique Feature: Real-Time Browser Color Harmonizer</h3>
-<p>Our client-side conversion engine parses color spaces instantly locally without server roundtrips or network latency.</p>
+<h3>✨ Real Unique Feature: Live WCAG Contrast &amp; Complementary Harmonizer</h3>
+<p>Our client-side calculation engine analyzes color accessibility metrics, relative luminance, and complementary hues in real-time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Complementary Color</span>
+<strong id="uniqueCompColor">#EF467E</strong>
+</div>
+<div class="unique-stat-card">
+<span>Contrast vs White</span>
+<strong id="uniqueContrastWhite">3.1 : 1</strong>
+</div>
+<div class="unique-stat-card">
+<span>WCAG Compliance</span>
+<strong id="uniqueWcagStatus">Fail (Normal Text)</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
-Converter Status: Ready for color code transformation. Enter any HEX, RGB, or HSL value above.
+Converter Status: Ready for color code transformation and accessibility grading.
 </div>
 </div>
 <div class="security-badge">
@@ -195,11 +213,11 @@ Converter Status: Ready for color code transformation. Enter any HEX, RGB, or HS
 </div>
 <div class="content-section">
 <h2>Mastering Color Code Conversion for Web Design and Development</h2>
-<p>Accurate color representation is fundamental to modern web design, UI/UX development, and branding consistency. Digital screens interpret colors using various numerical color models, most notably HEX (Hexadecimal), RGB (Red, Green, Blue), and HSL (Hue, Saturation, Lightness). I built this online Color Code Converter to help developers, graphic designers, and front-end engineers translate color formats instantly right inside their web browsers.</p>
+<p>Accurate color representation is fundamental to modern web design, UI/UX development, and branding consistency. Digital screens interpret colors using various numerical color models, most notably HEX (Hexadecimal), RGB (Red, Green, Blue), and HSL (Hue, Saturation, Lightness). I built this online Color Code Converter to help developers, graphic designers, and front-end engineers translate color formats instantly right inside their web browsers[span_1](start_span)[span_1](end_span).</p>
 <p>Performing these conversions locally ensures total privacy when working on unreleased brand themes, stylesheets, or proprietary design systems.</p>
 
 <h2>Why Understanding Multiple Color Formats Matters</h2>
-<p>Different development environments require different color notations. While CSS stylesheets frequently utilize HEX codes for simplicity, JavaScript canvas or opacity manipulations often require RGB or RGBA values, and HSL offers intuitive adjustments for brightness and saturation during UI theming.</p>
+<p>Different development environments require different color notations. While CSS stylesheets frequently utilize HEX codes for simplicity, JavaScript canvas or opacity manipulations often require RGB or RGBA values, and HSL offers intuitive adjustments for brightness and saturation during UI theming[span_2](start_span)[span_2](end_span).</p>
 
 <div class="table-responsive">
 <table class="content-table">
@@ -211,9 +229,9 @@ Converter Status: Ready for color code transformation. Enter any HEX, RGB, or HS
 </tr>
 </thead>
 <tbody>
-<tr><td>HEX (Hexadecimal)</td><td><code>#RRGGBB</code> (Base-16)</td><td>Standard CSS stylesheets, HTML attributes, and graphic design tools.</td></tr>
-<tr><td>RGB (Red, Green, Blue)</td><td><code>rgb(r, g, b)</code> (0-255)</td><td>CSS opacity layers, canvas graphics, and programmatic color manipulation.</td></tr>
-<tr><td>HSL (Hue, Saturation, Lightness)</td><td><code>hsl(h, s%, l%)</code></td><td>Dynamic theme creation, CSS variables, and intuitive color grading.</td></tr>
+<tr><td>HEX (Hexadecimal)</td><td><code>#RRGGBB</code> (Base-16)</td><td>Standard CSS stylesheets, HTML attributes, and graphic design tools[span_3](start_span)[span_3](end_span).</td></tr>
+<tr><td>RGB (Red, Green, Blue)</td><td><code>rgb(r, g, b)</code> (0-255)</td><td>CSS opacity layers, canvas graphics, and programmatic color manipulation[span_4](start_span)[span_4](end_span).</td></tr>
+<tr><td>HSL (Hue, Saturation, Lightness)</td><td><code>hsl(h, s%, l%)</code></td><td>Dynamic theme creation, CSS variables, and intuitive color grading[span_5](start_span)[span_5](end_span).</td></tr>
 </tbody>
 </table>
 </div>
@@ -240,25 +258,25 @@ Converter Status: Ready for color code transformation. Enter any HEX, RGB, or HS
 </div>
 
 <h2>Step-by-Step Guide on How to Use the Color Converter</h2>
-<p>Using this developer utility is straightforward and fast:</p>
-<p><strong>Step 1:</strong> Enter any valid HEX, RGB, or HSL color code into the respective input box above.</p>
-<p><strong>Step 2:</strong> Observe the live color preview box update instantly to reflect your selected color.</p>
-<p><strong>Step 3:</strong> Click "Copy HEX Code" or copy the generated formats directly from the output results card.</p>
+<p>Using this developer utility is straightforward and fast[span_6](start_span)[span_6](end_span):</p>
+<p><strong>Step 1:</strong> Enter any valid HEX, RGB, or HSL color code into the respective input box above[span_7](start_span)[span_7](end_span).</p>
+<p><strong>Step 2:</strong> Observe the live color preview box update instantly to reflect your selected color[span_8](start_span)[span_8](end_span).</p>
+<p><strong>Step 3:</strong> Review live WCAG contrast compliance and complementary matching inside the unique feature metrics box.</p>
 
 <h2>Common Mistakes to Avoid in Color Notation</h2>
-<p>A frequent error is omitting the hash symbol (#) in HEX codes or using out-of-range integer values (greater than 255) in RGB color functions, which causes styling failures in browsers.</p>
+<p>A frequent error is omitting the hash symbol (#) in HEX codes or using out-of-range integer values (greater than 255) in RGB color functions, which causes styling failures in browsers[span_9](start_span)[span_9](end_span).</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
 <h3>1. What is a Color Code Converter?</h3>
-<p>A color code converter is a utility tool that translates color values between HEX, RGB, and HSL numerical formats.</p>
+<p>A color code converter is a utility tool that translates color values between HEX, RGB, and HSL numerical formats[span_10](start_span)[span_10](end_span).</p>
 <h3>2. Is my input data sent or stored on an external server?</h3>
-<p>No. All color transformations and calculations happen entirely inside your browser client-side, ensuring complete confidentiality.</p>
+<p>No. All color transformations and calculations happen entirely inside your browser client-side, ensuring complete confidentiality[span_11](start_span)[span_11](end_span).</p>
 <h3>3. How does HSL differ from RGB?</h3>
-<p>While RGB represents color through additive primary light channels, HSL models human color perception using Hue (angle on color wheel), Saturation (vividness), and Lightness.</p>
-<h3>4. Can this tool handle 3-digit shorthand HEX codes?</h3>
-<p>Yes, standard 3-digit HEX codes are automatically normalized and expanded during conversion.</p>
+<p>While RGB represents color through additive primary light channels, HSL models human color perception using Hue (angle on color wheel), Saturation (vividness), and Lightness[span_12](start_span)[span_12](end_span).</p>
+<h3>4. What does the WCAG contrast analyzer measure?</h3>
+<p>It calculates contrast ratios against white text to verify whether your color meets web accessibility guidelines for standard text readability.</p>
 <h3>5. Is this tool 100% free?</h3>
-<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required[span_13](start_span)[span_13](end_span).</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
 Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="base64-encoder-decoder.html" style="color:var(--emerald);">Base64 Encoder / Decoder</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
@@ -375,7 +393,26 @@ function hslToRgb(h, s, l) {
   };
 }
 
+// Calculate relative luminance for WCAG contrast
+function getLuminance(r, g, b) {
+  const a = [r, g, b].map(v => {
+    v /= 255;
+    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+  });
+  return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+}
+
+function getContrastRatio(l1, l2) {
+  const lighter = Math.max(l1, l2);
+  const darker = Math.min(l1, l2);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
 function updateFromRgb(r, g, b, source) {
+  const hex = rgbToHex(r, g, b);
+  const hsl = rgbToHsl(r, g, b);
+  
+  if (source !== 'hex') document.gefunction updateFromRgb(r, g, b, source) {
   const hex = rgbToHex(r, g, b);
   const hsl = rgbToHsl(r, g, b);
   
@@ -391,9 +428,31 @@ function updateFromRgb(r, g, b, source) {
   preview.style.backgroundColor = hex;
   preview.textContent = `Live Preview: ${hex}`;
 
+  // Unique Feature Calculations (Complementary color & WCAG Contrast)
+  const compR = 255 - r;
+  const compG = 255 - g;
+  const compB = 255 - b;
+  const compHex = rgbToHex(compR, compG, compB);
+  document.getElementById('uniqueCompColor').textContent = compHex;
+
+  const lum = getLuminance(r, g, b);
+  const whiteLum = 1.0; // White luminance
+  const contrast = getContrastRatio(lum, whiteLum);
+  document.getElementById('uniqueContrastWhite').textContent = contrast.toFixed(1) + ' : 1';
+
+  let wcagText = "Fail";
+  if (contrast >= 7.0) {
+    wcagText = "Pass (AAA Grade)";
+  } else if (contrast >= 4.5) {
+    wcagText = "Pass (AA Grade)";
+  } else {
+    wcagText = "Fail (Low Contrast)";
+  }
+  document.getElementById('uniqueWcagStatus').textContent = wcagText;
+
   const alertBox = document.getElementById('syntaxAlertBox');
   if (alertBox) {
-    alertBox.innerHTML = `🟢 <strong>Conversion Successful:</strong> Color space successfully parsed and mapped.`;
+    alertBox.innerHTML = `🟢 <strong>Conversion &amp; Accessibility Success:</strong> Color successfully parsed. Contrast ratio against white is ${contrast.toFixed(1)}:1 (${wcagText}).`;
   }
 }
 
@@ -401,6 +460,9 @@ function clearAllOutputs() {
   document.getElementById('outHex').textContent = "---";
   document.getElementById('outRgb').textContent = "---";
   document.getElementById('outHsl').textContent = "---";
+  document.getElementById('uniqueCompColor').textContent = "---";
+  document.getElementById('uniqueContrastWhite').textContent = "---";
+  document.getElementById('uniqueWcagStatus').textContent = "---";
   const preview = document.getElementById('colorPreviewBox');
   preview.style.backgroundColor = "#F1F5F9";
   preview.textContent = `Live Preview: Invalid / Empty`;
