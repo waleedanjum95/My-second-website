@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online Base64 Encoder &amp; Decoder | SmartToolsKit</title>
-<meta name="description" content="Encode plain text to Base64 format and decode Base64 strings back to readable text instantly with our free online browser-based encoder utility.">
+<meta name="description" content="Encode text to Base64 format and decode Base64 strings back to plain text instantly in your browser with real-time payload metrics and UTF-8 data validation.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/base64-encoder-decoder.html">
 <meta name="theme-color" content="#0F172A">
@@ -47,12 +47,13 @@
   "operatingSystem": "All"
 }
 </script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,textarea,select{font-family:inherit}
+button,textarea{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -67,30 +68,36 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.form-group{margin-bottom:15px}
+.form-group{margin-bottom:18px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:#fff;outline:none;min-height:140px;resize:vertical}
-.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.form-group textarea{width:100%;height:120px;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:14px;background:#fff;outline:none;resize:vertical}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
 .calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.btn-secondary{background:var(--navy);color:#fff;}
-.btn-secondary:hover{background:var(--navy-light);}
-.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
-.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
-.output-textarea{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:13px;background:#1E293B;color:#fff;outline:none;min-height:150px;resize:vertical;}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.btn-danger{background:#EF4444;color:#fff}
+.btn-danger:hover{background:#DC2626}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:20px;border:1px solid #334155}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.output-display{font-family:monospace;font-size:14px;color:#fff;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;word-break:break-all;min-height:70px;max-height:150px;overflow-y:auto}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:13px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
-.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -128,34 +135,51 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>Base64 Encoder / Decoder</h1>
-<p class="subtitle">Encode text to Base64 format and decode Base64 strings back to plain text instantly within your browser.</p>
+<p class="subtitle">Encode text to Base64 format and decode Base64 strings back to plain text instantly in your browser.</p>
 <div class="calc-box">
 <div class="form-group">
-<label for="dataInput">Input Text or Base64 String</label>
-<textarea id="dataInput" placeholder="Enter text or Base64 encoded string here...">SmartToolsKit Developer Utilities</textarea>
+<label for="textInput">Input Text or Base64 String</label>
+<textarea id="textInput" placeholder="Type or paste your text here..." oninput="handleAutoProcess()">SmartToolsKit Developer Utilities</textarea>
 </div>
+
 <div class="btn-row">
-<button class="calc-btn" onclick="encodeToBase64()">Encode to Base64</button>
-<button class="calc-btn btn-secondary" onclick="decodeFromBase64()">Decode from Base64</button>
-<button class="calc-btn" style="background:#475569;" onclick="copyOutput()">Copy Output</button>
-<button class="calc-btn" style="background:#EF4444;" onclick="clearFields()">Clear</button>
+<button class="calc-btn" onclick="encodeBase64()">Encode to Base64</button>
+<button class="calc-btn btn-secondary" onclick="decodeBase64()">Decode from Base64</button>
+<button class="calc-btn btn-secondary" onclick="copyOutput()">Copy Output</button>
+<button class="calc-btn btn-danger" onclick="clearFields()">Clear</button>
 </div>
 
 <div class="output-card">
 <div class="output-header"><label>Encoded / Decoded Result Output</label></div>
-<textarea id="dataOutput" class="output-textarea" readonly placeholder="Processed result will appear here..."></textarea>
+<div class="output-display" id="outputResult">U21hcnRUb29sc0tpdCBEZXZlbG9wZXIgVXRpbGl0aWVz</div>
 </div>
 
 </div>
+
 <div class="unique-box">
-<h3>✨ Unique Feature: Real-Time Browser UTF-8 Data Validator</h3>
-<p>Our client-side transformation engine handles multi-byte characters and standard string formatting locally without server requests.</p>
+<h3>✨ Real Unique Feature: Live Base64 Expansion &amp; Payload Metrics</h3>
+<p>Our client-side transformation engine analyzes string overhead, byte length ratios, and padding characters in real-time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Input Length</span>
+<strong id="uniqueInputLen">31 chars</strong>
+</div>
+<div class="unique-stat-card">
+<span>Expansion Overhead</span>
+<strong id="uniqueExpansion">+33.3%</strong>
+</div>
+<div class="unique-stat-card">
+<span>Padding Characters</span>
+<strong id="uniquePadding">1 (=)</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
-Encoder Status: Ready for text transformation. Select an action above.
+Converter Status: Ready. Type text to encode or Base64 to decode.
 </div>
 </div>
+
 <div class="security-badge">
-<span>Client-side security:</span> All text encoding and decoding run securely inside your browser environment. No input strings are transmitted externally.
+<span>Client-side security:</span> All text encoding and decoding run securely inside your browser client-side. No input strings are transmitted externally.
 </div>
 <div class="disclaimer-container">
 <div class="disclaimer-text">
@@ -184,53 +208,54 @@ Encoder Status: Ready for text transformation. Select an action above.
 <tbody>
 <tr><td>Encode to Base64</td><td>Plain text / UTF-8 strings</td><td>ASCII Base64 character string (A-Z, a-z, 0-9, +, /)</td></tr>
 <tr><td>Decode from Base64</td><td>Valid Base64 encoded string</td><td>Original plain text / decoded string representation</td></tr>
-<tr><td>Safety Check</td><td>Character validation</td><td>Ensures padding characters (=) match string lengths.</td></tr>
+<tr><td>Safety Check</td><td>Character validation</td><td>Ensures padding characters (=) match string length.</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2>Global Developer Reference Matrix</h2>
-<p>The reference table below outlines standard Base64 encoding characteristics:</p>
+<p>The reference table below outlines standard Base64 conversion behaviors:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Standard Specification</th>
-<th>Optimization Strategy</th>
+<th>Sample Input Text</th>
+<th>Base64 Encoded Result</th>
+<th>Padding Count</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Character Set</td><td>64 ASCII characters</td><td>Uses uppercase letters, lowercase letters, numbers, plus (+), and slash (/).</td></tr>
-<tr><td>Padding Symbol</td><td>Equals sign (=)</td><td>Added at the end of encoded strings to ensure total length is a multiple of 4.</td></tr>
-<tr><td>Size Expansion</td><td>Approx. 33% larger</td><td>Base64 encoding increases data payload size; avoid for large binary files.</td></tr>
+<tr><td><code>Hello</code></td><td><code>SGVsbG8=</code></td><td>1 (=)</td></tr>
+<tr><td><code>SmartToolsKit</code></td><td><code>U21hcnRUb29sc0tpdA==</code></td><td>2 (==)</td></tr>
+<tr><td><code>API Key: 12345</code></td><td><code>QVBJIEtleTogMTIzNDU=</code></td><td>1 (=)</td></tr>
+<tr><td><code>Developer</code></td><td><code>RGV2ZWxvcGVy</code></td><td>0</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Step-by-Step Guide on How to Use the Encoder / Decoder</h2>
+<h2>Step-by-Step Guide on How to Use the Base64 Tool</h2>
 <p>Using this developer utility is straightforward and fast:</p>
-<p><strong>Step 1:</strong> Type or paste your plain text or Base64 encoded string into the input box above.</p>
-<p><strong>Step 2:</strong> Click "Encode to Base64" to convert text, or click "Decode from Base64" to retrieve original text.</p>
-<p><strong>Step 3:</strong> Click "Copy Output" to instantly grab your converted string for your workflow.</p>
+<p><strong>Step 1:</strong> Type or paste your text or Base64 string into the input text area above.</p>
+<p><strong>Step 2:</strong> Click "Encode to Base64" or "Decode from Base64" to transform your payload.</p>
+<p><strong>Step 3:</strong> Review live payload metrics, expansion ratios, and padding counters inside the unique feature box.</p>
 
-<h2>Common Mistakes to Avoid in Base64 Strings</h2>
-<p>A frequent error is missing padding characters (=) at the end of encoded strings or introducing unsupported whitespace characters during transmission.</p>
+<h2>Common Mistakes to Avoid in Base64 Conversion</h2>
+<p>A frequent error is attempting to decode malformed Base64 strings that contain invalid characters or incorrect padding lengths, which triggers syntax errors in parsers.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is a Base64 Encoder / Decoder?</h3>
-<p>A Base64 encoder/decoder is a utility tool that translates readable text into ASCII Base64 strings and vice versa.</p>
-<h3>2. Is my input text stored or transmitted on an external server?</h3>
-<p>No. All text encoding and decoding happen entirely inside your browser client-side, ensuring complete data privacy.</p>
-<h3>3. Why does Base64 decoding sometimes fail?</h3>
-<p>Decoding fails if the input string contains invalid characters, incorrect padding, or is not a properly formatted Base64 sequence.</p>
-<h3>4. Does Base64 provide data encryption?</h3>
-<p>No. Base64 is an encoding scheme, not encryption. Anyone can easily decode a Base64 string back into readable text.</p>
+<h3>1. What is Base64 encoding used for?</h3>
+<p>Base64 is used to encode binary or text data into safe ASCII characters for transmission across networks without data corruption.</p>
+<h3>2. Is my input text transmitted or stored on an external server?</h3>
+<p>No. All string encoding and decoding happen entirely inside your browser client-side, ensuring complete privacy.</p>
+<h3>3. Why does Base64 increase file size?</h3>
+<p>Base64 encodes every 3 bytes of binary data into 4 characters of ASCII text, resulting in roughly a 33% expansion overhead.</p>
+<h3>4. What do the equal signs (=) at the end mean?</h3>
+<p>Equal signs are padding characters used to complete the final block of 4 characters when the input byte count is not divisible by 3.</p>
 <h3>5. Is this tool 100% free?</h3>
 <p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>, <a href="csv-json-converter.html" style="color:var(--emerald);">CSV / JSON Data Converter</a>
+Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="color-code-converter.html" style="color:var(--emerald);">Color Code Converter</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -268,88 +293,99 @@ Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JS
 </footer>
 
 <script>
-window.addEventListener('DOMContentLoaded', function() {
-  encodeToBase64();
+window.addEventListener('DOMContentLoaded', () => {
+  encodeBase64();
 });
 
-function encodeToBase64() {
-  const input = document.getElementById('dataInput').value;
-  const output = document.getElementById('dataOutput');
+function handleAutoProcess() {
+  // Default to live encoding on typing for smooth UX
+  encodeBase64();
+}
+
+function encodeBase64() {
+  const input = document.getElementById('textInput').value;
   const alertBox = document.getElementById('syntaxAlertBox');
-
-  if (!input) {
-    output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter text to encode into Base64.`;
-    return;
-  }
-
+  
   try {
-    const encoded = btoa(encodeURIComponent(input).replace(/%([0-9A-F]{2})/g, function(match, p1) {
-      return String.fromCharCode('0x' + p1);
-    }));
-    output.value = encoded;
+    // UTF-8 safe btoa encoding
+    const encoded = btoa(encodeURIComponent(input).replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode('0x' + p1)));
+    document.getElementById('outputResult').textContent = encoded;
+    
+    updateMetrics(input, encoded, 'Encoded');
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Encoding Successful:</strong> Text successfully converted to Base64 format.`;
+      alertBox.innerHTML = `🟢 <strong>Encoding Success:</strong> Text successfully transformed to Base64 format.`;
     }
   } catch (err) {
-    output.value = "";
+    document.getElementById('outputResult').textContent = "Encoding Error: Invalid character stream.";
     if (alertBox) {
-      alertBox.innerHTML = `🔴 <strong>Encoding Error:</strong> ${err.message}`;
+      alertBox.innerHTML = `🔴 <strong>Error:</strong> Failed to encode input string.`;
     }
   }
 }
 
-function decodeFromBase64() {
-  const input = document.getElementById('dataInput').value.trim();
-  const output = document.getElementById('dataOutput');
+function decodeBase64() {
+  const input = document.getElementById('textInput').value.trim();
   const alertBox = document.getElementById('syntaxAlertBox');
-
-  if (!input) {
-    output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter a Base64 encoded string to decode.`;
-    return;
-  }
-
+  
   try {
-    const decoded = decodeURIComponent(Array.prototype.map.call(atob(input), function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
+    // UTF-8 safe atob decoding
+    const decoded = decodeURIComponent(atob(input).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+    document.getElementById('outputResult').textContent = decoded;
     
-    output.value = decoded;
+    updateMetrics(input, decoded, 'Decoded');
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Decoding Successful:</strong> Base64 string successfully converted back to plain text.`;
+      alertBox.innerHTML = `🟢 <strong>Decoding Success:</strong> Base64 string successfully converted back to text.`;
     }
   } catch (err) {
-    output.value = "";
-    // Graceful notice instead of harsh error when plain text is decoded
+    document.getElementById('outputResult').textContent = "Decoding Error: Invalid Base64 character sequence or padding.";
     if (alertBox) {
-      alertBox.innerHTML = `🟡 <strong>Notice:</strong> Input appears to be plain text, not a Base64 string. Click "Encode to Base64" instead.`;
+      alertBox.innerHTML = `🔴 <strong>Decoding Error:</strong> Invalid Base64 string format.`;
     }
+  }
+}
+
+function updateMetrics(inputStr, outputStr, mode) {
+  const inputLen = inputStr.length;
+  document.getElementById('uniqueInputLen').textContent = inputLen + " chars";
+
+  if (mode === 'Encoded') {
+    const expansion = inputLen > 0 ? (((outputStr.length - inputLen) / inputLen) * 100).toFixed(1) : "0";
+    document.getElementById('uniqueExpansion').textContent = "+" + expansion + "%";
+
+    const paddingMatch = outputStr.match(/=+$/);
+    const paddingCount = paddingMatch ? paddingMatch[0].length : 0;
+    document.getElementById('uniquePadding').textContent = paddingCount + " (=)";
+  } else {
+    document.getElementById('uniqueExpansion').textContent = "N/A (Decoded)";
+    document.getElementById('uniquePadding').textContent = "0";
   }
 }
 
 function copyOutput() {
-  const output = document.getElementById('dataOutput');
+  const output = document.getElementById('outputResult').textContent;
   const alertBox = document.getElementById('syntaxAlertBox');
 
-  if (!output.value) {
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No output available to copy.`;
+  if (!output || output.startsWith("Encoding Error") || output.startsWith("Decoding Error")) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No valid output available to copy.`;
     return;
   }
 
-  navigator.clipboard.writeText(output.value).then(() => {
+  navigator.clipboard.writeText(output).then(() => {
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Processed string successfully copied.`;
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Output text successfully copied.`;
     }
   });
 }
 
 function clearFields() {
-  document.getElementById('dataInput').value = "";
-  document.getElementById('dataOutput').value = "";
+  document.getElementById('textInput').value = "";
+  document.getElementById('outputResult').textContent = "";
+  document.getElementById('uniqueInputLen').textContent = "0 chars";
+  document.getElementById('uniqueExpansion').textContent = "0%";
+  document.getElementById('uniquePadding').textContent = "0";
   const alertBox = document.getElementById('syntaxAlertBox');
   if (alertBox) {
-    alertBox.innerHTML = `🟡 <strong>Cleared:</strong> Input and output fields reset.`;
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Tool cleared successfully.`;
   }
 }
 </script>
