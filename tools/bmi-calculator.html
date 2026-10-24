@@ -4,12 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online BMI &amp; Healthy Weight Calculator | SmartToolsKit</title>
-<meta name="description" content="Calculate your Body Mass Index (BMI) and discover your ideal healthy weight range instantly in your browser with our free health calculator.">
+<meta name="description" content="Calculate your Body Mass Index (BMI) and discover your ideal healthy weight range instantly in your browser with metric and imperial unit options.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/bmi-calculator.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Free Online BMI & Healthy Weight Calculator | SmartToolsKit">
 <meta property="og:description" content="Calculate your Body Mass Index and healthy weight range instantly in your browser.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/bmi-calculator.html">
@@ -72,7 +71,7 @@ nav a:hover{color:var(--emerald-dark)}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
 .form-row{display:flex;gap:15px;margin-bottom:15px;flex-wrap:wrap}
 .form-group-half{flex:1;min-width:200px}
-.form-group input{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:15px}
 .stat-card{background:var(--navy);color:#fff;padding:12px 15px;border-radius:8px;font-size:13px}
 .stat-card span{display:block;font-size:11px;color:#94A3B8;margin-bottom:4px;text-transform:uppercase}
@@ -131,17 +130,35 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>BMI &amp; Healthy Weight Calculator</h1>
-<p class="subtitle">Calculate your Body Mass Index and find your ideal healthy weight range instantly in your browser.</p>
+<p class="subtitle">Calculate your Body Mass Index and find your ideal healthy weight range with flexible unit options.</p>
 <div class="calc-box">
-<div class="form-row">
+<div class="form-group">
+<label for="unitSystem">Measurement System</label>
+<select id="unitSystem" onchange="toggleUnitSystem()">
+<option value="metric" selected>Metric (cm / kg)</option>
+<option value="imperial">Imperial (Feet &amp; Inches / kg)</option>
+</select>
+</div>
+
+<div id="metricHeightGroup" class="form-group">
+<label for="heightCm">Height (cm)</label>
+<input type="number" id="heightCm" placeholder="e.g., 175" min="50" max="250">
+</div>
+
+<div id="imperialHeightGroup" class="form-row" style="display:none;">
 <div class="form-group form-group-half">
-<label for="heightInput">Height (cm)</label>
-<input type="number" id="heightInput" placeholder="e.g., 175" min="50" max="250">
+<label for="heightFeet">Height (Feet)</label>
+<input type="number" id="heightFeet" placeholder="e.g., 5" min="1" max="8">
 </div>
 <div class="form-group form-group-half">
+<label for="heightInches">Height (Inches)</label>
+<input type="number" id="heightInches" placeholder="e.g., 9" min="0" max="11">
+</div>
+</div>
+
+<div class="form-group">
 <label for="weightInput">Weight (kg)</label>
 <input type="number" id="weightInput" placeholder="e.g., 70" min="20" max="300">
-</div>
 </div>
 
 <div class="stats-grid" id="statsBox" style="display:none;">
@@ -167,10 +184,10 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 
 <div class="unique-box">
-<h3>✨ Unique Feature: Instant Client-Side Health Assessment</h3>
-<p>Our browser calculation engine processes your biometric metrics locally in real time without transmitting personal data externally.</p>
+<h3>✨ Unique Feature: Real-Time Dynamic Health &amp; Weight Gap Analysis</h3>
+<p>Our intelligent browser engine instantly evaluates your biometric inputs and calculates your exact weight gap relative to normal BMI boundaries locally.</p>
 <div class="syntax-alert" id="syntaxAlertBox">
-Calculator Status: Ready. Enter your height and weight to calculate your BMI.
+Calculator Status: Ready. Select your preferred units and enter your height and weight.
 </div>
 </div>
 <div class="security-badge">
@@ -182,8 +199,8 @@ Calculator Status: Ready. Enter your height and weight to calculate your BMI.
 </div>
 </div>
 </div>
-  </div>
-  <div class="content-section">
+</div>
+<div class="content-section">
 <h2>Comprehensive Guide to Body Mass Index (BMI) &amp; Healthy Weight</h2>
 <p>Maintaining a healthy body weight is one of the most important pillars of long-term health, disease prevention, and overall physical vitality. Body Mass Index (BMI) is a globally recognized screening metric used to evaluate whether an individual has a healthy body weight relative to their height. I built this online BMI &amp; Healthy Weight Calculator to provide users with a fast, completely private, and reliable way to check their wellness metrics directly inside modern web browsers.</p>
 <p>Unlike third-party fitness trackers that log and store personal biometric metrics on remote servers, our client-side calculator processes your inputs entirely within your local device memory, guaranteeing absolute data confidentiality.</p>
@@ -230,24 +247,24 @@ Calculator Status: Ready. Enter your height and weight to calculate your BMI.
 
 <h2>Step-by-Step Guide on How to Use the BMI Calculator</h2>
 <p>Using this wellness utility is straightforward, intuitive, and extremely fast:</p>
-<p><strong>Step 1:</strong> Enter your current height in centimeters (cm) into the height input field.</p>
-<p><strong>Step 2:</strong> Enter your current body weight in kilograms (kg) into the weight input field.</p>
-<p><strong>Step 3:</strong> Click "Calculate BMI" to instantly view your score, category classification, and ideal weight span.</p>
+<p><strong>Step 1:</strong> Select your preferred measurement system (Metric in cm/kg or Imperial in feet/inches).</p>
+<p><strong>Step 2:</strong> Enter your height and body weight into the respective input fields.</p>
+<p><strong>Step 3:</strong> Click "Calculate BMI" to instantly view your precise score, category classification, and dynamic weight gap analysis.</p>
 
 <h2>Common Mistakes to Avoid in Body Weight Tracking</h2>
 <p>A frequent error is relying solely on BMI without considering body composition, muscle mass, or bone density. Athletes with high muscle mass may register higher BMI scores despite having low body fat percentages.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is Body Mass Index (BMI)?</h3>
-<p>BMI is a mathematical calculation comparing an individual's body weight to their height, providing a general indicator of body fatness.</p>
-<h3>2. Is my personal health data saved or transmitted externally?</h3>
+<h3>1. Can I enter my height in feet and inches?</h3>
+<p>Yes! Simply switch the measurement system dropdown to Imperial to enter your height in feet and inches effortlessly.</p>
+<h3>2. Are my personal health data saved or transmitted externally?</h3>
 <p>No. All calculations happen entirely inside your browser client-side, ensuring complete data confidentiality and privacy.</p>
 <h3>3. How is the healthy weight range calculated?</h3>
 <p>The healthy weight range is estimated using the standard WHO normal BMI boundaries (18.5 to 24.9) multiplied by your height squared.</p>
 <h3>4. Do I need to register an account to use this tool?</h3>
 <p>No account registration or login is required; all SmartToolsKit utilities are 100% free.</p>
-<h3>5. Can children use this calculator?</h3>
-<p>This calculator is designed for adults. Children and teenagers require specialized growth charts managed by pediatricians.</p>
+<h3>5. What makes this BMI calculator unique?</h3>
+<p>Our tool provides instant dynamic weight gap analysis locally in your browser without tracking or cloud data transmission.</p>
 
 <!-- Exact Repository Tool Links -->
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
@@ -289,19 +306,41 @@ Other Free Tools: <a href="image-compressor.html" style="color:var(--emerald);">
 </footer>
 
 <script>
+function toggleUnitSystem() {
+  const system = document.getElementById('unitSystem').value;
+  if (system === 'metric') {
+    document.getElementById('metricHeightGroup').style.display = 'block';
+    document.getElementById('imperialHeightGroup').style.display = 'none';
+  } else {
+    document.getElementById('metricHeightGroup').style.display = 'none';
+    document.getElementById('imperialHeightGroup').style.display = 'flex';
+  }
+}
+
 function calculateBMI() {
-  const heightVal = parseFloat(document.getElementById('heightInput').value);
+  const system = document.getElementById('unitSystem').value;
   const weightVal = parseFloat(document.getElementById('weightInput').value);
   const alertBox = document.getElementById('syntaxAlertBox');
+  let heightM = 0;
 
-  if (isNaN(heightVal) || isNaN(weightVal) || heightVal <= 0 || weightVal <= 0) {
-    if (alertBox) {
-      alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please enter valid height and weight values.`;
+  if (system === 'metric') {
+    const heightCm = parseFloat(document.getElementById('heightCm').value);
+    if (isNaN(heightCm) || heightCm <= 0 || isNaN(weightVal) || weightVal <= 0) {
+      if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please enter valid height in cm and weight in kg.`;
+      return;
     }
-    return;
+    heightM = heightCm / 100;
+  } else {
+    const feet = parseFloat(document.getElementById('heightFeet').value) || 0;
+    const inches = parseFloat(document.getElementById('heightInches').value) || 0;
+    const totalInches = (feet * 12) + inches;
+    if (totalInches <= 0 || isNaN(weightVal) || weightVal <= 0) {
+      if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please enter valid height in feet/inches and weight in kg.`;
+      return;
+    }
+    heightM = totalInches * 0.0254; // convert inches to meters
   }
 
-  const heightM = heightVal / 100;
   const bmi = weightVal / (heightM * heightM);
   const roundedBMI = bmi.toFixed(1);
 
@@ -324,13 +363,26 @@ function calculateBMI() {
   document.getElementById('healthyRange').textContent = `${minWeight} kg - ${maxWeight} kg`;
   document.getElementById('statsBox').style.display = 'grid';
 
+  let diffText = "";
+  if (weightVal > parseFloat(maxWeight)) {
+    const excess = (weightVal - parseFloat(maxWeight)).toFixed(1);
+    diffText = ` You are approximately ${excess} kg above the normal weight ceiling.`;
+  } else if (weightVal < parseFloat(minWeight)) {
+    const deficit = (parseFloat(minWeight) - weightVal).toFixed(1);
+    diffText = ` You are approximately ${deficit} kg below the normal weight floor.`;
+  } else {
+    diffText = ` Your weight is perfectly within the optimal healthy range!`;
+  }
+
   if (alertBox) {
-    alertBox.innerHTML = `🟢 <strong>Calculation Success:</strong> Your BMI score is ${roundedBMI} (${category}).`;
+    alertBox.innerHTML = `🟢 <strong>Live Health Analysis:</strong> BMI is ${roundedBMI} (${category}).${diffText}`;
   }
 }
 
-function clearCalculator() {
-  document.getElementById('heightInput').value = "";
+clearCalculator = () => {
+  document.getElementById('heightCm').value = "";
+  document.getElementById('heightFeet').value = "";
+  document.getElementById('heightInches').value = "";
   document.getElementById('weightInput').value = "";
   document.getElementById('statsBox').style.display = 'none';
   const alertBox = document.getElementById('syntaxAlertBox');
