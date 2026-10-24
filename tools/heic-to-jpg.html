@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online HEIC to JPG Converter &amp; EXIF Privacy Scrubber | SmartToolsKit</title>
-<meta name="description" content="Convert Apple iPhone HEIC and HEIF images to high-quality JPG, PNG, or WebP online instantly. Features automated EXIF metadata privacy scrubbing, zero server uploads, and client-side security.">
+<title>Free Online HEIC to JPG Converter | SmartToolsKit</title>
+<meta name="description" content="Convert Apple iPhone HEIC and HEIF images to standard JPG or PNG format instantly in your browser with zero server uploads.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/heic-to-jpg.html">
 <meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Online HEIC to JPG Converter | SmartToolsKit">
+<meta property="og:description" content="Convert HEIC images to JPG instantly in your browser with complete privacy.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/heic-to-jpg.html">
+<meta property="og:type" content="website">
 
 <script type="application/ld+json">
 {
@@ -21,18 +27,35 @@
   },{
     "@type": "ListItem",
     "position": 2,
+    "name": "Image Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
     "name": "HEIC to JPG Converter",
     "item": "https://smarttoolskit.com/tools/heic-to-jpg.html"
   }]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "HEIC to JPG Converter",
+  "url": "https://smarttoolskit.com/tools/heic-to-jpg.html",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All"
+}
+</script>
+<!-- HEIC Decoding Library -->
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
 
 <style>
-:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--teal:#14B8A6;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+button,input,select{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -43,66 +66,56 @@ nav{display:flex;align-items:center;gap:24px}
 nav a{color:#475569;font-size:14px;font-weight:600}
 nav a:hover{color:var(--emerald-dark)}
 .nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
-
-.tool-container{max-width:900px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
-.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:24px}
-
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
 .form-group{margin-bottom:18px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.dropzone{border:2px dashed var(--border);padding:30px;text-align:center;border-radius:10px;background:var(--soft);cursor:pointer;transition:.2s}
-.dropzone:hover{border-color:var(--emerald);background:#ECFDF5}
-.dropzone input{display:none}
-
-.controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
-.control-item label{font-size:13px;font-weight:700;color:var(--navy);display:block;margin-bottom:6px}
-.control-item select, .control-item input[type="range"]{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
-
-.preview-area{margin-top:20px;text-align:center;display:none}
-.preview-area img{max-width:100%;max-height:300px;border-radius:8px;border:1px solid var(--border);box-shadow:var(--shadow)}
-
-.btn-group{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:12px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;flex:1;min-width:140px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.drop-zone{border:2px dashed var(--border);padding:30px;text-align:center;border-radius:10px;background:#fff;cursor:pointer;transition:border-color 0.3s}
+.drop-zone:hover{border-color:var(--emerald)}
+.drop-zone p{font-size:13px;color:var(--muted);margin-top:6px}
+.form-row{display:flex;gap:15px;margin-bottom:15px;flex-wrap:wrap}
+.form-group-half{flex:1;min-width:200px}
+.form-group select,.form-group input[type="range"]{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.calc-btn.secondary{background:var(--navy)}
-.calc-btn.secondary:hover{background:var(--navy-light)}
-
-.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:10px 14px;border-radius:8px;margin-top:15px;font-size:13px;color:var(--muted)}
-
-.unique-section{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:22px;margin-top:30px}
-.unique-section h3{color:var(--emerald);font-size:16px;margin-bottom:8px}
-.unique-section p{font-size:13px;color:#CBD5E1;margin-bottom:14px}
-.unique-box{background:#1E293B;border:1px solid #334155;padding:14px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.6}
-
+.btn-secondary{background:var(--navy);color:#fff;}
+.btn-secondary:hover{background:var(--navy-light);}
+.preview-container{margin-top:15px;text-align:center;display:none}
+.preview-container img{max-width:100%;max-height:220px;border-radius:8px;border:1px solid var(--border);object-fit:contain}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:22px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.content-section ul{margin-left:20px;margin-bottom:14px;color:#475569;font-size:14px}
-.content-section li{margin-bottom:6px}
-
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8}
-.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-
-.content-table{width:100% !important;border-collapse:collapse !important;margin:20px 0 !important;font-size:14px !important}
-.content-table th,.content-table td{border:1px solid var(--border) !important;padding:10px 12px !important;text-align:left !important}
-.content-table th{background:var(--soft) !important;color:var(--navy) !important;font-weight:700 !important}
-.content-table td{color:#475569 !important}
-.content-table code{background:var(--soft);padding:2px 6px;border-radius:4px;color:var(--navy);font-family:monospace}
-
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
 footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px}
-#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
 </style>
 </head>
 <body>
-
 <header>
 <div class="container nav">
 <a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
@@ -114,150 +127,140 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </nav>
 </div>
 </header>
-
 <main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Image Tools</a> &gt; HEIC to JPG Converter
+</div>
+<div class="tool-layout">
 <div class="tool-container">
-<h1>Advanced HEIC to JPG Converter &amp; Privacy Scrubber</h1>
-<p class="subtitle">Convert Apple iPhone HEIC and HEIF images to universal JPG, PNG, or WebP formats instantly with automated EXIF metadata privacy scrubbing and client-side security.</p>
-
+<h1>HEIC to JPG Converter</h1>
+<p class="subtitle">Convert Apple iPhone HEIC and HEIF photos into standard JPG or PNG format instantly in your browser.</p>
+<div class="calc-box">
 <div class="form-group">
-<label>Upload Apple HEIC / HEIF Image File</label>
-<div class="dropzone" onclick="document.getElementById('imageInput').click()">
-<p><strong>Click to browse</strong> or drag &amp; drop your HEIC image here</p>
-<p style="font-size:12px;color:var(--muted);margin-top:4px;">Supports Apple iOS HEIC, HEIF container files (.heic, .heif)</p>
-<input type="file" id="imageInput" accept=".heic,.heif,image/heic,image/heif" onchange="handleImageUpload(event)">
+<label for="imageInput">Upload HEIC Image File</label>
+<div class="drop-zone" onclick="document.getElementById('imageInput').click()">
+<strong>Click to browse or drop HEIC image here</strong>
+<p>Supports .heic, .heif image formats</p>
 </div>
+<input type="file" id="imageInput" accept=".heic,.heif,image/heic,image/heif" style="display:none" onchange="handleImageUpload(event)">
 </div>
 
-<div class="controls-grid">
-<div class="control-item">
-<label for="outputFormat">Output Image Format</label>
+<div class="form-row">
+<div class="form-group form-group-half">
+<label for="outputFormat">Target Output Format</label>
 <select id="outputFormat">
-<option value="image/jpeg" selected>JPEG (.jpg) - Universal</option>
-<option value="image/png">PNG (.png) - Lossless Alpha</option>
-<option value="image/webp">WebP (.webp) - Modern Web</option>
+<option value="image/jpeg" selected>JPEG (.jpg)</option>
+<option value="image/png">PNG (.png)</option>
+<option value="image/webp">WebP (.webp)</option>
 </select>
 </div>
-<div class="control-item">
-<label for="qualityRange">Conversion Quality Level (<span id="qualityVal">90</span>%)</label>
-<input type="range" id="qualityRange" min="50" max="100" value="90" oninput="document.getElementById('qualityVal').textContent=this.value">
+<div class="form-group form-group-half">
+<label for="qualityRange">Conversion Quality: <span id="qualityVal">90</span>%</label>
+<input type="range" id="qualityRange" min="10" max="100" value="90" oninput="document.getElementById('qualityVal').textContent=this.value">
 </div>
 </div>
 
-<div class="preview-area" id="previewContainer">
-<p style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;">Live Converted Preview &amp; EXIF Audit:</p>
-<img id="imagePreview" alt="Converted preview">
-<p id="fileStats" style="font-size:12px;color:var(--muted);margin-top:8px;font-family:monospace;"></p>
+<div class="preview-container" id="previewBox">
+<label style="display:block;font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:700;">CONVERTED PREVIEW</label>
+<img id="convertedPreview" alt="Converted Preview">
 </div>
 
-<div class="btn-group">
-<button type="button" class="calc-btn" id="convertBtn" onclick="convertImage()" disabled>Convert HEIC to JPG Now</button>
-<a id="downloadLink" class="calc-btn secondary" style="display:none;text-align:center;" download="converted-image.jpg">Download Converted Image</a>
-<button type="button" class="calc-btn secondary" onclick="resetConverter()">Reset Tool</button>
+<div class="btn-row" style="margin-top:20px;">
+<button class="calc-btn" onclick="convertHeicImage()">Convert &amp; Download Image</button>
+<button class="calc-btn btn-secondary" onclick="clearConverter()">Reset</button>
 </div>
 
+</div>
+
+<div class="unique-box">
+<h3>✨ Unique Feature: Client-Side HEIC Decryption Pipeline</h3>
+<p>Our browser-based decoder processes Apple media containers locally without uploading your personal photos to external servers.</p>
+<div class="syntax-alert" id="syntaxAlertBox">
+Converter Status: Ready. Upload a HEIC image file to begin conversion.
+</div>
+</div>
 <div class="security-badge">
-<span>🔒 Client-Side Security:</span> All HEIC decoding and format conversion routines process entirely inside your browser client-side using HTML5 Canvas APIs. No iPhone photographs or private pictures are ever uploaded to external servers.
+<span>Client-side security:</span> All HEIC decoding and format conversions run securely inside your browser client-side. No assets are transmitted externally.
 </div>
-
-<div class="unique-section">
-<h3>🚀 Unique Value Addition: Smart EXIF Privacy Metadata Scrubber &amp; Geo-Tag Remover</h3>
-<p>Unlike standard image converters that silently preserve hidden GPS coordinates, device serial numbers, and timestamp metadata from your iPhone camera roll, our intelligent privacy scrubber automatically detects and strips all sensitive EXIF data before export.</p>
-<div class="unique-box" id="privacyBox">
-💡 <strong>Privacy Audit:</strong> Upload any HEIC capture to inspect metadata security status and ensure absolute personal privacy protection.
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool is provided for educational and multimedia utility purposes only.
 </div>
 </div>
 </div>
-
+</div>
 <div class="content-section">
-<h2>Mastering Apple HEIC Format, Universal Compatibility, and Privacy Scrubber Technology</h2>
-<p>Apple introduced the HEIC (High Efficiency Image Container) format starting with iOS 11 to save storage space on mobile devices while maintaining remarkable color depth and image clarity. However, because HEIC is a proprietary container based on the HEVC video codec standard, standard web browsers, Windows photo viewers, and legacy publishing platforms cannot open or render these files natively. An <strong>Advanced HEIC to JPG Converter &amp; Privacy Scrubber</strong> bridges this compatibility gap, allowing users to transform Apple images into universal JPEG, PNG, or WebP files instantly.</p>
+<h2>Mastering Apple HEIC Format Compatibility</h2>
+<p>Apple devices capture high-efficiency images using the HEIC container format, which offers exceptional compression and quality. However, HEIC files lack universal support across older web browsers, Windows photo viewers, and legacy editing software. I built this online HEIC to JPG Converter to help users transform Apple HEIC and HEIF photographs into universally compatible JPG, PNG, or WebP files instantly right inside their web browsers.</p>
+<p>By executing decoding and conversion routines locally via client-side JavaScript libraries, your personal photographs remain completely private without risking cloud upload exposure.</p>
 
-<p>Furthermore, digital photographs captured on modern smartphones carry hidden metadata—including exact GPS geolocation coordinates, local timestamps, camera lens settings, and device IDs. When users share these pictures online, this metadata poses severe privacy risks. Our specialized web utility combines lightning-fast browser-based format translation with automated EXIF scrubbing to protect user confidentiality.</p>
+<h2>Why Convert HEIC to Standard JPG?</h2>
+<p>Converting HEIC photos ensures seamless sharing, uploading to web forms, and viewing across cross-platform devices without requiring specialized extensions.</p>
 
-<h2>Why HEIC Conversion and Privacy Scrubbing Matter Today</h2>
-<p>Publishing images on content management systems, e-commerce stores, or portfolio sites requires widespread browser support. Converting HEIC assets to JPEG or WebP ensures that all visitors—regardless of whether they use Windows, Android, or desktop Linux—can view graphics seamlessly without broken image links.</p>
-
-<p>At the same time, safeguarding personal data by stripping EXIF tags prevents digital footprint tracking. Our dual-purpose tool ensures seamless format migration while guaranteeing 100% data privacy through purely client-side browser execution.</p>
-
-<h2>The Mathematical Logic of Image Codec Transcoding and Data Compression</h2>
-<p>Image conversion between high-efficiency containers and raster formats relies on spatial color matrix mapping, bit-depth conversion, and pixel quantization formulas:</p>
-
-<div class="formula-box">
-<strong>Core Transcoding &amp; Compression Formulas:</strong>
-1. Compression Ratio ($CR$):<br>
-   • $CR = \frac{Size_{HEIC}}{Size_{Converted}}$<br><br>
-2. Storage Space Reduction Percentage ($SR$):<br>
-   • $SR = \left(1 - \frac{Size_{Converted}}{Size_{HEIC}}\right) \times 100\%$<br><br>
-3. Quantization Error Approximation (MSE):<br>
-   • $MSE = \frac{1}{mn}\sum_{i=0}^{m-1}\sum_{j=0}^{n-1}[I(i,j) - K(i,j)]^2$
-</div>
-
-<p>These mathematical models allow our tool to accurately render pixel data from Apple containers into universal web formats while optimizing storage weight.</p>
-
-<h2>Image Format Specifications Reference Matrix</h2>
-<p>The reference table below compares Apple HEIC containers with universal web formats across compression efficiency, compatibility, and metadata support:</p>
-
+<div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
 <th>Image Format</th>
-<th>Container Standard</th>
-<th>Web Compatibility</th>
-<th>EXIF Metadata Support</th>
-<th>Primary Use Case</th>
+<th>Compatibility Level</th>
+<th>Primary Advantage</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><strong>HEIC / HEIF</strong></td>
-<td>HEVC (ISO/IEC 23008-12)</td>
-<td>Limited (Apple Ecosystem)</td>
-<td>Extensive (GPS, Camera, Time)</td>
-<td>Apple iOS default photo capture storage.</td>
-</tr>
-<tr>
-<td><strong>JPEG (.jpg)</strong></td>
-<td>Discrete Cosine Transform</td>
-<td>Universal (100% Browsers)</td>
-<td>Standard EXIF</td>
-<td>Universal web publishing, photography sharing.</td>
-</tr>
-<tr>
-<td><strong>WebP (.webp)</strong></td>
-<td>VP8 / WebM Architecture</td>
-<td>High (Modern Browsers)</td>
-<td>Optional</td>
-<td>High-performance modern web optimization.</td>
-</tr>
-<tr>
-<td><strong>PNG (.png)</strong></td>
-<td>Lossless DEFLATE Compression</td>
-<td>Universal (100% Browsers)</td>
-<td>Minimal</td>
-<td>Graphics, UI elements, transparent cutouts.</td>
-</tr>
+<tr><td>HEIC (.heic)</td><td>Apple Ecosystem &amp; Modern iOS/macOS</td><td>Extremely small file size with high detail retention.</td></tr>
+<tr><td>JPEG (.jpg)</td><td>Universal across all platforms &amp; devices</td><td>Instant viewing and compatibility everywhere.</td></tr>
+<tr><td>PNG (.png)</td><td>Universal with lossless quality</td><td>Pristine pixel fidelity and transparency support.</td></tr>
 </tbody>
 </table>
+</div>
 
-<h2>How to Use the HEIC to JPG Converter</h2>
-<p>Converting your Apple iPhone photos and scrubbing private metadata is fast, secure, and straightforward:</p>
-<ul>
-<li><strong>Upload HEIC File:</strong> Click the dropzone or drag and drop your Apple `.heic` or `.heif` image into the uploader.</li>
-<li><strong>Select Output Format &amp; Quality:</strong> Choose your preferred target format (JPEG, PNG, or WebP) and adjust the quality slider.</li>
-<li><strong>Review Privacy Audit:</strong> Check the live audit box confirming that all hidden GPS and device EXIF tags have been successfully scrubbed.</li>
-<li><strong>Convert &amp; Download:</strong> Click "Convert HEIC to JPG Now" to process locally in your browser, then download your clean file instantly!</li>
-</ul>
+<h2>Global Multimedia Reference Matrix</h2>
+<p>The reference table below outlines standard conversion metrics:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Operation</th>
+<th>Processing Engine</th>
+<th>Data Privacy</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>HEIC Decoding</td><td>Client-side JavaScript WebAssembly</td><td>100% Private (Processed on device)</td></tr>
+<tr><td>Format Encoding</td><td>HTML5 2D Canvas Context</td><td>Instant local file generation</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Step-by-Step Guide on How to Use the HEIC Converter</h2>
+<p>Using this multimedia utility is straightforward and fast:</p>
+<p><strong>Step 1:</strong> Click the drop zone to upload your Apple HEIC or HEIF image file.</p>
+<p><strong>Step 2:</strong> Choose your target output format (JPEG, PNG, or WebP) and adjust the quality slider.</p>
+<p><strong>Step 3:</strong> Click "Convert & Download Image" to instantly process and save your converted file.</p>
+
+<h2>Common Mistakes to Avoid in Image Format Conversion</h2>
+<p>A frequent error is attempting to open HEIC files on legacy Windows or Android systems without installing system codecs, which is easily bypassed by using this online browser converter.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. Why can't Windows or standard browsers open HEIC files?</h3>
-<p>HEIC is an Apple-proprietary container format based on video compression standards that require specific operating system codecs which are not universally bundled in Windows or older browsers.</p>
+<h3>1. What is a HEIC image file?</h3>
+<p>HEIC is the default image format used by Apple iPhones and iPads running iOS 11 and later, providing high compression efficiency.</p>
+<h3>2. Are my uploaded photos saved or transmitted externally?</h3>
+<p>No. All image conversions happen entirely inside your browser client-side, ensuring complete data confidentiality.</p>
+<h3>3. Can I convert multiple formats?</h3>
+<p>Yes, you can export your decoded HEIC files into standard JPEG, PNG, or WebP formats.</p>
+<h3>4. Do I need special software installed on my computer?</h3>
+<p>No, this tool runs entirely in your web browser with no external software installations required.</p>
+<h3>5. Is this tool 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
-<h3>2. Does this tool remove private GPS location data from my photos?</h3>
-<p>Yes! Our built-in privacy scrubber automatically strips all hidden EXIF metadata, including geolocation coordinates and device information, before generating your download file.</p>
-
-<h3>3. Are my uploaded photos secure and private?</h3>
-<p>Yes! All image decoding, EXIF scrubbing, and canvas rendering happen 100% client-side inside your web browser. No private photos ever leave your device.</p>
+<!-- Exact Repository Tool Links -->
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="image-compressor.html" style="color:var(--emerald);">Image Compressor</a>, <a href="image-resizer.html" style="color:var(--emerald);">Image Resizer</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
 </div>
 </main>
 
@@ -289,105 +292,93 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 </footer>
 
-<div id="cookieConsent">
-<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-</div>
-
 <script>
-let uploadedImage = null;
-let originalFileName = "image";
-let originalFileSize = 0;
+let uploadedFile = null;
+let originalFileName = "converted-image";
+let convertedBlob = null;
 
 function handleImageUpload(event) {
   const file = event.target.files[0];
+  const alertBox = document.getElementById('syntaxAlertBox');
   if (!file) return;
-  originalFileSize = file.size;
-  originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'iphone-photo';
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const img = new Image();
-    img.onload = function() {
-      uploadedImage = img;
-      document.getElementById('convertBtn').removeAttribute('disabled');
-      
-      const origKb = (originalFileSize / 1024).toFixed(1);
-      document.getElementById('privacyBox').innerHTML = `🔒 <strong>Privacy Audit Passed:</strong> File size <code>${origKb} KB</code>. EXIF metadata container detected. All GPS coordinates, device tags, and timestamps will be 100% scrubbed upon conversion.`;
-      
-      document.getElementById('previewContainer').style.display = 'block';
-      document.getElementById('imagePreview').src = e.target.result;
-      document.getElementById('fileStats').textContent = `Loaded HEIC: ${img.naturalWidth} × ${img.naturalHeight} px | Size: ${origKb} KB. Click 'Convert HEIC to JPG Now'.`;
-    };
-    img.onerror = function() {
-      alert("Error reading HEIC file. Please ensure it is a valid Apple HEIC/HEIF image.");
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
+
+  uploadedFile = file;
+  originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'converted-image';
+  
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>File Loaded:</strong> ${file.name} ready for HEIC conversion.`;
+  }
+  
+  // Preview conversion immediately
+  convertHeicImage(true);
 }
 
-function convertImage() {
-  if (!uploadedImage) return;
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  canvas.width = uploadedImage.naturalWidth;
-  canvas.height = uploadedImage.naturalHeight;
+async function convertHeicImage(isPreviewOnly = false) {
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (!uploadedFile) {
+    if (!isPreviewOnly && alertBox) {
+      alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please upload a HEIC image file first.`;
+    }
+    return;
+  }
 
   const format = document.getElementById('outputFormat').value;
-  const quality = parseInt(document.getElementById('qualityRange').value) / 100;
+  const quality = parseInt(document.getElementById('qualityRange').value, 10) / 100;
 
-  if (format === 'image/jpeg') {
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  if (alertBox) {
+    alertBox.innerHTML = `⏳ <strong>Processing:</strong> Decoding HEIC container locally...`;
   }
 
-  ctx.drawImage(uploadedImage, 0, 0);
+  try {
+    // Use heic2any library to convert HEIC blob to target format blob
+    const convertedBlobResult = await heic2any({
+      blob: uploadedFile,
+      toType: format,
+      quality: quality
+    });
 
-  const dataUrl = canvas.toDataURL(format, quality);
-  const preview = document.getElementById('imagePreview');
-  preview.src = dataUrl;
-  document.getElementById('previewContainer').style.display = 'block';
+    convertedBlob = Array.isArray(convertedBlobResult) ? convertedBlobResult[0] : convertedBlobResult;
+    const url = URL.createObjectURL(convertedBlob);
+    
+    document.getElementById('convertedPreview').src = url;
+    document.getElementById('previewBox').style.display = 'block';
 
-  const base64Len = dataUrl.length - dataUrl.indexOf(',');
-  const sizeBytes = Math.round((base64Len * 3) / 4);
-  const sizeKb = (sizeBytes / 1024).toFixed(1);
-  const origKb = (originalFileSize / 1024).toFixed(1);
-  
-  let ext = 'jpg';
-  if (format === 'image/png') ext = 'png';
-  else if (format === 'image/webp') ext = 'webp';
+    const ext = format === 'image/png' ? 'png' : format === 'image/webp' ? 'webp' : 'jpg';
 
-  document.getElementById('fileStats').textContent = `Converted & Scrubbed: ${canvas.width} × ${canvas.height} px | New Size: ${sizeKb} KB | Format: ${ext.toUpperCase()}`;
+    if (!isPreviewOnly) {
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${originalFileName}-converted.${ext}`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
-  const downloadLink = document.getElementById('downloadLink');
-  downloadLink.href = dataUrl;
-  downloadLink.download = `${originalFileName}-converted.${ext}`;
-  downloadLink.style.display = 'block';
-}
-
-function resetConverter() {
-  uploadedImage = null;
-  originalFileSize = 0;
-  document.getElementById('imageInput').value = '';
-  document.getElementById('previewContainer').style.display = 'none';
-  document.getElementById('downloadLink').style.display = 'none';
-  document.getElementById('convertBtn').setAttribute('disabled', 'true');
-  document.getElementById('privacyBox').innerHTML = `💡 <strong>Privacy Audit:</strong> Upload any HEIC capture to inspect metadata security status and ensure absolute personal privacy protection.`;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-if (cb) cb.style.display = 'flex';
+      if (alertBox) {
+        alertBox.innerHTML = `🟢 <strong>Conversion Success:</strong> HEIC successfully converted to .${ext.toUpperCase()} and downloaded.`;
+      }
+    } else {
+      if (alertBox) {
+        alertBox.innerHTML = `🟢 <strong>HEIC Decoded:</strong> Preview generated successfully. Click download when ready.`;
+      }
+    }
+  } catch (err) {
+    if (alertBox) {
+      alertBox.innerHTML = `🔴 <strong>Conversion Error:</strong> ${err.message || 'Unable to decode HEIC file.'}`;
+    }
   }
-});
+}
 
-function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  const cb = document.getElementById('cookieConsent');
-  if (cb) cb.style.display = 'none';
+function clearConverter() {
+  uploadedFile = null;
+  convertedBlob = null;
+  document.getElementById('imageInput').value = "";
+  document.getElementById('previewBox').style.display = 'none';
+  document.getElementById('convertedPreview').src = "";
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (alertBox) {
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Converter cleared successfully. Upload a new HEIC file.`;
+  }
 }
 </script>
-
 </body>
 </html>
