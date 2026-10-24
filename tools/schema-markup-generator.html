@@ -138,7 +138,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="calc-box">
 <div class="form-group" style="margin-bottom:15px;">
 <label for="schemaType">Select Schema Type</label>
-<select id="schemaType" onchange="generateSchema()">
+<select id="schemaType" onchange="onSchemaTypeChange()">
 <option value="Article" selected>Article / Blog Posting</option>
 <option value="Product">Product / E-commerce</option>
 <option value="LocalBusiness">Local Business</option>
@@ -148,28 +148,28 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="form-row">
 <div class="form-group">
 <label id="lblField1" for="input1">Headline / Name</label>
-<input type="text" id="input1" value="Complete Technical SEO Guide 2026" placeholder="Enter title or name..." oninput="generateSchema()">
+<input type="text" id="input1" value="" placeholder="Enter title or name..." oninput="generateSchema()">
 </div>
 <div class="form-group">
 <label id="lblField2" for="input2">Author Name</label>
-<input type="text" id="input2" value="Waleed Anjum" placeholder="Enter author..." oninput="generateSchema()">
+<input type="text" id="input2" value="" placeholder="Enter author..." oninput="generateSchema()">
 </div>
 </div>
 
 <div class="form-row">
 <div class="form-group">
 <label id="lblField3" for="input3">Publisher Organization</label>
-<input type="text" id="input3" value="SmartToolsKit" placeholder="Enter publisher..." oninput="generateSchema()">
+<input type="text" id="input3" value="" placeholder="Enter publisher..." oninput="generateSchema()">
 </div>
 <div class="form-group">
 <label id="lblField4" for="input4">Publication Date (YYYY-MM-DD)</label>
-<input type="text" id="input4" value="2026-10-10" placeholder="YYYY-MM-DD" oninput="generateSchema()">
+<input type="text" id="input4" value="" placeholder="YYYY-MM-DD" oninput="generateSchema()">
 </div>
 </div>
 
 <div class="form-group">
 <label id="lblField5" for="input5">Page URL</label>
-<input type="text" id="input5" value="https://smarttoolskit.com/blog/seo-guide.html" placeholder="https://..." oninput="generateSchema()">
+<input type="text" id="input5" value="" placeholder="https://..." oninput="generateSchema()">
 </div>
 
 <div class="output-card">
@@ -320,8 +320,60 @@ Other Free Tools: <a href="password-generator.html" style="color:var(--emerald);
 
 <script>
 window.addEventListener('DOMContentLoaded', () => {
+  setDefaultsForArticle();
   generateSchema();
 });
+
+function onSchemaTypeChange() {
+  const type = document.getElementById('schemaType').value;
+  if (type === 'Article') {
+    setDefaultsForArticle();
+  } else if (type === 'Product') {
+    setDefaultsForProduct();
+  } else {
+    setDefaultsForLocal();
+  }
+  generateSchema();
+}
+
+function setDefaultsForArticle() {
+  document.getElementById('lblField1').textContent = "Headline / Title";
+  document.getElementById('lblField2').textContent = "Author Name";
+  document.getElementById('lblField3').textContent = "Publisher Organization";
+  document.getElementById('lblField4').textContent = "Publication Date (YYYY-MM-DD)";
+
+  document.getElementById('input1').value = "Complete Technical SEO Guide 2026";
+  document.getElementById('input2').value = "Waleed Anjum";
+  document.getElementById('input3').value = "SmartToolsKit";
+  document.getElementById('input4').value = "2026-10-10";
+  document.getElementById('input5').value = "https://smarttoolskit.com/blog/seo-guide.html";
+}
+
+function setDefaultsForProduct() {
+  document.getElementById('lblField1').textContent = "Product Name";
+  document.getElementById('lblField2').textContent = "Brand Name";
+  document.getElementById('lblField3').textContent = "Price (USD)";
+  document.getElementById('lblField4').textContent = "SKU / Product ID";
+
+  document.getElementById('input1').value = "Professional Web Utility Kit";
+  document.getElementById('input2').value = "SmartToolsKit";
+  document.getElementById('input3').value = "29.99";
+  document.getElementById('input4').value = "SKU-99887";
+  document.getElementById('input5').value = "https://smarttoolskit.com/tools/product.html";
+}
+
+function setDefaultsForLocal() {
+  document.getElementById('lblField1').textContent = "Business Name";
+  document.getElementById('lblField2').textContent = "Street Address";
+  document.getElementById('lblField3').textContent = "Telephone Number";
+  document.getElementById('lblField4').textContent = "Price Range ($ - $$$$)";
+
+  document.getElementById('input1').value = "SmartToolsKit Office";
+  document.getElementById('input2').value = "123 Tech Street";
+  document.getElementById('input3').value = "+1-555-0199";
+  document.getElementById('input4').value = "$$";
+  document.getElementById('input5').value = "https://smarttoolskit.com/";
+}
 
 function generateSchema() {
   const type = document.getElementById('schemaType').value;
@@ -332,19 +384,9 @@ function generateSchema() {
   const val5 = document.getElementById('input5').value.trim();
   const alertBox = document.getElementById('syntaxAlertBox');
 
-  const lbl1 = document.getElementById('lblField1');
-  const lbl2 = document.getElementById('lblField2');
-  const lbl3 = document.getElementById('lblField3');
-  const lbl4 = document.getElementById('lblField4');
-
   let schemaObj = {};
 
   if (type === 'Article') {
-    lbl1.textContent = "Headline / Title";
-    lbl2.textContent = "Author Name";
-    lbl3.textContent = "Publisher Organization";
-    lbl4.textContent = "Publication Date (YYYY-MM-DD)";
-
     schemaObj = {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -364,11 +406,6 @@ function generateSchema() {
       }
     };
   } else if (type === 'Product') {
-    lbl1.textContent = "Product Name";
-    lbl2.textContent = "Brand Name";
-    lbl3.textContent = "Price (USD)";
-    lbl4.textContent = "SKU / Product ID";
-
     schemaObj = {
       "@context": "https://schema.org",
       "@type": "Product",
@@ -387,11 +424,6 @@ function generateSchema() {
       "url": val5 || "https://smarttoolskit.com/"
     };
   } else {
-    lbl1.textContent = "Business Name";
-    lbl2.textContent = "Street Address";
-    lbl3.textContent = "Telephone Number";
-    lbl4.textContent = "Price Range ($ - $$$$)";
-
     schemaObj = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
@@ -409,7 +441,6 @@ function generateSchema() {
   const jsonString = JSON.stringify(schemaObj, null, 2);
   document.getElementById('schemaOutput').textContent = jsonString;
 
-  // Real Unique Auditor Metrics Calculation
   let filledCount = 0;
   if (val1) filledCount++;
   if (val2) filledCount++;
@@ -426,7 +457,6 @@ function generateSchema() {
     statusText = "Fully Eligible ⭐";
   }
   document.getElementById('uniqueRichStatus').textContent = statusText;
-
   document.getElementById('uniqueNodeDepth').textContent = (type === 'Article') ? "3 Nested Nodes" : "2 Nested Nodes";
 
   if (alertBox) {
@@ -451,5 +481,5 @@ function copySchema() {
 }
 </script>
 </body>
-  </html>
+</html>
   
