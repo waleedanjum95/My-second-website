@@ -190,8 +190,8 @@ Suite Status: Ready. Upload image files to begin PDF compilation.
 </div>
 </div>
 </div>
-  </div>
-  <div class="content-section">
+</div>
+<div class="content-section">
 <h2>Comprehensive Guide to Mastering Image-to-PDF Conversion Securely</h2>
 <p>Combining multiple image scans, photographs, receipts, or graphics into a single organized PDF document is an essential daily requirement for professionals, students, and businesses sharing portfolios, invoices, and reports. I built this online JPG / PDF Converter Suite to give users a fast, completely private, and powerful way to merge pictures into structured PDF files directly inside modern web browsers without requiring heavy desktop software.</p>
 <p>Traditional online document converters often force users to upload sensitive corporate or personal photographs to remote third-party cloud servers, posing significant data privacy and security risks. By executing PDF compilation locally using advanced client-side JavaScript libraries, our suite ensures that your files remain strictly on your local device with zero risk of server exposure.</p>
@@ -386,7 +386,16 @@ async function generatePDF() {
       doc.addImage(imgData, 'JPEG', x, y, imgWidth, imgHeight);
     }
 
-    doc.save('converted-document.pdf');
+    // Robust Blob download fix for mobile and web views
+    const pdfBlob = doc.output('blob');
+    const url = URL.createObjectURL(pdfBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'converted-document.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
 
     if (alertBox) {
       alertBox.innerHTML = `🟢 <strong>Success:</strong> PDF document compiled and downloaded successfully.`;
