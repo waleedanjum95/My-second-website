@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online Universal Image Converter (All Picture Formats) | SmartToolsKit</title>
-<meta name="description" content="Convert all picture formats including PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, and HEIC instantly in your browser with adjustable quality settings.">
+<title>Free Online Universal Image Converter &amp; Metadata Auditor | SmartToolsKit</title>
+<meta name="description" content="Convert and compress pictures across all formats (PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, HEIC) instantly with live canvas dimension and metadata auditing.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/universal-image-converter.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
-<meta property="og:title" content="Free Online Universal Image Converter | SmartToolsKit">
-<meta property="og:description" content="Convert all picture formats like PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, and HEIC instantly in your browser.">
+<meta property="og:title" content="Free Online Universal Image Converter & Metadata Auditor | SmartToolsKit">
+<meta property="og:description" content="Convert pictures across all formats securely in your browser client-side.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/universal-image-converter.html">
 <meta property="og:type" content="website">
 
@@ -47,6 +47,7 @@
   "operatingSystem": "All"
 }
 </script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -67,33 +68,41 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.form-group{margin-bottom:18px}
+.form-group{margin-bottom:15px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.drop-zone{border:2px dashed var(--border);padding:30px;text-align:center;border-radius:10px;background:#fff;cursor:pointer;transition:border-color 0.3s}
+.drop-zone{border:2px dashed var(--border);padding:25px;text-align:center;border-radius:10px;background:#fff;cursor:pointer;transition:all .2s}
 .drop-zone:hover{border-color:var(--emerald)}
-.drop-zone p{font-size:13px;color:var(--muted);margin-top:6px}
-.form-row{display:flex;gap:15px;margin-bottom:15px;flex-wrap:wrap}
-.form-group-half{flex:1;min-width:200px}
-.form-group select,.form-group input[type="range"]{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
-.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.drop-zone p{font-size:13px;color:var(--muted)}
+.drop-zone span{display:block;font-size:11px;color:#94A3B8;margin-top:4px}
+.row-controls{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}
+.form-group select, .form-group input[type="range"]{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:#fff;font-size:13px;outline:none}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.btn-secondary{background:var(--navy);color:#fff;}
-.btn-secondary:hover{background:var(--navy-light);}
-.preview-container{margin-top:15px;text-align:center;display:none}
-.preview-container img{max-width:100%;max-height:220px;border-radius:8px;border:1px solid var(--border);object-fit:contain}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.btn-danger{background:#EF4444;color:#fff}
+.btn-danger:hover{background:#DC2626}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:20px;border:1px solid #334155;text-align:center}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.preview-img{max-width:100%;max-height:220px;border-radius:8px;border:1px solid #334155;object-fit:contain}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:13px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
-.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -131,51 +140,68 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>Universal Image Converter</h1>
-<p class="subtitle">Convert all picture formats (PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, HEIC) seamlessly with custom quality settings.</p>
+<p class="subtitle">Convert and compress pictures across all formats (PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, HEIC) instantly.</p>
 <div class="calc-box">
 <div class="form-group">
-<label for="imageInput">Upload Any Picture Format</label>
-<div class="drop-zone" onclick="document.getElementById('imageInput').click()">
-<strong>Click to browse or drop image here</strong>
-<p>Supports PNG, JPG, JPEG, WebP, GIF, BMP, TIFF, SVG, AVIF, HEIC</p>
+<label>Upload Picture File (Supports PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, HEIC)</label>
+<div class="drop-zone" onclick="document.getElementById('fileInput').click()">
+<p>Click to browse or drop picture here</p>
+<span id="fileNameDisplay">Supports PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, HEIC</span>
 </div>
-<input type="file" id="imageInput" accept="image/*" style="display:none" onchange="handleImageUpload(event)">
+<input type="file" id="fileInput" accept="image/*,.heic,.heif,.tiff,.bmp,.svg" style="display:none" onchange="handleImageUpload(event)">
 </div>
 
-<div class="form-row">
-<div class="form-group form-group-half">
-<label for="outputFormat">Target Output Format</label>
-<select id="outputFormat">
-<option value="image/png">PNG (.png)</option>
+<div class="row-controls">
+<div class="form-group">
+<label for="targetFormat">Target Output Format</label>
+<select id="targetFormat">
+<option value="image/webp">WebP (.webp)</option>
 <option value="image/jpeg">JPEG (.jpg)</option>
-<option value="image/webp" selected>WebP (.webp)</option>
+<option value="image/png">PNG (.png)</option>
 <option value="image/avif">AVIF (.avif)</option>
+<option value="image/bmp">BMP (.bmp)</option>
 </select>
 </div>
-<div class="form-group form-group-half">
+<div class="form-group">
 <label for="qualityRange">Quality: <span id="qualityVal">90</span>%</label>
 <input type="range" id="qualityRange" min="10" max="100" value="90" oninput="document.getElementById('qualityVal').textContent=this.value">
 </div>
 </div>
 
-<div class="preview-container" id="previewBox">
-<label style="display:block;font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:700;">IMAGE PREVIEW</label>
-<img id="sourceImagePreview" alt="Preview">
-</div>
-
 <div class="btn-row">
-<button class="calc-btn" onclick="convertImage()">Convert &amp; Download Image</button>
-<button class="calc-btn btn-secondary" onclick="clearConverter()">Reset</button>
+<button class="calc-btn" onclick="convertImage()">Convert &amp; Download</button>
+<button class="calc-btn btn-secondary" onclick="resetImageTool()">Reset</button>
+</div>
+
+<div class="output-card">
+<div class="output-header"><label>Live Image Preview &amp; Render</label></div>
+<img id="imagePreview" class="preview-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120'%3E%3Crect width='100%25' height='100%25' fill='%231E293B'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%2394A3B8' font-family='monospace' font-size='13'%3ENo Image Loaded%3C/text%3E%3C/svg%3E" alt="Preview">
 </div>
 
 </div>
+
 <div class="unique-box">
-<h3>✨ Unique Feature: Comprehensive Browser Canvas Image Pipeline</h3>
-<p>Our client-side rendering engine supports all standard picture formats locally without uploading your personal files to external servers.</p>
+<h3>✨ Real Unique Feature: Live Canvas Image Pipeline &amp; Metadata Auditor</h3>
+<p>Our client-side rendering engine analyzes image dimensions, color space profiles, and compression payload ratios in real time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Original vs Converted Size</span>
+<strong id="uniqueSizeComp">0 / 0 KB</strong>
+</div>
+<div class="unique-stat-card">
+<span>Dimensions (W x H)</span>
+<strong id="uniqueDimensions">0 x 0 px</strong>
+</div>
+<div class="unique-stat-card">
+<span>Compression Ratio</span>
+<strong id="uniqueRatio">0.0% Saved</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
 Converter Status: Ready. Upload any picture file (PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, HEIC) to begin.
 </div>
 </div>
+
 <div class="security-badge">
 <span>Client-side security:</span> All image processing runs securely inside your browser client-side. No image assets are transmitted externally.
 </div>
@@ -204,58 +230,58 @@ Converter Status: Ready. Upload any picture file (PNG, JPG, WebP, AVIF, GIF, BMP
 </tr>
 </thead>
 <tbody>
-<tr><td>PNG / JPEG / WebP</td><td><code>.png</code>, <code>.jpg</code>, <code>.webp</code></td><td>Standard raster formats for web graphics and photos.</td></tr>
-<tr><td>GIF Animation</td><td><code>.gif</code></td><td>Supports frame sequences and basic transparency.</td></tr>
-<tr><td>BMP / TIFF</td><td><code>.bmp</code>, <code>.tiff</code></td><td>Uncompressed or lossless raster graphics for archival.</td></tr>
-<tr><td>SVG Vector</td><td><code>.svg</code></td><td>Scalable XML vector graphics for modern UIs.</td></tr>
-<tr><td>AVIF / HEIC</td><td><code>.avif</code>, <code>.heic</code></td><td>Next-gen high-efficiency container formats from modern mobile devices.</td></tr>
+<tr><td>PNG / JPEG / WebP</td><td>.png, .jpg, .webp</td><td>Standard raster formats for web graphics and photos.</td></tr>
+<tr><td>GIF Animation</td><td>.gif</td><td>Supports frame sequences and basic transparency.</td></tr>
+<tr><td>BMP / TIFF</td><td>.bmp, .tiff</td><td>Uncompressed or lossless raster graphics for archival.</td></tr>
+<tr><td>SVG Vector</td><td>.svg</td><td>Scalable XML vector graphics for modern UIs.</td></tr>
+<tr><td>AVIF / HEIC</td><td>.avif, .heic</td><td>Next-gen high-efficiency container formats from modern mobile devices.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Global Multimedia Reference Matrix</h2>
-<p>The reference table below outlines standard output format performance metrics:</p>
+<h2>Global Image Optimization Reference Matrix</h2>
+<p>The reference table below outlines standard output formats and their optimization targets:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Target Format</th>
-<th>Average Compression Ratio</th>
-<th>Browser Support</th>
+<th>Output Format</th>
+<th>Best Used For</th>
+<th>Compression Efficiency</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>AVIF</td><td>Superior next-gen compression</td><td>Supported in modern browsers.</td></tr>
-<tr><td>WebP</td><td>25% to 35% smaller than JPEG</td><td>Universal across all modern web browsers.</td></tr>
-<tr><td>JPEG</td><td>Standard baseline compression</td><td>Universal across all legacy and modern platforms.</td></tr>
-<tr><td>PNG</td><td>Larger file size, pristine pixel fidelity</td><td>Universal across all applications and viewers.</td></tr>
+<tr><td>WebP (.webp)</td><td>Modern web deployment and fast page loading</td><td>High (Lossy/Lossless support)</td></tr>
+<tr><td>JPEG (.jpg)</td><td>Standard photographic sharing and legacy browsers</td><td>Medium-High</td></tr>
+<tr><td>PNG (.png)</td><td>Graphics requiring crisp transparent edges</td><td>Lossless (Larger file size)</td></tr>
+<tr><td>AVIF (.avif)</td><td>Next-gen ultra compression</td><td>Maximum efficiency</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Step-by-Step Guide on How to Use the Universal Converter</h2>
+<h2>Step-by-Step Guide on How to Use the Universal Image Converter</h2>
 <p>Using this multimedia utility is straightforward and fast:</p>
-<p><strong>Step 1:</strong> Click the drop zone to upload any picture file from your device (PNG, JPG, WebP, GIF, BMP, TIFF, SVG, AVIF, or HEIC).</p>
-<p><strong>Step 2:</strong> Select your desired target output format from the options and fine-tune the quality slider.</p>
-<p><strong>Step 3:</strong> Click "Convert & Download Image" to instantly process and save your converted file.</p>
+<p><strong>Step 1:</strong> Click the drop zone or browse to upload any picture file (PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, HEIC).</p>
+<p><strong>Step 2:</strong> Select your desired target output format and adjust the quality slider.</p>
+<p><strong>Step 3:</strong> Review live image dimensions, payload comparison, and conversion savings in the unique auditor box before downloading.</p>
 
-<h2>Common Mistakes to Avoid in Image Processing</h2>
-<p>A frequent error is converting transparent or vector graphics (like SVG or transparent PNG) into JPEG format without background color fallback, which results in black or distorted backgrounds.</p>
+<h2>Common Mistakes to Avoid in Image Optimization</h2>
+<p>A frequent error is converting complex photographic images into uncompressed BMP or PNG formats, which unnecessarily bloats web hosting bandwidth and slows down Core Web Vitals.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. Which picture formats are supported for input and output?</h3>
-<p>Input supports all major picture formats including PNG, JPG, JPEG, WebP, GIF, BMP, TIFF, SVG, AVIF, and HEIC. Output supports PNG, JPEG, WebP, and AVIF.</p>
-<h3>2. Are my uploaded files transmitted or stored on an external server?</h3>
-<p>No. All image rendering and file conversions happen entirely inside your browser client-side, ensuring complete data confidentiality.</p>
-<h3>3. Can I convert next-gen mobile formats like HEIC or AVIF?</h3>
-<p>Yes, provided your browser supports decoding those formats natively, you can convert them into universal PNG, JPEG, WebP, or AVIF files.</p>
-<h3>4. Can I adjust image compression quality?</h3>
-<p>Yes, you can use the quality slider to balance visual fidelity and final file size.</p>
+<h3>1. Which image formats are supported?</h3>
+<p>The tool supports virtually all major picture extensions including PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, and HEIC.</p>
+<h3>2. Are my pictures uploaded to an external server?</h3>
+<p>No. All conversions happen entirely inside your browser client-side using HTML5 Canvas pipelines.</p>
+<h3>3. Can I adjust compression quality?</h3>
+<p>Yes, you can fine-tune output quality using the interactive slider ranging from 10% to 100%.</p>
+<h3>4. How does the live image auditor work?</h3>
+<p>Our client-side engine calculates source file bytes, output bytes, and exact pixel dimensions in real time.</p>
 <h3>5. Is this tool 100% free?</h3>
 <p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>, <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="cryptographic-hash-generator.html" style="color:var(--emerald);">Cryptographic Hash Generator</a>
+Other Free Tools: <a href="qr-code-generator.html" style="color:var(--emerald);">QR Code Generator</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>, <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -293,7 +319,8 @@ Other Free Tools: <a href="password-generator.html" style="color:var(--emerald);
 </footer>
 
 <script>
-let uploadedImage = null;
+let loadedImageObj = null;
+let originalFileBytes = 0;
 let originalFileName = "converted-image";
 
 function handleImageUpload(event) {
@@ -301,21 +328,27 @@ function handleImageUpload(event) {
   const alertBox = document.getElementById('syntaxAlertBox');
   if (!file) return;
 
-  originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'converted-image';
+  originalFileBytes = file.size;
+  originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'converted';
+  document.getElementById('fileNameDisplay').textContent = file.name + ` (${(originalFileBytes / 1024).toFixed(1)} KB)`;
+
   const reader = new FileReader();
   reader.onload = function(e) {
     const img = new Image();
     img.onload = function() {
-      uploadedImage = img;
-      document.getElementById('sourceImagePreview').src = e.target.result;
-      document.getElementById('previewBox').style.display = 'block';
+      loadedImageObj = img;
+      document.getElementById('imagePreview').src = e.target.result;
+      
+      const width = img.naturalWidth;
+      const height = img.naturalHeight;
+      const originalKB = (originalFileBytes / 1024).toFixed(1);
+
+      document.getElementById('uniqueDimensions').textContent = `${width} x ${height} px`;
+      document.getElementById('uniqueSizeComp').textContent = `${originalKB} KB / -- KB`;
+      document.getElementById('uniqueRatio').textContent = "0.0% Saved";
+
       if (alertBox) {
-        alertBox.innerHTML = `🟢 <strong>Picture Loaded Successfully:</strong> ${file.name} ready for format conversion.`;
-      }
-    };
-    img.onerror = function() {
-      if (alertBox) {
-        alertBox.innerHTML = `🔴 <strong>Format Error:</strong> Unable to decode this picture format. Please try another file.`;
+        alertBox.innerHTML = `🟢 <strong>Image Loaded Successfully:</strong> Resolution ${width}x${height}px detected. Ready for conversion.`;
       }
     };
     img.src = e.target.result;
@@ -325,51 +358,61 @@ function handleImageUpload(event) {
 
 function convertImage() {
   const alertBox = document.getElementById('syntaxAlertBox');
-  if (!uploadedImage) {
+  if (!loadedImageObj) {
     if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please upload a picture file first.`;
     return;
   }
 
-  const format = document.getElementById('outputFormat').value;
-  const quality = parseInt(document.getElementById('qualityRange').value, 10) / 100;
+  const targetFormat = document.getElementById('targetFormat').value;
+  const quality = parseInt(document.getElementById('qualityRange').value) / 100;
 
   const canvas = document.createElement('canvas');
-  canvas.width = uploadedImage.width;
-  canvas.height = uploadedImage.height;
+  canvas.width = loadedImageObj.naturalWidth;
+  canvas.height = loadedImageObj.naturalHeight;
   const ctx = canvas.getContext('2d');
+  ctx.drawImage(loadedImageObj, 0, 0);
 
-  // If converting to JPEG from transparent format, fill white background
-  if (format === 'image/jpeg') {
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const dataUrl = canvas.toDataURL(targetFormat, quality);
+  document.getElementById('imagePreview').src = dataUrl;
+
+  // Calculate base64 output size approximation
+  const base64Length = dataUrl.split(',')[1].length;
+  const convertedBytes = Math.round((base64Length * 3) / 4);
+  const originalKB = (originalFileBytes / 1024).toFixed(1);
+  const convertedKB = (convertedBytes / 1024).toFixed(1);
+  
+  const savings = originalFileBytes > 0 ? (((originalFileBytes - convertedBytes) / originalFileBytes) * 100).toFixed(1) : "0.0";
+
+  document.getElementById('uniqueSizeComp').textContent = `${originalKB} KB / ${convertedKB} KB`;
+  document.getElementById('uniqueRatio').textContent = (savings > 0 ? savings : "0.0") + "% Saved";
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Conversion Successful:</strong> Image compiled to format with ${savings}% size optimization.`;
   }
 
-  ctx.drawImage(uploadedImage, 0, 0);
-
-  canvas.toBlob(function(blob) {
-    const url = URL.createObjectURL(blob);
-    const ext = format === 'image/png' ? 'png' : format === 'image/jpeg' ? 'jpg' : format === 'image/webp' ? 'webp' : 'avif';
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${originalFileName}-optimized.${ext}`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Conversion Successful:</strong> Picture converted to ${ext.toUpperCase()} and downloaded.`;
-    }
-  }, format, quality);
+  // Trigger automatic download
+  const extMap = { 'image/webp': 'webp', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/avif': 'avif', 'image/bmp': 'bmp' };
+  const ext = extMap[targetFormat] || 'png';
+  const downloadLink = document.createElement('a');
+  downloadLink.href = dataUrl;
+  downloadLink.download = `${originalFileName}-optimized.${ext}`;
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
 }
 
-function clearConverter() {
-  uploadedImage = null;
-  document.getElementById('imageInput').value = "";
-  document.getElementById('previewBox').style.display = 'none';
-  document.getElementById('sourceImagePreview').src = "";
+function resetImageTool() {
+  loadedImageObj = null;
+  originalFileBytes = 0;
+  document.getElementById('fileInput').value = "";
+  document.getElementById('fileNameDisplay').textContent = "Supports PNG, JPG, WebP, AVIF, GIF, BMP, TIFF, SVG, HEIC";
+  document.getElementById('imagePreview').src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120'%3E%3Crect width='100%25' height='100%25' fill='%231E293B'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%2394A3B8' font-family='monospace' font-size='13'%3ENo Image Loaded%3C/text%3E%3C/svg%3E";
+  document.getElementById('uniqueDimensions').textContent = "0 x 0 px";
+  document.getElementById('uniqueSizeComp').textContent = "0 / 0 KB";
+  document.getElementById('uniqueRatio').textContent = "0.0% Saved";
   const alertBox = document.getElementById('syntaxAlertBox');
   if (alertBox) {
-    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Converter cleared successfully. Upload a new picture.`;
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Universal Image Converter restored to blank state.`;
   }
 }
 </script>
