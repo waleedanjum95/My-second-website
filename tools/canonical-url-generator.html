@@ -3,22 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Canonical URL Tag Generator &amp; Duplicate SEO Tool | SmartToolsKit</title>
-<meta name="description" content="Generate flawless rel=canonical HTML tags to eliminate duplicate content issues, strip tracking parameters, and consolidate SEO link equity instantly.">
+<title>Free Online Canonical URL Tag Generator &amp; Conflict Auditor | SmartToolsKit</title>
+<meta name="description" content="Create flawless rel=canonical HTML tags to eliminate duplicate content issues and consolidate SEO link equity with live conflict auditing.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/canonical-url-generator.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Sharing Meta Tags -->
-<meta property="og:title" content="Free Canonical URL Tag Generator & Duplicate SEO Tool | SmartToolsKit">
-<meta property="og:description" content="Generate flawless rel=canonical HTML tags to eliminate duplicate content issues and consolidate SEO link equity. Secure client-side tool.">
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Online Canonical URL Tag Generator & Conflict Auditor | SmartToolsKit">
+<meta property="og:description" content="Generate flawless rel=canonical HTML tags to eliminate duplicate content instantly.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/canonical-url-generator.html">
 <meta property="og:type" content="website">
-
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Canonical URL Tag Generator | SmartToolsKit">
-<meta name="twitter:description" content="Instant client-side canonical tag generator with live parameter validation and conflict auditor.">
 
 <script type="application/ld+json">
 {
@@ -32,7 +27,12 @@
   },{
     "@type": "ListItem",
     "position": 2,
-    "name": "Canonical URL Generator",
+    "name": "SEO Utilities",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Canonical URL Tag Generator",
     "item": "https://smarttoolskit.com/tools/canonical-url-generator.html"
   }]
 }
@@ -43,45 +43,17 @@
   "@type": "WebApplication",
   "name": "Canonical URL Tag Generator",
   "url": "https://smarttoolskit.com/tools/canonical-url-generator.html",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5."
+  "applicationCategory": "SEOApplication",
+  "operatingSystem": "All"
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "What is a canonical URL tag?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "A canonical tag (rel=canonical) is an HTML snippet that helps search engines prevent duplicate content penalties by specifying the master version of a web page."
-    }
-  },{
-    "@type": "Question",
-    "name": "What does the Live Canonical Conflict & Parameter Validator do?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Our intelligent client-side validator scans your URLs for tracking parameters, protocol mismatches, and self-referencing consistency in real time."
-    }
-  },{
-    "@type": "Question",
-    "name": "Are my page URLs stored or transmitted externally?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "No. All URL validations and tag compilations execute securely inside your local browser client-side, ensuring complete data privacy."
-    }
-  }]
-}
-</script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,textarea,select{font-family:inherit}
+button,input{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -98,24 +70,32 @@ nav a:hover{color:var(--emerald-dark)}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
 .form-group{margin-bottom:15px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group input{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;width:100%}
+.form-group input{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.output-area{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:12px;background:var(--navy);color:#fff;outline:none;min-height:100px;resize:vertical;margin-top:10px}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:20px;border:1px solid #334155}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.output-display{font-family:monospace;font-size:13px;color:#fff;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;word-break:break-all;min-height:70px;max-height:120px;overflow-y:auto}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:13px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
-.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
-.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -126,9 +106,6 @@ footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
-#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 @media(max-width:768px){
   .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
   nav{flex-wrap:wrap;justify-content:center;gap:15px}
@@ -159,27 +136,48 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <p class="subtitle">Create flawless rel=canonical HTML tags to eliminate duplicate content issues and consolidate SEO link equity.</p>
 <div class="calc-box">
 <div class="form-group">
-<label for="currentPageUrl">Current Page URL (The URL of this page)</label>
-<input type="text" id="currentPageUrl" value="https://smarttoolskit.com/blog/seo-guide.html?utm_source=newsletter" oninput="generateCanonical()">
+<label for="currentUrl">Current Page URL (The URL of this page)</label>
+<input type="text" id="currentUrl" value="https://smarttoolskit.com/blog/seo-guide.html?utm_source=newsletter" placeholder="https://..." oninput="generateCanonicalTag()">
 </div>
 <div class="form-group">
 <label for="canonicalUrl">Preferred Canonical Target URL</label>
-<input type="text" id="canonicalUrl" value="https://smarttoolskit.com/blog/seo-guide.html" oninput="generateCanonical()">
+<input type="text" id="canonicalUrl" value="https://smarttoolskit.com/blog/seo-guide.html" placeholder="https://..." oninput="generateCanonicalTag()">
 </div>
-<button class="calc-btn" onclick="generateCanonical()">Generate Canonical Tag</button>
-<div style="margin-top:15px;">
-<label style="font-size:12px;color:var(--muted);font-weight:700;display:block;margin-bottom:6px;">Generated HTML Canonical Tag</label>
-<textarea id="canonicalOutput" class="output-area" readonly placeholder="Generated tag will appear here..."></textarea>
+
+<div class="btn-row">
+<button class="calc-btn" onclick="generateCanonicalTag()">Generate Canonical Tag</button>
+<button class="calc-btn btn-secondary" onclick="copyCanonicalCode()">Copy Canonical Tag Code</button>
 </div>
-<button class="calc-btn" style="margin-top:10px;" onclick="copyCanonicalCode()">Copy Canonical Tag Code</button>
+
+<div class="output-card">
+<div class="output-header"><label>Generated HTML Canonical Tag</label></div>
+<div class="output-display" id="canonicalOutput">Loading...</div>
 </div>
+
+</div>
+
 <div class="unique-box">
-<h3>✨ Unique Feature: Live Canonical Conflict &amp; Parameter Validator</h3>
-<p>Our intelligent client-side auditor scans your URLs for tracking parameters, protocol mismatches, and self-referencing consistency in real time.</p>
+<h3>✨ Real Unique Feature: Live Canonical Conflict &amp; Parameter Validator</h3>
+<p>Our intelligent client-side auditor scans your URLs for tracking parameters, protocol mismatches, and self-referencing consistency in real time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Parameter Sanitization</span>
+<strong id="uniqueParamStatus">Clean / Optimal</strong>
+</div>
+<div class="unique-stat-card">
+<span>Protocol Security (SSL)</span>
+<strong id="uniqueProtocolStatus">HTTPS Secured</strong>
+</div>
+<div class="unique-stat-card">
+<span>Referencing State</span>
+<strong id="uniqueRefState">Consolidated</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
-Parameter Sanitization Optimal: Your page contains tracking parameters, but your canonical correctly points to the clean master URL. Excellent duplicate prevention!
+Parameter Sanitization Optimal: Your page contains tracking query parameters, but your canonical correctly points to the clean master URL. Excellent duplicate prevention!
 </div>
 </div>
+
 <div class="security-badge">
 <span>Client-side security:</span> All URL validations and tag compilations execute securely inside your browser client-side. No website credentials or tracking parameters are sent externally.
 </div>
@@ -192,73 +190,74 @@ Parameter Sanitization Optimal: Your page contains tracking parameters, but your
 </div>
 <div class="content-section">
 <h2>Mastering Rel=Canonical Tags for Duplicate Content and SEO Authority</h2>
-<p>In technical search engine optimization, managing duplicate content is one of the most critical responsibilities for webmasters. Duplicate content occurs when identical or substantially similar content is accessible through multiple distinct URLs—such as product pages with sorting filters, printer-friendly versions, or tracking parameter variations (e.g., '?utm_source' or '?sessionid'). When search engine crawlers encounter duplicate pages, I built this utility to ensure they instantly recognize the preferred master URL without confusion or ranking dilution.</p>
-<p>I designed this online Canonical URL Generator to solve duplicate indexing challenges by acting as a definitive signal to search engines like Google and Bing. By placing a canonical tag in the header of a duplicate page pointing to the preferred 'master' URL, webmasters instruct crawlers to consolidate all ranking power, link equity (PageRank), and indexation signals onto a single authoritative page, safeguarding the site from algorithmic dilution.</p>
+<p>In technical search engine optimization, managing duplicate content is one of the most critical responsibilities for webmasters. Duplicate content occurs when identical or substantially similar content is accessible through multiple distinct URLs—such as product pages with sorting filters, printer-friendly versions, or tracking parameter variations (e.g., ?utm_source= or ?sessionid). When search engine crawlers encounter duplicate pages, I built this utility to ensure they instantly recognize the preferred master URL without confusion or ranking dilution.</p>
+<p>I designed this online Canonical URL Generator to solve duplicate indexing challenges by acting as a definitive signal to search engines like Google and Bing. By placing a canonical tag in the header of a duplicate page pointing to the preferred 'master URL', webmasters instruct crawlers to consolidate all ranking power, link equity (PageRank), and indexation signals onto a single authoritative page, safeguarding the site from algorithmic dilution.</p>
+
 <h2>Why Self-Referencing Canonical Tags and Protocol Consistency Matter</h2>
 <p>A common best practice in modern technical SEO is implementing self-referencing canonical tags. Even on unique, standalone pages, adding a canonical tag that points to the page's own URL tells search engines unequivocally that this is the primary authoritative version. I always recommend this practice to prevent automated scrapers or proxy sites from accidentally hijacking your indexation status.</p>
 <p>Furthermore, I built my online generator to incorporate a real-time validation auditor. If a canonical URL uses HTTP while the current page runs on secure HTTPS, or if tracking query parameters are left unstripped, my live validation radar alerts developers instantly to prevent crawl ambiguities.</p>
 
 <h2>The Mathematical Logic of PageRank Equity Consolidation</h2>
-<p>To evaluate link equity preservation and canonicalization effectiveness during SEO audits, I utilize standard mathematical models:</p>
-<div class="formula-box">
-<strong>Core Canonical &amp; Link Equity Formulas:</strong>
-1. PageRank Consolidation Efficiency = (Master URL Link Equity / Total Dispersed Duplicate URLs) * 100
-2. Parameter Dilution Index = (Unique Parameterized URLs / Total Unique Crawled Pages) * 100
-3. Self-Referencing Validation Score = Binary verification (1 = Present, 0 = Missing) across indexed templates.
-</div>
-
+<p>The reference table below outlines standard canonical tag integration states:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Canonical Configuration Scenario</th>
-<th>Target Implementation</th>
-<th>SEO Optimization Objective</th>
+<th>Duplicate Scenario</th>
+<th>Canonical Target State</th>
+<th>SEO Indexing Outcome</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Parameterized URLs</td><td>Point to clean base URL without query strings</td><td>Prevent duplicate indexing of sorting, pagination, and marketing tracking variables.</td></tr>
-<tr><td>HTTPS Migration</td><td>Point all HTTP variations to HTTPS master</td><td>Ensure secure encrypted protocol is recognized as the definitive ranking address.</td></tr>
-<tr><td>Cross-Domain Syndication</td><td>Point syndicated article to original source</td><td>Pass ranking credit back to the primary author or originating publisher website.</td></tr>
+<tr><td>Tracking Parameters (?utm=...)</td><td>Clean Master URL (Params removed)</td><td>Link juice consolidated, duplicate query URLs ignored.</td></tr>
+<tr><td>HTTP vs HTTPS Mismatch</td><td>Secure HTTPS Version</td><td>Forces secure indexation and prevents mixed content penalties.</td></tr>
+<tr><td>Self-Referencing Unique Page</td><td>Points to Itself</td><td>Validates primary authority and deters content scrapers.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Global Technical SEO and URL Normalization Reference Matrix</h2>
-<p>The reference table below outlines standard canonicalization standards across professional digital workflows:</p>
+<h2>Global SEO Directive Reference Matrix</h2>
+<p>The reference table below outlines standard meta robots and link relation syntaxes:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Duplicate Content Type</th>
-<th>Common Cause</th>
-<th>Canonical Resolution Strategy</th>
+<th>Directive / Tag</th>
+<th>HTML Code Syntax</th>
+<th>Operational Function</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>HTTP vs HTTPS</td><td>Incomplete SSL certificate enforcement</td><td>Always canonicalize HTTP requests to the secure HTTPS version.</td></tr>
-<tr><td>Trailing Slash Discrepancies</td><td>Server routing misconfigurations</td><td>Enforce uniform slash structure (with or without trailing slash globally).</td></tr>
-<tr><td>Marketing Campaign Tags</td><td>UTM tracking codes in inbound ads</td><td>Strip tracking parameters in canonical tag pointing to clean URL.</td></tr>
+<tr><td>Canonical Link</td><td><code>&lt;link rel="canonical" href="..." /&gt;</code></td><td>Signals primary master URL to search engine bots.</td></tr>
+<tr><td>NoIndex Meta</td><td><code>&lt;meta name="robots" content="noindex" /&gt;</code></td><td>Prevents page indexing entirely in search results.</td></tr>
+<tr><td>NoFollow Meta</td><td><code>&lt;meta name="robots" content="nofollow" /&gt;</code></td><td>Restricts bots from crawling outbound links on the page.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>How to Use the Canonical URL Tag Generator</h2>
-<p>Using my canonical tag utility is straightforward and fast. Enter your current page URL and your preferred canonical target URL, and instantly copy clean, production-ready HTML markup for your webpage header.</p>
+<h2>Step-by-Step Guide on How to Use the Canonical Generator</h2>
+<p>Using this SEO utility is straightforward and fast:</p>
+<p><strong>Step 1:</strong> Enter your current page URL (including tracking parameters or session IDs if applicable).</p>
+<p><strong>Step 2:</strong> Enter your preferred canonical target URL (the clean master destination).</p>
+<p><strong>Step 3:</strong> Review live parameter sanitization status, SSL security indicators, and generated HTML tag in the unique feature box.</p>
 
-<h2>Common Mistakes to Avoid</h2>
-<p>A common mistake is pointing canonical tags to a URL that returns a 404 Not Found error or redirects to an unrelated page, which causes search engines to ignore the canonical directive entirely.</p>
+<h2>Common Mistakes to Avoid in Canonical Implementation</h2>
+<p>A frequent error is pointing canonical tags from unique, distinct content pages to a generic homepage, which confuses search engine crawlers and leads to complete de-indexing of relevant keyword phrases.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is a canonical URL tag?</h3>
-<p>A canonical tag (rel=canonical) is an HTML snippet that helps search engines prevent duplicate content penalties by specifying the master version of a web page.</p>
-<h3>2. What does the Live Canonical Conflict &amp; Parameter Validator do?</h3>
-<p>Our intelligent client-side validator scans your URLs for tracking parameters, protocol mismatches, and self-referencing consistency in real time.</p>
-<h3>3. Are my page URLs stored or transmitted externally?</h3>
-<p>No. All URL validations and tag compilations execute securely inside your local browser client-side, ensuring complete data privacy.</p>
+<h3>1. What is a rel=canonical tag?</h3>
+<p>A canonical tag is an HTML snippet that tells search engines which version of a web page is the master authoritative copy.</p>
+<h3>2. Are my URLs transmitted or stored on an external server?</h3>
+<p>No. All URL parsing and validation run securely inside your browser client-side, ensuring complete data privacy.</p>
+<h3>3. Why should I use self-referencing canonical tags?</h3>
+<p>Self-referencing canonicals protect your pages from duplicate scrapers and signal clear indexing intentions to web crawlers.</p>
+<h3>4. How does the live conflict auditor work?</h3>
+<p>Our client-side engine inspects query strings, UTM parameters, and HTTPS protocol structures in real time to flag potential indexing conflicts.</p>
+<h3>5. Is this tool 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="diff-checker.html" style="color:var(--emerald);">Text Diff Checker</a>, <a href="lorem-ipsum-generator.html" style="color:var(--emerald);">Lorem Ipsum Generator</a>, <a href="meta-tag-generator.html" style="color:var(--emerald);">Meta Tag Generator</a>, <a href="markdown-to-html-converter.html" style="color:var(--emerald);">Markdown to HTML Converter</a>, <a href="keyword-density-checker.html" style="color:var(--emerald);">Keyword Density Checker</a>, <a href="htaccess-redirect-generator.html" style="color:var(--emerald);">HTAccess Redirect Generator</a>, <a href="robots-txt-generator.html" style="color:var(--emerald);">Robots.txt Generator</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
+Other Free Tools: <a href="robots-txt-generator.html" style="color:var(--emerald);">Robots.txt Generator</a>, <a href="schema-markup-generator.html" style="color:var(--emerald);">Schema Markup Generator</a>, <a href="htaccess-redirect-generator.html" style="color:var(--emerald);">.htaccess Generator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -295,75 +294,66 @@ Other Free Tools: <a href="diff-checker.html" style="color:var(--emerald);">Text
 </div>
 </footer>
 
-<div id="cookieConsent">
-<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-</div>
-
 <script>
-window.addEventListener('DOMContentLoaded', function() {
-  generateCanonical();
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
+window.addEventListener('DOMContentLoaded', () => {
+  generateCanonicalTag();
 });
 
-function generateCanonical() {
-  const currentUrl = document.getElementById('currentPageUrl').value.trim();
+function generateCanonicalTag() {
+  const currentUrl = document.getElementById('currentUrl').value.trim();
   const canonicalUrl = document.getElementById('canonicalUrl').value.trim();
-  const canonicalOutput = document.getElementById('canonicalOutput');
-  const syntaxAlertBox = document.getElementById('syntaxAlertBox');
-  
-  if (!canonicalOutput) return;
-  
-  let targetCanonical = canonicalUrl !== '' ? canonicalUrl : currentUrl;
-  let tag = `<link rel="canonical" href="${escapeHtml(targetCanonical)}" />`;
-  canonicalOutput.value = tag;
-  
-  if (syntaxAlertBox) {
-    try {
-      let curObj = currentUrl ? new URL(currentUrl) : null;
-      let canObj = targetCanonical ? new URL(targetCanonical) : null;
-      
-      if (curObj && canObj) {
-        if (curObj.protocol !== canObj.protocol) {
-          syntaxAlertBox.innerHTML = '🔴 <strong>Protocol Mismatch Warning:</strong> Current page uses <strong>' + curObj.protocol + '</strong> while canonical target uses <strong>' + canObj.protocol + '</strong>. Ensure secure HTTPS consistency to avoid crawler confusion.';
-        } else if (curObj.search && !canObj.search) {
-          syntaxAlertBox.innerHTML = '🟢 <strong>Parameter Sanitization Optimal:</strong> Your page contains tracking query parameters, but your canonical correctly points to the clean master URL. Excellent duplicate prevention!';
-        } else if (currentUrl === targetCanonical) {
-          syntaxAlertBox.innerHTML = '🟢 <strong>Self-Referencing Optimal:</strong> This is a clean self-referencing canonical tag, reinforcing primary indexation authority.';
-        } else {
-          syntaxAlertBox.innerHTML = '🟢 <strong>Canonical Configuration Valid:</strong> Target master URL is properly linked to consolidate link equity.';
-        }
-      } else {
-        syntaxAlertBox.innerHTML = '🟢 <strong>Optimal Tag:</strong> Canonical tag compiled successfully.';
-      }
-    } catch(e) {
-      syntaxAlertBox.innerHTML = '🟢 <strong>Optimal Tag:</strong> Canonical tag compiled successfully.';
-    }
-  }
-}
+  const outputDisplay = document.getElementById('canonicalOutput');
+  const alertBox = document.getElementById('syntaxAlertBox');
 
-function escapeHtml(str) {
-  return str.replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;");
+  const tag = `<link rel="canonical" href="${canonicalUrl || 'https://smarttoolskit.com/'}" />`;
+  outputDisplay.textContent = tag;
+
+  // Live Auditing Logic
+  let paramStatus = "Clean / Optimal";
+  let protocolStatus = "HTTPS Secured";
+  let refState = "Consolidated";
+  let alertText = "";
+
+  const hasParams = currentUrl.includes('?');
+  const isHttp = (currentUrl.startsWith('http://') || canonicalUrl.startsWith('http://'));
+
+  if (isHttp) {
+    protocolStatus = "HTTP Warning ⚠️";
+    alertText = "Protocol Warning: Unencrypted HTTP protocol detected. Ensure canonical targets secure HTTPS URLs to prevent mixed content issues.";
+  } else if (hasParams && !canonicalUrl.includes('?')) {
+    paramStatus = "Params Stripped 🛡️";
+    alertText = "Parameter Sanitization Optimal: Your page contains tracking query parameters, but your canonical correctly points to the clean master URL. Excellent duplicate prevention!";
+  } else if (currentUrl === canonicalUrl) {
+    refState = "Self-Referencing 🟢";
+    alertText = "Self-Referencing Optimal: Canonical tag points directly to its own master URL, fortifying indexation integrity.";
+  } else {
+    alertText = "Canonical Tag Compiled: Target master URL established successfully for link equity consolidation.";
+  }
+
+  // Update Unique Auditor UI
+  document.getElementById('uniqueParamStatus').textContent = paramStatus;
+  document.getElementById('uniqueProtocolStatus').textContent = protocolStatus;
+  document.getElementById('uniqueRefState').textContent = refState;
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Canonical Auditor:</strong> ${alertText}`;
+  }
 }
 
 function copyCanonicalCode() {
-  const canonicalOutput = document.getElementById('canonicalOutput');
-  if (!canonicalOutput) return;
-  canonicalOutput.select();
-  navigator.clipboard.writeText(canonicalOutput.value);
-  alert('Canonical tag code copied to clipboard!');
-}
+  const output = document.getElementById('canonicalOutput').textContent;
+  const alertBox = document.getElementById('syntaxAlertBox');
 
-function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  const cb = document.getElementById('cookieConsent');
-  if (cb) cb.style.display = 'none';
+  if (!output) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No canonical code available to copy.`;
+    return;
+  }
+
+  navigator.clipboard.writeText(output).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Canonical HTML tag successfully copied.`;
+    }
+  });
 }
 </script>
 </body>
