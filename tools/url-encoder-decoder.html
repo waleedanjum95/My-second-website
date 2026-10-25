@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online URL Encoder &amp; Decoder | SmartToolsKit</title>
-<meta name="description" content="Encode URLs and query parameters into safe percent-encoded formats and decode percent-encoded strings back to readable text instantly.">
+<meta name="description" content="Encode URLs into safe percent-encoded character strings or decode percent-encoded URLs back to plain text instantly with live character auditing.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/url-encoder-decoder.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Free Online URL Encoder & Decoder | SmartToolsKit">
-<meta property="og:description" content="Encode URLs to safe percent-encoded formats and decode them instantly.">
+<meta property="og:description" content="Encode and decode URLs instantly in your browser with live character auditing.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/url-encoder-decoder.html">
 <meta property="og:type" content="website">
 
@@ -47,12 +47,13 @@
   "operatingSystem": "All"
 }
 </script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,textarea,select{font-family:inherit}
+button,textarea{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -67,30 +68,36 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.form-group{margin-bottom:15px}
+.form-group{margin-bottom:18px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:#fff;outline:none;min-height:140px;resize:vertical}
-.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.form-group textarea{width:100%;height:120px;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:14px;background:#fff;outline:none;resize:vertical}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
 .calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.btn-secondary{background:var(--navy);color:#fff;}
-.btn-secondary:hover{background:var(--navy-light);}
-.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
-.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
-.output-textarea{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:13px;background:#1E293B;color:#fff;outline:none;min-height:150px;resize:vertical;}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.btn-danger{background:#EF4444;color:#fff}
+.btn-danger:hover{background:#DC2626}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:20px;border:1px solid #334155}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.output-display{font-family:monospace;font-size:14px;color:#fff;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;word-break:break-all;min-height:70px;max-height:150px;overflow-y:auto}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:13px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
-.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -128,34 +135,51 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>URL Encoder / Decoder</h1>
-<p class="subtitle">Encode URLs into safe percent-encoded character strings or decode percent-encoded URLs back to plain text.</p>
+<p class="subtitle">Encode URLs into safe percent-encoded character strings or decode percent-encoded URLs back to plain text instantly.</p>
 <div class="calc-box">
 <div class="form-group">
-<label for="dataInput">Input URL or Plain Text String</label>
-<textarea id="dataInput" placeholder="Enter URL or text string here...">https://smarttoolskit.com/search?q=smart web tools & kits</textarea>
+<label for="urlInput">Input URL or Plain Text String</label>
+<textarea id="urlInput" placeholder="Type or paste your URL here..." oninput="handleUrlInput()">https://smarttoolskit.com/search?q=smart web tools &amp; kits</textarea>
 </div>
+
 <div class="btn-row">
-<button class="calc-btn" onclick="encodeURLText()">Encode URL</button>
-<button class="calc-btn btn-secondary" onclick="decodeURLText()">Decode URL</button>
-<button class="calc-btn" style="background:#475569;" onclick="copyOutput()">Copy Output</button>
-<button class="calc-btn" style="background:#EF4444;" onclick="clearFields()">Clear</button>
+<button class="calc-btn" onclick="encodeUrlData()">Encode URL</button>
+<button class="calc-btn btn-secondary" onclick="decodeUrlData()">Decode URL</button>
+<button class="calc-btn btn-secondary" onclick="copyUrlOutput()">Copy Output</button>
+<button class="calc-btn btn-danger" onclick="clearUrlFields()">Clear</button>
 </div>
 
 <div class="output-card">
 <div class="output-header"><label>Encoded / Decoded Result Output</label></div>
-<textarea id="dataOutput" class="output-textarea" readonly placeholder="Processed URL output will appear here..."></textarea>
+<div class="output-display" id="urlOutput">Loading...</div>
 </div>
 
 </div>
+
 <div class="unique-box">
-<h3>✨ Unique Feature: Real-Time Browser Percent-Encoding Auditor</h3>
-<p>Our client-side translation engine analyzes reserved characters and query components locally without server requests.</p>
+<h3>✨ Real Unique Feature: Live Percent-Encoding Overhead &amp; Reserved Character Auditor</h3>
+<p>Our client-side translation engine scans reserved characters, query components, and expansion overhead in real-time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Reserved Characters</span>
+<strong id="uniqueReservedCount">3 found</strong>
+</div>
+<div class="unique-stat-card">
+<span>Encoding Overhead</span>
+<strong id="uniqueUrlOverhead">+5.4%</strong>
+</div>
+<div class="unique-stat-card">
+<span>Query Parameters</span>
+<strong id="uniqueQueryParams">1 detected</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
-Encoder Status: Ready for URL transformation. Select an action above.
+Auditor Status: Ready. Enter text or URL to inspect percent-encoding metrics.
 </div>
 </div>
+
 <div class="security-badge">
-<span>Client-side security:</span> All URL encoding and decoding run securely inside your browser environment. No input strings are transmitted externally.
+<span>Client-side security:</span> All URL encoding and decoding run securely inside your browser client-side. No input strings are transmitted externally.
 </div>
 <div class="disclaimer-container">
 <div class="disclaimer-text">
@@ -166,7 +190,7 @@ Encoder Status: Ready for URL transformation. Select an action above.
 </div>
 <div class="content-section">
 <h2>Mastering URL Encoding and Decoding for Web Navigation</h2>
-<p>Uniform Resource Locators (URLs) transmitted across the internet must conform to a restricted ASCII character set. Characters such as spaces, ampersands, question marks, and non-ASCII symbols can break query parameters or cause routing errors on web servers. Percent-encoding replaces unsafe characters with a percent sign (%) followed by two hexadecimal digits. I built this online URL Encoder / Decoder to help developers and webmasters safely encode query parameters and decode complex URLs directly inside their web browsers.</p>
+<p>Uniform Resource Locators (URLs) transmitted across the Internet must conform to a restricted ASCII character set. Characters such as spaces, ampersands, question marks, and non-ASCII symbols can break query parameters or cause routing errors on web servers. Percent-encoding replaces unsafe characters with a percent sign (%) followed by two hexadecimal digits. I built this online URL Encoder / Decoder to help developers and webmasters safely encode query parameters and decode complex URLs directly inside their web browsers.</p>
 <p>By executing transformations entirely via client-side JavaScript, sensitive query strings and tokens remain fully confidential on your device.</p>
 
 <h2>Why Percent-Encoding Matters in Web Development</h2>
@@ -183,54 +207,55 @@ Encoder Status: Ready for URL transformation. Select an action above.
 </thead>
 <tbody>
 <tr><td>Encode URL</td><td>Converts special characters to percent-encoded hex equivalents</td><td>Preparing query string parameters, spaces, and symbols for safe HTTP transmission.</td></tr>
-<tr><td>Decode URL</td><td>Restores percent-encoded strings back to standard human-readable text</td><td>Inspecting server logs, tracking URLs, or reading nested parameters.</td></tr>
-<tr><td>Safety Validation</td><td>Local character parsing</td><td>Checking structural integrity of web links before deployment.</td></tr>
+<tr><td>Decode URL</td><td>Restores percent-encoded strings back to standard human-readable test</td><td>Inspecting server logs, tracking URLs, or reading nested parameters.</td></tr>
+<tr><td>Safety Check</td><td>Character validation</td><td>Checking structural integrity of web links before deployment.</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2>Global Developer Reference Matrix</h2>
-<p>The reference table below outlines standard URL character encoding rules:</p>
+<p>The reference table below outlines standard URL encoding character benchmarks:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Character Category</th>
-<th>Examples</th>
-<th>Encoding Status</th>
+<th>Special Character</th>
+<th>ASCII Name</th>
+<th>Percent-Encoded Hex Value</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Reserved Characters</td><td><code>?</code>, <code>&amp;</code>, <code>/</code>, <code>:</code>, <code>=</code></td><td>Encoded when used as data values inside query parameters.</td></tr>
-<tr><td>Unsafe Characters</td><td>Space ( ), <code>#</code>, <code>[</code>, <code>]</code>, <code>{</code></td><td>Always percent-encoded to prevent syntax ambiguity in browsers.</td></tr>
-<tr><td>Unreserved Characters</td><td><code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code>, <code>_</code>, <code>.</code>, <code>~</code></td><td>Remain unencoded as they are fully safe across all web standards.</td></tr>
+<tr><td>Space</td><td>Space / Blank</td><td><code>%20</code></td></tr>
+<tr><td>Ampersand</td><td>Ampersand Separator</td><td><code>%26</code></td></tr>
+<tr><td>Question Mark</td><td>Query Parameter Delimiter</td><td><code>%3F</code></td></tr>
+<tr><td>Equals Sign</td><td>Key-Value Assignment</td><td><code>%3D</code></td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Step-by-Step Guide on How to Use the URL Encoder / Decoder</h2>
+<h2>Step-by-Step Guide on How to Use the URL Tool</h2>
 <p>Using this developer utility is straightforward and fast:</p>
-<p><strong>Step 1:</strong> Type or paste your URL string or query parameters into the input box above.</p>
-<p><strong>Step 2:</strong> Click "Encode URL" to convert unsafe symbols into percent-encoded format, or click "Decode URL" to retrieve readable text.</p>
-<p><strong>Step 3:</strong> Click "Copy Output" to instantly grab your converted string for your web project.</p>
+<p><strong>Step 1:</strong> Type or paste your raw URL or encoded string into the input text area above.</p>
+<p><strong>Step 2:</strong> Click "Encode URL" or "Decode URL" to transform your string instantly.</p>
+<p><strong>Step 3:</strong> Review live reserved character counts and encoding overhead in the unique feature auditor box.</p>
 
-<h2>Common Mistakes to Avoid in URL Parameters</h2>
-<p>A frequent error is double-encoding query parameters (e.g., encoding an already encoded %20 into %2520), which breaks server-side parameter parsing.</p>
+<h2>Common Mistakes to Avoid in URL Parameter Formatting</h2>
+<p>A frequent error is double-encoding URLs (such as encoding an already encoded `%20` into `%2520`), which breaks server routing and parameter parsing.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is a URL Encoder / Decoder?</h3>
-<p>A URL encoder/decoder is a utility tool that translates unsafe characters into valid percent-encoded ASCII strings and vice versa.</p>
-<h3>2. Is my input URL transmitted or stored on an external server?</h3>
-<p>No. All text processing and percent-encoding happen entirely inside your browser client-side, ensuring complete data privacy.</p>
-<h3>3. What is the difference between encodeURI and encodeURIComponent?</h3>
-<p>While `encodeURI` preserves entire URL structures like slashes and colons, `encodeURIComponent` encodes all reserved characters, making it ideal for individual query parameters.</p>
-<h3>4. Why do spaces convert to plus signs or %20?</h3>
-<p>Spaces in query strings are standardly represented as `%20` in percent-encoding, though some form submissions convert them to plus signs (`+`).</p>
+<h3>1. What is URL percent-encoding?</h3>
+<p>Percent-encoding is a mechanism for encoding information in a Uniform Resource Identifier (URI) under certain restricted circumstances.</p>
+<h3>2. Is my input URL stored or transmitted to an external server?</h3>
+<p>No. All URL encoding and decoding happen entirely inside your browser client-side, ensuring complete privacy.</p>
+<h3>3. Why do spaces convert to %20 or plus (+) signs?</h3>
+<p>In standard URL encoding (RFC 3986), spaces are encoded as `%20`, whereas in application/x-www-form-urlencoded query strings, they are frequently represented as plus signs (`+`).</p>
+<h3>4. How does the live reserved character auditor work?</h3>
+<p>Our client-side engine scans input strings in real time to count unsafe symbols, query parameters, and encoding overhead percentages.</p>
 <h3>5. Is this tool 100% free?</h3>
 <p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>, <a href="base64-encoder-decoder.html" style="color:var(--emerald);">Base64 Encoder / Decoder</a>
+Other Free Tools: <a href="base64-encoder-decoder.html" style="color:var(--emerald);">Base64 Encoder / Decoder</a>, <a href="color-code-converter.html" style="color:var(--emerald);">Color Code Converter</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -268,82 +293,97 @@ Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JS
 </footer>
 
 <script>
-window.addEventListener('DOMContentLoaded', function() {
-  encodeURLText();
+window.addEventListener('DOMContentLoaded', () => {
+  encodeUrlData();
 });
 
-function encodeURLText() {
-  const input = document.getElementById('dataInput').value;
-  const output = document.getElementById('dataOutput');
+function handleUrlInput() {
+  encodeUrlData();
+}
+
+function encodeUrlData() {
+  const input = document.getElementById('urlInput').value;
   const alertBox = document.getElementById('syntaxAlertBox');
-
-  if (!input) {
-    output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter a URL or text string to encode.`;
-    return;
-  }
-
+  
   try {
     const encoded = encodeURIComponent(input);
-    output.value = encoded;
+    document.getElementById('urlOutput').textContent = encoded;
+    
+    updateUrlMetrics(input, encoded, 'Encoded');
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Encoding Successful:</strong> URL string successfully converted to percent-encoded format.`;
+      alertBox.innerHTML = `🟢 <strong>Encoding Success:</strong> URL string successfully converted to percent-encoded format.`;
     }
   } catch (err) {
-    output.value = "";
+    document.getElementById('urlOutput').textContent = "Encoding Error: Invalid character stream.";
     if (alertBox) {
-      alertBox.innerHTML = `🔴 <strong>Encoding Error:</strong> ${err.message}`;
+      alertBox.innerHTML = `🔴 <strong>Error:</strong> Failed to encode URL string.`;
     }
   }
 }
 
-function decodeURLText() {
-  const input = document.getElementById('dataInput').value.trim();
-  const output = document.getElementById('dataOutput');
+function decodeUrlData() {
+  const input = document.getElementById('urlInput').value.trim();
   const alertBox = document.getElementById('syntaxAlertBox');
-
-  if (!input) {
-    output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter a percent-encoded string to decode.`;
-    return;
-  }
-
+  
   try {
     const decoded = decodeURIComponent(input);
-    output.value = decoded;
+    document.getElementById('urlOutput').textContent = decoded;
+    
+    updateUrlMetrics(input, decoded, 'Decoded');
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Decoding Successful:</strong> Percent-encoded string successfully restored to readable text.`;
+      alertBox.innerHTML = `🟢 <strong>Decoding Success:</strong> Percent-encoded string successfully restored to plain text.`;
     }
   } catch (err) {
-    output.value = "";
+    document.getElementById('urlOutput').textContent = "Decoding Error: Malformed percent-encoding sequence.";
     if (alertBox) {
-      alertBox.innerHTML = `🟡 <strong>Notice:</strong> Malformed percent-encoding sequence or plain text provided.`;
+      alertBox.innerHTML = `🔴 <strong>Decoding Error:</strong> Invalid percent-encoded string format.`;
     }
   }
 }
 
-function copyOutput() {
-  const output = document.getElementById('dataOutput');
+function updateUrlMetrics(inputStr, outputStr, mode) {
+  // Count reserved / special characters
+  const reservedChars = inputStr.match(/[&=?/%#\+\s]/g) || [];
+  document.getElementById('uniqueReservedCount').textContent = reservedChars.length + " found";
+
+  // Calculate overhead
+  if (mode === 'Encoded' && inputStr.length > 0) {
+    const overhead = (((outputStr.length - inputStr.length) / inputStr.length) * 100).toFixed(1);
+    document.getElementById('uniqueUrlOverhead').textContent = "+" + overhead + "%";
+  } else {
+    document.getElementById('uniqueUrlOverhead').textContent = "0.0% (Decoded)";
+  }
+
+  // Count query parameters based on '?' and '&'
+  const qParams = (inputStr.match(/[&?]/g) || []).length;
+  document.getElementById('uniqueQueryParams').textContent = qParams + " detected";
+}
+
+function copyUrlOutput() {
+  const output = document.getElementById('urlOutput').textContent;
   const alertBox = document.getElementById('syntaxAlertBox');
 
-  if (!output.value) {
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No output available to copy.`;
+  if (!output || output.startsWith("Encoding Error") || output.startsWith("Decoding Error")) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No valid output available to copy.`;
     return;
   }
 
-  navigator.clipboard.writeText(output.value).then(() => {
+  navigator.clipboard.writeText(output).then(() => {
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Processed URL string successfully copied.`;
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Output URL successfully copied.`;
     }
   });
 }
 
-function clearFields() {
-  document.getElementById('dataInput').value = "";
-  document.getElementById('dataOutput').value = "";
+function clearUrlFields() {
+  document.getElementById('urlInput').value = "";
+  document.getElementById('urlOutput').textContent = "";
+  document.getElementById('uniqueReservedCount').textContent = "0 found";
+  document.getElementById('uniqueUrlOverhead').textContent = "0.0%";
+  document.getElementById('uniqueQueryParams').textContent = "0 detected";
   const alertBox = document.getElementById('syntaxAlertBox');
   if (alertBox) {
-    alertBox.innerHTML = `🟡 <strong>Cleared:</strong> Input and output fields reset.`;
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Tool cleared successfully.`;
   }
 }
 </script>
