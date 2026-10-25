@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online JSON Formatter &amp; Minifier | SmartToolsKit</title>
-<meta name="description" content="Format, beautify, minify, and validate JSON data instantly with our free online browser-based JSON parser and syntax checker.">
+<meta name="description" content="Format, beautify, minify, and validate JSON syntax instantly in your browser with live node depth analysis and payload compression metrics.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/json-formatter.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Free Online JSON Formatter & Minifier | SmartToolsKit">
-<meta property="og:description" content="Format, beautify, and validate JSON data instantly in your browser.">
+<meta property="og:description" content="Format, beautify, minify, and validate JSON syntax instantly in your browser.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/json-formatter.html">
 <meta property="og:type" content="website">
 
@@ -47,12 +47,13 @@
   "operatingSystem": "All"
 }
 </script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,textarea,select{font-family:inherit}
+button,textarea{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -67,30 +68,36 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.form-group{margin-bottom:15px}
+.form-group{margin-bottom:18px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:#fff;outline:none;min-height:150px;resize:vertical}
-.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.form-group textarea{width:100%;height:140px;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:#fff;outline:none;resize:vertical}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
 .calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.btn-secondary{background:var(--navy);color:#fff;}
-.btn-secondary:hover{background:var(--navy-light);}
-.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
-.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
-.output-textarea{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:13px;background:#1E293B;color:#fff;outline:none;min-height:160px;resize:vertical;}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.btn-danger{background:#EF4444;color:#fff}
+.btn-danger:hover{background:#DC2626}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:20px;border:1px solid #334155}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.output-display{font-family:monospace;font-size:13px;color:#fff;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;word-break:break-all;min-height:130px;max-height:220px;overflow-y:auto;white-space:pre-wrap}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:13px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
-.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -132,33 +139,50 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="calc-box">
 <div class="form-group">
 <label for="jsonInput">Input Raw JSON Data</label>
-<textarea id="jsonInput" placeholder='Paste your raw JSON here, e.g., {"name":"SmartToolsKit","active":true}'>{
+<textarea id="jsonInput" placeholder="Paste your raw JSON payload here..." oninput="processJsonLive()">{
   "name": "SmartToolsKit",
   "version": 1.0,
   "features": ["formatter", "minifier", "validator"],
   "active": true
 }</textarea>
 </div>
+
 <div class="btn-row">
-<button class="calc-btn" onclick="formatJSON()">Format / Beautify</button>
-<button class="calc-btn btn-secondary" onclick="minifyJSON()">Minify JSON</button>
-<button class="calc-btn" style="background:#475569;" onclick="copyOutput()">Copy Output</button>
-<button class="calc-btn" style="background:#EF4444;" onclick="clearFields()">Clear</button>
+<button class="calc-btn" onclick="formatJson()">Format / Beautify</button>
+<button class="calc-btn btn-secondary" onclick="minifyJson()">Minify JSON</button>
+<button class="calc-btn btn-secondary" onclick="copyJsonOutput()">Copy Output</button>
+<button class="calc-btn btn-danger" onclick="clearJsonFields()">Clear</button>
 </div>
 
 <div class="output-card">
 <div class="output-header"><label>Formatted / Minified Output</label></div>
-<textarea id="jsonOutput" class="output-textarea" readonly placeholder="Processed JSON output will appear here..."></textarea>
+<div class="output-display" id="jsonOutput">Loading...</div>
 </div>
 
 </div>
+
 <div class="unique-box">
-<h3>✨ Unique Feature: Real-Time Browser Syntax Auditor</h3>
-<p>Our client-side parser checks your data structure instantly, identifying brackets, braces, and quotes formatting errors on the fly.</p>
+<h3>✨ Real Unique Feature: Live Syntax Auditor &amp; Node Depth Analyzer</h3>
+<p>Our client-side parser evaluates schema keys, maximum object nesting depth, and byte compression metrics in real-time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Parsed Object Keys</span>
+<strong id="uniqueKeysCount">4 keys</strong>
+</div>
+<div class="unique-stat-card">
+<span>Max Nesting Depth</span>
+<strong id="uniqueNestingDepth">2 Levels</strong>
+</div>
+<div class="unique-stat-card">
+<span>Minification Savings</span>
+<strong id="uniquePayloadSavings">38.4% Saved</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
-JSON Status: Valid object detected. Ready for formatting.
+Auditor Status: Ready. Valid JSON payload structured successfully with clean indentation.
 </div>
 </div>
+
 <div class="security-badge">
 <span>Client-side security:</span> All JSON parsing and validation run securely inside your browser environment. No payload data is stored or transmitted externally.
 </div>
@@ -171,7 +195,7 @@ JSON Status: Valid object detected. Ready for formatting.
 </div>
 <div class="content-section">
 <h2>Mastering JSON Formatting and Data Minification</h2>
-<p>JavaScript Object Notation (JSON) is the universal data exchange standard used across web applications, APIs, and configuration files. However, raw JSON payloads often arrive unformatted, compressed, or difficult to read during debugging. I built this online JSON Formatter &amp; Minifier to help developers, engineers, and data analysts quickly beautify, validate, and compress JSON datasets directly inside their web browsers.</p>
+<p>JavaScript Object Notation (JSON) is the universal data exchange standard used across web applications, APIs, and configuration files. However, raw JSON payloads often arrive unformatted, compressed, or difficult to read during debugging. I built this online JSON Formatter &amp; Minifier to help developers, engineers, and data analysts quickly beautify, validate, and compress JSON datasets directly inside web browsers.</p>
 <p>Whether you are inspecting complex API responses or shrinking configuration files for production deployment, clean data structure is vital for smooth development workflows.</p>
 
 <h2>Why JSON Validation and Beautification Matter</h2>
@@ -189,53 +213,53 @@ JSON Status: Valid object detected. Ready for formatting.
 <tbody>
 <tr><td>Format / Beautify</td><td>Indented with 2 spaces</td><td>Code debugging, API response inspection, and readable documentation.</td></tr>
 <tr><td>Minify</td><td>Zero whitespace / single line</td><td>Reducing payload size for network transfer and production config files.</td></tr>
-<tr><td>Syntax Validation</td><td>Strict parsing check</td><td>Detecting missing quotes, trailing commas, or bracket mismatches.</td></tr>
+<tr><td>Syntax Check</td><td>Real-time error flagging</td><td>Catching unquoted keys or syntax typos instantly.</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2>Global Developer Reference Matrix</h2>
-<p>The reference table below outlines standard JSON formatting benchmarks and syntax rules:</p>
+<p>The reference table below outlines standard JSON structural data types:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Data Element</th>
-<th>Syntax Requirement</th>
-<th>Common Error Prevention</th>
+<th>Data Type</th>
+<th>Syntax Example</th>
+<th>Operational Behavior</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Object Keys</td><td>Must be enclosed in double quotes</td><td>Never use single quotes or unquoted keys in standard JSON.</td></tr>
-<tr><td>Trailing Commas</td><td>Not allowed at the end of lists</td><td>Ensure the last item in an array or object does not have a trailing comma.</td></tr>
-<tr><td>Data Types</td><td>Strings, numbers, objects, arrays, booleans, null</td><td>Functions and undefined values are not valid JSON data types.</td></tr>
+<tr><td>Object</td><td><code>{ "key": "value" }</code></td><td>Unordered collection of name/value pairs.</td></tr>
+<tr><td>Array</td><td><code>[ 1, 2, 3 ]</code></td><td>Ordered sequence of values enclosed in square brackets.</td></tr>
+<tr><td>Boolean / Null</td><td><code>true / false / null</code></td><td>Primitive literal state identifiers.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Step-by-Step Guide on How to Use the JSON Formatter</h2>
+<h2>Step-by-Step Guide on How to Use the JSON Tool</h2>
 <p>Using this developer utility is straightforward and fast:</p>
-<p><strong>Step 1:</strong> Paste or type your raw, unformatted JSON data into the input box above.</p>
-<p><strong>Step 2:</strong> Click "Format / Beautify" to structure your code with clean indentation, or click "Minify JSON" to strip all whitespace.</p>
-<p><strong>Step 3:</strong> Click "Copy Output" to instantly copy your processed result to your clipboard.</p>
+<p><strong>Step 1:</strong> Paste your raw or minified JSON text into the input text area above.</p>
+<p><strong>Step 2:</strong> Click "Format / Beautify" or "Minify JSON" to transform your data instantly.</p>
+<p><strong>Step 3:</strong> Review live key counts, nesting depth levels, and minification savings in the unique auditor box.</p>
 
 <h2>Common Mistakes to Avoid in JSON Datasets</h2>
-<p>A frequent error is including single quotation marks instead of double quotes around keys and string values, which immediately triggers parser syntax exceptions.</p>
+<p>A frequent error is utilizing single quotes (`'`) instead of double quotes (`"`) for keys and string literals, which violates the strict JSON RFC 8259 specification.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is a JSON Formatter &amp; Minifier?</h3>
-<p>A JSON formatter and minifier is a developer utility used to organize raw code into readable indented structures or compress it into a single line.</p>
+<h3>1. What is JSON formatting?</h3>
+<p>JSON formatting (or beautifying) adds line breaks and indentation to make raw machine-readable data easily human-readable.</p>
 <h3>2. Is my JSON data sent or stored on an external server?</h3>
-<p>No. All parsing, beautifying, and validation happen entirely inside your browser client-side, ensuring total data privacy.</p>
+<p>No. All JSON processing, formatting, and validation happen entirely inside your browser client-side, ensuring complete confidentiality.</p>
 <h3>3. Why does my JSON show a syntax error?</h3>
-<p>Syntax errors usually occur due to missing double quotes, unclosed braces, or invalid trailing commas at the end of objects.</p>
-<h3>4. Can this tool handle large JSON files?</h3>
-<p>Yes, because processing runs locally via browser JavaScript engines, it handles substantial datasets smoothly without server lag.</p>
+<p>Common causes include trailing commas after the last item in an array or object, unquoted property names, or missing closing brackets.</p>
+<h3>4. How does the live node depth auditor work?</h3>
+<p>Our client-side engine traverses your JSON object tree recursively in real time to calculate maximum nesting depth and key totals.</p>
 <h3>5. Is this tool 100% free?</h3>
-<p>Yes, all tools on SmartToolsKit are completely free with no registration or subscription required.</p>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="qr-code-generator.html" style="color:var(--emerald);">QR Code Generator</a>, <a href="email-generator.html" style="color:var(--emerald);">Email Generator</a>, <a href="hash-generator.html" style="color:var(--emerald);">Hash Generator</a>
+Other Free Tools: <a href="url-encoder-decoder.html" style="color:var(--emerald);">URL Encoder / Decoder</a>, <a href="base64-encoder-decoder.html" style="color:var(--emerald);">Base64 Encoder / Decoder</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -273,82 +297,131 @@ Other Free Tools: <a href="qr-code-generator.html" style="color:var(--emerald);"
 </footer>
 
 <script>
-window.addEventListener('DOMContentLoaded', function() {
-  formatJSON();
+window.addEventListener('DOMContentLoaded', () => {
+  formatJson();
 });
 
-function formatJSON() {
-  const input = document.getElementById('jsonInput').value.trim();
-  const output = document.getElementById('jsonOutput');
+function processJsonLive() {
+  const input = document.getElementById('jsonInput').value;
   const alertBox = document.getElementById('syntaxAlertBox');
-
-  if (!input) {
-    output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter or paste JSON data to format.`;
-    return;
-  }
-
+  
   try {
     const parsed = JSON.parse(input);
-    output.value = JSON.stringify(parsed, null, 2);
+    const keysCount = countKeys(parsed);
+    const depth = getMaxDepth(parsed);
+    
+    const rawLen = input.length;
+    const minifiedLen = JSON.stringify(parsed).length;
+    const savings = rawLen > 0 ? (((rawLen - minifiedLen) / rawLen) * 100).toFixed(1) : "0.0";
+
+    document.getElementById('uniqueKeysCount').textContent = keysCount + " keys";
+    document.getElementById('uniqueNestingDepth').textContent = depth + " Level" + (depth === 1 ? "" : "s");
+    document.getElementById('uniquePayloadSavings').textContent = (savings > 0 ? savings : "0.0") + "% Saved";
+
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>JSON Status:</strong> Valid structure formatted successfully with clean indentation.`;
+      alertBox.innerHTML = `🟢 <strong>Syntax Validated:</strong> Valid JSON payload containing ${keysCount} keys across ${depth} nesting level(s).`;
     }
   } catch (err) {
-    output.value = "";
+    document.getElementById('uniqueKeysCount').textContent = "0 keys";
+    document.getElementById('uniqueNestingDepth').textContent = "0 Levels";
+    document.getElementById('uniquePayloadSavings').textContent = "0.0% Saved";
+
     if (alertBox) {
-      alertBox.innerHTML = `🔴 <strong>Syntax Error:</strong> ${err.message}. Please check your quotes, brackets, or commas.`;
+      alertBox.innerHTML = `🔴 <strong>Syntax Error:</strong> ${err.message}`;
     }
   }
 }
 
-function minifyJSON() {
-  const input = document.getElementById('jsonInput').value.trim();
-  const output = document.getElementById('jsonOutput');
+function formatJson() {
+  const input = document.getElementById('jsonInput').value;
+  const outputDisplay = document.getElementById('jsonOutput');
   const alertBox = document.getElementById('syntaxAlertBox');
-
-  if (!input) {
-    output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter or paste JSON data to minify.`;
-    return;
-  }
 
   try {
     const parsed = JSON.parse(input);
-    output.value = JSON.stringify(parsed);
-    if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>JSON Minified:</strong> All whitespace and line breaks removed successfully.`;
-    }
+    const formatted = JSON.stringify(parsed, null, 2);
+    outputDisplay.textContent = formatted;
+    processJsonLive();
   } catch (err) {
-    output.value = "";
+    outputDisplay.textContent = "Error: " + err.message;
     if (alertBox) {
-      alertBox.innerHTML = `🔴 <strong>Syntax Error:</strong> ${err.message}. Please check your JSON syntax.`;
+      alertBox.innerHTML = `🔴 <strong>Formatting Failed:</strong> Malformed JSON syntax detected.`;
     }
   }
 }
 
-function copyOutput() {
-  const output = document.getElementById('jsonOutput');
+function minifyJson() {
+  const input = document.getElementById('jsonInput').value;
+  const outputDisplay = document.getElementById('jsonOutput');
   const alertBox = document.getElementById('syntaxAlertBox');
 
-  if (!output.value) {
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No output available to copy.`;
+  try {
+    const parsed = JSON.parse(input);
+    const minified = JSON.stringify(parsed);
+    outputDisplay.textContent = minified;
+    processJsonLive();
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Minification Success:</strong> JSON payload compressed into single-line format.`;
+    }
+  } catch (err) {
+    outputDisplay.textContent = "Error: " + err.message;
+    if (alertBox) {
+      alertBox.innerHTML = `🔴 <strong>Minification Failed:</strong> Malformed JSON syntax detected.`;
+    }
+  }
+}
+
+function countKeys(obj) {
+  if (obj === null || typeof obj !== 'object') return 0;
+  let count = 0;
+  for (let key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      count++;
+      count += countKeys(obj[key]);
+    }
+  }
+  return count;
+}
+
+function getMaxDepth(obj) {
+  if (obj === null || typeof obj !== 'object') return 0;
+  let maxDepth = 0;
+  for (let key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      let depth = getMaxDepth(obj[key]);
+      if (depth > maxDepth) {
+        maxDepth = depth;
+      }
+    }
+  }
+  return maxDepth + 1;
+}
+
+function copyJsonOutput() {
+  const output = document.getElementById('jsonOutput').textContent;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (!output || output.startsWith("Error")) {
+    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No valid JSON output available to copy.`;
     return;
   }
 
-  navigator.clipboard.writeText(output.value).then(() => {
+  navigator.clipboard.writeText(output).then(() => {
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Processed JSON string successfully copied.`;
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Formatted JSON output successfully copied.`;
     }
   });
 }
 
-function clearFields() {
+function clearJsonFields() {
   document.getElementById('jsonInput').value = "";
-  document.getElementById('jsonOutput').value = "";
+  document.getElementById('jsonOutput').textContent = "";
+  document.getElementById('uniqueKeysCount').textContent = "0 keys";
+  document.getElementById('uniqueNestingDepth').textContent = "0 Levels";
+  document.getElementById('uniquePayloadSavings').textContent = "0.0% Saved";
   const alertBox = document.getElementById('syntaxAlertBox');
   if (alertBox) {
-    alertBox.innerHTML = `🟡 <strong>Cleared:</strong> Input and output fields reset.`;
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> JSON Formatter restored to blank state.`;
   }
 }
 </script>
