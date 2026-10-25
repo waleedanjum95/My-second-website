@@ -307,9 +307,14 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function generateXmlSitemap() {
-  let baseUrl = document.getElementById('baseUrl').value.trim();
-  if (baseUrl.endsWith('/')) {
-    baseUrl = baseUrl.slice(0, -1);
+  let rawBaseUrl = document.getElementById('baseUrl').value.trim();
+  
+  let cleanBase = rawBaseUrl.split(']').pop().split('[').shift().trim();
+  if (!cleanBase.startsWith('http')) {
+    cleanBase = 'https://' + cleanBase.replace(/^https?:\/\//, '');
+  }
+  if (cleanBase.endsWith('/')) {
+    cleanBase = cleanBase.slice(0, -1);
   }
 
   const pathsText = document.getElementById('pagePaths').value;
@@ -324,8 +329,8 @@ function generateXmlSitemap() {
 
   paths.forEach((path, index) => {
     let cleanPath = path.startsWith('/') ? path : '/' + path;
-    let fullUrl = baseUrl + cleanPath;
-    let priority = (index === 0) ? "1.0" : (path.includes('/tools/') ? "0.8" : "0.6");
+    let fullUrl = cleanBase + cleanPath;
+    let priority = (index === 0) ? "1.0" : (path.includes('/tools/') || path.includes('/articles/') ? "0.8" : "0.6");
     let changeFreq = (index === 0) ? "daily" : "weekly";
 
     xml += `  <url>\n`;
@@ -382,5 +387,4 @@ function clearSitemapFields() {
 }
 </script>
 </body>
-  </html>
-  
+</html>
