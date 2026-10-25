@@ -15,6 +15,9 @@
 <meta property="og:url" content="https://smarttoolskit.com/tools/jpg-to-pdf.html">
 <meta property="og:type" content="website">
 
+<!-- Include jsPDF Library for Real PDF Generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -329,12 +332,11 @@ function updatePdfMetrics() {
 
   document.getElementById('uniqueFileCount').textContent = count + " file" + (count === 1 ? "" : "s");
 
-  // Calculate estimated payload size based on files or default baseline
   let totalBytes = 0;
   uploadedFilesList.forEach(file => {
     totalBytes += file.size || 500000;
   });
-  if (count === 0) totalBytes = 1200000; // baseline sample estimate
+  if (count === 0) totalBytes = 1200000;
 
   const sizeMb = (totalBytes / (1024 * 1024)).toFixed(1);
   document.getElementById('uniquePayloadSize').textContent = sizeMb + " MB";
@@ -347,39 +349,60 @@ function updatePdfMetrics() {
   }
 }
 
-function triggerPdfConversion() {
+async function triggerPdfConversion() {
   const alertBox = document.getElementById('syntaxAlertBox');
-  const count = uploadedFilesList.length;
   const orientation = document.getElementById('orientationSelect').value;
   const size = document.getElementById('sizeSelect').value;
 
-  // Generate simulated or canvas-backed PDF download package
-  const canvas = document.createElement('canvas');
-  canvas.width = 1240;
-  canvas.height = 1754; // A4 пропорции
-  const ctx = canvas.getContext('2d');
-  ctx.fillStyle = '#FFFFFF';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  ctx.fillStyle = '#0F172A';
-  ctx.font = 'bold 48px Arial';
-  ctx.fillText('SmartToolsKit Professional PDF Document', 80, 120);
+  if (!window.jspdf) {
+    if (alertBox) alertBox.innerHTML = `🔴 <strong>Error:</strong> jsPDF library failed to load. Please check internet connection.`;
+    return;
+  }
 
-  ctx.font = '24px Arial';
-  ctx.fillStyle = '#475569';
-  ctx.fillText(`Compiled Images Count: ${count > 0 ? count : 1} file(s)`, 80, 180);
-  ctx.fillText(`Page Configuration: ${size} (${orientation})`, 80, 220);
-  ctx.fillText(`Generated securely client-side via SmartToolsKit`, 80, 260);
+  const { jsPDF } = window.jspdf;
+  const formatType = size === 'A4 Standard' ? 'a4' : (size === 'Letter' ? 'letter' : 'legal');
+  const doc = new jsPDF({
+    orientation: orientation.toLowerCase(),
+    unit: 'mm',
+    format: formatType
+  });
 
-  const dataUrl = canvas.toDataURL('image/png');
-  const link = document.createElement('a');
-  link.download = `SmartToolsKit-Document-${Date.now()}.png`;
-  link.href = dataUrl;
-  link.click();
+  if (uploadedFilesList.length === 0) {
+    doc.setFontSize(22);
+    doc.text("SmartToolsKit Professional PDF Document", 20, 30);
+    doc.setFontSize(14);
+    doc.text("Sample document generated securely client-side.", 20, 45);
+    doc.save("SmartToolsKit-Document.pdf");
+
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>PDF Success:</strong> Sample PDF document generated and downloaded successfully.`;
+    }
+    return;
+  }
+
+  for (let i = 0; i < uploadedFilesList.length; i++) {
+    if (i > 0) doc.addPage();
+    const file = uploadedFilesList[i];
+    const dataUrl = await readFileAsDataURL(file);
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    doc.addImage(dataUrl, 'JPEG', 10, 10, pageWidth - 20, pageHeight - 20);
+  }
+
+  doc.save(`SmartToolsKit-Document-${Date.now()}.pdf`);
 
   if (alertBox) {
-    alertBox.innerHTML = `🟢 <strong>Compilation Success:</strong> Document assembled with ${count > 0 ? count : 1} image(s) and downloaded successfully.`;
+    alertBox.innerHTML = `🟢 <strong>PDF Compilation Success:</strong> Combined ${uploadedFilesList.length} image(s) into a real PDF document and downloaded.`;
   }
+}
+
+function readFileAsDataURL(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target.result);
+    reader.readAsDataURL(file);
+  });
 }
 
 function resetPdfSuite() {
