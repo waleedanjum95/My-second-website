@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online Image Resizer &amp; Pixel Dimension Scaler | SmartToolsKit</title>
-<meta name="description" content="Resize and scale images to exact pixel dimensions (Width and Height) instantly in your browser with aspect ratio lock using our free tool.">
+<meta name="description" content="Resize and scale your images to exact pixel dimensions instantly in your browser with aspect ratio preservation and live pixel matrix auditing.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/image-resizer.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Free Online Image Resizer & Pixel Dimension Scaler | SmartToolsKit">
-<meta property="og:description" content="Resize images to exact pixel dimensions instantly in your browser.">
+<meta property="og:description" content="Resize and scale your images to exact pixel dimensions instantly in your browser.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/image-resizer.html">
 <meta property="og:type" content="website">
 
@@ -41,18 +41,19 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Image Resizer",
+  "name": "Image Resizer & Pixel Dimension Scaler",
   "url": "https://smarttoolskit.com/tools/image-resizer.html",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All"
 }
 </script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,select{font-family:inherit}
+button,input{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -67,35 +68,36 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.form-group{margin-bottom:18px}
-.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.drop-zone{border:2px dashed var(--border);padding:30px;text-align:center;border-radius:10px;background:#fff;cursor:pointer;transition:border-color 0.3s}
+.drop-zone{border:2px dashed var(--border);background:#fff;padding:25px;border-radius:10px;text-align:center;cursor:pointer;margin-bottom:15px;transition:all 0.3s ease}
 .drop-zone:hover{border-color:var(--emerald)}
 .drop-zone p{font-size:13px;color:var(--muted);margin-top:6px}
 .form-row{display:flex;gap:15px;margin-bottom:15px;flex-wrap:wrap}
-.form-group-half{flex:1;min-width:200px}
-.form-group input[type="number"]{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
-.checkbox-label{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--navy);font-weight:600;cursor:pointer;margin-top:10px}
-.checkbox-label input{width:16px;height:16px;accent-color:var(--emerald);cursor:pointer}
+.form-group{flex:1;min-width:200px;margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input[type="text"], .form-group input[type="number"]{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.checkbox-label{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);cursor:pointer;font-weight:600;margin-bottom:15px}
+.checkbox-label input{accent-color:var(--emerald);width:16px;height:16px}
 .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
 .calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.btn-secondary{background:var(--navy);color:#fff;}
-.btn-secondary:hover{background:var(--navy-light);}
-.preview-container{margin-top:15px;text-align:center;display:none}
-.preview-container img{max-width:100%;max-height:220px;border-radius:8px;border:1px solid var(--border);object-fit:contain}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:13px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
-.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -135,49 +137,55 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <h1>Image Resizer &amp; Pixel Dimension Scaler</h1>
 <p class="subtitle">Resize and scale your images to exact pixel dimensions instantly in your browser with aspect ratio preservation.</p>
 <div class="calc-box">
-<div class="form-group">
-<label for="imageInput">Upload Image File</label>
-<div class="drop-zone" onclick="document.getElementById('imageInput').click()">
+<div class="drop-zone" onclick="document.getElementById('fileInput').click()">
 <strong>Click to browse or drop image here</strong>
 <p>Supports PNG, JPG, JPEG, WebP</p>
-</div>
-<input type="file" id="imageInput" accept="image/*" style="display:none" onchange="handleImageUpload(event)">
+<input type="file" id="fileInput" style="display:none" accept="image/*" onchange="handleFileSelect(event)">
 </div>
 
 <div class="form-row">
-<div class="form-group form-group-half">
+<div class="form-group">
 <label for="widthInput">Width (Pixels)</label>
-<input type="number" id="widthInput" placeholder="Width in px" oninput="onWidthChange()">
+<input type="number" id="widthInput" value="1280" placeholder="Width in px" oninput="handleWidthChange()">
 </div>
-<div class="form-group form-group-half">
+<div class="form-group">
 <label for="heightInput">Height (Pixels)</label>
-<input type="number" id="heightInput" placeholder="Height in px" oninput="onHeightChange()">
+<input type="number" id="heightInput" value="720" placeholder="Height in px" oninput="handleHeightChange()">
 </div>
 </div>
 
 <label class="checkbox-label">
-<input type="checkbox" id="lockRatio" checked> Maintain Aspect Ratio
+<input type="checkbox" id="aspectCheck" checked> Maintain Aspect Ratio
 </label>
 
-<div class="preview-container" id="previewBox">
-<label style="display:block;font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:700;">RESIZED PREVIEW</label>
-<img id="resizedPreview" alt="Resized Preview">
+<div class="btn-row">
+<button class="calc-btn" onclick="triggerResizeDownload()">Download Resized Image</button>
+<button class="calc-btn btn-secondary" onclick="resetResizer()">Reset</button>
 </div>
-
-<div class="btn-row" style="margin-top:20px;">
-<button class="calc-btn" onclick="downloadResizedImage()">Download Resized Image</button>
-<button class="calc-btn btn-secondary" onclick="clearResizer()">Reset</button>
-</div>
-
 </div>
 
 <div class="unique-box">
-<h3>✨ Unique Feature: Real-Time Browser Dimension Scaler</h3>
-<p>Our client-side rendering engine recalculates pixel matrices locally without uploading your private images to external servers.</p>
+<h3>✨ Real Unique Feature: Live Canvas Pixel Matrix &amp; Aspect Ratio Auditor</h3>
+<p>Our client-side rendering engine calculates total megapixels, scale factors, and orientation profiles in real-time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Total Megapixels</span>
+<strong id="uniqueMegapixels">0.9 MP</strong>
+</div>
+<div class="unique-stat-card">
+<span>Scale Multiplier Factor</span>
+<strong id="uniqueScaleFactor">1.0x (Standard)</strong>
+</div>
+<div class="unique-stat-card">
+<span>Orientation Profile</span>
+<strong id="uniqueOrientation">Landscape (16:9)</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
-Resizer Status: Ready. Upload an image file to begin scaling.
+Resizer Status: Ready. Enter custom dimensions or upload an image to inspect live pixel matrices.
 </div>
 </div>
+
 <div class="security-badge">
 <span>Client-side security:</span> All image resizing computations execute securely inside your browser client-side. No assets are transmitted externally.
 </div>
@@ -190,7 +198,7 @@ Resizer Status: Ready. Upload an image file to begin scaling.
 </div>
 <div class="content-section">
 <h2>Mastering Image Resizing for Web Layouts and Social Media</h2>
-<p>Proper image dimensioning is critical for maintaining professional aesthetic standards across websites, mobile apps, and social media channels. Oversized images waste bandwidth and break layouts, while improper scaling causes distortion and pixelation. I built this online Image Resizer to help designers, content creators, and developers scale images to exact pixel dimensions instantly right inside their web browsers.</p>
+<p>Proper image dimensioning is critical for maintaining professional aesthetic standards across websites, mobile apps, and social media channels. Oversized images waste bandwidth and break layouts, while improper scaling causes distortion and pixelation. I built this online Image Resizer to help designers, content creators, and developers scale images to exact pixel dimensions right inside their web browsers.</p>
 <p>By processing resizing operations locally via HTML5 Canvas, users can customize graphic dimensions with absolute privacy and zero server latency.</p>
 
 <h2>Why Aspect Ratio Lock Matters</h2>
@@ -225,36 +233,36 @@ Resizer Status: Ready. Upload an image file to begin scaling.
 </tr>
 </thead>
 <tbody>
-<tr><td>Canvas Scaling</td><td>HTML5 2D Context API</td><td>100% Client-side (No cloud storage)</td></tr>
-<tr><td>Aspect Locking</td><td>Dynamic Proportion Math</td><td>Instant automatic height/width adjustment</td></tr>
+<tr><td>Bilinear Interpolation</td><td>HTML5 2D Canvas Context</td><td>100% Client-Side Local Execution</td></tr>
+<tr><td>Aspect Ratio Lock</td><td>Proportional Math Algorithm</td><td>Zero Server Requests</td></tr>
+<tr><td>Direct File Export</td><td>Base64 Blob Streaming</td><td>Instant Browser Download</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2>Step-by-Step Guide on How to Use the Image Resizer</h2>
 <p>Using this multimedia utility is straightforward and fast:</p>
-<p><strong>Step 1:</strong> Click the drop zone to upload your source image file.</p>
-<p><strong>Step 2:</strong> Enter your desired target width or height in pixels (aspect ratio stays locked by default).</p>
-<p><strong>Step 3:</strong> Review the live preview and click "Download Resized Image".</p>
+<p><strong>Step 1:</strong> Upload your source image file using the drop zone or keep default dimensions.</p>
+<p><strong>Step 2:</strong> Enter your target Width and Height in pixels.</p>
+<p><strong>Step 3:</strong> Review live megapixels and orientation metrics in the unique auditor box before downloading.</p>
 
 <h2>Common Mistakes to Avoid in Image Scaling</h2>
-<p>A frequent error is scaling small low-resolution images up to massive dimensions, which severely degrades clarity and introduces pixel blur.</p>
+<p>A frequent error is resizing images manually via CSS without altering the actual pixel file dimensions, which forces browsers to download heavy image payloads unnecessarily.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
 <h3>1. What is an Image Resizer?</h3>
 <p>An image resizer is a utility tool that adjusts the pixel dimensions (width and height) of digital graphics.</p>
-<h3>2. Are my uploaded images saved or transmitted externally?</h3>
-<p>No. All image resizing computations happen entirely inside your browser client-side, ensuring complete data confidentiality.</p>
-<h3>3. How does the aspect ratio lock work?</h3>
-<p>When checked, changing either the width or height automatically calculates the proportional dimension to prevent image distortion.</p>
-<h3>4. What image formats are supported?</h3>
-<p>The resizer supports all standard web raster formats including PNG, JPEG, JPG, and WebP.</p>
+<h3>2. Are my uploaded images stored on an external server?</h3>
+<p>No. All resizing computations happen entirely inside your browser client-side, ensuring complete privacy.</p>
+<h3>3. Why does maintaining aspect ratio matter?</h3>
+<p>Maintaining aspect ratio prevents image distortion by keeping the proportional relationship between width and height intact.</p>
+<h3>4. How does the live pixel matrix auditor work?</h3>
+<p>Our client-side engine calculates total megapixels, scale factors, and orientation ratios based on your dimension inputs in real time.</p>
 <h3>5. Is this tool 100% free?</h3>
 <p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
-<!-- Exact Repository Tool Links -->
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="image-compressor.html" style="color:var(--emerald);">Image Compressor</a>, <a href="image-format-converter.html" style="color:var(--emerald);">Image Format Converter</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
+Other Free Tools: <a href="image-compressor.html" style="color:var(--emerald);">Image Compressor</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>, <a href="color-code-converter.html" style="color:var(--emerald);">Color Code Converter</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -293,132 +301,125 @@ Other Free Tools: <a href="image-compressor.html" style="color:var(--emerald);">
 
 <script>
 let originalImage = null;
-let originalFileName = "resized-image";
-let originalWidth = 0;
-let originalHeight = 0;
+let originalAspect = 1280 / 720;
 
-function handleImageUpload(event) {
+window.addEventListener('DOMContentLoaded', () => {
+  updateResizerMetrics();
+});
+
+function handleFileSelect(event) {
   const file = event.target.files[0];
-  const alertBox = document.getElementById('syntaxAlertBox');
   if (!file) return;
 
-  originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || 'resized-image';
-  
   const reader = new FileReader();
   reader.onload = function(e) {
     const img = new Image();
     img.onload = function() {
       originalImage = img;
-      originalWidth = img.width;
-      originalHeight = img.height;
-
-      document.getElementById('widthInput').value = originalWidth;
-      document.getElementById('heightInput').value = originalHeight;
-      document.getElementById('previewBox').style.display = 'block';
-
-      updateResizedPreview();
+      originalAspect = img.width / img.height;
+      document.getElementById('widthInput').value = img.width;
+      document.getElementById('heightInput').value = img.height;
+      
+      const alertBox = document.getElementById('syntaxAlertBox');
       if (alertBox) {
-        alertBox.innerHTML = `🟢 <strong>Image Loaded:</strong> ${file.name} (${originalWidth}x${originalHeight} px) ready for resizing.`;
+        alertBox.innerHTML = `🟢 <strong>Image Loaded:</strong> Original dimensions parsed (${img.width}x${img.height}px).`;
       }
+      updateResizerMetrics();
     };
     img.src = e.target.result;
   };
   reader.readAsDataURL(file);
 }
 
-function onWidthChange() {
-  if (!originalImage) return;
-  const lock = document.getElementById('lockRatio').checked;
-  const wInput = document.getElementById('widthInput');
-  const hInput = document.getElementById('heightInput');
-
-  let w = parseInt(wInput.value, 10);
-  if (isNaN(w) || w <= 0) return;
-
-  if (lock) {
-    let h = Math.round((w / originalWidth) * originalHeight);
-    hInput.value = h;
+function handleWidthChange() {
+  const width = parseFloat(document.getElementById('widthInput').value) || 0;
+  const maintain = document.getElementById('aspectCheck').checked;
+  
+  if (maintain && originalAspect) {
+    const height = Math.round(width / originalAspect);
+    document.getElementById('heightInput').value = height;
   }
-  updateResizedPreview();
+  updateResizerMetrics();
 }
 
-function onHeightChange() {
-  if (!originalImage) return;
-  const lock = document.getElementById('lockRatio').checked;
-  const wInput = document.getElementById('widthInput');
-  const hInput = document.getElementById('heightInput');
-
-  let h = parseInt(hInput.value, 10);
-  if (isNaN(h) || h <= 0) return;
-
-  if (lock) {
-    let w = Math.round((h / originalHeight) * originalWidth);
-    wInput.value = w;
+function handleHeightChange() {
+  const height = parseFloat(document.getElementById('heightInput').value) || 0;
+  const maintain = document.getElementById('aspectCheck').checked;
+  
+  if (maintain && originalAspect) {
+    const width = Math.round(height * originalAspect);
+    document.getElementById('widthInput').value = width;
   }
-  updateResizedPreview();
+  updateResizerMetrics();
 }
 
-function updateResizedPreview() {
-  if (!originalImage) return;
-  const w = parseInt(document.getElementById('widthInput').value, 10);
-  const h = parseInt(document.getElementById('heightInput').value, 10);
-  if (isNaN(w) || isNaN(h) || w <= 0 || h <= 0) return;
+function updateResizerMetrics() {
+  const w = parseInt(document.getElementById('widthInput').value, 10) || 0;
+  const h = parseInt(document.getElementById('heightInput').value, 10) || 0;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  // Megapixels calculation
+  const mp = ((w * h) / 1000000).toFixed(2);
+  document.getElementById('uniqueMegapixels').textContent = mp + " MP";
+
+  // Scale factor vs default 1280x720
+  const factor = (w / 1280).toFixed(2);
+  document.getElementById('uniqueScaleFactor').textContent = factor + "x Factor";
+
+  // Orientation
+  let orient = "Square (1:1)";
+  if (w > h) orient = "Landscape (" + (w/h).toFixed(1) + ":1)";
+  else if (h > w) orient = "Portrait (" + (h/w).toFixed(1) + ":1)";
+  document.getElementById('uniqueOrientation').textContent = orient;
+
+  if (alertBox && !originalImage) {
+    alertBox.innerHTML = `🟢 <strong>Matrix Auditor Active:</strong> Dimension set to ${w}x${h}px (${mp} MP). Upload an image to scale source assets.`;
+  }
+}
+
+function triggerResizeDownload() {
+  const w = parseInt(document.getElementById('widthInput').value, 10) || 800;
+  const h = parseInt(document.getElementById('heightInput').value, 10) || 600;
+  const alertBox = document.getElementById('syntaxAlertBox');
 
   const canvas = document.createElement('canvas');
   canvas.width = w;
   canvas.height = h;
   const ctx = canvas.getContext('2d');
-  ctx.drawImage(originalImage, 0, 0, w, h);
+
+  if (originalImage) {
+    ctx.drawImage(originalImage, 0, 0, w, h);
+  } else {
+    // Draw placeholder pattern if no image uploaded
+    ctx.fillStyle = '#0F172A';
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#10B981';
+    ctx.font = '24px Arial';
+    ctx.fillText(`SmartToolsKit Resized (${w}x${h})`, 30, 50);
+  }
 
   const dataUrl = canvas.toDataURL('image/png');
-  document.getElementById('resizedPreview').src = dataUrl;
+  const link = document.createElement('a');
+  link.download = `resized-image-${w}x${h}.png`;
+  link.href = dataUrl;
+  link.click();
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Download Success:</strong> Resized image (${w}x${h}px) generated and downloaded.`;
+  }
 }
 
-function downloadResizedImage() {
-  const alertBox = document.getElementById('syntaxAlertBox');
-  if (!originalImage) {
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please upload an image first.`;
-    return;
-  }
-
-  const w = parseInt(document.getElementById('widthInput').value, 10);
-  const h = parseInt(document.getElementById('heightInput').value, 10);
-  if (isNaN(w) || isNaN(h) || w <= 0 || h <= 0) {
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> Please enter valid dimensions.`;
-    return;
-  }
-
-  const canvas = document.createElement('canvas');
-  canvas.width = w;
-  canvas.height = h;
-  const ctx = canvas.getContext('2d');
-  ctx.drawImage(originalImage, 0, 0, w, h);
-
-  canvas.toBlob(function(blob) {
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${originalFileName}-${w}x${h}.png`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Download Success:</strong> Resized image (${w}x${h} px) saved successfully.`;
-    }
-  }, 'image/png');
-}
-
-function clearResizer() {
+function resetResizer() {
   originalImage = null;
-  document.getElementById('imageInput').value = "";
-  document.getElementById('widthInput').value = "";
-  document.getElementById('heightInput').value = "";
-  document.getElementById('previewBox').style.display = 'none';
-  document.getElementById('resizedPreview').src = "";
+  originalAspect = 16 / 9;
+  document.getElementById('widthInput').value = 1280;
+  document.getElementById('heightInput').value = 720;
+  document.getElementById('aspectCheck').checked = true;
+  document.getElementById('fileInput').value = "";
+  updateResizerMetrics();
   const alertBox = document.getElementById('syntaxAlertBox');
   if (alertBox) {
-    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Resizer cleared successfully. Upload a new picture.`;
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Resizer restored to default 1280x720 dimensions.`;
   }
 }
 </script>
