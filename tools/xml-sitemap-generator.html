@@ -309,11 +309,11 @@ window.addEventListener('DOMContentLoaded', () => {
 function generateXmlSitemap() {
   let rawBaseUrl = document.getElementById('baseUrl').value.trim();
   
-  // Clean brackets and extract raw string safely
-  let cleanBase = rawBaseUrl.split(']').pop().split('[').shift().trim();
+  // Bulletproof cleaning: remove all square brackets anywhere in the string
+  let cleanBase = rawBaseUrl.replace(/[\[\]]/g, '').trim();
   cleanBase = cleanBase.replace(/\/+$/, '');
 
-  // Prevent double protocol injection if http/https already exists
+  // Ensure proper protocol injection without duplication
   if (!/^https?:\/\//i.test(cleanBase)) {
     cleanBase = 'https://' + cleanBase;
   }
