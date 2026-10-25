@@ -206,11 +206,11 @@ Compressor Status: Ready. Upload a PDF document to begin compression.
 </div>
 <div class="content-section">
 <h2>Comprehensive Guide to Real PDF Compression Securely</h2>
-<p>Large PDF file sizes often create major bottlenecks when sending email attachments, uploading documents to online portals, or meeting strict limits. I built this online PDF Compressor to provide users with a fast, secure, and reliable way to reduce PDF byte sizes directly inside modern web browsers[span_0](start_span)[span_0](end_span).</p>
-<p>Unlike basic structural cleaners, our updated tool utilizes advanced canvas rendering and JPEG image compression to achieve actual file size reduction on scanned and image-heavy documents locally on your device[span_1](start_span)[span_1](end_span).</p>
+<p>Large PDF file sizes often create major bottlenecks when sending email attachments, uploading documents to online portals, or meeting strict limits. I built this online PDF Compressor to provide users with a fast, secure, and reliable way to reduce PDF byte sizes directly inside modern web browsers.</p>
+<p>Unlike basic structural cleaners, our updated tool utilizes advanced canvas rendering and JPEG image compression to achieve actual file size reduction on scanned and image-heavy documents locally on your device.</p>
 
 <h2>Why Canvas-Based PDF Compression Matters</h2>
-<p>Traditional PDF compressors either fail to reduce file size or require insecure cloud uploads. Our client-side rendering pipeline re-processes document pages locally, ensuring total data privacy while successfully shrinking bulky PDF files[span_2](start_span)[span_2](end_span).</p>
+<p>Traditional PDF compressors either fail to reduce file size or require insecure cloud uploads. Our client-side rendering pipeline re-processes document pages locally, ensuring total data privacy while successfully shrinking bulky PDF files.</p>
 
 <div class="table-responsive">
 <table class="content-table">
@@ -223,8 +223,8 @@ Compressor Status: Ready. Upload a PDF document to begin compression.
 </thead>
 <tbody>
 <tr><td>File Size Reduction</td><td>Minimal or zero on scanned PDFs</td><td>Significant reduction via page re-rendering</td></tr>
-<tr><td>Data Privacy</td><td>Risky cloud storage</td><td>100% Secure local browser execution[span_3](start_span)[span_3](end_span)</td></tr>
-<tr><td>Internet Dependency</td><td>Requires constant connectivity</td><td>Runs completely client-side[span_4](start_span)[span_4](end_span)</td></tr>
+<tr><td>Data Privacy</td><td>Risky cloud storage</td><td>100% Secure local browser execution</td></tr>
+<tr><td>Internet Dependency</td><td>Requires constant connectivity</td><td>Runs completely client-side</td></tr>
 <tr><td>Cost &amp; Limits</td><td>Paywalls and subscriptions</td><td>Completely Free with no registration</td></tr>
 </tbody>
 </table>
@@ -332,7 +332,7 @@ function handlePdfUpload(event) {
     try {
       const loadingTask = pdfjsLib.getDocument(typedarray);
       loadedPdfFile = await loadingTask.promise;
-      pdfTotalPages = loadedPdfFile.numCount || loadedPdfFile.numPages;
+      pdfTotalPages = loadedPdfFile.numPages;
 
       const originalKB = (originalPdfBytes / 1024).toFixed(1);
       document.getElementById('uniquePages').textContent = pdfTotalPages + (pdfTotalPages === 1 ? " Page" : " Pages");
