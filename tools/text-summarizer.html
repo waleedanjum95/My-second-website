@@ -9,7 +9,6 @@
 <link rel="canonical" href="https://smarttoolskit.com/tools/text-summarizer.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Free Online Text Summarizer & Semantic Entropy Auditor | SmartToolsKit">
 <meta property="og:description" content="Summarize text securely in your browser client-side with live semantic auditing.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/text-summarizer.html">
@@ -281,8 +280,8 @@ Other Free Tools: <a href="memorable-password-transformer.html" style="color:var
 <h3>Quick Links</h3>
 <div class="footer-links">
 <a href="../index.html">Home</a>
-<a href="../about.html">About Us</a>
-<a href="../contact.html">Contact Us</a>
+<a href="../index.html#about">About Us</a>
+<a href="../index.html#contact">Contact Us</a>
 </div>
 </div>
 <div>
@@ -297,3 +296,67 @@ Other Free Tools: <a href="memorable-password-transformer.html" style="color:var
 <div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
 </div>
 </footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  runSummarizerEngine();
+});
+
+function runSummarizerEngine() {
+  const textInput = document.getElementById('sourceText');
+  if (!textInput) return;
+  const text = textInput.value.trim();
+  const ratio = parseFloat(document.getElementById('summaryLength').value);
+  const alertBox = document.getElementById('syntaxAlertBox');
+  const outputDiv = document.getElementById('summaryOutput');
+
+  if (!text) {
+    outputDiv.textContent = "Please enter source text to summarize.";
+    return;
+  }
+
+  const sentences = text.match(/[^.!?]+[.!?]+(\s|$)/g) || text.split('\n').filter(s => s.trim().length > 0);
+  const totalSentences = sentences.length;
+  const targetCount = Math.max(1, Math.round(totalSentences * ratio));
+
+  let scored = sentences.map((s, idx) => {
+    let cleanS = s.trim();
+    let score = cleanS.length;
+    if (idx === 0 || idx === totalSentences - 1) score *= 1.2;
+    return { text: cleanS, score: score, index: idx };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  let selected = scored.slice(0, targetCount);
+  selected.sort((a, b) => a.index - b.index);
+
+  const summaryText = selected.map(s => s.text).join(' ');
+  outputDiv.textContent = summaryText;
+
+  const origWords = text.split(/\s+/).length;
+  const sumWords = summaryText.split(/\s+/).length;
+  const uniqueWords = new Set(summaryText.toLowerCase().match(/\b[a-z]{3,}\b/g) || []).size;
+  const lexicalDiversity = sumWords > 0 ? (uniqueWords / sumWords).toFixed(2) : "0.00";
+  const infoDensity = origWords > 0 ? ((sumWords / origWords) * 100).toFixed(1) : "0.0";
+
+  document.getElementById('uniqueDensity').textContent = infoDensity + "%";
+  document.getElementById('uniqueLexical').textContent = lexicalDiversity;
+  document.getElementById('uniqueCount').textContent = `${selected.length} / ${totalSentences}`;
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Semantic Audit Complete:</strong> Extracted ${selected.length} core sentences out of ${totalSentences}. Lexical diversity index: ${lexicalDiversity}.`;
+  }
+}
+
+function copySummaryOutput() {
+  const text = document.getElementById('summaryOutput').textContent;
+  const alertBox = document.getElementById('syntaxAlertBox');
+  navigator.clipboard.writeText(text).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Summary successfully copied.`;
+    }
+  });
+}
+</script>
+</body>
+</html>
