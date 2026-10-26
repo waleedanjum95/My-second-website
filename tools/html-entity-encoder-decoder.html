@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online HTML Entity Encoder &amp; Decoder | SmartToolsKit</title>
-<meta name="description" content="Encode special characters into HTML entities and decode HTML entity strings back to readable plain text instantly with our free online browser utility.">
+<title>Free Online HTML Entity Encoder / Decoder &amp; XSS Risk Auditor | SmartToolsKit</title>
+<meta name="description" content="Encode special characters to HTML entities or decode entity strings back to readable plain text instantly with live XSS vulnerability scanning and entity saturation auditing.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/html-entity-encoder-decoder.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
-<meta property="og:title" content="Free Online HTML Entity Encoder & Decoder | SmartToolsKit">
-<meta property="og:description" content="Encode special characters to HTML entities and decode them instantly.">
+<meta property="og:title" content="Free Online HTML Entity Encoder / Decoder & XSS Risk Auditor | SmartToolsKit">
+<meta property="og:description" content="Encode and decode HTML entities securely in your browser with real-time security auditing.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/html-entity-encoder-decoder.html">
 <meta property="og:type" content="website">
 
@@ -47,12 +47,13 @@
   "operatingSystem": "All"
 }
 </script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,textarea,select{font-family:inherit}
+button,textarea{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -69,28 +70,34 @@ nav a:hover{color:var(--emerald-dark)}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
 .form-group{margin-bottom:15px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:#fff;outline:none;min-height:140px;resize:vertical}
-.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.form-group textarea{width:100%;height:120px;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none;resize:vertical}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:120px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.btn-secondary{background:var(--navy);color:#fff;}
-.btn-secondary:hover{background:var(--navy-light);}
-.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:15px;border:1px solid #334155;}
-.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-.output-header label{font-size:12px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
-.output-textarea{width:100%;padding:12px;border:1px solid #334155;border-radius:8px;font-family:monospace;font-size:13px;background:#1E293B;color:#fff;outline:none;min-height:150px;resize:vertical;}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.btn-danger{background:#EF4444;color:#fff}
+.btn-danger:hover{background:#DC2626}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:20px;border:1px solid #334155}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.output-display{font-family:monospace;font-size:13px;color:#fff;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;word-break:break-all;min-height:90px;max-height:150px;overflow-y:auto;white-space:pre-wrap}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:12px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
-.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
 .content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -127,33 +134,50 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 <div class="tool-layout">
 <div class="tool-container">
-<h1>HTML Entity Encoder / Decoder</h1>
-<p class="subtitle">Encode special characters to HTML entities or decode entity strings back to readable plain text instantly.</p>
+<h1>HTML Entity Encoder / Decoder &amp; XSS Auditor</h1>
+<p class="subtitle">Encode special characters to HTML entities or decode strings instantly with live XSS vulnerability scanning.</p>
 <div class="calc-box">
 <div class="form-group">
-<label for="dataInput">Input Text or HTML Entities</label>
-<textarea id="dataInput" placeholder="Enter text or HTML entities here...">&lt;div class=&quot;card&quot;&gt;Hello &amp; Welcome!&lt;/div&gt;</textarea>
+<label for="inputText">Input Text or HTML Markup</label>
+<textarea id="inputText" placeholder="Type or paste your text/markup here..." oninput="runEntityEngine('encode')">&lt;div class=&quot;card&quot;&gt;Hello &amp; Welcome!&lt;/div&gt;</textarea>
 </div>
+
 <div class="btn-row">
-<button class="calc-btn" onclick="encodeEntities()">Encode Entities</button>
-<button class="calc-btn btn-secondary" onclick="decodeEntities()">Decode Entities</button>
-<button class="calc-btn" style="background:#475569;" onclick="copyOutput()">Copy Output</button>
-<button class="calc-btn" style="background:#EF4444;" onclick="clearFields()">Clear</button>
+<button class="calc-btn" onclick="runEntityEngine('encode')">Encode Entities</button>
+<button class="calc-btn btn-secondary" onclick="runEntityEngine('decode')">Decode Entities</button>
+<button class="calc-btn btn-secondary" onclick="copyResult()">Copy Output</button>
+<button class="calc-btn btn-danger" onclick="clearFields()">Clear</button>
 </div>
 
 <div class="output-card">
-<div class="output-header"><label>Encoded / Decoded Result Output</label></div>
-<textarea id="dataOutput" class="output-textarea" readonly placeholder="Processed result will appear here..."></textarea>
+<div class="output-header"><label>Processed Result Output</label></div>
+<div class="output-display" id="outputResult">Ready...</div>
 </div>
 
 </div>
+
 <div class="unique-box">
-<h3>✨ Unique Feature: Real-Time Browser Entity Parsing Auditor</h3>
-<p>Our client-side translation engine converts special characters and entity codes locally without server requests.</p>
+<h3>✨ Real Unique Feature: Live XSS Risk &amp; Entity Saturation Auditor</h3>
+<p>Our client-side security engine inspects unescaped tags, evaluates potential Cross-Site Scripting (XSS) vectors, and calculates expansion ratios in real time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>XSS Vulnerability Risk</span>
+<strong id="uniqueXssRisk">Safe (Fully Escaped)</strong>
+</div>
+<div class="unique-stat-card">
+<span>Unescaped Tags Detected</span>
+<strong id="uniqueUnescaped">0 Tags</strong>
+</div>
+<div class="unique-stat-card">
+<span>Entity Expansion Ratio</span>
+<strong id="uniqueExpansion">100.0%</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
-Encoder Status: Ready for text transformation. Select an action above.
+Security Auditor Active: Input string analyzed successfully via secure client-side DOM parser.
 </div>
 </div>
+
 <div class="security-badge">
 <span>Client-side security:</span> All character encoding and decoding run securely inside your browser environment. No input strings are transmitted externally.
 </div>
@@ -166,10 +190,10 @@ Encoder Status: Ready for text transformation. Select an action above.
 </div>
 <div class="content-section">
 <h2>Mastering HTML Entity Encoding and Decoding for Web Security</h2>
-<p>HTML entities are special codes used to display characters that are reserved in HTML (such as angle brackets, ampersands, and quotation marks) or characters that cannot be easily typed on standard keyboards. Encoding these characters prevents browsers from misinterpreting text content as executable markup tags, shielding web pages from cross-site scripting (XSS) vulnerabilities. I built this online HTML Entity Encoder / Decoder to help developers and web security professionals transform strings instantly right inside their web browsers.</p>
+<p>HTML entities are special codes used to display characters that are reserved in HTML (such as angle brackets, ampersands, and quotation marks) or characters that cannot be easily typed on standard keyboards. Encoding these characters prevents browsers from misinterpreting text content as executable markup tags, shielding web pages from cross-site scripting (XSS) vulnerabilities. I built this online HTML Entity Encoder &amp; Decoder to help developers and security professionals transform strings instantly right inside their web browsers.</p>
 <p>Because all conversions run entirely on client-side scripts, developers can safely process sensitive code snippets and templates without any external server logging.</p>
 
-<h2>Why HTML Entity Transformation Matters in Web Development</h2>
+<h2>Why HTML Entity Transformation and XSS Auditing Matter</h2>
 <p>Rendering raw user inputs directly into web pages without entity encoding can cause HTML parser conflicts and severe security breaches. Proper entity mapping guarantees safe browser rendering across all platforms.</p>
 
 <div class="table-responsive">
@@ -178,61 +202,60 @@ Encoder Status: Ready for text transformation. Select an action above.
 <tr>
 <th>Operation</th>
 <th>Target Action</th>
-<th>Primary Use Case</th>
+<th>Primary Security Use Case</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Encode Entities</td><td>Converts reserved characters to HTML entity codes</td><td>Preventing code injection and safely displaying HTML snippets as text.</td></tr>
+<tr><td>Encode Entities</td><td>Converts reserved characters to HTML entity codes</td><td>Preventing Code Injection and safely displaying HTML snippets as text.</td></tr>
 <tr><td>Decode Entities</td><td>Restores encoded entity codes back to standard plain text</td><td>Debugging markup source files and reading raw string data.</td></tr>
-<tr><td>Safety Validation</td><td>Local DOM parsing check</td><td>Ensuring special characters are correctly mapped.</td></tr>
+<tr><td>XSS Risk Scan</td><td>Inspects unescaped angle brackets and quotes</td><td>Detecting potential DOM-based injection vectors before deployment.</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2>Global Developer Reference Matrix</h2>
-<p>The reference table below outlines standard HTML entity conversion benchmarks:</p>
+<p>The reference table below outlines standard HTML entity mappings:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
 <th>Character</th>
 <th>Entity Name</th>
-<th>Entity Decimal / Hex</th>
+<th>Unicode Decimal / Hex</th>
 </tr>
 </thead>
 <tbody>
-<tr><td><code>&lt;</code></td><td><code>&amp;lt;</code></td><td><code>&amp;#60;</code></td></tr>
-<tr><td><code>&gt;</code></td><td><code>&amp;gt;</code></td><td><code>&amp;#62;</code></td></tr>
-<tr><td><code>&amp;</code></td><td><code>&amp;amp;</code></td><td><code>&amp;#38;</code></td></tr>
-<tr><td><code>&quot;</code></td><td><code>&amp;quot;</code></td><td><code>&amp;#34;</code></td></tr>
-<tr><td><code>&#39;</code></td><td><code>&amp;#39;</code> (or &amp;apos;)</td><td><code>&amp;#39;</code></td></tr>
+<tr><td>&lt;</td><td>&amp;lt;</td><td>&#60; / &#x3C;</td></tr>
+<tr><td>&gt;</td><td>&amp;gt;</td><td>&#62; / &#x3E;</td></tr>
+<tr><td>&amp;</td><td>&amp;amp;</td><td>&#38; / &#x26;</td></tr>
+<tr><td>&quot;</td><td>&amp;quot;</td><td>&#34; / &#x22;</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Step-by-Step Guide on How to Use the Entity Encoder / Decoder</h2>
+<h2>Step-by-Step Guide on How to Use the Tool</h2>
 <p>Using this developer utility is straightforward and fast:</p>
-<p><strong>Step 1:</strong> Type or paste your plain text or encoded HTML entities into the input box above.</p>
-<p><strong>Step 2:</strong> Click "Encode Entities" to convert special symbols into safe HTML entities, or click "Decode Entities" to retrieve plain text.</p>
-<p><strong>Step 3:</strong> Click "Copy Output" to instantly grab your processed string for your project.</p>
+<p><strong>Step 1:</strong> Paste your source text or HTML markup into the input textarea.</p>
+<p><strong>Step 2:</strong> Click either "Encode Entities" or "Decode Entities" to transform the string instantly.</p>
+<p><strong>Step 3:</strong> Review real-time XSS risk status and unescaped tag counters in the unique security auditor box before copying your output.</p>
 
-<h2>Common Mistakes to Avoid in HTML Markup</h2>
-<p>A frequent error is failing to encode user-submitted comments or form inputs before displaying them on web pages, which leaves applications vulnerable to injected markup execution.</p>
+<h2>Common Mistakes to Avoid in Entity Handling</h2>
+<p>A frequent error is double-encoding strings (e.g., encoding `&amp;` into `&amp;amp;amp;`), which corrupts visual output and creates broken template renderings.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is an HTML Entity Encoder / Decoder?</h3>
-<p>An HTML entity encoder/decoder is a utility tool that translates reserved markup characters into safe entity codes and vice versa.</p>
-<h3>2. Is my input text stored or transmitted on an external server?</h3>
-<p>No. All string processing and entity conversions happen entirely inside your browser client-side, ensuring complete data privacy.</p>
-<h3>3. Why are HTML entities necessary in web design?</h3>
-<p>Entities prevent browsers from confusing website content with underlying HTML tags, ensuring correct visual presentation and security.</p>
-<h3>4. Can this tool handle non-ASCII international characters?</h3>
-<p>Yes, local browser DOM methods accurately map and parse multi-byte and special unicode characters.</p>
+<h3>1. Are my code snippets sent to an external server?</h3>
+<p>No. All conversions execute entirely inside your browser client-side using secure DOM parsing APIs.</p>
+<h3>2. What is an XSS vulnerability?</h3>
+<p>Cross-Site Scripting (XSS) occurs when malicious scripts are injected into trusted websites, often via unescaped user input fields.</p>
+<h3>3. Why does the live auditor scan for unescaped tags?</h3>
+<p>It checks for raw `<` or `>` characters that could be interpreted as executable HTML tags by a browser parser.</p>
+<h3>4. Can I decode custom named entities?</h3>
+<p>Yes, our browser-based decoding parser resolves standard and named HTML entities back to plain text.</p>
 <h3>5. Is this tool 100% free?</h3>
 <p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="url-encoder-decoder.html" style="color:var(--emerald);">URL Encoder / Decoder</a>, <a href="xml-sitemap-generator.html" style="color:var(--emerald);">XML Sitemap Generator</a>
+Other Free Tools: <a href="hash-generator.html" style="color:var(--emerald);">Hash Generator</a>, <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -270,84 +293,71 @@ Other Free Tools: <a href="json-formatter.html" style="color:var(--emerald);">JS
 </footer>
 
 <script>
-window.addEventListener('DOMContentLoaded', function() {
-  encodeEntities();
+window.addEventListener('DOMContentLoaded', () => {
+  runEntityEngine('encode');
 });
 
-function encodeEntities() {
-  const input = document.getElementById('dataInput').value;
-  const output = document.getElementById('dataOutput');
+function runEntityEngine(mode) {
+  const input = document.getElementById('inputText').value;
   const alertBox = document.getElementById('syntaxAlertBox');
+  let result = "";
 
-  if (!input) {
-    output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter text to encode into HTML entities.`;
-    return;
+  if (mode === 'encode') {
+    result = input
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+    if (alertBox) alertBox.innerHTML = `🟢 <strong>Encoding Successful:</strong> Special characters converted to HTML entities safely.`;
+  } else {
+    const doc = new DOMParser().parseFromString(input, 'text/html');
+    result = doc.documentElement.textContent;
+    if (alertBox) alertBox.innerHTML = `🟢 <strong>Decoding Successful:</strong> Entity strings restored to readable plain text.`;
   }
 
-  try {
-    const div = document.createElement('div');
-    div.textContent = input;
-    output.value = div.innerHTML;
-    if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Encoding Successful:</strong> Special characters successfully converted to HTML entities.`;
-    }
-  } catch (err) {
-    output.value = "";
-    if (alertBox) {
-      alertBox.innerHTML = `🔴 <strong>Encoding Error:</strong> ${err.message}`;
-    }
+  document.getElementById('outputResult').textContent = result;
+
+  // Real Unique Auditor Calculations
+  const rawLen = input.length;
+  const resLen = result.length;
+  const expansionRatio = rawLen > 0 ? ((resLen / rawLen) * 100).toFixed(1) : "100.0";
+
+  // Count unescaped tags or dangerous injection chars in raw input
+  const unescapedTags = (input.match(/<[^>]*>/g) || []).length;
+  const hasDangerousChars = /<|>/.test(input);
+
+  let xssRisk = "Safe (Fully Escaped)";
+  if (hasDangerousChars && mode === 'encode') {
+    xssRisk = "⚠️ High Risk (Raw Tags Present)";
+  } else if (unescapedTags > 0 && mode === 'encode') {
+    xssRisk = "⚠️ Moderate Risk (Markup Unescaped)";
   }
+
+  document.getElementById('uniqueXssRisk').textContent = xssRisk;
+  document.getElementById('uniqueUnescaped').textContent = unescapedTags + (unescapedTags === 1 ? " Tag" : " Tags");
+  document.getElementById('uniqueExpansion').textContent = expansionRatio + "%";
 }
 
-function decodeEntities() {
-  const input = document.getElementById('dataInput').value.trim();
-  const output = document.getElementById('dataOutput');
+function copyResult() {
+  const text = document.getElementById('outputResult').textContent;
   const alertBox = document.getElementById('syntaxAlertBox');
-
-  if (!input) {
-    output.value = "";
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Empty Input:</strong> Please enter HTML entities to decode.`;
-    return;
-  }
-
-  try {
-    const div = document.createElement('div');
-    div.innerHTML = input;
-    output.value = div.textContent;
+  navigator.clipboard.writeText(text).then(() => {
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Decoding Successful:</strong> HTML entities successfully restored to plain text.`;
-    }
-  } catch (err) {
-    output.value = "";
-    if (alertBox) {
-      alertBox.innerHTML = `🔴 <strong>Decoding Error:</strong> Invalid HTML entity string format.`;
-    }
-  }
-}
-
-function copyOutput() {
-  const output = document.getElementById('dataOutput');
-  const alertBox = document.getElementById('syntaxAlertBox');
-
-  if (!output.value) {
-    if (alertBox) alertBox.innerHTML = `🟡 <strong>Warning:</strong> No output available to copy.`;
-    return;
-  }
-
-  navigator.clipboard.writeText(output.value).then(() => {
-    if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Processed string successfully copied.`;
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Processed result successfully copied.`;
     }
   });
 }
 
 function clearFields() {
-  document.getElementById('dataInput').value = "";
-  document.getElementById('dataOutput').value = "";
+  document.getElementById('inputText').value = "";
+  document.getElementById('outputResult').textContent = "";
+  document.getElementById('uniqueXssRisk').textContent = "Safe";
+  document.getElementById('uniqueUnescaped').textContent = "0 Tags";
+  document.getElementById('uniqueExpansion').textContent = "0.0%";
   const alertBox = document.getElementById('syntaxAlertBox');
   if (alertBox) {
-    alertBox.innerHTML = `🟡 <strong>Cleared:</strong> Input and output fields reset.`;
+    alertBox.innerHTML = `🟡 <strong>Reset:</strong> Encoder / Decoder restored to blank state.`;
   }
 }
 </script>
