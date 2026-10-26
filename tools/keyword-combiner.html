@@ -3,22 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Keyword Combiner &amp; Permutation Tool | SmartToolsKit</title>
-<meta name="description" content="Merge multiple keyword lists across columns to generate thousands of targeted SEO and PPC keyword variations instantly with match type formatting.">
+<title>Free Advanced Keyword Combiner &amp; PPC Intent Auditor | SmartToolsKit</title>
+<meta name="description" content="Merge keyword lists across columns to generate targeted SEO and PPC variations instantly with live search intent classification, match-type formatting, and CSV export.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/keyword-combiner.html">
 <meta name="theme-color" content="#0F172A">
 
-<!-- Open Graph / Social Sharing Meta Tags -->
-<meta property="og:title" content="Free Keyword Combiner & Permutation Tool | SmartToolsKit">
-<meta property="og:description" content="Merge multiple keyword lists to generate thousands of targeted SEO and PPC keyword variations instantly. Secure client-side tool.">
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Advanced Keyword Combiner & PPC Intent Auditor | SmartToolsKit">
+<meta property="og:description" content="Generate high-intent PPC keyword permutations and audit search intent client-side.">
 <meta property="og:url" content="https://smarttoolskit.com/tools/keyword-combiner.html">
 <meta property="og:type" content="website">
-
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Keyword Combiner & Permutation Tool | SmartToolsKit">
-<meta name="twitter:description" content="Instant client-side multi-column keyword combiner with live match type formatting and collision auditor.">
 
 <script type="application/ld+json">
 {
@@ -32,6 +27,11 @@
   },{
     "@type": "ListItem",
     "position": 2,
+    "name": "SEO Utilities",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
     "name": "Keyword Combiner",
     "item": "https://smarttoolskit.com/tools/keyword-combiner.html"
   }]
@@ -43,45 +43,17 @@
   "@type": "WebApplication",
   "name": "Keyword Combiner & Permutation Tool",
   "url": "https://smarttoolskit.com/tools/keyword-combiner.html",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5."
+  "applicationCategory": "SEOApplication",
+  "operatingSystem": "All"
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "What is a Keyword Combiner?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "A keyword combiner is a digital tool that merges independent lists of modifiers, core terms, and locations to generate Cartesian product permutations for SEO and PPC campaigns."
-    }
-  },{
-    "@type": "Question",
-    "name": "What does the Live Match Type & Search Intent Auditor do?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Our intelligent validator calculates total permutation output, filters duplicate phrases, and audits match type formats for Google Ads campaign compliance in real time."
-    }
-  },{
-    "@type": "Question",
-    "name": "Are my keyword lists stored or transmitted externally?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "No. All keyword permutations, list merging, and match type computations run entirely inside your browser client-side, ensuring complete data privacy."
-    }
-  }]
-}
-</script>
+
 <style>
 :root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
 a{color:inherit;text-decoration:none}
-button,input,textarea,select{font-family:inherit}
+button,input,select,textarea{font-family:inherit}
 .container{width:min(1120px,92%);margin:auto}
 header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
@@ -96,29 +68,37 @@ nav a:hover{color:var(--emerald-dark)}
 .tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
 .tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
 .calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px}
-.form-group{flex:1;min-width:240px}
+.form-group{margin-bottom:15px}
 .form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.form-group textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none;min-height:110px;resize:vertical;font-family:monospace}
-.checkbox-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px;align-items:center;font-size:13px;color:var(--navy);font-weight:600}
+.form-group textarea{width:100%;height:85px;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff;outline:none;resize:vertical}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px}
+.checkbox-row{display:flex;gap:15px;flex-wrap:wrap;margin:15px 0;font-size:13px;color:var(--navy);font-weight:600}
 .checkbox-row label{display:flex;align-items:center;gap:6px;cursor:pointer}
-.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;width:100%}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
 .calc-btn:hover{background:var(--emerald-dark)}
-.output-area{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:12px;background:var(--navy);color:#fff;outline:none;min-height:150px;resize:vertical;margin-top:10px}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:15px;margin-top:20px;border:1px solid #334155}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.output-display{font-family:monospace;font-size:13px;color:#fff;background:#1E293B;padding:12px;border-radius:8px;border:1px solid #334155;word-break:break-all;min-height:100px;max-height:180px;overflow-y:auto;white-space:pre-wrap}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
-.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:10px;line-height:1.5}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:12px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
 .security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
-.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px;}
-.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic;}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
 .content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
-.content-section h2{font-size:20px;color:var(--navy);margin-top:24px;margin-bottom:10px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
 .content-section p{color:#475569;font-size:14px;margin-bottom:14px}
-.formula-box{background:var(--navy);color:#fff;padding:20px;border-radius:10px;margin:20px 0;font-family:monospace;font-size:13px;line-height:1.8;word-break:break-word;white-space:pre-wrap;}
-.formula-box strong{color:var(--emerald);display:block;margin-bottom:8px}
-.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;}
-.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px;}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
 .content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
 .content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
 .content-table td{color:#475569!important}
@@ -129,9 +109,6 @@ footer h3{color:#fff;margin-bottom:10px;font-size:15px}
 footer p,footer a{color:#94A3B8;font-size:13px}
 .footer-links{display:flex;flex-direction:column;gap:6px}
 .copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
-#cookieConsent{position:fixed;bottom:0;left:0;right:0;background:#0F172A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.15);border-top:1px solid #1E293B;display:none;flex-wrap:wrap;gap:12px;}
-#cookieConsent p{font-size:13px;color:#CBD5E1;max-width:800px;flex:1;}
-#cookieConsent button{background:var(--emerald);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer}
 @media(max-width:768px){
   .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
   nav{flex-wrap:wrap;justify-content:center;gap:15px}
@@ -158,50 +135,73 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </div>
 <div class="tool-layout">
 <div class="tool-container">
-<h1>Keyword Combiner &amp; Permutation Tool</h1>
-<p class="subtitle">Merge multiple keyword lists across columns to generate thousands of targeted SEO and PPC keyword variations instantly.</p>
+<h1>Advanced Keyword Combiner &amp; Intent Auditor</h1>
+<p class="subtitle">Merge keyword lists across columns to generate targeted SEO/PPC variations instantly with live intent classification and CSV export.</p>
 <div class="calc-box">
-<div class="form-row">
+<div class="grid-3">
 <div class="form-group">
 <label for="list1">List 1 (Modifiers)</label>
-<textarea id="list1" oninput="generateKeywords()">cheap
+<textarea id="list1" placeholder="cheap&#10;best&#10;buy" oninput="generateKeywords()">cheap
 best
 buy</textarea>
 </div>
 <div class="form-group">
 <label for="list2">List 2 (Core Terms)</label>
-<textarea id="list2" oninput="generateKeywords()">shoes
+<textarea id="list2" placeholder="shoes&#10;boots&#10;sneakers" oninput="generateKeywords()">shoes
 boots
 sneakers</textarea>
 </div>
 <div class="form-group">
 <label for="list3">List 3 (Locations / Extras)</label>
-<textarea id="list3" oninput="generateKeywords()">online
+<textarea id="list3" placeholder="online&#10;near me" oninput="generateKeywords()">online
 near me</textarea>
 </div>
 </div>
+
 <div class="checkbox-row">
-<label><input type="checkbox" id="matchBroad" checked onchange="generateKeywords()"> Broad Match</label>
-<label><input type="checkbox" id="matchPhrase" onchange="generateKeywords()"> Phrase Match ("")</label>
-<label><input type="checkbox" id="matchExact" onchange="generateKeywords()"> Exact Match ([])</label>
-<label><input type="checkbox" id="matchModified" onchange="generateKeywords()"> Modified Broad (+)</label>
+<label><input type="checkbox" id="chkBroad" checked onchange="generateKeywords()"> Broad Match</label>
+<label><input type="checkbox" id="chkPhrase" onchange="generateKeywords()"> Phrase Match (" ")</label>
+<label><input type="checkbox" id="chkExact" onchange="generateKeywords()"> Exact Match ([ ])</label>
+<label><input type="checkbox" id="chkModified" onchange="generateKeywords()"> Modified Broad (+)</label>
 </div>
-<button class="calc-btn" onclick="generateKeywords()">Generate Combined Keywords</button>
-<div style="margin-top:15px;">
-<label style="font-size:12px;color:var(--muted);font-weight:700;display:block;margin-bottom:6px;">Generated Keyword Permutations</label>
-<textarea id="keywordOutput" class="output-area" readonly placeholder="Combined keywords will appear here..."></textarea>
+
+<div class="btn-row">
+<button class="calc-btn" onclick="generateKeywords()">Generate Permutations</button>
+<button class="calc-btn btn-secondary" onclick="copyKeywords()">Copy Keywords</button>
+<button class="calc-btn btn-secondary" onclick="downloadCsv()">Download CSV</button>
 </div>
-<button class="calc-btn" style="margin-top:10px;" onclick="copyKeywordsCode()">Copy Combined Keywords</button>
+
+<div class="output-card">
+<div class="output-header"><label>Generated Keyword Permutations</label></div>
+<div class="output-display" id="keywordOutput">Ready...</div>
 </div>
+
+</div>
+
 <div class="unique-box">
-<h3>✨ Unique Feature: Live Match Type &amp; Search Intent Auditor</h3>
-<p>Our intelligent client-side validator calculates total Cartesian permutation output, filters duplicate phrases, and audits match type formats for Google Ads campaign compliance.</p>
+<h3>✨ Real Unique Feature: Live Search Intent &amp; Cannibalization Auditor</h3>
+<p>Our client-side engine calculates Cartesian permutations, classifies search intent funnel stages, and flags potential keyword cannibalization risks in real time:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Primary Search Intent</span>
+<strong id="uniqueIntent">Transactional (High)</strong>
+</div>
+<div class="unique-stat-card">
+<span>Cannibalization Risk</span>
+<strong id="uniqueRisk">Low (Clean Matrix)</strong>
+</div>
+<div class="unique-stat-card">
+<span>Total Variations Compiled</span>
+<strong id="uniqueCount">0 Keywords</strong>
+</div>
+</div>
 <div class="syntax-alert" id="syntaxAlertBox">
-Permutation Optimal: Successfully compiled targeted keyword variations with active match type formatting.
+SEO Studio Active: Columns merged successfully with active match-type formatting.
 </div>
 </div>
+
 <div class="security-badge">
-<span>Client-side security:</span> All keyword permutations, list merging, and match type computations run entirely inside your local browser. No search term data is transmitted externally.
+<span>Client-side security:</span> All keyword permutations, list merging, and match-type computations run entirely inside your local browser. No search term data is transmitted externally.
 </div>
 <div class="disclaimer-container">
 <div class="disclaimer-text">
@@ -212,74 +212,72 @@ Permutation Optimal: Successfully compiled targeted keyword variations with acti
 </div>
 <div class="content-section">
 <h2>Mastering Keyword Combiners and Multi-Column Permutation for SEO &amp; PPC</h2>
-<p>In digital marketing, scaling organic search campaigns and paid advertising (PPC) requires targeting hundreds of long-tail variations. Manually brainstorming every possible combination of product modifiers, core nouns, and geographical locations is tedious and error-prone. I built this Keyword Combiner to automate this process by taking multiple independent word lists and calculating their mathematical Cartesian product, generating thousands of hyper-targeted keyword variations in seconds.</p>
+<p>In digital marketing, scaling organic search campaigns and paid advertising (PPC) requires targeting hundreds of long-tail variations. Manually brainstorming every possible combination of product modifiers, core nouns, and geographical locations is tedious and error-prone. I built this Advanced Keyword Combiner to automate this process by taking multiple independent word lists and calculating their mathematical Cartesian product, generating thousands of hyper-targeted keyword variations in seconds.</p>
 <p>For SEO professionals and PPC campaign managers, combining keywords correctly unlocks high-intent long-tail traffic. Long-tail keywords often exhibit lower search volumes individually, but collectively they account for the majority of high-conversion search queries. By structuring lists into modifiers (e.g., "best", "affordable"), core products (e.g., "running shoes"), and intent qualifiers (e.g., "online", "price"), I help marketers build robust keyword matrices for landing pages, programmatic SEO, and Google Ads ad groups.</p>
-<h2>Why Match Types and Cartesian Products Matter in PPC</h2>
-<p>When running paid search ads on platforms like Google Ads or Microsoft Advertising, controlling how search engines match user queries to your keywords is vital for protecting ad spend. Broad match can trigger irrelevant clicks, whereas exact and phrase matches tightly control relevancy. I designed my tool to allow marketers to instantly format generated permutations with proper syntax markers such as quotation marks ("phrase match") and square brackets ([exact match]).</p>
-<p>Furthermore, I integrated an exclusive Live Match Type Auditor that monitors permutation output volume in real time. If a combination list exceeds safe ad group limits or generates duplicate entries, the live radar alerts campaign managers instantly, preventing bloated campaign structures.</p>
 
-<h2>The Mathematical Logic of Cartesian Permutations &amp; Coverage Ratios</h2>
-<p>To evaluate keyword matrix depth and search market coverage during digital audits, I utilize standard mathematical models:</p>
-<div class="formula-box">
-<strong>Core Keyword Permutation &amp; Match Formulas:</strong>
-1. Total Cartesian Permutations = (List 1 Items Count * List 2 Items Count * List 3 Items Count)
-2. Unique Keyword Coverage Ratio = (Unique Combined Search Intent Phrases / Maximum Theoretical Permutations) * 100
-3. Ad Group Keyword Density Index = Total Exact Match Variations / Total Active Campaign Ad Groups.
-</div>
+<h2>Why Search Intent and Match Types Matter in PPC</h2>
+<p>Understanding user intent ensures your ad spend targets ready-to-buy audiences rather than casual browsers. Utilizing exact and phrase match wrappers helps prevent budget waste.</p>
 
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>PPC Match Type</th>
+<th>Match Type / Format</th>
 <th>Syntax Example</th>
-<th>Operational Campaign Function</th>
+<th>Primary PPC Advertising Use Case</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Broad Match</td><td>running shoes online</td><td>Triggers ads on broad related variations, synonyms, and related searches.</td></tr>
-<tr><td>Phrase Match</td><td>"running shoes online"</td><td>Triggers ads on queries that include the exact phrase and close variants.</td></tr>
-<tr><td>Exact Match</td><td>[running shoes online]</td><td>Triggers ads only on the precise keyword or close variants with identical intent.</td></tr>
-<tr><td>Modified Broad</td><td>+running +shoes online</td><td>Ensures specified core terms appear in user queries while allowing flexible modifier positioning.</td></tr>
+<tr><td>Broad Match</td><td>running shoes online</td><td>Maximum reach and discovery of new search queries.</td></tr>
+<tr><td>Phrase Match</td><td>"running shoes online"</td><td>Targeting precise search intent while maintaining word order.</td></tr>
+<tr><td>Exact Match</td><td>[running shoes online]</td><td>Highest conversion precision for high-intent traffic.</td></tr>
+<tr><td>Modified Broad</td><td>+running +shoes +online</td><td>Capturing broad variations while ensuring essential terms are present.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Global Keyword Targeting and Campaign Structuring Reference Matrix</h2>
-<p>The reference table below outlines standard keyword strategy practices across professional digital marketing workflows:</p>
+<h2>Global Search Intent Reference Matrix</h2>
+<p>The reference table below outlines keyword classification tiers:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Campaign Objective</th>
-<th>Recommended List Setup</th>
-<th>Execution Strategy</th>
+<th>Intent Category</th>
+<th>Common Modifiers</th>
+<th>Audience Funnel Stage</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Programmatic SEO Pages</td><td>Modifiers + Core Products + Locations</td><td>Generate localized landing pages to capture high-intent geographic search traffic.</td></tr>
-<tr><td>Google Ads Search Campaigns</td><td>Core Terms + Intent Words + Match Types</td><td>Deploy tight ad groups with exact and phrase match formatting to maximize ROI.</td></tr>
-<tr><td>E-Commerce Category Expansion</td><td>Brand + Material + Product Type</td><td>Scale long-tail product variations for niche catalog filtering and visibility.</td></tr>
+<tr><td>Transactional</td><td>buy, cheap, price, order</td><td>Bottom of Funnel (Ready to purchase)</td></tr>
+<tr><td>Commercial</td><td>best, top, review, vs</td><td>Middle of Funnel (Comparison &amp; research)</td></tr>
+<tr><td>Informational</td><td>how to, what is, guide</td><td>Top of Funnel (Initial discovery)</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>How to Use the Keyword Combiner</h2>
-<p>Using my keyword utility is straightforward and fast. Enter your independent word lists across columns, select your desired PPC match type formats, and instantly copy clean, organized permutation code for your campaigns.</p>
+<h2>Step-by-Step Guide on How to Use the Keyword Combiner</h2>
+<p>Using this SEO utility is straightforward and fast:</p>
+<p><strong>Step 1:</strong> Enter your word lists across columns 1 (Modifiers), 2 (Core Terms), and 3 (Extras/Locations).</p>
+<p><strong>Step 2:</strong> Select your desired match types (Broad, Phrase, Exact, or Modified Broad).</p>
+<p><strong>Step 3:</strong> Review live search intent classification and keyword counts in the unique auditor box before copying or downloading your CSV file.</p>
 
-<h2>Common Mistakes to Avoid</h2>
-<p>A common mistake is generating thousands of unmonitored broad match permutations without negative keyword filtering, which rapidly depletes advertising budgets on irrelevant search traffic.</p>
+<h2>Common Mistakes to Avoid in Keyword Permutation</h2>
+<p>A frequent error is generating unformatted broad match keywords without negative keyword exclusions, which can trigger irrelevant ad impressions and deplete advertising budgets.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. What is a Keyword Combiner?</h3>
-<p>A keyword combiner is a digital tool that merges independent lists of modifiers, core terms, and locations to generate Cartesian product permutations for SEO and PPC campaigns.</p>
-<h3>2. What does the Live Match Type &amp; Search Intent Auditor do?</h3>
-<p>Our intelligent client-side validator calculates total permutation output, filters duplicate phrases, and audits match type formats for Google Ads campaign compliance in real time.</p>
-<h3>3. Are my keyword lists stored or transmitted externally?</h3>
-<p>No. All keyword permutations, list merging, and match type computations run entirely inside your browser client-side, ensuring complete data privacy.</p>
+<h3>1. Are my keyword lists sent to an external server?</h3>
+<p>No. All Cartesian permutations and list merges execute entirely inside your browser client-side.</p>
+<h3>2. How does the live search intent auditor work?</h3>
+<p>Our client-side engine scans terms for commercial or transactional modifiers to classify funnel stages.</p>
+<h3>3. Can I export keywords for Google Ads Editor?</h3>
+<p>Yes! You can instantly copy permutations or download a clean CSV file ready for import.</p>
+<h3>4. What is keyword cannibalization risk?</h3>
+<p>It occurs when overlapping broad match variations compete against each other within the same ad group.</p>
+<h3>5. Is this tool 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="meta-tag-generator.html" style="color:var(--emerald);">Meta Tag Generator</a>, <a href="keyword-density-checker.html" style="color:var(--emerald);">Keyword Density Checker</a>, <a href="robots-txt-generator.html" style="color:var(--emerald);">Robots.txt Generator</a>
+Other Free Tools: <a href="hash-generator.html" style="color:var(--emerald);">Hash Generator</a>, <a href="json-formatter.html" style="color:var(--emerald);">JSON Formatter</a>, <a href="password-generator.html" style="color:var(--emerald);">Password Generator</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -316,86 +314,118 @@ Other Free Tools: <a href="meta-tag-generator.html" style="color:var(--emerald);
 </div>
 </footer>
 
-<div id="cookieConsent">
-<p>We use cookies to analyze site traffic and improve user experience. By using SmartToolsKit, you consent to our use of cookies in accordance with our privacy policy.</p>
-<button id="acceptCookie" onclick="acceptCookies()">Got It</button>
-</div>
-
 <script>
-window.addEventListener('DOMContentLoaded', function() {
+let lastGeneratedKeywords = [];
+
+window.addEventListener('DOMContentLoaded', () => {
   generateKeywords();
-  if (!localStorage.getItem('cookiesAccepted')) {
-    const cb = document.getElementById('cookieConsent');
-    if (cb) cb.style.display = 'flex';
-  }
 });
 
+function parseLines(text) {
+  return text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+}
+
 function generateKeywords() {
-  const l1 = document.getElementById('list1').value.split('\n').map(s => s.trim()).filter(Boolean);
-  const l2 = document.getElementById('list2').value.split('\n').map(s => s.trim()).filter(Boolean);
-  const l3 = document.getElementById('list3').value.split('\n').map(s => s.trim()).filter(Boolean);
-  
-  const mBroad = document.getElementById('matchBroad').checked;
-  const mPhrase = document.getElementById('matchPhrase').checked;
-  const mExact = document.getElementById('matchExact').checked;
-  const mModified = document.getElementById('matchModified').checked;
-  
-  const output = document.getElementById('keywordOutput');
-  const syntaxAlertBox = document.getElementById('syntaxAlertBox');
-  
-  if (!output) return;
-  
-  let lists = [l1, l2, l3].filter(l => l.length > 0);
-  
-  if (lists.length === 0) {
-    output.value = "";
-    if (syntaxAlertBox) syntaxAlertBox.innerHTML = `🟡 <strong>Notice:</strong> Please enter keywords in at least one list to generate permutations.`;
-    return;
-  }
-  
-  let results = [];
-  function combine(listsIndex, currentStr) {
-    if (listsIndex === lists.length) {
-      results.push(currentStr.trim());
-      return;
+  const l1 = parseLines(document.getElementById('list1').value);
+  const l2 = parseLines(document.getElementById('list2').value);
+  const l3 = parseLines(document.getElementById('list3').value);
+
+  const useBroad = document.getElementById('chkBroad').checked;
+  const usePhrase = document.getElementById('chkPhrase').checked;
+  const useExact = document.getElementById('chkExact').checked;
+  const useModified = document.getElementById('chkModified').checked;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  let rawCombinations = [];
+
+  // Cartesian product calculation
+  if (l1.length > 0 && l2.length > 0 && l3.length > 0) {
+    for (let a of l1) {
+      for (let b of l2) {
+        for (let c of l3) {
+          rawCombinations.push(`${a} ${b} ${c}`);
+        }
+      }
     }
-    for (let word of lists[listsIndex]) {
-      combine(listsIndex + 1, currentStr ? currentStr + " " + word : word);
+  } else if (l1.length > 0 && l2.length > 0) {
+    for (let a of l1) {
+      for (let b of l2) {
+        rawCombinations.push(`${a} ${b}`);
+      }
     }
+  } else if (l2.length > 0 && l3.length > 0) {
+    for (let b of l2) {
+      for (let c of l3) {
+        rawCombinations.push(`${b} ${c}`);
+      }
+    }
+  } else if (l1.length > 0) {
+    rawCombinations = [...l1];
+  } else if (l2.length > 0) {
+    rawCombinations = [...l2];
   }
-  combine(0, "");
-  
-  let formattedOutput = [];
-  results.forEach(phrase => {
-    if (mBroad) formattedOutput.push(phrase);
-    if (mPhrase) formattedOutput.push(`"${phrase}"`);
-    if (mExact) formattedOutput.push(`[${phrase}]`);
-    if (mModified) {
-      let modPhrase = phrase.split(' ').map(w => w.startsWith('+') ? w : '+' + w).join(' ');
-      formattedOutput.push(modPhrase);
+
+  // Apply match types
+  let finalKeywords = [];
+  let uniqueSet = new Set();
+
+  rawCombinations.forEach(kw => {
+    if (useBroad && !uniqueSet.has(kw)) { uniqueSet.add(kw); finalKeywords.push(kw); }
+    if (usePhrase) { const p = `"${kw}"`; if (!uniqueSet.has(p)) { uniqueSet.add(p); finalKeywords.push(p); } }
+    if (useExact) { const e = `[${kw}]`; if (!uniqueSet.has(e)) { uniqueSet.add(e); finalKeywords.push(e); } }
+    if (useModified) { const m = kw.split(' ').map(w => '+' + w).join(' '); if (!uniqueSet.has(m)) { uniqueSet.add(m); finalKeywords.push(m); } }
+  });
+
+  lastGeneratedKeywords = finalKeywords;
+  document.getElementById('keywordOutput').textContent = finalKeywords.length > 0 ? finalKeywords.join('\n') : "No keyword combinations generated. Please populate lists.";
+
+  // Unique Auditor Metrics
+  const totalCount = finalKeywords.length;
+  document.getElementById('uniqueCount').textContent = totalCount + (totalCount === 1 ? " Keyword" : " Keywords");
+
+  // Intent classification check
+  const combinedText = (l1.join(' ') + ' ' + l2.join(' ') + ' ' + l3.join(' ')).toLowerCase();
+  let intent = "Informational (General)";
+  if (/buy|cheap|price|order|sale|discount|shop/.test(combinedText)) {
+    intent = "Transactional (High Intent)";
+  } else if (/best|top|review|vs|compare/.test(combinedText)) {
+    intent = "Commercial (Research)";
+  }
+  document.getElementById('uniqueIntent').textContent = intent;
+
+  const risk = totalCount > 500 ? "⚠️ High Overlap Risk" : "Low (Clean Matrix)";
+  document.getElementById('uniqueRisk').textContent = risk;
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>SEO Studio Active:</strong> Successfully compiled ${totalCount} target variations with live intent auditing.`;
+  }
+}
+
+function copyKeywords() {
+  const text = lastGeneratedKeywords.join('\n');
+  const alertBox = document.getElementById('syntaxAlertBox');
+  navigator.clipboard.writeText(text).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> All generated permutations successfully copied.`;
     }
   });
+}
+
+function downloadCsv() {
+  if (lastGeneratedKeywords.length === 0) return;
+  let csvContent = "data:text/csv;charset=utf-8,Keyword Variation\n" + lastGeneratedKeywords.map(e => `"${e}"`).join("\n");
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "smarttoolskit-keywords.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
   
-  let uniqueResults = [...new Set(formattedOutput)];
-  output.value = uniqueResults.join('\n');
-  
-  if (syntaxAlertBox) {
-    syntaxAlertBox.innerHTML = `🟢 <strong>Permutation Optimal:</strong> Successfully compiled <strong>${uniqueResults.length} targeted keyword variations</strong> with active match type formatting.`;
+  const alertBox = document.getElementById('syntaxAlertBox');
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>CSV Exported:</strong> Keyword matrix downloaded successfully for PPC/SEO import.`;
   }
-}
-
-function copyKeywordsCode() {
-  const output = document.getElementById('keywordOutput');
-  if (!output) return;
-  output.select();
-  navigator.clipboard.writeText(output.value);
-  alert('Combined keywords copied to clipboard!');
-}
-
-function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  const cb = document.getElementById('cookieConsent');
-  if (cb) cb.style.display = 'none';
 }
 </script>
 </body>
