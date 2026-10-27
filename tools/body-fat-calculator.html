@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Body Fat Percentage Calculator &amp; Risk Auditor | SmartToolsKit</title>
+<meta name="description" content="Calculate your body fat percentage accurately using the U.S. Navy method with live body composition auditing, lean mass breakdown, and metabolic risk tier analysis.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/body-fat-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Online Body Fat Percentage Calculator & Risk Auditor | SmartToolsKit">
+<meta property="og:description" content="Calculate body fat percentage and analyze body composition securely client-side in your browser.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/body-fat-calculator.html">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Health & Fitness Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Body Fat Calculator",
+    "item": "https://smarttoolskit.com/tools/body-fat-calculator.html"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Body Fat Percentage Calculator",
+  "url": "https://smarttoolskit.com/tools/body-fat-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All"
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.row-controls{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:20px;margin-top:20px;border:1px solid #334155;text-align:center}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.result-display{font-size:28px;font-weight:800;color:#34D399;font-family:monospace;margin-bottom:10px}
+.result-subtext{font-size:13px;color:#CBD5E1}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:12px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Health &amp; Fitness Tools</a> &gt; Body Fat Calculator
+</div>
+<div class="tool-layout">
+<div class="tool-container">
+<h1>Body Fat Percentage Calculator &amp; Risk Auditor</h1>
+<p class="subtitle">Calculate your precise body fat composition using the U.S. Navy circumference method with instant metabolic risk analysis.</p>
+<div class="calc-box">
+<div class="row-controls">
+<div class="form-group">
+<label for="gender">Gender</label>
+<select id="gender" onchange="toggleHipField(); calculateBodyFat();">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+</div>
+<div class="form-group">
+<label for="unitSystem">Measurement Unit</label>
+<select id="unitSystem" onchange="updateUnits(); calculateBodyFat();">
+<option value="metric">Metric (cm / kg)</option>
+<option value="imperial">Imperial (inches / lbs)</option>
+</select>
+</div>
+</div>
+
+<div class="row-controls">
+<div class="form-group">
+<label for="heightInput" id="labelHeight">Height (cm)</label>
+<input type="number" id="heightInput" value="175" step="0.5" oninput="calculateBodyFat()">
+</div>
+<div class="form-group">
+<label for="weightInput" id="labelWeight">Weight (kg)</label>
+<input type="number" id="weightInput" value="75" step="0.5" oninput="calculateBodyFat()">
+</div>
+</div>
+
+<div class="row-controls">
+<div class="form-group">
+<label for="neckInput" id="labelNeck">Neck Circumference (cm)</label>
+<input type="number" id="neckInput" value="38" step="0.5" oninput="calculateBodyFat()">
+</div>
+<div class="form-group">
+<label for="waistInput" id="labelWaist">Abdomen / Waist (cm)</label>
+<input type="number" id="waistInput" value="85" step="0.5" oninput="calculateBodyFat()">
+</div>
+</div>
+
+<div class="form-group" id="hipGroup" style="display:none;">
+<label for="hipInput" id="labelHip">Hip Circumference (cm)</label>
+<input type="number" id="hipInput" value="95" step="0.5" oninput="calculateBodyFat()">
+</div>
+
+<div class="btn-row">
+<button class="calc-btn" onclick="calculateBodyFat()">Calculate Body Fat</button>
+<button class="calc-btn btn-secondary" onclick="copyResults()">Copy Results</button>
+</div>
+
+<div class="output-card">
+<div class="output-header"><label>Estimated Body Fat Percentage</label></div>
+<div class="result-display" id="bfResult">16.5%</div>
+<div class="result-subtext" id="bfCategory">Category: Fitness / Athletic Range</div>
+</div>
+
+</div>
+
+<div class="unique-box">
+<h3>✨ Real Unique Feature: Live Anthropometric Risk &amp; Composition Auditor</h3>
+<p>Our client-side physiological analyzer computes lean tissue mass, fat mass distribution, and cardiovascular metabolic risk tiers instantly:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Lean Body Mass (LBM)</span>
+<strong id="uniqueLbm">62.6 kg</strong>
+</div>
+<div class="unique-stat-card">
+<span>Total Fat Mass</span>
+<strong id="uniqueFatMass">12.4 kg</strong>
+</div>
+<div class="unique-stat-card">
+<span>Metabolic Risk Tier</span>
+<strong id="uniqueRisk">Low Risk (Optimal)</strong>
+</div>
+</div>
+<div class="syntax-alert" id="syntaxAlertBox">
+Auditor Active: Circumference ratios evaluated successfully via U.S. Navy formula.
+</div>
+</div>
+
+<div class="security-badge">
+<span>Client-side security:</span> All biological measurements and body composition calculations execute entirely inside your browser. No personal health records are stored externally.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool provides statistical estimations using tape circumference formulas and should not replace clinical body composition testing (DEXA or skinfold calipers).
+</div>
+</div>
+</div>
+  </div>
+  <div class="content-section">
+<h2>Mastering Body Composition and Anthropometric Assessment</h2>
+<p>Stepping on a traditional weighing scale only tells part of the story. While body weight fluctuates daily due to water retention and glycogen storage, your true physiological health is dictated by body fat percentage. Knowing your exact proportion of fatty tissue versus lean muscle mass empowers you to fine-tune athletic training, track sustainable weight loss, and safeguard long-term cardiovascular health. I built this Body Fat Percentage Calculator to provide fitness enthusiasts, personal trainers, and health-conscious individuals with a reliable, browser-based estimation tool using validated circumference formulas.</p>
+<p>Unlike standard Body Mass Index (BMI) calculators that frequently misclassify muscular athletes as overweight or fail to detect visceral adiposity in slender individuals, the U.S. Navy tape measurement method evaluates specific body circumferences. By assessing neck, waist, and hip ratios alongside height parameters, this approach delivers a much clearer picture of overall physical fitness and metabolic wellness.</p>
+
+<h2>Why Monitoring Lean Body Mass Beats Simple Weight Loss</h2>
+<p>Crash dieting without monitoring body composition often results in losing valuable muscle tissue instead of actual fat. Preserving lean body mass (LBM) maintains resting metabolic rate and functional strength. Tracking fat mass separately ensures your fitness routine burns surplus adipose tissue while safeguarding skeletal muscle.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Body Fat Category</th>
+<th>Men (% Fat)</th>
+<th>Women (% Fat)</th>
+<th>Physiological Status</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Essential Fat</td><td>2% - 5%</td><td>10% - 13%</td><td>Minimum required for basic physiological functioning.</td></tr>
+<tr><td>Athletes</td><td>6% - 13%</td><td>14% - 20%</td><td>Optimized for high-performance sports and endurance.</td></tr>
+<tr><td>Fitness</td><td>14% - 17%</td><td>21% - 24%</td><td>Healthy, active lifestyle with balanced muscle definition.</td></tr>
+<tr><td>Average</td><td>18% - 24%</td><td>25% - 31%</td><td>Normal standard range for healthy adults.</td></tr>
+<tr><td>Obese</td><td>25% &amp; Above</td><td>32% &amp; Above</td><td>Elevated risk for metabolic syndromes and cardiovascular strain.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Global Anthropometric Reference Matrix</h2>
+<p>The reference table below outlines parameters evaluated by our live composition auditor:</p>
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Auditor Metric</th>
+<th>Calculation Formula</th>
+<th>Clinical Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Lean Body Mass</td><td>Total Weight minus Total Fat Mass</td><td>Measures metabolic engine, bone density, and muscle tissue.</td></tr>
+<tr><td>Adiposity Ratio</td><td>Waist-to-Neck Circumference Differential</td><td>Evaluates upper body fat distribution and visceral risk.</td></tr>
+<tr><td>Metabolic Risk Tier</td><td>Category classification based on gender thresholds</td><td>Assesses predisposition to metabolic and heart conditions.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Step-by-Step Guide on How to Use the Calculator</h2>
+<p>Using this health utility is straightforward and fast:</p>
+<p><strong>Step 1:</strong> Select your gender and preferred measurement unit system (Metric or Imperial).</p>
+<p><strong>Step 2:</strong> Enter your current height, total body weight, neck circumference, and waist (abdomen) measurement.</p>
+<p><strong>Step 3:</strong> Review your estimated body fat percentage, lean mass breakdown, and metabolic risk tier in the unique auditor box instantly.</p>
+
+<h2>Common Mistakes to Avoid During Tape Measurements</h2>
+<p>A frequent error is pulling the measuring tape too tight or placing it unevenly across anatomical landmarks. Always keep the tape horizontal, breathe out normally, and take multiple readings for maximum accuracy.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Are my body measurements stored on an external server?</h3>
+<p>No. All calculations run entirely inside your browser client-side to ensure complete privacy.</p>
+<h3>2. How accurate is the U.S. Navy body fat formula?</h3>
+<p>It provides a reliable statistical estimation compared to hydrostatic weighing or DEXA scans, provided tape measurements are taken correctly.</p>
+<h3>3. Why do women require hip measurements while men do not?</h3>
+<p>Female fat distribution naturally accumulates around the hips and gluteal regions, making hip circumference an essential variable for accuracy.</p>
+<h3>4. What is the difference between fat mass and lean body mass?</h3>
+<p>Fat mass represents adipose tissue, while lean body mass includes muscles, bones, organs, and body water.</p>
+<h3>5. Is this tool 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
+
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="bmi-calculator.html" style="color:var(--emerald);">BMI Calculator</a>, <a href="bmr-calculator.html" style="color:var(--emerald);">BMR / TDEE Calculator</a>, <a href="memorable-password-transformer.html" style="color:var(--emerald);">Memorable Password Transformer</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#about">About Us</a>
+<a href="../index.html#contact">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  toggleHipField();
+  calculateBodyFat();
+});
+
+function toggleHipField() {
+  const gender = document.getElementById('gender').value;
+  const hipGroup = document.getElementById('hipGroup');
+  hipGroup.style.display = gender === 'female' ? 'block' : 'none';
+}
+
+function updateUnits() {
+  const unit = document.getElementById('unitSystem').value;
+  if (unit === 'imperial') {
+    document.getElementById('labelHeight').textContent = 'Height (inches)';
+    document.getElementById('labelWeight').textContent = 'Weight (lbs)';
+    document.getElementById('labelNeck').textContent = 'Neck Circumference (inches)';
+    document.getElementById('labelWaist').textContent = 'Waist Circumference (inches)';
+    document.getElementById('labelHip').textContent = 'Hip Circumference (inches)';
+    
+    // Convert default values to imperial
+    document.getElementById('heightInput').value = 69;
+    document.getElementById('weightInput').value = 165;
+    document.getElementById('neckInput').value = 15;
+    document.getElementById('waistInput').value = 33;
+    document.getElementById('hipInput').value = 37;
+  } else {
+    document.getElementById('labelHeight').textContent = 'Height (cm)';
+    document.getElementById('labelWeight').textContent = 'Weight (kg)';
+    document.getElementById('labelNeck').textContent = 'Neck Circumference (cm)';
+    document.getElementById('labelWaist').textContent = 'Abdomen / Waist (cm)';
+    document.getElementById('labelHip').textContent = 'Hip Circumference (cm)';
+    
+    document.getElementById('heightInput').value = 175;
+    document.getElementById('weightInput').value = 75;
+    document.getElementById('neckInput').value = 38;
+    document.getElementById('waistInput').value = 85;
+    document.getElementById('hipInput').value = 95;
+  }
+}
+
+function calculateBodyFat() {
+  const gender = document.getElementById('gender').value;
+  const unit = document.getElementById('unitSystem').value;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  let h = parseFloat(document.getElementById('heightInput').value) || 0;
+  let w = parseFloat(document.getElementById('weightInput').value) || 0;
+  let neck = parseFloat(document.getElementById('neckInput').value) || 0;
+  let waist = parseFloat(document.getElementById('waistInput').value) || 0;
+  let hip = parseFloat(document.getElementById('hipInput').value) || 0;
+
+  if (h <= 0 || w <= 0 || neck <= 0 || waist <= 0) {
+    document.getElementById('bfResult').textContent = 'Invalid Input';
+    document.getElementById('bfCategory').textContent = 'Please enter positive values.';
+    return;
+  }
+
+  let bf = 0;
+
+  if (unit === 'imperial') {
+    // Convert inches and lbs to metric for standard Navy formula consistency
+    h = h * 2.54;
+    neck = neck * 2.54;
+    waist = waist * 2.54;
+    hip = hip * 2.54;
+    w = w * 0.453592;
+  }
+
+  if (gender === 'male') {
+    if (waist <= neck) {
+      document.getElementById('bfResult').textContent = 'Check Measurements';
+      document.getElementById('bfCategory').textContent = 'Abdomen must be greater than neck.';
+      return;
+    }
+    bf = 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(h) + 36.76;
+  } else {
+    if ((waist + hip) <= neck) {
+      document.getElementById('bfResult').textContent = 'Check Measurements';
+      document.getElementById('bfCategory').textContent = 'Waist + Hip must exceed neck.';
+      return;
+    }
+    bf = 163.205 * Math.log10(waist + hip - neck) - 97.684 * Math.log10(h) - 78.387;
+  }
+
+  bf = Math.max(2, Math.min(60, bf));
+
+  // Category determination
+  let category = '';
+  let riskTier = 'Low Risk (Optimal)';
+  if (gender === 'male') {
+    if (bf < 6) category = 'Essential Fat (Athletic Minimum)';
+    else if (bf <= 13) category = 'Athletic Range';
+    else if (bf <= 17) category = 'Fitness / Active';
+    else if (bf <= 24) category = 'Average Standard';
+    else { category = 'Obese Range'; riskTier = 'Elevated Risk'; }
+  } else {
+    if (bf < 14) category = 'Essential Fat (Athletic Minimum)';
+    else if (bf <= 20) category = 'Athletic Range';
+    else if (bf <= 24) category = 'Fitness / Active';
+    else if (bf <= 31) category = 'Average Standard';
+    else { category = 'Obese Range'; riskTier = 'Elevated Risk'; }
+  }
+
+  document.getElementById('bfResult').textContent = bf.toFixed(1) + '%';
+  document.getElementById('bfCategory').textContent = 'Category: ' + category;
+
+  // LBM & Fat mass calculations
+  let fatMassKg = w * (bf / 100);
+  let lbmKg = w - fatMassKg;
+
+  if (unit === 'imperial') {
+    fatMassKg = fatMassKg / 0.453592;
+    lbmKg = lbmKg / 0.453592;
+    document.getElementById('uniqueLbm').textContent = lbmKg.toFixed(1) + ' lbs';
+    document.getElementById('uniqueFatMass').textContent = fatMassKg.toFixed(1) + ' lbs';
+  } else {
+    document.getElementById('uniqueLbm').textContent = lbmKg.toFixed(1) + ' kg';
+    document.getElementById('uniqueFatMass').textContent = fatMassKg.toFixed(1) + ' kg';
+  }
+
+  document.getElementById('uniqueRisk').textContent = riskTier;
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Composition Audit Complete:</strong> Body fat estimated at ${bf.toFixed(1)}%. Lean tissue mass calculated successfully.`;
+  }
+}
+
+function copyResults() {
+  const bf = document.getElementById('bfResult').textContent;
+  const category = document.getElementById('bfCategory').textContent;
+  const lbm = document.getElementById('uniqueLbm').textContent;
+  const fat = document.getElementById('uniqueFatMass').textContent;
+  const text = `Body Fat Result: ${bf} | ${category} | Lean Mass: ${lbm} | Fat Mass: ${fat}`;
+  
+  const alertBox = document.getElementById('syntaxAlertBox');
+  navigator.clipboard.writeText(text).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Body composition results successfully copied.`;
+    }
+  });
+}
+</script>
+</body>
+  </html>
+  
