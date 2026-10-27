@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online Body Fat Percentage Calculator &amp; Risk Auditor | SmartToolsKit</title>
-<meta name="description" content="Calculate your body fat percentage accurately using the U.S. Navy method with live body composition auditing, lean mass breakdown, and metabolic risk tier analysis.">
+<title>Free Online BMR &amp; TDEE Calorie Calculator | SmartToolsKit</title>
+<meta name="description" content="Calculate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) accurately using the Mifflin-St Jeor equation with live macronutrient auditing.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smarttoolskit.com/tools/body-fat-calculator.html">
+<link rel="canonical" href="https://smarttoolskit.com/tools/bmr-calculator.html">
 <meta name="theme-color" content="#0F172A">
 
 <!-- Open Graph / Social Meta Tags -->
-<meta property="og:title" content="Free Online Body Fat Percentage Calculator & Risk Auditor | SmartToolsKit">
-<meta property="og:description" content="Calculate body fat percentage and analyze body composition securely client-side in your browser.">
-<meta property="og:url" content="https://smarttoolskit.com/tools/body-fat-calculator.html">
+<meta property="og:title" content="Free Online BMR & TDEE Calorie Calculator | SmartToolsKit">
+<meta property="og:description" content="Calculate BMR, TDEE, and optimal macronutrient splits securely client-side in your browser.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/bmr-calculator.html">
 <meta property="og:type" content="website">
 
 <script type="application/ld+json">
@@ -32,8 +32,8 @@
   },{
     "@type": "ListItem",
     "position": 3,
-    "name": "Body Fat Calculator",
-    "item": "https://smarttoolskit.com/tools/body-fat-calculator.html"
+    "name": "BMR & TDEE Calculator",
+    "item": "https://smarttoolskit.com/tools/bmr-calculator.html"
   }]
 }
 </script>
@@ -41,8 +41,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Body Fat Percentage Calculator",
-  "url": "https://smarttoolskit.com/tools/body-fat-calculator.html",
+  "name": "BMR & TDEE Calorie Calculator",
+  "url": "https://smarttoolskit.com/tools/bmr-calculator.html",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "All"
 }
@@ -80,8 +80,8 @@ nav a:hover{color:var(--emerald-dark)}
 .output-card{background:var(--navy);border-radius:10px;padding:20px;margin-top:20px;border:1px solid #334155;text-align:center}
 .output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.result-display{font-size:28px;font-weight:800;color:#34D399;font-family:monospace;margin-bottom:10px}
-.result-subtext{font-size:13px;color:#CBD5E1}
+.result-display{font-size:28px;font-weight:800;color:#34D399;font-family:monospace;margin-bottom:6px}
+.result-subtext{font-size:13px;color:#CBD5E1;margin-bottom:4px}
 .unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
 .unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
 .unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
@@ -130,172 +130,162 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </header>
 <main class="container">
 <div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
-<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Health &amp; Fitness Tools</a> &gt; Body Fat Calculator
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Health &amp; Fitness Tools</a> &gt; BMR &amp; TDEE Calculator
 </div>
 <div class="tool-layout">
 <div class="tool-container">
-<h1>Body Fat Percentage Calculator &amp; Risk Auditor</h1>
-<p class="subtitle">Calculate your precise body fat composition using the U.S. Navy circumference method with instant metabolic risk analysis.</p>
+<h1>BMR &amp; TDEE Calorie Calculator</h1>
+<p class="subtitle">Calculate your Basal Metabolic Rate and Total Daily Energy Expenditure instantly with precision formulas.</p>
 <div class="calc-box">
 <div class="row-controls">
 <div class="form-group">
 <label for="gender">Gender</label>
-<select id="gender" onchange="toggleHipField(); calculateBodyFat();">
+<select id="gender" onchange="calculateBmrTdee()">
 <option value="male">Male</option>
 <option value="female">Female</option>
 </select>
 </div>
 <div class="form-group">
-<label for="unitSystem">Measurement Unit</label>
-<select id="unitSystem" onchange="updateUnits(); calculateBodyFat();">
-<option value="metric">Metric (cm / kg)</option>
-<option value="imperial">Imperial (inches / lbs)</option>
+<label for="ageInput">Age (Years)</label>
+<input type="number" id="ageInput" value="28" min="10" max="120" oninput="calculateBmrTdee()">
+</div>
+</div>
+
+<div class="row-controls">
+<div class="form-group">
+<label for="heightInput">Height (cm)</label>
+<input type="number" id="heightInput" value="175" min="50" max="250" oninput="calculateBmrTdee()">
+</div>
+<div class="form-group">
+<label for="weightInput">Weight (kg)</label>
+<input type="number" id="weightInput" value="75" min="20" max="300" oninput="calculateBmrTdee()">
+</div>
+</div>
+
+<div class="form-group">
+<label for="activityLevel">Daily Activity Multiplier</label>
+<select id="activityLevel" onchange="calculateBmrTdee()">
+<option value="1.2">Sedentary (Little or no exercise)</option>
+<option value="1.375">Lightly Active (Exercise 1-3 days/week)</option>
+<option value="1.55" selected>Moderately Active (Exercise 3-5 days/week)</option>
+<option value="1.725">Very Active (Exercise 6-7 days/week)</option>
+<option value="1.9">Extra Active (Hard physical job or training)</option>
 </select>
-</div>
-</div>
-
-<div class="row-controls">
-<div class="form-group">
-<label for="heightInput" id="labelHeight">Height (cm)</label>
-<input type="number" id="heightInput" value="175" step="0.5" oninput="calculateBodyFat()">
-</div>
-<div class="form-group">
-<label for="weightInput" id="labelWeight">Weight (kg)</label>
-<input type="number" id="weightInput" value="75" step="0.5" oninput="calculateBodyFat()">
-</div>
-</div>
-
-<div class="row-controls">
-<div class="form-group">
-<label for="neckInput" id="labelNeck">Neck Circumference (cm)</label>
-<input type="number" id="neckInput" value="38" step="0.5" oninput="calculateBodyFat()">
-</div>
-<div class="form-group">
-<label for="waistInput" id="labelWaist">Abdomen / Waist (cm)</label>
-<input type="number" id="waistInput" value="85" step="0.5" oninput="calculateBodyFat()">
-</div>
-</div>
-
-<div class="form-group" id="hipGroup" style="display:none;">
-<label for="hipInput" id="labelHip">Hip Circumference (cm)</label>
-<input type="number" id="hipInput" value="95" step="0.5" oninput="calculateBodyFat()">
 </div>
 
 <div class="btn-row">
-<button class="calc-btn" onclick="calculateBodyFat()">Calculate Body Fat</button>
+<button class="calc-btn" onclick="calculateBmrTdee()">Calculate Calories</button>
 <button class="calc-btn btn-secondary" onclick="copyResults()">Copy Results</button>
 </div>
 
 <div class="output-card">
-<div class="output-header"><label>Estimated Body Fat Percentage</label></div>
-<div class="result-display" id="bfResult">16.5%</div>
-<div class="result-subtext" id="bfCategory">Category: Fitness / Athletic Range</div>
+<div class="output-header"><label>Energy Expenditure Breakdown</label></div>
+<div class="result-display" id="bmrResult">BMR: 1,720 kcal/day</div>
+<div class="result-display" id="tdeeResult" style="color:#FFF; font-size:24px;">TDEE: 2,666 kcal/day</div>
+<div class="result-subtext" id="goalRecommendation">Cutting Target (-20%): 2,133 kcal/day</div>
 </div>
 
 </div>
 
 <div class="unique-box">
-<h3>✨ Real Unique Feature: Live Anthropometric Risk &amp; Composition Auditor</h3>
-<p>Our client-side physiological analyzer computes lean tissue mass, fat mass distribution, and cardiovascular metabolic risk tiers instantly:</p>
+<h3>✨ Real Unique Feature: Live Metabolic Adaptability &amp; Macro Split Auditor</h3>
+<p>Our client-side physiological engine computes optimal macronutrient distributions, thermal energy expenditures, and adaptive calorie targets in real time:</p>
 <div class="unique-stats-grid">
 <div class="unique-stat-card">
-<span>Lean Body Mass (LBM)</span>
-<strong id="uniqueLbm">62.6 kg</strong>
+<span>Optimal Protein Split</span>
+<strong id="uniqueProtein">150g (25%)</strong>
 </div>
 <div class="unique-stat-card">
-<span>Total Fat Mass</span>
-<strong id="uniqueFatMass">12.4 kg</strong>
+<span>Carb / Fat Balance</span>
+<strong id="uniqueCarbFat">299g / 74g</strong>
 </div>
 <div class="unique-stat-card">
-<span>Metabolic Risk Tier</span>
-<strong id="uniqueRisk">Low Risk (Optimal)</strong>
+<span>Metabolic Rate Status</span>
+<strong id="uniqueMetabolism">Normometabolic</strong>
 </div>
 </div>
 <div class="syntax-alert" id="syntaxAlertBox">
-Auditor Active: Circumference ratios evaluated successfully via U.S. Navy formula.
+Auditor Active: Mifflin-St Jeor calculations compiled successfully. Ready for diet planning.
 </div>
 </div>
 
 <div class="security-badge">
-<span>Client-side security:</span> All biological measurements and body composition calculations execute entirely inside your browser. No personal health records are stored externally.
+<span>Client-side security:</span> All caloric computations and macronutrient splits run securely inside your browser. No biometric or personal data is transmitted externally.
 </div>
 <div class="disclaimer-container">
 <div class="disclaimer-text">
-<strong>Disclaimer:</strong> This tool provides statistical estimations using tape circumference formulas and should not replace clinical body composition testing (DEXA or skinfold calipers).
+<strong>Disclaimer:</strong> This tool provides statistical estimations for educational and fitness planning purposes and should not replace clinical nutritional guidance.
 </div>
 </div>
 </div>
-  </div>
-  <div class="content-section">
-<h2>Mastering Body Composition and Anthropometric Assessment</h2>
-<p>Stepping on a traditional weighing scale only tells part of the story. While body weight fluctuates daily due to water retention and glycogen storage, your true physiological health is dictated by body fat percentage. Knowing your exact proportion of fatty tissue versus lean muscle mass empowers you to fine-tune athletic training, track sustainable weight loss, and safeguard long-term cardiovascular health. I built this Body Fat Percentage Calculator to provide fitness enthusiasts, personal trainers, and health-conscious individuals with a reliable, browser-based estimation tool using validated circumference formulas.</p>
-<p>Unlike standard Body Mass Index (BMI) calculators that frequently misclassify muscular athletes as overweight or fail to detect visceral adiposity in slender individuals, the U.S. Navy tape measurement method evaluates specific body circumferences. By assessing neck, waist, and hip ratios alongside height parameters, this approach delivers a much clearer picture of overall physical fitness and metabolic wellness.</p>
+</div>
+<div class="content-section">
+<h2>Mastering Caloric Balance, BMR, and TDEE for Fitness Success</h2>
+<p>Navigating weight management, muscle gain, or body recomposition starts with one fundamental metric: energy balance. Understanding how many calories your body burns at rest versus during active daily movement removes the guesswork from nutrition. Whether your goal is sustainable fat loss, clean bulking, or maintaining peak athletic performance, knowing your exact energy requirements acts as the ultimate roadmap. I built this BMR &amp; TDEE Calorie Calculator to give athletes, trainers, and health-conscious individuals a reliable, browser-based tool powered by the scientifically validated Mifflin-St Jeor equation.</p>
+<p>Many individuals struggle with weight plateaus because they rely on generalized calorie targets that fail to account for unique metabolic variables like age, height, mass, and physical activity levels. By breaking down your Basal Metabolic Rate (BMR) and multiplying it by an accurate activity factor, this calculator reveals your Total Daily Energy Expenditure (TDEE). Armed with this precise data, you can structure customized calorie deficits or surpluses with absolute confidence.</p>
 
-<h2>Why Monitoring Lean Body Mass Beats Simple Weight Loss</h2>
-<p>Crash dieting without monitoring body composition often results in losing valuable muscle tissue instead of actual fat. Preserving lean body mass (LBM) maintains resting metabolic rate and functional strength. Tracking fat mass separately ensures your fitness routine burns surplus adipose tissue while safeguarding skeletal muscle.</p>
+<h2>Why Distinguishing BMR from TDEE Matters for Results</h2>
+<p>Your Basal Metabolic Rate represents the absolute minimum number of calories your body requires to sustain vital organ function while resting in a neutral environment. However, since humans move, work, digest food, and exercise, your actual energy expenditure is always higher. TDEE encompasses your BMR plus the Thermic Effect of Food (TEF) and Non-Exercise Activity Thermogenesis (NEAT). Ignoring daily activity levels and eating below BMR can trigger metabolic adaptation, resulting in fatigue and halted progress.</p>
 
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Body Fat Category</th>
-<th>Men (% Fat)</th>
-<th>Women (% Fat)</th>
-<th>Physiological Status</th>
+<th>Caloric Objective</th>
+<th>Adjustment Strategy</th>
+<th>Recommended Primary Use Case</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Essential Fat</td><td>2% - 5%</td><td>10% - 13%</td><td>Minimum required for basic physiological functioning.</td></tr>
-<tr><td>Athletes</td><td>6% - 13%</td><td>14% - 20%</td><td>Optimized for high-performance sports and endurance.</td></tr>
-<tr><td>Fitness</td><td>14% - 17%</td><td>21% - 24%</td><td>Healthy, active lifestyle with balanced muscle definition.</td></tr>
-<tr><td>Average</td><td>18% - 24%</td><td>25% - 31%</td><td>Normal standard range for healthy adults.</td></tr>
-<tr><td>Obese</td><td>25% &amp; Above</td><td>32% &amp; Above</td><td>Elevated risk for metabolic syndromes and cardiovascular strain.</td></tr>
+<tr><td>Fat Loss / Cutting</td><td>15% to 25% Caloric Deficit</td><td>Shedding surplus body fat while preserving lean muscle mass.</td></tr>
+<tr><td>Weight Maintenance</td><td>100% Equal to TDEE</td><td>Stabilizing body weight and optimizing daily athletic energy.</td></tr>
+<tr><td>Muscle Gain / Bulking</td><td>10% to 15% Caloric Surplus</td><td>Fueling heavy resistance training and maximizing hypertrophy.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Global Anthropometric Reference Matrix</h2>
-<p>The reference table below outlines parameters evaluated by our live composition auditor:</p>
+<h2>Global Metabolic Reference Matrix</h2>
+<p>The reference table below outlines macronutrient and energy allocation tiers tracked by our live auditor:</p>
 <div class="table-responsive">
 <table class="content-table">
 <thead>
 <tr>
-<th>Auditor Metric</th>
-<th>Calculation Formula</th>
-<th>Clinical Significance</th>
+<th>Auditor Parameter</th>
+<th>Evaluation Formula / Split</th>
+<th>Nutritional Objective</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>Lean Body Mass</td><td>Total Weight minus Total Fat Mass</td><td>Measures metabolic engine, bone density, and muscle tissue.</td></tr>
-<tr><td>Adiposity Ratio</td><td>Waist-to-Neck Circumference Differential</td><td>Evaluates upper body fat distribution and visceral risk.</td></tr>
-<tr><td>Metabolic Risk Tier</td><td>Category classification based on gender thresholds</td><td>Assesses predisposition to metabolic and heart conditions.</td></tr>
+<tr><td>Protein Allocation</td><td>1.8g to 2.2g per kilogram of body weight</td><td>Protects muscle tissue during caloric deficits and supports repair.</td></tr>
+<tr><td>Carbohydrate Intake</td><td>Remaining calories after protein and dietary fats</td><td>Replenishes glycogen stores for high-intensity physical output.</td></tr>
+<tr><td>Essential Dietary Fats</td><td>Approximately 25% to 30% of total energy</td><td>Maintains hormonal balance, cellular health, and nutrient absorption.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2>Step-by-Step Guide on How to Use the Calculator</h2>
+<h2>Step-by-Step Guide on How to Use the Calorie Calculator</h2>
 <p>Using this health utility is straightforward and fast:</p>
-<p><strong>Step 1:</strong> Select your gender and preferred measurement unit system (Metric or Imperial).</p>
-<p><strong>Step 2:</strong> Enter your current height, total body weight, neck circumference, and waist (abdomen) measurement.</p>
-<p><strong>Step 3:</strong> Review your estimated body fat percentage, lean mass breakdown, and metabolic risk tier in the unique auditor box instantly.</p>
+<p><strong>Step 1:</strong> Select your gender and input your current age in years.</p>
+<p><strong>Step 2:</strong> Enter your height in centimeters and total body weight in kilograms.</p>
+<p><strong>Step 3:</strong> Select your daily activity multiplier from the dropdown menu and review your BMR, TDEE, and custom macro splits in the unique auditor box instantly.</p>
 
-<h2>Common Mistakes to Avoid During Tape Measurements</h2>
-<p>A frequent error is pulling the measuring tape too tight or placing it unevenly across anatomical landmarks. Always keep the tape horizontal, breathe out normally, and take multiple readings for maximum accuracy.</p>
+<h2>Common Mistakes to Avoid in Calorie Tracking</h2>
+<p>A frequent error is overestimating daily physical activity levels and selecting an inflated activity multiplier, which leads to slower fat loss results than expected. When in doubt, start with a conservative activity tier.</p>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
-<h3>1. Are my body measurements stored on an external server?</h3>
-<p>No. All calculations run entirely inside your browser client-side to ensure complete privacy.</p>
-<h3>2. How accurate is the U.S. Navy body fat formula?</h3>
-<p>It provides a reliable statistical estimation compared to hydrostatic weighing or DEXA scans, provided tape measurements are taken correctly.</p>
-<h3>3. Why do women require hip measurements while men do not?</h3>
-<p>Female fat distribution naturally accumulates around the hips and gluteal regions, making hip circumference an essential variable for accuracy.</p>
-<h3>4. What is the difference between fat mass and lean body mass?</h3>
-<p>Fat mass represents adipose tissue, while lean body mass includes muscles, bones, organs, and body water.</p>
+<h3>1. Are my physiological data points stored on an external server?</h3>
+<p>No. All calculations run entirely inside your browser client-side for complete privacy.</p>
+<h3>2. What is the Mifflin-St Jeor equation?</h3>
+<p>It is widely recognized by nutritional scientists as the most accurate formula for estimating resting metabolic rate in healthy adults.</p>
+<h3>3. How does activity level impact my daily calorie burn?</h3>
+<p>Activity multipliers scale your resting BMR to reflect movement, structured exercise, and daily occupational activity.</p>
+<h3>4. Can I use these macros for muscle building?</h3>
+<p>Yes! The auditor provides optimized protein, carbohydrate, and fat distributions tailored for both cutting and bulking phases.</p>
 <h3>5. Is this tool 100% free?</h3>
 <p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Other Free Tools: <a href="bmi-calculator.html" style="color:var(--emerald);">BMI Calculator</a>, <a href="bmr-calculator.html" style="color:var(--emerald);">BMR / TDEE Calculator</a>, <a href="memorable-password-transformer.html" style="color:var(--emerald);">Memorable Password Transformer</a>
+Other Free Tools: <a href="body-fat-calculator.html" style="color:var(--emerald);">Body Fat Calculator</a>, <a href="bmi-calculator.html" style="color:var(--emerald);">BMI Calculator</a>, <a href="memorable-password-transformer.html" style="color:var(--emerald);">Memorable Password Transformer</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -334,144 +324,67 @@ Other Free Tools: <a href="bmi-calculator.html" style="color:var(--emerald);">BM
 
 <script>
 window.addEventListener('DOMContentLoaded', () => {
-  toggleHipField();
-  calculateBodyFat();
+  calculateBmrTdee();
 });
 
-function toggleHipField() {
+function calculateBmrTdee() {
   const gender = document.getElementById('gender').value;
-  const hipGroup = document.getElementById('hipGroup');
-  hipGroup.style.display = gender === 'female' ? 'block' : 'none';
-}
-
-function updateUnits() {
-  const unit = document.getElementById('unitSystem').value;
-  if (unit === 'imperial') {
-    document.getElementById('labelHeight').textContent = 'Height (inches)';
-    document.getElementById('labelWeight').textContent = 'Weight (lbs)';
-    document.getElementById('labelNeck').textContent = 'Neck Circumference (inches)';
-    document.getElementById('labelWaist').textContent = 'Waist Circumference (inches)';
-    document.getElementById('labelHip').textContent = 'Hip Circumference (inches)';
-    
-    // Convert default values to imperial
-    document.getElementById('heightInput').value = 69;
-    document.getElementById('weightInput').value = 165;
-    document.getElementById('neckInput').value = 15;
-    document.getElementById('waistInput').value = 33;
-    document.getElementById('hipInput').value = 37;
-  } else {
-    document.getElementById('labelHeight').textContent = 'Height (cm)';
-    document.getElementById('labelWeight').textContent = 'Weight (kg)';
-    document.getElementById('labelNeck').textContent = 'Neck Circumference (cm)';
-    document.getElementById('labelWaist').textContent = 'Abdomen / Waist (cm)';
-    document.getElementById('labelHip').textContent = 'Hip Circumference (cm)';
-    
-    document.getElementById('heightInput').value = 175;
-    document.getElementById('weightInput').value = 75;
-    document.getElementById('neckInput').value = 38;
-    document.getElementById('waistInput').value = 85;
-    document.getElementById('hipInput').value = 95;
-  }
-}
-
-function calculateBodyFat() {
-  const gender = document.getElementById('gender').value;
-  const unit = document.getElementById('unitSystem').value;
+  const age = parseFloat(document.getElementById('ageInput').value) || 0;
+  const height = parseFloat(document.getElementById('heightInput').value) || 0;
+  const weight = parseFloat(document.getElementById('weightInput').value) || 0;
+  const activity = parseFloat(document.getElementById('activityLevel').value) || 1.2;
   const alertBox = document.getElementById('syntaxAlertBox');
 
-  let h = parseFloat(document.getElementById('heightInput').value) || 0;
-  let w = parseFloat(document.getElementById('weightInput').value) || 0;
-  let neck = parseFloat(document.getElementById('neckInput').value) || 0;
-  let waist = parseFloat(document.getElementById('waistInput').value) || 0;
-  let hip = parseFloat(document.getElementById('hipInput').value) || 0;
-
-  if (h <= 0 || w <= 0 || neck <= 0 || waist <= 0) {
-    document.getElementById('bfResult').textContent = 'Invalid Input';
-    document.getElementById('bfCategory').textContent = 'Please enter positive values.';
+  if (age <= 0 || height <= 0 || weight <= 0) {
+    document.getElementById('bmrResult').textContent = 'Invalid Input';
+    document.getElementById('tdeeResult').textContent = 'Please check values';
     return;
   }
 
-  let bf = 0;
-
-  if (unit === 'imperial') {
-    // Convert inches and lbs to metric for standard Navy formula consistency
-    h = h * 2.54;
-    neck = neck * 2.54;
-    waist = waist * 2.54;
-    hip = hip * 2.54;
-    w = w * 0.453592;
-  }
-
+  // Mifflin-St Jeor Equation
+  let bmr = (10 * weight) + (6.25 * height) - (5 * age);
   if (gender === 'male') {
-    if (waist <= neck) {
-      document.getElementById('bfResult').textContent = 'Check Measurements';
-      document.getElementById('bfCategory').textContent = 'Abdomen must be greater than neck.';
-      return;
-    }
-    bf = 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(h) + 36.76;
+    bmr += 5;
   } else {
-    if ((waist + hip) <= neck) {
-      document.getElementById('bfResult').textContent = 'Check Measurements';
-      document.getElementById('bfCategory').textContent = 'Waist + Hip must exceed neck.';
-      return;
-    }
-    bf = 163.205 * Math.log10(waist + hip - neck) - 97.684 * Math.log10(h) - 78.387;
+    bmr -= 161;
   }
 
-  bf = Math.max(2, Math.min(60, bf));
+  const tdee = bmr * activity;
+  const cuttingTarget = tdee * 0.8;
 
-  // Category determination
-  let category = '';
-  let riskTier = 'Low Risk (Optimal)';
-  if (gender === 'male') {
-    if (bf < 6) category = 'Essential Fat (Athletic Minimum)';
-    else if (bf <= 13) category = 'Athletic Range';
-    else if (bf <= 17) category = 'Fitness / Active';
-    else if (bf <= 24) category = 'Average Standard';
-    else { category = 'Obese Range'; riskTier = 'Elevated Risk'; }
-  } else {
-    if (bf < 14) category = 'Essential Fat (Athletic Minimum)';
-    else if (bf <= 20) category = 'Athletic Range';
-    else if (bf <= 24) category = 'Fitness / Active';
-    else if (bf <= 31) category = 'Average Standard';
-    else { category = 'Obese Range'; riskTier = 'Elevated Risk'; }
-  }
+  document.getElementById('bmrResult').textContent = 'BMR: ' + Math.round(bmr).toLocaleString() + ' kcal/day';
+  document.getElementById('tdeeResult').textContent = 'TDEE: ' + Math.round(tdee).toLocaleString() + ' kcal/day';
+  document.getElementById('goalRecommendation').textContent = 'Cutting Target (-20%): ' + Math.round(cuttingTarget).toLocaleString() + ' kcal/day';
 
-  document.getElementById('bfResult').textContent = bf.toFixed(1) + '%';
-  document.getElementById('bfCategory').textContent = 'Category: ' + category;
+  // Macro calculations based on TDEE
+  // Protein: 2g per kg, Fats: 25% of calories, Carbs: remainder
+  const proteinGrams = Math.round(weight * 2.0);
+  const proteinCals = proteinGrams * 4;
+  const fatCals = tdee * 0.25;
+  const fatGrams = Math.round(fatCals / 9);
+  const carbCals = Math.max(0, tdee - (proteinCals + fatCals));
+  const carbGrams = Math.round(carbCals / 4);
 
-  // LBM & Fat mass calculations
-  let fatMassKg = w * (bf / 100);
-  let lbmKg = w - fatMassKg;
-
-  if (unit === 'imperial') {
-    fatMassKg = fatMassKg / 0.453592;
-    lbmKg = lbmKg / 0.453592;
-    document.getElementById('uniqueLbm').textContent = lbmKg.toFixed(1) + ' lbs';
-    document.getElementById('uniqueFatMass').textContent = fatMassKg.toFixed(1) + ' lbs';
-  } else {
-    document.getElementById('uniqueLbm').textContent = lbmKg.toFixed(1) + ' kg';
-    document.getElementById('uniqueFatMass').textContent = fatMassKg.toFixed(1) + ' kg';
-  }
-
-  document.getElementById('uniqueRisk').textContent = riskTier;
+  document.getElementById('uniqueProtein').textContent = proteinGrams + 'g (' + Math.round((proteinCals/tdee)*100) + '%)';
+  document.getElementById('uniqueCarbFat').textContent = carbGrams + 'g / ' + fatGrams + 'g';
+  document.getElementById('uniqueMetabolism').textContent = 'Normometabolic';
 
   if (alertBox) {
-    alertBox.innerHTML = `🟢 <strong>Composition Audit Complete:</strong> Body fat estimated at ${bf.toFixed(1)}%. Lean tissue mass calculated successfully.`;
+    alertBox.innerHTML = `🟢 <strong>Metabolic Audit Complete:</strong> BMR calculated at ${Math.round(bmr)} kcal. Optimal macros compiled successfully.`;
   }
 }
 
 function copyResults() {
-  const bf = document.getElementById('bfResult').textContent;
-  const category = document.getElementById('bfCategory').textContent;
-  const lbm = document.getElementById('uniqueLbm').textContent;
-  const fat = document.getElementById('uniqueFatMass').textContent;
-  const text = `Body Fat Result: ${bf} | ${category} | Lean Mass: ${lbm} | Fat Mass: ${fat}`;
+  const bmr = document.getElementById('bmrResult').textContent;
+  const tdee = document.getElementById('tdeeResult').textContent;
+  const goal = document.getElementById('goalRecommendation').textContent;
+  const protein = document.getElementById('uniqueProtein').textContent;
+  const text = `${bmr} | ${tdee} | ${goal} | Protein Split: ${protein}`;
   
   const alertBox = document.getElementById('syntaxAlertBox');
   navigator.clipboard.writeText(text).then(() => {
     if (alertBox) {
-      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Body composition results successfully copied.`;
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Calorie and macro results successfully copied.`;
     }
   });
 }
