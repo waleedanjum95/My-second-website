@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Target Heart Rate Zone Calculator | SmartToolsKit</title>
-<meta name="description" content="Calculate your optimal heart rate training zones (fat burn, cardio, peak) based on your age. Secure client-side fitness calculation tool.">
+<meta name="description" content="Calculate your optimal heart rate training zones (fat burn, cardio, peak) based on your age and resting pulse using the Karvonen formula.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smarttoolskit.com/tools/target-heart-rate-calculator.html">
 <meta name="theme-color" content="#0F172A">
@@ -67,10 +67,10 @@
     }
   },{
     "@type": "Question",
-    "name": "What is the fat burn heart rate zone?",
+    "name": "What is the Karvonen formula?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The fat burn zone typically spans 60% to 70% of your maximum heart rate, optimizing endurance and fat utilization."
+      "text": "The Karvonen formula calculates target heart rate zones by factoring in both your maximum heart rate and your resting heart rate (Heart Rate Reserve)."
     }
   },{
     "@type": "Question",
@@ -198,7 +198,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="output-card">
 <div class="output-header"><label>Estimated Maximum Heart Rate</label></div>
 <div class="result-display" id="maxHrResult">190 bpm</div>
-<div class="result-subtext" id="hrSubtext">Standard Formula: 220 minus Age</div>
+<div class="result-subtext" id="hrSubtext">Karvonen Method Active</div>
 </div>
 
 </div>
@@ -217,12 +217,12 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </tr>
 </thead>
 <tbody>
-<tr><td>Zone 1 (Recovery)</td><td>50% - 60%</td><td>95 - 114 bpm</td><td>Warm up &amp; recovery</td></tr>
+<tr><td>Zone 1 (Recovery)</td><td>50% - 60%</td><td>130 - 142 bpm</td><td>Warm up &amp; recovery</td></tr>
 </tbody>
 </table>
 </div>
 <div class="syntax-alert" id="syntaxAlertBox">
-Heart rate training zones computed successfully based on age and max heart rate.
+Heart rate training zones computed successfully using the Karvonen formula.
 </div>
 </div>
 
@@ -235,23 +235,23 @@ Heart rate training zones computed successfully based on age and max heart rate.
 </div>
 </div>
 </div>
-  </div>
-  <div class="content-section">
+</div>
+<div class="content-section">
 <h2>Why Training in Specific Heart Rate Zones Matters</h2>
 <p>Reaching your fitness and cardiovascular goals—whether you want to burn body fat, build endurance, or boost speed—depends heavily on exercising at the correct intensity. Pushing your body at maximum effort during every workout often leads to exhaustion, overtraining, and potential injury. Conversely, exercising too lightly may fail to trigger the physiological adaptations needed to improve heart health and stamina.</p>
 <p>Monitoring your pulse allows you to categorize your effort into distinct physiological brackets known as heart rate zones. That is why I built this free Target Heart Rate Zone Calculator. It allows runners, cyclists, and gym-goers to compute their precise beats-per-minute ranges securely right inside your web browser.</p>
 
 <h2>Unique Value: Why Standard Heart Rate Estimators Fall Short</h2>
-<p>Many basic online fitness calculators only show a single maximum heart rate number, leaving you to manually figure out percentages for different workouts. Our advanced tool features a dynamic <strong>Real-Time Training Zone Intensity Breakdown</strong> that instantly maps out all five standard cardiovascular zones from recovery up to peak anaerobic threshold. This gives you an actionable blueprint for every training session.</p>
+<p>Many basic online fitness calculators only show a single maximum heart rate number using a flat percentage, completely ignoring your resting pulse. Our advanced tool features the validated <strong>Karvonen Formula (Heart Rate Reserve method)</strong> alongside a dynamic <strong>Real-Time Training Zone Intensity Breakdown</strong> that instantly maps out all five standard cardiovascular zones tailored to your exact fitness level.</p>
 
 <h2>How to Use the Target Heart Rate Zone Calculator</h2>
 <p>Using this fitness utility is fast and straightforward:</p>
 <p><strong>Step 1:</strong> Enter your current age in years into the age input field.</p>
-<p><strong>Step 2:</strong> Optionally input your resting heart rate for enhanced personalization.</p>
+<p><strong>Step 2:</strong> Optionally input your resting heart rate for advanced Karvonen personalization.</p>
 <p><strong>Step 3:</strong> Review your estimated maximum heart rate and the complete breakdown of all 5 training zones instantly.</p>
 
-<h2>The Science Behind Maximum Heart Rate and Training Zones</h2>
-<p>Our calculation engine applies standard sports science baselines established by the American Heart Association (AHA) and the American College of Sports Medicine (ACSM). The baseline maximum heart rate is determined using the Fox formula (220 minus age), from which specific intensity percentages are calculated.</p>
+<h2>The Science Behind Maximum Heart Rate and the Karvonen Formula</h2>
+<p>Our calculation engine applies standard sports science baselines established by the American Heart Association (AHA). When resting heart rate is provided, it calculates the Heart Rate Reserve (HRR = Max HR - Resting HR) to deliver highly personalized training thresholds.</p>
 
 <div class="table-responsive">
 <table class="content-table">
@@ -260,7 +260,7 @@ Heart rate training zones computed successfully based on age and max heart rate.
 <th>Calculation Component</th>
 <th>Mathematical Formula</th>
 <th>Variables Used</th>
-<th>Example (Age 30)</th>
+<th>Example (Age 30, Rest 70)</th>
 </tr>
 </thead>
 <tbody>
@@ -271,16 +271,16 @@ Heart rate training zones computed successfully based on age and max heart rate.
 <td>220 - 30 = 190 bpm</td>
 </tr>
 <tr>
-<td>Fat Burn Zone (Zone 2)</td>
-<td>Max HR &times; 0.60 to 0.70</td>
-<td>Maximum Heart Rate</td>
-<td>114 to 133 bpm</td>
+<td>Heart Rate Reserve (HRR)</td>
+<td>Max HR - Resting HR</td>
+<td>Max HR and Resting Pulse</td>
+<td>190 - 70 = 120 bpm</td>
 </tr>
 <tr>
-<td>Cardio Zone (Zone 3)</td>
-<td>Max HR &times; 0.70 to 0.80</td>
-<td>Maximum Heart Rate</td>
-<td>133 to 152 bpm</td>
+<td>Fat Burn Zone (Zone 2)</td>
+<td>(HRR &times; % Intensity) + Resting HR</td>
+<td>HRR and Resting Pulse</td>
+<td>142 to 154 bpm</td>
 </tr>
 </tbody>
 </table>
@@ -301,27 +301,27 @@ Heart rate training zones computed successfully based on age and max heart rate.
 <tbody>
 <tr>
 <td>Zone 1 (Recovery)</td>
-<td>50% - 60% of Max HR</td>
+<td>50% - 60% of HRR</td>
 <td>Active recovery, warm-ups, and cool-downs.</td>
 </tr>
 <tr>
 <td>Zone 2 (Fat Burn)</td>
-<td>60% - 70% of Max HR</td>
+<td>60% - 70% of HRR</td>
 <td>Aerobic endurance, fat oxidation, stamina.</td>
 </tr>
 <tr>
 <td>Zone 3 (Cardio / Aerobic)</td>
-<td>70% - 80% of Max HR</td>
+<td>70% - 80% of HRR</td>
 <td>Aerobic fitness, cardiovascular capacity.</td>
 </tr>
 <tr>
 <td>Zone 4 (Anaerobic Threshold)</td>
-<td>80% - 90% of Max HR</td>
+<td>80% - 90% of HRR</td>
 <td>Speed endurance, lactate threshold.</td>
 </tr>
 <tr>
 <td>Zone 5 (Peak / Maximum)</td>
-<td>90% - 100% of Max HR</td>
+<td>90% - 100% of HRR</td>
 <td>Maximum sprint effort, explosive power.</td>
 </tr>
 </tbody>
@@ -330,8 +330,8 @@ Heart rate training zones computed successfully based on age and max heart rate.
 
 <h2>Two Real Worked Examples</h2>
 <p>To see how the calculator works in practice, let examine two concrete scenarios:</p>
-<p><strong>Example 1 (Age 30):</strong> A 30-year-old user has an estimated maximum heart rate of 190 bpm. Their Zone 2 fat burn range falls between 114 and 133 bpm, while their Zone 3 cardio range spans 133 to 152 bpm.</p>
-<p><strong>Example 2 (Age 50):</strong> A 50-year-old user has an estimated maximum heart rate of 170 bpm. Their Zone 2 fat burn range spans 102 to 119 bpm, ensuring safe and effective aerobic exercise.</p>
+<p><strong>Example 1 (With Resting HR):</strong> A 30-year-old user with a max HR of 190 bpm and a resting HR of 70 bpm has an HRR of 120 bpm. Their Zone 2 fat burn range becomes (120 &times; 0.60) + 70 = 142 bpm up to (120 &times; 0.70) + 70 = 154 bpm.</p>
+<p><strong>Example 2 (Without Resting HR):</strong> If resting HR is left blank, the tool seamlessly falls back to standard percentage of max HR calculations for quick estimates.</p>
 
 <h2>Who Uses This Tool and When?</h2>
 <p>Endurance runners, cyclists, triathlon competitors, and personal trainers use this calculator to structure weekly training block intensities, prevent overtraining, and optimize fat oxidation during workouts.</p>
@@ -344,8 +344,8 @@ Heart rate training zones computed successfully based on age and max heart rate.
 <p>No. All training zone calculations execute entirely inside your browser client-side for complete privacy.</p>
 <h3>2. How is maximum heart rate calculated?</h3>
 <p>Maximum heart rate is commonly estimated using the standard Fox formula by subtracting your age from 220.</p>
-<h3>3. What is the fat burn heart rate zone?</h3>
-<p>The fat burn zone typically spans 60% to 70% of your maximum heart rate, optimizing endurance and fat utilization.</p>
+<h3>3. What is the Karvonen formula?</h3>
+<p>The Karvonen formula calculates target heart rate zones by factoring in both your maximum heart rate and your resting heart rate (Heart Rate Reserve).</p>
 <h3>4. Why are heart rate training zones important?</h3>
 <p>Training zones ensure you exercise at the correct intensity for your specific goals, preventing overtraining and burnout.</p>
 <h3>5. Is this heart rate calculator 100% free?</h3>
@@ -396,6 +396,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function calculateHRZones() {
   const age = parseInt(document.getElementById('ageInput').value) || 0;
+  const restingHr = parseFloat(document.getElementById('restingHrInput').value);
   const alertBox = document.getElementById('syntaxAlertBox');
 
   if (age <= 0 || age > 120) {
@@ -406,28 +407,46 @@ function calculateHRZones() {
 
   const maxHr = 220 - age;
   document.getElementById('maxHrResult').textContent = `${maxHr} bpm`;
-  document.getElementById('hrSubtext').textContent = `Standard Formula: 220 minus Age (${age})`;
 
-  // Zones definition
-  const zones = [
-    { name: 'Zone 1 (Recovery)', range: '50% - 60%', min: Math.round(maxHr * 0.50), max: Math.round(maxHr * 0.60), benefit: 'Warm up & active recovery' },
-    { name: 'Zone 2 (Fat Burn)', range: '60% - 70%', min: Math.round(maxHr * 0.60), max: Math.round(maxHr * 0.70), benefit: 'Aerobic endurance & fat oxidation' },
-    { name: 'Zone 3 (Cardio)', range: '70% - 80%', min: Math.round(maxHr * 0.70), max: Math.round(maxHr * 0.80), benefit: 'Cardiovascular capacity & fitness' },
-    { name: 'Zone 4 (Threshold)', range: '80% - 90%', min: Math.round(maxHr * 0.80), max: Math.round(maxHr * 0.90), benefit: 'Speed endurance & anaerobic threshold' },
-    { name: 'Zone 5 (Peak)', range: '90% - 100%', min: Math.round(maxHr * 0.90), max: maxHr, benefit: 'Maximum sprint effort & power' }
+  // Check if valid resting HR is provided to use Karvonen Formula (HRR)
+  const useKarvonen = !isNaN(restingHr) && restingHr > 0 && restingHr < maxHr;
+
+  if (useKarvonen) {
+    document.getElementById('hrSubtext').textContent = `Karvonen Method (Max: ${maxHr} bpm, Rest: ${restingHr} bpm)`;
+  } else {
+    document.getElementById('hrSubtext').textContent = `Standard Formula: 220 minus Age (${age}) [Resting HR blank/invalid]`;
+  }
+
+  // Zones definition using Karvonen if resting HR is provided, else standard percentage
+  const percentages = [
+    { name: 'Zone 1 (Recovery)', range: '50% - 60%', minPct: 0.50, maxPct: 0.60, benefit: 'Warm up & active recovery' },
+    { name: 'Zone 2 (Fat Burn)', range: '60% - 70%', minPct: 0.60, maxPct: 0.70, benefit: 'Aerobic endurance & fat oxidation' },
+    { name: 'Zone 3 (Cardio)', range: '70% - 80%', minPct: 0.70, maxPct: 0.80, benefit: 'Cardiovascular capacity & fitness' },
+    { name: 'Zone 4 (Threshold)', range: '80% - 90%', minPct: 0.80, maxPct: 0.90, benefit: 'Speed endurance & anaerobic threshold' },
+    { name: 'Zone 5 (Peak)', range: '90% - 100%', minPct: 0.90, maxPct: 1.00, benefit: 'Maximum sprint effort & power' }
   ];
 
   const tbody = document.querySelector('#zoneTable tbody');
   tbody.innerHTML = '';
 
-  zones.forEach(z => {
+  percentages.forEach(p => {
+    let minBpm, maxBpm;
+    if (useKarvonen) {
+      const hrr = maxHr - restingHr;
+      minBpm = Math.round((hrr * p.minPct) + restingHr);
+      maxBpm = Math.round((hrr * p.maxPct) + restingHr);
+    } else {
+      minBpm = Math.round(maxHr * p.minPct);
+      maxBpm = Math.round(maxHr * p.maxPct);
+    }
+
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${z.name}</td><td>${z.range}</td><td>${z.min} - ${z.max} bpm</td><td>${z.benefit}</td>`;
+    tr.innerHTML = `<td>${p.name}</td><td>${p.range}</td><td>${minBpm} - ${maxBpm} bpm</td><td>${p.benefit}</td>`;
     tbody.appendChild(tr);
   });
 
   if (alertBox) {
-    alertBox.innerHTML = `🟢 <strong>Zones Computed:</strong> Maximum heart rate estimated at ${maxHr} bpm across 5 cardiovascular zones.`;
+    alertBox.innerHTML = `🟢 <strong>Zones Computed:</strong> Using ${useKarvonen ? 'Karvonen Heart Rate Reserve Method' : 'Standard Percentage Method'}.`;
   }
 }
 
