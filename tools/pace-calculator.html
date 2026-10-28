@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Running &amp; Walking Pace Calculator | SmartToolsKit</title>
+<meta name="description" content="Calculate your running or walking pace, speed, and finish times easily. Get dynamic mile and kilometer split projections securely in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/pace-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Running & Walking Pace Calculator | SmartToolsKit">
+<meta property="og:description" content="Calculate running and walking pace, speed, and split times securely client-side in your browser.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/pace-calculator.html">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Health Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Running & Walking Pace Calculator",
+    "item": "https://smarttoolskit.com/tools/pace-calculator.html"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Running & Walking Pace Calculator",
+  "url": "https://smarttoolskit.com/tools/pace-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is my running data stored on a server?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All pace and split calculations execute entirely inside your browser client-side for complete privacy."
+    }
+  },{
+    "@type": "Question",
+    "name": "How is running pace calculated?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pace is calculated by dividing your total finish time by the total distance covered, expressed in minutes per kilometer or minutes per mile."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is a good average walking pace?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An average brisk walking pace is roughly 5 kilometers per hour, or about 12 minutes per kilometer (20 minutes per mile)."
+    }
+  },{
+    "@type": "Question",
+    "name": "Why are split times important for runners?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Split times help runners maintain a consistent or negative split strategy during races, preventing burnout from starting too fast."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is this pace calculator 100% free?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, all tools on SmartToolsKit are completely free to use with no account registration required."
+    }
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.row-controls{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.row-three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:20px;margin-top:20px;border:1px solid #334155;text-align:center}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.result-display{font-size:26px;font-weight:800;color:#34D399;font-family:monospace;margin-bottom:6px}
+.result-subtext{font-size:13px;color:#CBD5E1}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.split-table-container{max-height:200px;overflow-y:auto;margin-top:12px;border:1px solid rgba(255,255,255,0.1);border-radius:8px}
+.split-table{width:100%;border-collapse:collapse;font-size:12px;font-family:monospace;color:#CBD5E1}
+.split-table th{background:rgba(255,255,255,0.08);color:#34D399;padding:6px 10px;text-align:left;position:sticky;top:0}
+.split-table td{padding:6px 10px;border-top:1px solid rgba(255,255,255,0.05)}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Health Tools</a> &gt; Running &amp; Walking Pace Calculator
+</div>
+<div class="tool-layout">
+<div class="tool-container">
+<h1>Running &amp; Walking Pace Calculator</h1>
+<p class="subtitle">Calculate your running or walking pace, speed, and finish times instantly.</p>
+<div class="calc-box">
+<div class="row-controls">
+<div class="form-group">
+<label for="distanceUnit">Distance Unit</label>
+<select id="distanceUnit" onchange="updateDistancePresets(); calculatePace();">
+<option value="km">Kilometers (km)</option>
+<option value="miles">Miles (mi)</option>
+<option value="meters">Meters (m)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="distancePreset">Quick Distance Preset</label>
+<select id="distancePreset" onchange="applyPreset(); calculatePace();">
+<option value="custom">Custom Distance</option>
+<option value="5">5 km</option>
+<option value="10">10 km</option>
+<option value="21.0975">Half Marathon (21.1 km)</option>
+<option value="42.195">Full Marathon (42.2 km)</option>
+</select>
+</div>
+</div>
+
+<div class="row-controls">
+<div class="form-group">
+<label for="distanceInput">Total Distance</label>
+<input type="number" id="distanceInput" value="10" min="0.1" max="1000" step="0.1" oninput="calculatePace()">
+</div>
+<div class="form-group">
+<label>Total Time (Hours : Minutes : Seconds)</label>
+<div class="row-three">
+<input type="number" id="timeHours" value="0" min="0" max="24" oninput="calculatePace()">
+<input type="number" id="timeMins" value="50" min="0" max="59" oninput="calculatePace()">
+<input type="number" id="timeSecs" value="0" min="0" max="59" oninput="calculatePace()">
+</div>
+</div>
+</div>
+
+<div class="btn-row">
+<button class="calc-btn" onclick="calculatePace()">Calculate Pace</button>
+<button class="calc-btn btn-secondary" onclick="copyResults()">Copy Results</button>
+</div>
+
+<div class="output-card">
+<div class="output-header"><label>Calculated Pace &amp; Speed</label></div>
+<div class="result-display" id="paceResult">5:00 min/km</div>
+<div class="result-subtext" id="speedResult">Speed: 12.0 km/h (7.5 mph)</div>
+</div>
+
+</div>
+
+<div class="unique-box">
+<h3>✨ Real-Time Split Time Projection Table</h3>
+<p>Our client-side tool generates a complete interval split table for your entire run or walk:</p>
+<div class="split-table-container">
+<table class="split-table" id="splitTable">
+<thead>
+<tr>
+<th>Distance</th>
+<th>Split Time</th>
+<th>Cumulative Time</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1.0 km</td><td>5:00</td><td>5:00</td></tr>
+</tbody>
+</table>
+</div>
+<div class="syntax-alert" id="syntaxAlertBox">
+Pace and split projections computed successfully.
+</div>
+</div>
+
+<div class="security-badge">
+<span>Client-side security:</span> all calculations happen in your browser. We do not collect, store, or send any data you enter.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool provides mathematical pace and speed estimates based on provided distance and time inputs.
+</div>
+</div>
+</div>
+  </div>
+  <div class="content-section">
+<h2>Why Monitoring Your Running and Walking Pace Matters</h2>
+<p>Whether you are training for your first 5K race, preparing for a marathon, or trying to stay consistent with daily walking workouts, knowing your precise pace is essential. Pace management helps you distribute your energy evenly, prevent early fatigue, and track long-term cardiovascular progress. Guessing your speed or relying on rough estimates can lead to burnout or missed training goals.</p>
+<p>That is why I built this free Running and Walking Pace Calculator. It allows runners, joggers, and walkers to compute their exact minutes-per-kilometer or minutes-per-mile pace, average speed, and interval split times securely right inside your web browser.</p>
+
+<h2>Unique Value: Why Standard Pace Calculators Fall Short</h2>
+<p>Many basic online calculators only output a single static pace number, leaving you to manually calculate what your split times should look like at each mile or kilometer marker. Our advanced tool features a dynamic <strong>Real-Time Split Time Projection Table</strong> that automatically generates a complete milestone breakdown for your entire workout. This gives you an actionable roadmap to follow during training sessions and races.</p>
+
+<h2>How to Use the Pace Calculator</h2>
+<p>Using this fitness utility is fast and straightforward:</p>
+<p><strong>Step 1:</strong> Select your preferred distance unit (Kilometers, Miles, or Meters) or choose a quick race preset.</p>
+<p><strong>Step 2:</strong> Enter your total distance and total finish time in hours, minutes, and seconds.</p>
+<p><strong>Step 3:</strong> Review your calculated pace per kilometer and mile, average speed, and interval split projections instantly.</p>
+
+<h2>The Mathematical Formula Behind Pace and Speed</h2>
+<p>Our calculation engine applies standard athletic formulas to convert total duration and distance into actionable metrics. Pace is determined by dividing total time by total distance, while speed is calculated by dividing distance by total hours elapsed.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Metric Name</th>
+<th>Mathematical Formula</th>
+<th>Variables Used</th>
+<th>Example (10 km in 50 mins)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pace per Kilometer</td>
+<td>Total Time / Distance (km)</td>
+<td>3,000 seconds / 10 km</td>
+<td>300 sec = 5:00 min/km</td>
+</tr>
+<tr>
+<td>Average Speed</td>
+<td>Distance / Total Hours</td>
+<td>10 km / 0.833 hours</td>
+<td>12.0 km/h (7.5 mph)</td>
+</tr>
+<tr>
+<td>Pace per Mile</td>
+<td>Total Time / Distance (mi)</td>
+<td>3,000 seconds / 6.21 mi</td>
+<td>8:02 min/mi</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Pace Reference Benchmarks</h2>
+<p>The reference table below outlines typical running and walking paces across different fitness levels.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Activity Type</th>
+<th>Fitness Level</th>
+<th>Pace (per Kilometer)</th>
+<th>Pace (per Mile)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Casual Walking</td>
+<td>Moderate / Fitness</td>
+<td>10:00 - 12:00 min/km</td>
+<td>16:00 - 19:30 min/mi</td>
+</tr>
+<tr>
+<td>Jogging / Slow Run</td>
+<td>Beginner Jogger</td>
+<td>6:00 - 7:30 min/km</td>
+<td>9:40 - 12:00 min/mi</td>
+</tr>
+<tr>
+<td>Competitive Running</td>
+<td>Experienced Runner</td>
+<td>4:00 - 5:00 min/km</td>
+<td>6:25 - 8:00 min/mi</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Two Real Worked Examples</h2>
+<p>To see how the calculator works in practice, let examine two concrete scenarios:</p>
+<p><strong>Example 1 (10K Run):</strong> Running a 10 km race in 50 minutes. Dividing 3,000 seconds by 10 gives a pace of exactly 5:00 minutes per kilometer (or 8:02 minutes per mile), with an average speed of 12.0 km/h.</p>
+<p><strong>Example 2 (5K Walk):</strong> Walking a 5 km distance in 45 minutes. Dividing 2,700 seconds by 5 gives a pace of 9:00 minutes per kilometer (14:28 minutes per mile), with a speed of 6.67 km/h.</p>
+
+<h2>Who Uses This Tool and When?</h2>
+<p>Marathoners, track athletes, casual joggers, and weight-loss walkers use this calculator to plan training schedules, set race-day target splits, and monitor cardiovascular improvements over time.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A frequent mistake is starting a race or long run too fast, leading to early exhaustion. Using interval splits helps you pace yourself evenly from start to finish.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Is my running data stored on a server?</h3>
+<p>No. All pace and split calculations execute entirely inside your browser client-side for complete privacy.</p>
+<h3>2. How is running pace calculated?</h3>
+<p>Pace is calculated by dividing your total finish time by the total distance covered, expressed in minutes per kilometer or minutes per mile.</p>
+<h3>3. What is a good average walking pace?</h3>
+<p>An average brisk walking pace is roughly 5 kilometers per hour, or about 12 minutes per kilometer (20 minutes per mile).</p>
+<h3>4. Why are split times important for runners?</h3>
+<p>Split times help runners maintain a consistent or negative split strategy during races, preventing burnout from starting too fast.</p>
+<h3>5. Is this pace calculator 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
+
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="bmi-calculator.html" style="color:var(--emerald);">BMI Calculator</a>, <a href="bmr-tdee-calculator.html" style="color:var(--emerald);">BMR &amp; TDEE Calorie Calculator</a>, <a href="body-fat-calculator.html" style="color:var(--emerald);">Body Fat Percentage Calculator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#about">About Us</a>
+<a href="../index.html#contact">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  calculatePace();
+});
+
+function updateDistancePresets() {
+  const unit = document.getElementById('distanceUnit').value;
+  const preset = document.getElementById('distancePreset');
+  if (unit === 'miles') {
+    preset.innerHTML = `
+      <option value="custom">Custom Distance</option>
+      <option value="3.1">5K (3.1 mi)</option>
+      <option value="6.2">10K (6.2 mi)</option>
+      <option value="13.1">Half Marathon (13.1 mi)</option>
+      <option value="26.2">Full Marathon (26.2 mi)</option>
+    `;
+    document.getElementById('distanceInput').value = 6.2;
+  } else if (unit === 'meters') {
+    preset.innerHTML = `
+      <option value="custom">Custom Distance</option>
+      <option value="1000">1,000 m</option>
+      <option value="5000">5,000 m</option>
+      <option value="10000">10,000 m</option>
+    `;
+    document.getElementById('distanceInput').value = 5000;
+  } else {
+    preset.innerHTML = `
+      <option value="custom">Custom Distance</option>
+      <option value="5">5 km</option>
+      <option value="10" selected>10 km</option>
+      <option value="21.0975">Half Marathon (21.1 km)</option>
+      <option value="42.195">Full Marathon (42.2 km)</option>
+    `;
+    document.getElementById('distanceInput').value = 10;
+  }
+}
+
+function applyPreset() {
+  const val = document.getElementById('distancePreset').value;
+  if (val !== 'custom') {
+    document.getElementById('distanceInput').value = val;
+  }
+}
+
+function formatTime(totalSeconds) {
+  if (isNaN(totalSeconds) || totalSeconds <= 0) return "0:00";
+  const hrs = Math.floor(totalSeconds / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = Math.round(totalSeconds % 60);
+  
+  if (hrs > 0) {
+    return `${hrs}:${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  }
+  return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+function calculatePace() {
+  const unit = document.getElementById('distanceUnit').value;
+  let distance = parseFloat(document.getElementById('distanceInput').value) || 0;
+  const hrs = parseFloat(document.getElementById('timeHours').value) || 0;
+  const mins = parseFloat(document.getElementById('timeMins').value) || 0;
+  const secs = parseFloat(document.getElementById('timeSecs').value) || 0;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (distance <= 0) {
+    document.getElementById('paceResult').textContent = 'Invalid Distance';
+    document.getElementById('speedResult').textContent = 'Please enter a distance greater than zero.';
+    return;
+  }
+
+  const totalSeconds = (hrs * 3600) + (mins * 60) + secs;
+  if (totalSeconds <= 0) {
+    document.getElementById('paceResult').textContent = 'Invalid Time';
+    document.getElementById('speedResult').textContent = 'Please enter a valid time duration.';
+    return;
+  }
+
+  // Convert distance to km and miles for dual display
+  let distKm = distance;
+  let distMiles = distance;
+
+  if (unit === 'miles') {
+    distKm = distance * 1.60934;
+  } else if (unit === 'meters') {
+    distKm = distance / 1000;
+    distMiles = distance / 1609.34;
+  } else {
+    distMiles = distance / 1.60934;
+  }
+
+  const secondsPerKm = totalSeconds / distKm;
+  const secondsPerMile = totalSeconds / distMiles;
+
+  const paceKmStr = formatTime(secondsPerKm);
+  const paceMileStr = formatTime(secondsPerMile);
+
+  const hoursTotal = totalSeconds / 3600;
+  const speedKmh = distKm / hoursTotal;
+  const speedMph = distMiles / hoursTotal;
+
+  document.getElementById('paceResult').textContent = `${paceKmStr} min/km (${paceMileStr} min/mi)`;
+  document.getElementById('speedResult').textContent = `Speed: ${speedKmh.toFixed(1)} km/h (${speedMph.toFixed(1)} mph)`;
+
+  // Generate Split Table
+  const tbody = document.querySelector('#splitTable tbody');
+  tbody.innerHTML = '';
+
+  let splitInterval = 1; // default 1 km or 1 mile
+  let totalIntervals = Math.floor(unit === 'miles' ? distMiles : distKm);
+  if (unit === 'meters') totalIntervals = Math.floor(distKm);
+
+  if (totalIntervals > 30) totalIntervals = 30; // cap rows for performance
+
+  for (let i = 1; i <= totalIntervals; i++) {
+    const cumulativeSecs = (totalSeconds / (unit === 'miles' ? distMiles : distKm)) * i;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${i} ${unit === 'miles' ? 'mi' : 'km'}</td><td>${paceKmStr}</td><td>${formatTime(cumulativeSecs)}</td>`;
+    tbody.appendChild(tr);
+  }
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Pace Computed Successfully:</strong> Pace set to ${paceKmStr} min/km (${speedKmh.toFixed(1)} km/h).`;
+  }
+}
+
+function copyResults() {
+  const pace = document.getElementById('paceResult').textContent;
+  const speed = document.getElementById('speedResult').textContent;
+  const text = `Pace & Speed Result: ${pace} | ${speed}`;
+  
+  const alertBox = document.getElementById('syntaxAlertBox');
+  navigator.clipboard.writeText(text).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Pace results successfully copied.`;
+    }
+  });
+}
+</script>
+</body>
+</html>
