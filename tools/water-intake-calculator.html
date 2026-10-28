@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Water Intake Calculator &amp; Hydration Guide</title>
+<meta name="description" content="Calculate your daily water intake based on weight and activity. Get instant hydration targets in liters, milliliters, and ounces securely in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/water-intake-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Water Intake Calculator & Hydration Guide | SmartToolsKit">
+<meta property="og:description" content="Calculate daily recommended water intake based on body weight and physical activity level securely client-side.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/water-intake-calculator.html">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Health Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Water Intake Calculator",
+    "item": "https://smarttoolskit.com/tools/water-intake-calculator.html"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Water Intake Calculator",
+  "url": "https://smarttoolskit.com/tools/water-intake-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is my personal weight data sent to a server?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All hydration calculations execute entirely inside your browser client-side for complete privacy."
+    }
+  },{
+    "@type": "Question",
+    "name": "How much water should an average adult drink daily?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "General health guidelines recommend roughly 35 ml per kilogram of body weight, adjusted higher for exercise intensity and climate."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does tea and coffee count toward daily water intake?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, caffeinated beverages contribute to your fluid intake, though plain water remains the optimal choice for hydration."
+    }
+  },{
+    "@type": "Question",
+    "name": "Why does physical activity change my water requirements?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sweating during physical exertion expels water and electrolytes, which must be replenished to maintain athletic performance."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is this calculator 100% free?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, all tools on SmartToolsKit are completely free to use with no account registration required."
+    }
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.row-controls{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:20px;margin-top:20px;border:1px solid #334155;text-align:center}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.result-display{font-size:28px;font-weight:800;color:#34D399;font-family:monospace;margin-bottom:6px}
+.result-subtext{font-size:13px;color:#CBD5E1}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:12px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
+.ad-slot{background:#E2E8F0;color:#64748B;text-align:center;padding:15px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:25px 0;border:1px dashed #CBD5E1}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Health Tools</a> &gt; Water Intake Calculator
+</div>
+<div class="tool-layout">
+<div class="tool-container">
+<h1>Water Intake Calculator</h1>
+<p class="subtitle">Calculate your daily recommended water intake based on body weight and activity level.</p>
+<div class="calc-box">
+<div class="row-controls">
+<div class="form-group">
+<label for="unitSystem">Measurement Unit</label>
+<select id="unitSystem" onchange="updateUnits(); calculateWater();">
+<option value="metric">Metric (kg / ml)</option>
+<option value="imperial">Imperial (lbs / fl oz)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="climateSelect">Climate &amp; Environment</label>
+<select id="climateSelect" onchange="calculateWater()">
+<option value="normal">Normal / Temperate</option>
+<option value="hot">Hot &amp; Humid (+20%)</option>
+<option value="cold">Cool / Dry</option>
+</select>
+</div>
+</div>
+
+<div class="row-controls">
+<div class="form-group">
+<label for="weightInput" id="labelWeight">Body Weight (kg)</label>
+<input type="number" id="weightInput" value="70" step="0.5" min="10" max="300" oninput="calculateWater()">
+</div>
+<div class="form-group">
+<label for="activitySelect">Daily Exercise / Activity</label>
+<select id="activitySelect" onchange="calculateWater()">
+<option value="0">Sedentary (Little or no exercise)</option>
+<option value="350">Light Exercise (1-3 days/week)</option>
+<option value="550" selected>Moderate Exercise (3-5 days/week)</option>
+<option value="850">Heavy Exercise (6-7 days/week)</option>
+</select>
+</div>
+</div>
+
+<div class="btn-row">
+<button class="calc-btn" onclick="calculateWater()">Calculate Water Intake</button>
+<button class="calc-btn btn-secondary" onclick="copyResults()">Copy Results</button>
+</div>
+
+<div class="output-card">
+<div class="output-header"><label>Recommended Daily Hydration</label></div>
+<div class="result-display" id="waterResult">2.8 L / 95 fl oz</div>
+<div class="result-subtext" id="waterGlasses">Equivalent to about 11 glasses (250 ml each)</div>
+</div>
+
+</div>
+
+<div class="unique-box">
+<h3>✨ Real-time Hydration Schedule Breakdown</h3>
+<p>Our client-side tool divides your daily target across morning, afternoon, evening, and workout blocks:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Morning Block</span>
+<strong id="schedMorning">700 ml</strong>
+</div>
+<div class="unique-stat-card">
+<span>Afternoon Block</span>
+<strong id="schedAfternoon">1,000 ml</strong>
+</div>
+<div class="unique-stat-card">
+<span>Evening Block</span>
+<strong id="schedEvening">600 ml</strong>
+</div>
+<div class="unique-stat-card">
+<span>Workout Hydration</span>
+<strong id="schedWorkout">500 ml</strong>
+</div>
+</div>
+<div class="syntax-alert" id="syntaxAlertBox">
+Hydration target computed successfully based on weight and activity inputs.
+</div>
+</div>
+
+<div class="ad-slot">Advertisement</div>
+
+<div class="security-badge">
+<span>Client-side security:</span> all calculations happen in your browser. We do not collect, store, or send any data you enter.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool provides general hydration estimates. Individual water needs vary based on health status, diet, and medical conditions.
+</div>
+</div>
+</div>
+  </div>
+  <div class="content-section">
+<h2>Why Proper Daily Hydration Matters</h2>
+<p>Staying adequately hydrated is one of the simplest yet most vital habits for maintaining physical energy, mental focus, and metabolic health. Because the human body consists of roughly 60% water, fluids regulate body temperature, lubricate joints, flush waste through kidneys, and transport vital nutrients. When you lose more fluid than you take in, mild dehydration can quickly trigger fatigue, headaches, and poor concentration.</p>
+<p>Drinking enough water every day sounds straightforward, but figuring out your exact target can be confusing. General rules like drinking eight glasses a day do not account for differences in body weight, climate conditions, or physical activity levels. That is why I built this free Water Intake Calculator—to give you a precise, personalized hydration target computed securely right inside your web browser.</p>
+
+<h2>How to Use the Water Intake Calculator</h2>
+<p>Using this utility is fast and straightforward:</p>
+<p><strong>Step 1:</strong> Choose your preferred measurement unit system (Metric in kilograms or Imperial in pounds).</p>
+<p><strong>Step 2:</strong> Select your local climate condition and input your current body weight.</p>
+<p><strong>Step 3:</strong> Select your weekly exercise intensity level to automatically factor in sweat loss.</p>
+<p><strong>Step 4:</strong> Review your total daily water requirement along with the real-time hydration schedule breakdown.</p>
+
+<h2>The Science Behind Daily Water Requirements</h2>
+<p>Our calculation engine applies standard clinical baselines established by health authorities. The formula starts with a baseline fluid requirement per unit of body mass, adds specific adjustments for physical exertion, and scales for environmental temperature.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Formula Name</th>
+<th>Mathematical Formula</th>
+<th>Variables</th>
+<th>Example (70 kg Person)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline Mass Factor</td>
+<td>Weight (kg) &times; 35 ml</td>
+<td>Body Weight</td>
+<td>70 kg &times; 35 ml = 2,450 ml</td>
+</tr>
+<tr>
+<td>Activity Addition</td>
+<td>Activity Tier Offset</td>
+<td>Exercise frequency</td>
+<td>Moderate Tier = +550 ml</td>
+</tr>
+<tr>
+<td>Climate Multiplier</td>
+<td>Subtotal &times; 1.20 (if hot)</td>
+<td>Environmental temp</td>
+<td>2,450 + 550 = 3,000 ml</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Hydration Reference Guidelines</h2>
+<p>The reference table below outlines standard daily fluid intake benchmarks established by health organizations like the U.S. National Academies of Sciences, Engineering, and Medicine.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Demographic Group</th>
+<th>Recommended Total Daily Fluid</th>
+<th>Primary Source Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adult Men (Average)</td>
+<td>~3.7 Liters (125 fl oz)</td>
+<td>U.S. National Academies of Sciences</td>
+</tr>
+<tr>
+<td>Adult Women (Average)</td>
+<td>~2.7 Liters (91 fl oz)</td>
+<td>U.S. National Academies of Sciences</td>
+</tr>
+<tr>
+<td>Active Athletes</td>
+<td>Scaled by sweat rate (+500ml to +1500ml)</td>
+<td>Sports Science Guidelines</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Two Real Worked Examples</h2>
+<p>To see how the calculator works in practice, let examine two concrete scenarios:</p>
+<p><strong>Example 1 (Metric):</strong> A person weighs 70 kg, engages in moderate exercise (3–5 days a week), and lives in a temperate climate. The baseline calculation yields 2,450 ml plus 550 ml for exercise, resulting in a total target of 3,000 ml (3.0 Liters or 101 fl oz).</p>
+<p><strong>Example 2 (Imperial):</strong> An individual weighs 160 lbs (~72.5 kg), has a sedentary routine, in a cool climate. Converting 160 lbs gives roughly 72.5 kg &times; 35 ml = 2,537 ml (~86 fl oz), adjusted cleanly for daily needs.</p>
+
+<h2>Who Uses This Tool and When?</h2>
+<p>Athletes, runners, gym-goers, and office workers use this calculator daily to prevent dehydration and maintain peak cognitive function. It is especially useful during summer months or intense weight-loss cutting phases when fluid regulation is critical.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A frequent error is waiting until you feel thirsty before drinking water. Thirst is a lagging indicator that mild dehydration has already begun. Another mistake is gulping down massive amounts of water all at once instead of sipping steadily throughout the day.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Is my personal weight data sent to a server?</h3>
+<p>No. All hydration calculations execute entirely inside your browser client-side for complete privacy.</p>
+<h3>2. How much water should an average adult drink daily?</h3>
+<p>General health guidelines recommend roughly 35 ml per kilogram of body weight, adjusted higher for exercise intensity and climate.</p>
+<h3>3. Does tea and coffee count toward daily water intake?</h3>
+<p>Yes, caffeinated beverages contribute to your fluid intake, though plain water remains the optimal choice for hydration.</p>
+<h3>4. Why does physical activity change my water requirements?</h3>
+<p>Sweating during physical exertion expels water and electrolytes, which must be replenished to maintain athletic performance.</p>
+<h3>5. Is this calculator 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
+
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="bmi-calculator.html" style="color:var(--emerald);">BMI Calculator</a>, <a href="bmr-tdee-calculator.html" style="color:var(--emerald);">BMR &amp; TDEE Calorie Calculator</a>, <a href="body-fat-calculator.html" style="color:var(--emerald);">Body Fat Percentage Calculator</a>, <a href="memorable-password-transformer.html" style="color:var(--emerald);">Memorable Password Transformer</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#about">About Us</a>
+<a href="../index.html#contact">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  calculateWater();
+});
+
+function updateUnits() {
+  const unit = document.getElementById('unitSystem').value;
+  const labelWeight = document.getElementById('labelWeight');
+  const weightInput = document.getElementById('weightInput');
+  if (unit === 'imperial') {
+    labelWeight.textContent = 'Body Weight (lbs)';
+    weightInput.value = '154';
+    weightInput.min = '22';
+    weightInput.max = '660';
+  } else {
+    labelWeight.textContent = 'Body Weight (kg)';
+    weightInput.value = '70';
+    weightInput.min = '10';
+    weightInput.max = '300';
+  }
+  calculateWater();
+}
+
+function calculateWater() {
+  const unit = document.getElementById('unitSystem').value;
+  const climate = document.getElementById('climateSelect').value;
+  let weight = parseFloat(document.getElementById('weightInput').value) || 0;
+  const activityBonus = parseFloat(document.getElementById('activitySelect').value) || 0;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (weight <= 0) {
+    document.getElementById('waterResult').textContent = 'Invalid Input';
+    document.getElementById('waterGlasses').textContent = 'Please enter a valid body weight.';
+    return;
+  }
+
+  // Convert imperial lbs to kg for internal calculation
+  let weightKg = unit === 'imperial' ? weight * 0.453592 : weight;
+
+  // Base calculation: 35 ml per kg
+  let totalMl = (weightKg * 35) + activityBonus;
+
+  // Climate modifier
+  if (climate === 'hot') {
+    totalMl *= 1.20;
+  } else if (climate === 'cold') {
+    totalMl *= 0.95;
+  }
+
+  const totalLiters = totalMl / 1000;
+  const totalOz = totalMl * 0.033814;
+  const glasses = Math.round(totalMl / 250);
+
+  if (unit === 'imperial') {
+    document.getElementById('waterResult').textContent = `${totalOz.toFixed(0)} fl oz (${totalLiters.toFixed(2)} L)`;
+  } else {
+    document.getElementById('waterResult').textContent = `${totalLiters.toFixed(2)} L / ${totalOz.toFixed(0)} fl oz`;
+  }
+
+  document.getElementById('waterGlasses').textContent = `Equivalent to about ${glasses} glasses (250 ml each)`;
+
+  // Schedule breakdown
+  const morning = Math.round(totalMl * 0.25);
+  const afternoon = Math.round(totalMl * 0.35);
+  const evening = Math.round(totalMl * 0.20);
+  const workout = Math.round(totalMl * 0.20);
+
+  if (unit === 'imperial') {
+    document.getElementById('schedMorning').textContent = `${(morning * 0.033814).toFixed(0)} fl oz`;
+    document.getElementById('schedAfternoon').textContent = `${(afternoon * 0.033814).toFixed(0)} fl oz`;
+    document.getElementById('schedEvening').textContent = `${(evening * 0.033814).toFixed(0)} fl oz`;
+    document.getElementById('schedWorkout').textContent = `${(workout * 0.033814).toFixed(0)} fl oz`;
+  } else {
+    document.getElementById('schedMorning').textContent = `${morning} ml`;
+    document.getElementById('schedAfternoon').textContent =`${afternoon} ml`;
+    document.getElementById('schedEvening').textContent = `${evening} ml`;
+    document.getElementById('schedWorkout').textContent = `${workout} ml`;
+  }
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Hydration Target Computed:</strong> Recommended intake set to ${totalLiters.toFixed(2)} Liters (${totalOz.toFixed(0)} fl oz).`;
+  }
+}
+
+function copyResults() {
+  const result = document.getElementById('waterResult').textContent;
+  const glasses = document.getElementById('waterGlasses').textContent;
+  const text = `Water Intake Target: ${result} | ${glasses}`;
+  
+  const alertBox = document.getElementById('syntaxAlertBox');
+  navigator.clipboard.writeText(text).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Hydration targets successfully copied.`;
+    }
+  });
+}
+</script>
+</body>
+</html>
