@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Macro &amp; Protein Calculator | SmartToolsKit</title>
+<meta name="description" content="Calculate your daily macronutrient targets (protein, carbs, fats) and calorie split based on your body weight, activity level, and fitness goals.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/macro-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Macro & Protein Calculator | SmartToolsKit">
+<meta property="og:description" content="Calculate daily macronutrient targets and meal splits securely client-side in your browser.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/macro-calculator.html">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Health Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Macro & Protein Calculator",
+    "item": "https://smarttoolskit.com/tools/macro-calculator.html"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Macro & Protein Calculator",
+  "url": "https://smarttoolskit.com/tools/macro-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Are my personal health records stored on a server?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All macro and calorie calculations execute entirely inside your browser client-side for complete privacy."
+    }
+  },{
+    "@type": "Question",
+    "name": "How much protein do I need daily?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Active individuals and those aiming for muscle retention typically require 1.6 to 2.2 grams of protein per kilogram of body weight."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the difference between flexible dieting and strict meal plans?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Flexible dieting focuses on hitting daily macro targets rather than eating specific foods, making long-term adherence much easier."
+    }
+  },{
+    "@type": "Question",
+    "name": "How do fitness goals affect macro ratios?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Fat loss phases usually require higher protein to preserve muscle tissue, while muscle building benefits from higher carbohydrate intake for workout energy."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is this macro calculator 100% free?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, all tools on SmartToolsKit are completely free to use with no account registration required."
+    }
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.row-controls{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:20px;margin-top:20px;border:1px solid #334155;text-align:center}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.result-display{font-size:26px;font-weight:800;color:#34D399;font-family:monospace;margin-bottom:6px}
+.result-subtext{font-size:13px;color:#CBD5E1}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:12px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Health Tools</a> &gt; Macro &amp; Protein Calculator
+</div>
+<div class="tool-layout">
+<div class="tool-container">
+<h1>Macro &amp; Protein Calculator</h1>
+<p class="subtitle">Calculate your optimal daily macronutrient targets and calorie split based on your fitness goals.</p>
+<div class="calc-box">
+<div class="row-controls">
+<div class="form-group">
+<label for="gender">Gender</label>
+<select id="gender" onchange="calculateMacros()">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+</div>
+<div class="form-group">
+<label for="unitSystem">Measurement Unit</label>
+<select id="unitSystem" onchange="updateUnits(); calculateMacros();">
+<option value="metric">Metric (kg / cm)</option>
+<option value="imperial">Imperial (lbs / inches)</option>
+</select>
+</div>
+</div>
+
+<div class="row-controls">
+<div class="form-group">
+<label for="ageInput">Age (Years)</label>
+<input type="number" id="ageInput" value="28" min="10" max="120" oninput="calculateMacros()">
+</div>
+<div class="form-group">
+<label for="goalSelect">Fitness Goal</label>
+<select id="goalSelect" onchange="calculateMacros()">
+<option value="maintenance">Maintenance (Maintain Weight)</option>
+<option value="fatloss" selected>Fat Loss (Cut -500 kcal)</option>
+<option value="muscle">Muscle Gain (Bulk +300 kcal)</option>
+</select>
+</div>
+</div>
+
+<div class="row-controls">
+<div class="form-group">
+<label for="weightInput" id="labelWeight">Body Weight (kg)</label>
+<input type="number" id="weightInput" value="75" min="20" max="300" step="0.5" oninput="calculateMacros()">
+</div>
+<div class="form-group">
+<label for="heightInput" id="labelHeight">Height (cm)</label>
+<input type="number" id="heightInput" value="175" min="50" max="250" step="0.5" oninput="calculateMacros()">
+</div>
+</div>
+
+<div class="form-group">
+<label for="activitySelect">Daily Activity Level</label>
+<select id="activitySelect" onchange="calculateMacros()">
+<option value="1.2">Sedentary (Little or no exercise)</option>
+<option value="1.375">Light Exercise (1-3 days/week)</option>
+<option value="1.55" selected>Moderate Exercise (3-5 days/week)</option>
+<option value="1.725">Heavy Exercise (6-7 days/week)</option>
+<option value="1.9">Athlete (Hard daily training)</option>
+</select>
+</div>
+
+<div class="btn-row">
+<button class="calc-btn" onclick="calculateMacros()">Calculate Macros</button>
+<button class="calc-btn btn-secondary" onclick="copyResults()">Copy Results</button>
+</div>
+
+<div class="output-card">
+<div class="output-header"><label>Daily Target Macros &amp; Calories</label></div>
+<div class="result-display" id="macroResult">2,150 kcal</div>
+<div class="result-subtext" id="macroBreakdown">Protein: 160g | Carbs: 215g | Fats: 72g</div>
+</div>
+
+</div>
+
+<div class="unique-box">
+<h3>✨ Real-Time Per-Meal Macro Distribution Split</h3>
+<p>Our client-side tool automatically splits your total daily macros across 4 meals for optimal daily intake:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Per Meal Protein</span>
+<strong id="mealProtein">40g</strong>
+</div>
+<div class="unique-stat-card">
+<span>Per Meal Carbs</span>
+<strong id="mealCarbs">54g</strong>
+</div>
+<div class="unique-stat-card">
+<span>Per Meal Fats</span>
+<strong id="mealFats">18g</strong>
+</div>
+<div class="unique-stat-card">
+<span>Per Meal Calories</span>
+<strong id="mealCals">538 kcal</strong>
+</div>
+</div>
+<div class="syntax-alert" id="syntaxAlertBox">
+Macronutrient targets computed successfully based on Mifflin-St Jeor and goal formulas.
+</div>
+</div>
+
+<div class="security-badge">
+<span>Client-side security:</span> all calculations happen in your browser. We do not collect, store, or send any data you enter.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool provides general nutritional estimates. Consult a registered dietitian for personalized medical nutrition therapy.
+</div>
+</div>
+</div>
+  </div>
+  <div class="content-section">
+<h2>Why Tracking Macronutrients Beats Simple Calorie Counting</h2>
+<p>Reaching your ideal body composition—whether you want to lean out or build athletic muscle—requires more than just restricting calories. While total energy balance determines whether your weight goes up or down, the type of calories you consume dictates whether you lose stubborn body fat or valuable muscle tissue. Macronutrients—proteins, carbohydrates, and fats—each play unique biological roles in hormone production, energy regulation, and muscular recovery.</p>
+<p>Proteins supply the amino acids required to repair torn muscle fibers and maintain lean mass. Carbohydrates fuel high-intensity workouts and replenish glycogen stores. Dietary fats support hormone regulation and cellular health. That is why I built this free Macro and Protein Calculator—to give you an accurate, personalized macronutrient breakdown computed securely right inside your web browser.</p>
+
+<h2>Unique Value: Why Standard Calorie Counters Fall Short</h2>
+<p>Many basic fitness calculators only provide a single flat calorie target, leaving you guessing how much chicken, rice, or healthy fats to actually put on your plate. Our advanced tool features a <strong>Per-Meal Macro Distribution Split</strong> that automatically divides your daily protein, carbohydrate, and fat targets across four balanced daily meals. This takes the guesswork out of meal prep and ensures your body receives a steady supply of amino acids throughout the day.</p>
+
+<h2>How to Use the Macro and Protein Calculator</h2>
+<p>Using this nutritional utility is fast and straightforward:</p>
+<p><strong>Step 1:</strong> Select your gender, age, and preferred measurement unit system (Metric or Imperial).</p>
+<p><strong>Step 2:</strong> Input your current body weight and height measurements.</p>
+<p><strong>Step 3:</strong> Select your weekly activity level and your primary fitness goal (Fat Loss, Muscle Gain, or Maintenance).</p>
+<p><strong>Step 4:</strong> Review your target daily calories, exact macro grams, and per-meal distribution instantly.</p>
+
+<h2>The Science Behind Basal Metabolic Rate and Macro Splits</h2>
+<p>Our calculation engine starts by estimating your Basal Metabolic Rate (BMR) using the validated Mifflin-St Jeor equation. It then multiplies your BMR by your physical activity factor to determine your Total Daily Energy Expenditure (TDEE). Depending on whether you choose fat loss or muscle gain, caloric adjustments are applied before splitting the remaining energy into optimal protein, carb, and fat gram ratios.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Formula Component</th>
+<th>Mathematical Basis</th>
+<th>Variables Used</th>
+<th>Example (75 kg Male)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BMR (Mifflin-St Jeor)</td>
+<td>(10 &times; W) + (6.25 &times; H) - (5 &times; A) + S</td>
+<td>Weight, Height, Age, Gender</td>
+<td>~1,680 kcal baseline</td>
+</tr>
+<tr>
+<td>TDEE Calculation</td>
+<td>BMR &times; Activity Multiplier</td>
+<td>Activity factor (1.55)</td>
+<td>~2,605 kcal daily burn</td>
+</tr>
+<tr>
+<td>Goal Adjustment</td>
+<td>TDEE - 500 kcal (for cut)</td>
+<td>Fitness goal selection</td>
+<td>2,105 target calories</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Macronutrient Energy Density and Reference Guidelines</h2>
+<p>The reference table below outlines standard caloric densities per gram of macronutrient along with general intake benchmarks established by sports nutrition science.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Macronutrient</th>
+<th>Energy Density</th>
+<th>Primary Biological Function</th>
+<th>Standard Intake Benchmark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protein</td>
+<td>4 kcal per gram</td>
+<td>Muscle repair, enzyme synthesis, satiety</td>
+<td>1.6 to 2.2g per kg of body weight</td>
+</tr>
+<tr>
+<td>Carbohydrates</td>
+<td>4 kcal per gram</td>
+<td>Primary fuel for brain and muscles</td>
+<td>Remaining daily calorie allocation</td>
+</tr>
+<tr>
+<td>Dietary Fats</td>
+<td>9 kcal per gram</td>
+<td>Hormone production and vitamin absorption</td>
+<td>20% to 35% of total daily calories</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Two Real Worked Examples</h2>
+<p>To see how the calculator works in practice, let examine two concrete scenarios:</p>
+<p><strong>Example 1 (Fat Loss Cut):</strong> A 75 kg male with moderate activity level targeting fat loss. His TDEE is approximately 2,605 calories. Subtracting 500 calories gives a target of 2,100 calories, broken down into roughly 160g protein, 210g carbs, and 70g fats.</p>
+<p><strong>Example 2 (Muscle Gain Bulk):</strong> A 60 kg female with light activity level targeting muscle gain. Her maintenance is around 1,800 calories. Adding 300 calories gives 2,100 calories, apportioned to ensure sufficient protein synthesis and workout energy.</p>
+
+<h2>Who Uses This Tool and When?</h2>
+<p>Bodybuilders, endurance athletes, personal trainers, and individuals undergoing body recomposition use this calculator daily to fine-tune their nutrition. It is especially useful during preparation for fitness shows or structured dietary phases.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A frequent error is setting protein intake too low during a calorie deficit, which leads to unwanted muscle loss. Another mistake is drastically cutting all dietary fats below healthy minimum thresholds, which can disrupt natural hormone production.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Are my personal health records stored on a server?</h3>
+<p>No. All macro and calorie calculations execute entirely inside your browser client-side for complete privacy.</p>
+<h3>2. How much protein do I need daily?</h3>
+<p>Active individuals and those aiming for muscle retention typically require 1.6 to 2.2 grams of protein per kilogram of body weight.</p>
+<h3>3. What is the difference between flexible dieting and strict meal plans?</h3>
+<p>Flexible dieting focuses on hitting daily macro targets rather than eating specific foods, making long-term adherence much easier.</p>
+<h3>4. How do fitness goals affect macro ratios?</h3>
+<p>Fat loss phases usually require higher protein to preserve muscle tissue, while muscle building benefits from higher carbohydrate intake for workout energy.</p>
+<h3>5. Is this macro calculator 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
+
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="bmi-calculator.html" style="color:var(--emerald);">BMI Calculator</a>, <a href="bmr-tdee-calculator.html" style="color:var(--emerald);">BMR &amp; TDEE Calorie Calculator</a>, <a href="body-fat-calculator.html" style="color:var(--emerald);">Body Fat Percentage Calculator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#about">About Us</a>
+<a href="../index.html#contact">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  calculateMacros();
+});
+
+function updateUnits() {
+  const unit = document.getElementById('unitSystem').value;
+  const labelWeight = document.getElementById('labelWeight');
+  const labelHeight = document.getElementById('labelHeight');
+  const weightInput = document.getElementById('weightInput');
+  const heightInput = document.getElementById('heightInput');
+  
+  if (unit === 'imperial') {
+    labelWeight.textContent = 'Body Weight (lbs)';
+    labelHeight.textContent = 'Height (inches)';
+    weightInput.value = '165';
+    weightInput.min = '44';
+    weightInput.max = '660';
+    heightInput.value = '69';
+    heightInput.min = '20';
+    heightInput.max = '100';
+  } else {
+    labelWeight.textContent = 'Body Weight (kg)';
+    labelHeight.textContent = 'Height (cm)';
+    weightInput.value = '75';
+    weightInput.min = '20';
+    weightInput.max = '300';
+    heightInput.value = '175';
+    heightInput.min = '50';
+    heightInput.max = '250';
+  }
+}
+
+function calculateMacros() {
+  const gender = document.getElementById('gender').value;
+  const unit = document.getElementById('unitSystem').value;
+  const age = parseFloat(document.getElementById('ageInput').value) || 0;
+  let weight = parseFloat(document.getElementById('weightInput').value) || 0;
+  let height = parseFloat(document.getElementById('heightInput').value) || 0;
+  const activity = parseFloat(document.getElementById('activitySelect').value) || 1.2;
+  const goal = document.getElementById('goalSelect').value;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (age <= 0 || weight <= 0 || height <= 0) {
+    document.getElementById('macroResult').textContent = 'Invalid Input';
+    document.getElementById('macroBreakdown').textContent = 'Please enter valid positive numbers.';
+    return;
+  }
+
+  // Convert imperial to metric for calculation
+  let weightKg = unit === 'imperial' ? weight * 0.453592 : weight;
+  let heightCm = unit === 'imperial' ? height * 2.54 : height;
+
+  // Mifflin-St Jeor Equation for BMR
+  let bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age);
+  if (gender === 'male') {
+    bmr += 5;
+  } else {
+    bmr -= 161;
+  }
+
+  let tdee = bmr * activity;
+
+  // Goal adjustment
+  let targetCals = tdee;
+  if (goal === 'fatloss') {
+    targetCals -= 500;
+  } else if (goal === 'muscle') {
+    targetCals += 300;
+  }
+  targetCals = Math.max(1200, Math.round(targetCals));
+
+  // Macro distribution split based on goal
+  // Protein: ~2.0g per kg body weight
+  let proteinGrams = Math.round(weightKg * 2.0);
+  let proteinCals = proteinGrams * 4;
+
+  // Fat: ~25% of total calories
+  let fatCals = targetCals * 0.25;
+  let fatGrams = Math.round(fatCals / 9);
+
+  // Carbs: remaining calories
+  let carbCals = targetCals - (proteinCals + fatCals);
+  if (carbCals < 0) carbCals = 100;
+  let carbGrams = Math.round(carbCals / 4);
+
+  document.getElementById('macroResult').textContent = `${targetCals.toLocaleString()} kcal`;
+  document.getElementById('macroBreakdown').textContent = `Protein: ${proteinGrams}g | Carbs: ${carbGrams}g | Fats: ${fatGrams}g`;
+
+  // Per meal split (4 meals)
+  document.getElementById('mealProtein').textContent = `${Math.round(proteinGrams / 4)}g`;
+  document.getElementById('mealCarbs').textContent = `${Math.round(carbGrams / 4)}g`;
+  document.getElementById('mealFats').textContent = `${Math.round(fatGrams / 4)}g`;
+  document.getElementById('mealCals').textContent = `${Math.round(targetCals / 4)} kcal`;
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Calculation Complete:</strong> Daily target set to ${targetCals} kcal with ${proteinGrams}g protein.`;
+  }
+}
+
+function copyResults() {
+  const cals = document.getElementById('macroResult').textContent;
+  const breakdown = document.getElementById('macroBreakdown').textContent;
+  const text = `Macro Target: ${cals} | ${breakdown}`;
+  
+  const alertBox = document.getElementById('syntaxAlertBox');
+  navigator.clipboard.writeText(text).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Macro targets successfully copied.`;
+    }
+  });
+}
+</script>
+</body>
+    </html>
+         
