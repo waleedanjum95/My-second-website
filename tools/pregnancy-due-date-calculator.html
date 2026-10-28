@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Pregnancy Due Date &amp; Ovulation Calculator | SmartToolsKit</title>
+<meta name="description" content="Calculate your expected pregnancy due date, ovulation window, fertile days, and gestational trimester milestones securely in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/pregnancy-due-date-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Pregnancy Due Date & Ovulation Calculator | SmartToolsKit">
+<meta property="og:description" content="Calculate expected delivery date, ovulation window, and trimester milestones securely client-side.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/pregnancy-due-date-calculator.html">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Health Tools",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Pregnancy Due Date & Ovulation Calculator",
+    "item": "https://smarttoolskit.com/tools/pregnancy-due-date-calculator.html"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Pregnancy Due Date & Ovulation Calculator",
+  "url": "https://smarttoolskit.com/tools/pregnancy-due-date-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is my personal health data sent to an external server?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All due date and ovulation calculations execute entirely inside your browser client-side for complete privacy."
+    }
+  },{
+    "@type": "Question",
+    "name": "How is the pregnancy due date calculated?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Due date is estimated using Naegele's rule, adding 280 days (40 weeks) to the first day of your last menstrual period, adjusted for cycle length."
+    }
+  },{
+    "@type": "Question",
+    "name": "When does ovulation typically occur?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For a standard 28-day menstrual cycle, ovulation generally occurs around 14 days before the start of the next expected period."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the fertile window?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The fertile window spans the 5 days leading up to ovulation plus ovulation day itself, representing the peak time for conception."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is this pregnancy calculator 100% free?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, all tools on SmartToolsKit are completely free to use with no account registration required."
+    }
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.row-controls{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:20px;margin-top:20px;border:1px solid #334155;text-align:center}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.result-display{font-size:24px;font-weight:800;color:#34D399;font-family:monospace;margin-bottom:6px}
+.result-subtext{font-size:13px;color:#CBD5E1}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:12px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Health Tools</a> &gt; Pregnancy Due Date Calculator
+</div>
+<div class="tool-layout">
+<div class="tool-container">
+<h1>Pregnancy Due Date &amp; Ovulation Calculator</h1>
+<p class="subtitle">Calculate your expected delivery date, fertile window, and gestational trimester milestones securely.</p>
+<div class="calc-box">
+<div class="row-controls">
+<div class="form-group">
+<label for="lmpInput">First Day of Last Menstrual Period (LMP)</label>
+<input type="date" id="lmpInput" onchange="calculatePregnancy()">
+</div>
+<div class="form-group">
+<label for="cycleInput">Average Cycle Length (Days)</label>
+<select id="cycleInput" onchange="calculatePregnancy()">
+<option value="25">25 Days</option>
+<option value="26">26 Days</option>
+<option value="27">27 Days</option>
+<option value="28" selected>28 Days (Standard)</option>
+<option value="29">29 Days</option>
+<option value="30">30 Days</option>
+<option value="32">32 Days</option>
+<option value="35">35 Days</option>
+</select>
+</div>
+</div>
+
+<div class="btn-row">
+<button class="calc-btn" onclick="calculatePregnancy()">Calculate Due Date</button>
+<button class="calc-btn btn-secondary" onclick="copyResults()">Copy Results</button>
+</div>
+
+<div class="output-card">
+<div class="output-header"><label>Estimated Due Date (EDD)</label></div>
+<div class="result-display" id="dueDateResult">Select LMP Date</div>
+<div class="result-subtext" id="gestationalAge">Current Progress: --</div>
+</div>
+
+</div>
+
+<div class="unique-box">
+<h3>✨ Gestational Milestone &amp; Trimester Breakdown</h3>
+<p>Our client-side tool maps out exact milestone dates across your trimesters and peak fertile window:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Ovulation Window</span>
+<strong id="ovulationResult">--</strong>
+</div>
+<div class="unique-stat-card">
+<span>1st Trimester Ends</span>
+<strong id="tri1Result">--</strong>
+</div>
+<div class="unique-stat-card">
+<span>2nd Trimester Ends</span>
+<strong id="tri2Result">--</strong>
+</div>
+<div class="unique-stat-card">
+<span>Conception Date</span>
+<strong id="conceptionResult">--</strong>
+</div>
+</div>
+<div class="syntax-alert" id="syntaxAlertBox">
+Please enter the first day of your last menstrual period to compute milestones.
+</div>
+</div>
+
+<div class="security-badge">
+<span>Client-side security:</span> all calculations happen in your browser. We do not collect, store, or send any data you enter.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> This tool provides statistical estimations based on standard obstetric formulas and should not replace professional medical dating scans.
+</div>
+</div>
+</div>
+  </div>
+  <div class="content-section">
+<h2>Why Tracking Pregnancy Milestones and Ovulation Matters</h2>
+<p>Planning for a baby or navigating early pregnancy brings exciting questions about timelines, fetal development, and key medical milestones. Knowing your precise estimated due date helps obstetricians monitor fetal growth, schedule vital ultrasounds, and prepare for a safe delivery. Similarly, tracking your ovulation cycle and fertile window is essential for couples trying to conceive naturally.</p>
+<p>General pregnancy calendars often rely on rigid 28-day assumptions that fail to account for individual cycle variations. That is why I built this free Pregnancy Due Date and Ovulation Calculator—to provide expecting parents and planners with an accurate, personalized timeline computed securely right inside your web browser.</p>
+
+<h2>Unique Value: Why Standard Due Date Tools Fall Short</h2>
+<p>Many basic online due date checkers only display a single calendar delivery date, leaving you completely in the dark regarding trimester transitions and peak conception windows. Our advanced tool features an interactive <strong>Gestational Milestone and Trimester Breakdown</strong> that automatically maps out exact calendar dates for your first trimester completion, second trimester transition, estimated conception window, and ovulation timeline. This provides a complete roadmap for your health journey.</p>
+
+<h2>How to Use the Pregnancy Due Date Calculator</h2>
+<p>Using this health utility is fast and straightforward:</p>
+<p><strong>Step 1:</strong> Select the exact first day of your last menstrual period (LMP) using the date picker.</p>
+<p><strong>Step 2:</strong> Choose your typical menstrual cycle length from the dropdown menu (default is 28 days).</p>
+<p><strong>Step 3:</strong> Review your estimated due date, conception window, ovulation date, and trimester milestones instantly.</p>
+
+<h2>The Science Behind Naegele's Rule and Ovulation Math</h2>
+<p>Our calculation engine applies standard obstetric baselines established by medical science. Naegele's rule adds 280 days (or 40 weeks) to the first day of the last menstrual period, with custom adjustments added or subtracted based on whether your cycle length is shorter or longer than the standard 28 days.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Calculation Component</th>
+<th>Mathematical Basis</th>
+<th>Clinical Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Due Date (EDD)</td>
+<td>LMP Date + 280 Days + (Cycle - 28)</td>
+<td>Estimates full-term gestational delivery window.</td>
+</tr>
+<tr>
+<td>Ovulation Date</td>
+<td>LMP Date + Cycle Length - 14 Days</td>
+<td>Identifies peak release of egg for fertilization.</td>
+</tr>
+<tr>
+<td>Fertile Window</td>
+<td>Ovulation Date minus 5 Days to Ovulation</td>
+<td>Determines optimal days for natural conception.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Pregnancy Trimester Reference Matrix</h2>
+<p>The reference table below outlines standard gestational age milestones across human pregnancy trimesters.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Gestational Stage</th>
+<th>Week Range (from LMP)</th>
+<th>Clinical Focus &amp; Development</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First Trimester</td>
+<td>Weeks 1 through 13</td>
+<td>Major organogenesis, embryonic development, dating scan.</td>
+</tr>
+<tr>
+<td>Second Trimester</td>
+<td>Weeks 14 through 27</td>
+<td>Fetal growth, movement perception, anatomy scan.</td>
+</tr>
+<tr>
+<td>Third Trimester</td>
+<td>Weeks 28 through 40+</td>
+<td>Rapid weight gain, lung maturation, birth preparation.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Two Real Worked Examples</h2>
+<p>To see how the calculator works in practice, let examine two concrete scenarios:</p>
+<p><strong>Example 1 (28-Day Cycle):</strong> If an expectant mother's last menstrual period started on January 1st with a 28-day cycle, adding 280 days puts her estimated due date on October 7th of the same year, with ovulation occurring around January 15th.</p>
+<p><strong>Example 2 (32-Day Cycle):</strong> If an individual has a longer 32-day cycle starting on March 1st, 4 days are added to the standard 284-day count to account for delayed ovulation, resulting in an adjusted due date of mid-December.</p>
+
+<h2>Who Uses This Tool and When?</h2>
+<p>Expecting mothers, growing families, fertility planners, and healthcare researchers use this calculator daily to track gestational progress, plan prenatal appointments, and estimate developmental milestones.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A frequent error is calculating due dates based on the date of intercourse rather than the last menstrual period. Sperm can survive inside the reproductive tract for up to five days, making LMP the most reliable clinical starting point until confirmed by an ultrasound scan.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Is my personal health data sent to an external server?</h3>
+<p>No. All due date and ovulation calculations execute entirely inside your browser client-side for complete privacy.</p>
+<h3>2. How is the pregnancy due date calculated?</h3>
+<p>Due date is estimated using Naegele's rule, adding 280 days (40 weeks) to the first day of your last menstrual period, adjusted for cycle length.</p>
+<h3>3. When does ovulation typically occur?</h3>
+<p>For a standard 28-day menstrual cycle, ovulation generally occurs around 14 days before the start of the next expected period.</p>
+<h3>4. What is the fertile window?</h3>
+<p>The fertile window spans the 5 days leading up to ovulation plus ovulation day itself, representing the peak time for conception.</p>
+<h3>5. Is this pregnancy calculator 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
+
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="bmi-calculator.html" style="color:var(--emerald);">BMI Calculator</a>, <a href="bmr-tdee-calculator.html" style="color:var(--emerald);">BMR &amp; TDEE Calorie Calculator</a>, <a href="body-fat-calculator.html" style="color:var(--emerald);">Body Fat Percentage Calculator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#about">About Us</a>
+<a href="../index.html#contact">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  // Default to today minus 60 days so it shows realistic active results immediately
+  const defaultDate = new Date();
+  defaultDate.setDate(defaultDate.getDate() - 60);
+  document.getElementById('lmpInput').valueAsDate = defaultDate;
+  calculatePregnancy();
+});
+
+function calculatePregnancy() {
+  const lmpVal = document.getElementById('lmpInput').value;
+  const cycleDays = parseInt(document.getElementById('cycleInput').value) || 28;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (!lmpVal) {
+    document.getElementById('dueDateResult').textContent = 'Select LMP Date';
+    document.getElementById('gestationalAge').textContent = 'Current Progress: --';
+    return;
+  }
+
+  const lmpDate = new Date(lmpVal);
+  if (isNaN(lmpDate.getTime())) {
+    document.getElementById('dueDateResult').textContent = 'Invalid Date';
+    document.getElementById('gestationalAge').textContent = 'Please select a valid date.';
+  return;
+  }
+
+  // Cycle adjustment compared to standard 28 days
+  const cycleDiff = cycleDays - 28;
+  
+  // Due date = LMP + 280 days + cycle difference
+  const dueDate = new Date(lmpDate);
+  dueDate.setDate(dueDate.getDate() + 280 + cycleDiff);
+
+  // Ovulation = LMP + cycleLength - 14 days
+  const ovulationDate = new Date(lmpDate);
+  ovulationDate.setDate(ovulationDate.getDate() + cycleDays - 14);
+
+  // Fertile window start (ovulation - 5 days)
+  const fertileStart = new Date(ovulationDate);
+  fertileStart.setDate(fertileStart.getDate() - 5);
+
+  // Conception date is roughly ovulation date
+  const conceptionDate = new Date(ovulationDate);
+
+  // Trimester 1 ends at 13 weeks + 6 days (98 days from LMP)
+  const tri1End = new Date(lmpDate);
+  tri1End.setDate(tri1End.getDate() + 98);
+
+  // Trimester 2 ends at 27 weeks + 6 days (196 days from LMP)
+  const tri2End = new Date(lmpDate);
+  tri2End.setDate(tri2End.getDate() + 196);
+
+  // Format options
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  
+  document.getElementById('dueDateResult').textContent = dueDate.toLocaleDateString('en-US', options);
+
+  // Gestational age calculation
+  const today = new Date();
+  const diffTime = today - lmpDate;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays < 0) {
+    document.getElementById('gestationalAge').textContent = 'LMP date is set in the future.';
+  } else if (diffDays > 294) {
+    document.getElementById('gestationalAge').textContent = 'Pregnancy term completed.';
+  } else {
+    const weeks = Math.floor(diffDays / 7);
+    const days = diffDays % 7;
+    document.getElementById('gestationalAge').textContent = `Current Progress: ~Week ${weeks} and ${days} days`;
+  }
+
+  // Update unique stats grid
+  document.getElementById('ovulationResult').textContent = `${fertileStart.toLocaleDateString('en-US', {month:'short', day:'numeric'})} - ${ovulationDate.toLocaleDateString('en-US', {month:'short', day:'numeric'})}`;
+  document.getElementById('tri1Result').textContent = tri1End.toLocaleDateString('en-US', options);
+  document.getElementById('tri2Result').textContent = tri2End.toLocaleDateString('en-US', options);
+  document.getElementById('conceptionResult').textContent = conceptionDate.toLocaleDateString('en-US', options);
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Milestones Computed:</strong> Expected due date set to ${dueDate.toLocaleDateString('en-US', options)}.`;
+  }
+}
+
+function copyResults() {
+  const due = document.getElementById('dueDateResult').textContent;
+  const progress = document.getElementById('gestationalAge').textContent;
+  const ovulation = document.getElementById('ovulationResult').textContent;
+  const text = `Pregnancy Due Date Result: Due on ${due} | ${progress} | Ovulation Window: ${ovulation}`;
+  
+  const alertBox = document.getElementById('syntaxAlertBox');
+  navigator.clipboard.writeText(text).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Pregnancy timeline successfully copied.`;
+    }
+  });
+}
+</script>
+</body>
+</html>
