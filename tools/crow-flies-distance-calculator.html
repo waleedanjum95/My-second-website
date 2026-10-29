@@ -185,7 +185,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="calc-box">
 <!-- PRESET MODE WITH DATALIST SEARCH -->
 <div id="presetMode">
-<div class="row-controls">
+  <div class="row-controls">
 <div class="form-group">
 <label for="cityInputA">Starting City (Type to Search)</label>
 <input type="text" id="cityInputA" list="citiesList" placeholder="Type city name..." value="New York City, USA" oninput="calculateDistance()">
@@ -358,7 +358,7 @@ Related Tools: <a href="gps-dms-converter.html" style="color:var(--emerald);">GP
 <span>Last updated: October 2026</span>
 </div>
 </div>
-</main>
+</div>
 
 <footer>
 <div class="container">
@@ -442,7 +442,7 @@ const worldCities = [
   {name: "Kingston (Capital), Jamaica", lat: 17.9712, lon: -76.7936},
   {name: "San Juan (Capital), Puerto Rico", lat: 18.4655, lon: -66.1057},
   {name: "Santo Domingo (Capital), Dominican Republic", lat: 18.4861, lon: -69.9312},
-  
+
   // --- EUROPE (UK, France, Germany, Italy, Spain & Neighbors) ---
   {name: "London (Capital), United Kingdom", lat: 51.5074, lon: -0.1278},
   {name: "Manchester, United Kingdom", lat: 53.4808, lon: -2.2426},
@@ -549,8 +549,6 @@ const worldCities = [
   {name: "Surat, India", lat: 21.1702, lon: 72.8311},
   {name: "Lucknow, India", lat: 26.8467, lon: 80.9462},
   {name: "Tokyo (Capital), Japan", lat: 35.6762, lon: 139.6503},
-  {name: "Osaka, Japan", lat: 34.6937, lon: 135.5022},
-  {name: "Kyoto, Japan", lat: 35.0116, lon: 135.7681},
   {name: "Yokohama, Japan", lat: 35.4437, lon: 139.6380},
   {name: "Nagoya, Japan", lat: 35.1815, lon: 136.9066},
   {name: "Sapporo, Japan", lat: 43.0618, lon: 141.3545},
@@ -559,7 +557,7 @@ const worldCities = [
   {name: "Shanghai, China", lat: 31.2304, lon: 121.4737},
   {name: "Guangzhou, China", lat: 23.1291, lon: 113.2644},
   {name: "Shenzhen, China", lat: 22.5431, lon: 114.0579},
-  {name: "Chengdu, China", lat: 30.5728, lon: 104.0668},
+   {name: "Chengdu, China", lat: 30.5728, lon: 104.0668},
   {name: "Wuhan, China", lat: 30.5928, lon: 114.3055},
   {name: "Xian, China", lat: 34.3416, lon: 108.9398},
   {name: "Seoul (Capital), South Korea", lat: 37.5665, lon: 126.9780},
@@ -572,7 +570,7 @@ const worldCities = [
   {name: "Bali, Indonesia", lat: -8.3405, lon: 115.0920},
   {name: "Manila (Capital), Philippines", lat: 14.5995, lon: 120.9842},
   {name: "Hanoi (Capital), Vietnam", lat: 21.0285, lon: 105.8542},
-  {name: "Ho Chi Minh City, Vietnam", lat: 10.8231, lon: 106.6297}
+  {name: "Ho Chi Minh City, Vietnam", lat: 10.8231, lon: 106.6297},
     // Continuation of worldCities database
   {name: "Riyadh (Capital), Saudi Arabia", lat: 24.7136, lon: 46.6753},
   {name: "Jeddah, Saudi Arabia", lat: 21.4858, lon: 39.1925},
@@ -642,9 +640,10 @@ const worldCities = [
   {name: "Astana (Capital), Kazakhstan", lat: 51.1694, lon: 71.4491},
   {name: "Almaty, Kazakhstan", lat: 43.2220, lon: 76.8512}
 ];
-  window.addEventListener('DOMContentLoaded', () => {
+
+window.addEventListener('DOMContentLoaded', () => {
   const datalist = document.getElementById('citiesList');
-  
+
   worldCities.forEach((city) => {
     let opt = document.createElement('option');
     opt.value = city.name;
@@ -669,14 +668,21 @@ function switchMode(mode) {
 
 function findCityData(inputVal) {
   const query = inputVal.trim().toLowerCase();
-  // Exact match first
+  if (!query) return null;
+
+  // Exact match first.
   let found = worldCities.find(c => c.name.toLowerCase() === query);
   if (found) return found;
-  // Partial match fallback (e.g., typing "Lahore" or "London")
-  found = worldCities.find(c => c.name.toLowerCase().includes(query));
-  if (found) return found;
-  // Default fallback if nothing matches
-  return { lat: 31.5497, lon: 74.3436 };
+
+  // Allow a unique city-name prefix, e.g. "Lahore" for "Lahore, Pakistan".
+  const prefixMatches = worldCities.filter(c => c.name.toLowerCase().startsWith(query));
+  if (prefixMatches.length === 1) return prefixMatches[0];
+
+  // Allow a unique partial match, but do not guess when names are ambiguous.
+  const partialMatches = worldCities.filter(c => c.name.toLowerCase().includes(query));
+  if (partialMatches.length === 1) return partialMatches[0];
+
+  return null;
 }
 
 function calculateDistance() {
@@ -688,6 +694,11 @@ function calculateDistance() {
     const valB = document.getElementById('cityInputB').value;
     const cityA = findCityData(valA);
     const cityB = findCityData(valB);
+    if (!cityA || !cityB) {
+      document.getElementById('distanceResult').textContent = 'Select a valid city';
+      document.getElementById('bearingResult').textContent = 'Choose a city from the suggestions, or enter its full listed name.';
+      return;
+    }
     lat1 = cityA.lat; lon1 = cityA.lon;
     lat2 = cityB.lat; lon2 = cityB.lon;
   } else {
@@ -732,4 +743,4 @@ function copyResults() {
 }
 </script>
 </body>
-</html>
+</html> 
