@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Road Trip Fuel Cost & Mileage Calculator | SmartToolsKit</title>
+<meta name="description" content="Calculate total fuel consumption, trip expenses, and cost per passenger instantly based on driving distance, vehicle fuel economy, and fuel price.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/road-trip-fuel-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Free Road Trip Fuel Cost & Mileage Calculator | SmartToolsKit">
+<meta property="og:description" content="Calculate road trip fuel expenses, consumption rates, and split costs securely client-side.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/road-trip-fuel-calculator.html">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Calculators",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Road Trip Fuel Cost & Mileage Calculator",
+    "item": "https://smarttoolskit.com/tools/road-trip-fuel-calculator.html"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Road Trip Fuel Cost & Mileage Calculator",
+  "url": "https://smarttoolskit.com/tools/road-trip-fuel-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is my travel data sent to an external server?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All fuel cost and distance calculations execute entirely inside your browser client-side for complete privacy."
+    }
+  },{
+    "@type": "Question",
+    "name": "How is total fuel consumption calculated?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Total fuel consumption is calculated by dividing the total trip distance by your vehicle's fuel economy rate (such as km/L or L/100km)."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I calculate fuel costs for multiple passengers?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you can input the number of passengers to automatically split the total trip cost evenly among travelers."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does the calculator support both metric and imperial units?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you can easily switch between Metric units (Kilometers, Liters, L/100km) and US/Imperial units (Miles, Gallons, MPG)."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is this fuel calculator 100% free?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, all tools on SmartToolsKit are completely free to use with no account registration required."
+    }
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.row-controls{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:20px;margin-top:20px;border:1px solid #334155;text-align:center}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.result-display{font-size:26px;font-weight:800;color:#34D399;font-family:monospace;margin-bottom:6px}
+.result-subtext{font-size:13px;color:#CBD5E1}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.unique-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:12px}
+.unique-stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;border-radius:8px}
+.unique-stat-card span{display:block;font-size:10px;color:#94A3B8;text-transform:uppercase;margin-bottom:2px}
+.unique-stat-card strong{font-family:monospace;font-size:12px;color:#34D399}
+.syntax-alert{background:rgba(16, 185, 129, 0.15);border:1px solid rgba(16, 185, 129, 0.4);padding:10px 14px;border-radius:8px;font-size:12px;color:#A7F3D0;margin-top:12px;line-height:1.5}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Calculators</a> &gt; Road Trip Fuel Cost & Mileage Calculator
+</div>
+<div class="tool-layout">
+<div class="tool-container">
+<h1>Road Trip Fuel Cost &amp; Mileage Calculator</h1>
+<p class="subtitle">Calculate total fuel consumption, travel expenses, and split costs per passenger instantly.</p>
+<div class="calc-box">
+<div class="row-controls">
+<div class="form-group">
+<label for="unitSystem">Measurement System</label>
+<select id="unitSystem" onchange="updateUnits()">
+<option value="metric" selected>Metric (Kilometers, Liters)</option>
+<option value="imperial">Imperial (Miles, Gallons)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="tripDistance">Trip Distance (<span id="distUnitLabel">km</span>)</label>
+<input type="number" id="tripDistance" value="500" min="1" step="any" oninput="calculateFuel()">
+</div>
+</div>
+
+<div class="row-controls">
+<div class="form-group">
+<label for="fuelEfficiency">Fuel Economy (<span id="effUnitLabel">km/L</span>)</label>
+<input type="number" id="fuelEfficiency" value="12.5" min="0.1" step="any" oninput="calculateFuel()">
+</div>
+<div class="form-group">
+<label for="fuelPrice">Fuel Price (per <span id="priceUnitLabel">Liter</span>)</label>
+<input type="number" id="fuelPrice" value="280" min="0.01" step="any" oninput="calculateFuel()">
+</div>
+</div>
+
+<div class="form-group">
+<label for="passengers">Number of Passengers (for cost splitting)</label>
+<input type="number" id="passengers" value="1" min="1" step="1" oninput="calculateFuel()">
+</div>
+
+<div class="btn-row">
+<button class="calc-btn" onclick="calculateFuel()">Calculate Trip Cost</button>
+<button class="calc-btn btn-secondary" onclick="copyResults()">Copy Results</button>
+</div>
+
+<div class="output-card">
+<div class="output-header"><label>Total Estimated Fuel Cost</label></div>
+<div class="result-display" id="totalCostResult">11,200.00</div>
+<div class="result-subtext" id="fuelNeededResult">Fuel Required: 40.0 Liters</div>
+</div>
+
+</div>
+
+<div class="unique-box">
+<h3>✨ Comprehensive Trip Expense Breakdown</h3>
+<p>Our client-side tool instantly analyzes your journey to break down fuel requirements and shared passenger expenses:</p>
+<div class="unique-stats-grid">
+<div class="unique-stat-card">
+<span>Total Fuel Needed</span>
+<strong id="statFuel">40.0 L</strong>
+</div>
+<div class="unique-stat-card">
+<span>Total Trip Cost</span>
+<strong id="statCost">11,200.00</strong>
+</div>
+<div class="unique-stat-card">
+<span>Cost per Distance</span>
+<strong id="statPerDist">22.40 / km</strong>
+</div>
+<div class="unique-stat-card">
+<span>Cost per Passenger</span>
+<strong id="statPerPerson">11,200.00</strong>
+</div>
+</div>
+<div class="syntax-alert" id="syntaxAlertBox">
+Trip calculations executed successfully in browser client-side.
+</div>
+</div>
+
+<div class="security-badge">
+<span>Client-side security:</span> all calculations happen in your browser. We do not collect, store, or send any data you enter.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> Fuel costs are estimates based on your provided distance, vehicle efficiency, and fuel pricing. Actual consumption may vary due to driving behavior, traffic, and terrain.
+</div>
+</div>
+</div>
+</div>
+
+<div class="content-section">
+<h2>Why Use a Road Trip Fuel Cost &amp; Mileage Calculator?</h2>
+<p>Planning a road trip requires careful budgeting, and fuel is often one of the most significant variable expenses. Whether you are commuting between cities, embarking on a cross-country vacation, or calculating travel reimbursement claims, knowing your precise fuel expenditure in advance prevents unexpected financial surprises. Instead of guessing how much gas your vehicle will consume, this calculator provides exact figures instantly.</p>
+<p>I built this free Road Trip Fuel Cost &amp; Mileage Calculator to give drivers a fast, reliable, and secure way to compute fuel requirements without downloading mobile apps or navigating cluttered ad-heavy websites. It operates entirely client-side in your web browser with zero external dependencies.</p>
+
+<h2>Unique Value: Why Standard Calculators Fall Short</h2>
+<p>Many basic online tools only provide rough estimates or force you to use specific regional units. Our advanced tool features seamless switching between <strong>Metric and Imperial units</strong>, automatic fuel volume calculations, per-kilometer or per-mile expense metrics, and built-in <strong>passenger cost splitting</strong> so groups can easily divide travel expenses fairly.</p>
+
+<h2>How to Use the Fuel Cost Calculator</h2>
+<p>Using this utility is fast and straightforward:</p>
+<p><strong>Step 1:</strong> Select your preferred measurement system (Metric or Imperial).</p>
+<p><strong>Step 2:</strong> Enter your total trip distance and vehicle fuel economy rating.</p>
+<p><strong>Step 3:</strong> Input the current price per liter or gallon of fuel.</p>
+<p><strong>Step 4:</strong> Optionally enter the number of passengers to calculate individual shares instantly.</p>
+
+<h2>The Science and Formulas Behind Fuel Economy</h2>
+<p>Our calculation engine applies straightforward algebraic formulas to determine consumption and travel expenses based on your chosen measurement standard.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Calculation Component</th>
+<th>Mathematical Formula</th>
+<th>Variables Used</th>
+<th>Example (500 km trip)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Fuel Required (Metric)</td>
+<td>Distance / (km per Liter)</td>
+<td>500 km, 12.5 km/L</td>
+<td>40.0 Liters</td>
+</tr>
+<tr>
+<td>Total Fuel Cost</td>
+<td>Fuel Required &times; Price per Unit</td>
+<td>40 L, 280 Currency</td>
+<td>11,200.00 Total</td>
+</tr>
+<tr>
+<td>Cost per Passenger</td>
+<td>Total Cost / Passengers</td>
+<td>11,200 / 2 Travelers</td>
+<td>5,600.00 each</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Fuel Efficiency Unit Reference Matrix</h2>
+<p>The reference table below outlines standard efficiency metrics used across global automotive standards.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Unit Standard</th>
+<th>Measurement Meaning</th>
+<th>Primary Region</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kilometers per Liter (km/L)</td>
+<td>Distance traveled per single liter of fuel</td>
+<td>Asia, parts of Europe, Australia</td>
+</tr>
+<tr>
+<td>Liters per 100 Kilometers (L/100km)</td>
+<td>Fuel volume consumed per 100 km distance</td>
+<td>Europe, UK, international standard</td>
+</tr>
+<tr>
+<td>Miles per Gallon (MPG)</td>
+<td>Miles traveled per US gallon of fuel</td>
+<td>United States, Canada</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Two Real Worked Examples</h2>
+<p>To see how the calculator works in practice, let examine two concrete scenarios:</p>
+<p><strong>Example 1 (Metric Journey):</strong> Driving a 600 km route with a vehicle achieving 15 km/L where fuel costs 270 currency units per liter requires 40 liters of fuel, resulting in a total trip cost of 10,800 currency units.</p>
+<p><strong>Example 2 (Shared Road Trip):</strong> A 350 mile road trip with an SUV getting 25 MPG, fuel priced at $3.50 per gallon, shared among 3 passengers yields 14 gallons consumed ($49.00 total), coming out to approximately $16.33 per traveler.</p>
+
+<h2>Who Uses This Tool and When?</h2>
+<p>Commuters, road-trippers, delivery drivers, ride-share participants, and travel planners use this calculator to estimate travel budgets, split fuel expenses among friends, and optimize vehicle efficiency for long trips.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A frequent error is mixing up unit systems—such as entering Imperial MPG into a metric calculation without converting values—or failing to account for idling, heavy cargo, and uphill mountain driving which naturally reduce real-world fuel economy.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Is my travel data sent to an external server?</h3>
+<p>No. All fuel cost and distance calculations execute entirely inside your browser client-side for complete privacy.</p>
+<h3>2. How is total fuel consumption calculated?</h3>
+<p>Total fuel consumption is calculated by dividing the total trip distance by your vehicle's fuel economy rate (such as km/L or L/100km).</p>
+<h3>3. Can I calculate fuel costs for multiple passengers?</h3>
+<p>Yes, you can input the number of passengers to automatically split the total trip cost evenly among travelers.</p>
+<h3>4. Does the calculator support both metric and imperial units?</h3>
+<p>Yes, you can easily switch between Metric units (Kilometers, Liters) and US/Imperial units (Miles, Gallons).</p>
+<h3>5. Is this fuel calculator 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
+
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Other Free Tools: <a href="bmi-calculator.html" style="color:var(--emerald);">BMI Calculator</a>, <a href="bmr-tdee-calculator.html" style="color:var(--emerald);">BMR &amp; TDEE Calorie Calculator</a>, <a href="body-fat-calculator.html" style="color:var(--emerald);">Body Fat Percentage Calculator</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#about">About Us</a>
+<a href="../index.html#contact">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  calculateFuel();
+});
+
+function updateUnits() {
+  const sys = document.getElementById('unitSystem').value;
+  if (sys === 'metric') {
+    document.getElementById('distUnitLabel').textContent = 'km';
+    document.getElementById('effUnitLabel').textContent = 'km/L';
+    document.getElementById('priceUnitLabel').textContent = 'Liter';
+    document.getElementById('tripDistance').value = 500;
+    document.getElementById('fuelEfficiency').value = 12.5;
+    document.getElementById('fuelPrice').value = 280;
+  } else {
+    document.getElementById('distUnitLabel').textContent = 'miles';
+    document.getElementById('effUnitLabel').textContent = 'MPG';
+    document.getElementById('priceUnitLabel').textContent = 'Gallon';
+    document.getElementById('tripDistance').value = 300;
+    document.getElementById('fuelEfficiency').value = 25;
+    document.getElementById('fuelPrice').value = 3.50;
+  }
+  calculateFuel();
+}
+
+function calculateFuel() {
+  const sys = document.getElementById('unitSystem').value;
+  const distance = parseFloat(document.getElementById('tripDistance').value);
+  const efficiency = parseFloat(document.getElementById('fuelEfficiency').value);
+  const price = parseFloat(document.getElementById('fuelPrice').value);
+  const passengers = parseInt(document.getElementById('passengers').value) || 1;
+  const alertBox = document.getElementById('syntaxAlertBox');
+
+  if (isNaN(distance) || isNaN(efficiency) || isNaN(price) || distance <= 0 || efficiency <= 0 || price <= 0) {
+    document.getElementById('totalCostResult').textContent = 'Invalid Input';
+    document.getElementById('fuelNeededResult').textContent = 'Please enter positive numbers.';
+    return;
+  }
+
+  let fuelNeeded = 0;
+  let unitLabel = 'Liters';
+
+  if (sys === 'metric') {
+    // distance in km, efficiency in km/L
+    fuelNeeded = distance / efficiency;
+    unitLabel = 'Liters';
+  } else {
+    // distance in miles, efficiency in MPG (miles per gallon)
+    fuelNeeded = distance / efficiency;
+    unitLabel = 'Gallons';
+  }
+
+  const totalCost = fuelNeeded * price;
+  const costPerDist = totalCost / distance;
+  const costPerPerson = totalCost / Math.max(1, passengers);
+
+  document.getElementById('totalCostResult').textContent = totalCost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('fuelNeededResult').textContent = `Fuel Required: ${fuelNeeded.toFixed(1)} ${unitLabel}`;
+
+  document.getElementById('statFuel').textContent = `${fuelNeeded.toFixed(1)} ${unitLabel[0]}`;
+  document.getElementById('statCost').textContent = totalCost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('statPerDist').textContent = `${costPerDist.toFixed(2)} / ${sys === 'metric' ? 'km' : 'mi'}`;
+  document.getElementById('statPerPerson').textContent = costPerPerson.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+  if (alertBox) {
+    alertBox.innerHTML = `🟢 <strong>Calculation Complete:</strong> Estimated fuel required is ${fuelNeeded.toFixed(1)} ${unitLabel} for a total cost of ${totalCost.toFixed(2)}.`;
+  }
+}
+
+function copyResults() {
+  const cost = document.getElementById('totalCostResult').textContent;
+  const fuel = document.getElementById('fuelNeededResult').textContent;
+  const text = `Road Trip Fuel Cost: ${cost} | ${fuel}`;
+  
+  const alertBox = document.getElementById('syntaxAlertBox');
+  navigator.clipboard.writeText(text).then(() => {
+    if (alertBox) {
+      alertBox.innerHTML = `🟢 <strong>Copied to Clipboard:</strong> Fuel cost and consumption details successfully copied.`;
+    }
+  });
+}
+</script>
+</body>
+</html>
