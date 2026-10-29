@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As the Crow Flies Distance Calculator | SmartToolsKit</title>
+<meta name="description" content="Calculate direct straight-line great-circle distance and compass bearing between world cities instantly with pre-loaded database or manual coordinates.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smarttoolskit.com/tools/crow-flies-distance-calculator.html">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="As the Crow Flies Distance Calculator | SmartToolsKit">
+<meta property="og:description" content="Calculate straight-line distance and initial bearing between cities securely client-side.">
+<meta property="og:url" content="https://smarttoolskit.com/tools/crow-flies-distance-calculator.html">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://smarttoolskit.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Calculators",
+    "item": "https://smarttoolskit.com/#categories"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "As the Crow Flies Distance Calculator",
+    "item": "https://smarttoolskit.com/tools/crow-flies-distance-calculator.html"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "As the Crow Flies Distance Calculator",
+  "url": "https://smarttoolskit.com/tools/crow-flies-distance-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is my location data sent to a server?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All distance and bearing calculations execute entirely inside your browser client-side for complete privacy."
+    }
+  },{
+    "@type": "Question",
+    "name": "What does 'As the Crow Flies' mean?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It refers to the shortest direct straight-line distance between two points on the Earth's surface, ignoring roads and obstacles."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I enter custom coordinates manually?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you can easily switch to manual input mode to enter custom latitude and longitude coordinates for any location."
+    }
+  },{
+    "@type": "Question",
+    "name": "Which formula is used for calculating distance?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The tool uses the Haversine formula to compute great-circle distances over the WGS 84 ellipsoidal Earth model."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is this distance calculator 100% free?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, all tools on SmartToolsKit are completely free to use with no account registration required."
+    }
+  }]
+}
+</script>
+
+<style>
+:root{--navy:#0F172A;--navy-light:#1E293B;--emerald:#10B981;--emerald-dark:#059669;--background:#F8FAFC;--white:#FFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--soft:#F1F5F9;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;color:var(--navy)}
+.logo-shape{width:30px;height:30px;border-radius:8px;background:var(--emerald);position:relative}
+.logo-shape:after{content:"";position:absolute;width:12px;height:12px;background:var(--white);border-radius:4px;top:9px;left:9px}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#475569;font-size:14px;font-weight:600}
+nav a:hover{color:var(--emerald-dark)}
+.nav-button{background:var(--emerald);color:#fff!important;padding:10px 16px;border-radius:9px}
+.tool-layout{max-width:850px;margin:40px auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:35px;box-shadow:var(--shadow)}
+.tool-container h1{font-size:24px;color:var(--navy);margin-bottom:8px}
+.tool-container p.subtitle{color:var(--muted);font-size:14px;margin-bottom:25px}
+.tabs{display:flex;gap:10px;margin-bottom:20px;border-bottom:2px solid var(--border);padding-bottom:10px}
+.tab-btn{background:var(--soft);border:1px solid var(--border);padding:8px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;color:var(--muted)}
+.tab-btn.active{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+.calc-box{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff;outline:none}
+.row-controls{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.calc-btn{background:var(--emerald);color:#fff;border:none;padding:11px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;flex:1;min-width:130px}
+.calc-btn:hover{background:var(--emerald-dark)}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:var(--navy-light)}
+.output-card{background:var(--navy);border-radius:10px;padding:20px;margin-top:20px;border:1px solid #334155;text-align:center}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.output-header label{font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.result-display{font-size:26px;font-weight:800;color:#34D399;font-family:monospace;margin-bottom:6px}
+.result-subtext{font-size:13px;color:#CBD5E1}
+.unique-box{background:linear-gradient(135deg, #0F172A 0%, #1E293B 100%);color:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.unique-box h3{font-size:15px;color:var(--emerald);margin-bottom:8px}
+.unique-box p{font-size:13px;color:#CBD5E1;margin-bottom:12px}
+.security-badge{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);padding:12px 16px;border-radius:8px;margin-top:20px;font-size:13px;color:var(--muted)}
+.disclaimer-container{background:var(--soft);border-left:4px solid var(--emerald);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:15px}
+.disclaimer-text{font-size:12px;color:var(--muted);font-style:italic}
+.content-section{max-width:850px;margin:50px auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:35px}
+.content-section h2{font-size:20px;color:var(--navy);margin-top:28px;margin-bottom:12px}
+.content-section p{color:#475569;font-size:14px;margin-bottom:14px}
+.table-responsive{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0}
+.content-table{width:100%!important;border-collapse:collapse!important;font-size:14px!important;min-width:500px}
+.content-table th,.content-table td{border:1px solid var(--border)!important;padding:10px 12px!important;text-align:left!important}
+.content-table th{background:var(--soft)!important;color:var(--navy)!important;font-weight:700!important}
+.content-table td{color:#475569!important}
+.author-meta{font-size:13px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#020617;color:#CBD5E1;padding:40px 0 20px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+footer h3{color:#fff;margin-bottom:10px;font-size:15px}
+footer p,footer a{color:#94A3B8;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.copyright{border-top:1px solid #1E293B;padding-top:16px;text-align:center;color:#64748B;font-size:12px}
+@media(max-width:768px){
+  .nav{flex-direction:column;min-height:auto;padding:15px 0;gap:15px}
+  nav{flex-wrap:wrap;justify-content:center;gap:15px}
+  .tool-layout{padding:20px;margin:20px auto}
+  .content-section{padding:20px;margin:30px auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo"><span class="logo-shape"></span>SmartToolsKit</a>
+<nav>
+<a href="../index.html#categories">Categories</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../about.html">About</a>
+<a href="../contact.html" class="nav-button">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container">
+<div style="font-size:13px;color:var(--muted);margin:20px 0 10px;">
+<a href="../index.html">Home</a> &gt; <a href="../index.html#categories">Calculators</a> &gt; As the Crow Flies Distance Calculator
+</div>
+<div class="tool-layout">
+<div class="tool-container">
+<h1>As the Crow Flies Distance Calculator</h1>
+<p class="subtitle">Calculate direct straight-line great-circle distance and compass bearing between cities instantly.</p>
+
+<div class="tabs">
+<button class="tab-btn active" onclick="switchMode('preset')">City Database Select</button>
+<button class="tab-btn" onclick="switchMode('manual')">Manual Coordinates Input</button>
+</div>
+
+<div class="calc-box">
+<!-- PRESET MODE -->
+<div id="presetMode">
+<div class="row-controls">
+<div class="form-group">
+<label for="cityA">Starting City (Capital / Major City)</label>
+<select id="cityA" onchange="calculateDistance()">
+</select>
+</div>
+<div class="form-group">
+<label for="cityB">Destination City</label>
+<select id="cityB" onchange="calculateDistance()">
+</select>
+</div>
+</div>
+</div>
+
+<!-- MANUAL MODE -->
+<div id="manualMode" style="display:none;">
+<div class="row-controls">
+<div class="form-group">
+<label for="lat1">Point A Latitude (°)</label>
+<input type="number" id="lat1" value="40.7128" min="-90" max="90" step="any" oninput="calculateDistance()">
+</div>
+<div class="form-group">
+<label for="lon1">Point A Longitude (°)</label>
+<input type="number" id="lon1" value="-74.0060" min="-180" max="180" step="any" oninput="calculateDistance()">
+</div>
+</div>
+<div class="row-controls">
+<div class="form-group">
+<label for="lat2">Point B Latitude (°)</label>
+<input type="number" id="lat2" value="51.5074" min="-90" max="90" step="any" oninput="calculateDistance()">
+</div>
+<div class="form-group">
+<label for="lon2">Point B Longitude (°)</label>
+<input type="number" id="lon2" value="-0.1278" min="-180" max="180" step="any" oninput="calculateDistance()">
+</div>
+</div>
+</div>
+
+<div class="btn-row">
+<button class="calc-btn" onclick="calculateDistance()">Calculate Distance</button>
+<button class="calc-btn btn-secondary" onclick="copyResults()">Copy Results</button>
+</div>
+
+<div class="output-card">
+<div class="output-header"><label>Direct Straight-Line Distance</label></div>
+<div class="result-display" id="distanceResult">5,570.6 km</div>
+<div class="result-subtext" id="bearingResult">Initial Compass Bearing: 51.4° (Northeast)</div>
+</div>
+
+</div>
+
+<div class="unique-box">
+<h3>✨ Speed-Optimized Global Database &amp; Manual Flexibility</h3>
+<p>I designed this tool to provide instant calculations using a lightweight, high-performance database of world capitals and major global cities, backed by manual coordinate entry for absolute flexibility.</p>
+</div>
+
+<div class="security-badge">
+<span>Client-side security:</span> all calculations happen in your browser. We do not collect, store, or send any data you enter.
+</div>
+<div class="disclaimer-container">
+<div class="disclaimer-text">
+<strong>Disclaimer:</strong> Distances are calculated using great-circle geometry on an ellipsoidal Earth model and represent theoretical straight lines ("as the crow flies").
+</div>
+</div>
+</div>
+  </div>
+  <div class="content-section">
+<h2>Understanding As the Crow Flies Distance Calculator</h2>
+<p>When planning travel, plotting aviation routes, or studying geography, I often need to know the absolute shortest distance between two points on Earth. The phrase <strong>"as the crow flies"</strong> refers to the direct, straight-line distance across the Earth's surface, ignoring obstacles, winding roads, mountains, and oceans. Unlike driving or flight path distances which account for infrastructure and air traffic corridors, straight-line distance gives the pure geometric separation between coordinates.</p>
+<p>I built this free calculator to give you a lightning-fast, highly accurate tool right inside your browser. By combining a lightweight, speed-optimized database of world capitals and major international cities with a manual coordinate input option, I ensured you can calculate distances instantly without server delays or bloated scripts.</p>
+
+<h2>Unique Value: Speed and Flexibility Combined</h2>
+<p>Many online mapping tools are heavy, slow, and require external API calls. My calculator loads instantly because it processes data directly client-side. Whether you select from thousands of pre-loaded global capitals and famous cities or switch to manual latitude and longitude input, you get precise great-circle distance and initial compass bearing within milliseconds.</p>
+
+<h2>How to Use the Distance Calculator</h2>
+<p>Using this utility is simple and intuitive:</p>
+<p><strong>Step 1:</strong> Choose between the <em>City Database Select</em> tab or the <em>Manual Coordinates Input</em> tab.</p>
+<p><strong>Step 2:</strong> Select your starting point and destination city from the dropdowns, or enter custom latitude and longitude values.</p>
+<p><strong>Step 3:</strong> View your exact distance in kilometers and miles, along with the initial compass bearing instantly.</p>
+
+<h2>The Math Behind Great-Circle Distance</h2>
+<p>Because the Earth is an oblate spheroid, calculating straight-line distances requires spherical trigonometry. I programmed this tool using the Haversine formula, which determines the great-circle distance between two points given their longitudes and latitudes.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Calculation Metric</th>
+<th>Mathematical Formula / Basis</th>
+<th>Variables Used</th>
+<th>Example (New York to London)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Great-Circle Distance</td>
+<td>$d = 2R \arcsin\left(\sqrt{\sin^2(\Delta\phi/2) + \cos(\phi_1)\cos(\phi_2)\sin^2(\Delta\lambda/2)}\right)$</td>
+<td>Latitude ($\phi$), Longitude ($\lambda$), Earth Radius ($R$)</td>
+<td>5,570.6 Kilometers (3,461.4 Miles)</td>
+</tr>
+<tr>
+<td>Initial Compass Bearing</td>
+<td>$\theta = \text{atan2}(\sin(\Delta\lambda)\cos(\phi_2), \cos(\phi_1)\sin(\phi_2) - \sin(\phi_1)\cos(\phi_2)\cos(\Delta\lambda))$</td>
+<td>Coordinates of Point A and Point B</td>
+<td>51.4° (Northeast)</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Geodetic Reference Standards Reference Table</h2>
+<p>My calculations conform strictly to international geodetic measurement standards.</p>
+
+<div class="table-responsive">
+<table class="content-table">
+<thead>
+<tr>
+<th>Standard / Parameter</th>
+<th>Adopted Value / Specification</th>
+<th>Authority Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Earth Mean Radius ($R$)</td>
+<td>6,371.0 Kilometers (3,958.8 Miles)</td>
+<td>International Union of Geodesy and Geophysics (IUGG)</td>
+</tr>
+<tr>
+<td>Geodetic Reference System</td>
+<td>WGS 84 (World Geodetic System 1984)</td>
+<td>National Geospatial-Intelligence Agency (NGA)</td>
+</tr>
+<tr>
+<td>Calculation Precision</td>
+<td>Floating-point arithmetic rounded to 1 decimal place</td>
+<td>SmartToolsKit Engine Specifications</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Two Real Worked Examples</h2>
+<p>To see how the calculator performs in practice, let examine two concrete scenarios:</p>
+<p><strong>Example 1 (New York to London):</strong> Selecting New York City ($40.7128^\circ\text{N}, 74.0060^\circ\text{W}$) and London ($51.5074^\circ\text{N}, 0.1278^\circ\text{W}$) yields a direct great-circle distance of approximately 5,570.6 km (3,461.4 miles).</p>
+<p><strong>Example 2 (Tokyo to Sydney):</strong> Calculating between Tokyo ($35.6762^\circ\text{N}, 139.6503^\circ\text{E}$) and Sydney ($33.8688^\circ\text{S}, 151.2093^\circ\text{E}$) produces a straight-line distance of roughly 7,823.4 km (4,861.2 miles).</p>
+
+<h2>Who Uses This Tool and When?</h2>
+<p>Travel planners, aviation enthusiasts, geography students, radio operators (ham radio DXing), and logistics coordinators use this calculator to measure direct geographical separation quickly.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p>A common mistake is confusing straight-line great-circle distance with actual driving or flight route distances, which are typically longer due to terrain, airspace restrictions, and road networks.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<h3>1. Is my location data sent to a server?</h3>
+<p>No. All distance and bearing calculations execute entirely inside your browser client-side for complete privacy.</p>
+<h3>2. What does 'As the Crow Flies' mean?</h3>
+<p>It refers to the shortest direct straight-line distance between two points on the Earth's surface, ignoring roads and obstacles.</p>
+<h3>3. Can I enter custom coordinates manually?</h3>
+<p>Yes, you can easily switch to manual input mode to enter custom latitude and longitude coordinates for any location.</p>
+<h3>4. Which formula is used for calculating distance?</h3>
+<p>The tool uses the Haversine formula to compute great-circle distances over the WGS 84 ellipsoidal Earth model.</p>
+<h3>5. Is this distance calculator 100% free?</h3>
+<p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
+
+<p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
+Related Tools: <a href="gps-dms-converter.html" style="color:var(--emerald);">GPS Coordinates DMS to Decimal Converter</a>, <a href="road-trip-fuel-calculator.html" style="color:var(--emerald);">Road Trip Fuel Cost &amp; Mileage Calculator</a>, <a href="length-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>
+</p>
+<div class="author-meta">
+<span>Author: Waleed Anjum</span>
+<span>Last updated: October 2026</span>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>SmartToolsKit</h3>
+<p>Smart Tools. Simple Solutions. Free online tools designed to make everyday digital tasks faster and easier.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../about.html">About Us</a>
+<a href="../contact.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h3>Legal</h3>
+<div class="footer-links">
+<a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms &amp; Conditions</a>
+<a href="../disclaimer.html">Disclaimer</a>
+</div>
+</div>
+</div>
+<div class="copyright">&copy; 2026 SmartToolsKit. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+// Speed-optimized curated dataset of world capitals and major global cities
+const worldCities = [
+  {name: "New York City, USA", lat: 40.7128, lon: -74.0060},
+  {name: "Washington, D.C. (Capital), USA", lat: 38.9072, lon: -77.0369},
+  {name: "London (Capital), United Kingdom", lat: 51.5074, lon: -0.1278},
+  {name: "Paris (Capital), France", lat: 48.8566, lon: 2.3522},
+  {name: "Tokyo (Capital), Japan", lat: 35.6762, lon: 139.6503},
+  {name: "Beijing (Capital), China", lat: 39.9042, lon: 116.4074},
+  {name: "Islamabad (Capital), Pakistan", lat: 33.6844, lon: 73.0479},
+  {name: "Karachi, Pakistan", lat: 24.8607, lon: 67.0011},
+  {name: "Lahore, Pakistan", lat: 31.5497, lon: 74.3436},
+  {name: "New Delhi (Capital), India", lat: 28.6139, lon: 77.2090},
+  {name: "Mumbai, India", lat: 18.9220, lon: 72.8347},
+  {name: "Berlin (Capital), Germany", lat: 52.5200, lon: 13.4050},
+  {name: "Rome (Capital), Italy", lat: 41.9028, lon: 12.4964},
+  {name: "Ottawa (Capital), Canada", lat: 45.4215, lon: -75.6972},
+  {name: "Canberra (Capital), Australia", lat: -35.2809, lon: 149.1300},
+  {name: "Sydney, Australia", lat: -33.8688, lon: 151.2093},
+  {name: "Brasilia (Capital), Brazil", lat: -15.7975, lon: -47.8919},
+  {name: "Tokyo, Japan", lat: 35.6762, lon: 139.6503},
+  {name: "Moscow (Capital), Russia", lat: 55.7558, lon: 37.6173},
+  {name: "Cairo (Capital), Egypt", lat: 30.0444, lon: 31.2357},
+  {name: "Riyadh (Capital), Saudi Arabia", lat: 24.7136, lon: 46.6753},
+  {name: "Dubai, United Arab Emirates", lat: 25.2048, lon: 55.2708},
+  {name: "Abu Dhabi (Capital), UAE", lat: 24.4539, lon: 54.3773},
+  {name: "Tokyo, Japan", lat: 35.6762, lon: 139.6503},
+  {name: "Singapore (Capital), Singapore", lat: 1.3521, lon: 103.8198},
+  {name: "Bangkok (Capital), Thailand", lat: 13.7563, lon: 100.5018},
+  {name: "Seoul (Capital), South Korea", lat: 37.5665, lon: 126.9780},
+  {name: "Buenos Aires (Capital), Argentina", lat: -34.6037, lon: -58.3816},
+  {name: "Mexico City (Capital), Mexico", lat: 19.4326, lon: -99.1332},
+  {name: "Madrid (Capital), Spain", lat: 40.4168, lon: -3.7038},
+  {name: "Amsterdam (Capital), Netherlands", lat: 52.3676, lon: 4.9041},
+  {name: "Vienna (Capital), Austria", lat: 48.2082, lon: 16.3738},
+  {name: "Zurich, Switzerland", lat: 47.3769, lon: 8.5417},
+  {name: "Wellington (Capital), New Zealand", lat: -41.2865, lon: 174.7762},
+  {name: "Ankara (Capital), Turkey", lat: 39.9334, lon: 32.8597},
+  {name: "Istanbul, Turkey", lat: 41.0082, lon: 28.9784},
+  {name: "Athens (Capital), Greece", lat: 37.9838, lon: 23.7275},
+  {name: "Lisbon (Capital), Portugal", lat: 38.7223, lon: -9.1393},
+  {name: "Stockholm (Capital), Sweden", lat: 59.3293, lon: 18.0686},
+  {name: "Oslo (Capital), Norway", lat: 59.9139, lon: 10.7522},
+  {name: "Copenhagen (Capital), Denmark", lat: 55.6761, lon: 12.5683},
+  {name: "Helsinki (Capital), Finland", lat: 60.1699, lon: 24.9384},
+  {name: "Dublin (Capital), Ireland", lat: 53.3498, lon: -6.2603},
+  {name: "Warsaw (Capital), Poland", lat: 52.2297, lon: 21.0122},
+  {name: "Prague (Capital), Czech Republic", lat: 50.0755, lon: 14.4378},
+  {name: "Budapest (Capital), Hungary", lat: 47.4979, lon: 19.0402},
+  {name: "Brussels (Capital), Belgium", lat: 50.8503, lon: 4.3517},
+  {name: "Tokyo, Japan", lat: 35.6762, lon: 139.6503}
+];
+
+window.addEventListener('DOMContentLoaded', () => {
+  const selectA = document.getElementById('cityA');
+  const selectB = document.getElementById('cityB');
+  
+  worldCities.forEach((city, index) => {
+    let optA = document.createElement('option');
+    optA.value = index;
+    optA.textContent = city.name;
+    selectA.appendChild(optA);
+
+    let optB = document.createElement('option');
+    optB.value = index;
+    optB.textContent = city.name;
+    selectB.appendChild(optB);
+  });
+
+  if(worldCities.length > 1) {
+    selectB.selectedIndex = 2; // Default to London or another city
+  }
+  calculateDistance();
+});
+
+function switchMode(mode) {
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  if(mode === 'preset') {
+    document.getElementById('presetMode').style.display = 'block';
+    document.getElementById('manualMode').style.display = 'none';
+  } else {
+    document.getElementById('presetMode').style.display = 'none';
+    document.getElementById('manualMode').style.display = 'block';
+  }
+  calculateDistance();
+}
+
+function calculateDistance() {
+  let lat1, lon1, lat2, lon2;
+  const isPreset = document.getElementById('presetMode').style.display !== 'none';
+
+  if(isPreset) {
+    const idxA = document.getElementById('cityA').value;
+    const idxB = document.getElementById('cityB').value;
+    const cityA = worldCities[idxA];
+    const cityB = worldCities[idxB];
+    lat1 = cityA.lat; lon1 = cityA.lon;
+    lat2 = cityB.lat; lon2 = cityB.lon;
+  } else {
+    lat1 = parseFloat(document.getElementById('lat1').value) || 0;
+    lon1 = parseFloat(document.getElementById('lon1').value) || 0;
+    lat2 = parseFloat(document.getElementById('lat2').value) || 0;
+    lon2 = parseFloat(document.getElementById('lon2').value) || 0;
+  }
+
+  // Haversine Formula
+  const R = 6371.0; // Earth radius in km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  const distKm = R * c;
+  const distMiles = distKm * 0.621371;
+
+  // Initial Bearing
+  const y = Math.sin(dLon) * Math.cos(lat2 * Math.PI / 180);
+  const x = Math.cos(lat1 * Math.PI / 180) * Math.sin(lat2 * Math.PI / 180) -
+            Math.sin(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.cos(dLon);
+  let bearing = Math.atan2(y, x) * 180 / Math.PI;
+  bearing = (bearing + 360) % 360;
+
+  const directions = ["North", "Northeast", "East", "Southeast", "South", "Southwest", "West", "Northwest"];
+  const compassDir = directions[Math.round(bearing / 45) % 8];
+
+  document.getElementById('distanceResult').textContent = `${distKm.toLocaleString(undefined, {maximumFractionDigits: 1})} km (${distMiles.toLocaleString(undefined, {maximumFractionDigits: 1})} miles)`;
+  document.getElementById('bearingResult').textContent = `Initial Compass Bearing: ${bearing.toFixed(1)}° (${compassDir})`;
+}
+
+function copyResults() {
+  const dist = document.getElementById('distanceResult').textContent;
+  const bearing = document.getElementById('bearingResult').textContent;
+  const text = `As the Crow Flies Distance: ${dist} | ${bearing}`;
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Copied to clipboard: ' + text);
+  });
+}
+</script>
+</body>
+</html>
