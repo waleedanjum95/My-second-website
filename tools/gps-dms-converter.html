@@ -183,7 +183,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="tool-layout">
 <div class="tool-container">
 <h1>GPS Coordinates DMS to Decimal Converter</h1>
-<p class="subtitle">Convert geographic coordinates between Degrees, Minutes, Seconds (DMS) and Decimal Degrees (DD) securely in your browser.</p>
+<p class="subtitle">Convert geographic coordinates between Degrees, Minutes, Seconds (DMS) and Decimal Degrees (DD) securely in your browser with strict boundary validation.</p>
 
 <div class="tabs">
 <button class="tab-btn active" onclick="switchTab('dmsToDd')">DMS ➔ Decimal Degrees</button>
@@ -196,15 +196,15 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <h3 style="font-size:15px;color:var(--navy);margin-bottom:12px;">Latitude (DMS)</h3>
 <div class="grid-4 form-group">
 <div>
-<label for="latDeg">Degrees (°)</label>
+<label for="latDeg">Degrees (0-90°)</label>
 <input type="number" id="latDeg" value="40" min="0" max="90" oninput="convertDmsToDd()">
 </div>
 <div>
-<label for="latMin">Minutes (')</label>
+<label for="latMin">Minutes (0-59')</label>
 <input type="number" id="latMin" value="42" min="0" max="59" oninput="convertDmsToDd()">
 </div>
 <div>
-<label for="latSec">Seconds (")</label>
+<label for="latSec">Seconds (0-59.9")</label>
 <input type="number" id="latSec" value="46" min="0" max="59.99" step="any" oninput="convertDmsToDd()">
 </div>
 <div>
@@ -219,15 +219,15 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <h3 style="font-size:15px;color:var(--navy);margin:18px 0 12px;">Longitude (DMS)</h3>
 <div class="grid-4 form-group">
 <div>
-<label for="lonDeg">Degrees (°)</label>
+<label for="lonDeg">Degrees (0-180°)</label>
 <input type="number" id="lonDeg" value="74" min="0" max="180" oninput="convertDmsToDd()">
 </div>
 <div>
-<label for="lonMin">Minutes (')</label>
+<label for="lonMin">Minutes (0-59')</label>
 <input type="number" id="lonMin" value="0" min="0" max="59" oninput="convertDmsToDd()">
 </div>
 <div>
-<label for="lonSec">Seconds (")</label>
+<label for="lonSec">Seconds (0-59.9")</label>
 <input type="number" id="lonSec" value="21.6" min="0" max="59.99" step="any" oninput="convertDmsToDd()">
 </div>
 <div>
@@ -257,11 +257,11 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <div class="calc-box">
 <div class="grid-2 form-group">
 <div>
-<label for="decLat">Decimal Latitude (°)</label>
+<label for="decLat">Decimal Latitude (-90 to 90°)</label>
 <input type="number" id="decLat" value="40.7128" min="-90" max="90" step="any" oninput="convertDdToDms()">
 </div>
 <div>
-<label for="decLon">Decimal Longitude (°)</label>
+<label for="decLon">Decimal Longitude (-180 to 180°)</label>
 <input type="number" id="decLon" value="-74.0060" min="-180" max="180" step="any" oninput="convertDdToDms()">
 </div>
 </div>
@@ -297,8 +297,8 @@ Latitude formula: 40 + (42 / 60) + (46 / 3600) = 40.712778° N
 </div>
 
 </div>
-  </div>
-  <div class="content-section">
+</div>
+<div class="content-section">
 <h2>Understanding GPS Coordinates DMS to Decimal Converter</h2>
 <p>Working with geographic data often means switching between different coordinate formats. While mapping software and GPS receivers typically require decimal degrees (DD), historical maps, legal property deeds, and aviation logs frequently use degrees, minutes, and seconds (DMS). Using a reliable <strong>GPS Coordinates DMS to Decimal Converter</strong> ensures your coordinates match the exact format required by your mapping platform without manual math errors.</p>
 <p>I built this free converter to make coordinate formatting fast, secure, and accurate right inside your browser. No external API calls are made, keeping your location points private.</p>
@@ -398,7 +398,7 @@ Latitude formula: 40 + (42 / 60) + (46 / 3600) = 40.712778° N
 <p>Yes, all tools on SmartToolsKit are completely free to use with no account registration required.</p>
 
 <p style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy);">
-Related Tools: <a href="crow-flies-distance-calculator.html" style="color:var(--emerald);">As the Crow Flies Distance Calculator</a>, <a href="road-trip-fuel-calculator.html" style="color:var(--emerald);">Road Trip Fuel Cost &amp; Mileage Calculator</a>, <a href="length-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>, <a href="time-zone-converter.html" style="color:var(--emerald);">Time Zone Converter</a>
+Related Tools: <a href="crow-flies-distance-calculator.html" style="color:var(--emerald);">As the Crow Flies Distance Calculator</a>, <a href="road-trip-fuel-calculator.html" style="color:var(--emerald);">Road Trip Fuel Cost &amp; Mileage Calculator</a>, <a href="length-converter.html" style="color:var(--emerald);">Length &amp; Distance Converter</a>
 </p>
 <div class="author-meta">
 <span>Author: Waleed Anjum</span>
@@ -449,15 +449,24 @@ function switchTab(tabId) {
 }
 
 function convertDmsToDd() {
-  const latDeg = parseFloat(document.getElementById('latDeg').value) || 0;
-  const latMin = parseFloat(document.getElementById('latMin').value) || 0;
-  const latSec = parseFloat(document.getElementById('latSec').value) || 0;
+  let latDeg = parseFloat(document.getElementById('latDeg').value) || 0;
+  let latMin = parseFloat(document.getElementById('latMin').value) || 0;
+  let latSec = parseFloat(document.getElementById('latSec').value) || 0;
   const latDir = document.getElementById('latDir').value;
 
-  const lonDeg = parseFloat(document.getElementById('lonDeg').value) || 0;
-  const lonMin = parseFloat(document.getElementById('lonMin').value) || 0;
-  const lonSec = parseFloat(document.getElementById('lonSec').value) || 0;
+  let lonDeg = parseFloat(document.getElementById('lonDeg').value) || 0;
+  let lonMin = parseFloat(document.getElementById('lonMin').value) || 0;
+  let lonSec = parseFloat(document.getElementById('lonSec').value) || 0;
   const lonDir = document.getElementById('lonDir').value;
+
+  // Strict Boundary Validations
+  if (latDeg < 0) latDeg = 0; if (latDeg > 90) latDeg = 90;
+  if (latMin < 0) latMin = 0; if (latMin > 59) latMin = 59;
+  if (latSec < 0) latSec = 0; if (latSec >= 60) latSec = 59.99;
+
+  if (lonDeg < 0) lonDeg = 0; if (lonDeg > 180) lonDeg = 180;
+  if (lonMin < 0) lonMin = 0; if (lonMin > 59) lonMin = 59;
+  if (lonSec < 0) lonSec = 0; if (lonSec >= 60) lonSec = 59.99;
 
   let lat = latDeg + (latMin / 60) + (latSec / 3600);
   if (latDir === 'S') lat = -lat;
@@ -466,7 +475,7 @@ function convertDmsToDd() {
   if (lonDir === 'W') lon = -lon;
 
   document.getElementById('dmsOutput').textContent = `${lat.toFixed(6)}°, ${lon.toFixed(6)}°`;
-  document.getElementById('dmsSubtext').textContent = `Hemispheres: Lat ${latDir}, Lon ${lonDir}`;
+  document.getElementById('dmsSubtext').textContent = `Hemispheres: Lat ${latDir}, Lon ${lonDir} (Validated)`;
 
   document.getElementById('mathBreakdownBox').innerHTML = 
     `<strong>Latitude Calculation:</strong> ${latDeg}° + (${latMin}' / 60) + (${latSec}" / 3600) = <strong>${lat.toFixed(6)}° ${latDir}</strong><br>` +
@@ -474,13 +483,17 @@ function convertDmsToDd() {
 }
 
 function convertDdToDms() {
-  const decLat = parseFloat(document.getElementById('decLat').value);
-  const decLon = parseFloat(document.getElementById('decLon').value);
+  let decLat = parseFloat(document.getElementById('decLat').value);
+  let decLon = parseFloat(document.getElementById('decLon').value);
 
   if (isNaN(decLat) || isNaN(decLon)) {
     document.getElementById('ddOutput').textContent = 'Invalid Decimal Coordinates';
     return;
   }
+
+  // Strict Boundary Validations
+  if (decLat < -90) decLat = -90; if (decLat > 90) decLat = 90;
+  if (decLon < -180) decLon = -180; if (decLon > 180) decLon = 180;
 
   const latHem = decLat >= 0 ? 'N' : 'S';
   const absLat = Math.abs(decLat);
@@ -498,7 +511,7 @@ function convertDdToDms() {
 
   document.getElementById('ddOutput').textContent = 
     `${latDeg}° ${latMin}' ${latSec.toFixed(2)}" ${latHem}, ${lonDeg}° ${lonMin}' ${lonSec.toFixed(2)}" ${lonHem}`;
-  document.getElementById('ddSubtext').textContent = `Converted from Decimal Degrees (DD)`;
+  document.getElementById('ddSubtext').textContent = `Converted from Decimal Degrees (Validated DD)`;
 }
 
 function copyResult(elementId) {
