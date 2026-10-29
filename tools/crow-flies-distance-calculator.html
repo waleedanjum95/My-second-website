@@ -667,11 +667,16 @@ function switchMode(mode) {
   calculateDistance();
 }
 
-function findCityData(name) {
-  const found = worldCities.find(c => c.name.toLowerCase() === name.toLowerCase());
+function findCityData(inputVal) {
+  const query = inputVal.trim().toLowerCase();
+  // Exact match first
+  let found = worldCities.find(c => c.name.toLowerCase() === query);
   if (found) return found;
-  // Fallback default coordinates if unmatched
-  return { lat: 0, lon: 0 };
+  // Partial match fallback (e.g., typing "Lahore" or "London")
+  found = worldCities.find(c => c.name.toLowerCase().includes(query));
+  if (found) return found;
+  // Default fallback if nothing matches
+  return { lat: 31.5497, lon: 74.3436 };
 }
 
 function calculateDistance() {
