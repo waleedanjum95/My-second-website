@@ -257,7 +257,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <p>I built this free calculator to give you a lightning-fast, highly accurate tool right inside your browser. By combining a comprehensive, speed-optimized database of over 1000 world capitals, major global cities, and famous destinations with an intuitive search autocomplete input, I ensured you can find and calculate distances instantly without server delays.</p>
 
 <h2>Unique Value: Smart Autocomplete Search for 1000+ Cities</h2>
-<p>Many online mapping tools are heavy, slow, and require external API calls or awkward long dropdowns. My calculator features a smart search input (`&lt;datalist&gt;`) that lets you type any city name to instantly filter and select from over a thousand global locations while maintaining peak website performance.</p>
+<p>Many online mapping tools are heavy, slow, and require external API calls or awkward long dropdowns. My calculator features a smart search input (datalist) that lets you type any city name to instantly filter and select from over a thousand global locations while maintaining peak website performance.</p>
 
 <h2>How to Use the Distance Calculator</h2>
 <p>Using this utility is simple and intuitive:</p>
@@ -281,13 +281,13 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 <tbody>
 <tr>
 <td>Great-Circle Distance</td>
-<td>$d = 2R \arcsin\left(\sqrt{\sin^2(\Delta\phi/2) + \cos(\phi_1)\cos(\phi_2)\sin^2(\Delta\lambda/2)}\right)$</td>
-<td>Latitude ($\phi$), Longitude ($\lambda$), Earth Radius ($R$)</td>
+<td>Distance = 2 * Earth Radius * arcsine(square root of [sin^2(delta latitude / 2) + cos(lat1) * cos(lat2) * sin^2(delta longitude / 2)])</td>
+<td>Latitude, Longitude, Earth Radius (R)</td>
 <td>5,570.6 Kilometers (3,461.4 Miles)</td>
 </tr>
 <tr>
 <td>Initial Compass Bearing</td>
-<td>$\theta = \text{atan2}(\sin(\Delta\lambda)\cos(\phi_2), \cos(\phi_1)\sin(\phi_2) - \sin(\phi_1)\cos(\phi_2)\cos(\Delta\lambda))$</td>
+<td>Bearing = atan2(sin(delta longitude) * cos(lat2), cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(delta longitude))</td>
 <td>Coordinates of Point A and Point B</td>
 <td>51.4° (Northeast)</td>
 </tr>
@@ -309,7 +309,7 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 </thead>
 <tbody>
 <tr>
-<td>Earth Mean Radius ($R$)</td>
+<td>Earth Mean Radius (R)</td>
 <td>6,371.0 Kilometers (3,958.8 Miles)</td>
 <td>International Union of Geodesy and Geophysics (IUGG)</td>
 </tr>
@@ -329,9 +329,8 @@ footer p,footer a{color:#94A3B8;font-size:13px}
 
 <h2>Two Real Worked Examples</h2>
 <p>To see how the calculator performs in practice, let examine two concrete scenarios:</p>
-<p><strong>Example 1 (New York to London):</strong> Selecting New York City ($40.7128^\circ\text{N}, 74.0060^\circ\text{W}$) and London ($51.5074^\circ\text{N}, 0.1278^\circ\text{W}$) yields a direct great-circle distance of approximately 5,570.6 km (3,461.4 miles).</p>
-<p><strong>Example 2 (Tokyo to Sydney):</strong> Calculating between Tokyo ($35.6762^\circ\text{N}, 139.6503^\circ\text{E}$) and Sydney ($33.8688^\circ\text{S}, 151.2093^\circ\text{E}$) produces a straight-line distance of roughly 7,823.4 km (4,861.2 miles).</p>
-
+<p><strong>Example 1 (New York to London):</strong> Selecting New York City (40.7128° N, 74.0060° W) and London (51.5074° N, 0.1278° W) yields a direct great-circle distance of approximately 5,570.6 km (3,461.4 miles).</p>
+<p><strong>Example 2 (Tokyo to Sydney):</strong> Calculating between Tokyo (35.6762° N, 139.6503° E) and Sydney (33.8688° S, 151.2093° E) produces a straight-line distance of roughly 7,823.4 km (4,861.2 miles).</p>
 <h2>Who Uses This Tool and When?</h2>
 <p>Travel planners, aviation enthusiasts, geography students, radio operators (ham radio DXing), and logistics coordinators use this calculator to measure direct geographical separation quickly.</p>
 
@@ -557,7 +556,7 @@ const worldCities = [
   {name: "Shanghai, China", lat: 31.2304, lon: 121.4737},
   {name: "Guangzhou, China", lat: 23.1291, lon: 113.2644},
   {name: "Shenzhen, China", lat: 22.5431, lon: 114.0579},
-   {name: "Chengdu, China", lat: 30.5728, lon: 104.0668},
+  {name: "Chengdu, China", lat: 30.5728, lon: 104.0668},
   {name: "Wuhan, China", lat: 30.5928, lon: 114.3055},
   {name: "Xian, China", lat: 34.3416, lon: 108.9398},
   {name: "Seoul (Capital), South Korea", lat: 37.5665, lon: 126.9780},
@@ -571,7 +570,8 @@ const worldCities = [
   {name: "Manila (Capital), Philippines", lat: 14.5995, lon: 120.9842},
   {name: "Hanoi (Capital), Vietnam", lat: 21.0285, lon: 105.8542},
   {name: "Ho Chi Minh City, Vietnam", lat: 10.8231, lon: 106.6297},
-    // Continuation of worldCities database
+  
+  // --- MIDDLE EAST, AFRICA, SOUTH AMERICA & OCEANIA ---
   {name: "Riyadh (Capital), Saudi Arabia", lat: 24.7136, lon: 46.6753},
   {name: "Jeddah, Saudi Arabia", lat: 21.4858, lon: 39.1925},
   {name: "Mecca, Saudi Arabia", lat: 21.3891, lon: 39.8579},
@@ -670,15 +670,12 @@ function findCityData(inputVal) {
   const query = inputVal.trim().toLowerCase();
   if (!query) return null;
 
-  // Exact match first.
   let found = worldCities.find(c => c.name.toLowerCase() === query);
   if (found) return found;
 
-  // Allow a unique city-name prefix, e.g. "Lahore" for "Lahore, Pakistan".
   const prefixMatches = worldCities.filter(c => c.name.toLowerCase().startsWith(query));
   if (prefixMatches.length === 1) return prefixMatches[0];
 
-  // Allow a unique partial match, but do not guess when names are ambiguous.
   const partialMatches = worldCities.filter(c => c.name.toLowerCase().includes(query));
   if (partialMatches.length === 1) return partialMatches[0];
 
@@ -743,4 +740,4 @@ function copyResults() {
 }
 </script>
 </body>
-</html> 
+</html>
